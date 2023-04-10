@@ -224,29 +224,17 @@ public WebDriver driver;
 			excel.setreportData("Today", 2, 20, st);
 			excel.setreportData("Today", 3, 20, st);
 			excel.setreportData("Today", 4, 20, st);
-			excel.setreportData("Today", 5, 20, st);
 			excel.setreportData("Today", 6, 20, st);
-			excel.setreportData("Today", 7, 20, st);
-			excel.setreportData("Today", 8, 20, st);
-			excel.setreportData("Today", 9, 20, st);
 			
-			excel.setreportData("Today", 2, 21, st);
+			excel.setreportData("Today", 2, 21, st);	
 			excel.setreportData("Today", 3, 21, st);
 			excel.setreportData("Today", 4, 21, st);
-			excel.setreportData("Today", 5, 21, st);
 			excel.setreportData("Today", 6, 21, st);
-			excel.setreportData("Today", 7, 21, st);
-			excel.setreportData("Today", 8, 21, st);
-			excel.setreportData("Today", 9, 21, st);
 			
-			excel.setreportData("Today", 21, 11, st);
-			excel.setreportData("Today", 22, 11, st);
-			excel.setreportData("Today", 23, 11, st);
-			excel.setreportData("Today", 24, 11, st);
-			excel.setreportData("Today", 25, 11, st);
-			excel.setreportData("Today", 26, 11, st);
-			excel.setreportData("Today", 27, 11, st);
-			excel.setreportData("Today", 28, 11, st);
+			excel.setreportData("Today", 39, 10, st);
+			excel.setreportData("Today", 40, 10, st);
+			excel.setreportData("Today", 41, 10, st);
+			excel.setreportData("Today", 43, 10, st);
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		}
 		}
@@ -269,34 +257,34 @@ public WebDriver driver;
 			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
 			
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
 			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
-			//Export the Sale Amount value to Excel
+			//Export the Net Sales value to Excel
 			excel.setreportData("Today", 2, 20, SaleAmount);
 
 			
-			//Check whether the Sale Amount value is Equal or not
+			//Check whether the Net Sales value is Equal or not
 			if(Expected_SaleAmount==ActualSale_Amount)
 			{
-				test.log(LogStatus.PASS, "Sale Amount for Sale Summary Report is equal to Sale Recap Report for Today");
+				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Today");
 				excel.setreport_PassedData("Today", 2, 21, "0.00");
-				excel.setreport_PassedData("Today", 21, 11, SaleAmount+"`");
+				excel.setreport_PassedData("Today", 39, 10, SaleAmount+"`");
 			}
 			else
 			{
 				double diff=Expected_SaleAmount-ActualSale_Amount;
-				test.log(LogStatus.FAIL, "Sale Amount for Sale Summary Report is not equal to Sale Recap Report for Today.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Today.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
+				 //Export the Net Sales value to Excel
 				 excel.setreport_FailedData("Today", 2, 21,diff_value);
-				 excel.setreport_FailedData("Today", 21, 11,diff_value);
+				 excel.setreport_FailedData("Today", 39, 10,diff_value);
 			}
 			
 			//Get the Tax from Sale Recap Report
-			String Expeccted_Tx=excel.getData("Today", 4, 1).toString().replace(",", "");
+			String Expeccted_Tx=excel.getData("Today", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 			
 			//Get the Tax
@@ -304,27 +292,27 @@ public WebDriver driver;
 			double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
-			excel.setreportData("Today", 4, 20, Tx);
+			excel.setreportData("Today", 3, 20, Tx);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
 				test.log(LogStatus.PASS, "Tax for Sale Summary Report is equal to Sale Recap Report for Today");
-				excel.setreport_PassedData("Today", 4, 21, "0.00");
-				excel.setreport_PassedData("Today", 23, 11, Tx+"`");
+				excel.setreport_PassedData("Today", 3, 21, "0.00");
+				excel.setreport_PassedData("Today", 40, 10, Tx+"`");
 			}
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
 				test.log(LogStatus.FAIL, "Tax for Sale Summary Report is not equal to Sale Recap Report for Today.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Today", 4, 21,diff_value);
-				 excel.setreport_FailedData("Today", 23, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Today", 3, 21,diff_value);
+				 excel.setreport_FailedData("Today", 40, 10,diff_value);
 			}
 			
 			//Get the Discount from Sale Recap Report
-			String Expeccted_Discnt=excel.getData("Today", 5, 1).toString().replace(",", "");
+			String Expeccted_Discnt=excel.getData("Today", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 			
 			//Get the Discount
@@ -332,53 +320,53 @@ public WebDriver driver;
 			double ActualDiscount=Double.parseDouble(Discnt);
 			
 			//Export Discount value to Excel
-			excel.setreportData("Today", 5, 20, Discnt);
+			excel.setreportData("Today", 4, 20, Discnt);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
 				test.log(LogStatus.PASS, "Discount for Sale Summary Report is equal to Sale Recap Report for Today");
-				excel.setreport_PassedData("Today", 5, 21, "0.00");
-				excel.setreport_PassedData("Today", 24, 11, Discnt+"`");
+				excel.setreport_PassedData("Today", 4, 21, "0.00");
+				excel.setreport_PassedData("Today", 41, 10, Discnt+"`");
 			}
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
 				test.log(LogStatus.FAIL, "Discount for Sale Summary Report is not equal to Sale Recap Report for Today.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Today", 5, 21,diff_value);
-				 excel.setreport_FailedData("Today", 24, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Today", 4, 21,diff_value);
+				 excel.setreport_FailedData("Today", 41, 10,diff_value);
 			}
 			
-			//Get the Gross Sale from Sale Recap Report
-			String Expeccted_GrossSale=excel.getData("Today", 9, 1).toString().replace(",", "");
-			double Expected_GrossSale=Double.parseDouble(Expeccted_GrossSale);
+			//Get the Gross Receipt from Sale Recap Report
+			String Expeccted_GrossReceipt=excel.getData("Today", 6, 1).toString().replace(",", "");
+			double Expected_GrossReceipt=Double.parseDouble(Expeccted_GrossReceipt);
 		
 			
-			//Get the Gross Sale
-			String GrossSale=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
-			double ActualGrossSale=Double.parseDouble(GrossSale);
+			//Get the Gross Receipt
+			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 			
 			//Export the % Percentage of Sale value to Excel
-			excel.setreportData("Today", 9, 20, GrossSale);
+			excel.setreportData("Today", 6, 20, GrossReceipt);
 
 			
-			//Check whether the % of Sale value is Equal or not
-			if(Expected_GrossSale==ActualGrossSale)
+			//Check whether the Gross Receipt value is Equal or not
+			if(Expected_GrossReceipt==ActualGrossReceipt)
 			{
-				test.log(LogStatus.PASS, "% of Sale for Sale Summary Report is equal to Sale Recap Report for Today");
-				excel.setreport_PassedData("Today", 9, 21, "0.00");
-				excel.setreport_PassedData("Today", 28, 11, GrossSale+"`");
+				test.log(LogStatus.PASS, "Gross Receipt for Sale Summary Report is equal to Sale Recap Report for Today");
+				excel.setreport_PassedData("Today", 6, 21, "0.00");
+				excel.setreport_PassedData("Today", 43, 10, GrossReceipt+"`");
 			}
 			else
 			{
-				double diff=Expected_GrossSale-ActualGrossSale;
-				test.log(LogStatus.FAIL, "% of Sale for Sale Summary Report is not equal to Sale Recap Report  for Today.The value diff is : "+diff);
+				double diff=Expected_GrossReceipt-ActualGrossReceipt;
+				test.log(LogStatus.FAIL, "Gross Receipt for Sale Summary Report is not equal to Sale Recap Report  for Today.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Today", 9, 21,diff_value);
-				 excel.setreport_FailedData("Today", 28, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Today", 6, 21,diff_value);
+				 excel.setreport_FailedData("Today", 43, 10,diff_value);
 			}
 			
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -417,29 +405,17 @@ public WebDriver driver;
 			excel.setreportData("Yesterday", 2, 20, st);
 			excel.setreportData("Yesterday", 3, 20, st);
 			excel.setreportData("Yesterday", 4, 20, st);
-			excel.setreportData("Yesterday", 5, 20, st);
 			excel.setreportData("Yesterday", 6, 20, st);
-			excel.setreportData("Yesterday", 7, 20, st);
-			excel.setreportData("Yesterday", 8, 20, st);
-			excel.setreportData("Yesterday", 9, 20, st);
 
 			excel.setreportData("Yesterday", 2, 21, st);
 			excel.setreportData("Yesterday", 3, 21, st);
 			excel.setreportData("Yesterday", 4, 21, st);
-			excel.setreportData("Yesterday", 5, 21, st);
 			excel.setreportData("Yesterday", 6, 21, st);
-			excel.setreportData("Yesterday", 7, 21, st);
-			excel.setreportData("Yesterday", 8, 21, st);
-			excel.setreportData("Yesterday", 9, 21, st);
 
-			excel.setreportData("Yesterday", 21, 11, st);
-			excel.setreportData("Yesterday", 22, 11, st);
-			excel.setreportData("Yesterday", 23, 11, st);
-			excel.setreportData("Yesterday", 24, 11, st);
-			excel.setreportData("Yesterday", 25, 11, st);
-			excel.setreportData("Yesterday", 26, 11, st);
-			excel.setreportData("Yesterday", 27, 11, st);
-			excel.setreportData("Yesterday", 28, 11, st);
+			excel.setreportData("Yesterday", 39, 10, st);
+			excel.setreportData("Yesterday", 40, 10, st);
+			excel.setreportData("Yesterday", 41, 10, st);
+			excel.setreportData("Yesterday", 43, 10, st);
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		}
 		}
@@ -462,34 +438,34 @@ public WebDriver driver;
 			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
 			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
-			//Export the Sale Amount value to Excel
+			//Export the Net Sales value to Excel
 			excel.setreportData("Yesterday", 2, 20, SaleAmount);
 
 
-			//Check whether the Sale Amount value is Equal or not
+			//Check whether the Net Sales value is Equal or not
 			if(Expected_SaleAmount==ActualSale_Amount)
 			{
-				test.log(LogStatus.PASS, "Sale Amount for Sale Summary Report is equal to Sale Recap Report for Yesterday");
+				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Yesterday");
 				excel.setreport_PassedData("Yesterday", 2, 21, "0.00");
-				excel.setreport_PassedData("Yesterday", 21, 11, SaleAmount+"`");
+				excel.setreport_PassedData("Yesterday", 39, 10, SaleAmount+"`");
 			}
 			else
 			{
 				double diff=Expected_SaleAmount-ActualSale_Amount;
-				test.log(LogStatus.FAIL, "Sale Amount for Sale Summary Report is not equal to Sale Recap Report for Yesterday.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Yesterday.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
+				 //Export the Net Sales value to Excel
 				 excel.setreport_FailedData("Yesterday", 2, 21,diff_value);
-				 excel.setreport_FailedData("Yesterday", 21, 11,diff_value);
+				 excel.setreport_FailedData("Yesterday", 39, 10,diff_value);
 			}
 
 			//Get the Tax from Sale Recap Report
-			String Expeccted_Tx=excel.getData("Yesterday", 4, 1).toString().replace(",", "");
+			String Expeccted_Tx=excel.getData("Yesterday", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
@@ -497,27 +473,27 @@ public WebDriver driver;
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
-			excel.setreportData("Yesterday", 4, 20, Tx);
+			excel.setreportData("Yesterday", 3, 20, Tx);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
 				test.log(LogStatus.PASS, "Tax for Sale Summary Report is equal to Sale Recap Report for Yesterday");
-				excel.setreport_PassedData("Yesterday", 4, 21, "0.00");
-				excel.setreport_PassedData("Yesterday", 23, 11, Tx+"`");
+				excel.setreport_PassedData("Yesterday", 3, 21, "0.00");
+				excel.setreport_PassedData("Yesterday", 40, 10, Tx+"`");
 			}
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
 				test.log(LogStatus.FAIL, "Tax for Sale Summary Report is not equal to Sale Recap Report for Yesterday.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Yesterday", 4, 21,diff_value);
-				 excel.setreport_FailedData("Yesterday", 23, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Yesterday", 3, 21,diff_value);
+				 excel.setreport_FailedData("Yesterday", 40, 10,diff_value);
 			}
 
 			//Get the Discount from Sale Recap Report
-			String Expeccted_Discnt=excel.getData("Yesterday", 5, 1).toString().replace(",", "");
+			String Expeccted_Discnt=excel.getData("Yesterday", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
@@ -525,53 +501,53 @@ public WebDriver driver;
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
-			excel.setreportData("Yesterday", 5, 20, Discnt);
+			excel.setreportData("Yesterday", 4, 20, Discnt);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
 				test.log(LogStatus.PASS, "Discount for Sale Summary Report is equal to Sale Recap Report for Yesterday");
-				excel.setreport_PassedData("Yesterday", 5, 21, "0.00");
-				excel.setreport_PassedData("Yesterday", 24, 11, Discnt+"`");
+				excel.setreport_PassedData("Yesterday", 4, 21, "0.00");
+				excel.setreport_PassedData("Yesterday", 41, 10, Discnt+"`");
 			}
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
 				test.log(LogStatus.FAIL, "Discount for Sale Summary Report is not equal to Sale Recap Report for Yesterday.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Yesterday", 5, 21,diff_value);
-				 excel.setreport_FailedData("Yesterday", 24, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Yesterday", 4, 21,diff_value);
+				 excel.setreport_FailedData("Yesterday", 41, 10,diff_value);
 			}
 
-			//Get the Gross Sale from Sale Recap Report
-			String Expeccted_GrossSale=excel.getData("Yesterday", 9, 1).toString().replace(",", "");
-			double Expected_GrossSale=Double.parseDouble(Expeccted_GrossSale);
+			//Get the Gross Receipt from Sale Recap Report
+			String Expeccted_GrossReceipt=excel.getData("Yesterday", 6, 1).toString().replace(",", "");
+			double Expected_GrossReceipt=Double.parseDouble(Expeccted_GrossReceipt);
 
 
-			//Get the Gross Sale
-			String GrossSale=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
-			double ActualGrossSale=Double.parseDouble(GrossSale);
+			//Get the Gross Receipt
+			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
-			excel.setreportData("Yesterday", 9, 20, GrossSale);
+			excel.setreportData("Yesterday", 6, 20, GrossReceipt);
 
 
-			//Check whether the % of Sale value is Equal or not
-			if(Expected_GrossSale==ActualGrossSale)
+			//Check whether the Gross Receipt value is Equal or not
+			if(Expected_GrossReceipt==ActualGrossReceipt)
 			{
-				test.log(LogStatus.PASS, "% of Sale for Sale Summary Report is equal to Sale Recap Report for Yesterday");
-				excel.setreport_PassedData("Yesterday", 9, 21, "0.00");
-				excel.setreport_PassedData("Yesterday", 28, 11, GrossSale+"`");
+				test.log(LogStatus.PASS, "Gross Receipt for Sale Summary Report is equal to Sale Recap Report for Yesterday");
+				excel.setreport_PassedData("Yesterday", 6, 21, "0.00");
+				excel.setreport_PassedData("Yesterday", 43, 10, GrossReceipt+"`");
 			}
 			else
 			{
-				double diff=Expected_GrossSale-ActualGrossSale;
-				test.log(LogStatus.FAIL, "% of Sale for Sale Summary Report is not equal to Sale Recap Report  for Yesterday.The value diff is : "+diff);
+				double diff=Expected_GrossReceipt-ActualGrossReceipt;
+				test.log(LogStatus.FAIL, "Gross Receipt for Sale Summary Report is not equal to Sale Recap Report  for Yesterday.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Yesterday", 9, 21,diff_value);
-				 excel.setreport_FailedData("Yesterday", 28, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Yesterday", 6, 21,diff_value);
+				 excel.setreport_FailedData("Yesterday", 43, 10,diff_value);
 			}
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -610,29 +586,17 @@ public WebDriver driver;
 			excel.setreportData("Last N days", 2, 20, st);
 			excel.setreportData("Last N days", 3, 20, st);
 			excel.setreportData("Last N days", 4, 20, st);
-			excel.setreportData("Last N days", 5, 20, st);
 			excel.setreportData("Last N days", 6, 20, st);
-			excel.setreportData("Last N days", 7, 20, st);
-			excel.setreportData("Last N days", 8, 20, st);
-			excel.setreportData("Last N days", 9, 20, st);
 
 			excel.setreportData("Last N days", 2, 21, st);
 			excel.setreportData("Last N days", 3, 21, st);
 			excel.setreportData("Last N days", 4, 21, st);
-			excel.setreportData("Last N days", 5, 21, st);
 			excel.setreportData("Last N days", 6, 21, st);
-			excel.setreportData("Last N days", 7, 21, st);
-			excel.setreportData("Last N days", 8, 21, st);
-			excel.setreportData("Last N days", 9, 21, st);
 
-			excel.setreportData("Last N days", 21, 11, st);
-			excel.setreportData("Last N days", 22, 11, st);
-			excel.setreportData("Last N days", 23, 11, st);
-			excel.setreportData("Last N days", 24, 11, st);
-			excel.setreportData("Last N days", 25, 11, st);
-			excel.setreportData("Last N days", 26, 11, st);
-			excel.setreportData("Last N days", 27, 11, st);
-			excel.setreportData("Last N days", 28, 11, st);
+			excel.setreportData("Last N days", 39, 10, st);
+			excel.setreportData("Last N days", 40, 10, st);
+			excel.setreportData("Last N days", 41, 10, st);
+			excel.setreportData("Last N days", 43, 10, st);
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		}
 		}
@@ -655,34 +619,34 @@ public WebDriver driver;
 			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
 			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
-			//Export the Sale Amount value to Excel
+			//Export the Net Sales value to Excel
 			excel.setreportData("Last N days", 2, 20, SaleAmount);
 
 
-			//Check whether the Sale Amount value is Equal or not
+			//Check whether the Net Sales value is Equal or not
 			if(Expected_SaleAmount==ActualSale_Amount)
 			{
-				test.log(LogStatus.PASS, "Sale Amount for Sale Summary Report is equal to Sale Recap Report for Last N days");
+				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Last N days");
 				excel.setreport_PassedData("Last N days", 2, 21, "0.00");
-				excel.setreport_PassedData("Last N days", 21, 11, SaleAmount+"`");
+				excel.setreport_PassedData("Last N days", 39, 10, SaleAmount+"`");
 			}
 			else
 			{
 				double diff=Expected_SaleAmount-ActualSale_Amount;
-				test.log(LogStatus.FAIL, "Sale Amount for Sale Summary Report is not equal to Sale Recap Report for Last N days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Last N days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
+				 //Export the Net Sales value to Excel
 				 excel.setreport_FailedData("Last N days", 2, 21,diff_value);
-				 excel.setreport_FailedData("Last N days", 21, 11,diff_value);
+				 excel.setreport_FailedData("Last N days", 39, 10,diff_value);
 			}
 
 			//Get the Tax from Sale Recap Report
-			String Expeccted_Tx=excel.getData("Last N days", 4, 1).toString().replace(",", "");
+			String Expeccted_Tx=excel.getData("Last N days", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
@@ -690,27 +654,27 @@ public WebDriver driver;
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
-			excel.setreportData("Last N days", 4, 20, Tx);
+			excel.setreportData("Last N days", 3, 20, Tx);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
 				test.log(LogStatus.PASS, "Tax for Sale Summary Report is equal to Sale Recap Report for Last N days");
-				excel.setreport_PassedData("Last N days", 4, 21, "0.00");
-				excel.setreport_PassedData("Last N days", 23, 11, Tx+"`");
+				excel.setreport_PassedData("Last N days", 3, 21, "0.00");
+				excel.setreport_PassedData("Last N days", 40, 10, Tx+"`");
 			}
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
 				test.log(LogStatus.FAIL, "Tax for Sale Summary Report is not equal to Sale Recap Report for Last N days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last N days", 4, 21,diff_value);
-				 excel.setreport_FailedData("Last N days", 23, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last N days", 3, 21,diff_value);
+				 excel.setreport_FailedData("Last N days", 40, 10,diff_value);
 			}
 
 			//Get the Discount from Sale Recap Report
-			String Expeccted_Discnt=excel.getData("Last N days", 5, 1).toString().replace(",", "");
+			String Expeccted_Discnt=excel.getData("Last N days", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
@@ -718,53 +682,53 @@ public WebDriver driver;
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
-			excel.setreportData("Last N days", 5, 20, Discnt);
+			excel.setreportData("Last N days", 4, 20, Discnt);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
 				test.log(LogStatus.PASS, "Discount for Sale Summary Report is equal to Sale Recap Report for Last N days");
-				excel.setreport_PassedData("Last N days", 5, 21, "0.00");
-				excel.setreport_PassedData("Last N days", 24, 11, Discnt+"`");
+				excel.setreport_PassedData("Last N days", 4, 21, "0.00");
+				excel.setreport_PassedData("Last N days", 41, 10, Discnt+"`");
 			}
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
 				test.log(LogStatus.FAIL, "Discount for Sale Summary Report is not equal to Sale Recap Report for Last N days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last N days", 5, 21,diff_value);
-				 excel.setreport_FailedData("Last N days", 24, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last N days", 4, 21,diff_value);
+				 excel.setreport_FailedData("Last N days", 41, 10,diff_value);
 			}
 
-			//Get the Gross Sale from Sale Recap Report
-			String Expeccted_GrossSale=excel.getData("Last N days", 9, 1).toString().replace(",", "");
-			double Expected_GrossSale=Double.parseDouble(Expeccted_GrossSale);
+			//Get the Gross Receipt from Sale Recap Report
+			String Expeccted_GrossReceipt=excel.getData("Last N days", 6, 1).toString().replace(",", "");
+			double Expected_GrossReceipt=Double.parseDouble(Expeccted_GrossReceipt);
 
 
-			//Get the Gross Sale
-			String GrossSale=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
-			double ActualGrossSale=Double.parseDouble(GrossSale);
+			//Get the Gross Receipt
+			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
-			excel.setreportData("Last N days", 9, 20, GrossSale);
+			excel.setreportData("Last N days", 6, 20, GrossReceipt);
 
 
-			//Check whether the % of Sale value is Equal or not
-			if(Expected_GrossSale==ActualGrossSale)
+			//Check whether the Gross Receipt value is Equal or not
+			if(Expected_GrossReceipt==ActualGrossReceipt)
 			{
-				test.log(LogStatus.PASS, "% of Sale for Sale Summary Report is equal to Sale Recap Report for Last N days");
-				excel.setreport_PassedData("Last N days", 9, 21, "0.00");
-				excel.setreport_PassedData("Last N days", 28, 11, GrossSale+"`");
+				test.log(LogStatus.PASS, "Gross Receipt for Sale Summary Report is equal to Sale Recap Report for Last N days");
+				excel.setreport_PassedData("Last N days", 6, 21, "0.00");
+				excel.setreport_PassedData("Last N days", 43, 10, GrossReceipt+"`");
 			}
 			else
 			{
-				double diff=Expected_GrossSale-ActualGrossSale;
-				test.log(LogStatus.FAIL, "% of Sale for Sale Summary Report is not equal to Sale Recap Report  for Last N days.The value diff is : "+diff);
+				double diff=Expected_GrossReceipt-ActualGrossReceipt;
+				test.log(LogStatus.FAIL, "Gross Receipt for Sale Summary Report is not equal to Sale Recap Report  for Last N days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last N days", 9, 21,diff_value);
-				 excel.setreport_FailedData("Last N days", 28, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last N days", 6, 21,diff_value);
+				 excel.setreport_FailedData("Last N days", 43, 10,diff_value);
 			}
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -802,29 +766,17 @@ public WebDriver driver;
 			excel.setreportData("This Week", 2, 20, st);
 			excel.setreportData("This Week", 3, 20, st);
 			excel.setreportData("This Week", 4, 20, st);
-			excel.setreportData("This Week", 5, 20, st);
 			excel.setreportData("This Week", 6, 20, st);
-			excel.setreportData("This Week", 7, 20, st);
-			excel.setreportData("This Week", 8, 20, st);
-			excel.setreportData("This Week", 9, 20, st);
 
 			excel.setreportData("This Week", 2, 21, st);
 			excel.setreportData("This Week", 3, 21, st);
 			excel.setreportData("This Week", 4, 21, st);
-			excel.setreportData("This Week", 5, 21, st);
 			excel.setreportData("This Week", 6, 21, st);
-			excel.setreportData("This Week", 7, 21, st);
-			excel.setreportData("This Week", 8, 21, st);
-			excel.setreportData("This Week", 9, 21, st);
 
-			excel.setreportData("This Week", 21, 11, st);
-			excel.setreportData("This Week", 22, 11, st);
-			excel.setreportData("This Week", 23, 11, st);
-			excel.setreportData("This Week", 24, 11, st);
-			excel.setreportData("This Week", 25, 11, st);
-			excel.setreportData("This Week", 26, 11, st);
-			excel.setreportData("This Week", 27, 11, st);
-			excel.setreportData("This Week", 28, 11, st);
+			excel.setreportData("This Week", 39, 10, st);
+			excel.setreportData("This Week", 40, 10, st);
+			excel.setreportData("This Week", 41, 10, st);
+			excel.setreportData("This Week", 43, 10, st);
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		}
 		}
@@ -847,34 +799,34 @@ public WebDriver driver;
 			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
 			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
-			//Export the Sale Amount value to Excel
+			//Export the Net Sales value to Excel
 			excel.setreportData("This Week", 2, 20, SaleAmount);
 
 
-			//Check whether the Sale Amount value is Equal or not
+			//Check whether the Net Sales value is Equal or not
 			if(Expected_SaleAmount==ActualSale_Amount)
 			{
-				test.log(LogStatus.PASS, "Sale Amount for Sale Summary Report is equal to Sale Recap Report for This Week");
+				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for This Week");
 				excel.setreport_PassedData("This Week", 2, 21, "0.00");
-				excel.setreport_PassedData("This Week", 21, 11, SaleAmount+"`");
+				excel.setreport_PassedData("This Week", 39, 10, SaleAmount+"`");
 			}
 			else
 			{
 				double diff=Expected_SaleAmount-ActualSale_Amount;
-				test.log(LogStatus.FAIL, "Sale Amount for Sale Summary Report is not equal to Sale Recap Report for This Week.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for This Week.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
+				 //Export the Net Sales value to Excel
 				 excel.setreport_FailedData("This Week", 2, 21,diff_value);
-				 excel.setreport_FailedData("This Week", 21, 11,diff_value);
+				 excel.setreport_FailedData("This Week", 39, 10,diff_value);
 			}
 
 			//Get the Tax from Sale Recap Report
-			String Expeccted_Tx=excel.getData("This Week", 4, 1).toString().replace(",", "");
+			String Expeccted_Tx=excel.getData("This Week", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
@@ -882,27 +834,27 @@ public WebDriver driver;
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
-			excel.setreportData("This Week", 4, 20, Tx);
+			excel.setreportData("This Week", 3, 20, Tx);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
 				test.log(LogStatus.PASS, "Tax for Sale Summary Report is equal to Sale Recap Report for This Week");
-				excel.setreport_PassedData("This Week", 4, 21, "0.00");
-				excel.setreport_PassedData("This Week", 23, 11, Tx+"`");
+				excel.setreport_PassedData("This Week", 3, 21, "0.00");
+				excel.setreport_PassedData("This Week", 40, 10, Tx+"`");
 			}
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
 				test.log(LogStatus.FAIL, "Tax for Sale Summary Report is not equal to Sale Recap Report for This Week.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("This Week", 4, 21,diff_value);
-				 excel.setreport_FailedData("This Week", 23, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("This Week", 3, 21,diff_value);
+				 excel.setreport_FailedData("This Week", 40, 10,diff_value);
 			}
 
 			//Get the Discount from Sale Recap Report
-			String Expeccted_Discnt=excel.getData("This Week", 5, 1).toString().replace(",", "");
+			String Expeccted_Discnt=excel.getData("This Week", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
@@ -910,53 +862,53 @@ public WebDriver driver;
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
-			excel.setreportData("This Week", 5, 20, Discnt);
+			excel.setreportData("This Week", 4, 20, Discnt);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
 				test.log(LogStatus.PASS, "Discount for Sale Summary Report is equal to Sale Recap Report for This Week");
-				excel.setreport_PassedData("This Week", 5, 21, "0.00");
-				excel.setreport_PassedData("This Week", 24, 11, Discnt+"`");
+				excel.setreport_PassedData("This Week", 4, 21, "0.00");
+				excel.setreport_PassedData("This Week", 41, 10, Discnt+"`");
 			}
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
 				test.log(LogStatus.FAIL, "Discount for Sale Summary Report is not equal to Sale Recap Report for This Week.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("This Week", 5, 21,diff_value);
-				 excel.setreport_FailedData("This Week", 24, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("This Week", 4, 21,diff_value);
+				 excel.setreport_FailedData("This Week", 41, 10,diff_value);
 			}
 
-			//Get the Gross Sale from Sale Recap Report
-			String Expeccted_GrossSale=excel.getData("This Week", 9, 1).toString().replace(",", "");
-			double Expected_GrossSale=Double.parseDouble(Expeccted_GrossSale);
+			//Get the Gross Receipt from Sale Recap Report
+			String Expeccted_GrossReceipt=excel.getData("This Week", 6, 1).toString().replace(",", "");
+			double Expected_GrossReceipt=Double.parseDouble(Expeccted_GrossReceipt);
 
 
-			//Get the Gross Sale
-			String GrossSale=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
-			double ActualGrossSale=Double.parseDouble(GrossSale);
+			//Get the Gross Receipt
+			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
-			excel.setreportData("This Week", 9, 20, GrossSale);
+			excel.setreportData("This Week", 6, 20, GrossReceipt);
 
 
-			//Check whether the % of Sale value is Equal or not
-			if(Expected_GrossSale==ActualGrossSale)
+			//Check whether the Gross Receipt value is Equal or not
+			if(Expected_GrossReceipt==ActualGrossReceipt)
 			{
-				test.log(LogStatus.PASS, "% of Sale for Sale Summary Report is equal to Sale Recap Report for This Week");
-				excel.setreport_PassedData("This Week", 9, 21, "0.00");
-				excel.setreport_PassedData("This Week", 28, 11, GrossSale+"`");
+				test.log(LogStatus.PASS, "Gross Receipt for Sale Summary Report is equal to Sale Recap Report for This Week");
+				excel.setreport_PassedData("This Week", 6, 21, "0.00");
+				excel.setreport_PassedData("This Week", 43, 10, GrossReceipt+"`");
 			}
 			else
 			{
-				double diff=Expected_GrossSale-ActualGrossSale;
-				test.log(LogStatus.FAIL, "% of Sale for Sale Summary Report is not equal to Sale Recap Report  for This Week.The value diff is : "+diff);
+				double diff=Expected_GrossReceipt-ActualGrossReceipt;
+				test.log(LogStatus.FAIL, "Gross Receipt for Sale Summary Report is not equal to Sale Recap Report  for This Week.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("This Week", 9, 21,diff_value);
-				 excel.setreport_FailedData("This Week", 28, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("This Week", 6, 21,diff_value);
+				 excel.setreport_FailedData("This Week", 43, 10,diff_value);
 			}
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -994,29 +946,17 @@ public WebDriver driver;
 			excel.setreportData("Last Week", 2, 20, st);
 			excel.setreportData("Last Week", 3, 20, st);
 			excel.setreportData("Last Week", 4, 20, st);
-			excel.setreportData("Last Week", 5, 20, st);
 			excel.setreportData("Last Week", 6, 20, st);
-			excel.setreportData("Last Week", 7, 20, st);
-			excel.setreportData("Last Week", 8, 20, st);
-			excel.setreportData("Last Week", 9, 20, st);
 
 			excel.setreportData("Last Week", 2, 21, st);
 			excel.setreportData("Last Week", 3, 21, st);
 			excel.setreportData("Last Week", 4, 21, st);
-			excel.setreportData("Last Week", 5, 21, st);
 			excel.setreportData("Last Week", 6, 21, st);
-			excel.setreportData("Last Week", 7, 21, st);
-			excel.setreportData("Last Week", 8, 21, st);
-			excel.setreportData("Last Week", 9, 21, st);
 
-			excel.setreportData("Last Week", 21, 11, st);
-			excel.setreportData("Last Week", 22, 11, st);
-			excel.setreportData("Last Week", 23, 11, st);
-			excel.setreportData("Last Week", 24, 11, st);
-			excel.setreportData("Last Week", 25, 11, st);
-			excel.setreportData("Last Week", 26, 11, st);
-			excel.setreportData("Last Week", 27, 11, st);
-			excel.setreportData("Last Week", 28, 11, st);
+			excel.setreportData("Last Week", 39, 10, st);
+			excel.setreportData("Last Week", 40, 10, st);
+			excel.setreportData("Last Week", 41, 10, st);
+			excel.setreportData("Last Week", 43, 10, st);
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		}
 		}
@@ -1039,34 +979,34 @@ public WebDriver driver;
 			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
 			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
-			//Export the Sale Amount value to Excel
+			//Export the Net Sales value to Excel
 			excel.setreportData("Last Week", 2, 20, SaleAmount);
 
 
-			//Check whether the Sale Amount value is Equal or not
+			//Check whether the Net Sales value is Equal or not
 			if(Expected_SaleAmount==ActualSale_Amount)
 			{
-				test.log(LogStatus.PASS, "Sale Amount for Sale Summary Report is equal to Sale Recap Report for Last Week");
+				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Last Week");
 				excel.setreport_PassedData("Last Week", 2, 21, "0.00");
-				excel.setreport_PassedData("Last Week", 21, 11, SaleAmount+"`");
+				excel.setreport_PassedData("Last Week", 39, 10, SaleAmount+"`");
 			}
 			else
 			{
 				double diff=Expected_SaleAmount-ActualSale_Amount;
-				test.log(LogStatus.FAIL, "Sale Amount for Sale Summary Report is not equal to Sale Recap Report for Last Week.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Last Week.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
+				 //Export the Net Sales value to Excel
 				 excel.setreport_FailedData("Last Week", 2, 21,diff_value);
-				 excel.setreport_FailedData("Last Week", 21, 11,diff_value);
+				 excel.setreport_FailedData("Last Week", 39, 10,diff_value);
 			}
 
 			//Get the Tax from Sale Recap Report
-			String Expeccted_Tx=excel.getData("Last Week", 4, 1).toString().replace(",", "");
+			String Expeccted_Tx=excel.getData("Last Week", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
@@ -1074,27 +1014,27 @@ public WebDriver driver;
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
-			excel.setreportData("Last Week", 4, 20, Tx);
+			excel.setreportData("Last Week", 3, 20, Tx);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
 				test.log(LogStatus.PASS, "Tax for Sale Summary Report is equal to Sale Recap Report for Last Week");
-				excel.setreport_PassedData("Last Week", 4, 21, "0.00");
-				excel.setreport_PassedData("Last Week", 23, 11, Tx+"`");
+				excel.setreport_PassedData("Last Week", 3, 21, "0.00");
+				excel.setreport_PassedData("Last Week", 40, 10, Tx+"`");
 			}
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
 				test.log(LogStatus.FAIL, "Tax for Sale Summary Report is not equal to Sale Recap Report for Last Week.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last Week", 4, 21,diff_value);
-				 excel.setreport_FailedData("Last Week", 23, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last Week", 3, 21,diff_value);
+				 excel.setreport_FailedData("Last Week", 40, 10,diff_value);
 			}
 
 			//Get the Discount from Sale Recap Report
-			String Expeccted_Discnt=excel.getData("Last Week", 5, 1).toString().replace(",", "");
+			String Expeccted_Discnt=excel.getData("Last Week", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
@@ -1102,53 +1042,53 @@ public WebDriver driver;
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
-			excel.setreportData("Last Week", 5, 20, Discnt);
+			excel.setreportData("Last Week", 4, 20, Discnt);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
 				test.log(LogStatus.PASS, "Discount for Sale Summary Report is equal to Sale Recap Report for Last Week");
-				excel.setreport_PassedData("Last Week", 5, 21, "0.00");
-				excel.setreport_PassedData("Last Week", 24, 11, Discnt+"`");
+				excel.setreport_PassedData("Last Week", 4, 21, "0.00");
+				excel.setreport_PassedData("Last Week", 41, 10, Discnt+"`");
 			}
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
 				test.log(LogStatus.FAIL, "Discount for Sale Summary Report is not equal to Sale Recap Report for Last Week.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last Week", 5, 21,diff_value);
-				 excel.setreport_FailedData("Last Week", 24, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last Week", 4, 21,diff_value);
+				 excel.setreport_FailedData("Last Week", 41, 10,diff_value);
 			}
 
-			//Get the Gross Sale from Sale Recap Report
-			String Expeccted_GrossSale=excel.getData("Last Week", 9, 1).toString().replace(",", "");
-			double Expected_GrossSale=Double.parseDouble(Expeccted_GrossSale);
+			//Get the Gross Receipt from Sale Recap Report
+			String Expeccted_GrossReceipt=excel.getData("Last Week", 6, 1).toString().replace(",", "");
+			double Expected_GrossReceipt=Double.parseDouble(Expeccted_GrossReceipt);
 
 
-			//Get the Gross Sale
-			String GrossSale=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
-			double ActualGrossSale=Double.parseDouble(GrossSale);
+			//Get the Gross Receipt
+			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
-			excel.setreportData("Last Week", 9, 20, GrossSale);
+			excel.setreportData("Last Week", 6, 20, GrossReceipt);
 
 
-			//Check whether the % of Sale value is Equal or not
-			if(Expected_GrossSale==ActualGrossSale)
+			//Check whether the Gross Receipt value is Equal or not
+			if(Expected_GrossReceipt==ActualGrossReceipt)
 			{
-				test.log(LogStatus.PASS, "% of Sale for Sale Summary Report is equal to Sale Recap Report for Last Week");
-				excel.setreport_PassedData("Last Week", 9, 21, "0.00");
-				excel.setreport_PassedData("Last Week", 28, 11, GrossSale+"`");
+				test.log(LogStatus.PASS, "Gross Receipt for Sale Summary Report is equal to Sale Recap Report for Last Week");
+				excel.setreport_PassedData("Last Week", 6, 21, "0.00");
+				excel.setreport_PassedData("Last Week", 43, 10, GrossReceipt+"`");
 			}
 			else
 			{
-				double diff=Expected_GrossSale-ActualGrossSale;
-				test.log(LogStatus.FAIL, "% of Sale for Sale Summary Report is not equal to Sale Recap Report  for Last Week.The value diff is : "+diff);
+				double diff=Expected_GrossReceipt-ActualGrossReceipt;
+				test.log(LogStatus.FAIL, "Gross Receipt for Sale Summary Report is not equal to Sale Recap Report  for Last Week.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last Week", 9, 21,diff_value);
-				 excel.setreport_FailedData("Last Week", 28, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last Week", 6, 21,diff_value);
+				 excel.setreport_FailedData("Last Week", 43, 10,diff_value);
 			}
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -1186,29 +1126,17 @@ public WebDriver driver;
 			excel.setreportData("Last 7 days", 2, 20, st);
 			excel.setreportData("Last 7 days", 3, 20, st);
 			excel.setreportData("Last 7 days", 4, 20, st);
-			excel.setreportData("Last 7 days", 5, 20, st);
 			excel.setreportData("Last 7 days", 6, 20, st);
-			excel.setreportData("Last 7 days", 7, 20, st);
-			excel.setreportData("Last 7 days", 8, 20, st);
-			excel.setreportData("Last 7 days", 9, 20, st);
 
 			excel.setreportData("Last 7 days", 2, 21, st);
 			excel.setreportData("Last 7 days", 3, 21, st);
 			excel.setreportData("Last 7 days", 4, 21, st);
-			excel.setreportData("Last 7 days", 5, 21, st);
 			excel.setreportData("Last 7 days", 6, 21, st);
-			excel.setreportData("Last 7 days", 7, 21, st);
-			excel.setreportData("Last 7 days", 8, 21, st);
-			excel.setreportData("Last 7 days", 9, 21, st);
 
-			excel.setreportData("Last 7 days", 21, 11, st);
-			excel.setreportData("Last 7 days", 22, 11, st);
-			excel.setreportData("Last 7 days", 23, 11, st);
-			excel.setreportData("Last 7 days", 24, 11, st);
-			excel.setreportData("Last 7 days", 25, 11, st);
-			excel.setreportData("Last 7 days", 26, 11, st);
-			excel.setreportData("Last 7 days", 27, 11, st);
-			excel.setreportData("Last 7 days", 28, 11, st);
+			excel.setreportData("Last 7 days", 39, 10, st);
+			excel.setreportData("Last 7 days", 40, 10, st);
+			excel.setreportData("Last 7 days", 41, 10, st);
+			excel.setreportData("Last 7 days", 43, 10, st);
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		}
 		}
@@ -1231,34 +1159,34 @@ public WebDriver driver;
 			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
 			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
-			//Export the Sale Amount value to Excel
+			//Export the Net Sales value to Excel
 			excel.setreportData("Last 7 days", 2, 20, SaleAmount);
 
 
-			//Check whether the Sale Amount value is Equal or not
+			//Check whether the Net Sales value is Equal or not
 			if(Expected_SaleAmount==ActualSale_Amount)
 			{
-				test.log(LogStatus.PASS, "Sale Amount for Sale Summary Report is equal to Sale Recap Report for Last 7 days");
+				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Last 7 days");
 				excel.setreport_PassedData("Last 7 days", 2, 21, "0.00");
-				excel.setreport_PassedData("Last 7 days", 21, 11, SaleAmount+"`");
+				excel.setreport_PassedData("Last 7 days", 39, 10, SaleAmount+"`");
 			}
 			else
 			{
 				double diff=Expected_SaleAmount-ActualSale_Amount;
-				test.log(LogStatus.FAIL, "Sale Amount for Sale Summary Report is not equal to Sale Recap Report for Last 7 days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Last 7 days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
+				 //Export the Net Sales value to Excel
 				 excel.setreport_FailedData("Last 7 days", 2, 21,diff_value);
-				 excel.setreport_FailedData("Last 7 days", 21, 11,diff_value);
+				 excel.setreport_FailedData("Last 7 days", 39, 10,diff_value);
 			}
 
 			//Get the Tax from Sale Recap Report
-			String Expeccted_Tx=excel.getData("Last 7 days", 4, 1).toString().replace(",", "");
+			String Expeccted_Tx=excel.getData("Last 7 days", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
@@ -1266,27 +1194,27 @@ public WebDriver driver;
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
-			excel.setreportData("Last 7 days", 4, 20, Tx);
+			excel.setreportData("Last 7 days", 3, 20, Tx);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
 				test.log(LogStatus.PASS, "Tax for Sale Summary Report is equal to Sale Recap Report for Last 7 days");
-				excel.setreport_PassedData("Last 7 days", 4, 21, "0.00");
-				excel.setreport_PassedData("Last 7 days", 23, 11, Tx+"`");
+				excel.setreport_PassedData("Last 7 days", 3, 21, "0.00");
+				excel.setreport_PassedData("Last 7 days", 40, 10, Tx+"`");
 			}
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
 				test.log(LogStatus.FAIL, "Tax for Sale Summary Report is not equal to Sale Recap Report for Last 7 days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last 7 days", 4, 21,diff_value);
-				 excel.setreport_FailedData("Last 7 days", 23, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last 7 days", 3, 21,diff_value);
+				 excel.setreport_FailedData("Last 7 days", 40, 10,diff_value);
 			}
 
 			//Get the Discount from Sale Recap Report
-			String Expeccted_Discnt=excel.getData("Last 7 days", 5, 1).toString().replace(",", "");
+			String Expeccted_Discnt=excel.getData("Last 7 days", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
@@ -1294,53 +1222,53 @@ public WebDriver driver;
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
-			excel.setreportData("Last 7 days", 5, 20, Discnt);
+			excel.setreportData("Last 7 days", 4, 20, Discnt);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
 				test.log(LogStatus.PASS, "Discount for Sale Summary Report is equal to Sale Recap Report for Last 7 days");
-				excel.setreport_PassedData("Last 7 days", 5, 21, "0.00");
-				excel.setreport_PassedData("Last 7 days", 24, 11, Discnt+"`");
+				excel.setreport_PassedData("Last 7 days", 4, 21, "0.00");
+				excel.setreport_PassedData("Last 7 days", 41, 10, Discnt+"`");
 			}
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
 				test.log(LogStatus.FAIL, "Discount for Sale Summary Report is not equal to Sale Recap Report for Last 7 days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last 7 days", 5, 21,diff_value);
-				 excel.setreport_FailedData("Last 7 days", 24, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last 7 days", 4, 21,diff_value);
+				 excel.setreport_FailedData("Last 7 days", 41, 10,diff_value);
 			}
 
-			//Get the Gross Sale from Sale Recap Report
-			String Expeccted_GrossSale=excel.getData("Last 7 days", 9, 1).toString().replace(",", "");
-			double Expected_GrossSale=Double.parseDouble(Expeccted_GrossSale);
+			//Get the Gross Receipt from Sale Recap Report
+			String Expeccted_GrossReceipt=excel.getData("Last 7 days", 6, 1).toString().replace(",", "");
+			double Expected_GrossReceipt=Double.parseDouble(Expeccted_GrossReceipt);
 
 
-			//Get the Gross Sale
-			String GrossSale=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
-			double ActualGrossSale=Double.parseDouble(GrossSale);
+			//Get the Gross Receipt
+			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
-			excel.setreportData("Last 7 days", 9, 20, GrossSale);
+			excel.setreportData("Last 7 days", 6, 20, GrossReceipt);
 
 
-			//Check whether the % of Sale value is Equal or not
-			if(Expected_GrossSale==ActualGrossSale)
+			//Check whether the Gross Receipt value is Equal or not
+			if(Expected_GrossReceipt==ActualGrossReceipt)
 			{
-				test.log(LogStatus.PASS, "% of Sale for Sale Summary Report is equal to Sale Recap Report for Last 7 days");
-				excel.setreport_PassedData("Last 7 days", 9, 21, "0.00");
-				excel.setreport_PassedData("Last 7 days", 28, 11, GrossSale+"`");
+				test.log(LogStatus.PASS, "Gross Receipt for Sale Summary Report is equal to Sale Recap Report for Last 7 days");
+				excel.setreport_PassedData("Last 7 days", 6, 21, "0.00");
+				excel.setreport_PassedData("Last 7 days", 43, 10, GrossReceipt+"`");
 			}
 			else
 			{
-				double diff=Expected_GrossSale-ActualGrossSale;
-				test.log(LogStatus.FAIL, "% of Sale for Sale Summary Report is not equal to Sale Recap Report  for Last 7 days.The value diff is : "+diff);
+				double diff=Expected_GrossReceipt-ActualGrossReceipt;
+				test.log(LogStatus.FAIL, "Gross Receipt for Sale Summary Report is not equal to Sale Recap Report  for Last 7 days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last 7 days", 9, 21,diff_value);
-				 excel.setreport_FailedData("Last 7 days", 28, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last 7 days", 6, 21,diff_value);
+				 excel.setreport_FailedData("Last 7 days", 43, 10,diff_value);
 			}
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -1379,29 +1307,17 @@ public WebDriver driver;
 			excel.setreportData("This month", 2, 20, st);
 			excel.setreportData("This month", 3, 20, st);
 			excel.setreportData("This month", 4, 20, st);
-			excel.setreportData("This month", 5, 20, st);
 			excel.setreportData("This month", 6, 20, st);
-			excel.setreportData("This month", 7, 20, st);
-			excel.setreportData("This month", 8, 20, st);
-			excel.setreportData("This month", 9, 20, st);
 
 			excel.setreportData("This month", 2, 21, st);
 			excel.setreportData("This month", 3, 21, st);
 			excel.setreportData("This month", 4, 21, st);
-			excel.setreportData("This month", 5, 21, st);
 			excel.setreportData("This month", 6, 21, st);
-			excel.setreportData("This month", 7, 21, st);
-			excel.setreportData("This month", 8, 21, st);
-			excel.setreportData("This month", 9, 21, st);
 
-			excel.setreportData("This month", 21, 11, st);
-			excel.setreportData("This month", 22, 11, st);
-			excel.setreportData("This month", 23, 11, st);
-			excel.setreportData("This month", 24, 11, st);
-			excel.setreportData("This month", 25, 11, st);
-			excel.setreportData("This month", 26, 11, st);
-			excel.setreportData("This month", 27, 11, st);
-			excel.setreportData("This month", 28, 11, st);
+			excel.setreportData("This month", 39, 10, st);
+			excel.setreportData("This month", 40, 10, st);
+			excel.setreportData("This month", 41, 10, st);
+			excel.setreportData("This month", 43, 10, st);
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		}
 		}
@@ -1424,34 +1340,34 @@ public WebDriver driver;
 			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
 			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
-			//Export the Sale Amount value to Excel
+			//Export the Net Sales value to Excel
 			excel.setreportData("This month", 2, 20, SaleAmount);
 
 
-			//Check whether the Sale Amount value is Equal or not
+			//Check whether the Net Sales value is Equal or not
 			if(Expected_SaleAmount==ActualSale_Amount)
 			{
-				test.log(LogStatus.PASS, "Sale Amount for Sale Summary Report is equal to Sale Recap Report for This month");
+				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for This month");
 				excel.setreport_PassedData("This month", 2, 21, "0.00");
-				excel.setreport_PassedData("This month", 21, 11, SaleAmount+"`");
+				excel.setreport_PassedData("This month", 39, 10, SaleAmount+"`");
 			}
 			else
 			{
 				double diff=Expected_SaleAmount-ActualSale_Amount;
-				test.log(LogStatus.FAIL, "Sale Amount for Sale Summary Report is not equal to Sale Recap Report for This month.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for This month.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
+				 //Export the Net Sales value to Excel
 				 excel.setreport_FailedData("This month", 2, 21,diff_value);
-				 excel.setreport_FailedData("This month", 21, 11,diff_value);
+				 excel.setreport_FailedData("This month", 39, 10,diff_value);
 			}
 
 			//Get the Tax from Sale Recap Report
-			String Expeccted_Tx=excel.getData("This month", 4, 1).toString().replace(",", "");
+			String Expeccted_Tx=excel.getData("This month", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
@@ -1459,27 +1375,27 @@ public WebDriver driver;
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
-			excel.setreportData("This month", 4, 20, Tx);
+			excel.setreportData("This month", 3, 20, Tx);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
 				test.log(LogStatus.PASS, "Tax for Sale Summary Report is equal to Sale Recap Report for This month");
-				excel.setreport_PassedData("This month", 4, 21, "0.00");
-				excel.setreport_PassedData("This month", 23, 11, Tx+"`");
+				excel.setreport_PassedData("This month", 3, 21, "0.00");
+				excel.setreport_PassedData("This month", 40, 10, Tx+"`");
 			}
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
 				test.log(LogStatus.FAIL, "Tax for Sale Summary Report is not equal to Sale Recap Report for This month.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("This month", 4, 21,diff_value);
-				 excel.setreport_FailedData("This month", 23, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("This month", 3, 21,diff_value);
+				 excel.setreport_FailedData("This month", 40, 10,diff_value);
 			}
 
 			//Get the Discount from Sale Recap Report
-			String Expeccted_Discnt=excel.getData("This month", 5, 1).toString().replace(",", "");
+			String Expeccted_Discnt=excel.getData("This month", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
@@ -1487,53 +1403,53 @@ public WebDriver driver;
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
-			excel.setreportData("This month", 5, 20, Discnt);
+			excel.setreportData("This month", 4, 20, Discnt);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
 				test.log(LogStatus.PASS, "Discount for Sale Summary Report is equal to Sale Recap Report for This month");
-				excel.setreport_PassedData("This month", 5, 21, "0.00");
-				excel.setreport_PassedData("This month", 24, 11, Discnt+"`");
+				excel.setreport_PassedData("This month", 4, 21, "0.00");
+				excel.setreport_PassedData("This month", 41, 10, Discnt+"`");
 			}
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
 				test.log(LogStatus.FAIL, "Discount for Sale Summary Report is not equal to Sale Recap Report for This month.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("This month", 5, 21,diff_value);
-				 excel.setreport_FailedData("This month", 24, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("This month", 4, 21,diff_value);
+				 excel.setreport_FailedData("This month", 41, 10,diff_value);
 			}
 
-			//Get the Gross Sale from Sale Recap Report
-			String Expeccted_GrossSale=excel.getData("This month", 9, 1).toString().replace(",", "");
-			double Expected_GrossSale=Double.parseDouble(Expeccted_GrossSale);
+			//Get the Gross Receipt from Sale Recap Report
+			String Expeccted_GrossReceipt=excel.getData("This month", 6, 1).toString().replace(",", "");
+			double Expected_GrossReceipt=Double.parseDouble(Expeccted_GrossReceipt);
 
 
-			//Get the Gross Sale
-			String GrossSale=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
-			double ActualGrossSale=Double.parseDouble(GrossSale);
+			//Get the Gross Receipt
+			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
-			excel.setreportData("This month", 9, 20, GrossSale);
+			excel.setreportData("This month", 6, 20, GrossReceipt);
 
 
-			//Check whether the % of Sale value is Equal or not
-			if(Expected_GrossSale==ActualGrossSale)
+			//Check whether the Gross Receipt value is Equal or not
+			if(Expected_GrossReceipt==ActualGrossReceipt)
 			{
-				test.log(LogStatus.PASS, "% of Sale for Sale Summary Report is equal to Sale Recap Report for This month");
-				excel.setreport_PassedData("This month", 9, 21, "0.00");
-				excel.setreport_PassedData("This month", 28, 11, GrossSale+"`");
+				test.log(LogStatus.PASS, "Gross Receipt for Sale Summary Report is equal to Sale Recap Report for This month");
+				excel.setreport_PassedData("This month", 6, 21, "0.00");
+				excel.setreport_PassedData("This month", 43, 10, GrossReceipt+"`");
 			}
 			else
 			{
-				double diff=Expected_GrossSale-ActualGrossSale;
-				test.log(LogStatus.FAIL, "% of Sale for Sale Summary Report is not equal to Sale Recap Report  for This month.The value diff is : "+diff);
+				double diff=Expected_GrossReceipt-ActualGrossReceipt;
+				test.log(LogStatus.FAIL, "Gross Receipt for Sale Summary Report is not equal to Sale Recap Report  for This month.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("This month", 9, 21,diff_value);
-				 excel.setreport_FailedData("This month", 28, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("This month", 6, 21,diff_value);
+				 excel.setreport_FailedData("This month", 43, 10,diff_value);
 			}
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -1572,29 +1488,17 @@ public WebDriver driver;
 			excel.setreportData("Last month", 2, 20, st);
 			excel.setreportData("Last month", 3, 20, st);
 			excel.setreportData("Last month", 4, 20, st);
-			excel.setreportData("Last month", 5, 20, st);
 			excel.setreportData("Last month", 6, 20, st);
-			excel.setreportData("Last month", 7, 20, st);
-			excel.setreportData("Last month", 8, 20, st);
-			excel.setreportData("Last month", 9, 20, st);
 
 			excel.setreportData("Last month", 2, 21, st);
 			excel.setreportData("Last month", 3, 21, st);
 			excel.setreportData("Last month", 4, 21, st);
-			excel.setreportData("Last month", 5, 21, st);
 			excel.setreportData("Last month", 6, 21, st);
-			excel.setreportData("Last month", 7, 21, st);
-			excel.setreportData("Last month", 8, 21, st);
-			excel.setreportData("Last month", 9, 21, st);
 
-			excel.setreportData("Last month", 21, 11, st);
-			excel.setreportData("Last month", 22, 11, st);
-			excel.setreportData("Last month", 23, 11, st);
-			excel.setreportData("Last month", 24, 11, st);
-			excel.setreportData("Last month", 25, 11, st);
-			excel.setreportData("Last month", 26, 11, st);
-			excel.setreportData("Last month", 27, 11, st);
-			excel.setreportData("Last month", 28, 11, st);
+			excel.setreportData("Last month", 39, 10, st);
+			excel.setreportData("Last month", 40, 10, st);
+			excel.setreportData("Last month", 41, 10, st);
+			excel.setreportData("Last month", 43, 10, st);
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		}
 		}
@@ -1617,34 +1521,34 @@ public WebDriver driver;
 			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
 			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
-			//Export the Sale Amount value to Excel
+			//Export the Net Sales value to Excel
 			excel.setreportData("Last month", 2, 20, SaleAmount);
 
 
-			//Check whether the Sale Amount value is Equal or not
+			//Check whether the Net Sales value is Equal or not
 			if(Expected_SaleAmount==ActualSale_Amount)
 			{
-				test.log(LogStatus.PASS, "Sale Amount for Sale Summary Report is equal to Sale Recap Report for Last month");
+				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Last month");
 				excel.setreport_PassedData("Last month", 2, 21, "0.00");
-				excel.setreport_PassedData("Last month", 21, 11, SaleAmount+"`");
+				excel.setreport_PassedData("Last month", 39, 10, SaleAmount+"`");
 			}
 			else
 			{
 				double diff=Expected_SaleAmount-ActualSale_Amount;
-				test.log(LogStatus.FAIL, "Sale Amount for Sale Summary Report is not equal to Sale Recap Report for Last month.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Last month.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
+				 //Export the Net Sales value to Excel
 				 excel.setreport_FailedData("Last month", 2, 21,diff_value);
-				 excel.setreport_FailedData("Last month", 21, 11,diff_value);
+				 excel.setreport_FailedData("Last month", 39, 10,diff_value);
 			}
 
 			//Get the Tax from Sale Recap Report
-			String Expeccted_Tx=excel.getData("Last month", 4, 1).toString().replace(",", "");
+			String Expeccted_Tx=excel.getData("Last month", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
@@ -1652,27 +1556,27 @@ public WebDriver driver;
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
-			excel.setreportData("Last month", 4, 20, Tx);
+			excel.setreportData("Last month", 3, 20, Tx);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
 				test.log(LogStatus.PASS, "Tax for Sale Summary Report is equal to Sale Recap Report for Last month");
-				excel.setreport_PassedData("Last month", 4, 21, "0.00");
-				excel.setreport_PassedData("Last month", 23, 11, Tx+"`");
+				excel.setreport_PassedData("Last month", 3, 21, "0.00");
+				excel.setreport_PassedData("Last month", 40, 10, Tx+"`");
 			}
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
 				test.log(LogStatus.FAIL, "Tax for Sale Summary Report is not equal to Sale Recap Report for Last month.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last month", 4, 21,diff_value);
-				 excel.setreport_FailedData("Last month", 23, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last month", 3, 21,diff_value);
+				 excel.setreport_FailedData("Last month", 40, 10,diff_value);
 			}
 
 			//Get the Discount from Sale Recap Report
-			String Expeccted_Discnt=excel.getData("Last month", 5, 1).toString().replace(",", "");
+			String Expeccted_Discnt=excel.getData("Last month", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
@@ -1680,53 +1584,53 @@ public WebDriver driver;
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
-			excel.setreportData("Last month", 5, 20, Discnt);
+			excel.setreportData("Last month", 4, 20, Discnt);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
 				test.log(LogStatus.PASS, "Discount for Sale Summary Report is equal to Sale Recap Report for Last month");
-				excel.setreport_PassedData("Last month", 5, 21, "0.00");
-				excel.setreport_PassedData("Last month", 24, 11, Discnt+"`");
+				excel.setreport_PassedData("Last month", 4, 21, "0.00");
+				excel.setreport_PassedData("Last month", 41, 10, Discnt+"`");
 			}
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
 				test.log(LogStatus.FAIL, "Discount for Sale Summary Report is not equal to Sale Recap Report for Last month.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last month", 5, 21,diff_value);
-				 excel.setreport_FailedData("Last month", 24, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last month", 4, 21,diff_value);
+				 excel.setreport_FailedData("Last month", 41, 10,diff_value);
 			}
 
-			//Get the Gross Sale from Sale Recap Report
-			String Expeccted_GrossSale=excel.getData("Last month", 9, 1).toString().replace(",", "");
-			double Expected_GrossSale=Double.parseDouble(Expeccted_GrossSale);
+			//Get the Gross Receipt from Sale Recap Report
+			String Expeccted_GrossReceipt=excel.getData("Last month", 6, 1).toString().replace(",", "");
+			double Expected_GrossReceipt=Double.parseDouble(Expeccted_GrossReceipt);
 
 
-			//Get the Gross Sale
-			String GrossSale=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
-			double ActualGrossSale=Double.parseDouble(GrossSale);
+			//Get the Gross Receipt
+			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
-			excel.setreportData("Last month", 9, 20, GrossSale);
+			excel.setreportData("Last month", 6, 20, GrossReceipt);
 
 
-			//Check whether the % of Sale value is Equal or not
-			if(Expected_GrossSale==ActualGrossSale)
+			//Check whether the Gross Receipt value is Equal or not
+			if(Expected_GrossReceipt==ActualGrossReceipt)
 			{
-				test.log(LogStatus.PASS, "% of Sale for Sale Summary Report is equal to Sale Recap Report for Last month");
-				excel.setreport_PassedData("Last month", 9, 21, "0.00");
-				excel.setreport_PassedData("Last month", 28, 11, GrossSale+"`");
+				test.log(LogStatus.PASS, "Gross Receipt for Sale Summary Report is equal to Sale Recap Report for Last month");
+				excel.setreport_PassedData("Last month", 6, 21, "0.00");
+				excel.setreport_PassedData("Last month", 43, 10, GrossReceipt+"`");
 			}
 			else
 			{
-				double diff=Expected_GrossSale-ActualGrossSale;
-				test.log(LogStatus.FAIL, "% of Sale for Sale Summary Report is not equal to Sale Recap Report  for Last month.The value diff is : "+diff);
+				double diff=Expected_GrossReceipt-ActualGrossReceipt;
+				test.log(LogStatus.FAIL, "Gross Receipt for Sale Summary Report is not equal to Sale Recap Report  for Last month.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last month", 9, 21,diff_value);
-				 excel.setreport_FailedData("Last month", 28, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last month", 6, 21,diff_value);
+				 excel.setreport_FailedData("Last month", 43, 10,diff_value);
 			}
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -1764,29 +1668,17 @@ public WebDriver driver;
 			excel.setreportData("Last 30 days", 2, 20, st);
 			excel.setreportData("Last 30 days", 3, 20, st);
 			excel.setreportData("Last 30 days", 4, 20, st);
-			excel.setreportData("Last 30 days", 5, 20, st);
 			excel.setreportData("Last 30 days", 6, 20, st);
-			excel.setreportData("Last 30 days", 7, 20, st);
-			excel.setreportData("Last 30 days", 8, 20, st);
-			excel.setreportData("Last 30 days", 9, 20, st);
 
 			excel.setreportData("Last 30 days", 2, 21, st);
 			excel.setreportData("Last 30 days", 3, 21, st);
 			excel.setreportData("Last 30 days", 4, 21, st);
-			excel.setreportData("Last 30 days", 5, 21, st);
 			excel.setreportData("Last 30 days", 6, 21, st);
-			excel.setreportData("Last 30 days", 7, 21, st);
-			excel.setreportData("Last 30 days", 8, 21, st);
-			excel.setreportData("Last 30 days", 9, 21, st);
 
-			excel.setreportData("Last 30 days", 21, 11, st);
-			excel.setreportData("Last 30 days", 22, 11, st);
-			excel.setreportData("Last 30 days", 23, 11, st);
-			excel.setreportData("Last 30 days", 24, 11, st);
-			excel.setreportData("Last 30 days", 25, 11, st);
-			excel.setreportData("Last 30 days", 26, 11, st);
-			excel.setreportData("Last 30 days", 27, 11, st);
-			excel.setreportData("Last 30 days", 28, 11, st);
+			excel.setreportData("Last 30 days", 39, 10, st);
+			excel.setreportData("Last 30 days", 40, 10, st);
+			excel.setreportData("Last 30 days", 41, 10, st);
+			excel.setreportData("Last 30 days", 43, 10, st);
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		}
 		}
@@ -1809,34 +1701,34 @@ public WebDriver driver;
 			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
 			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
-			//Export the Sale Amount value to Excel
+			//Export the Net Sales value to Excel
 			excel.setreportData("Last 30 days", 2, 20, SaleAmount);
 
 
-			//Check whether the Sale Amount value is Equal or not
+			//Check whether the Net Sales value is Equal or not
 			if(Expected_SaleAmount==ActualSale_Amount)
 			{
-				test.log(LogStatus.PASS, "Sale Amount for Sale Summary Report is equal to Sale Recap Report for Last 30 days");
+				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Last 30 days");
 				excel.setreport_PassedData("Last 30 days", 2, 21, "0.00");
-				excel.setreport_PassedData("Last 30 days", 21, 11, SaleAmount+"`");
+				excel.setreport_PassedData("Last 30 days", 39, 10, SaleAmount+"`");
 			}
 			else
 			{
 				double diff=Expected_SaleAmount-ActualSale_Amount;
-				test.log(LogStatus.FAIL, "Sale Amount for Sale Summary Report is not equal to Sale Recap Report for Last 30 days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Last 30 days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
+				 //Export the Net Sales value to Excel
 				 excel.setreport_FailedData("Last 30 days", 2, 21,diff_value);
-				 excel.setreport_FailedData("Last 30 days", 21, 11,diff_value);
+				 excel.setreport_FailedData("Last 30 days", 39, 10,diff_value);
 			}
 
 			//Get the Tax from Sale Recap Report
-			String Expeccted_Tx=excel.getData("Last 30 days", 4, 1).toString().replace(",", "");
+			String Expeccted_Tx=excel.getData("Last 30 days", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
@@ -1844,27 +1736,27 @@ public WebDriver driver;
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
-			excel.setreportData("Last 30 days", 4, 20, Tx);
+			excel.setreportData("Last 30 days", 3, 20, Tx);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
 				test.log(LogStatus.PASS, "Tax for Sale Summary Report is equal to Sale Recap Report for Last 30 days");
-				excel.setreport_PassedData("Last 30 days", 4, 21, "0.00");
-				excel.setreport_PassedData("Last 30 days", 23, 11, Tx+"`");
+				excel.setreport_PassedData("Last 30 days", 3, 21, "0.00");
+				excel.setreport_PassedData("Last 30 days", 40, 10, Tx+"`");
 			}
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
 				test.log(LogStatus.FAIL, "Tax for Sale Summary Report is not equal to Sale Recap Report for Last 30 days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last 30 days", 4, 21,diff_value);
-				 excel.setreport_FailedData("Last 30 days", 23, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last 30 days", 3, 21,diff_value);
+				 excel.setreport_FailedData("Last 30 days", 40, 10,diff_value);
 			}
 
 			//Get the Discount from Sale Recap Report
-			String Expeccted_Discnt=excel.getData("Last 30 days", 5, 1).toString().replace(",", "");
+			String Expeccted_Discnt=excel.getData("Last 30 days", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
@@ -1872,53 +1764,53 @@ public WebDriver driver;
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
-			excel.setreportData("Last 30 days", 5, 20, Discnt);
+			excel.setreportData("Last 30 days", 4, 20, Discnt);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
 				test.log(LogStatus.PASS, "Discount for Sale Summary Report is equal to Sale Recap Report for Last 30 days");
-				excel.setreport_PassedData("Last 30 days", 5, 21, "0.00");
-				excel.setreport_PassedData("Last 30 days", 24, 11, Discnt+"`");
+				excel.setreport_PassedData("Last 30 days", 4, 21, "0.00");
+				excel.setreport_PassedData("Last 30 days", 41, 10, Discnt+"`");
 			}
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
 				test.log(LogStatus.FAIL, "Discount for Sale Summary Report is not equal to Sale Recap Report for Last 30 days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last 30 days", 5, 21,diff_value);
-				 excel.setreport_FailedData("Last 30 days", 24, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last 30 days", 4, 21,diff_value);
+				 excel.setreport_FailedData("Last 30 days", 41, 10,diff_value);
 			}
 
-			//Get the Gross Sale from Sale Recap Report
-			String Expeccted_GrossSale=excel.getData("Last 30 days", 9, 1).toString().replace(",", "");
-			double Expected_GrossSale=Double.parseDouble(Expeccted_GrossSale);
+			//Get the Gross Receipt from Sale Recap Report
+			String Expeccted_GrossReceipt=excel.getData("Last 30 days", 6, 1).toString().replace(",", "");
+			double Expected_GrossReceipt=Double.parseDouble(Expeccted_GrossReceipt);
 
 
-			//Get the Gross Sale
-			String GrossSale=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
-			double ActualGrossSale=Double.parseDouble(GrossSale);
+			//Get the Gross Receipt
+			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
-			excel.setreportData("Last 30 days", 9, 20, GrossSale);
+			excel.setreportData("Last 30 days", 6, 20, GrossReceipt);
 
 
-			//Check whether the % of Sale value is Equal or not
-			if(Expected_GrossSale==ActualGrossSale)
+			//Check whether the Gross Receipt value is Equal or not
+			if(Expected_GrossReceipt==ActualGrossReceipt)
 			{
-				test.log(LogStatus.PASS, "% of Sale for Sale Summary Report is equal to Sale Recap Report for Last 30 days");
-				excel.setreport_PassedData("Last 30 days", 9, 21, "0.00");
-				excel.setreport_PassedData("Last 30 days", 28, 11, GrossSale+"`");
+				test.log(LogStatus.PASS, "Gross Receipt for Sale Summary Report is equal to Sale Recap Report for Last 30 days");
+				excel.setreport_PassedData("Last 30 days", 6, 21, "0.00");
+				excel.setreport_PassedData("Last 30 days", 43, 10, GrossReceipt+"`");
 			}
 			else
 			{
-				double diff=Expected_GrossSale-ActualGrossSale;
-				test.log(LogStatus.FAIL, "% of Sale for Sale Summary Report is not equal to Sale Recap Report  for Last 30 days.The value diff is : "+diff);
+				double diff=Expected_GrossReceipt-ActualGrossReceipt;
+				test.log(LogStatus.FAIL, "Gross Receipt for Sale Summary Report is not equal to Sale Recap Report  for Last 30 days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Last 30 days", 9, 21,diff_value);
-				 excel.setreport_FailedData("Last 30 days", 28, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Last 30 days", 6, 21,diff_value);
+				 excel.setreport_FailedData("Last 30 days", 43, 10,diff_value);
 			}
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -1956,29 +1848,17 @@ public WebDriver driver;
 			excel.setreportData("Specific Date", 2, 20, st);
 			excel.setreportData("Specific Date", 3, 20, st);
 			excel.setreportData("Specific Date", 4, 20, st);
-			excel.setreportData("Specific Date", 5, 20, st);
 			excel.setreportData("Specific Date", 6, 20, st);
-			excel.setreportData("Specific Date", 7, 20, st);
-			excel.setreportData("Specific Date", 8, 20, st);
-			excel.setreportData("Specific Date", 9, 20, st);
 
 			excel.setreportData("Specific Date", 2, 21, st);
 			excel.setreportData("Specific Date", 3, 21, st);
 			excel.setreportData("Specific Date", 4, 21, st);
-			excel.setreportData("Specific Date", 5, 21, st);
 			excel.setreportData("Specific Date", 6, 21, st);
-			excel.setreportData("Specific Date", 7, 21, st);
-			excel.setreportData("Specific Date", 8, 21, st);
-			excel.setreportData("Specific Date", 9, 21, st);
 
-			excel.setreportData("Specific Date", 21, 11, st);
-			excel.setreportData("Specific Date", 22, 11, st);
-			excel.setreportData("Specific Date", 23, 11, st);
-			excel.setreportData("Specific Date", 24, 11, st);
-			excel.setreportData("Specific Date", 25, 11, st);
-			excel.setreportData("Specific Date", 26, 11, st);
-			excel.setreportData("Specific Date", 27, 11, st);
-			excel.setreportData("Specific Date", 28, 11, st);
+			excel.setreportData("Specific Date", 39, 10, st);
+			excel.setreportData("Specific Date", 40, 10, st);
+			excel.setreportData("Specific Date", 41, 10, st);
+			excel.setreportData("Specific Date", 43, 10, st);
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		}
 		}
@@ -2001,34 +1881,34 @@ public WebDriver driver;
 			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
 			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
-			//Export the Sale Amount value to Excel
+			//Export the Net Sales value to Excel
 			excel.setreportData("Specific Date", 2, 20, SaleAmount);
 
 
-			//Check whether the Sale Amount value is Equal or not
+			//Check whether the Net Sales value is Equal or not
 			if(Expected_SaleAmount==ActualSale_Amount)
 			{
-				test.log(LogStatus.PASS, "Sale Amount for Sale Summary Report is equal to Sale Recap Report for Specific Date");
+				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Specific Date");
 				excel.setreport_PassedData("Specific Date", 2, 21, "0.00");
-				excel.setreport_PassedData("Specific Date", 21, 11, SaleAmount+"`");
+				excel.setreport_PassedData("Specific Date", 39, 10, SaleAmount+"`");
 			}
 			else
 			{
 				double diff=Expected_SaleAmount-ActualSale_Amount;
-				test.log(LogStatus.FAIL, "Sale Amount for Sale Summary Report is not equal to Sale Recap Report for Specific Date.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Specific Date.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
+				 //Export the Net Sales value to Excel
 				 excel.setreport_FailedData("Specific Date", 2, 21,diff_value);
-				 excel.setreport_FailedData("Specific Date", 21, 11,diff_value);
+				 excel.setreport_FailedData("Specific Date", 39, 10,diff_value);
 			}
 
 			//Get the Tax from Sale Recap Report
-			String Expeccted_Tx=excel.getData("Specific Date", 4, 1).toString().replace(",", "");
+			String Expeccted_Tx=excel.getData("Specific Date", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
@@ -2036,27 +1916,27 @@ public WebDriver driver;
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
-			excel.setreportData("Specific Date", 4, 20, Tx);
+			excel.setreportData("Specific Date", 3, 20, Tx);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
 				test.log(LogStatus.PASS, "Tax for Sale Summary Report is equal to Sale Recap Report for Specific Date");
-				excel.setreport_PassedData("Specific Date", 4, 21, "0.00");
-				excel.setreport_PassedData("Specific Date", 23, 11, Tx+"`");
+				excel.setreport_PassedData("Specific Date", 3, 21, "0.00");
+				excel.setreport_PassedData("Specific Date", 40, 10, Tx+"`");
 			}
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
 				test.log(LogStatus.FAIL, "Tax for Sale Summary Report is not equal to Sale Recap Report for Specific Date.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Specific Date", 4, 21,diff_value);
-				 excel.setreport_FailedData("Specific Date", 23, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Specific Date", 3, 21,diff_value);
+				 excel.setreport_FailedData("Specific Date", 40, 10,diff_value);
 			}
 
 			//Get the Discount from Sale Recap Report
-			String Expeccted_Discnt=excel.getData("Specific Date", 5, 1).toString().replace(",", "");
+			String Expeccted_Discnt=excel.getData("Specific Date", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
@@ -2064,53 +1944,53 @@ public WebDriver driver;
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
-			excel.setreportData("Specific Date", 5, 20, Discnt);
+			excel.setreportData("Specific Date", 4, 20, Discnt);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
 				test.log(LogStatus.PASS, "Discount for Sale Summary Report is equal to Sale Recap Report for Specific Date");
-				excel.setreport_PassedData("Specific Date", 5, 21, "0.00");
-				excel.setreport_PassedData("Specific Date", 24, 11, Discnt+"`");
+				excel.setreport_PassedData("Specific Date", 4, 21, "0.00");
+				excel.setreport_PassedData("Specific Date", 41, 10, Discnt+"`");
 			}
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
 				test.log(LogStatus.FAIL, "Discount for Sale Summary Report is not equal to Sale Recap Report for Specific Date.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Specific Date", 5, 21,diff_value);
-				 excel.setreport_FailedData("Specific Date", 24, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Specific Date", 4, 21,diff_value);
+				 excel.setreport_FailedData("Specific Date", 41, 10,diff_value);
 			}
 
-			//Get the Gross Sale from Sale Recap Report
-			String Expeccted_GrossSale=excel.getData("Specific Date", 9, 1).toString().replace(",", "");
-			double Expected_GrossSale=Double.parseDouble(Expeccted_GrossSale);
+			//Get the Gross Receipt from Sale Recap Report
+			String Expeccted_GrossReceipt=excel.getData("Specific Date", 6, 1).toString().replace(",", "");
+			double Expected_GrossReceipt=Double.parseDouble(Expeccted_GrossReceipt);
 
 
-			//Get the Gross Sale
-			String GrossSale=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
-			double ActualGrossSale=Double.parseDouble(GrossSale);
+			//Get the Gross Receipt
+			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
-			excel.setreportData("Specific Date", 9, 20, GrossSale);
+			excel.setreportData("Specific Date", 6, 20, GrossReceipt);
 
 
-			//Check whether the % of Sale value is Equal or not
-			if(Expected_GrossSale==ActualGrossSale)
+			//Check whether the Gross Receipt value is Equal or not
+			if(Expected_GrossReceipt==ActualGrossReceipt)
 			{
-				test.log(LogStatus.PASS, "% of Sale for Sale Summary Report is equal to Sale Recap Report for Specific Date");
-				excel.setreport_PassedData("Specific Date", 9, 21, "0.00");
-				excel.setreport_PassedData("Specific Date", 28, 11, GrossSale+"`");
+				test.log(LogStatus.PASS, "Gross Receipt for Sale Summary Report is equal to Sale Recap Report for Specific Date");
+				excel.setreport_PassedData("Specific Date", 6, 21, "0.00");
+				excel.setreport_PassedData("Specific Date", 43, 10, GrossReceipt+"`");
 			}
 			else
 			{
-				double diff=Expected_GrossSale-ActualGrossSale;
-				test.log(LogStatus.FAIL, "% of Sale for Sale Summary Report is not equal to Sale Recap Report  for Specific Date.The value diff is : "+diff);
+				double diff=Expected_GrossReceipt-ActualGrossReceipt;
+				test.log(LogStatus.FAIL, "Gross Receipt for Sale Summary Report is not equal to Sale Recap Report  for Specific Date.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Specific Date", 9, 21,diff_value);
-				 excel.setreport_FailedData("Specific Date", 28, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Specific Date", 6, 21,diff_value);
+				 excel.setreport_FailedData("Specific Date", 43, 10,diff_value);
 			}
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -2148,29 +2028,17 @@ public WebDriver driver;
 			excel.setreportData("Date Range", 2, 20, st);
 			excel.setreportData("Date Range", 3, 20, st);
 			excel.setreportData("Date Range", 4, 20, st);
-			excel.setreportData("Date Range", 5, 20, st);
 			excel.setreportData("Date Range", 6, 20, st);
-			excel.setreportData("Date Range", 7, 20, st);
-			excel.setreportData("Date Range", 8, 20, st);
-			excel.setreportData("Date Range", 9, 20, st);
 
 			excel.setreportData("Date Range", 2, 21, st);
 			excel.setreportData("Date Range", 3, 21, st);
 			excel.setreportData("Date Range", 4, 21, st);
-			excel.setreportData("Date Range", 5, 21, st);
 			excel.setreportData("Date Range", 6, 21, st);
-			excel.setreportData("Date Range", 7, 21, st);
-			excel.setreportData("Date Range", 8, 21, st);
-			excel.setreportData("Date Range", 9, 21, st);
 
-			excel.setreportData("Date Range", 21, 11, st);
-			excel.setreportData("Date Range", 22, 11, st);
-			excel.setreportData("Date Range", 23, 11, st);
-			excel.setreportData("Date Range", 24, 11, st);
-			excel.setreportData("Date Range", 25, 11, st);
-			excel.setreportData("Date Range", 26, 11, st);
-			excel.setreportData("Date Range", 27, 11, st);
-			excel.setreportData("Date Range", 28, 11, st);
+			excel.setreportData("Date Range", 39, 10, st);
+			excel.setreportData("Date Range", 40, 10, st);
+			excel.setreportData("Date Range", 41, 10, st);
+			excel.setreportData("Date Range", 43, 10, st);
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		}
 		}
@@ -2193,34 +2061,34 @@ public WebDriver driver;
 			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
 			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
-			//Export the Sale Amount value to Excel
+			//Export the Net Sales value to Excel
 			excel.setreportData("Date Range", 2, 20, SaleAmount);
 
 
-			//Check whether the Sale Amount value is Equal or not
+			//Check whether the Net Sales value is Equal or not
 			if(Expected_SaleAmount==ActualSale_Amount)
 			{
-				test.log(LogStatus.PASS, "Sale Amount for Sale Summary Report is equal to Sale Recap Report for Date Range");
+				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Date Range");
 				excel.setreport_PassedData("Date Range", 2, 21, "0.00");
-				excel.setreport_PassedData("Date Range", 21, 11, SaleAmount+"`");
+				excel.setreport_PassedData("Date Range", 39, 10, SaleAmount+"`");
 			}
 			else
 			{
 				double diff=Expected_SaleAmount-ActualSale_Amount;
-				test.log(LogStatus.FAIL, "Sale Amount for Sale Summary Report is not equal to Sale Recap Report for Date Range.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Date Range.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
+				 //Export the Net Sales value to Excel
 				 excel.setreport_FailedData("Date Range", 2, 21,diff_value);
-				 excel.setreport_FailedData("Date Range", 21, 11,diff_value);
+				 excel.setreport_FailedData("Date Range", 39, 10,diff_value);
 			}
 
 			//Get the Tax from Sale Recap Report
-			String Expeccted_Tx=excel.getData("Date Range", 4, 1).toString().replace(",", "");
+			String Expeccted_Tx=excel.getData("Date Range", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
@@ -2228,27 +2096,27 @@ public WebDriver driver;
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
-			excel.setreportData("Date Range", 4, 20, Tx);
+			excel.setreportData("Date Range", 3, 20, Tx);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
 				test.log(LogStatus.PASS, "Tax for Sale Summary Report is equal to Sale Recap Report for Date Range");
-				excel.setreport_PassedData("Date Range", 4, 21, "0.00");
-				excel.setreport_PassedData("Date Range", 23, 11, Tx+"`");
+				excel.setreport_PassedData("Date Range", 3, 21, "0.00");
+				excel.setreport_PassedData("Date Range", 40, 10, Tx+"`");
 			}
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
 				test.log(LogStatus.FAIL, "Tax for Sale Summary Report is not equal to Sale Recap Report for Date Range.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Date Range", 4, 21,diff_value);
-				 excel.setreport_FailedData("Date Range", 23, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Date Range", 3, 21,diff_value);
+				 excel.setreport_FailedData("Date Range", 40, 10,diff_value);
 			}
 
 			//Get the Discount from Sale Recap Report
-			String Expeccted_Discnt=excel.getData("Date Range", 5, 1).toString().replace(",", "");
+			String Expeccted_Discnt=excel.getData("Date Range", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
@@ -2256,53 +2124,53 @@ public WebDriver driver;
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
-			excel.setreportData("Date Range", 5, 20, Discnt);
+			excel.setreportData("Date Range", 4, 20, Discnt);
 
 			//Check whether the Tax value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
 				test.log(LogStatus.PASS, "Discount for Sale Summary Report is equal to Sale Recap Report for Date Range");
-				excel.setreport_PassedData("Date Range", 5, 21, "0.00");
-				excel.setreport_PassedData("Date Range", 24, 11, Discnt+"`");
+				excel.setreport_PassedData("Date Range", 4, 21, "0.00");
+				excel.setreport_PassedData("Date Range", 41, 10, Discnt+"`");
 			}
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
 				test.log(LogStatus.FAIL, "Discount for Sale Summary Report is not equal to Sale Recap Report for Date Range.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Date Range", 5, 21,diff_value);
-				 excel.setreport_FailedData("Date Range", 24, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Date Range", 4, 21,diff_value);
+				 excel.setreport_FailedData("Date Range", 41, 10,diff_value);
 			}
 
-			//Get the Gross Sale from Sale Recap Report
-			String Expeccted_GrossSale=excel.getData("Date Range", 9, 1).toString().replace(",", "");
-			double Expected_GrossSale=Double.parseDouble(Expeccted_GrossSale);
+			//Get the Gross Receipt from Sale Recap Report
+			String Expeccted_GrossReceipt=excel.getData("Date Range", 6, 1).toString().replace(",", "");
+			double Expected_GrossReceipt=Double.parseDouble(Expeccted_GrossReceipt);
 
 
-			//Get the Gross Sale
-			String GrossSale=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
-			double ActualGrossSale=Double.parseDouble(GrossSale);
+			//Get the Gross Receipt
+			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
-			excel.setreportData("Date Range", 9, 20, GrossSale);
+			excel.setreportData("Date Range", 6, 20, GrossReceipt);
 
 
-			//Check whether the % of Sale value is Equal or not
-			if(Expected_GrossSale==ActualGrossSale)
+			//Check whether the Gross Receipt value is Equal or not
+			if(Expected_GrossReceipt==ActualGrossReceipt)
 			{
-				test.log(LogStatus.PASS, "% of Sale for Sale Summary Report is equal to Sale Recap Report for Date Range");
-				excel.setreport_PassedData("Date Range", 9, 21, "0.00");
-				excel.setreport_PassedData("Date Range", 28, 11, GrossSale+"`");
+				test.log(LogStatus.PASS, "Gross Receipt for Sale Summary Report is equal to Sale Recap Report for Date Range");
+				excel.setreport_PassedData("Date Range", 6, 21, "0.00");
+				excel.setreport_PassedData("Date Range", 43, 10, GrossReceipt+"`");
 			}
 			else
 			{
-				double diff=Expected_GrossSale-ActualGrossSale;
-				test.log(LogStatus.FAIL, "% of Sale for Sale Summary Report is not equal to Sale Recap Report  for Date Range.The value diff is : "+diff);
+				double diff=Expected_GrossReceipt-ActualGrossReceipt;
+				test.log(LogStatus.FAIL, "Gross Receipt for Sale Summary Report is not equal to Sale Recap Report  for Date Range.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
-				 //Export the Sale Amount value to Excel
-				 excel.setreport_FailedData("Date Range", 9, 21,diff_value);
-				 excel.setreport_FailedData("Date Range", 28, 11,diff_value);
+				 //Export the Net Sales value to Excel
+				 excel.setreport_FailedData("Date Range", 6, 21,diff_value);
+				 excel.setreport_FailedData("Date Range", 43, 10,diff_value);
 			}
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));

@@ -263,7 +263,7 @@ public WebDriver driver;
 		
 
 			//Get the Tax from Sale Recap Report
-			String Expected_Tx=excel.getData("Today", 4, 1).toString().replace(",", "");
+			String Expected_Tx=excel.getData("Today", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expected_Tx);
 			
 			//Get the Tax
@@ -298,7 +298,7 @@ public WebDriver driver;
 			}
 			
 			//Get the Discount from Sale Recap Report
-			String Expected_Discnt=excel.getData("Today", 5, 1).toString().replace(",", "");
+			String Expected_Discnt=excel.getData("Today", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
@@ -455,7 +455,7 @@ public WebDriver driver;
 		
 
 			//Get the Tax from Sale Recap Report
-			String Expected_Tx=excel.getData("Yesterday", 4, 1).toString().replace(",", "");
+			String Expected_Tx=excel.getData("Yesterday", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expected_Tx);
 			
 			
@@ -491,7 +491,7 @@ public WebDriver driver;
 			}
 			
 			//Get the Discount from Sale Recap Report
-			String Expected_Discnt=excel.getData("Yesterday", 5, 1).toString().replace(",", "");
+			String Expected_Discnt=excel.getData("Yesterday", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
@@ -648,7 +648,7 @@ public WebDriver driver;
 		
 
 			//Get the Tax from Sale Recap Report
-			String Expected_Tx=excel.getData("Last N days", 4, 1).toString().replace(",", "");
+			String Expected_Tx=excel.getData("Last N days", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expected_Tx);
 			
 			
@@ -683,7 +683,7 @@ public WebDriver driver;
 			}
 			
 			//Get the Discount from Sale Recap Report
-			String Expected_Discnt=excel.getData("Last N days", 5, 1).toString().replace(",", "");
+			String Expected_Discnt=excel.getData("Last N days", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
@@ -834,7 +834,7 @@ public WebDriver driver;
 		
 
 			//Get the Tax from Sale Recap Report
-			String Expected_Tx=excel.getData("This Week", 4, 1).toString().replace(",", "");
+			String Expected_Tx=excel.getData("This Week", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expected_Tx);
 			
 			
@@ -867,7 +867,7 @@ public WebDriver driver;
 			}
 			
 			//Get the Discount from Sale Recap Report
-			String Expected_Discnt=excel.getData("This Week", 5, 1).toString().replace(",", "");
+			String Expected_Discnt=excel.getData("This Week", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
@@ -1018,7 +1018,7 @@ public WebDriver driver;
 		
 
 			//Get the Tax from Sale Recap Report
-			String Expected_Tx=excel.getData("Last Week", 4, 1).toString().replace(",", "");
+			String Expected_Tx=excel.getData("Last Week", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expected_Tx);
 			
 			
@@ -1053,7 +1053,7 @@ public WebDriver driver;
 			}
 			
 			//Get the Discount from Sale Recap Report
-			String Expected_Discnt=excel.getData("Last Week", 5, 1).toString().replace(",", "");
+			String Expected_Discnt=excel.getData("Last Week", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
@@ -1204,7 +1204,7 @@ public WebDriver driver;
 		
 
 			//Get the Tax from Sale Recap Report
-			String Expected_Tx=excel.getData("Last 7 days", 4, 1).toString().replace(",", "");
+			String Expected_Tx=excel.getData("Last 7 days", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expected_Tx);
 			
 			
@@ -1239,7 +1239,7 @@ public WebDriver driver;
 			}
 			
 			//Get the Discount from Sale Recap Report
-			String Expected_Discnt=excel.getData("Last 7 days", 5, 1).toString().replace(",", "");
+			String Expected_Discnt=excel.getData("Last 7 days", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
@@ -1393,7 +1393,7 @@ public WebDriver driver;
 			
 
 			//Get the Tax from Sale Recap Report
-			String Expected_Tx=excel.getData("This month", 4, 1).toString().replace(",", "");
+			String Expected_Tx=excel.getData("This month", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expected_Tx);
 			
 			
@@ -1428,7 +1428,7 @@ public WebDriver driver;
 			}
 			
 			//Get the Discount from Sale Recap Report
-			String Expected_Discnt=excel.getData("This month", 5, 1).toString().replace(",", "");
+			String Expected_Discnt=excel.getData("This month", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
@@ -1577,7 +1577,7 @@ public WebDriver driver;
 			
 		
 			//Get the Tax from Sale Recap Report
-			String Expected_Tx=excel.getData("Last month", 4, 1).toString().replace(",", "");
+			String Expected_Tx=excel.getData("Last month", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expected_Tx);
 			
 			
@@ -1612,7 +1612,7 @@ public WebDriver driver;
 			}
 			
 			//Get the Discount from Sale Recap Report
-			String Expected_Discnt=excel.getData("Last month", 5, 1).toString().replace(",", "");
+			String Expected_Discnt=excel.getData("Last month", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
@@ -1764,7 +1764,7 @@ public WebDriver driver;
 			
 
 			//Get the Tax from Sale Recap Report
-			String Expected_Tx=excel.getData("Last 30 days", 4, 1).toString().replace(",", "");
+			String Expected_Tx=excel.getData("Last 30 days", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expected_Tx);
 			
 			
@@ -1799,7 +1799,7 @@ public WebDriver driver;
 			}
 			
 			//Get the Discount from Sale Recap Report
-			String Expected_Discnt=excel.getData("Last 30 days", 5, 1).toString().replace(",", "");
+			String Expected_Discnt=excel.getData("Last 30 days", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
@@ -1950,7 +1950,7 @@ public WebDriver driver;
 			
 
 			//Get the Tax from Sale Recap Report
-			String Expected_Tx=excel.getData("Specific Date", 4, 1).toString().replace(",", "");
+			String Expected_Tx=excel.getData("Specific Date", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expected_Tx);
 			
 			
@@ -1983,7 +1983,7 @@ public WebDriver driver;
 			}
 			
 			//Get the Discount from Sale Recap Report
-			String Expected_Discnt=excel.getData("Specific Date", 5, 1).toString().replace(",", "");
+			String Expected_Discnt=excel.getData("Specific Date", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
@@ -2133,7 +2133,7 @@ public WebDriver driver;
 		
 
 			//Get the Tax from Sale Recap Report
-			String Expected_Tx=excel.getData("Date Range", 4, 1).toString().replace(",", "");
+			String Expected_Tx=excel.getData("Date Range", 3, 1).toString().replace(",", "");
 			double Expected_Tax=Double.parseDouble(Expected_Tx);
 			
 			
@@ -2166,7 +2166,7 @@ public WebDriver driver;
 			}
 			
 			//Get the Discount from Sale Recap Report
-			String Expected_Discnt=excel.getData("Date Range", 5, 1).toString().replace(",", "");
+			String Expected_Discnt=excel.getData("Date Range", 4, 1).toString().replace(",", "");
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount

@@ -659,16 +659,16 @@ public class ReportsPage
 	@FindBy(xpath = "//app-custom-dynamic-table//span[contains(.,'Refund')]/../..//td[contains(.,'Total')]/../td[2]")
 	WebElement Refund_SaleRecap;
 	
-	@FindBy(xpath = "//app-custom-dynamic-table//span[contains(.,'Sales')]" )
+	@FindBy(xpath = "//app-custom-dynamic-table//span[contains(.,'SALES')]" )
 	WebElement Sales_Table_inSaleRecap;
 	
-	@FindBy(xpath = "//app-custom-dynamic-table//span[contains(.,'Taxes')]" )
+	@FindBy(xpath = "//app-custom-dynamic-table//span[contains(.,'TAXES')]" )
 	WebElement Taxes_Table_inSaleRecap;
 	
-	@FindBy(xpath = "//app-custom-dynamic-table//span[contains(.,'Refund')]" )
+	@FindBy(xpath = "//app-custom-dynamic-table//span[contains(.,'REFUND')]" )
 	WebElement Refund_Table_inSaleRecap;
 	
-	@FindBy(xpath = "//app-custom-dynamic-table//span[contains(.,'Discount')]" )
+	@FindBy(xpath = "//app-custom-dynamic-table//span[contains(.,'DISCOUNT')]" )
 	WebElement Discount_Table_inSaleRecap;
 	
 	
