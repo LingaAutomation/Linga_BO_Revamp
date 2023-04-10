@@ -3,6 +3,8 @@ package com.Pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -52,19 +54,19 @@ public class PaymentSettingsPage
 	@FindBy(xpath = "//div[contains(@class,'radio-box-button')]/div/div/div[contains(.,'Instant Cash Reward')]")
 	WebElement Instant_CashRewardBtn;
 		
-	@FindBy(xpath = "//app-input[@name='feename']/div/div/mat-form-field/div/div/div[4]/input")
+	@FindBy(xpath = "//mat-label[contains(.,'Fee Name')]/../../../input")
 	WebElement Fee_NameInputBox;
 	
-	@FindBy(xpath = "//app-input[@name='cashDiscountInput']/div/div/mat-form-field/div/div/div[4]/input")
+	@FindBy(xpath = "//mat-label[contains(.,'Cash Discount Name')]/../../../input")
 	WebElement CashDiscount_NameInputBox;
 	
-	@FindBy(xpath = "//app-input[@label='Cash Discount Percentage']/div/div/mat-form-field/div/div/div[4]/input")
+	@FindBy(xpath = "//mat-label[contains(.,'Cash Discount Percentage')]/../../../input")
 	WebElement CashDiscount_PercentageInputBox;
 	
-	@FindBy(xpath = "//app-input[@label='Service Charge Name']/div/div/mat-form-field/div/div/div[4]/input")
+	@FindBy(xpath = "//mat-label[contains(.,'Service Charge Name')]/../../../input")
 	WebElement ServiceCharge_NameInput;
 	
-	@FindBy(xpath = "//app-selectbox[@label='Card Type']/div/mat-form-field/div/div/div[3]/input")
+	@FindBy(xpath = "//mat-label[contains(.,'Card Type')]/../../../input")
 	WebElement Card_TypeInput;
 	
 	public WebElement Card_TypeInput()
@@ -72,7 +74,7 @@ public class PaymentSettingsPage
 		return Card_TypeInput;
 	}
 	
-	@FindBy(xpath = "//app-input[@name='serviceCharge']/div/div/mat-form-field/div/div/div[4]/input")
+	@FindBy(xpath = "(//mat-label[contains(.,'Service Charge')]/../../../input)[2]")
 	WebElement Service_ChargeInputBox;
 	
 	public WebElement Service_ChargeInputBox()
@@ -80,7 +82,7 @@ public class PaymentSettingsPage
 		return Service_ChargeInputBox;
 	}
 	
-	@FindBy(xpath = "//app-input[@name='tipCharge']/div/div/mat-form-field/div/div/div[4]/input")
+	@FindBy(xpath = "//mat-label[contains(.,'Tip Charge')]/../../../input")
 	WebElement Tip_ChargeInputBox;
 	
 	public WebElement Tip_ChargeInputBox()
@@ -89,7 +91,7 @@ public class PaymentSettingsPage
 	}
 	
 	
-	@FindBy(xpath = "//app-input[@name='gratuityServiceCharge']/div/div/mat-form-field/div/div/div[4]/input")
+	@FindBy(xpath = "//mat-label[contains(.,'Gratuity Charge')]/../../../input")
 	WebElement Gratuity_ChargeInputBox;
 	
 	public WebElement Gratuity_ChargeInputBox()
@@ -137,7 +139,7 @@ public class PaymentSettingsPage
 	@FindBy(xpath = "//select-option[contains(.,'Others')]")
 	WebElement Others_CardType;
 	
-	@FindBy(xpath = " //app-input[@label='Instant Cash Reward']/div/div/mat-form-field/div/div/div[4]/input")
+	@FindBy(xpath = "//app-input[@label='Instant Cash Reward']/div/div/mat-form-field/div/div/div[4]/input")
 	WebElement Instant_CashRewardInputBox;
 	
 	@FindBy(xpath = "//span[contains(.,'Enter Valid Percentage')]")
@@ -254,8 +256,12 @@ public class PaymentSettingsPage
 		return Cash_DiscountBtn;
 	}
 
-	public void Select_Service_Charge()
+	public void Select_Service_Charge() throws Exception
 	{
+
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Service_ChargeBtn);
+		Thread.sleep(1500);
+
 		Service_ChargeBtn.click();
 	}
 	
@@ -264,8 +270,15 @@ public class PaymentSettingsPage
 		return Service_ChargeBtn;
 	}
 
-	public void Select_Instant_Cash_Reward()
+	public void Select_Instant_Cash_Reward() throws Exception
 	{
+		driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+		Thread.sleep(2000);
+		
+		for(int i = 1; i <= 5; i++) {
+			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+		}Thread.sleep(2000);
+		
 		Instant_CashRewardBtn.click();
 	}
 	

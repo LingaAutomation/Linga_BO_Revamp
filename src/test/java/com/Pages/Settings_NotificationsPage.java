@@ -1079,7 +1079,8 @@ public class Settings_NotificationsPage
 	{
 		Phone_no.clear();
 		Thread.sleep(1000);
-		Phone_no.sendKeys(" ");
+		Phone_no.sendKeys("3432432443");
+		for(int i = 1; i<=12;i++) {Phone_no.sendKeys(Keys.BACK_SPACE);}Thread.sleep(1000);
 	}
 	public void Entering_Invalid_Phoneno_ThreeNum() throws Exception
 	{

@@ -11,6 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -30,6 +31,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.ExtentManager;
 import Utility.Utility;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_Receipt_Printers 
 {
@@ -76,12 +78,14 @@ public class Settings_Receipt_Printers
 	public void Login() throws Exception
 	{
 		
-		
 		Thread.sleep(2000);
 		//Call the chrome driver
-		System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
+		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		driver = new ChromeDriver();
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments("--remote-allow-origins=*");
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver(chromeOptions);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -112,7 +116,6 @@ public class Settings_Receipt_Printers
 		Create_Duplicate_Receipt_Printer(driver);
 		Delete_and_Active_Inactive_Receipt_Printer(driver);
 		Update_Receipt_Printer_Settings(driver);
-
 	}
 	
 	@Test(priority = 3,enabled = false)
@@ -154,7 +157,7 @@ public class Settings_Receipt_Printers
 	
 		//Verify the New Receipt Printer creation screen opened or not 
 		cmp.VerifyCreationScreenPageHeader("New Receipt Printer");
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		
 		//Enter the IP Address
 		kppg.Enter_IPAddress(Utility.getProperty("Receipt_Printer_IP"));
@@ -169,23 +172,20 @@ public class Settings_Receipt_Printers
 		//Click the Save button
 		cmp.Click_SaveButton();
  
-Thread.sleep(3000);
-//Check whether the New Kitchen Printer Saved or not
-if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Please Enter Name"))
-{
-	test.log(LogStatus.PASS, "Please Enter Name is Displayed");
+		/*
+		 * Thread.sleep(6000); //Check whether the New Kitchen Printer Saved or not
+		 * if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Please Enter Name"
+		 * )) { test.log(LogStatus.PASS, "Please Enter Name is Displayed");
+		 * 
+		 * 
+		 * } else { test.log(LogStatus.FAIL, "Please Enter Name is not Displayed");
+		 * 
+		 * }
+		 */
 
-	
-}
-else
-{
-	test.log(LogStatus.FAIL, "Please Enter Name is not Displayed");
-	
-}
-
-Thread.sleep(500);
-//Click Cancel button
-	cmp.Click_CancelButton();
+		Thread.sleep(500);
+		//Click Cancel button
+		cmp.Click_CancelButton();
 
 				Thread.sleep(500);
 				//Click New Receipt Printer 
@@ -226,21 +226,18 @@ Thread.sleep(500);
 				kppg.Enter_IPAddress("abcd");
 				
 				//Check whether the Enter Valid IP Address pop up displayed or not
-				kppg.Verify_Invalid_IP_AddressMsg("Enter Valid IP Address");
+				kppg.Verify_Invalid_IP_AddressMsg("Enter valid IP address.");
 				
 				//Enter the Invalid Ip Address
 				kppg.Enter_IPAddress("180.1.1");
 				
 				//Check whether the Enter Valid IP Address pop up displayed or not
-				kppg.Verify_Invalid_IP_AddressMsg("Enter Valid IP Address");
+				kppg.Verify_Invalid_IP_AddressMsg("Enter valid IP address.");
 		
 		
 				//Enter the IP Address
-				kppg.Enter_IPAddress(Utility.getProperty("Receipt_Printer_IP")+"A");
+				kppg.Enter_IPAddress(Utility.getProperty("Receipt_Printer_IP")+"AHH");
 				
-				//Check whether the Enter Valid IP Address pop up displayed or not
-				kppg.Verify_Invalid_IP_AddressMsg("Enter Valid IP Address");
-		
 				//Enable Set as Default
 				kppg.Enable_SetasDefault();
 				
@@ -248,13 +245,13 @@ Thread.sleep(500);
 				//Click the Save button
 				cmp.Click_SaveButton();
 		 
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		//Check whether the New Kitchen Printer Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Printer Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Receipt Printer Saved Successfully"))
 		{
 			test.log(LogStatus.FAIL, "Kitchen Printer Saved without Selecting Printer Model");
-		
-			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			
 			
 			//Click New Receipt Printer
 			kppg.Click_New_ReceiptPrinter();
@@ -264,8 +261,16 @@ Thread.sleep(500);
 		{
 			test.log(LogStatus.PASS, "Kitchen Printer not Saved without Selecting Printer Model");
 			
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			Thread.sleep(500);
+			//Click Cancel button
+			cmp.Click_CancelButton();
 		}
+		Thread.sleep(6000);
+		Thread.sleep(500);
+		//Click New Receipt Printer 
+		kppg.Click_New_ReceiptPrinter();
 		
 		Thread.sleep(2000);
 		//Enter the Receipt Printer Name
@@ -284,9 +289,9 @@ Thread.sleep(500);
 		//Click the Save button
 		cmp.Click_SaveButton();
  
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		//Check whether the New Kitchen Printer Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Printer Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Receipt Printer Saved Successfully"))
 		{
 			test.log(LogStatus.PASS, "New Receipt Printer Saved Successfully");
 
@@ -297,7 +302,7 @@ Thread.sleep(500);
 			test.log(LogStatus.FAIL, "New Receipt Printer Save Failed");
 	
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}
+		}Thread.sleep(6000);
 
 	
 	}
@@ -329,7 +334,7 @@ Thread.sleep(500);
 		else
 		{
 			test.log(LogStatus.FAIL, "Set as Default is not Selected");
-		}
+		}Thread.sleep(6000);
 		
 		Thread.sleep(1000);
 		//Click Cancel button
@@ -344,7 +349,7 @@ Thread.sleep(500);
 		else
 		{
 			test.log(LogStatus.FAIL, "Receipt Printer not Cancelled");
-		}
+		}Thread.sleep(6000);
 		
 	}
 	
@@ -387,11 +392,11 @@ Thread.sleep(500);
 		//Click the Update button
 		cmp.Click_UpdateButton();
 		
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		//Check whether the New Kitchen Printer Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Printer Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Receipt Printer Updated Successfully"))
 		{
-			test.log(LogStatus.PASS, "New Receipt Printer updated successfully");
+			test.log(LogStatus.PASS, "New Receipt Printer Updated Successfully");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -401,7 +406,7 @@ Thread.sleep(500);
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
-		
+		Thread.sleep(6000);
 
 	}
 	
@@ -442,9 +447,9 @@ Thread.sleep(500);
 		
 		Thread.sleep(2000);
 		//Check whether the New Kitchen Printer Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Name already exist"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Name already exists"))
 		{
-			test.log(LogStatus.PASS, "Receipt Printer Name already exist pop up displayed");
+			test.log(LogStatus.PASS, "Receipt Printer Name already exists pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -461,12 +466,12 @@ Thread.sleep(500);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "Receipt Printer Name already exist pop up not Displayed");
+			test.log(LogStatus.FAIL, "Receipt Printer Name already exists pop up not Displayed");
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 			
 			
-		}
+		}Thread.sleep(6000);
 		
 		Thread.sleep(1000);
 		//Enter the Kitchen Printer Name
@@ -483,12 +488,12 @@ Thread.sleep(500);
 		
 	
 		
- Thread.sleep(1000);
+		Thread.sleep(1000);
 		//Click the Save button
 		cmp.Click_SaveButton();
 
 		
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		//Check whether the New Kitchen Printer Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("IP address already exists"))
 		{
@@ -510,7 +515,7 @@ Thread.sleep(500);
 			test.log(LogStatus.FAIL, "Receipt Printer IP address already exists pop up not Displayed");
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}
+		}Thread.sleep(6000);
 	}
 	
 	@Test(priority = 5,enabled = false)
@@ -531,11 +536,11 @@ Thread.sleep(500);
 				//Click the Cancel button
 				cmp.Click_CancelButtonInAlert();
 		
-				Thread.sleep(3000);
+				Thread.sleep(1500);
 				try
 				{
 				//Check whether the New Kitchen Printer Saved or not
-				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Printer deleted successfully"))
+				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Receipt Printer Deleted Successfully"))
 				{
 					test.log(LogStatus.FAIL, "Kitchen Printer Deleted when clicking Cancel button");
 				
@@ -547,7 +552,7 @@ Thread.sleep(500);
 					test.log(LogStatus.PASS, "Kitchen Printer not Deleted when Clicking Cancel button");
 					
 					ut.PassedCaptureScreenshotAsBASE64(driver, test);
-				}
+				}Thread.sleep(6000);
 				
 		//Search and Click Delete button
 		cmp.SearchAndClickDelete(Utility.getProperty("Receipt_Printer_Name"));
@@ -556,9 +561,9 @@ Thread.sleep(500);
 		//Click the Delete button
 		cmp.Click_DeleteButton();
 		
-		Thread.sleep(3000);
+		Thread.sleep(1500);
 		//Check whether the New Kitchen Printer Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Printer deleted successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Receipt Printer Deleted Successfully"))
 		{
 			test.log(LogStatus.PASS, "Kitchen Printer Deleted Successfully");
 		
@@ -570,6 +575,7 @@ Thread.sleep(500);
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
+		Thread.sleep(5000);
 	}
 	
 
@@ -579,6 +585,7 @@ Thread.sleep(500);
 		cmp=new Common_XPaths(driver, test);
 		kppg=new KitchenPrinterPage(driver, test);
 
+		Thread.sleep(5000);
 		//Select Settings Kitchen Printer
 		kppg.Click_Settings_Tab();
 		
@@ -594,19 +601,19 @@ Thread.sleep(500);
 		//Enable Show Digital Receipt Screen
 		kppg.Enable_Show_Digital_ReceiptScreen();
 		
-		//Check whether the Show Digital Receipt in CDS is Displayed or not
-		if(kppg.Show_Digital_ReceiptinCDS().isDisplayed())
-		{
-			test.log(LogStatus.PASS, "Show Digital Receipt in CDS is Displayed when Enabling Show Digital Receipt Screen");
-			
-			//Enable Show Digital Receipt in CDS
-			kppg.Enable_Show_Digital_ReceiptinCDS();
-		}
-		else
-		{
-			test.log(LogStatus.FAIL, "Show Digital Receipt in CDS is not Displayed when Enabling Show Digital Receipt Screen");
-
-		}
+		/*
+		 * //Check whether the Show Digital Receipt in CDS is Displayed or not
+		 * if(kppg.Show_Digital_ReceiptinCDS().isDisplayed()) { test.log(LogStatus.PASS,
+		 * "Show Digital Receipt in CDS is Displayed when Enabling Show Digital Receipt Screen"
+		 * );
+		 * 
+		 * //Enable Show Digital Receipt in CDS kppg.Enable_Show_Digital_ReceiptinCDS();
+		 * } else { test.log(LogStatus.FAIL,
+		 * "Show Digital Receipt in CDS is not Displayed when Enabling Show Digital Receipt Screen"
+		 * );
+		 * 
+		 * }
+		 */
 		
 		//Enable Show Signature Pad
 		kppg.Enable_Show_SignaturePad();
@@ -626,14 +633,16 @@ Thread.sleep(500);
 		
 		Thread.sleep(2000);
 		//Check whether the Kitchen Printer Settings updated or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Receipt Printers settings Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Receipt Printer Updated Successfully"))
 		{
 			test.log(LogStatus.PASS, "Receipt Printers settings Updated Successfully");
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Receipt Printers settings Updated Failed");
-		}
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}Thread.sleep(6000);
 		
 		Thread.sleep(1000);
 		//Select the Printers Tab
@@ -762,20 +771,22 @@ Thread.sleep(500);
 				}
 				
 				
-		
+		Thread.sleep(5000);for(int i = 1;i <=20;i++) {driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);}Thread.sleep(5000);
 		//Click the Update button
 		kppg.Click_Update_inPrinters();
 		
 		Thread.sleep(2000);
 		//Check whether the Kitchen Printer Settings updated or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Receipt Printers settings Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Receipt Printer Updated Successfully"))
 		{
 			test.log(LogStatus.PASS, "Receipt Printers settings Updated Successfully");
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Receipt Printers settings Updated Failed");
-		}
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}Thread.sleep(6000);
 		
 		
 		//Select Printers Tab

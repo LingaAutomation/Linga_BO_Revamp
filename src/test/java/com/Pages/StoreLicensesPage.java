@@ -1,5 +1,7 @@
 package com.Pages;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -119,7 +121,184 @@ public class StoreLicensesPage
 		
 	}
 	
-	public void Revert_Licenses() throws Exception
+	@FindBy(xpath =  "//div[@class='alert-header']/div/div/h4")
+	WebElement Remainder_Popup;
+	
+	@FindBy(xpath =  "//button/span[contains(.,'No')]")
+	WebElement No_btn;
+	
+	@FindBy(xpath =  "//span[contains(.,'Close') and contains(@class,'mat-button')]")
+	WebElement Close_btn;
+	
+	@FindBy(xpath =  "//button/span[contains(.,'Yes')]")
+	WebElement Yes_btn;
+	
+	@FindBy(xpath = "//input[contains(@data-placeholder,'Search')]")
+	WebElement Search_option;
+	
+	public void Revert_Licenses1() throws InterruptedException
+	{
+
+		List<WebElement> Lst=driver.findElements(By.xpath("//div[contains(@id,'cdk-drop-list')]/div/data-grid-row/div/div[6]"));
+		
+		//Click the signout button
+		for(int i = 1; i <= Lst.size(); i++)
+		{
+			driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div["+i+"]/data-grid-row/div/div[7]/div/button")).click();
+			
+			Thread.sleep(2000);
+			
+			try {
+				String s1 = driver.findElement(By.xpath("//div[@class='message mx-2']/span")).getText();
+				Thread.sleep(500);
+				//Check whether the License unLinked from the device successfully message is displayed
+				if(s1.equals("This Node is configured in 'Revenue Center'. could not unsync."))
+				{
+					test.log(LogStatus.INFO, "This Node is configured in 'Revenue Center'. could not unsync. message is displayed, when user click the Signout button from the list of licenses");		
+				}
+			
+				//Click the close button of warning message
+				driver.findElement(By.xpath("//div[@class='message mx-2']/../mat-icon[.='close']")).click();
+				
+			}
+			catch(Exception r){
+				if(Remainder_Popup.getText().equals("Remainder"))
+				{
+					test.log(LogStatus.PASS, "Remainder popup is displayed successfully");
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Remainder popup is displayed successfully, but it have some spelling mistake");
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
+				}
+				
+				//click the no button
+				No_btn.click();
+				
+				Thread.sleep(2000);
+
+				
+
+			}
+		}
+
+		
+		List<WebElement> Lsta=driver.findElements(By.xpath("//div[contains(@id,'cdk-drop-list')]/div/data-grid-row/div/div[5]"));
+		
+		for(int i = 1; i <= Lst.size(); i++)
+		{
+			driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div["+i+"]/data-grid-row/div/div[7]/div/button")).click();
+			
+			Thread.sleep(2000);
+			
+			try {
+				String s1 = driver.findElement(By.xpath("//div[@class='message mx-2']/span")).getText();
+				Thread.sleep(500);
+				//Check whether the License unLinked from the device successfully message is displayed
+				if(s1.equals("This Node is configured in 'Revenue Center'. could not unsync."))
+				{
+					test.log(LogStatus.INFO, "This Node is configured in 'Revenue Center'. could not unsync. message is displayed, when user click the Signout button from the list of licenses");		
+				}
+			
+				//Click the close button of warning message
+				driver.findElement(By.xpath("//div[@class='message mx-2']/../mat-icon[.='close']")).click();
+				
+			}
+			catch(Exception r){
+				if(Remainder_Popup.getText().equals("Remainder"))
+				{
+					test.log(LogStatus.PASS, "Remainder popup is displayed successfully");
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Remainder popup is displayed successfully, but it have some spelling mistake");
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
+				}
+				
+				//click the Close button
+				Close_btn.click();
+			}
+		}
+		
+		//Get the value from the table
+		String sa = driver.findElement(By.xpath("//data-grid/div/div[3]/div[1]/data-grid-row/div/div[1]/span")).getText();
+		
+		//Click the signout button
+		for(int i = 1; i <= Lst.size(); i++)
+		{
+			driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div["+i+"]/data-grid-row/div/div[7]/div/button")).click();
+			
+			Thread.sleep(2000);
+			
+			try {
+				String s1 = driver.findElement(By.xpath("//div[@class='message mx-2']/span")).getText();
+				Thread.sleep(500);
+				//Check whether the License unLinked from the device successfully message is displayed
+				if(s1.equals("This Node is configured in 'Revenue Center'. could not unsync."))
+				{
+					test.log(LogStatus.INFO, "This Node is configured in 'Revenue Center'. could not unsync. message is displayed, when user click the Signout button from the list of licenses");		
+				}
+			
+				//Click the close button of warning message
+				driver.findElement(By.xpath("//div[@class='message mx-2']/../mat-icon[.='close']")).click();
+				
+			}
+			catch(Exception r){
+				if(Remainder_Popup.getText().equals("Remainder"))
+				{
+					test.log(LogStatus.PASS, "Remainder popup is displayed successfully");
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Remainder popup is displayed successfully, but it have some spelling mistake");
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
+				}
+				
+				//click the yes button
+				Yes_btn.click();
+				
+				Thread.sleep(2000);
+				
+				String s1 = driver.findElement(By.xpath("//div[@class='message mx-2']/span")).getText();
+				Thread.sleep(500);
+				//Check whether the License unLinked from the device successfully message is displayed
+				if(s1.equals("License unLinked from the device successfully"))
+				{
+					test.log(LogStatus.PASS, "License unLinked from the device successfully message is displayed, when user click the yes button from the alert popup");
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "License unLinked from the device successfully is not displayed, when user click the yes button from the alert popup");
+				}
+				
+				//Click the close button of warning message
+				driver.findElement(By.xpath("//div[@class='message mx-2']/../mat-icon[.='close']")).click();
+				
+				Search_option.sendKeys(sa);
+				
+				Thread.sleep(2000);
+				
+				List<WebElement> xs = driver.findElements(By.xpath("//span[contains(.,'Store Licenses not found')]"));
+				
+				if(xs.size() == 1) {
+					test.log(LogStatus.PASS, "After revert the license for the partiuclar node, the corresponding node is not available in the store while searching");
+				}
+				else if(xs.size() == 0)
+				{
+					test.log(LogStatus.FAIL, "After revert the license for the partiuclar node, the corresponding node is available in the store while searching");
+				
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
+				}
+				
+				Search_option.clear();
+				Thread.sleep(10000);
+				break;
+			}
+		}
+	}
+	
+	
+	public void Revert_Licenses()
 	{
 		cmp=new Common_XPaths(driver, test);
 //		List<WebElement> StoreList=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/data-grid-row/div/div[7]/button"));
@@ -128,87 +307,46 @@ public class StoreLicensesPage
 //		{
 //			driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div/data-grid-row/div/div[7]/button")).click();
 //		}
-		try
-		{
 		if(LicenseNotFoundMsg.isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Store Licenses not found");
 		}
-		}
-		catch(Exception p)
+		else
 		{
-			test.log(LogStatus.PASS, "Store Licenses Available");
+			test.log(LogStatus.FAIL, "Store Licenses Available");
 			
-		List<WebElement> StoreList=driver.findElements(By.xpath("//div[@class='data-grid']/div/div/div/data-grid-row/div/div[1]"));
+		List<WebElement> StoreList=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/data-grid-row/div/div[1]"));
 
-	for(int i=1;i<=3;i++)
-	{
-//		for(WebElement ele:StoreList)
-//		{
-//			String license=ele.getText();
-		driver.navigate().refresh();
-		Thread.sleep(6000);
-		
-		Thread.sleep(2000);
-		cmp.SearchBox.clear();
-		
-		String license=driver.findElement(By.xpath("//div[@class='data-grid']/div/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
-			
-			Thread.sleep(2000);
+	
+		for(WebElement ele:StoreList)
+		{
 			cmp.SearchBox.clear();
+			cmp.SearchBox.sendKeys(ele.getText());
 			
-			Thread.sleep(2000);
-			cmp.SearchBox.sendKeys(license);
-			
-			Thread.sleep(3000);
 			Sign_OutBtn.click();
 			
-			try
+			cmp.Click_YesButton();
+			
+			if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("License Unlinked from the device Successfully"))
 			{
-				Thread.sleep(1000);
-				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("This Node is Configured in 'Revenue Center'. Could not unsync."))
-				{
-					test.log(LogStatus.INFO, "This Node is Configured in 'Revenue Center'. Could not unsync.");
+				test.log(LogStatus.PASS, "Licenses Unlinked Successfully");
 				
-					ut.PassedCaptureScreenshotAsBASE64(driver, test);
-					
-					Thread.sleep(2000);
-					cmp.SearchBox.clear();
-				}
+				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
-			catch(Exception e)
+			else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("This Node is Configured in 'Revenue Center'. Could not unsync."))
 			{
+				test.log(LogStatus.INFO, "This Node is Configured in 'Revenue Center'. Could not unsync.");
 			
-				
-				Thread.sleep(1000);
-				if(cmp.AlertMessageTitle.getText().equalsIgnoreCase("Do you want to reset the key ? Make sure offline data are posted to server"))
-				{
-					Thread.sleep(1000);
-					cmp.Click_YesButton();
-					
-					Thread.sleep(3000);
-					if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("License Unlinked from the device Successfully"))
-					{
-						test.log(LogStatus.PASS, "Licenses Unlinked Successfully");
-						
-						ut.PassedCaptureScreenshotAsBASE64(driver, test);
-					}
-					else
-					{
-						test.log(LogStatus.FAIL, "Licenses Unlink Failed");
-						
-						ut.FailedCaptureScreenshotAsBASE64(driver, test);
-					}
-					
-				}
+				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Licenses Unlink Failed");
 				
-			
-			
-			
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
 			}
-	}
-//		}
+		}
+		}
 	}
 	
 	

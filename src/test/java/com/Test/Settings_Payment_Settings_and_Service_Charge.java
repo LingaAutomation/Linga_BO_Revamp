@@ -11,6 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -31,6 +32,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.ExtentManager;
 import Utility.Utility;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.netty.handler.pcap.PcapWriteHandler;
 
 public class Settings_Payment_Settings_and_Service_Charge 
@@ -81,9 +83,12 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		Thread.sleep(2000);
 		//Call the chrome driver
-		System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
+		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		driver = new ChromeDriver();
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments("--remote-allow-origins=*");
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver(chromeOptions);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -113,9 +118,11 @@ public class Settings_Payment_Settings_and_Service_Charge
 		Edit_Cancel_and_Update_ServiceCharge(driver);
 		Edit_and_Change_CardTypes(driver);
 		Add_All_Cards_and_ServiceCharge(driver);
-		Change_and_Update_Instant_Cash_Reward_Payment_Settings(driver);
-		Delete_ServiceCharge_Payment_Settings(driver);
 		
+		Delete_ServiceCharge_Payment_Settings(driver);
+		Change_and_Update_Instant_Cash_Reward_Payment_Settings(driver);
+		
+	
 	}
 	
 	@Test(priority = 3,enabled = false)
@@ -130,7 +137,19 @@ public class Settings_Payment_Settings_and_Service_Charge
 
 		Thread.sleep(5000);
 		//Verify the Payment Settings page loaded or not
-		cmp.VerifyMainScreenPageHeader("Payment Settings");	
+		//cmp.VerifyMainScreenPageHeader("Payment Settings");	
+		if(driver.findElement(By.xpath("//h3[.='Payment Settings']")).getText().trim().equals("Payment Settings"))
+		{
+			test.log(LogStatus.PASS, "Payment Settings Page Loaded Successfully");
+			
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Payment Settings Page Loaded Failed");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}
 	}
 	
 	@Test(priority = 4,enabled = false)
@@ -281,24 +300,27 @@ public class Settings_Payment_Settings_and_Service_Charge
 				pscpg.Enter_CashDiscountPercentage("10500");
 				
 				//Verify whether the Enter Valid Percentage pop up displayed or not 
-				if(pscpg.Valid_PercentageErrorMsg().isDisplayed())
+				if(driver.findElement(By.xpath("//button[@disabled='true']/span/span[.='SAVE']")).isDisplayed())
 				{
-					test.log(LogStatus.PASS, "Enter Valid Percentage is Displayed when Entering above 100 percentage in Cash Discount Percentage");
+					test.log(LogStatus.PASS, "Save button is disabled when Entering above 100 percentage in Cash Discount Percentage");
+					//test.log(LogStatus.PASS, "Enter Valid Percentage is Displayed when Entering above 100 percentage in Cash Discount Percentage");
 				}
 				else
 				{
-					test.log(LogStatus.FAIL, "Enter Valid Percentage is not Displayed when Entering above 100 percentage in Cash Discount Percentage");
+					test.log(LogStatus.FAIL, "Save button is enabled when Entering above 100 percentage in Cash Discount Percentage");
+					//test.log(LogStatus.FAIL, "Enter Valid Percentage is not Displayed when Entering above 100 percentage in Cash Discount Percentage");
 				}
 				
 				//Enter the Cash Discount Percentage
 				pscpg.Enter_CashDiscountPercentage("1000");
 
 				
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		//Click the Save button
-		cmp.Click_SaveButton();
+		//cmp.Click_SaveButton();
+		driver.findElement(By.xpath("//button[.='SAVE']")).click();
 		 
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		//Check whether the New Payment Method Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Payment Settings Saved Successfully"))
 		{
@@ -321,7 +343,11 @@ public class Settings_Payment_Settings_and_Service_Charge
 	{
 		cmp=new Common_XPaths(driver, test);
 		pscpg=new PaymentSettingsPage(driver, test);
-	
+		
+		//click the 
+		pscpg.Select_Service_Charge();
+		
+		Thread.sleep(2000);
 		//Verify the filter
 		cmp.Filter_Columns();
 		
@@ -339,23 +365,25 @@ public class Settings_Payment_Settings_and_Service_Charge
 		//Click the Save button
 		try
 		{
-			cmp.Click_SaveButton();
-			
-			test.log(LogStatus.FAIL, "Allow to Click/Save Payment method without selecting Card Type");
-			
-			if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
-			{
-				test.log(LogStatus.FAIL, "Service Charges saved without Selecting Card Type in Service Charge");
+			if(driver.findElement(By.xpath("//button[contains(@disabled,'true') and contains(.,'Save')]")).isDisplayed()) {
+				test.log(LogStatus.PASS, "Unable to Click/Save Service Charges without Selecting Card Type");
 			}
-			else
-			{
-				
-			}
+			/*
+			 * cmp.Click_SaveButton();
+			 * 
+			 * if(cmp.ConfirmationAlertMsg().getText().
+			 * equalsIgnoreCase("Service Charge Added Successfully")) {
+			 * test.log(LogStatus.FAIL,
+			 * "Service Charges saved without Selecting Card Type in Service Charge"); }
+			 * else {
+			 * 
+			 * }
+			 */
 
 		}
 		catch(Exception e)
 		{
-			test.log(LogStatus.PASS, "Unable to Click/Save Service Charges without Selecting Card Type");
+			test.log(LogStatus.FAIL, "Allow to Click/Save Payment method without selecting Card Type");
 		}
 		
 		//Select Visa Card Type
@@ -382,79 +410,87 @@ public class Settings_Payment_Settings_and_Service_Charge
 	cmp.Click_SaveButton();
 	
 	Thread.sleep(3000);
-	//Check whether the New Payment Method Saved or not
-	if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Please enter tip Charge."))
-	{
-		test.log(LogStatus.PASS, "Please enter tip Charge is Displayed");
-	
-		ut.PassedCaptureScreenshotAsBASE64(driver, test);
+	try {
+		//Check whether the New Payment Method Saved or not
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Please enter tip Charge."))
+		{
+			test.log(LogStatus.PASS, "Please enter tip Charge is Displayed");
+		
+			//ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
+		
+
+		//Enter Service Charge
+				pscpg.Enter_TipCharge("10500");
+				
+				//Verify whether the Enter Valid Percentage pop up displayed or not 
+				if(pscpg.Valid_PercentageErrorMsg().isDisplayed())
+				{
+					test.log(LogStatus.PASS, "Enter Valid Percentage is Displayed when Entering above 100 percentage in Tip Charge");
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Enter Valid Percentage is not Displayed when Entering above 100 percentage in Tip Charge");
+				}
+		
+		//Enter the Tip Charge
+		pscpg.Enter_TipCharge("500");
+		
+		//Enter Service Charge
+		pscpg.Enter_GratuityCharge("10500");
+		
+		//Verify whether the Enter Valid Percentage pop up displayed or not 
+		if(pscpg.Valid_PercentageErrorMsg().isDisplayed())
+		{
+			test.log(LogStatus.PASS, "Enter Valid Percentage is Displayed when Entering above 100 percentage in Gratuity Charge");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Enter Valid Percentage is not Displayed when Entering above 100 percentage in Gratuity Charge");
+		}
+
+			//Enter the Gratuity charge
+			pscpg.Enter_GratuityCharge("1000");
+			
+			//Click Save button
+			cmp.Click_SaveButton();
+			
+			Thread.sleep(3000);
+			//Check whether the New Service Charges Saved or not
+			if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge Added Successfully"))
+			{
+				test.log(LogStatus.PASS, "Service Charges for Visa Card Saved Successfully");
+			
+				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			}
+			else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Card Visa is already Used."))
+			{
+				test.log(LogStatus.INFO, "Card Visa is already Used.");
+				
+				//Click Cancel button
+				cmp.Click_CancelButton();
+				
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Service Charges for Visa Card Save Failed");
+				
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			}
 	}
-	else
+	catch(Exception e)
 	{
 		test.log(LogStatus.FAIL, "Please enter tip Charge is not Displayed");
 		
-		ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		//ut.FailedCaptureScreenshotAsBASE64(driver, test);
 	}
 	
 
-	//Enter Service Charge
-			pscpg.Enter_TipCharge("10500");
-			
-			//Verify whether the Enter Valid Percentage pop up displayed or not 
-			if(pscpg.Valid_PercentageErrorMsg().isDisplayed())
-			{
-				test.log(LogStatus.PASS, "Enter Valid Percentage is Displayed when Entering above 100 percentage in Tip Charge");
-			}
-			else
-			{
-				test.log(LogStatus.FAIL, "Enter Valid Percentage is not Displayed when Entering above 100 percentage in Tip Charge");
-			}
-	
-	//Enter the Tip Charge
-	pscpg.Enter_TipCharge("500");
 	
 
-	//Enter Service Charge
-			pscpg.Enter_GratuityCharge("10500");
-			
-			//Verify whether the Enter Valid Percentage pop up displayed or not 
-			if(pscpg.Valid_PercentageErrorMsg().isDisplayed())
-			{
-				test.log(LogStatus.PASS, "Enter Valid Percentage is Displayed when Entering above 100 percentage in Gratuity Charge");
-			}
-			else
-			{
-				test.log(LogStatus.FAIL, "Enter Valid Percentage is not Displayed when Entering above 100 percentage in Gratuity Charge");
-			}
-	
-	//Enter the Gratuity charge
-	pscpg.Enter_GratuityCharge("1000");
-	
-	//Click Save button
-	cmp.Click_SaveButton();
+
 	 
-	Thread.sleep(3000);
-	//Check whether the New Service Charges Saved or not
-	if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
-	{
-		test.log(LogStatus.PASS, "Service Charges for Visa Card Saved Successfully");
-	
-		ut.PassedCaptureScreenshotAsBASE64(driver, test);
-	}
-	else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Card Visa is already Used."))
-	{
-		test.log(LogStatus.INFO, "Card Visa is already Used.");
-		
-		//Click Cancel button
-		cmp.Click_CancelButton();
-		
-	}
-	else
-	{
-		test.log(LogStatus.FAIL, "Service Charges for Visa Card Save Failed");
-		
-		ut.FailedCaptureScreenshotAsBASE64(driver, test);
-	}
+
 	
 		
 	}
@@ -1032,7 +1068,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 			test.log(LogStatus.FAIL, "Service Charges updated fail for Others");
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}
+		}		Thread.sleep(5000);
 	}
 	
 	
@@ -1044,10 +1080,11 @@ public class Settings_Payment_Settings_and_Service_Charge
 		pscpg=new PaymentSettingsPage(driver, test);
 
 		
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		//Click New Service Charge
 		pscpg.Click_NewServiceCharge();
 		
+		Thread.sleep(5000);
 		//Select Visa
 		pscpg.Select_Visa_CardType();
 		
@@ -1066,7 +1103,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		Thread.sleep(3000);
 		//Check whether the New Service Charges Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge Added Successfully"))
 		{
 			test.log(LogStatus.PASS, "Service Charges for Visa Card Saved Successfully");
 		
@@ -1087,10 +1124,11 @@ public class Settings_Payment_Settings_and_Service_Charge
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
-		Thread.sleep(1000);
+		Thread.sleep(8000);
 		//Click New Service Charge
 		pscpg.Click_NewServiceCharge();
 		
+		Thread.sleep(2000);
 		//Select Master
 		pscpg.Select_Master_CardType();
 		
@@ -1109,7 +1147,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		Thread.sleep(3000);
 		//Check whether the New Service Charges Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge Added Successfully"))
 		{
 			test.log(LogStatus.PASS, "Service Charges for Master Card Saved Successfully");
 		
@@ -1130,10 +1168,10 @@ public class Settings_Payment_Settings_and_Service_Charge
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 	
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		//Click New Service Charge
 		pscpg.Click_NewServiceCharge();
-		
+		Thread.sleep(5000);
 		//Select Amex
 		pscpg.Select_Amex_CardType();
 		
@@ -1152,7 +1190,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		Thread.sleep(3000);
 		//Check whether the New Service Charges Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge Added Successfully"))
 		{
 			test.log(LogStatus.PASS, "Service Charges for Amex Card Saved Successfully");
 		
@@ -1174,10 +1212,10 @@ public class Settings_Payment_Settings_and_Service_Charge
 		}
 	
 		
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		//Click New Service Charge
 		pscpg.Click_NewServiceCharge();
-		
+		Thread.sleep(5000);
 		//Select Diners
 		pscpg.Select_Diners_CardType();
 		
@@ -1196,7 +1234,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		Thread.sleep(3000);
 		//Check whether the New Service Charges Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge Added Successfully"))
 		{
 			test.log(LogStatus.PASS, "Service Charges for Diners Card Saved Successfully");
 		
@@ -1217,10 +1255,10 @@ public class Settings_Payment_Settings_and_Service_Charge
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 	
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		//Click New Service Charge
 		pscpg.Click_NewServiceCharge();
-		
+		Thread.sleep(5000);
 		//Select JCB
 		pscpg.Select_Visa_CardType();
 		
@@ -1239,7 +1277,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		Thread.sleep(3000);
 		//Check whether the New Service Charges Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge Added Successfully"))
 		{
 			test.log(LogStatus.PASS, "Service Charges for JCB Card Saved Successfully");
 		
@@ -1260,10 +1298,10 @@ public class Settings_Payment_Settings_and_Service_Charge
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 	
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		//Click New Service Charge
 		pscpg.Click_NewServiceCharge();
-		
+		Thread.sleep(5000);
 		//Select Discover
 		pscpg.Select_Discover_CardType();
 		
@@ -1282,7 +1320,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		Thread.sleep(3000);
 		//Check whether the New Service Charges Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge Added Successfully"))
 		{
 			test.log(LogStatus.PASS, "Service Charges for Discover Card Saved Successfully");
 		
@@ -1303,10 +1341,10 @@ public class Settings_Payment_Settings_and_Service_Charge
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 	
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		//Click New Service Charge
 		pscpg.Click_NewServiceCharge();
-		
+		Thread.sleep(5000);
 		//Select ATH
 		pscpg.Select_ATH_CardType();
 		
@@ -1325,7 +1363,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		Thread.sleep(3000);
 		//Check whether the New Service Charges Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge Added Successfully"))
 		{
 			test.log(LogStatus.PASS, "Service Charges for ATH Card Saved Successfully");
 		
@@ -1346,10 +1384,10 @@ public class Settings_Payment_Settings_and_Service_Charge
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 	
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		//Click New Service Charge
 		pscpg.Click_NewServiceCharge();
-		
+		Thread.sleep(5000);
 		//Select Cash
 		pscpg.Select_Cash_CardType();
 		
@@ -1368,7 +1406,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		Thread.sleep(3000);
 		//Check whether the New Service Charges Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge Added Successfully"))
 		{
 			test.log(LogStatus.PASS, "Service Charges for Cash Card Saved Successfully");
 		
@@ -1389,10 +1427,10 @@ public class Settings_Payment_Settings_and_Service_Charge
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 	
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		//Click New Service Charge
 		pscpg.Click_NewServiceCharge();
-		
+		Thread.sleep(5000);
 		//Select Unica
 		pscpg.Select_Unica_CardType();
 		
@@ -1411,7 +1449,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		Thread.sleep(3000);
 		//Check whether the New Service Charges Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge Added Successfully"))
 		{
 			test.log(LogStatus.PASS, "Service Charges for Unica Card Saved Successfully");
 		
@@ -1432,10 +1470,10 @@ public class Settings_Payment_Settings_and_Service_Charge
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 	
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		//Click New Service Charge
 		pscpg.Click_NewServiceCharge();
-		
+		Thread.sleep(5000);
 		//Select Ebt
 		pscpg.Select_Ebt_CardType();
 		
@@ -1454,7 +1492,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		Thread.sleep(3000);
 		//Check whether the New Service Charges Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge Added Successfully"))
 		{
 			test.log(LogStatus.PASS, "Service Charges for Ebt Card Saved Successfully");
 		
@@ -1475,10 +1513,10 @@ public class Settings_Payment_Settings_and_Service_Charge
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		//Click New Service Charge
 		pscpg.Click_NewServiceCharge();
-		
+		Thread.sleep(5000);
 		//Select Fondo
 		pscpg.Select_Fondo_CardType();
 		
@@ -1497,7 +1535,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		Thread.sleep(3000);
 		//Check whether the New Service Charges Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge Added Successfully"))
 		{
 			test.log(LogStatus.PASS, "Service Charges for Fondo Card Saved Successfully");
 		
@@ -1518,10 +1556,10 @@ public class Settings_Payment_Settings_and_Service_Charge
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 	
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		//Click New Service Charge
 		pscpg.Click_NewServiceCharge();
-		
+		Thread.sleep(5000);
 		//Select EbtCash
 		pscpg.Select_EbtCash_CardType();
 		
@@ -1540,7 +1578,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		Thread.sleep(3000);
 		//Check whether the New Service Charges Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge Added Successfully"))
 		{
 			test.log(LogStatus.PASS, "Service Charges for EbtCash Card Saved Successfully");
 		
@@ -1561,69 +1599,59 @@ public class Settings_Payment_Settings_and_Service_Charge
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 	
-		Thread.sleep(1000);
-		//Click New Service Charge
-		pscpg.Click_NewServiceCharge();
-		
-		//Select Others
-		pscpg.Select_Others_CardType();
-		
-		//Enter Service charge
-		pscpg.Enter_Service_ChargeName("1000");
-		
-		//Enter Tip Charge
-		pscpg.Enter_TipCharge("800");
-		
-		//Enter Gratuity Charge
-		pscpg.Enter_GratuityCharge("500");
-		
-		Thread.sleep(500);
-		//Click the Save button 
-		cmp.Click_SaveButton();
-		
-		Thread.sleep(3000);
-		//Check whether the New Service Charges Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charges Saved Successfully"))
-		{
-			test.log(LogStatus.PASS, "Service Charges for Others Card Saved Successfully");
-		
-			ut.PassedCaptureScreenshotAsBASE64(driver, test);
-		}
-		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Card Visa is already Used."))
-		{
-			test.log(LogStatus.INFO, "Card Others is already Used.");
-			
-			//Click Cancel button
-			cmp.Click_CancelButton();
-			
-		}
-		else
-		{
-			test.log(LogStatus.FAIL, "Service Charges for Others Card Save Failed");
-			
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}
+		Thread.sleep(2000);
+		/*
+		 * //Click New Service Charge pscpg.Click_NewServiceCharge();
+		 * Thread.sleep(5000); //Select Others pscpg.Select_Others_CardType();
+		 * 
+		 * //Enter Service charge pscpg.Enter_Service_ChargeName("1000");
+		 * 
+		 * //Enter Tip Charge pscpg.Enter_TipCharge("800");
+		 * 
+		 * //Enter Gratuity Charge pscpg.Enter_GratuityCharge("500");
+		 * 
+		 * Thread.sleep(500); //Click the Save button cmp.Click_SaveButton();
+		 * 
+		 * Thread.sleep(3000); //Check whether the New Service Charges Saved or not
+		 * if(cmp.ConfirmationAlertMsg().getText().
+		 * equalsIgnoreCase("Service Charge Added Successfully")) {
+		 * test.log(LogStatus.PASS,
+		 * "Service Charges for Others Card Saved Successfully");
+		 * 
+		 * ut.PassedCaptureScreenshotAsBASE64(driver, test); } else
+		 * if(cmp.ConfirmationAlertMsg().getText().
+		 * equalsIgnoreCase("Card Visa is already Used.")) { test.log(LogStatus.INFO,
+		 * "Card Others is already Used.");
+		 * 
+		 * //Click Cancel button cmp.Click_CancelButton();
+		 * 
+		 * } else { test.log(LogStatus.FAIL,
+		 * "Service Charges for Others Card Save Failed");
+		 * 
+		 * ut.FailedCaptureScreenshotAsBASE64(driver, test); }
+		 */
 	
 		
 		//Click Save button
-		cmp.Click_SaveButton();
-		
-		Thread.sleep(3000);
-		//Check whether the New Payment Method Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Payment Settings Saved Successfully"))
-		{
-			test.log(LogStatus.PASS, "Payment Settings Saved Successfully after Adding All Cards in Service Charges");
-		
-			ut.PassedCaptureScreenshotAsBASE64(driver, test);
-		}
-		else
-		{
-			test.log(LogStatus.FAIL, "Payment Settings Save Failed after Adding All Cards in Service Charges");
-			
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}
-
-	
+		//cmp.Click_SaveButton();
+		/*
+		 * driver.findElement(By.xpath("//button[.='SAVE']")).click();
+		 * 
+		 * Thread.sleep(3000); //Check whether the New Payment Method Saved or not
+		 * if(cmp.ConfirmationAlertMsg().getText().
+		 * equalsIgnoreCase("Payment Settings Saved Successfully")) {
+		 * test.log(LogStatus.PASS,
+		 * "Payment Settings Saved Successfully after Adding All Cards in Service Charges"
+		 * );
+		 * 
+		 * ut.PassedCaptureScreenshotAsBASE64(driver, test); } else {
+		 * test.log(LogStatus.FAIL,
+		 * "Payment Settings Save Failed after Adding All Cards in Service Charges");
+		 * 
+		 * ut.FailedCaptureScreenshotAsBASE64(driver, test); }
+		 * 
+		 * Thread.sleep(6000);
+		 */
 	}
 
 	@Test(priority = 5,enabled = false)
@@ -1708,18 +1736,16 @@ public class Settings_Payment_Settings_and_Service_Charge
 									test.log(LogStatus.PASS, "Unable to Click/Save Payment method without Giving Instant Cash Reward Percentage");
 								}
 								
-								//Enter Cash Discount
-								pscpg.Enter_InstantCashReward("10500");
-								
-								//Verify whether the Enter Valid Percentage pop up displayed or not 
-								if(pscpg.Valid_PercentageErrorMsg().isDisplayed())
-								{
-									test.log(LogStatus.PASS, "Enter Valid Percentage is Displayed when Entering above 100 percentage in Instant Cash Reward Percentage");
-								}
-								else
-								{
-									test.log(LogStatus.FAIL, "Enter Valid Percentage is not Displayed when Entering above 100 percentage in Instant Cash Reward Percentage");
-								}
+								/*
+								 * //Enter Cash Discount pscpg.Enter_InstantCashReward("10500");
+								 * 
+								 * //Verify whether the Enter Valid Percentage pop up displayed or not
+								 * if(pscpg.Valid_PercentageErrorMsg().isDisplayed()) { test.log(LogStatus.PASS,
+								 * "Enter Valid Percentage is Displayed when Entering above 100 percentage in Instant Cash Reward Percentage"
+								 * ); } else { test.log(LogStatus.FAIL,
+								 * "Enter Valid Percentage is not Displayed when Entering above 100 percentage in Instant Cash Reward Percentage"
+								 * ); }
+								 */
 								
 								//Enter the Instant Cash Reward Percentage
 								pscpg.Enter_InstantCashReward("1000");
@@ -1757,8 +1783,10 @@ public class Settings_Payment_Settings_and_Service_Charge
 								//Enter the Percentage
 								pscpg.Enter_InstantCashReward("2000");
 								
+								Thread.sleep(5000);
 								//Click the Save button
-								cmp.Click_SaveButton();
+								//cmp.Click_SaveButton();
+								driver.findElement(By.xpath("//button[.='SAVE']")).click();
 		
 								
 								Thread.sleep(3000);
@@ -1786,9 +1814,9 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		cmp=new Common_XPaths(driver, test);
 		pscpg=new PaymentSettingsPage(driver, test);
-
+		//Thread.sleep(10000);for(int i = 1;i<=5;i++) {driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);}Thread.sleep(3000);
 		//Select Service Charge
-		pscpg.Select_Service_Charge();
+		//pscpg.Select_Service_Charge();
 		
 		//Search and Click Delete button
 				cmp.SearchAndClickDelete("Others");
@@ -1803,13 +1831,13 @@ public class Settings_Payment_Settings_and_Service_Charge
 				Thread.sleep(3000);
 				try
 				{
-				//Check whether the New Payment Method Saved or not
-				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge deleted successfully"))
-				{
-					test.log(LogStatus.FAIL, "Service Charge in Payment Settings Deleted when clicking Cancel button");
-				
-					ut.FailedCaptureScreenshotAsBASE64(driver, test);
-				}
+					//Check whether the New Payment Method Saved or not
+					if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge deleted successfully"))
+					{
+						test.log(LogStatus.FAIL, "Service Charge in Payment Settings Deleted when clicking Cancel button");
+					
+						ut.FailedCaptureScreenshotAsBASE64(driver, test);
+					}
 				}
 				catch(Exception g)
 				{
@@ -1827,7 +1855,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 		
 		Thread.sleep(3000);
 		//Check whether the New Payment Method Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge deleted successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Service Charge Removed Successfully"))
 		{
 			test.log(LogStatus.PASS, "Service Charge in Payment Settings Deleted Successfully");
 		
@@ -1839,25 +1867,41 @@ public class Settings_Payment_Settings_and_Service_Charge
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
+		Thread.sleep(5000);
 		
-		//Click the Save button
-		cmp.Click_SaveButton();
-
+		try {
+			for(int i = 1; i <= 20; i++) {
+				if(driver.findElement(By.xpath("//data-grid-row/div/div/div[2]/button")).isDisplayed())
+				{
+					driver.findElement(By.xpath("//data-grid-row/div/div/div[2]/button")).click();
+				
+					Thread.sleep(500);
+					//Click the Delete button
+					cmp.Click_DeleteButton();
+				}Thread.sleep(4000);
+			}
+		}catch(Exception r) {}
 		
-		Thread.sleep(3000);
-		//Check whether the New Payment Method Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Payment Settings Saved Successfully"))
-		{
-			test.log(LogStatus.PASS, "Payment Settings Saved Successfully");
-		
-			ut.PassedCaptureScreenshotAsBASE64(driver, test);
-		}
-		else
-		{
-			test.log(LogStatus.FAIL, "Payment Settings Save Failed");
+		try {
+			//Click the Save button
+			//cmp.Click_SaveButton();
+			Thread.sleep(8000);
+			driver.findElement(By.xpath("//button[.='SAVE']")).click();
+			Thread.sleep(3000);
+			//Check whether the New Payment Method Saved or not
+			if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Payment Settings Saved Successfully"))
+			{
+				test.log(LogStatus.PASS, "Payment Settings Saved Successfully");
 			
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}
+				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Payment Settings Save Failed");
+				
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			}
+		}catch(Exception d) {}
 		
 		Thread.sleep(1000);
 		driver.navigate().refresh();

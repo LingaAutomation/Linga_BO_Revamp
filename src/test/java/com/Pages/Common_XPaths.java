@@ -3,7 +3,8 @@ package com.Pages;
 import static org.testng.Assert.expectThrows;
 
 import java.time.Duration;
-import java.util.List;
+import java.util.Collections;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
@@ -842,4 +843,108 @@ public class Common_XPaths {
 	{
 		return per_Err;
 	}
+	
+	public void Ascending_And_Descending_Order() 
+	{
+		List<WebElement> col = driver.findElements(By.xpath("//data-grid-row/div/div/div/span[@class='header-title']"));
+		
+		for(int i = 1; i <= col.size(); i++) {
+			
+			
+			//double click the required row for descending order
+			driver.findElement(By.xpath("//data-grid-row/div/div["+i+"]/div/span[@class='header-title']")).click();
+			
+			ArrayList<String> ArLst=new ArrayList<String>();
+			
+			if(driver.findElement(By.xpath("//data-grid-row/div/div["+i+"]/div/div[contains(@class,'mode-asc')]")).isDisplayed())
+			{
+				List<WebElement> Lst=driver.findElements(By.xpath("//div[contains(@id,'cdk-drop-list')]/div/div/data-grid-row/div/div["+i+"]"));
+				
+				for(WebElement ele:Lst)
+				{
+					ArLst.add(ele.getText());
+				}
+				
+				ArrayList<String> sortedLst=new ArrayList<String>();
+				
+				for(String st:ArLst)
+				{
+					sortedLst.add(st);
+				}
+				
+				Collections.sort(sortedLst);
+				//Collections.reverse(sortedLst);
+				//System.out.println(sortedLst);
+				
+				if(sortedLst.equals(ArLst))
+				{
+					test.log(LogStatus.PASS, "Ascending Order Sorted Correctly for "+driver.findElement(By.xpath("//data-grid-row/div/div["+i+"]/div/span[@class='header-title']")).getText());
+					
+					ut.PassedCaptureScreenshotAsBASE64(driver, test);
+					System.out.println("Sorted List from Table(Actual - Ascending) : "+ArLst);
+					System.out.println("Sorted List from Table(Expected - Ascending) : "+sortedLst);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Ascending Order Sorted Incorrect for "+driver.findElement(By.xpath("//data-grid-row/div/div["+i+"]/div/span[@class='header-title']")).getText());
+					
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
+					
+					System.out.println("Sorted List from Table(Actual - Ascending) : "+ArLst);
+					System.out.println("Sorted List from Table(Expected - Ascending) : "+sortedLst);
+				}
+			}
+		}
+		
+		for(int i = 1; i <= col.size(); i++) {
+			
+			
+			//click the required row for descending order
+			driver.findElement(By.xpath("//data-grid-row/div/div["+i+"]/div/span[@class='header-title']")).click();
+			//driver.findElement(By.xpath("//data-grid-row/div/div["+i+"]/div/span[@class='header-title']")).click();
+			
+			ArrayList<String> ArLst=new ArrayList<String>();
+			
+			if(driver.findElement(By.xpath("//data-grid-row/div/div["+i+"]/div/div[contains(@class,'mode-desc')]")).isDisplayed())
+			{
+				List<WebElement> Lst=driver.findElements(By.xpath("//div[contains(@id,'cdk-drop-list')]/div/div/data-grid-row/div/div["+i+"]"));
+				
+				for(WebElement ele:Lst)
+				{
+					ArLst.add(ele.getText());
+				}
+				
+				ArrayList<String> sortedLst=new ArrayList<String>();
+				
+				for(String st:ArLst)
+				{
+					sortedLst.add(st);
+				}
+				
+				Collections.sort(sortedLst);
+				Collections.reverse(sortedLst);
+				//System.out.println(sortedLst);
+				
+				if(sortedLst.equals(ArLst))
+				{
+					test.log(LogStatus.PASS, "Desending Order Sorted Correctly for "+driver.findElement(By.xpath("//data-grid-row/div/div["+i+"]/div/span[@class='header-title']")).getText());
+					
+					ut.PassedCaptureScreenshotAsBASE64(driver, test);
+					
+					System.out.println("Sorted List from Table(Actual - Descending) : "+ArLst);
+					System.out.println("Sorted List from Table(Expected - Descending) : "+sortedLst);
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Desending Order Sorted Incorrect for "+driver.findElement(By.xpath("//data-grid-row/div/div["+i+"]/div/span[@class='header-title']")).getText());
+					
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
+					
+					System.out.println("Sorted List from Table(Actual - Descending) : "+ArLst);
+					System.out.println("Sorted List from Table(Expected - Descending) : "+sortedLst);
+				}
+			}
+		}
+	}
+
 }

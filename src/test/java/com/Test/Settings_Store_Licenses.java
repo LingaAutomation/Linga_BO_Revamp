@@ -2,11 +2,11 @@ package com.Test;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -22,7 +22,6 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.ExtentManager;
 import Utility.Utility;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_Store_Licenses 
 {
@@ -70,12 +69,9 @@ public WebDriver driver;
 		
 		Thread.sleep(2000);
 		//Call the chrome driver
-
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
-		
+		System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
+		//Open the Chrome window
+		driver = new ChromeDriver();
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -111,8 +107,8 @@ public WebDriver driver;
 	{
 		slp=new StoreLicensesPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
-		
-		Thread.sleep(5000);
+
+		Thread.sleep(8000);
 		//Load the Modifier page
 		driver.get(Utility.getProperty("baseURL")+"settings/"+"storeLicenses");
 
@@ -148,7 +144,8 @@ public WebDriver driver;
 		slp=new StoreLicensesPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 
+		//slp.resetKey();
 		
-		slp.Revert_Licenses();
+		slp.Revert_Licenses1();
 	}
 }
