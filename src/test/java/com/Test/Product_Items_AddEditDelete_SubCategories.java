@@ -169,7 +169,7 @@ public WebDriver driver;
 		Thread.sleep(5000);
 	
 		//Verify the New Sub-Category creation screen opened or not
-		cmp.VerifyCreationScreenPageHeader("New Sub-Category");
+		cmp.VerifyCreationScreenPageHeader_Two("New Sub Category");
 		Thread.sleep(2000);
 		
 		if(cmp.Save_and_PublishButton().isEnabled())
@@ -296,9 +296,9 @@ public WebDriver driver;
 		cmp.Click_Save_and_PublishButton();
 		
 		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		//Check whether the New Category Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Saved Successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Saved Successfully"))
 		{
 			test.log(LogStatus.PASS, "New Sub-Category Saved Successfully");
 		
@@ -327,7 +327,7 @@ public WebDriver driver;
 		
 		Thread.sleep(1000);
 		//Check whether the Update screen opened or not
-		cmp.VerifyCreationScreenPageHeader("Update Sub-Category");
+		cmp.VerifyCreationScreenPageHeader_Two("Update Sub Category");
 		
 		Thread.sleep(1000);
 		//Click Cancel button
@@ -377,7 +377,7 @@ public WebDriver driver;
 				
 				Thread.sleep(3000);
 				//Check whether the New Tax Saved or not
-				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Updated Successfully. Store data publish is starting"))
+				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Updated Successfully"))
 				{
 					test.log(LogStatus.FAIL, "Sub-Category Updated successfully for Item Tax (Amount) without Name");
 				
@@ -453,7 +453,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Category Updated or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Updated Successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Updated Successfully"))
 		{
 			test.log(LogStatus.PASS, "New Sub-Category updated successfully for Days of Week");
 		
@@ -521,7 +521,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Sub-Category Updated or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Updated Successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Updated Successfully"))
 		{
 			test.log(LogStatus.PASS, "New Sub-Category updated successfully for Days of Month");
 		
@@ -583,7 +583,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Sub-Category Updated or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Updated Successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Updated Successfully"))
 		{
 			test.log(LogStatus.PASS, "New Sub-Category updated successfully for Date Range");
 		
@@ -633,7 +633,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Sub-Category Updated or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Updated Successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Updated Successfully"))
 		{
 			test.log(LogStatus.PASS, "New Sub-Category updated successfully for Specific Date");
 		
@@ -678,7 +678,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Sub-Category Updated or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Updated Successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Updated Successfully"))
 		{
 			test.log(LogStatus.PASS, "New Sub-Category updated successfully for Date Range with Time");
 		
@@ -839,15 +839,21 @@ public WebDriver driver;
 		//Enter the existing Sub-Category name
 		cmp.EnterName(Utility.getProperty("Sub_Category_Name"));
 		
+		Thread.sleep(1000);
 		//Select Coursing
 		ctp.Select_Coursing();
 		
+		Thread.sleep(1000);
 		//Select Category
 		sctp.Select_Category();
 		
+		driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+		
+		Thread.sleep(1000);
 		//Select Serving Size Level
 		ctp.Select_ServingSizeLevel();
 		
+		Thread.sleep(1000);
 		//Select Taxes
 		ctp.Select_Taxes();
 		
@@ -864,10 +870,18 @@ public WebDriver driver;
 			test.log(LogStatus.PASS, "Category Name already exist pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Saved Successfully"))
+		{
+			test.log(LogStatus.FAIL, "Duplicate Sub Category Saved");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "Category Name already exist pop up not Displayed");
+			test.log(LogStatus.FAIL, "Sub Category Name already exist pop up not Displayed");
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}

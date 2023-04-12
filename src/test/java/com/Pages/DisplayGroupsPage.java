@@ -103,8 +103,8 @@ public class DisplayGroupsPage {
 		
 		Custom_SortingBtn.click();
 		
-		WebElement cuMenu1=driver.findElement(By.xpath("//div[contains(@class,'cdk-drop-list')]/div[1]/mat-icon"));
-		WebElement cuMenu2=driver.findElement(By.xpath("//div[contains(@class,'cdk-drop-list')]/div[2]/mat-icon"));
+		WebElement cuMenu1=driver.findElement(By.xpath("//div[contains(@class,'cdk-drop-list')]/div[1]/div/mat-icon"));
+		WebElement cuMenu2=driver.findElement(By.xpath("//div[contains(@class,'cdk-drop-list')]/div[2]/div/mat-icon"));
 		Actions ac=new Actions(driver);
 		ac.dragAndDrop(cuMenu1, cuMenu2).build().perform();
 		
@@ -129,12 +129,12 @@ public class DisplayGroupsPage {
 	public void Delete_MenuItems() throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
-		List<WebElement> menuList=driver.findElements(By.xpath("//div[contains(@class,'cdk-drop-list')]/div/data-grid-row/div/div[2]/div/button"));
+		List<WebElement> menuList=driver.findElements(By.xpath("//div[contains(@class,'cdk-drop-list')]/div/div/data-grid-row/div/div[2]/div/button"));
 		
 		for(int i=menuList.size()-2;i<=menuList.size()-1;i++)
 		{
 			Thread.sleep(1000);
-			driver.findElement(By.xpath("//div[contains(@class,'cdk-drop-list')]/div["+i+"]/data-grid-row/div/div[2]/div/button")).click();
+			driver.findElement(By.xpath("//div[contains(@class,'cdk-drop-list')]/div["+i+"]/div/data-grid-row/div/div[2]/div/button")).click();
 		
 //			if(cmp.Alert_PopupMsg("Are you sure you want to delete this item?"))
 //			{

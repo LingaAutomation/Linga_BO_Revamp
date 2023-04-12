@@ -114,9 +114,9 @@ public WebDriver driver;
 	public void Calling() throws Exception
 	{
 		Open_DisplayGroups_Page(driver);
-//		RefreshAndPaginination(driver);
-//		Add_DisplayGroups(driver);
-//		Edit_and_Close_Cancel_DisplayGroups(driver);
+		RefreshAndPaginination(driver);
+		Add_DisplayGroups(driver);
+		Edit_and_Close_Cancel_DisplayGroups(driver);
 		Edit_and_Update_DisplayGroups_DaysOfWeek(driver);
 		Edit_and_Update_DisplayGroups_DaysOfMonth_AtoZ_Sorting(driver);
 		Edit_and_Update_DisplayGroups_DateRange_ZtoA_Sorting(driver);
@@ -139,7 +139,7 @@ public WebDriver driver;
 
 		Thread.sleep(5000);
 		//Verify the Display Groups page loaSded or not
-		cmp.VerifyMainScreenPageHeader("Display Groups");	
+		cmp.VerifyMainScreenPageHeader("Display Group");	
 	}
 	
 	@Test(priority = 4,enabled = false)
@@ -166,7 +166,7 @@ public WebDriver driver;
 		Thread.sleep(5000);
 	
 		//Verify the New Display Group creation screen opened or not
-		cmp.VerifyCreationScreenPageHeader("New Display Group");
+		cmp.VerifyCreationScreenPageHeader_Two("New Display Group");
 		Thread.sleep(2000);
 		
 		//Upload picture
@@ -202,9 +202,9 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Display Group Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Display Group Saved Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Display Group Saved And Published Successfully"))
 		{
-			test.log(LogStatus.PASS, "New Display Group Saved Successfully");
+			test.log(LogStatus.PASS, "New Display Group Saved And Published Successfully");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -230,7 +230,7 @@ public WebDriver driver;
 		
 		Thread.sleep(500);
 		//Check whether the Update screen opened or not
-		cmp.VerifyCreationScreenPageHeader("Update Display Group");
+		cmp.VerifyCreationScreenPageHeader_Two("Update Display Group");
 		
 		Thread.sleep(1000);
 		//Click Cancel button
@@ -281,13 +281,13 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(10000);
+//		Thread.sleep(10000);
 		
 		WebDriverWait wt=new WebDriverWait(driver, Duration.ofSeconds(300));
 		//Check whether the New Display Group Updated or not
-		if(wt.until(ExpectedConditions.visibilityOf(cmp.ConfirmationAlertMsg())).getText().equalsIgnoreCase("Display Group Updated Successfully"))
+		if(wt.until(ExpectedConditions.visibilityOf(cmp.ConfirmationAlertMsg())).getText().equalsIgnoreCase("Display Group Updated And Published Successfully"))
 		{
-			test.log(LogStatus.PASS, "New Display Group updated successfully for Days of Week");
+			test.log(LogStatus.PASS, "New Display Group Updated And Published Successfully for Days of Week");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -331,11 +331,11 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		Thread.sleep(2000);
 		//Check whether the New Display Group Updated or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Display Group Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Display Group Updated And Published Successfully"))
 		{
-			test.log(LogStatus.PASS, "New Display Group updated successfully for Days of Month");
+			test.log(LogStatus.PASS, "New Display Group Updated And Published Successfully for Days of Month");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -382,9 +382,9 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Display Group Updated or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Display Group Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Display Group Updated And Published Successfully"))
 		{
-			test.log(LogStatus.PASS, "New Display Group updated successfully for Date Range");
+			test.log(LogStatus.PASS, "New Display Group Updated And Published Successfully for Date Range");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -429,9 +429,9 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Display Group Updated or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Display Group Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Display Group Updated And Published Successfully"))
 		{
-			test.log(LogStatus.PASS, "New Display Group updated successfully for Specific Date");
+			test.log(LogStatus.PASS, "New Display Group Updated And Published Successfully for Specific Date");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -473,13 +473,21 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Display Group Updated or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Display Group Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Display Group Updated And Published Successfully"))
 		{
-			test.log(LogStatus.PASS, "New Display Group updated successfully for Date Range with Time");
+			test.log(LogStatus.PASS, "New Display Group Updated And Published Successfully for Date Range with Time");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
-		else
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Start time and end time are same"))
+		{
+			test.log(LogStatus.FAIL, "Start time and end time are same pop up is Displayed");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
+		}
+		else	
 		{
 			test.log(LogStatus.FAIL, "New Display Group updated fail for Date Range with Time");
 			
@@ -519,9 +527,9 @@ public WebDriver driver;
 //		
 //		Thread.sleep(3000);
 //		//Check whether the New Display Group Saved or not
-//		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Display Group Updated Successfully"))
+//		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Display Group Updated And Published Successfully"))
 //		{
-//			test.log(LogStatus.PASS, "Sorting in Display Group updated successfully");
+//			test.log(LogStatus.PASS, "Sorting in Display Group Updated And Published Successfully");
 //		
 //			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 //		}
@@ -705,6 +713,12 @@ public WebDriver driver;
 			test.log(LogStatus.PASS, "Name already exist pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Display Group Saved And Published Successfully"))
+		{
+			test.log(LogStatus.FAIL, "Duplicate Display Group Saved");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		else
 		{

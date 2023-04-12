@@ -54,7 +54,7 @@ public class ItemServiceChargePage {
 	@FindBy(xpath = "//select-option[contains(.,'Default')]")
 	WebElement Default_Tax_Input_ItemServiceCharge;
 	
-	@FindBy(xpath = "//app-auto-complete[@label='Taxes']/div/mat-form-field/div/div/div[4]/div/mat-icon[contains(.,'close')]")
+	@FindBy(xpath = "//app-auto-complete[@label='Taxes']/div/mat-form-field/div/div/div[4]//button/span/mat-icon[contains(.,'close')]")
 	WebElement Close_Taxes_ItemServiceCharge;
 	
 	
@@ -166,12 +166,38 @@ public class ItemServiceChargePage {
 
 		int OptionsSize=listOfOptions.size();
 		
-		Random rd=new Random();
+//		Random rd=new Random();
 	//	rd.nextInt(menuSize);
+		if(OptionsSize==0)
+		{
+			Taxes_Input_ItemServiceCharge.click();
+			
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[2]")).click();
+
+			
+		}
+		else if(OptionsSize==1)
+		{
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+OptionsSize+"]")).click();
 		
+		}
+		else
+		{
 		int randomOption=ThreadLocalRandom.current().nextInt(2, OptionsSize);
 		 
 		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
 		}
+		
+		List<WebElement> listOfOptions1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+
+		if(listOfOptions1.size()!=0)
+		{
+			Taxes_Input_ItemServiceCharge.click();
+
+		}
+		
+		}
+		
+		
 	}
 }

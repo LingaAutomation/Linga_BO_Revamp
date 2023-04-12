@@ -125,13 +125,13 @@ public class Availability_RestrictionTimePage
 	@FindBy(xpath = "//button[contains(.,'Add New Time')]")
 	WebElement Add_NewTimeBtn;
 	
-		@FindBy(xpath = "//label[contains(.,'Start Date')]/../../input")
+		@FindBy(xpath = "//label[contains(.,'Start Date')]/../../..//mat-datepicker-toggle")
 		WebElement StartDate_DateRangeInputBox;
 		
-		@FindBy(xpath = "//label[contains(.,'End Date')]/../../input")
+		@FindBy(xpath = "//label[contains(.,'End Date')]/../../..//mat-datepicker-toggle")
 		WebElement EndDate_DateRangeInputBox;
 		
-		@FindBy(xpath = "//date-picker[@label='Date *']/div/mat-form-field/div/div/div[3]/input")
+		@FindBy(xpath = "//date-picker[@label='Date *']/div/mat-form-field/div/div/div[3]/../..//mat-datepicker-toggle")
 		WebElement SpecificDate_DateRangeInputBox;
 		
 		@FindBy(xpath = "//app-time-picker[@name='startTime']/div/app-input/div/div/mat-form-field/div/div/div[4]/input")
@@ -139,6 +139,12 @@ public class Availability_RestrictionTimePage
 		
 		@FindBy(xpath = "//app-time-picker[@name='endTime']/div/app-input/div/div/mat-form-field/div/div/div[4]/input")
 		WebElement EndTime_AvailableTimeDateRangeInputBox;
+		
+		@FindBy(xpath = "//app-date-range-with-time/div/div[18]//app-time-picker[contains(@label,'Start Time')]//input")
+		WebElement Start_Time_RestrictionTime_DateRangeWithTime;
+		
+		@FindBy(xpath = "//app-date-range-with-time/div/div[18]//app-time-picker[contains(@label,'End Time')]//input")
+		WebElement End_Time_RestrictionTime_DateRangeWithTime;
 		
 	public void Click_AlwaysButton()
 	{
@@ -214,11 +220,11 @@ public class Availability_RestrictionTimePage
 //		}
 //		else
 //		{
-			Thread.sleep(500);
+			Thread.sleep(1000);
 			RestrictionTime_YesBtn.click();
 //		}
 		
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		StartTime_RestrictionTimeInputBtn.click();
 		
 //		if(TimePickerHeader.isDisplayed())
@@ -277,11 +283,92 @@ public class Availability_RestrictionTimePage
 //		Thread.sleep(500);
 //		Minutes_TimeInputBox.sendKeys("30");
 		
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		PM_Btn.click();
 		
 		
+		Thread.sleep(1000);
+		OK_TimePickerBtn.click();
+	}
+	
+	
+	public void Enter_RestrictionTime_DateRangewithTime() throws Exception
+	{
+		Thread.sleep(1000);
+//		if(RestrictionTime_YesBtn.isSelected())
+//		{
+//			
+//		}
+//		else
+//		{
+			Thread.sleep(1000);
+			RestrictionTime_YesBtn.click();
+//		}
+		
+		Thread.sleep(1000);
+		Start_Time_RestrictionTime_DateRangeWithTime.click();
+		
+//		if(TimePickerHeader.isDisplayed())
+//		{
+			
+		
+		Thread.sleep(1000);
+		Hours_TimeInputBox.click();
+		
+		Thread.sleep(1000);
+//		Hours_TimeInputBox.sendKeys("10");
+//		driver.findElement(By.xpath("//div[contains(@class,'clock-face__number clock-face__number')]/span[.=' 10 ']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'clock-face__number clock-face__number')][10]")).click();
+		
+		Thread.sleep(1000);
+		Minutes_TimeInputBox.clear();
+		
+		Thread.sleep(1000);
+		Minutes_TimeInputBox.sendKeys("30");
+//		driver.findElement(By.xpath("//ngx-material-timepicker-minutes-face/ngx-material-timepicker-face/div/div/div[contains(@class,'clock-face__number clock-face__number')]/span[.=' 30']")).click();
+		
+		Thread.sleep(1000);
+		PM_Btn.click();
+		
+		
+		Thread.sleep(1000);
+		OK_TimePickerBtn.click();
+//		}
+		Thread.sleep(1000);
+		End_Time_RestrictionTime_DateRangeWithTime.click();
+		
 		Thread.sleep(500);
+		Thread.sleep(500);
+//		Hours_TimeInputBox.clear();
+		Hours_TimeInputBox.click();
+
+		Thread.sleep(500);
+//		Hours_TimeInputBox.sendKeys("10");
+//		driver.findElement(By.xpath("//div[contains(@class,'clock-face__number clock-face__number')]/span[.=' 10 ']")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'clock-face__number clock-face__number')][11]")).click();
+		
+		Thread.sleep(500);
+		Minutes_TimeInputBox.clear();
+		
+		Thread.sleep(500);
+		Minutes_TimeInputBox.sendKeys("30");
+//		driver.findElement(By.xpath("//ngx-material-timepicker-minutes-face/ngx-material-timepicker-face/div/div/div[contains(@class,'clock-face__number clock-face__number')]/span[.=' 30']")).click();
+		
+		
+		Thread.sleep(500);
+//		Hours_TimeInputBox.sendKeys("8");
+//		
+//		Thread.sleep(500);
+//		Minutes_TimeInputBox.clear();
+//		
+//		Thread.sleep(500);
+//		Minutes_TimeInputBox.sendKeys("30");
+		
+		Thread.sleep(1000);
+		PM_Btn.click();
+		
+		
+		Thread.sleep(1000);
 		OK_TimePickerBtn.click();
 	}
 	
@@ -321,13 +408,13 @@ public class Availability_RestrictionTimePage
 		Thread.sleep(500);
 //		Hours_TimeInputBox.sendKeys("10");
 //		driver.findElement(By.xpath("//div[contains(@class,'clock-face__number clock-face__number')]/span[.=' 10 ']")).click();
-		driver.findElement(By.xpath("//div[contains(@class,'clock-face__number clock-face__number')][10]")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'clock-face__number clock-face__number')][9]")).click();
 		
 		Thread.sleep(500);
 		Minutes_TimeInputBox.clear();
 		
 		Thread.sleep(500);
-		Minutes_TimeInputBox.sendKeys("30");
+		Minutes_TimeInputBox.sendKeys("00");
 //		driver.findElement(By.xpath("//ngx-material-timepicker-minutes-face/ngx-material-timepicker-face/div/div/div[contains(@class,'clock-face__number clock-face__number')]/span[.=' 45']")).click();
 		AM_Btn.click();
 		
@@ -355,7 +442,7 @@ public class Availability_RestrictionTimePage
 		Thread.sleep(500);
 //		Hours_TimeInputBox.sendKeys("10");
 //		driver.findElement(By.xpath("//div[contains(@class,'clock-face__number clock-face__number')]/span[.=' 10 ']")).click();
-		driver.findElement(By.xpath("//div[contains(@class,'clock-face__number clock-face__number')][8]")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'clock-face__number clock-face__number')][5]")).click();
 		
 		Thread.sleep(500);
 		Minutes_TimeInputBox.clear();
@@ -660,13 +747,14 @@ public class Availability_RestrictionTimePage
 	{
 		JavascriptExecutor js1=(JavascriptExecutor)driver;
 
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		DateRangeWithTime_AvailabiltyBtn.click();
 		Thread.sleep(1000);
 		Enter_StartDate_EndDate_DateRange();
 		
 		for(int i=1;i<=3;i++)
 		{
+			Thread.sleep(1000);
 			driver.findElement(By.tagName("html")).sendKeys(Keys.DOWN);
 		}
 		
@@ -781,16 +869,21 @@ public class Availability_RestrictionTimePage
 		driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 //		driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 
-		js1.executeScript("arguments[0].scrollIntoView(true);", RestrictionDays_YesBtn);
-
+//		js1.executeScript("arguments[0].scrollIntoView(true);", RestrictionDays_YesBtn);
+//driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+		
 		Thread.sleep(1000);
 			RestrictionDays_YesBtn.click();
 //		}
 			
 			Thread.sleep(1000);
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.DOWN);
-			js1.executeScript("arguments[0].scrollIntoView(true);", ShowAll_RestrictionDaysBtn);
-			
+//			js1.executeScript("arguments[0].scrollIntoView(true);", ShowAll_RestrictionDaysBtn);
+//			if(ShowAll_RestrictionDaysBtn.isDisplayed())
+//			{
+//				ShowAll_RestrictionDaysBtn.click();
+//			}
+//			
 		
 		
 			
@@ -810,18 +903,19 @@ public class Availability_RestrictionTimePage
 		for(int j=5;j<=RestrictDaysList.size();j++)
 		{
 			Thread.sleep(1000);
-			if(driver.findElement(By.xpath("//app-chip[@name='restrictDays']/div/mat-chip-list/div/mat-chip["+j+"]")).isEnabled())
-			{
-				
-			}
-			else
-			{
+//			if(driver.findElement(By.xpath("//app-chip[@name='restrictDays']/div/mat-chip-list/div/mat-chip["+j+"]")).isEnabled())
+//			{
+//				
+//			}
+//			else
+//			{
 			driver.findElement(By.xpath("//app-chip[@name='restrictDays']/div/mat-chip-list/div/mat-chip["+j+"]")).click();
-			}
+//			}
 		}
 		
 		for(int i=1;i<=3;i++)
 		{
+			Thread.sleep(1000);
 			driver.findElement(By.tagName("html")).sendKeys(Keys.DOWN);
 		}
 		
@@ -830,7 +924,8 @@ public class Availability_RestrictionTimePage
 		Thread.sleep(1000);
 		if(RestrictionTime_YesBtn.isDisplayed())
 		{
-		Enter_RestrictionTime();
+			
+			Enter_RestrictionTime_DateRangewithTime();
 		}
 		}
 		catch(Exception h) {}

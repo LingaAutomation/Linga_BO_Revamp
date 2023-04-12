@@ -111,12 +111,12 @@ public WebDriver driver;
 	public void Calling() throws Exception
 	{
 		Open_Upcharges_Page(driver);
-//		RefreshAndPaginination(driver);
-//		Add_Upcharges(driver);
-//		Edit_and_Close_Cancel_Upcharges(driver);
-//		Edit_and_Update_Upcharges_Percentage(driver);
-//		Edit_and_Update_SubCategory_Upcharges(driver);
-//		Edit_and_Update_MenuItem_Upcharges(driver);
+		RefreshAndPaginination(driver);
+		Add_Upcharges(driver);
+		Edit_and_Close_Cancel_Upcharges(driver);
+		Edit_and_Update_Upcharges_Percentage(driver);
+		Edit_and_Update_SubCategory_Upcharges(driver);
+		Edit_and_Update_MenuItem_Upcharges(driver);
 		Edit_and_Update_Upcharges_DaysOfWeek(driver);
 		Edit_and_Update_Upcharges_DaysOfMonth(driver);
 		Edit_and_Update_Upcharges_DateRange(driver);
@@ -140,7 +140,7 @@ public WebDriver driver;
 
 		Thread.sleep(5000);
 		//Verify the Upcharges page loeded or not
-		cmp.VerifyMainScreenPageHeader("Upcharges");	
+		cmp.VerifyMainScreenPageHeader("UpCharges");	
 	}
 	
 	@Test(priority = 4,enabled = false)
@@ -170,9 +170,11 @@ public WebDriver driver;
 		Thread.sleep(35000);
 	
 		//Verify the New Upcharge creation screen opened or not
-		cmp.VerifyCreationScreenPageHeader("New Upcharge");
+		cmp.VerifyCreationScreenPageHeader_Two("New Upcharge");
 		Thread.sleep(5000);
 		
+		if(cmp.Save_and_PublishButton().isEnabled())
+		{
 		//Click Save and Publish button
 		cmp.Click_Save_and_PublishButton();
 		
@@ -190,13 +192,18 @@ public WebDriver driver;
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
-		
+		}
+		else
+		{
+			test.log(LogStatus.INFO, "Save and Publish button not Enabled without Entering Upcharge Name");
+		}
 		
 		Thread.sleep(1000);
 		//Enter the Upcharge Name
 		cmp.EnterName(Utility.getProperty("UpChargeName"));
 		
-		
+		if(cmp.Save_and_PublishButton().isEnabled())
+		{
 		Thread.sleep(1000);
 		//Click Save and Publish button
 		cmp.Click_Save_and_PublishButton();
@@ -216,12 +223,18 @@ public WebDriver driver;
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 		
-		
+		}
+		else
+		{
+			test.log(LogStatus.INFO, "Save and Publish button is not Enabled without Entering Amount");
+		}
 				Thread.sleep(1000);
 		//Click the percentage
 		ucp.Click_Percentage_inUpcharge();
 		Thread.sleep(1000);
 
+		if(cmp.Save_and_PublishButton().isEnabled())
+		{
 		//Click Save and Publish button
 		cmp.Click_Save_and_PublishButton();
 				
@@ -239,7 +252,11 @@ public WebDriver driver;
 					
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
-				
+		}
+		else
+		{
+			test.log(LogStatus.INFO, "Save and Publish button is not Enabled without Entering Percentage");
+		}
 				Thread.sleep(500);
 				//Select Upcharge Type as Amount
 				ucp.Click_Amount_inUpcharge();
@@ -249,6 +266,8 @@ public WebDriver driver;
 				tp.Enter_AmountBox("1000");
 				Thread.sleep(500);
 
+				if(cmp.Save_and_PublishButton().isEnabled())
+				{
 				//Click Save and Publish button
 				cmp.Click_Save_and_PublishButton();
 				Thread.sleep(500);
@@ -267,7 +286,13 @@ public WebDriver driver;
 							
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
-		
+				}
+				else
+				{
+					test.log(LogStatus.INFO, "Save and Publish button is not Enabled without Selecting Categories");
+				}
+						
+						
 						for(int i=1;i<=5;i++)
 						{
 							Thread.sleep(1000);
@@ -322,7 +347,7 @@ public WebDriver driver;
 		
 		Thread.sleep(35000);
 		//Check whether the Update screen opened or not
-		cmp.VerifyCreationScreenPageHeader("Update Upcharge");
+		cmp.VerifyCreationScreenPageHeader_Two("Update Upcharge");
 		
 		Thread.sleep(1000);
 		//Click Cancel button
@@ -758,6 +783,15 @@ public WebDriver driver;
 			test.log(LogStatus.PASS, "New Upcharge updated successfully for Date Range with Time");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Select start time"))
+		{
+			test.log(LogStatus.FAIL, "Select start time displays even when Start Time is already selected");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
+		
 		}
 		else
 		{

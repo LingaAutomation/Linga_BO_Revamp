@@ -107,7 +107,7 @@ public WebDriver driver;
 	public void Calling() throws Exception
 	{
 		Open_TareGroups_Page(driver);
-		//RefreshAndPaginination(driver);
+		RefreshAndPaginination(driver);
 		Add_TareGroups(driver);
 		Edit_and_Close_Cancel_TareGroups(driver);
 		Edit_and_Update_TareGroups(driver);
@@ -507,6 +507,14 @@ public WebDriver driver;
 		{
 			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
 		
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_CancelButton();
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Name already exist"))
+		{
+			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
+			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
 		else

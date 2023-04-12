@@ -6,12 +6,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+import Utility.Utility;
 
 public class GratuitiesPage {
 
 	public WebDriver driver;
 	public ExtentTest test;
 	Common_XPaths cmp;
+	Utility ut=new Utility();
+			
 	public GratuitiesPage(WebDriver driver,ExtentTest test)
 	{
 		this.driver=driver;
@@ -47,6 +52,13 @@ public class GratuitiesPage {
 
 	@FindBy(xpath = "//label[contains(.,'Auto Gratuity Seat Count')]/../../input")
 	WebElement Auto_Seat_Count_InputBox;
+	
+	@FindBy(xpath = "//span[contains(.,'Enter Valid Percentage')]")
+	WebElement Enter_Valid_Percentage_ErrorMsg;
+	
+	@FindBy(xpath = "//span[contains(.,'Enter Valid Seat Count')]")
+	WebElement Enter_Valid_SeatCount_ErrorMsg;
+
 
 	public void Click_NewGratuityButton()
 	{
@@ -59,11 +71,21 @@ public class GratuitiesPage {
 		cmp.EnterName(str);
 	}
 	
+	@FindBy(xpath = "//mat-icon[.='arrow_drop_down']")
+	WebElement ArrowDown_PercentageBtn;
+	
+	@FindBy(xpath = "//mat-icon[.='arrow_drop_up']")
+	WebElement ArrowUp_PercentageBtn;
+	
+	
 	public void Enter_PercentageFixed(String str) throws Exception
 	{
 		Percentage_InputBox.clear();
 		Thread.sleep(500);
 		Percentage_InputBox.sendKeys(str);
+		
+//		ArrowDown_PercentageBtn.click();
+//		ArrowUp_PercentageBtn.click();
 	}
 	
 	public WebElement Percentage_InputBox()
@@ -270,7 +292,41 @@ public class GratuitiesPage {
 
 	}
 	
+	public void Verify_Valid_Percentage_ErrorMessage()
+	{
+		try
+		{
+			if(Enter_Valid_Percentage_ErrorMsg.isDisplayed())
+			{
+				test.log(LogStatus.PASS, "Please Enter Valid Percentage Alert Displayed");
+				
+				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			}
+		}
+		catch(Exception r)
+		{
+			test.log(LogStatus.FAIL, "Please Enter Valid Percentage Alert not Displayed");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}
+	}
 	
-	
-	
+	public void Verify_Valid_Seat_Count_ErrorMessage()
+	{
+		try
+		{
+			if(Enter_Valid_SeatCount_ErrorMsg.isDisplayed())
+			{
+				test.log(LogStatus.PASS, "Please Enter Valid Seat Count Alert Displayed");
+				
+				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			}
+		}
+		catch(Exception r)
+		{
+			test.log(LogStatus.FAIL, "Please Enter Valid Seat Count Alert not Displayed");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}
+	}
 }

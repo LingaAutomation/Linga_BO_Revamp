@@ -169,7 +169,7 @@ public WebDriver driver;
 		Thread.sleep(2000);
 	
 		//Verify the New Tax creation screen opened or not
-		cmp.VerifyCreationScreenPageHeader("New Tax");
+		cmp.VerifyCreationScreenPageHeader_Two("New Tax");
 		Thread.sleep(2000);
 		
 		if(cmp.Save_and_PublishButton().isEnabled())
@@ -179,7 +179,7 @@ public WebDriver driver;
 				
 				Thread.sleep(3000);
 				//Check whether the New Tax Saved or not
-				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax saved successfully. Store data publish is starting"))
+				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Saved Successfully and Store data published successfully"))
 				{
 					test.log(LogStatus.FAIL, "Tax saved successfully for Item Tax (Amount) without Name");
 				
@@ -228,7 +228,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Tax Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax saved successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Saved Successfully and Store data published successfully"))
 		{
 			test.log(LogStatus.PASS, "Tax saved and Published successfully for Item Tax (Amount)");
 		
@@ -279,7 +279,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Tax Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax saved successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Saved Successfully and Store data published successfully"))
 		{
 			test.log(LogStatus.PASS, "Tax Saved and Publish Successfully for Item Tax (Percentage)");
 		
@@ -322,7 +322,7 @@ public WebDriver driver;
 		Thread.sleep(3000);
 //		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(90));
 		//Check whether the New Tax Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax saved successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Saved Successfully and Store data published successfully"))
 		{
 			test.log(LogStatus.PASS, "Tax Saved and Publish Successfully for Check Tax");
 		
@@ -371,7 +371,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Tax Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax saved successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Saved Successfully and Store data published successfully"))
 		{
 			test.log(LogStatus.PASS, "Tax Saved and Publish Successfully for Tax On Item Tax");
 		
@@ -412,7 +412,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Tax Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax saved successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Saved Successfully and Store data published successfully"))
 		{
 			test.log(LogStatus.PASS, "Tax Saved and Published Successfully for Tax On Check Tax");
 		
@@ -439,7 +439,7 @@ public WebDriver driver;
 		
 		Thread.sleep(2000);
 		//Check whether the application displays Update screen or not
-		cmp.VerifyCreationScreenPageHeader("Update Tax");
+		cmp.VerifyCreationScreenPageHeader_Two("Update Tax");
 		
 		Thread.sleep(2000);
 		//Click the Close button
@@ -479,7 +479,7 @@ public WebDriver driver;
 //				
 //				Thread.sleep(3000);
 //				//Check whether the New Tax Saved or not
-//				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Updated successfully. Store data publish is starting"))
+//				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Updated Successfully and Store data published successfully"))
 //				{
 //					test.log(LogStatus.FAIL, "Tax Updated and Published for Item Tax (Amount) without Name");
 //				
@@ -526,7 +526,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Tax Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Updated successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Updated Successfully and Store data published successfully"))
 		{
 			test.log(LogStatus.PASS, "Tax Updated and Published Successfully for Item Tax");
 		
@@ -572,7 +572,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Tax Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Updated successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Updated Successfully and Store data published successfully"))
 		{
 			test.log(LogStatus.PASS, "Tax Updated and Published Successfully for Check Tax");
 		
@@ -627,7 +627,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Tax Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Updated successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Updated Successfully and Store data published successfully"))
 		{
 			test.log(LogStatus.PASS, "Tax Updated and Published Successfully for Tax On Item Tax");
 		
@@ -669,7 +669,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Tax Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Updated successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Updated Successfully and Store data published successfully"))
 		{
 			test.log(LogStatus.PASS, "Tax Updated and Published Successfully for Tax On Check Tax");
 		
@@ -895,7 +895,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Tax Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Saved successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Saved Successfully and Store data published successfully"))
 		{
 			test.log(LogStatus.PASS, "Tax Saved and Published Successfully for Tax Per Service Type");
 		
@@ -942,7 +942,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the New Tax Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Updated successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Updated Successfully and Store data published successfully"))
 		{
 			test.log(LogStatus.PASS, "Tax Updated and Published Successfully for Tax Per Service Type");
 		

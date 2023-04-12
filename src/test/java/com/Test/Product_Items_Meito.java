@@ -89,7 +89,7 @@ public WebDriver driver;
 		//Launch the URL
 		driver.get(Utility.getProperty("appURL"));
 		
-		Thread.sleep(50000);
+		Thread.sleep(10000);
 		a.Login(driver, test);
 	}
 	

@@ -424,7 +424,7 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 		try
 		{
 		//Check whether the New Modifier Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Serving-size Level Inactivated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Serving Size Level Inactivated Successfully"))
 		{
 			test.log(LogStatus.FAIL, "Serving-size Level Deleted when clicking Cancel button");
 		
@@ -448,7 +448,7 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 		
 		Thread.sleep(3000);
 		//Check whether the New Serving Size Level Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Serving-size Level Inactivated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Serving Size Level Inactivated Successfully"))
 		{
 			test.log(LogStatus.PASS, "Serving Size Level Inactivated Successfully");
 		
@@ -487,7 +487,7 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 		{
 		Thread.sleep(3000);
 		//Check whether the New Modifier Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Serving-size Level Activated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Serving size Level Activated Successfully"))
 		{
 			test.log(LogStatus.FAIL, "Serving-size Level Activated when clicking Cancel button");
 		
@@ -511,7 +511,7 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 		
 		Thread.sleep(3000);
 		//Check whether the New Serving Size Level Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Serving-size Level Activated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Serving Size Level Activated Successfully"))
 		{
 			test.log(LogStatus.PASS, "Serving Size Level activated Successfully");
 		
@@ -572,6 +572,12 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 		{
 			test.log(LogStatus.PASS, "Name already exist pop up displayed");
 		
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
+		{
+			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
+			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
 		else

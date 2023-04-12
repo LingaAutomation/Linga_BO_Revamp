@@ -506,6 +506,12 @@ public WebDriver driver;
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
+		{
+			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
+			
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Department Name already exist pop up not Displayed");

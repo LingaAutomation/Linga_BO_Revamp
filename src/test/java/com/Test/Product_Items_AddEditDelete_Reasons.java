@@ -713,7 +713,7 @@ public WebDriver driver;
 		//Click the Update button
 		cmp.Click_UpdateButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 30);
 		//Check whether the New Reason Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Reasons Reasons Updated Successfully"))
 		{
@@ -1119,6 +1119,8 @@ public WebDriver driver;
 			test.log(LogStatus.PASS, "Reason already exist pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_CancelButton();
 		}
 		else
 		{

@@ -130,7 +130,7 @@ public class GiftCardsPage {
 		Thread.sleep(500);
 		BalanceInputBox.clear();
 		Thread.sleep(500);
-		BalanceInputBox.sendKeys("10000");
+		BalanceInputBox.sendKeys("20000");
 		Thread.sleep(500);
 		try
 		{
@@ -200,8 +200,9 @@ public class GiftCardsPage {
 		Thread.sleep(1000);
 		BalanceInputBox.sendKeys("50.00");
 		
+//		Removed this discount 100 per
 		Thread.sleep(1000);
-		Discount100PerBtn.click();
+//		Discount100PerBtn.click();  
 	}
 	
 	public void Select_VisaCard(String str) throws Exception

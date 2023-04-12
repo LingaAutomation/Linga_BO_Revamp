@@ -182,17 +182,25 @@ public WebDriver driver;
 		}
 		else
 		{
-			test.log(LogStatus.PASS, "Save button not Enabled without Entering Gratuity Namer");
+			test.log(LogStatus.PASS, "Save button not Enabled without Entering Gratuity Name");
 		}
 		
 		Thread.sleep(500);
 		//Enter the Gratuity Name
 		gp.Enter_GratuityName(Utility.getProperty("GratuityName_Fixed"));
 		
+		
+		gp.Enter_PercentageFixed("0");
+		
+		
+		gp.Verify_Valid_Percentage_ErrorMessage();
+
+		
 		if(cmp.Save_Button().isEnabled())
 		{
 		//Click the Save button
 		cmp.Click_SaveButton();
+		
 		
 		Thread.sleep(3000);
 		//Check whether the New Gratuity Saved or not
@@ -222,6 +230,10 @@ public WebDriver driver;
 				//Enable Auto Gratuity Seat Count
 				gp.Enable_Auto_Gratuity();
 				
+				gp.Enter_Auto_Gratuity_SeatCount("0");
+				
+				gp.Verify_Valid_Seat_Count_ErrorMessage();
+				
 				if(cmp.Save_Button().isEnabled())
 				{
 				Thread.sleep(500);
@@ -246,12 +258,21 @@ public WebDriver driver;
 				else
 				{
 					test.log(LogStatus.PASS, "Save button not Enabled without Entering Auto Gratuity Seat Count");
+					
+				
 				}
 				
 				Thread.sleep(2000);
 				//Enter the Fixed Gratuity
 				gp.Enter_Fixed_Gratuity(Utility.getProperty("GratuityName_Fixed"));
 		
+				
+				Thread.sleep(2000);
+				//Enter the Percentage
+				gp.Enter_PercentageFixed("1000");
+				
+				
+				
 		Thread.sleep(2000);
 		//Click the Save button
 		cmp.Click_SaveButton();
@@ -272,7 +293,7 @@ public WebDriver driver;
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		//Click the New Gratuity
 		gp.Click_NewGratuityButton();
 		Thread.sleep(2500);
@@ -366,15 +387,16 @@ public WebDriver driver;
 		cmp.SearchAndClickEdit(Utility.getProperty("GratuityName_Fixed"));
 		
 		//Check whether the Auto Gratuity Enabled or not
-		if(!gp.Auto_Gratuity_Toggle().isEnabled())
+		if(gp.Auto_Gratuity_Toggle().isEnabled())
 		{
-			test.log(LogStatus.PASS, "Auto Gratuity not Enabled");
-			
+			test.log(LogStatus.FAIL, "Auto Gratuity Enabled");
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "Auto Gratuity Enabled");
+			test.log(LogStatus.PASS, "Auto Gratuity not Enabled");
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
 		//Enter the Percentage
@@ -464,6 +486,8 @@ public WebDriver driver;
 				//Enter Max Percentage
 				gp.Enter_Max_PercentageFixed("4000");
 				
+				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+				
 				Thread.sleep(1000);
 				gp.Enter_Auto_Gratuity_SeatCount("15");
 				
@@ -500,7 +524,7 @@ public WebDriver driver;
 				else
 				{
 					test.log(LogStatus.FAIL, "Min Percentage not changed after the Update (Variable)");
-
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
 				
@@ -512,7 +536,7 @@ public WebDriver driver;
 				else
 				{
 					test.log(LogStatus.FAIL, "Max Percentage not changed after the Update (Variable)");
-
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
 				

@@ -594,6 +594,8 @@ public WebDriver driver;
 			test.log(LogStatus.PASS, "Gift Card number already exist pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_CancelButton();
 		}
 		else
 		{

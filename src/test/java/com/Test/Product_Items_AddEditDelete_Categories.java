@@ -251,7 +251,7 @@ public WebDriver driver;
 		//Select Item Service Level
 		ctp.Select_ServingSizeLevel();
 		
-		for(int i=1;i<=3;i++)
+		for(int i=1;i<=2;i++)
 		{
 			Thread.sleep(1000);
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
@@ -271,7 +271,7 @@ public WebDriver driver;
 		//Select Tax
 		ctp.Create_Category_NewTax(Utility.getProperty("Category_Add_Tax_Name"));
 		Thread.sleep(2000);
-		ctp.Select_Taxes();
+//		ctp.Select_Taxes();
 		
 		Thread.sleep(1000);
 		//Select Item Service Charge
@@ -384,7 +384,8 @@ public WebDriver driver;
 		//Click the Save button
 				cmp.Click_Update_and_PublishButton();
 				
-				Thread.sleep(3000);
+//				Thread.sleep(2000);
+				cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 30);
 				//Check whether the New Tax Saved or not
 				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated Successfully. Store data publish is starting"))
 				{
@@ -410,13 +411,19 @@ public WebDriver driver;
 			test.log(LogStatus.PASS, "Save and Publish button not Enabled without Entering Name");
 		}
 		
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		//Enter the Name
 		cmp.EnterName(Utility.getProperty("Category_Name")+"1");
 		
 		Thread.sleep(1000);
 		//Select Department
 		ctp.Select_Department();
+		
+		for(int i=1;i<=3;i++)
+		{
+			Thread.sleep(1000);
+			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+		}
 		
 		Thread.sleep(1000);
 		//Select Coursing
@@ -453,7 +460,9 @@ public WebDriver driver;
 		//Disable Hide In Online Order
 		ctp.DeSelect_HideinOnlineOrder();
 		
-		Thread.sleep(1000);
+		Thread.sleep(2000);
+		if(cmp.Update_and_PublishButton().isEnabled())
+		{
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
@@ -471,7 +480,11 @@ public WebDriver driver;
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
-		
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Category not updated to Days of Week due to Update button is not Enabled");
+		}
 	}
 	
 	@Test(priority = 5,enabled = false)
@@ -492,6 +505,12 @@ public WebDriver driver;
 		Thread.sleep(1000);
 		//Select Department
 		ctp.Select_Department();
+		
+		for(int i=1;i<=3;i++)
+		{
+			Thread.sleep(1000);
+			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+		}
 		
 		Thread.sleep(1000);
 		//Select Coursing
@@ -561,6 +580,12 @@ public WebDriver driver;
 		//Select Department
 		ctp.Select_Department();
 		
+		for(int i=1;i<=3;i++)
+		{
+			Thread.sleep(1000);
+			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+		}
+		
 		Thread.sleep(1000);
 		//Select Coursing
 		ctp.Select_Coursing();
@@ -622,6 +647,12 @@ public WebDriver driver;
 		//Select Department
 		ctp.Select_Department();
 		
+		for(int i=1;i<=3;i++)
+		{
+			Thread.sleep(1000);
+			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+		}
+		
 		Thread.sleep(1000);
 		//Select Coursing
 		ctp.Select_Coursing();
@@ -674,15 +705,19 @@ public WebDriver driver;
 		//Search and Click Edit button
 		cmp.SearchAndClickEdit(Utility.getProperty("Category_Name"));
 		
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		//Enter the Name
 		cmp.EnterName(Utility.getProperty("Category_Name"));
-
-		for(int i=1;i<=3;i++)
+//
+		
+//		cmp.Cursor_MoveToElement(at.DateRangeWithTime_Availabilty());
+		for(int i=1;i<=6;i++)
 		{
+			Thread.sleep(1000);
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 		}
-		
+//		
+		Thread.sleep(2000);
 		//Select Days of Week
 		at.Select_DateRangeWithTime();
 		
@@ -698,6 +733,15 @@ public WebDriver driver;
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
+//		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
+//		{
+//			test.log(LogStatus.FAIL, "Validation Error Displayed ");
+//			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+//			
+//			Thread.sleep(1000);
+//			cmp.Click_BackspaceButton();
+//			
+//		}
 		else
 		{
 			test.log(LogStatus.FAIL, "New Category updated fail for Date Range with Time");
@@ -854,6 +898,12 @@ public WebDriver driver;
 		//Enter Department
 		ctp.Select_Department();
 		
+		for(int i=1;i<=3;i++)
+		{
+			Thread.sleep(1000);
+			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+		}
+		
 		//Select Coursing
 		ctp.Select_Coursing();
 		
@@ -872,6 +922,14 @@ public WebDriver driver;
 			test.log(LogStatus.PASS, "Category Name already exist pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Saved Successfully. Store data publish is starting"))
+		{
+			test.log(LogStatus.FAIL, "Duplicate Category Saved");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		else
 		{

@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="13" total="16" passed="3" failed="0" skipped="0">
+<testng-results ignored="7" total="10" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-04-10T14:45:42 IST" name="Default suite" finished-at="2023-04-10T14:48:22 IST" duration-ms="160244">
+  <suite started-at="2023-04-12T19:27:00 IST" name="Default suite" finished-at="2023-04-12T19:36:27 IST" duration-ms="566181">
     <groups>
     </groups>
-    <test started-at="2023-04-10T14:45:42 IST" name="Default test" finished-at="2023-04-10T14:48:22 IST" duration-ms="160244">
-      <class name="com.Test.Reports_Daily_Sale_Report">
-        <test-method signature="Login()[pri:1, instance:com.Test.Reports_Daily_Sale_Report@6692b6c6]" started-at="2023-04-10T14:45:42 IST" name="Login" finished-at="2023-04-10T14:46:33 IST" duration-ms="51615" status="PASS">
+    <test started-at="2023-04-12T19:27:00 IST" name="Default test" finished-at="2023-04-12T19:36:27 IST" duration-ms="566181">
+      <class name="com.Test.Product_Items_AddEditDelete_Reasons">
+        <test-method signature="Login()[pri:1, instance:com.Test.Product_Items_AddEditDelete_Reasons@7a3793c7]" started-at="2023-04-12T19:27:00 IST" name="Login" finished-at="2023-04-12T19:27:44 IST" duration-ms="44048" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Reports_Daily_Sale_Report@6692b6c6]" started-at="2023-04-10T14:46:33 IST" name="TestFail" finished-at="2023-04-10T14:46:33 IST" duration-ms="5" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_AddEditDelete_Reasons@7a3793c7]" started-at="2023-04-12T19:27:44 IST" name="TestFail" finished-at="2023-04-12T19:27:44 IST" duration-ms="3" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login status=SUCCESS method=Reports_Daily_Sale_Report.Login()[pri:1, instance:com.Test.Reports_Daily_Sale_Report@6692b6c6] output={null}]]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=Product_Items_AddEditDelete_Reasons.Login()[pri:1, instance:com.Test.Product_Items_AddEditDelete_Reasons@7a3793c7] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method signature="Calling()[pri:2, instance:com.Test.Reports_Daily_Sale_Report@6692b6c6]" started-at="2023-04-10T14:46:33 IST" name="Calling" finished-at="2023-04-10T14:48:20 IST" duration-ms="106172" status="PASS">
+        <test-method signature="Calling()[pri:2, instance:com.Test.Product_Items_AddEditDelete_Reasons@7a3793c7]" started-at="2023-04-12T19:27:44 IST" name="Calling" finished-at="2023-04-12T19:36:24 IST" duration-ms="519445" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Calling -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Reports_Daily_Sale_Report@6692b6c6]" started-at="2023-04-10T14:48:20 IST" name="TestFail" finished-at="2023-04-10T14:48:20 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_AddEditDelete_Reasons@7a3793c7]" started-at="2023-04-12T19:36:24 IST" name="TestFail" finished-at="2023-04-12T19:36:24 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Calling status=SUCCESS method=Reports_Daily_Sale_Report.Calling()[pri:2, instance:com.Test.Reports_Daily_Sale_Report@6692b6c6] output={null}]]]>
+                <![CDATA[[TestResult name=Calling status=SUCCESS method=Product_Items_AddEditDelete_Reasons.Calling()[pri:2, instance:com.Test.Product_Items_AddEditDelete_Reasons@7a3793c7] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method signature="LogOut()[pri:50, instance:com.Test.Reports_Daily_Sale_Report@6692b6c6]" started-at="2023-04-10T14:48:20 IST" name="LogOut" finished-at="2023-04-10T14:48:20 IST" duration-ms="233" status="PASS">
+        <test-method signature="LogOut()[pri:50, instance:com.Test.Product_Items_AddEditDelete_Reasons@7a3793c7]" started-at="2023-04-12T19:36:24 IST" name="LogOut" finished-at="2023-04-12T19:36:24 IST" duration-ms="360" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogOut -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Reports_Daily_Sale_Report@6692b6c6]" started-at="2023-04-10T14:48:20 IST" name="TestFail" finished-at="2023-04-10T14:48:20 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_AddEditDelete_Reasons@7a3793c7]" started-at="2023-04-12T19:36:24 IST" name="TestFail" finished-at="2023-04-12T19:36:24 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=LogOut status=SUCCESS method=Reports_Daily_Sale_Report.LogOut()[pri:50, instance:com.Test.Reports_Daily_Sale_Report@6692b6c6] output={null}]]]>
+                <![CDATA[[TestResult name=LogOut status=SUCCESS method=Product_Items_AddEditDelete_Reasons.LogOut()[pri:50, instance:com.Test.Product_Items_AddEditDelete_Reasons@7a3793c7] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method is-config="true" signature="flushTest()[pri:0, instance:com.Test.Reports_Daily_Sale_Report@6692b6c6]" started-at="2023-04-10T14:48:20 IST" name="flushTest" finished-at="2023-04-10T14:48:22 IST" duration-ms="2179" status="PASS">
+        <test-method is-config="true" signature="flushTest()[pri:0, instance:com.Test.Product_Items_AddEditDelete_Reasons@7a3793c7]" started-at="2023-04-12T19:36:24 IST" name="flushTest" finished-at="2023-04-12T19:36:27 IST" duration-ms="2284" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flushTest -->
-      </class> <!-- com.Test.Reports_Daily_Sale_Report -->
+      </class> <!-- com.Test.Product_Items_AddEditDelete_Reasons -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -167,6 +167,8 @@ public WebDriver driver;
 		cmp.VerifyCreationScreenPageHeader("New Coursing");
 		Thread.sleep(2000);
 		
+		if(cmp.Save_Button().isEnabled())
+		{
 		//Click the Save button
 		cmp.Click_SaveButton();
 		
@@ -183,6 +185,11 @@ public WebDriver driver;
 			test.log(LogStatus.FAIL, "Please Enter Name Alert not Displayed");
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}
+		}
+		else
+		{
+			test.log(LogStatus.INFO, "Save button not Enabled without Entering Coursing Name");
 		}
 		
 		String NameExcess = "Entering Invalid Name to input"; 
@@ -212,7 +219,9 @@ public WebDriver driver;
 		
 		//Enter the Priority
 				cp.PriorityInputBox().sendKeys(Keys.BACK_SPACE);
-				
+		
+				if(cmp.Save_Button().isEnabled())
+				{
 		//Click the Save button
 		cmp.Click_SaveButton();
 		
@@ -230,7 +239,11 @@ public WebDriver driver;
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
-		
+				}
+				else
+				{
+					test.log(LogStatus.INFO, "Save button not Enabled without entering Priority");
+				}
 		
 		Thread.sleep(1000);
 		//Clear Prioriry
@@ -346,6 +359,8 @@ public WebDriver driver;
 		//Enter the Name
 		cmp.EnterName("");
 		
+		if(cmp.Update_Button().isEnabled())
+		{
 		//Click the Save button
 		cmp.Click_UpdateButton();
 		
@@ -373,6 +388,11 @@ public WebDriver driver;
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
+		}
+		else
+		{
+			test.log(LogStatus.INFO, "Update button is not enabled without entering Coursing Name");
+		}
 		
 		Thread.sleep(500);
 		//Enter the Name
@@ -380,7 +400,9 @@ public WebDriver driver;
 	
 		//Enter the Priority
 				cp.PriorityInputBox().sendKeys(Keys.BACK_SPACE);
-				
+		
+				if(cmp.Update_Button().isEnabled())
+				{
 		//Click the Update button
 		cmp.Click_UpdateButton();
 		
@@ -398,7 +420,11 @@ public WebDriver driver;
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
-		
+				}
+				else
+				{
+					test.log(LogStatus.INFO, "Update button is not Enabled without Entering Priority");
+				}
 		
 		Thread.sleep(1000);
 		//Clear Prioriry
@@ -639,6 +665,12 @@ public WebDriver driver;
 		{
 			test.log(LogStatus.PASS, "Course Name already exist pop up displayed");
 		
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
+		{
+			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
+			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
 		else

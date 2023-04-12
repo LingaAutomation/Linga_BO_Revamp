@@ -101,7 +101,7 @@ public class Common_XPaths {
 	@FindBy(xpath = "//div[@class='drawer-component']/div/div/h3")
 	WebElement CreationScreenHeader;
 	
-	@FindBy(xpath = "//div[contains(@class,'row header-row')]/div/div/div/h3")
+	@FindBy(xpath = "//div[contains(@class,'row header')]/div/div/div/h3")
 	WebElement CreationScreenHeaderTwo;
 	
 	@FindBy(xpath = "//mat-button-toggle[.='Yes']")
@@ -599,14 +599,17 @@ public class Common_XPaths {
 		Thread.sleep(2000);
 		
 		
-		
+		try
+		{
 		if(driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div[1]/div/data-grid-row/div/div[1]")).isDisplayed())
 		{
 			test.log(LogStatus.PASS, "Searched item displayed when entering 3 Characters in Search Box");
 		}
-		else
+		}
+		catch(Exception l)
 		{
 			test.log(LogStatus.FAIL, "Searched item not displayed when entering 3 Characters in Search box");
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 	}
 	

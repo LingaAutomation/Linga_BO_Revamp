@@ -104,16 +104,16 @@ public class AllClassCalling_Reports {
 			Reports_Sale_Recap_Report a=new Reports_Sale_Recap_Report();
 			a.Open_Sale_Recap_Report_Page(driver);
 //			a.RefreshAndPaginination(driver);
-//			a.Sale_Recap_Report_Today(driver);
-//			a.Sale_Recap_Report_Yesterday(driver);
-//			a.Sale_Recap_Report_Last_N_Days(driver);
-//			a.Sale_Recap_Report_This_Week(driver);
-//			a.Sale_Recap_Report_Last_Week(driver);
-//			a.Sale_Recap_Report_Last_7_Days(driver);
-//			a.Sale_Recap_Report_This_Month(driver);
-//			a.Sale_Recap_Report_Last_Month(driver);
-//			a.Sale_Recap_Report_Last_30_Days(driver);
-//			a.Sale_Recap_Report_Specific_Date(driver);
+			a.Sale_Recap_Report_Today(driver);
+			a.Sale_Recap_Report_Yesterday(driver);
+			a.Sale_Recap_Report_Last_N_Days(driver);
+			a.Sale_Recap_Report_This_Week(driver);
+			a.Sale_Recap_Report_Last_Week(driver);
+			a.Sale_Recap_Report_Last_7_Days(driver);
+			a.Sale_Recap_Report_This_Month(driver);
+			a.Sale_Recap_Report_Last_Month(driver);
+			a.Sale_Recap_Report_Last_30_Days(driver);
+			a.Sale_Recap_Report_Specific_Date(driver);
 			a.Sale_Recap_Report_Date_Range(driver);
 				
 		}
@@ -124,16 +124,16 @@ public class AllClassCalling_Reports {
 			Reports_Department_Sale_Report a=new Reports_Department_Sale_Report();
 			a.Open_Department_Report_Page(driver);
 //			a.RefreshAndPaginination(driver);
-//			a.Department_Report_Today(driver);
-//			a.Department_Report_Yesterday(driver);
-//			a.Department_Report_Last_N_Days(driver);
-//			a.Department_Report_This_Week(driver);
-//			a.Department_Report_Last_Week(driver);
-//			a.Department_Report_Last_7_Days(driver);
-//			a.Department_Report_This_Month(driver);
-//			a.Department_Report_Last_Month(driver);
-//			a.Department_Report_Last_30_Days(driver);
-//			a.Department_Report_Specific_Date(driver);
+			a.Department_Report_Today(driver);
+			a.Department_Report_Yesterday(driver);
+			a.Department_Report_Last_N_Days(driver);
+			a.Department_Report_This_Week(driver);
+			a.Department_Report_Last_Week(driver);
+			a.Department_Report_Last_7_Days(driver);
+			a.Department_Report_This_Month(driver);
+			a.Department_Report_Last_Month(driver);
+			a.Department_Report_Last_30_Days(driver);
+			a.Department_Report_Specific_Date(driver);
 			a.Department_Report_Date_Range(driver);
 			
 					
@@ -146,16 +146,16 @@ public class AllClassCalling_Reports {
 			Reports_Category_Sale_Report a=new Reports_Category_Sale_Report();
 			a.Open_Category_Report_Page(driver);
 //			a.RefreshAndPaginination(driver);
-//			a.Category_Report_Today(driver);
-//			a.Category_Report_Yesterday(driver);
-//			a.Category_Report_Last_N_Days(driver);
-//			a.Category_Report_This_Week(driver);
-//			a.Category_Report_Last_Week(driver);
-//			a.Category_Report_Last_7_Days(driver);
-//			a.Category_Report_This_Month(driver);
-//			a.Category_Report_Last_Month(driver);
-//			a.Category_Report_Last_30_Days(driver);
-//			a.Category_Report_Specific_Date(driver);
+			a.Category_Report_Today(driver);
+			a.Category_Report_Yesterday(driver);
+			a.Category_Report_Last_N_Days(driver);
+			a.Category_Report_This_Week(driver);
+			a.Category_Report_Last_Week(driver);
+			a.Category_Report_Last_7_Days(driver);
+			a.Category_Report_This_Month(driver);
+			a.Category_Report_Last_Month(driver);
+			a.Category_Report_Last_30_Days(driver);
+			a.Category_Report_Specific_Date(driver);
 			a.Category_Report_Date_Range(driver);
 				
 		}
@@ -166,16 +166,16 @@ public class AllClassCalling_Reports {
 			Reports_SubCategory_Sale_Report a=new Reports_SubCategory_Sale_Report();
 			a.Open_SubCategory_Report_Page(driver);
 //			a.RefreshAndPaginination(driver);
-//			a.SubCategory_Report_Today(driver);
-//			a.SubCategory_Report_Yesterday(driver);
-//			a.SubCategory_Report_Last_N_Days(driver);
-//			a.SubCategory_Report_This_Week(driver);
-//			a.SubCategory_Report_Last_Week(driver);
-//			a.SubCategory_Report_Last_7_Days(driver);
-//			a.SubCategory_Report_This_Month(driver);
-//			a.SubCategory_Report_Last_Month(driver);
-//			a.SubCategory_Report_Last_30_Days(driver);
-//			a.SubCategory_Report_Specific_Date(driver);
+			a.SubCategory_Report_Today(driver);
+			a.SubCategory_Report_Yesterday(driver);
+			a.SubCategory_Report_Last_N_Days(driver);
+			a.SubCategory_Report_This_Week(driver);
+			a.SubCategory_Report_Last_Week(driver);
+			a.SubCategory_Report_Last_7_Days(driver);
+			a.SubCategory_Report_This_Month(driver);
+			a.SubCategory_Report_Last_Month(driver);
+			a.SubCategory_Report_Last_30_Days(driver);
+			a.SubCategory_Report_Specific_Date(driver);
 			a.SubCategory_Report_Date_Range(driver);
 				
 		}
@@ -186,16 +186,16 @@ public class AllClassCalling_Reports {
 			Reports_MenuItem_Sale_Report a=new Reports_MenuItem_Sale_Report();
 			a.Open_MenuItem_Report_Page(driver);
 //			a.RefreshAndPaginination(driver);
-//			a.MenuItem_Report_Today(driver);
-//			a.MenuItem_Report_Yesterday(driver);
-//			a.MenuItem_Report_Last_N_Days(driver);
-//			a.MenuItem_Report_This_Week(driver);
-//			a.MenuItem_Report_Last_Week(driver);
-//			a.MenuItem_Report_Last_7_Days(driver);
-//			a.MenuItem_Report_This_Month(driver);
-//			a.MenuItem_Report_Last_Month(driver);
-//			a.MenuItem_Report_Last_30_Days(driver);
-//			a.MenuItem_Report_Specific_Date(driver);
+			a.MenuItem_Report_Today(driver);
+			a.MenuItem_Report_Yesterday(driver);
+			a.MenuItem_Report_Last_N_Days(driver);
+			a.MenuItem_Report_This_Week(driver);
+			a.MenuItem_Report_Last_Week(driver);
+			a.MenuItem_Report_Last_7_Days(driver);
+			a.MenuItem_Report_This_Month(driver);
+			a.MenuItem_Report_Last_Month(driver);
+			a.MenuItem_Report_Last_30_Days(driver);
+			a.MenuItem_Report_Specific_Date(driver);
 			a.MenuItem_Report_Date_Range(driver);
 				
 		}
@@ -206,16 +206,16 @@ public class AllClassCalling_Reports {
 			Reports_Modifier_Sale_Report a=new Reports_Modifier_Sale_Report();
 			a.Open_Modifier_Report_Page(driver);
 //			a.RefreshAndPaginination(driver);
-//			a.Modifier_Report_Today(driver);
-//			a.Modifier_Report_Yesterday(driver);
-//			a.Modifier_Report_Last_N_Days(driver);
-//			a.Modifier_Report_This_Week(driver);
-//			a.Modifier_Report_Last_Week(driver);
-//			a.Modifier_Report_Last_7_Days(driver);
-//			a.Modifier_Report_This_Month(driver);
-//			a.Modifier_Report_Last_Month(driver);
-//			a.Modifier_Report_Last_30_Days(driver);
-//			a.Modifier_Report_Specific_Date(driver);
+			a.Modifier_Report_Today(driver);
+			a.Modifier_Report_Yesterday(driver);
+			a.Modifier_Report_Last_N_Days(driver);
+			a.Modifier_Report_This_Week(driver);
+			a.Modifier_Report_Last_Week(driver);
+			a.Modifier_Report_Last_7_Days(driver);
+			a.Modifier_Report_This_Month(driver);
+			a.Modifier_Report_Last_Month(driver);
+			a.Modifier_Report_Last_30_Days(driver);
+			a.Modifier_Report_Specific_Date(driver);
 			a.Modifier_Report_Date_Range(driver);
 				
 		}
@@ -226,16 +226,16 @@ public class AllClassCalling_Reports {
 			Reports_Hourly_Sale_Report a=new Reports_Hourly_Sale_Report();
 			a.Open_Hourly_Sale_Report_Page(driver);
 //			a.RefreshAndPaginination(driver);
-//			a.Hourly_Sale_Report_Today(driver);
-//			a.Hourly_Sale_Report_Yesterday(driver);
-//			a.Hourly_Sale_Report_Last_N_Days(driver);
-//			a.Hourly_Sale_Report_This_Week(driver);
-//			a.Hourly_Sale_Report_Last_Week(driver);
-//			a.Hourly_Sale_Report_Last_7_Days(driver);
-//			a.Hourly_Sale_Report_This_Month(driver);
-//			a.Hourly_Sale_Report_Last_Month(driver);
-//			a.Hourly_Sale_Report_Last_30_Days(driver);
-//			a.Hourly_Sale_Report_Specific_Date(driver);
+			a.Hourly_Sale_Report_Today(driver);
+			a.Hourly_Sale_Report_Yesterday(driver);
+			a.Hourly_Sale_Report_Last_N_Days(driver);
+			a.Hourly_Sale_Report_This_Week(driver);
+			a.Hourly_Sale_Report_Last_Week(driver);
+			a.Hourly_Sale_Report_Last_7_Days(driver);
+			a.Hourly_Sale_Report_This_Month(driver);
+			a.Hourly_Sale_Report_Last_Month(driver);
+			a.Hourly_Sale_Report_Last_30_Days(driver);
+			a.Hourly_Sale_Report_Specific_Date(driver);
 			a.Hourly_Sale_Report_Date_Range(driver);
 				
 		}
@@ -247,16 +247,16 @@ public class AllClassCalling_Reports {
 			Reports_Daily_Sale_Report a=new Reports_Daily_Sale_Report();
 			a.Open_Daily_Sale_Report_Page(driver);
 //			a.RefreshAndPaginination(driver);
-//			a.Daily_Sale_Report_Today(driver);
-//			a.Daily_Sale_Report_Yesterday(driver);
-//			a.Daily_Sale_Report_Last_N_Days(driver);
-//			a.Daily_Sale_Report_This_Week(driver);
-//			a.Daily_Sale_Report_Last_Week(driver);
-//			a.Daily_Sale_Report_Last_7_Days(driver);
-//			a.Daily_Sale_Report_This_Month(driver);
-//			a.Daily_Sale_Report_Last_Month(driver);
-//			a.Daily_Sale_Report_Last_30_Days(driver);
-//			a.Daily_Sale_Report_Specific_Date(driver);
+			a.Daily_Sale_Report_Today(driver);
+			a.Daily_Sale_Report_Yesterday(driver);
+			a.Daily_Sale_Report_Last_N_Days(driver);
+			a.Daily_Sale_Report_This_Week(driver);
+			a.Daily_Sale_Report_Last_Week(driver);
+			a.Daily_Sale_Report_Last_7_Days(driver);
+			a.Daily_Sale_Report_This_Month(driver);
+			a.Daily_Sale_Report_Last_Month(driver);
+			a.Daily_Sale_Report_Last_30_Days(driver);
+			a.Daily_Sale_Report_Specific_Date(driver);
 			a.Daily_Sale_Report_Date_Range(driver);
 				
 		}
@@ -267,16 +267,16 @@ public class AllClassCalling_Reports {
 			Reports_Cashier_Out_Report a=new Reports_Cashier_Out_Report();
 			a.Open_Cashier_Out_Report_Page(driver);
 //			a.RefreshAndPaginination(driver);
-//			a.Cashier_Out_Report_Today(driver);
-//			a.Cashier_Out_Report_Yesterday(driver);
-//			a.Cashier_Out_Report_Last_N_Days(driver);
-//			a.Cashier_Out_Report_This_Week(driver);
-//			a.Cashier_Out_Report_Last_Week(driver);
-//			a.Cashier_Out_Report_Last_7_Days(driver);
-//			a.Cashier_Out_Report_This_Month(driver);
-//			a.Cashier_Out_Report_Last_Month(driver);
-//			a.Cashier_Out_Report_Last_30_Days(driver);
-//			a.Cashier_Out_Report_Specific_Date(driver);
+			a.Cashier_Out_Report_Today(driver);
+			a.Cashier_Out_Report_Yesterday(driver);
+			a.Cashier_Out_Report_Last_N_Days(driver);
+			a.Cashier_Out_Report_This_Week(driver);
+			a.Cashier_Out_Report_Last_Week(driver);
+			a.Cashier_Out_Report_Last_7_Days(driver);
+			a.Cashier_Out_Report_This_Month(driver);
+			a.Cashier_Out_Report_Last_Month(driver);
+			a.Cashier_Out_Report_Last_30_Days(driver);
+			a.Cashier_Out_Report_Specific_Date(driver);
 			a.Cashier_Out_Report_Date_Range(driver);
 				
 		}
@@ -300,16 +300,16 @@ public class AllClassCalling_Reports {
 			Reports_Sale_Summary_Report a=new Reports_Sale_Summary_Report();
 			a.Open_SaleSummary_Report_Page(driver);
 //			a.RefreshAndPaginination(driver);
-//			a.SaleSummary_Report_Today(driver);
-//			a.SaleSummary_Report_Yesterday(driver);
-//			a.SaleSummary_Report_Last_N_Days(driver);
-//			a.SaleSummary_Report_This_Week(driver);
-//			a.SaleSummary_Report_Last_Week(driver);
-//			a.SaleSummary_Report_Last_7_Days(driver);
-//			a.SaleSummary_Report_This_Month(driver);
-//			a.SaleSummary_Report_Last_Month(driver);
-//			a.SaleSummary_Report_Last_30_Days(driver);
-//			a.SaleSummary_Report_Specific_Date(driver);
+			a.SaleSummary_Report_Today(driver);
+			a.SaleSummary_Report_Yesterday(driver);
+			a.SaleSummary_Report_Last_N_Days(driver);
+			a.SaleSummary_Report_This_Week(driver);
+			a.SaleSummary_Report_Last_Week(driver);
+			a.SaleSummary_Report_Last_7_Days(driver);
+			a.SaleSummary_Report_This_Month(driver);
+			a.SaleSummary_Report_Last_Month(driver);
+			a.SaleSummary_Report_Last_30_Days(driver);
+			a.SaleSummary_Report_Specific_Date(driver);
 			a.SaleSummary_Report_Date_Range(driver);
 				
 		}

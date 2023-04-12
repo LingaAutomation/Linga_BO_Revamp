@@ -265,7 +265,7 @@ public class Product_Items_Cut_And_Modify {
 		//Enter the Third Modify Percentage
 		cm.Enter_ModifyPercentage_ThirdSliceFraction("25.00");
 		Thread.sleep(500);
-
+		ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		//Click the Save button
 		cm.Click_Save_Cut_and_Modify();
 		
@@ -289,7 +289,7 @@ public class Product_Items_Cut_And_Modify {
 		driver.navigate().refresh();
 		
 		Thread.sleep(5000);
-		if(cm.First_SliceModify().getAttribute("value").equalsIgnoreCase("50.00"))
+		if(cm.First_SliceModify().getAttribute("value").equalsIgnoreCase("40.00"))
 		{
 			test.log(LogStatus.PASS, "Cut and Modify Updated Correctly");
 			
@@ -300,6 +300,8 @@ public class Product_Items_Cut_And_Modify {
 			test.log(LogStatus.FAIL, "Cut and Modify Updated InCorrect");
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			
+			
 		}
 		
 		

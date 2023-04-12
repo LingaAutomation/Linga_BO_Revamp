@@ -443,7 +443,17 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		if(ServSizeLvl<=2)
 		{
 			Thread.sleep(1000);
-			ServingSizeLevelDropBtn.click();
+//			ServingSizeLevelDropBtn.click();
+			
+			if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+ServSizeLvl+"]")).isEnabled())
+			{
+				
+			}
+			else
+			{
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+ServSizeLvl+"]")).click();
+			}
 		}
 		else
 		{
@@ -451,6 +461,12 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomServSizeLvl+"]")).click();
 		}
 	
+		List<WebElement> ServSizeLvlList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+
+		if(ServSizeLvlList1.size()!=0)
+		{
+			ServingSizeLevelDropBtn.click();
+		}
 	}
 	
 	@FindBy(xpath = "//h5[contains(.,'Roles')]/../../..//button[contains(.,'Show All')]")
