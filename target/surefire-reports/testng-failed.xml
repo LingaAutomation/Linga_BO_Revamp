@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <test thread-count="5" name="Product Items(failed)" verbose="0">
+    <classes>
+      <class name="com.Test.AllClassCalling_Product_and_Items">
+        <methods>
+          <include name="Product_Items_AddEditDelete_Gratuities"/>
+          <include name="Login"/>
+          <include name="Product_Items_AddEditDelete_Departments"/>
+          <include name="Product_Items_AddEditDelete_MenuItem"/>
+          <include name="Product_Items_Cut_And_Modify"/>
+          <include name="flushTest"/>
+          <include name="Product_Items_AddEditDelete_Serving_Size_Levels"/>
+          <include name="Product_Items_AddEditDelete_Upcharges"/>
+          <include name="Product_Items_AddEditDelete_Categories"/>
+          <include name="Product_Items_AddEditDelete_Open_Check_Discount"/>
+          <include name="Product_Items_AddEditDelete_RetailItem"/>
+          <include name="LogOut"/>
+          <include name="Product_Items_AddEditDelete_Coursing"/>
+          <include name="Product_Items_Bulk_Update"/>
+          <include name="Product_Items_AddEditDelete_TareGroup"/>
+          <include name="Product_Items_AddEditDelete_SubCategories"/>
+          <include name="Product_Items_AddEditDelete_Item_Based_Discount"/>
+          <include name="Product_Items_AddEditDelete_Open_Item_Discount"/>
+          <include name="TestFail"/>
+          <include name="Product_Items_AddEditDelete_GiftCards"/>
+          <include name="Product_Items_AddEditDelete_Taxes"/>
+          <include name="Product_Items_AddEditDelete_ModifierGroups"/>
+          <include name="Product_Items_AddEditDelete_Reasons"/>
+          <include name="Product_Items_AddEditDelete_Modifiers"/>
+          <include name="Product_Items_Sort_Menu_Config"/>
+          <include name="Product_Items_AddEditDelete_MixAndMatch_Discount"/>
+          <include name="Product_Items_AddEditDelete_Check_Based_Discount"/>
+          <include name="Product_Items_AddEditDelete_DisplayGroups"/>
+          <include name="Product_Items_Meito"/>
+          <include name="Product_Items_AddEditDelete_Item_Service_Charge"/>
+        </methods>
+      </class> <!-- com.Test.AllClassCalling_Product_and_Items -->
+    </classes>
+  </test> <!-- Product Items(failed) -->
+  <test thread-count="5" name="Reports(failed)" verbose="0">
+    <classes>
+      <class name="com.Test.AllClassCalling_Reports">
+        <methods>
+          <include name="Reports_Cash_Transaction_Report"/>
+          <include name="Reports_GiveX_Report"/>
+          <include name="Reports_Hourly_Sale_Report"/>
+          <include name="Reports_Department_Sale_Report"/>
+          <include name="Reports_Membership_Summary_Report"/>
+          <include name="Reports_Daily_Sale_Report"/>
+          <include name="TestFail"/>
+          <include name="Reports_Customer_Preference_Report"/>
+          <include name="Reports_Store_Credit_Report"/>
+          <include name="Reports_Void_Employee_Report"/>
+          <include name="Reports_Refund_Report"/>
+          <include name="Reports_Employee_Role_Based_Payroll_Report"/>
+          <include name="Reports_MenuItem_Sale_Report"/>
+          <include name="Reports_Void_Node_Report"/>
+          <include name="Reports_Batch_Report"/>
+          <include name="Reports_HA_Activity_Report"/>
+          <include name="Reports_Membership_Statement"/>
+          <include name="Reports_Sale_Logo_Payment"/>
+          <include name="Reports_Tax_Report"/>
+          <include name="Reports_Daily_Summary_Report"/>
+          <include name="Reports_Employee_Attendance_Report"/>
+          <include name="Reports_Employee_Labor_By_Job_Code_Report"/>
+          <include name="Reports_Cashier_Out_Report"/>
+          <include name="Reports_Online_Sales_Report"/>
+          <include name="Reports_Account_Balance_Report"/>
+          <include name="Reports_Discount_Report"/>
+          <include name="Reports_Future_Order_Sale_Report"/>
+          <include name="Reports_Employee_Labor_Report"/>
+          <include name="Reports_Gift_Card_Report"/>
+          <include name="Reports_Weekly_Summary_Sale_Report"/>
+          <include name="Reports_Sale_Summary_Report"/>
+          <include name="Reports_Audit_Log"/>
+          <include name="Login"/>
+          <include name="Reports_Category_Sale_Report"/>
+          <include name="Reports_Modifier_Sale_Report"/>
+          <include name="Reports_Sale_Recap_Report"/>
+          <include name="Reports_SubCategory_Sale_Report"/>
+          <include name="flushTest"/>
+          <include name="Reports_Driver_Report"/>
+          <include name="Reports_Transactions_Report"/>
+          <include name="Reports_Sale_Logo_Sale"/>
+          <include name="Reports_Void_Transactions_Report"/>
+          <include name="Reports_Paid_In_Paid_Out_Report"/>
+          <include name="Reports_Till_Report"/>
+          <include name="Reports_HA_Statement"/>
+          <include name="Reports_Daily_Tender_Report"/>
+          <include name="LogOut"/>
+          <include name="Reports_Revenue_Center"/>
+        </methods>
+      </class> <!-- com.Test.AllClassCalling_Reports -->
+    </classes>
+  </test> <!-- Reports(failed) -->
+</suite> <!-- Failed suite [Suite] -->
