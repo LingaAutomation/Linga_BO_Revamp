@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 146, Failures: 2, Errors: 0, Skipped: 144, Time elapsed: 147.2 s <<< FAILURE! -- in TestSuite
-com.Test.AllClassCalling_Product_and_Items.Login -- Time elapsed: 76.62 s <<< FAILURE!
+Tests run: 146, Failures: 2, Errors: 0, Skipped: 144, Time elapsed: 156.4 s <<< FAILURE! -- in TestSuite
+com.Test.AllClassCalling_Product_and_Items.Login -- Time elapsed: 76.41 s <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"xpath","selector":"//app-input[@placeholder='Search']/div/div/mat-form-field/div/div/div[4]/input"}
   (Session info: chrome=114.0.5735.199)
@@ -10,9 +10,9 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.4.0', revision: 'e5c75ed026a'
 System info: host: 'RAJA-QA-LAPTOP-', ip: '10.10.123.165', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [2f75afc91de48efad4a69992a72267a4, findElement {using=xpath, value=//app-input[@placeholder='Search']/div/div/mat-form-field/div/div/div[4]/input}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, goog:chromeOptions: {debuggerAddress: localhost:53679}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53679/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 2f75afc91de48efad4a69992a72267a4
+Command: [db1a66b922ce4790d6ba0590f4d8f8b0, findElement {using=xpath, value=//app-input[@placeholder='Search']/div/div/mat-form-field/div/div/div[4]/input}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, goog:chromeOptions: {debuggerAddress: localhost:64408}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:64408/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: db1a66b922ce4790d6ba0590f4d8f8b0
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -64,7 +64,7 @@ Session ID: 2f75afc91de48efad4a69992a72267a4
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-com.Test.AllClassCalling_Reports.Login -- Time elapsed: 69.47 s <<< FAILURE!
+com.Test.AllClassCalling_Reports.Login -- Time elapsed: 74.90 s <<< FAILURE!
 org.openqa.selenium.NoSuchElementException: 
 no such element: Unable to locate element: {"method":"xpath","selector":"//app-input[@placeholder='Search']/div/div/mat-form-field/div/div/div[4]/input"}
   (Session info: chrome=114.0.5735.199)
@@ -72,9 +72,9 @@ For documentation on this error, please visit: https://selenium.dev/exceptions/#
 Build info: version: '4.4.0', revision: 'e5c75ed026a'
 System info: host: 'RAJA-QA-LAPTOP-', ip: '10.10.123.165', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [59a0fa5b123ea838297366a62bb7108e, findElement {using=xpath, value=//app-input[@placeholder='Search']/div/div/mat-form-field/div/div/div[4]/input}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, goog:chromeOptions: {debuggerAddress: localhost:53770}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:53770/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 59a0fa5b123ea838297366a62bb7108e
+Command: [bf1e6603abc844f0a5b45c22c359362c, findElement {using=xpath, value=//app-input[@placeholder='Search']/div/div/mat-form-field/div/div/div[4]/input}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\WINDOWS\SystemTemp\scope...}, goog:chromeOptions: {debuggerAddress: localhost:64494}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:64494/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: bf1e6603abc844f0a5b45c22c359362c
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
