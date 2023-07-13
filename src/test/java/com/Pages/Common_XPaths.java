@@ -140,7 +140,7 @@ public class Common_XPaths {
 	@FindBy(xpath = "//button[contains(@class,'mat-button-base active-toggle')]/span/span")
 	WebElement Active_InactiveStatus;
 	
-	@FindBy(xpath = "//pagination/div/div/div")
+	@FindBy(xpath = "//mat-paginator/div/div/div")
 	WebElement PaginationIcon;
 	
 	@FindBy(xpath = "//button[contains(@mattooltip,'to POS')]")
@@ -511,16 +511,16 @@ public class Common_XPaths {
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		
-		List<WebElement> pageList=driver.findElements(By.xpath("//pagination/div/div/div"));
+		List<WebElement> pageList=driver.findElements(By.xpath("//mat-paginator/div/div//button"));
 		
 		Thread.sleep(2000);
 		for(int i=2;i<pageList.size();i++)
 		{
 			Thread.sleep(1000);
-			driver.findElement(By.xpath("//pagination/div/div/div["+i+"]")).click();
+			driver.findElement(By.xpath("//mat-paginator/div/div//button["+i+"]")).click();
 		}
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//pagination/div/div/div[2]")).click();
+		driver.findElement(By.xpath("//mat-paginator/div/div//button[2]")).click();
 		
 		test.log(LogStatus.INFO, "Pagination Completed");
 		}
