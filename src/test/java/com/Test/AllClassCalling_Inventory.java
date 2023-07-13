@@ -617,7 +617,20 @@ public class AllClassCalling_Inventory
 		@Test(priority = 34,enabled = true)
 		public void Inventory_Reports_Matrix_Report() throws Exception
 		{
-			
+			Inventory_Reports_Matrix_Report a=new Inventory_Reports_Matrix_Report();
+			a.Open_Matrix_Report_Page(driver);
+			a.RefreshAndPaginination(driver);
+			a.Matrix_Report_Today(driver);
+			a.Matrix_Report_Yesterday(driver);
+			a.Matrix_Report_Last_N_Days(driver);
+			a.Matrix_Report_This_Week(driver);
+			a.Matrix_Report_Last_Week(driver);
+			a.Matrix_Report_Last_7_Days(driver);
+			a.Matrix_Report_This_Month(driver);
+			a.Matrix_Report_Last_Month(driver);
+			a.Matrix_Report_Last_30_Days(driver);
+			a.Matrix_Report_Specific_Date(driver);
+			a.Matrix_Report_Date_Range(driver);
 		}
 			
 		@Test(priority = 35,enabled = true)
