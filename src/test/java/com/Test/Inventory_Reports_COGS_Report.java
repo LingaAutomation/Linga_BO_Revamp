@@ -33,7 +33,6 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.ExtentManager;
 import Utility.Utility;
-import io.cucumber.core.gherkin.Argument;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Inventory_Reports_COGS_Report {

@@ -15,8 +15,6 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
-import io.cucumber.java.eo.Do;
-import io.cucumber.messages.types.Ci;
 
 public class InventoryPage extends BasePage
 {
