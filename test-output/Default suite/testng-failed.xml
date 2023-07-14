@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Test.Inventory_Reports_Matrix_Report">
+      <class name="com.Test.Product_Items_AddEditDelete_Departments">
         <methods>
-          <include name="TestFail"/>
-          <include name="LogOut"/>
           <include name="Calling"/>
           <include name="flushTest"/>
+          <include name="TestFail"/>
         </methods>
-      </class> <!-- com.Test.Inventory_Reports_Matrix_Report -->
+      </class> <!-- com.Test.Product_Items_AddEditDelete_Departments -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

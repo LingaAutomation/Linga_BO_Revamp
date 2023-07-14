@@ -5,25 +5,33 @@
     <classes>
       <class name="com.Test.AllClassCalling_Product_and_Items">
         <methods>
-          <include name="Product_Items_AddEditDelete_TareGroup"/>
           <include name="Product_Items_AddEditDelete_Gratuities"/>
+          <include name="Login"/>
+          <include name="Product_Items_AddEditDelete_Departments"/>
+          <include name="Product_Items_AddEditDelete_MenuItem"/>
+          <include name="flushTest"/>
+          <include name="Product_Items_AddEditDelete_Serving_Size_Levels"/>
+          <include name="Product_Items_AddEditDelete_Upcharges"/>
+          <include name="Product_Items_AddEditDelete_Categories"/>
+          <include name="Product_Items_AddEditDelete_Open_Check_Discount"/>
+          <include name="Product_Items_AddEditDelete_RetailItem"/>
+          <include name="LogOut"/>
+          <include name="Product_Items_AddEditDelete_Coursing"/>
+          <include name="Product_Items_Bulk_Update"/>
+          <include name="Product_Items_AddEditDelete_TareGroup"/>
+          <include name="Product_Items_AddEditDelete_SubCategories"/>
           <include name="Product_Items_AddEditDelete_Item_Based_Discount"/>
           <include name="Product_Items_AddEditDelete_Open_Item_Discount"/>
-          <include name="Login"/>
           <include name="TestFail"/>
           <include name="Product_Items_AddEditDelete_GiftCards"/>
-          <include name="Product_Items_AddEditDelete_MenuItem"/>
-          <include name="Product_Items_Cut_And_Modify"/>
-          <include name="flushTest"/>
+          <include name="Product_Items_AddEditDelete_Taxes"/>
           <include name="Product_Items_AddEditDelete_ModifierGroups"/>
           <include name="Product_Items_AddEditDelete_Reasons"/>
           <include name="Product_Items_AddEditDelete_Modifiers"/>
-          <include name="Product_Items_AddEditDelete_Open_Check_Discount"/>
           <include name="Product_Items_AddEditDelete_MixAndMatch_Discount"/>
-          <include name="Product_Items_AddEditDelete_RetailItem"/>
-          <include name="LogOut"/>
           <include name="Product_Items_AddEditDelete_Check_Based_Discount"/>
           <include name="Product_Items_AddEditDelete_DisplayGroups"/>
+          <include name="Product_Items_Meito"/>
           <include name="Product_Items_AddEditDelete_Item_Service_Charge"/>
         </methods>
       </class> <!-- com.Test.AllClassCalling_Product_and_Items -->
@@ -31,70 +39,134 @@
   </test> <!-- Product and Items(failed) -->
   <test thread-count="5" name="Settings(failed)">
     <classes>
-      <class name="com.Test.All_class_calling_Settings">
+      <class name="com.Test.AllClassCalling_Settings">
         <methods>
-          <include name="End_Settings"/>
-          <include name="Settings_Front_End_Receipt_Template"/>
-          <include name="logout"/>
-          <include name="Settings_Notifications"/>
-          <include name="Settings_Payment_Methods"/>
-          <include name="Start_Settings"/>
-          <include name="Settings_Integrations_WebHook"/>
-          <include name="Settings_POS_Custom_URL"/>
-          <include name="Settings_Email_Receipt_Template"/>
-          <include name="Settings_General_Settings"/>
-          <include name="Settings_Receipt_Printers"/>
-          <include name="Settings_ThirdPartyIntegrations"/>
+          <include name="Settings_Revenue_Center"/>
+          <include name="Settings_StoreInventory"/>
+          <include name="flushTest"/>
+          <include name="Settings_CDS_Configuration"/>
+          <include name="Settings_Sale_Recap_Report"/>
+          <include name="Settings_Label_Template"/>
+          <include name="Settings_Table_Layout"/>
+          <include name="Settings_KDS_Configuration"/>
+          <include name="Settings_Additional_Settings"/>
+          <include name="Settings_AccountBalance"/>
+          <include name="Settings_Till_Setting"/>
+          <include name="Settings_Store_Licenses"/>
+          <include name="Settings_WaitList"/>
+          <include name="Settings_TipOut_TipSharing"/>
+          <include name="Settings_Kitchen_Printer_Template"/>
+          <include name="Settings_EMV_Settings"/>
           <include name="login"/>
           <include name="TestFail"/>
+          <include name="Settings_Batch_Settings"/>
           <include name="Settings_Label_Printers"/>
-          <include name="Settings_EMV_Settings"/>
+          <include name="Settings_Kitchen_Printers"/>
           <include name="Settings_Scales"/>
           <include name="Settings_Payment_Settings_and_Service_Charge"/>
-          <include name="Settings_Kitchen_Printers"/>
-          <include name="Settings_Additional_Settings"/>
           <include name="Settings_Report_MatrixReport"/>
-          <include name="Settings_AccountBalance"/>
-          <include name="Settings_Store_Licenses"/>
-          <include name="Settings_Kitchen_Printer_Template"/>
-          <include name="Settings_TipOut_TipSharing"/>
-          <include name="Settings_WaitList"/>
-          <include name="Settings_Revenue_Center"/>
-          <include name="Settings_Batch_Settings"/>
-          <include name="Settings_StoreInventory"/>
-          <include name="Settings_Store_Information"/>
-          <include name="Settings_CDS_Configuration"/>
-          <include name="flushTest"/>
-          <include name="Settings_Till_Setting"/>
-          <include name="Settings_Label_Template"/>
-          <include name="Settings_KDS_Configuration"/>
-          <include name="Settings_Sale_Recap_Report"/>
-          <include name="Settings_Table_Layout"/>
+          <include name="Settings_ThirdPartyIntegrations"/>
           <include name="Settings_Printer_Rerouting"/>
+          <include name="End_Settings"/>
+          <include name="Settings_Front_End_Receipt_Template"/>
+          <include name="Settings_Receipt_Printers"/>
+          <include name="Start_Settings"/>
+          <include name="Settings_Payment_Methods"/>
+          <include name="Settings_Email_Receipt_Template"/>
+          <include name="Settings_General_Settings"/>
+          <include name="Settings_Integrations_WebHook"/>
+          <include name="Settings_Notifications"/>
+          <include name="Settings_Store_Information"/>
+          <include name="logout"/>
+          <include name="Settings_POS_Custom_URL"/>
         </methods>
-      </class> <!-- com.Test.All_class_calling_Settings -->
+      </class> <!-- com.Test.AllClassCalling_Settings -->
     </classes>
   </test> <!-- Settings(failed) -->
   <test thread-count="5" name="Reports(failed)">
     <classes>
       <class name="com.Test.AllClassCalling_Reports">
         <methods>
+          <include name="Reports_Cash_Transaction_Report"/>
+          <include name="Reports_GiveX_Report"/>
           <include name="Reports_Hourly_Sale_Report"/>
-          <include name="Reports_Sale_Summary_Report"/>
           <include name="Reports_Department_Sale_Report"/>
+          <include name="Reports_Membership_Summary_Report"/>
           <include name="Reports_Daily_Sale_Report"/>
-          <include name="Login"/>
           <include name="TestFail"/>
+          <include name="Reports_Customer_Preference_Report"/>
+          <include name="Reports_Refund_Report"/>
+          <include name="Reports_Employee_Role_Based_Payroll_Report"/>
+          <include name="Reports_MenuItem_Sale_Report"/>
+          <include name="Reports_Void_Node_Report"/>
+          <include name="Reports_Batch_Report"/>
+          <include name="Reports_HA_Activity_Report"/>
+          <include name="Reports_Membership_Statement"/>
+          <include name="Reports_Tax_Report"/>
+          <include name="Reports_Daily_Summary_Report"/>
+          <include name="Reports_Employee_Labor_By_Job_Code_Report"/>
+          <include name="Reports_Cashier_Out_Report"/>
+          <include name="Reports_Account_Balance_Report"/>
+          <include name="Reports_Future_Order_Sale_Report"/>
+          <include name="Reports_Employee_Labor_Report"/>
+          <include name="Reports_Weekly_Summary_Sale_Report"/>
+          <include name="Login"/>
           <include name="Reports_Category_Sale_Report"/>
           <include name="Reports_Modifier_Sale_Report"/>
           <include name="Reports_Sale_Recap_Report"/>
           <include name="Reports_SubCategory_Sale_Report"/>
-          <include name="Reports_MenuItem_Sale_Report"/>
           <include name="flushTest"/>
-          <include name="Reports_Cashier_Out_Report"/>
+          <include name="Reports_Driver_Report"/>
+          <include name="Reports_Till_Report"/>
+          <include name="Reports_HA_Statement"/>
+          <include name="Reports_Daily_Tender_Report"/>
           <include name="LogOut"/>
+          <include name="Reports_Revenue_Center"/>
         </methods>
       </class> <!-- com.Test.AllClassCalling_Reports -->
     </classes>
   </test> <!-- Reports(failed) -->
+  <test thread-count="5" name="Inventory and Inventory Reports(failed)">
+    <classes>
+      <class name="com.Test.AllClassCalling_Inventory">
+        <methods>
+          <include name="Inventory_Adjust_Inventory_Reasons"/>
+          <include name="Inventory_Adjust_Inventory"/>
+          <include name="LogOut"/>
+          <include name="Inventory_Menu_Items"/>
+          <include name="Inventory_Purchase_Template"/>
+          <include name="Inventory_Reports_Wastage_Report"/>
+          <include name="Inventory_Sub_Category"/>
+          <include name="Inventory_InHouseUnits"/>
+          <include name="Inventory_Reports_Master_Stock_Report"/>
+          <include name="Inventory_Reports_Count_Sheet"/>
+          <include name="Inventory_Prepare_SubRecipe"/>
+          <include name="Inventory_Reports_Matrix_Report"/>
+          <include name="Inventory_Sub_Recipe"/>
+          <include name="Inventory_Category"/>
+          <include name="Inventory_InventoryModifiers"/>
+          <include name="Inventory_Reports_Purchase_Item"/>
+          <include name="Inventory_Reports_Adjust_Inventory"/>
+          <include name="Login"/>
+          <include name="Inventory_Item"/>
+          <include name="flushTest"/>
+          <include name="Inventory_Transfer"/>
+          <include name="Inventory_ExpiredPurchaseItem"/>
+          <include name="Inventory_Purchases_Received_Items_Received_Logs"/>
+          <include name="Inventory_SyncInventory"/>
+          <include name="Inventory_Purchase_Invoice"/>
+          <include name="Inventory_Reports_COGS_Report"/>
+          <include name="Inventory_Reports_Consumption_Log"/>
+          <include name="Inventory_Purchase_Orders"/>
+          <include name="Inventory_Reports_Compare_Inventory_Report"/>
+          <include name="Inventory_Reports_Inventory_Item_History"/>
+          <include name="Inventory_Low_Stocks"/>
+          <include name="Inventory_Storage_Locations"/>
+          <include name="Inventory_Vendors"/>
+          <include name="TestFail"/>
+          <include name="Inventory_Prepare_Menu_Item"/>
+        </methods>
+      </class> <!-- com.Test.AllClassCalling_Inventory -->
+    </classes>
+  </test> <!-- Inventory and Inventory Reports(failed) -->
 </suite> <!-- Failed suite [Suite] -->

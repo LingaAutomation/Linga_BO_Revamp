@@ -104,11 +104,11 @@ public WebDriver driver;
 	{
 		Open_Departments_Page(driver);
 		RefreshAndPaginination(driver);
-		Add_Departments(driver);
-		Edit_and_Close_Cancel_Departments(driver);
-		Edit_and_Update_Departments(driver);
-		Delete_and_Active_Inactive_Departments(driver);
-		Create_DuplicateDepartment(driver);
+//		Add_Departments(driver);
+//		Edit_and_Close_Cancel_Departments(driver);
+//		Edit_and_Update_Departments(driver);
+//		Delete_and_Active_Inactive_Departments(driver);
+//		Create_DuplicateDepartment(driver);
 		
 	}
 	

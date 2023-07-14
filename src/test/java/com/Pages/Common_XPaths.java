@@ -221,6 +221,8 @@ public class Common_XPaths {
 	public void Filter_Columns() throws Exception
 	{
 		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+		Thread.sleep(2000);
 		Columns_Btn.click();
 		
 		//Deselect Select All
