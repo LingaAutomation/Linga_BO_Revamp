@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,8 +39,8 @@
       <div class="suite">
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
-            <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+            <a href="#" panel-name="suite-Suite" class="navigator-link">
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,37 +50,37 @@
             <div class="suite-section-content">
               <ul>
                 <li>
-                  <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\raja.s\AppData\Local\Temp\testng-eclipse-1922280183\testng-customsuite.xml</span>
+                  <a href="#" panel-name="test-xml-Suite" class="navigator-link ">
+                    <span>C:\Automation\Linga_BO_Revamp\testng_Settings.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="testlist-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="testlist-Suite" class="navigator-link ">
                     <span class="test-stats">1 test</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="group-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="group-Suite" class="navigator-link ">
                     <span>0 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="times-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="times-Suite" class="navigator-link ">
                     <span>Times</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="reporter-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="reporter-Suite" class="navigator-link ">
                     <span>Reporter output</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="ignored-methods-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="ignored-methods-Suite" class="navigator-link ">
                     <span>Ignored methods</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="chronological-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="chronological-Suite" class="navigator-link ">
                     <span>Chronological view</span>
                   </a> <!-- navigator-link  -->
                 </li>
@@ -93,31 +93,205 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">36 methods, 1 failed,  35 skipped,  </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
                     </span>
-                    <div class="method-list-content passed suite-Default_suite">
+                    <div class="method-list-content failed suite-Suite">
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_AddEditDelete_Departments" class="method navigator-link" hash-for-method="Calling">Calling</a> <!-- method navigator-link -->
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="login">login</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods skipped suite-Suite"> (hide)</a> <!-- hide-methods skipped suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods skipped suite-Suite"> (show)</a> <!-- show-methods skipped suite-Suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Suite">
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="End_Settings">End_Settings</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_AddEditDelete_Departments" class="method navigator-link" hash-for-method="LogOut">LogOut</a> <!-- method navigator-link -->
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_AccountBalance">Settings_AccountBalance</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_AddEditDelete_Departments" class="method navigator-link" hash-for-method="Login">Login</a> <!-- method navigator-link -->
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Additional_Settings">Settings_Additional_Settings</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Batch_Settings">Settings_Batch_Settings</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_CDS_Configuration">Settings_CDS_Configuration</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_EMV_Settings">Settings_EMV_Settings</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Email_Receipt_Template">Settings_Email_Receipt_Template</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Front_End_Receipt_Template">Settings_Front_End_Receipt_Template</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_General_Settings">Settings_General_Settings</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Integrations_WebHook">Settings_Integrations_WebHook</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_KDS_Configuration">Settings_KDS_Configuration</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Kitchen_Printer_Template">Settings_Kitchen_Printer_Template</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Kitchen_Printers">Settings_Kitchen_Printers</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Label_Printers">Settings_Label_Printers</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Label_Template">Settings_Label_Template</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Notifications">Settings_Notifications</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_POS_Custom_URL">Settings_POS_Custom_URL</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Payment_Methods">Settings_Payment_Methods</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Payment_Settings_and_Service_Charge">Settings_Payment_Settings_and_Service_Charge</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Printer_Rerouting">Settings_Printer_Rerouting</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Receipt_Printers">Settings_Receipt_Printers</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Report_MatrixReport">Settings_Report_MatrixReport</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Revenue_Center">Settings_Revenue_Center</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Sale_Recap_Report">Settings_Sale_Recap_Report</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Scales">Settings_Scales</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_StoreInventory">Settings_StoreInventory</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Store_Information">Settings_Store_Information</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Store_Licenses">Settings_Store_Licenses</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Table_Layout">Settings_Table_Layout</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_ThirdPartyIntegrations">Settings_ThirdPartyIntegrations</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_Till_Setting">Settings_Till_Setting</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_TipOut_TipSharing">Settings_TipOut_TipSharing</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Settings_WaitList">Settings_WaitList</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="Start_Settings">Start_Settings</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.Test.AllClassCalling_Settings" class="method navigator-link" hash-for-method="logout">logout</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -128,178 +302,1002 @@
     </div> <!-- navigator-root -->
     <div class="wrapper">
       <div class="main-panel-root">
-        <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+        <div panel-name="suite-Suite" class="panel Suite">
+          <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.Test.Product_Items_AddEditDelete_Departments</span>
+              <img src="failed.png"/>
+              <span class="class-name">com.Test.AllClassCalling_Settings</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="Calling">
-                  </a> <!-- Calling -->
-                  <span class="method-name">Calling</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="LogOut">
-                  </a> <!-- LogOut -->
-                  <span class="method-name">LogOut</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Login">
-                  </a> <!-- Login -->
-                  <span class="method-name">Login</span>
+                  <a name="login">
+                  </a> <!-- login -->
+                  <span class="method-name">login</span>
+                  <div class="stack-trace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: This version of ChromeDriver only supports Chrome version 110
+Current browser version is 114.0.5735.199 with binary path C:\Program Files\Google\Chrome\Application\chrome.exe
+Build info: version: &apos;4.4.0&apos;, revision: &apos;e5c75ed026a&apos;
+System info: host: &apos;INL-JVNGDL3&apos;, ip: &apos;10.10.122.131&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.6&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [], extensions: []}}], desiredCapabilities=Capabilities {browserName: chrome, goog:chromeOptions: {args: [], extensions: []}}}]
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:144)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:102)
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:67)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:156)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:167)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:547)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:242)
+	at org.openqa.selenium.remote.RemoteWebDriver.&lt;init&gt;(RemoteWebDriver.java:157)
+	at org.openqa.selenium.chromium.ChromiumDriver.&lt;init&gt;(ChromiumDriver.java:101)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:81)
+	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:49)
+	at com.Test.AllClassCalling_Settings.login(AllClassCalling_Settings.java:61)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
-        </div> <!-- panel Default_suite -->
-        <div panel-name="test-xml-Default_suite" class="panel">
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.Test.AllClassCalling_Settings</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="End_Settings">
+                  </a> <!-- End_Settings -->
+                  <span class="method-name">End_Settings</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_AccountBalance">
+                  </a> <!-- Settings_AccountBalance -->
+                  <span class="method-name">Settings_AccountBalance</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Additional_Settings">
+                  </a> <!-- Settings_Additional_Settings -->
+                  <span class="method-name">Settings_Additional_Settings</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Batch_Settings">
+                  </a> <!-- Settings_Batch_Settings -->
+                  <span class="method-name">Settings_Batch_Settings</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_CDS_Configuration">
+                  </a> <!-- Settings_CDS_Configuration -->
+                  <span class="method-name">Settings_CDS_Configuration</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_EMV_Settings">
+                  </a> <!-- Settings_EMV_Settings -->
+                  <span class="method-name">Settings_EMV_Settings</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Email_Receipt_Template">
+                  </a> <!-- Settings_Email_Receipt_Template -->
+                  <span class="method-name">Settings_Email_Receipt_Template</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Front_End_Receipt_Template">
+                  </a> <!-- Settings_Front_End_Receipt_Template -->
+                  <span class="method-name">Settings_Front_End_Receipt_Template</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_General_Settings">
+                  </a> <!-- Settings_General_Settings -->
+                  <span class="method-name">Settings_General_Settings</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Integrations_WebHook">
+                  </a> <!-- Settings_Integrations_WebHook -->
+                  <span class="method-name">Settings_Integrations_WebHook</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_KDS_Configuration">
+                  </a> <!-- Settings_KDS_Configuration -->
+                  <span class="method-name">Settings_KDS_Configuration</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Kitchen_Printer_Template">
+                  </a> <!-- Settings_Kitchen_Printer_Template -->
+                  <span class="method-name">Settings_Kitchen_Printer_Template</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Kitchen_Printers">
+                  </a> <!-- Settings_Kitchen_Printers -->
+                  <span class="method-name">Settings_Kitchen_Printers</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Label_Printers">
+                  </a> <!-- Settings_Label_Printers -->
+                  <span class="method-name">Settings_Label_Printers</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Label_Template">
+                  </a> <!-- Settings_Label_Template -->
+                  <span class="method-name">Settings_Label_Template</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Notifications">
+                  </a> <!-- Settings_Notifications -->
+                  <span class="method-name">Settings_Notifications</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_POS_Custom_URL">
+                  </a> <!-- Settings_POS_Custom_URL -->
+                  <span class="method-name">Settings_POS_Custom_URL</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Payment_Methods">
+                  </a> <!-- Settings_Payment_Methods -->
+                  <span class="method-name">Settings_Payment_Methods</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Payment_Settings_and_Service_Charge">
+                  </a> <!-- Settings_Payment_Settings_and_Service_Charge -->
+                  <span class="method-name">Settings_Payment_Settings_and_Service_Charge</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Printer_Rerouting">
+                  </a> <!-- Settings_Printer_Rerouting -->
+                  <span class="method-name">Settings_Printer_Rerouting</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Receipt_Printers">
+                  </a> <!-- Settings_Receipt_Printers -->
+                  <span class="method-name">Settings_Receipt_Printers</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Report_MatrixReport">
+                  </a> <!-- Settings_Report_MatrixReport -->
+                  <span class="method-name">Settings_Report_MatrixReport</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Revenue_Center">
+                  </a> <!-- Settings_Revenue_Center -->
+                  <span class="method-name">Settings_Revenue_Center</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Sale_Recap_Report">
+                  </a> <!-- Settings_Sale_Recap_Report -->
+                  <span class="method-name">Settings_Sale_Recap_Report</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Scales">
+                  </a> <!-- Settings_Scales -->
+                  <span class="method-name">Settings_Scales</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_StoreInventory">
+                  </a> <!-- Settings_StoreInventory -->
+                  <span class="method-name">Settings_StoreInventory</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Store_Information">
+                  </a> <!-- Settings_Store_Information -->
+                  <span class="method-name">Settings_Store_Information</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Store_Licenses">
+                  </a> <!-- Settings_Store_Licenses -->
+                  <span class="method-name">Settings_Store_Licenses</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Table_Layout">
+                  </a> <!-- Settings_Table_Layout -->
+                  <span class="method-name">Settings_Table_Layout</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_ThirdPartyIntegrations">
+                  </a> <!-- Settings_ThirdPartyIntegrations -->
+                  <span class="method-name">Settings_ThirdPartyIntegrations</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_Till_Setting">
+                  </a> <!-- Settings_Till_Setting -->
+                  <span class="method-name">Settings_Till_Setting</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_TipOut_TipSharing">
+                  </a> <!-- Settings_TipOut_TipSharing -->
+                  <span class="method-name">Settings_TipOut_TipSharing</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Settings_WaitList">
+                  </a> <!-- Settings_WaitList -->
+                  <span class="method-name">Settings_WaitList</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Start_Settings">
+                  </a> <!-- Start_Settings -->
+                  <span class="method-name">Start_Settings</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="logout">
+                  </a> <!-- logout -->
+                  <span class="method-name">logout</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.TakesScreenshot.getScreenshotAs(org.openqa.selenium.OutputType)&quot; because &quot;this.driver&quot; is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:42)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-skipped -->
+        </div> <!-- panel Suite -->
+        <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\raja.s\AppData\Local\Temp\testng-eclipse-1922280183\testng-customsuite.xml</span>
+            <span class="header-content">C:\Automation\Linga_BO_Revamp\testng_Settings.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
+&lt;suite name=&quot;Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Settings&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.Test.Product_Items_AddEditDelete_Departments&quot;/&gt;
+      &lt;class name=&quot;com.Test.AllClassCalling_Settings&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Default test --&gt;
-&lt;/suite&gt; &lt;!-- Default suite --&gt;
+  &lt;/test&gt; &lt;!-- Settings --&gt;
+&lt;/suite&gt; &lt;!-- Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="testlist-Default_suite" class="panel">
+        <div panel-name="testlist-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Tests for Default suite</span>
+            <span class="header-content">Tests for Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Default test (1 class)</span>
+                <span class="test-name">Settings (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="group-Default_suite" class="panel">
+        <div panel-name="group-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Groups for Default suite</span>
+            <span class="header-content">Groups for Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="times-Default_suite" class="panel">
+        <div panel-name="times-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Times for Default suite</span>
+            <span class="header-content">Times for Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="times-div">
               <script type="text/javascript">
-suiteTableInitFunctions.push('tableData_Default_suite');
-function tableData_Default_suite() {
+suiteTableInitFunctions.push('tableData_Suite');
+function tableData_Suite() {
 var data = new google.visualization.DataTable();
 data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(36);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Login')
-data.setCell(0, 2, 'com.Test.Product_Items_AddEditDelete_Departments')
-data.setCell(0, 3, 65589);
+data.setCell(0, 1, 'login')
+data.setCell(0, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(0, 3, 5129);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'Calling')
-data.setCell(1, 2, 'com.Test.Product_Items_AddEditDelete_Departments')
-data.setCell(1, 3, 27888);
+data.setCell(1, 1, 'Settings_Email_Receipt_Template')
+data.setCell(1, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(1, 3, 0);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'LogOut')
-data.setCell(2, 2, 'com.Test.Product_Items_AddEditDelete_Departments')
-data.setCell(2, 3, 3440);
-window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
+data.setCell(2, 1, 'Settings_AccountBalance')
+data.setCell(2, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(2, 3, 0);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'Settings_Integrations_WebHook')
+data.setCell(3, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(3, 3, 0);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'Settings_Printer_Rerouting')
+data.setCell(4, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(4, 3, 0);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'End_Settings')
+data.setCell(5, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(5, 3, 0);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'Settings_Additional_Settings')
+data.setCell(6, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(6, 3, 0);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'Settings_ThirdPartyIntegrations')
+data.setCell(7, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(7, 3, 0);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'Settings_Store_Information')
+data.setCell(8, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(8, 3, 0);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'Settings_Scales')
+data.setCell(9, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(9, 3, 0);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'Settings_StoreInventory')
+data.setCell(10, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(10, 3, 0);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'Settings_CDS_Configuration')
+data.setCell(11, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(11, 3, 0);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'Settings_Receipt_Printers')
+data.setCell(12, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(12, 3, 0);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'Settings_Table_Layout')
+data.setCell(13, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(13, 3, 0);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'Settings_Revenue_Center')
+data.setCell(14, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(14, 3, 0);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'Settings_Sale_Recap_Report')
+data.setCell(15, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(15, 3, 0);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'Settings_EMV_Settings')
+data.setCell(16, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(16, 3, 0);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'Settings_General_Settings')
+data.setCell(17, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(17, 3, 0);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'Settings_KDS_Configuration')
+data.setCell(18, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(18, 3, 0);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'Settings_Report_MatrixReport')
+data.setCell(19, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(19, 3, 0);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'Settings_Label_Template')
+data.setCell(20, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(20, 3, 0);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'Start_Settings')
+data.setCell(21, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(21, 3, 0);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'Settings_Notifications')
+data.setCell(22, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(22, 3, 0);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'Settings_Store_Licenses')
+data.setCell(23, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(23, 3, 0);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'Settings_Label_Printers')
+data.setCell(24, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(24, 3, 0);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'Settings_WaitList')
+data.setCell(25, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(25, 3, 0);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'Settings_Front_End_Receipt_Template')
+data.setCell(26, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(26, 3, 0);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'Settings_Payment_Methods')
+data.setCell(27, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(27, 3, 0);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'Settings_POS_Custom_URL')
+data.setCell(28, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(28, 3, 0);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'Settings_Batch_Settings')
+data.setCell(29, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(29, 3, 0);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'Settings_TipOut_TipSharing')
+data.setCell(30, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(30, 3, 0);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'Settings_Till_Setting')
+data.setCell(31, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(31, 3, 0);
+data.setCell(32, 0, 32)
+data.setCell(32, 1, 'Settings_Kitchen_Printer_Template')
+data.setCell(32, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(32, 3, 0);
+data.setCell(33, 0, 33)
+data.setCell(33, 1, 'Settings_Payment_Settings_and_Service_Charge')
+data.setCell(33, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(33, 3, 0);
+data.setCell(34, 0, 34)
+data.setCell(34, 1, 'Settings_Kitchen_Printers')
+data.setCell(34, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(34, 3, 0);
+data.setCell(35, 0, 35)
+data.setCell(35, 1, 'logout')
+data.setCell(35, 2, 'com.Test.AllClassCalling_Settings')
+data.setCell(35, 3, 0);
+window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
-              <div id="times-div-Default_suite">
-              </div> <!-- times-div-Default_suite -->
+              <span class="suite-total-time">Total running time: 5 seconds</span>
+              <div id="times-div-Suite">
+              </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="reporter-Default_suite" class="panel">
+        <div panel-name="reporter-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Reporter output for Default suite</span>
+            <span class="header-content">Reporter output for Suite</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="ignored-methods-Default_suite" class="panel">
+        <div panel-name="ignored-methods-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">7 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">com.Test.Product_Items_AddEditDelete_Departments</span>
+              <span class="ignored-class-name">com.Test.AllClassCalling_Settings</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">Add_Departments</span>
-                <br/>
-                <span class="ignored-method-name">RefreshAndPaginination</span>
-                <br/>
-                <span class="ignored-method-name">Create_DuplicateDepartment</span>
-                <br/>
-                <span class="ignored-method-name">Open_Departments_Page</span>
-                <br/>
-                <span class="ignored-method-name">Edit_and_Close_Cancel_Departments</span>
-                <br/>
-                <span class="ignored-method-name">Delete_and_Active_Inactive_Departments</span>
-                <br/>
-                <span class="ignored-method-name">Edit_and_Update_Departments</span>
+                <span class="ignored-method-name">Settings_Business_Hours</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="chronological-Default_suite" class="panel">
+        <div panel-name="chronological-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
             <span class="header-content">Methods in chronological order</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.Test.Product_Items_AddEditDelete_Departments</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.Test.AllClassCalling_Settings</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">Login</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">login</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TestFail([TestResult name=Login status=SUCCESS method=Product_Items_AddEditDelete_Departments.Login()[pri:1, ...)</span>
-                <span class="method-start">65594 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TestFail([TestResult name=login status=FAILURE method=AllClassCalling_Settings.login()[pri:1, instance:com.Te...)</span>
+                <span class="method-start">5135 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
-                <span class="method-name">Calling</span>
-                <span class="method-start">65602 ms</span>
+                <span class="method-name">Start_Settings</span>
+                <span class="method-start">5144 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5145 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Till_Setting</span>
+                <span class="method-start">5147 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5149 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Scales</span>
+                <span class="method-start">5151 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5152 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_CDS_Configuration</span>
+                <span class="method-start">5154 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5159 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Store_Information</span>
+                <span class="method-start">5160 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5162 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Notifications</span>
+                <span class="method-start">5163 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5164 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Additional_Settings</span>
+                <span class="method-start">5166 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5174 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Batch_Settings</span>
+                <span class="method-start">5175 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5178 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Email_Receipt_Template</span>
+                <span class="method-start">5179 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">LogOut</span>
-                <span class="method-start">93491 ms</span>
+                <span class="method-name">Settings_Integrations_WebHook</span>
+                <span class="method-start">5180 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TestFail([TestResult name=Calling status=SUCCESS method=Product_Items_AddEditDelete_Departments.Calling()[pri...)</span>
-                <span class="method-start">93491 ms</span>
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5180 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
-                <span class="method-name">TestFail([TestResult name=LogOut status=SUCCESS method=Product_Items_AddEditDelete_Departments.LogOut()[pri:5...)</span>
-                <span class="method-start">96932 ms</span>
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5183 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Report_MatrixReport</span>
+                <span class="method-start">5184 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5186 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Revenue_Center</span>
+                <span class="method-start">5187 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5189 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_WaitList</span>
+                <span class="method-start">5190 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5191 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_General_Settings</span>
+                <span class="method-start">5192 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5193 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5194 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Store_Licenses</span>
+                <span class="method-start">5194 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Settings_Kitchen_Printers</span>
+                <span class="method-start">5204 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Settings_Receipt_Printers</span>
+                <span class="method-start">5206 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5206 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5208 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Label_Printers</span>
+                <span class="method-start">5209 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5211 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_AccountBalance</span>
+                <span class="method-start">5212 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5213 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_POS_Custom_URL</span>
+                <span class="method-start">5214 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5221 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_StoreInventory</span>
+                <span class="method-start">5223 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5226 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_EMV_Settings</span>
+                <span class="method-start">5229 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5230 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Sale_Recap_Report</span>
+                <span class="method-start">5230 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5236 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Payment_Settings_and_Service_Charge</span>
+                <span class="method-start">5240 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5242 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Payment_Methods</span>
+                <span class="method-start">5243 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5245 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Label_Template</span>
+                <span class="method-start">5246 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5247 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_KDS_Configuration</span>
+                <span class="method-start">5248 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5251 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Front_End_Receipt_Template</span>
+                <span class="method-start">5253 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5255 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5258 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Kitchen_Printer_Template</span>
+                <span class="method-start">5258 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5260 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Table_Layout</span>
+                <span class="method-start">5260 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Settings_ThirdPartyIntegrations</span>
+                <span class="method-start">5262 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5264 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_Printer_Rerouting</span>
+                <span class="method-start">5265 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5268 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">Settings_TipOut_TipSharing</span>
+                <span class="method-start">5271 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5273 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">End_Settings</span>
+                <span class="method-start">5275 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5276 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">logout</span>
+                <span class="method-start">5278 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">TestFail</span>
+                <span class="method-start">5279 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">flushTest</span>
-                <span class="method-start">96933 ms</span>
+                <span class="method-start">5281 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
