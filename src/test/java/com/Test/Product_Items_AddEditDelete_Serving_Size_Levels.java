@@ -573,12 +573,16 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 			test.log(LogStatus.PASS, "Name already exist pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_CancelButton();
 		}
 		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
 		{
 			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_CancelButton();
 		}
 		else
 		{

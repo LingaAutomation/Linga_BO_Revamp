@@ -61,18 +61,30 @@ public class SubCategoriesPage {
 	public void Select_Category() throws Exception
 	{
 		Thread.sleep(1000);
-		CategoryDropBtn.click();
 		
-		List<WebElement> catgryList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-		
-		int catgrySize=catgryList.size();
-		
-		
-		int randomcatgry=ThreadLocalRandom.current().nextInt(1, catgrySize);
-		
-		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomcatgry+"]")).click();
-		
+		new Common_XPaths(driver, test).Click_DropDown_withSearch(CategoryDropBtn, "Category Selected");
+//		CategoryDropBtn.click();
+//		
+//		List<WebElement> catgryList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//		
+//		int catgrySize=catgryList.size();
+//		
+//		if(catgrySize<=6)
+//		{
+//		
+//		int randomcatgry=ThreadLocalRandom.current().nextInt(1, catgrySize);
+//		
+//		
+//		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomcatgry+"]")).click();
+//		}
+//		else
+//		{
+//			int randomcatgry=ThreadLocalRandom.current().nextInt(1, 6);
+//			
+//			
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomcatgry+"]")).click();
+//		
+//		}
 	
 	}
 	

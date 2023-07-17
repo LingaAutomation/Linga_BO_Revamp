@@ -38,10 +38,10 @@ public class CoursingPage {
 	@FindBy(xpath = "//span[contains(.,'Number should not be less than 0. Enter Valid Priority')]")
 	WebElement PriorityZeroPopUp;
 	
-	@FindBy(xpath = "//div[contains(@class,'data-grid-header')]/span[contains(.,'Name')]")
+	@FindBy(xpath = "//th[contains(@class,'mat-sort-header')]/div[contains(.,'Name')]")
 	WebElement Name_TableHeader;
 	
-	@FindBy(xpath = "//div[contains(@class,'data-grid-header')]/span[contains(.,'Priority')]")
+	@FindBy(xpath = "//th[contains(@class,'mat-sort-header')]/div[contains(.,'Priority')]")
 	WebElement Priority_TableHeader;
 	
 	

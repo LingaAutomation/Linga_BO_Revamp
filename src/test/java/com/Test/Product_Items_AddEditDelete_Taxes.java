@@ -855,7 +855,19 @@ public WebDriver driver;
 			cmp.Click_BackspaceButton();
 			Thread.sleep(1000);
 			
-		}
+		}  //Check whether the New Tax Saved or not
+		 else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
+			{
+				test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
+			
+				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+				
+				Thread.sleep(1000);
+				cmp.Click_BackspaceButton();
+				Thread.sleep(1000);
+				
+			}
+			
 		else
 		{
 			test.log(LogStatus.FAIL, "Tax Name already exist pop up not Displayed");

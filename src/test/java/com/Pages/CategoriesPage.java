@@ -229,6 +229,8 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		
 		int randomCoursing=ThreadLocalRandom.current().nextInt(1, courseSize);
 		
+		if(courseSize>=1)
+		{
 		try
 		{
 		if(ShowAll_Select_KitchenPrintersBtn.isDisplayed())
@@ -241,7 +243,12 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[contains(@id,'kitchen-printers')]//app-chip/div/mat-chip-list/div/mat-chip["+randomCoursing+"]")).click();
-	
+		}
+		else
+		{
+			test.log(LogStatus.INFO, "Kitchen Printers Not available");
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
 	}
 	
 	public void Select_LabelPrinter() throws Exception
@@ -256,6 +263,8 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		
 		int randomCoursing=ThreadLocalRandom.current().nextInt(1, courseSize);
 		
+		if(courseSize>=1)
+		{
 		try
 		{
 		if(ShowAll_Select_LabelPrintersBtn.isDisplayed())
@@ -268,7 +277,12 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 			
 			Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[contains(@id,'label-printers')]//app-chip/div/mat-chip-list/div/mat-chip["+randomCoursing+"]")).click();
-	
+		}
+		else
+		{
+			test.log(LogStatus.INFO, "Label Printers Not available");
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
 	}
 	
 	@FindBy(xpath = "//h5[contains(.,'Tax')]/../../..//button[contains(.,'Show All')]")
@@ -296,6 +310,8 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		
 		int randomCoursing=ThreadLocalRandom.current().nextInt(1, courseSize);
 		
+		if(courseSize>=1)
+		{
 		try
 		{
 		Thread.sleep(1000);
@@ -312,6 +328,12 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		driver.findElement(By.xpath("//div[contains(@id,'tax')]//app-chip/div/mat-chip-list/div/mat-chip["+randomCoursing+"]")).click();
 		
 	}
+	else
+	{
+		test.log(LogStatus.INFO, "Taxes Not available");
+		ut.PassedCaptureScreenshotAsBASE64(driver, test);
+	}
+	}
 	
 	public void Select_RestrictPrinter() throws Exception
 	{
@@ -324,6 +346,8 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		
 		int randomCoursing=ThreadLocalRandom.current().nextInt(1, courseSize);
 		
+		if(courseSize>=1)
+		{
 		try
 		{
 		if(ShowAll_Select_RestrictPrintersBtn.isDisplayed())
@@ -336,7 +360,12 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		
 			Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[contains(@id,'restrict-printers')]//app-chip/div/mat-chip-list/div/mat-chip["+randomCoursing+"]")).click();
-		
+		}
+		else
+		{
+			test.log(LogStatus.INFO, "Restrict Printers Not available");
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
 	}
 	
 	public void Disable_DefaultTaxSettings()
@@ -361,26 +390,28 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		Thread.sleep(1000);
 		wait=new WebDriverWait(driver, Duration.ofSeconds(120));
 		
+		cmp.Click_DropDown_withSearch(DepartmentDropBtn, "Department selected");
+		
 //		DepartmentDropBtn.click();
-		wait.until(ExpectedConditions.elementToBeClickable(DepartmentDropBtn)).click();
-		
-//		try
-//		{
-		Thread.sleep(1000);
-		List<WebElement> departList=driver.findElements(By.xpath("//div/select-option"));
-		
-		int deptSize=departList.size();
-		
-		
-		int randomDept=ThreadLocalRandom.current().nextInt(1, deptSize);
-		
-		
-		driver.findElement(By.xpath("//div["+randomDept+"]/select-option")).click();
-//		}
-//		catch(Exception e)
-//		{
-//			cmp.FirstOption_DropBtn.click();
-//		}
+//		wait.until(ExpectedConditions.elementToBeClickable(DepartmentDropBtn)).click();
+//		
+////		try
+////		{
+//		Thread.sleep(1000);
+//		List<WebElement> departList=driver.findElements(By.xpath("//div/select-option"));
+//		
+//		int deptSize=departList.size();
+//		
+//		
+//		int randomDept=ThreadLocalRandom.current().nextInt(1, deptSize);
+//		
+//		
+//		driver.findElement(By.xpath("//div["+randomDept+"]/select-option")).click();
+////		}
+////		catch(Exception e)
+////		{
+////			cmp.FirstOption_DropBtn.click();
+////		}
 	
 	}
 	
@@ -393,30 +424,34 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		Thread.sleep(2000);
 		wait=new WebDriverWait(driver, Duration.ofSeconds(120));
 		
-		wait.until(ExpectedConditions.elementToBeClickable(CoursingDropBtn)).click();
+		
+		Thread.sleep(1000);
+		cmp.Click_DropDown_withSearch(CoursingDropBtn, "Coursing selected");
+		
+		
+//		wait.until(ExpectedConditions.elementToBeClickable(CoursingDropBtn)).click();
 //		CoursingDropBtn.click();
 		
-		Thread.sleep(1000);
-		List<WebElement> courseList=driver.findElements(By.xpath("//div/select-option"));
-		
-		int courseSize=courseList.size();
-		
-		if(courseSize<=6)
-		{
-		
-		int randomCoursing=ThreadLocalRandom.current().nextInt(1, courseSize);
-		
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
-		}
-		else
-		{
-			int randomCoursing=ThreadLocalRandom.current().nextInt(1, 6);
-			
-			Thread.sleep(1000);
-			driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
-		
-		}
+//		List<WebElement> courseList=driver.findElements(By.xpath("//div/select-option"));
+//		
+//		int courseSize=courseList.size();
+//		
+//		if(courseSize<=6)
+//		{
+//		
+//		int randomCoursing=ThreadLocalRandom.current().nextInt(1, courseSize);
+//		
+//		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
+//		}
+//		else
+//		{
+//			int randomCoursing=ThreadLocalRandom.current().nextInt(1, 6);
+//			
+//			Thread.sleep(1000);
+//			driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
+//		
+//		}
 	
 	}
 	
@@ -483,6 +518,8 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		
 		int randomRole=ThreadLocalRandom.current().nextInt(1, rolesSize);
 		
+		if(rolesSize>=1)
+		{
 		try
 		{
 		if(ShowAll_Select_RolesBtn.isDisplayed())
@@ -497,7 +534,11 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		driver.findElement(By.xpath("//div[@id='new-category-roles']/div[3]/div/app-chip/div/mat-chip-list/div/mat-chip["+randomRole+"]")).click();
 	
 		//driver.findElement(By.xpath("//div[@id='new-category-roles']/div[3]/div/app-chip/div/mat-chip-list/div/mat-chip[contains(.,'"+str+"')]")).click();
-
+		}
+		else
+		{
+			test.log(LogStatus.WARNING, "Roles not available");
+		}
 	}
 	
 	public void Select_TareGroup() throws Exception
@@ -509,21 +550,23 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		
 		wait=new WebDriverWait(driver, Duration.ofSeconds(120));
 		
+		cmp.Click_DropDown_withSearch(TareGroupDropBtn, "Tare Group Selected");
+		
 //		TareGroupDropBtn.click();
-		wait.until(ExpectedConditions.elementToBeClickable(TareGroupDropBtn)).click();
-		
-		Thread.sleep(1000);
-		List<WebElement> tareGrpList=driver.findElements(By.xpath("//div/select-option"));
-		
-		int tareGrpSize=tareGrpList.size();
-		
-		
-		int randomTareGrp=ThreadLocalRandom.current().nextInt(1, tareGrpSize);
-		
-		
-		driver.findElement(By.xpath("//div["+randomTareGrp+"]/select-option")).click();
-		
-	
+//		wait.until(ExpectedConditions.elementToBeClickable(TareGroupDropBtn)).click();
+//		
+//		Thread.sleep(1000);
+//		List<WebElement> tareGrpList=driver.findElements(By.xpath("//div/select-option"));
+//		
+//		int tareGrpSize=tareGrpList.size();
+//		
+//		
+//		int randomTareGrp=ThreadLocalRandom.current().nextInt(1, tareGrpSize);
+//		
+//		
+//		driver.findElement(By.xpath("//div["+randomTareGrp+"]/select-option")).click();
+//		
+//	
 	}
 	
 	public void Create_Category_NewTax(String str) throws Exception

@@ -505,12 +505,16 @@ public WebDriver driver;
 			test.log(LogStatus.PASS, "Department Name already exist pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_CancelButton();
 		}
 		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
 		{
 			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_CancelButton();
 		}
 		else
 		{

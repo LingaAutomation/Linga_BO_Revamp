@@ -1,50 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Settings(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Test.AllClassCalling_Settings">
+      <class name="com.Test.Product_Items_AddEditDelete_SubCategories">
         <methods>
-          <include name="Settings_Revenue_Center"/>
-          <include name="Settings_StoreInventory"/>
-          <include name="flushTest"/>
-          <include name="Settings_CDS_Configuration"/>
-          <include name="Settings_Sale_Recap_Report"/>
-          <include name="Settings_Label_Template"/>
-          <include name="Settings_Table_Layout"/>
-          <include name="Settings_KDS_Configuration"/>
-          <include name="Settings_Additional_Settings"/>
-          <include name="Settings_AccountBalance"/>
-          <include name="Settings_Till_Setting"/>
-          <include name="Settings_Store_Licenses"/>
-          <include name="Settings_WaitList"/>
-          <include name="Settings_TipOut_TipSharing"/>
-          <include name="Settings_Kitchen_Printer_Template"/>
-          <include name="Settings_EMV_Settings"/>
-          <include name="login"/>
+          <include name="Calling"/>
           <include name="TestFail"/>
-          <include name="Settings_Batch_Settings"/>
-          <include name="Settings_Label_Printers"/>
-          <include name="Settings_Kitchen_Printers"/>
-          <include name="Settings_Scales"/>
-          <include name="Settings_Payment_Settings_and_Service_Charge"/>
-          <include name="Settings_Report_MatrixReport"/>
-          <include name="Settings_ThirdPartyIntegrations"/>
-          <include name="Settings_Printer_Rerouting"/>
-          <include name="End_Settings"/>
-          <include name="Settings_Front_End_Receipt_Template"/>
-          <include name="Settings_Receipt_Printers"/>
-          <include name="Start_Settings"/>
-          <include name="Settings_Payment_Methods"/>
-          <include name="Settings_Email_Receipt_Template"/>
-          <include name="Settings_General_Settings"/>
-          <include name="Settings_Integrations_WebHook"/>
-          <include name="Settings_Notifications"/>
-          <include name="Settings_Store_Information"/>
-          <include name="logout"/>
-          <include name="Settings_POS_Custom_URL"/>
+          <include name="flushTest"/>
         </methods>
-      </class> <!-- com.Test.AllClassCalling_Settings -->
+      </class> <!-- com.Test.Product_Items_AddEditDelete_SubCategories -->
     </classes>
-  </test> <!-- Settings(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

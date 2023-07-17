@@ -2,6 +2,7 @@ package com.Pages;
 
 import static org.testng.Assert.expectThrows;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -214,7 +215,7 @@ public class Common_XPaths {
 	{
 	//	Upload_PictureBtn.clear();
 		Thread.sleep(1000);
-		Upload_PictureBtn.sendKeys(str);
+		Upload_PictureBtn.sendKeys(System.getProperty("user.dir")+"//Automation_Images//"+str);
 	}
 	
 	

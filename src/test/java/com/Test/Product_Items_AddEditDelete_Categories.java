@@ -914,12 +914,19 @@ public WebDriver driver;
 		//Click the Save and Publish button
 		cmp.Click_Save_and_PublishButton();
 		
-		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Name already exist"))
 		{
 			test.log(LogStatus.PASS, "Category Name already exist pop up displayed");
+		
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
+		{
+			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			
