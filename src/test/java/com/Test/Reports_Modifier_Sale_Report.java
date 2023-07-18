@@ -240,8 +240,8 @@ public WebDriver driver;
 			
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[3]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr/div[@class='content-container']/data-grid-row"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[3]/span")).getText().replace(",", "");
 			//double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -268,7 +268,7 @@ public WebDriver driver;
 			 */
 		
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[4]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[4]/span")).getText().replace(",", "");
 			test.log(LogStatus.INFO,"Quantity for Modifier Sale Report is displayed for Today and the value is : "+Qty);
 			//double ActualQuantity=Double.parseDouble(Qty);
 			
@@ -294,7 +294,7 @@ public WebDriver driver;
 			 */
 			
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			//double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
@@ -391,20 +391,20 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[3]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr/div[@class='content-container']/data-grid-row"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[3]/span")).getText().replace(",", "");
 
 			//Export the Sale Amount value to Excel
 			excel.setreportData("Yesterday", 2, 10, SaleAmount);
 			test.log(LogStatus.INFO,"Sale Amount for Modifier Sale Report is displayed for Yesterday and the value is : "+SaleAmount);
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[4]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[4]/span")).getText().replace(",", "");
 			test.log(LogStatus.INFO,"Quantity for Modifier Sale Report is displayed for Yesterday and the value is : "+Qty);
 			//double ActualQuantity=Double.parseDouble(Qty);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			//double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -487,20 +487,20 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[3]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr/div[@class='content-container']/data-grid-row"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[3]/span")).getText().replace(",", "");
 
 			//Export the Sale Amount value to Excel
 			excel.setreportData("Last N days", 2, 10, SaleAmount);
 			test.log(LogStatus.INFO,"Sale Amount for Modifier Sale Report is displayed for Last N days and the value is : "+SaleAmount);
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[4]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[4]/span")).getText().replace(",", "");
 			test.log(LogStatus.INFO,"Quantity for Modifier Sale Report is displayed for Last N days and the value is : "+Qty);
 			//double ActualQuantity=Double.parseDouble(Qty);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			//double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -582,20 +582,20 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[3]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr/div[@class='content-container']/data-grid-row"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[3]/span")).getText().replace(",", "");
 
 			//Export the Sale Amount value to Excel
 			excel.setreportData("This Week", 2, 10, SaleAmount);
 			test.log(LogStatus.INFO,"Sale Amount for Modifier Sale Report is displayed for This Week and the value is : "+SaleAmount);
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[4]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[4]/span")).getText().replace(",", "");
 			test.log(LogStatus.INFO,"Quantity for Modifier Sale Report is displayed for This Week and the value is : "+Qty);
 			//double ActualQuantity=Double.parseDouble(Qty);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			//double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -677,20 +677,20 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[3]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr/div[@class='content-container']/data-grid-row"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[3]/span")).getText().replace(",", "");
 
 			//Export the Sale Amount value to Excel
 			excel.setreportData("Last Week", 2, 10, SaleAmount);
 			test.log(LogStatus.INFO,"Sale Amount for Modifier Sale Report is displayed for Last Week and the value is : "+SaleAmount);
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[4]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[4]/span")).getText().replace(",", "");
 			test.log(LogStatus.INFO,"Quantity for Modifier Sale Report is displayed for Last Week and the value is : "+Qty);
 			//double ActualQuantity=Double.parseDouble(Qty);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			//double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -772,20 +772,20 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[3]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr/div[@class='content-container']/data-grid-row"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[3]/span")).getText().replace(",", "");
 
 			//Export the Sale Amount value to Excel
 			excel.setreportData("Last 7 days", 2, 10, SaleAmount);
 			test.log(LogStatus.INFO,"Sale Amount for Modifier Sale Report is displayed for Last 7 days and the value is : "+SaleAmount);
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[4]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[4]/span")).getText().replace(",", "");
 			test.log(LogStatus.INFO,"Quantity for Modifier Sale Report is displayed for Last 7 days and the value is : "+Qty);
 			//double ActualQuantity=Double.parseDouble(Qty);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			//double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -867,20 +867,20 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[3]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr/div[@class='content-container']/data-grid-row"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[3]/span")).getText().replace(",", "");
 
 			//Export the Sale Amount value to Excel
 			excel.setreportData("This month", 2, 10, SaleAmount);
 			test.log(LogStatus.INFO,"Sale Amount for Modifier Sale Report is displayed for This month and the value is : "+SaleAmount);
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[4]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[4]/span")).getText().replace(",", "");
 			test.log(LogStatus.INFO,"Quantity for Modifier Sale Report is displayed for This month and the value is : "+Qty);
 			//double ActualQuantity=Double.parseDouble(Qty);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			//double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -963,20 +963,20 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[3]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr/div[@class='content-container']/data-grid-row"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[3]/span")).getText().replace(",", "");
 
 			//Export the Sale Amount value to Excel
 			excel.setreportData("Last month", 2, 10, SaleAmount);
 			test.log(LogStatus.INFO,"Sale Amount for Modifier Sale Report is displayed for Last month and the value is : "+SaleAmount);
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[4]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[4]/span")).getText().replace(",", "");
 			test.log(LogStatus.INFO,"Quantity for Modifier Sale Report is displayed for Last month and the value is : "+Qty);
 			//double ActualQuantity=Double.parseDouble(Qty);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			//double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1058,20 +1058,20 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[3]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr/div[@class='content-container']/data-grid-row"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[3]/span")).getText().replace(",", "");
 
 			//Export the Sale Amount value to Excel
 			excel.setreportData("Last 30 days", 2, 10, SaleAmount);
 			test.log(LogStatus.INFO,"Sale Amount for Modifier Sale Report is displayed for Last 30 days and the value is : "+SaleAmount);
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[4]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[4]/span")).getText().replace(",", "");
 			test.log(LogStatus.INFO,"Quantity for Modifier Sale Report is displayed for Last 30 days and the value is : "+Qty);
 			//double ActualQuantity=Double.parseDouble(Qty);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			//double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1155,20 +1155,20 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[3]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr/div[@class='content-container']/data-grid-row"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[3]/span")).getText().replace(",", "");
 
 			//Export the Sale Amount value to Excel
 			excel.setreportData("Specific Date", 2, 10, SaleAmount);
 			test.log(LogStatus.INFO,"Sale Amount for Modifier Sale Report is displayed for Specific Date and the value is : "+SaleAmount);
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[4]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[4]/span")).getText().replace(",", "");
 			test.log(LogStatus.INFO,"Quantity for Modifier Sale Report is displayed for Specific Date and the value is : "+Qty);
 			//double ActualQuantity=Double.parseDouble(Qty);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			//double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1251,20 +1251,20 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[3]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr/div[@class='content-container']/data-grid-row"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[3]/span")).getText().replace(",", "");
 
 			//Export the Sale Amount value to Excel
 			excel.setreportData("Date Range", 2, 10, SaleAmount);
 			test.log(LogStatus.INFO,"Sale Amount for Modifier Sale Report is displayed for Date Range and the value is : "+SaleAmount);
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[4]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[4]/span")).getText().replace(",", "");
 			test.log(LogStatus.INFO,"Quantity for Modifier Sale Report is displayed for Date Range and the value is : "+Qty);
 			//double ActualQuantity=Double.parseDouble(Qty);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			//double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel

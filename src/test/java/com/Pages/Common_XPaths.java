@@ -7,6 +7,7 @@ import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -1469,5 +1470,33 @@ public class Common_XPaths {
 
 		Thread.sleep(1000);
 		Columns_Btn.click();
+	}
+	
+	public String Random_NumGenerator(int DigitCount)
+	{
+	
+		String RandomText=RandomStringUtils.randomNumeric(DigitCount);
+
+		return RandomText;
+		
+	}
+	
+	
+	public String Random_AlphaNumGenerator(int DigitCount)
+	{
+	
+		String RandomText=RandomStringUtils.randomAlphanumeric(DigitCount);
+
+		return RandomText;
+		
+	}
+	
+	public String Random_AlphabeticGenerator(int DigitCount)
+	{
+	
+		String RandomText=RandomStringUtils.randomAlphabetic(DigitCount);
+
+		return RandomText;
+		
 	}
 }

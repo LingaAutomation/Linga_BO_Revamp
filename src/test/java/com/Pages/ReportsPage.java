@@ -429,9 +429,9 @@ public class ReportsPage
 	
 	public WebElement Sale_NetSales_Amount_SaleReport()
 	{
-		List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
+		List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
 		
-		return driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[2]/span"));
+		return driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[2]/span"));
 	}
 	
 	
@@ -439,32 +439,32 @@ public class ReportsPage
 	
 	public WebElement Quantity_SaleReport()
 	{
-		List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
+		List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
 		
-		return driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[3]/span"));
+		return driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[3]/span"));
 	}
 	
 	
 	public WebElement Tax_SaleReport()
 	{
-		List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
+		List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
 		
-		return driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[4]/span"));
+		return driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[4]/span"));
 	}
 	
 	public WebElement Discount_SaleReport()
 	{
-		List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
+		List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
 		
-		return driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span"));
+		return driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span"));
 	}
 	
 	
 	public WebElement PercentageOfSale_SaleReport()
 	{
-		List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
+		List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
 		
-		return driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[6]/span"));
+		return driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[6]/span"));
 	}
 	
 	
@@ -525,6 +525,14 @@ public class ReportsPage
 	
 
 	////////////// Daily Sale Report  //////////////////
+	
+	
+	public WebElement NetSales_Amount_DailySaleReport()
+	{
+		List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
+		
+		return driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[2]/span"));
+	}
 	
 	
 	public WebElement Tax_DailySaleReport()

@@ -311,8 +311,8 @@ public WebDriver driver;
 			
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -341,7 +341,7 @@ public WebDriver driver;
 			//double Expected_Quantity=Double.parseDouble(Expeccted_Qty);
 		
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[6]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[6]/span")).getText().replace(",", "");
 			//double ActualQuantity=Double.parseDouble(Qty);
 			
 			//Export Qunatity value to Excel
@@ -370,7 +370,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 			
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[7]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[7]/span")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
@@ -398,7 +398,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 			
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[8]/span")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[8]/span")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 			
 			//Export Discount value to Excel
@@ -427,7 +427,7 @@ public WebDriver driver;
 //		
 //			
 //			//Get the Percentage of Sale
-			String PerSale=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[9]/span")).getText().replace(",", "");
+			String PerSale=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[9]/span")).getText().replace(",", "");
 //			double ActualPercentage_ofSale=Double.parseDouble(PerSale);
 //			
 //			//Export the % Percentage of Sale value to Excel
@@ -553,8 +553,8 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
 			//Export the Sale Amount value to Excel
@@ -579,7 +579,7 @@ public WebDriver driver;
 			}
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[6]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[6]/span")).getText().replace(",", "");
 				test.log(LogStatus.INFO, "Quantity for Menu Item Sale Report is displayed for Yesterday and the value is : "+Qty);
 
 			//Get the Tax from Sale Recap Report
@@ -587,7 +587,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[7]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[7]/span")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -615,7 +615,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[8]/span")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[8]/span")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -639,7 +639,7 @@ public WebDriver driver;
 			}
 
 			//Get the Percentage of Sale
-			String PerSale=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[9]/span")).getText().replace(",", "");
+			String PerSale=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[9]/span")).getText().replace(",", "");
 				test.log(LogStatus.PASS, "% of Sale for Menu Item Sale Report is displayed for Yesterday and the value is : "+PerSale);
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -745,8 +745,8 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
 			//Export the Sale Amount value to Excel
@@ -771,7 +771,7 @@ public WebDriver driver;
 			}
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[6]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[6]/span")).getText().replace(",", "");
 				test.log(LogStatus.INFO, "Quantity for Menu Item Sale Report is displayed for Last N days and the value is : "+Qty);
 
 			//Get the Tax from Sale Recap Report
@@ -779,7 +779,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[7]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[7]/span")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -807,7 +807,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[8]/span")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[8]/span")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -831,7 +831,7 @@ public WebDriver driver;
 			}
 
 			//Get the Percentage of Sale
-			String PerSale=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[9]/span")).getText().replace(",", "");
+			String PerSale=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[9]/span")).getText().replace(",", "");
 				test.log(LogStatus.PASS, "% of Sale for Menu Item Sale Report is displayed for Last N days and the value is : "+PerSale);
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -938,8 +938,8 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
 			//Export the Sale Amount value to Excel
@@ -964,7 +964,7 @@ public WebDriver driver;
 			}
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[6]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[6]/span")).getText().replace(",", "");
 				test.log(LogStatus.INFO, "Quantity for Menu Item Sale Report is displayed for This Week and the value is : "+Qty);
 
 			//Get the Tax from Sale Recap Report
@@ -972,7 +972,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[7]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[7]/span")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1000,7 +1000,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[8]/span")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[8]/span")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -1024,7 +1024,7 @@ public WebDriver driver;
 			}
 
 			//Get the Percentage of Sale
-			String PerSale=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[9]/span")).getText().replace(",", "");
+			String PerSale=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[9]/span")).getText().replace(",", "");
 				test.log(LogStatus.PASS, "% of Sale for Menu Item Sale Report is displayed for This Week and the value is : "+PerSale);
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -1129,8 +1129,8 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
 			//Export the Sale Amount value to Excel
@@ -1155,7 +1155,7 @@ public WebDriver driver;
 			}
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[6]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[6]/span")).getText().replace(",", "");
 				test.log(LogStatus.INFO, "Quantity for Menu Item Sale Report is displayed for Last Week and the value is : "+Qty);
 
 			//Get the Tax from Sale Recap Report
@@ -1163,7 +1163,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[7]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[7]/span")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1191,7 +1191,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[8]/span")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[8]/span")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -1215,7 +1215,7 @@ public WebDriver driver;
 			}
 
 			//Get the Percentage of Sale
-			String PerSale=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[9]/span")).getText().replace(",", "");
+			String PerSale=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[9]/span")).getText().replace(",", "");
 				test.log(LogStatus.PASS, "% of Sale for Menu Item Sale Report is displayed for Last Week and the value is : "+PerSale);
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -1320,8 +1320,8 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
 			//Export the Sale Amount value to Excel
@@ -1346,7 +1346,7 @@ public WebDriver driver;
 			}
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[6]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[6]/span")).getText().replace(",", "");
 				test.log(LogStatus.INFO, "Quantity for Menu Item Sale Report is displayed for Last 7 days and the value is : "+Qty);
 
 			//Get the Tax from Sale Recap Report
@@ -1354,7 +1354,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[7]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[7]/span")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1382,7 +1382,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[8]/span")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[8]/span")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -1406,7 +1406,7 @@ public WebDriver driver;
 			}
 
 			//Get the Percentage of Sale
-			String PerSale=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[9]/span")).getText().replace(",", "");
+			String PerSale=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[9]/span")).getText().replace(",", "");
 				test.log(LogStatus.PASS, "% of Sale for Menu Item Sale Report is displayed for Last 7 days and the value is : "+PerSale);
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -1511,8 +1511,8 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
 			//Export the Sale Amount value to Excel
@@ -1537,7 +1537,7 @@ public WebDriver driver;
 			}
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[6]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[6]/span")).getText().replace(",", "");
 				test.log(LogStatus.INFO, "Quantity for Menu Item Sale Report is displayed for This month and the value is : "+Qty);
 
 			//Get the Tax from Sale Recap Report
@@ -1545,7 +1545,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[7]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[7]/span")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1573,7 +1573,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[8]/span")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[8]/span")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -1597,7 +1597,7 @@ public WebDriver driver;
 			}
 
 			//Get the Percentage of Sale
-			String PerSale=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[9]/span")).getText().replace(",", "");
+			String PerSale=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[9]/span")).getText().replace(",", "");
 				test.log(LogStatus.PASS, "% of Sale for Menu Item Sale Report is displayed for This month and the value is : "+PerSale);
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -1703,8 +1703,8 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
 			//Export the Sale Amount value to Excel
@@ -1729,7 +1729,7 @@ public WebDriver driver;
 			}
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[6]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[6]/span")).getText().replace(",", "");
 				test.log(LogStatus.INFO, "Quantity for Menu Item Sale Report is displayed for Last month and the value is : "+Qty);
 
 			//Get the Tax from Sale Recap Report
@@ -1737,7 +1737,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[7]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[7]/span")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1765,7 +1765,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[8]/span")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[8]/span")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -1789,7 +1789,7 @@ public WebDriver driver;
 			}
 
 			//Get the Percentage of Sale
-			String PerSale=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[9]/span")).getText().replace(",", "");
+			String PerSale=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[9]/span")).getText().replace(",", "");
 				test.log(LogStatus.PASS, "% of Sale for Menu Item Sale Report is displayed for Last month and the value is : "+PerSale);
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -1894,8 +1894,8 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
 			//Export the Sale Amount value to Excel
@@ -1920,7 +1920,7 @@ public WebDriver driver;
 			}
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[6]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[6]/span")).getText().replace(",", "");
 				test.log(LogStatus.INFO, "Quantity for Menu Item Sale Report is displayed for Last 30 days and the value is : "+Qty);
 
 			//Get the Tax from Sale Recap Report
@@ -1928,7 +1928,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[7]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[7]/span")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1956,7 +1956,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[8]/span")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[8]/span")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -1980,7 +1980,7 @@ public WebDriver driver;
 			}
 
 			//Get the Percentage of Sale
-			String PerSale=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[9]/span")).getText().replace(",", "");
+			String PerSale=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[9]/span")).getText().replace(",", "");
 				test.log(LogStatus.PASS, "% of Sale for Menu Item Sale Report is displayed for Last 30 days and the value is : "+PerSale);
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -2085,8 +2085,8 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
 			//Export the Sale Amount value to Excel
@@ -2111,7 +2111,7 @@ public WebDriver driver;
 			}
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[6]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[6]/span")).getText().replace(",", "");
 				test.log(LogStatus.INFO, "Quantity for Menu Item Sale Report is displayed for Specific Date and the value is : "+Qty);
 
 			//Get the Tax from Sale Recap Report
@@ -2119,7 +2119,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[7]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[7]/span")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -2147,7 +2147,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[8]/span")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[8]/span")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -2171,7 +2171,7 @@ public WebDriver driver;
 			}
 
 			//Get the Percentage of Sale
-			String PerSale=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[9]/span")).getText().replace(",", "");
+			String PerSale=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[9]/span")).getText().replace(",", "");
 				test.log(LogStatus.PASS, "% of Sale for Menu Item Sale Report is displayed for Specific Date and the value is : "+PerSale);
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
@@ -2276,8 +2276,8 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replace(",", "");
+			List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+			String SaleAmount=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[5]/span")).getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 
 			//Export the Sale Amount value to Excel
@@ -2302,7 +2302,7 @@ public WebDriver driver;
 			}
 
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[6]/span")).getText().replace(",", "");
+			String Qty=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[6]/span")).getText().replace(",", "");
 				test.log(LogStatus.INFO, "Quantity for Menu Item Sale Report is displayed for Date Range and the value is : "+Qty);
 
 			//Get the Tax from Sale Recap Report
@@ -2310,7 +2310,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[7]/span")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[7]/span")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -2338,7 +2338,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[8]/span")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[8]/span")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -2362,7 +2362,7 @@ public WebDriver driver;
 			}
 
 			//Get the Percentage of Sale
-			String PerSale=driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[9]/span")).getText().replace(",", "");
+			String PerSale=driver.findElement(By.xpath("//tbody/tr["+rowList.size()+"]/td[9]/span")).getText().replace(",", "");
 				test.log(LogStatus.PASS, "% of Sale for Menu Item Sale Report is displayed for Date Range and the value is : "+PerSale);
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));

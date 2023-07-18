@@ -71,9 +71,9 @@ public class CoursingPage {
 		Name_TableHeader.click();
 		
 		ArrayList<String> ArLst=new ArrayList<String>();
-		if(driver.findElement(By.xpath("//span[contains(.,'Name')]/../div[contains(@class,'mode-asc')]")).isDisplayed())
+		if(driver.findElement(By.xpath("//th[contains(.,'Name')]/../th[contains(@aria-sort,'ascending')]")).isDisplayed())
 		{
-			List<WebElement> NameLst=driver.findElements(By.xpath("//div[contains(@id,'cdk-drop-list')]/div/data-grid-row/div/div[1]"));
+			List<WebElement> NameLst=driver.findElements(By.xpath("//tbody/tr/td[1]"));
 			
 			for(WebElement ele:NameLst)
 			{ 
@@ -113,9 +113,9 @@ public class CoursingPage {
 		Name_TableHeader.click();
 		
 		ArrayList<String> ArLst=new ArrayList<String>();
-		if(driver.findElement(By.xpath("//span[contains(.,'Name')]/../div[contains(@class,'mode-desc')]")).isDisplayed())
+		if(driver.findElement(By.xpath("//th[contains(.,'Name')]/../th[contains(@aria-sort,'descending')]")).isDisplayed())
 		{
-			List<WebElement> NameLst=driver.findElements(By.xpath("//div[contains(@id,'cdk-drop-list')]/div/data-grid-row/div/div[1]"));
+			List<WebElement> NameLst=driver.findElements(By.xpath("//tbody/tr/td[1]"));
 			
 			for(WebElement ele:NameLst)
 			{

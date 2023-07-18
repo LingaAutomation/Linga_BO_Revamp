@@ -390,6 +390,9 @@ public WebDriver driver;
 				test.log(LogStatus.FAIL, "Sales Table Field not available");
 	
 			}
+			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -463,7 +466,8 @@ public WebDriver driver;
 			excel.setreportData("Today", 12, 16, RoundOff);
 			excel.setreportData("Today", 49, 8, RoundOff);
 		}
-		else
+			}
+			catch(Exception ll)
 		{
 			test.log(LogStatus.FAIL, "Taxes Table Field not available");
 			
@@ -824,6 +828,9 @@ public WebDriver driver;
 				test.log(LogStatus.FAIL, "Sales Table Field not available");
 	
 			}
+
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -896,7 +903,8 @@ public WebDriver driver;
 			excel.setreportData("Yesterday", 12, 16, RoundOff);
 			excel.setreportData("Yesterday", 49, 8, RoundOff);
 		}
-		else
+			}
+			catch(Exception ll)
 		{
 			test.log(LogStatus.FAIL, "Taxes Table Field not available");
 			
@@ -1256,6 +1264,9 @@ public WebDriver driver;
 				test.log(LogStatus.FAIL, "Sales Table Field not available");
 	
 			}
+			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -1328,7 +1339,9 @@ public WebDriver driver;
 			excel.setreportData("Last N days", 12, 16, RoundOff);
 			excel.setreportData("Last N days", 49, 8, RoundOff);
 		}
-		else
+
+			}
+			catch(Exception ll)
 		{
 			test.log(LogStatus.FAIL, "Taxes Table Field not available");
 			
@@ -1691,6 +1704,9 @@ public WebDriver driver;
 				test.log(LogStatus.FAIL, "Sales Table Field not available");
 	
 			}
+			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -1763,7 +1779,9 @@ public WebDriver driver;
 			excel.setreportData("This Week", 12, 16, RoundOff);
 			excel.setreportData("This Week", 49, 8, RoundOff);
 		}
-		else
+
+			}
+			catch(Exception ll)
 		{
 			test.log(LogStatus.FAIL, "Taxes Table Field not available");
 			
@@ -2124,6 +2142,9 @@ public WebDriver driver;
 				test.log(LogStatus.FAIL, "Sales Table Field not available");
 	
 			}
+			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -2196,7 +2217,9 @@ public WebDriver driver;
 			excel.setreportData("Last Week", 12, 16, RoundOff);
 			excel.setreportData("Last Week", 49, 8, RoundOff);
 		}
-		else
+
+			}
+			catch(Exception ll)
 		{
 			test.log(LogStatus.FAIL, "Taxes Table Field not available");
 			
@@ -2556,6 +2579,9 @@ public WebDriver driver;
 			test.log(LogStatus.FAIL, "Sales Table Field not available");
 
 		}
+		
+		try
+		{
 		if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 		{
 			test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -2628,7 +2654,9 @@ public WebDriver driver;
 		excel.setreportData("Last 7 days", 12, 16, RoundOff);
 		excel.setreportData("Last 7 days", 49, 8, RoundOff);
 	}
-	else
+
+		}
+		catch(Exception ll)
 	{
 		test.log(LogStatus.FAIL, "Taxes Table Field not available");
 		
@@ -2990,6 +3018,9 @@ public WebDriver driver;
 				test.log(LogStatus.FAIL, "Sales Table Field not available");
 	
 			}
+			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -3062,7 +3093,9 @@ public WebDriver driver;
 			excel.setreportData("This month", 12, 16, RoundOff);
 			excel.setreportData("This month", 49, 8, RoundOff);
 		}
-		else
+
+			}
+			catch(Exception ll)
 		{
 			test.log(LogStatus.FAIL, "Taxes Table Field not available");
 			
@@ -3423,6 +3456,9 @@ public WebDriver driver;
 				test.log(LogStatus.FAIL, "Sales Table Field not available");
 	
 			}
+			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -3495,7 +3531,9 @@ public WebDriver driver;
 			excel.setreportData("Last month", 12, 16, RoundOff);
 			excel.setreportData("Last month", 49, 8, RoundOff);
 		}
-		else
+
+			}
+			catch(Exception ll)
 		{
 			test.log(LogStatus.FAIL, "Taxes Table Field not available");
 			
@@ -3859,6 +3897,9 @@ public WebDriver driver;
 				test.log(LogStatus.FAIL, "Sales Table Field not available");
 	
 			}
+			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -3931,7 +3972,9 @@ public WebDriver driver;
 			excel.setreportData("Last 30 days", 12, 16, RoundOff);
 			excel.setreportData("Last 30 days", 49, 8, RoundOff);
 		}
-		else
+
+			}
+			catch(Exception ll)
 		{
 			test.log(LogStatus.FAIL, "Taxes Table Field not available");
 			
@@ -4293,6 +4336,9 @@ public WebDriver driver;
 				test.log(LogStatus.FAIL, "Sales Table Field not available");
 	
 			}
+			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -4365,7 +4411,9 @@ public WebDriver driver;
 			excel.setreportData("Specific Date", 12, 16, RoundOff);
 			excel.setreportData("Specific Date", 49, 8, RoundOff);
 		}
-		else
+
+			}
+			catch(Exception ll)
 		{
 			test.log(LogStatus.FAIL, "Taxes Table Field not available");
 			
@@ -4728,6 +4776,9 @@ public WebDriver driver;
 				test.log(LogStatus.FAIL, "Sales Table Field not available");
 	
 			}
+			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -4800,7 +4851,9 @@ public WebDriver driver;
 			excel.setreportData("Date Range", 12, 16, RoundOff);
 			excel.setreportData("Date Range", 49, 8, RoundOff);
 		}
-		else
+
+			}
+			catch(Exception ll)
 		{
 			test.log(LogStatus.FAIL, "Taxes Table Field not available");
 			

@@ -272,7 +272,8 @@ public WebDriver driver;
 	
 			}
 			
-			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -316,14 +317,15 @@ public WebDriver driver;
 				excel.setreportData("Today", 12, 1, RoundOff);
 				excel.setreportData("Today", 49, 1, RoundOff);
 			}
-			else
+			}
+			catch(Exception pp)
 			{
 				test.log(LogStatus.FAIL, "Taxes Table Field not available");
 				
 				
 				//Export Tax value to Excel
-				excel.setreportData("Today", 3, 1, st);
-				excel.setreportData("Today", 40, 1, st);
+				excel.setreportData("Today", 3, 1, "0.00");
+				excel.setreportData("Today", 40, 1, "0.00");
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Today", 8, 1, st);
@@ -531,7 +533,8 @@ public WebDriver driver;
 	
 			}
 			
-			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -576,14 +579,15 @@ public WebDriver driver;
 				excel.setreportData("Yesterday", 12, 1, RoundOff);
 				excel.setreportData("Yesterday", 49, 1, RoundOff);
 			}
-			else
+			}
+			catch(Exception ll)
 			{
 				test.log(LogStatus.FAIL, "Taxes Table Field not available");
 				
 				
 				//Export Tax value to Excel
-				excel.setreportData("Yesterday", 3, 1, st);
-				excel.setreportData("Yesterday", 40, 1, st);
+				excel.setreportData("Yesterday", 3, 1, "0.00");
+				excel.setreportData("Yesterday", 40, 1, "0.00");
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Yesterday", 8, 1, st);
@@ -792,7 +796,8 @@ public WebDriver driver;
 	
 			}
 			
-			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -838,14 +843,15 @@ public WebDriver driver;
 				excel.setreportData("Last N days", 12, 1, RoundOff);
 				excel.setreportData("Last N days", 49, 1, RoundOff);
 			}
-			else
+			}
+			catch(Exception ll)
 			{
 				test.log(LogStatus.FAIL, "Taxes Table Field not available");
 				
 				
 				//Export Tax value to Excel
-				excel.setreportData("Last N days", 3, 1, st);
-				excel.setreportData("Last N days", 40, 1, st);
+				excel.setreportData("Last N days", 3, 1, "0.00");
+				excel.setreportData("Last N days", 40, 1, "0.00");
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last N days", 8, 1, st);
@@ -1055,7 +1061,8 @@ public WebDriver driver;
 	
 			}
 			
-			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -1101,14 +1108,15 @@ public WebDriver driver;
 				excel.setreportData("This Week", 12, 1, RoundOff);
 				excel.setreportData("This Week", 49, 1, RoundOff);
 			}
-			else
+			}
+			catch(Exception ll)
 			{
 				test.log(LogStatus.FAIL, "Taxes Table Field not available");
 				
 				
 				//Export Tax value to Excel
-				excel.setreportData("This Week", 3, 1, st);
-				excel.setreportData("This Week", 40, 1, st);
+				excel.setreportData("This Week", 3, 1, "0.00");
+				excel.setreportData("This Week", 40, 1, "0.00");
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("This Week", 8, 1, st);
@@ -1316,7 +1324,8 @@ public WebDriver driver;
 	
 			}
 			
-			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -1362,14 +1371,15 @@ public WebDriver driver;
 				excel.setreportData("Last Week", 12, 1, RoundOff);
 				excel.setreportData("Last Week", 49, 1, RoundOff);
 			}
-			else
+			}
+			catch(Exception ll)
 			{
 				test.log(LogStatus.FAIL, "Taxes Table Field not available");
 				
 				
 				//Export Tax value to Excel
-				excel.setreportData("Last Week", 3, 1, st);
-				excel.setreportData("Last Week", 40, 1, st);
+				excel.setreportData("Last Week", 3, 1, "0.00");
+				excel.setreportData("Last Week", 40, 1, "0.00");
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last Week", 8, 1, st);
@@ -1576,7 +1586,8 @@ public WebDriver driver;
 	
 			}
 			
-			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -1622,14 +1633,15 @@ public WebDriver driver;
 				excel.setreportData("Last 7 days", 12, 1, RoundOff);
 				excel.setreportData("Last 7 days", 49, 1, RoundOff);
 			}
-			else
+			}
+			catch(Exception ll)
 			{
 				test.log(LogStatus.FAIL, "Taxes Table Field not available");
 				
 				
 				//Export Tax value to Excel
-				excel.setreportData("Last 7 days", 3, 1, st);
-				excel.setreportData("Last 7 days", 40, 1, st);
+				excel.setreportData("Last 7 days", 3, 1, "0.00");
+				excel.setreportData("Last 7 days", 40, 1, "0.00");
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last 7 days", 8, 1, st);
@@ -1839,7 +1851,8 @@ public WebDriver driver;
 	
 			}
 			
-			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -1885,14 +1898,15 @@ public WebDriver driver;
 				excel.setreportData("This month", 12, 1, RoundOff);
 				excel.setreportData("This month", 49, 1, RoundOff);
 			}
-			else
+			}
+			catch(Exception ll)
 			{
 				test.log(LogStatus.FAIL, "Taxes Table Field not available");
 				
 				
 				//Export Tax value to Excel
-				excel.setreportData("This month", 3, 1, st);
-				excel.setreportData("This month", 40, 1, st);
+				excel.setreportData("This month", 3, 1, "0.00");
+				excel.setreportData("This month", 40, 1, "0.00");
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("This month", 8, 1, st);
@@ -2100,7 +2114,8 @@ public WebDriver driver;
 	
 			}
 			
-			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -2146,14 +2161,15 @@ public WebDriver driver;
 				excel.setreportData("Last month", 12, 1, RoundOff);
 				excel.setreportData("Last month", 49, 1, RoundOff);
 			}
-			else
+			}
+			catch(Exception ll)
 			{
 				test.log(LogStatus.FAIL, "Taxes Table Field not available");
 				
 				
 				//Export Tax value to Excel
-				excel.setreportData("Last month", 3, 1, st);
-				excel.setreportData("Last month", 40, 1, st);
+				excel.setreportData("Last month", 3, 1, "0.00");
+				excel.setreportData("Last month", 40, 1, "0.00");
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last month", 8, 1, st);
@@ -2363,7 +2379,8 @@ public WebDriver driver;
 	
 			}
 			
-			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -2408,14 +2425,15 @@ public WebDriver driver;
 				excel.setreportData("Last 30 days", 12, 1, RoundOff);
 				excel.setreportData("Last 30 days", 49, 1, RoundOff);
 			}
-			else
+			}
+			catch(Exception ll)
 			{
 				test.log(LogStatus.FAIL, "Taxes Table Field not available");
 				
 				
 				//Export Tax value to Excel
-				excel.setreportData("Last 30 days", 3, 1, st);
-				excel.setreportData("Last 30 days", 40, 1, st);
+				excel.setreportData("Last 30 days", 3, 1, "0.00");
+				excel.setreportData("Last 30 days", 40, 1, "0.00");
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last 30 days", 8, 1, st);
@@ -2624,7 +2642,8 @@ public WebDriver driver;
 	
 			}
 			
-			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -2670,14 +2689,15 @@ public WebDriver driver;
 				excel.setreportData("Specific Date", 12, 1, RoundOff);
 				excel.setreportData("Specific Date", 49, 1, RoundOff);
 			}
-			else
+			}
+			catch(Exception ll)
 			{
 				test.log(LogStatus.FAIL, "Taxes Table Field not available");
 				
 				
 				//Export Tax value to Excel
-				excel.setreportData("Specific Date", 3, 1, st);
-				excel.setreportData("Specific Date", 40, 1, st);
+				excel.setreportData("Specific Date", 3, 1, "0.00");
+				excel.setreportData("Specific Date", 40, 1, "0.00");
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Specific Date", 8, 1, st);
@@ -2885,7 +2905,8 @@ public WebDriver driver;
 	
 			}
 			
-			
+			try
+			{
 			if(repts.Taxes_Table_inSaleRecap().isDisplayed())
 			{
 				test.log(LogStatus.PASS, "Taxes Table Field Available");
@@ -2930,14 +2951,15 @@ public WebDriver driver;
 				excel.setreportData("Date Range", 12, 1, RoundOff);
 				excel.setreportData("Date Range", 49, 1, RoundOff);
 			}
-			else
+			}
+			catch(Exception ll)
 			{
 				test.log(LogStatus.FAIL, "Taxes Table Field not available");
 				
 				
 				//Export Tax value to Excel
-				excel.setreportData("Date Range", 3, 1, st);
-				excel.setreportData("Date Range", 40, 1, st);
+				excel.setreportData("Date Range", 3, 1, "0.00");
+				excel.setreportData("Date Range", 40, 1, "0.00");
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Date Range", 8, 1, st);

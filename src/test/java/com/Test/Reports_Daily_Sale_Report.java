@@ -227,7 +227,7 @@ public WebDriver driver;
 			
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.NetSales_Amount_DailySaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -452,7 +452,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "").replace(",", "");
+			String SaleAmount=repts.NetSales_Amount_DailySaleReport().getText().replace(",", "").replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -682,7 +682,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.NetSales_Amount_DailySaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -907,7 +907,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.NetSales_Amount_DailySaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -1122,7 +1122,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.NetSales_Amount_DailySaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -1342,7 +1342,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.NetSales_Amount_DailySaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -1565,7 +1565,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.NetSales_Amount_DailySaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -1787,7 +1787,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.NetSales_Amount_DailySaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -2007,7 +2007,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.NetSales_Amount_DailySaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -2229,7 +2229,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.NetSales_Amount_DailySaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -2444,7 +2444,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.NetSales_Amount_DailySaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
