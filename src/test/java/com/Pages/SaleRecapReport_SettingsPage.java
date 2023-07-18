@@ -322,9 +322,9 @@ public class SaleRecapReport_SettingsPage
 //		ac.doubleClick(Category_LevelTypeInputBx).build().perform();
 		
 		Thread.sleep(2000);
-		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isEnabled())
+		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isEnabled())
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 			
 		}
 		
@@ -338,7 +338,7 @@ public class SaleRecapReport_SettingsPage
 		
 		Thread.sleep(1000);
 	
-	List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int PrinterSize=PrinterList.size();
 		
@@ -346,13 +346,13 @@ public class SaleRecapReport_SettingsPage
 		{
 			Category_LevelTypeInputBx.click();
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 
 
 		}
 		else if(PrinterSize==1)
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+PrinterSize+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+PrinterSize+"]/select-option")).click();
 
 		}
 		else if(PrinterSize<=10)
@@ -360,20 +360,20 @@ public class SaleRecapReport_SettingsPage
 		int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 		}
 		else
 		{
 			int randomPrinter=ThreadLocalRandom.current().nextInt(2, 10);
 			Thread.sleep(1000);
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 		
 		}
 		Thread.sleep(1000);
 		
 		Thread.sleep(1000);
-		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		Thread.sleep(1000);
 		if(PrinterList1.size()!=0)
@@ -390,9 +390,9 @@ public class SaleRecapReport_SettingsPage
 		SubCategory_LevelTypeInputBx.click();
 		
 		Thread.sleep(2000);
-		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isEnabled())
+		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isEnabled())
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 			
 		}
 		
@@ -406,7 +406,7 @@ public class SaleRecapReport_SettingsPage
 		
 		Thread.sleep(1000);
 	
-	List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int PrinterSize=PrinterList.size();
 		
@@ -414,13 +414,13 @@ public class SaleRecapReport_SettingsPage
 		{
 			SubCategory_LevelTypeInputBx.click();
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 
 
 		}
 		else if(PrinterSize==1)
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+PrinterSize+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+PrinterSize+"]/select-option")).click();
 
 		}
 		else if(PrinterSize<=10)
@@ -428,18 +428,18 @@ public class SaleRecapReport_SettingsPage
 		int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 		}
 		else
 		{
 			int randomPrinter=ThreadLocalRandom.current().nextInt(2, 10);
 			Thread.sleep(1000);
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 		
 		}
 		Thread.sleep(1000);
-		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		Thread.sleep(1000);
 		if(PrinterList1.size()!=0)
@@ -456,9 +456,9 @@ public class SaleRecapReport_SettingsPage
 		MenuItems_LevelTypeInputBx.click();
 		
 		Thread.sleep(2000);
-		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isEnabled())
+		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isEnabled())
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 			
 		}
 		
@@ -472,7 +472,7 @@ public class SaleRecapReport_SettingsPage
 		
 		Thread.sleep(1000);
 	
-	List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int PrinterSize=PrinterList.size();
 		
@@ -480,13 +480,13 @@ public class SaleRecapReport_SettingsPage
 		{
 			MenuItems_LevelTypeInputBx.click();
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 
 
 		}
 		else if(PrinterSize==1)
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+PrinterSize+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+PrinterSize+"]/select-option")).click();
 
 		}
 		else if(PrinterSize<=10)
@@ -494,20 +494,20 @@ public class SaleRecapReport_SettingsPage
 		int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 		}
 		else
 		{
 			int randomPrinter=ThreadLocalRandom.current().nextInt(2, 10);
 			Thread.sleep(1000);
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 		
 		}
 		Thread.sleep(1000);
 		
 		Thread.sleep(1000);
-		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		Thread.sleep(1000);
 		if(PrinterList1.size()!=0)
@@ -520,7 +520,7 @@ public class SaleRecapReport_SettingsPage
 	
 	public void SelectAll_LevelTypeItems()
 	{
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 	
 	}
 	
@@ -1004,9 +1004,9 @@ public class SaleRecapReport_SettingsPage
 		Cash_Expected_AddInputBox.click();
 		
 		Thread.sleep(1000);
-		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isEnabled())
+		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isEnabled())
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 			
 		}
 		Thread.sleep(1000);
@@ -1018,15 +1018,15 @@ public class SaleRecapReport_SettingsPage
 		Cash_Expected_AddInputBox.click();
 		
 //		Thread.sleep(1000);
-//		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isSelected())
+//		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isSelected())
 //		{
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+//			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 //			
 //		}
 			
 			
 	
-		List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 	
 		int PrinterSize=PrinterList.size();
@@ -1036,13 +1036,13 @@ public class SaleRecapReport_SettingsPage
 			Thread.sleep(1000);
 			Cash_Expected_AddInputBox.click();
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 
 			
 		}
 		else if(PrinterSize==1)
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+PrinterSize+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+PrinterSize+"]/select-option")).click();
 
 		}
 		else if(PrinterSize<=6)
@@ -1050,19 +1050,19 @@ public class SaleRecapReport_SettingsPage
 		int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 		Thread.sleep(500);
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 		}
 		else
 		{
 			int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 			Thread.sleep(500);
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 		
 		}
 		Thread.sleep(1000);
 		
-		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		if(PrinterList1.size()!=0)
 		{
@@ -1078,7 +1078,7 @@ public class SaleRecapReport_SettingsPage
 		Cash_Expected_SubtractInputBox.click();
 		
 
-//		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 //		
 //		for(int i=1;i<=PrinterList1.size();i++)
 //		{
@@ -1088,16 +1088,16 @@ public class SaleRecapReport_SettingsPage
 //		int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 //		
 		
-//		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+//		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 //		}
 		Thread.sleep(1000);
-		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isEnabled())
+		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isEnabled())
 		{
 			
 		}
 		else
 		{
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 		}
 		
 	}
@@ -1140,9 +1140,9 @@ public class SaleRecapReport_SettingsPage
 		Overage_Shortage_AddInputBox.click();
 		
 		Thread.sleep(1000);
-		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isSelected())
+		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isSelected())
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 			
 		}
 		
@@ -1155,15 +1155,15 @@ public class SaleRecapReport_SettingsPage
 		Overage_Shortage_AddInputBox.click();
 		
 //		Thread.sleep(1000);
-//		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isSelected())
+//		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isSelected())
 //		{
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+//			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 //			
 //		}
 			
 			
 	
-		List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 	
 		int PrinterSize=PrinterList.size();
@@ -1173,12 +1173,12 @@ public class SaleRecapReport_SettingsPage
 			Thread.sleep(1000);
 			Overage_Shortage_AddInputBox.click();
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 
 		}
 		else if(PrinterSize==1)
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+PrinterSize+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+PrinterSize+"]/select-option")).click();
 
 		}
 		else if(PrinterSize<=6)
@@ -1186,18 +1186,18 @@ public class SaleRecapReport_SettingsPage
 		int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 		Thread.sleep(500);
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 		}
 		else
 		{
 			int randomPrinter=ThreadLocalRandom.current().nextInt(2, 6);
 			Thread.sleep(500);
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 			
 		}
 		
-		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		Thread.sleep(1000);
 		
@@ -1217,7 +1217,7 @@ public class SaleRecapReport_SettingsPage
 		Overage_Shortage_SubtractInputBox.click();
 		
 
-//		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 //		
 //		for(int i=1;i<=PrinterList1.size();i++)
 //		{
@@ -1227,16 +1227,16 @@ public class SaleRecapReport_SettingsPage
 //		int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 //		
 		
-//		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+//		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 //		}
 		Thread.sleep(1000);
-		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isEnabled())
+		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isEnabled())
 		{
 			
 		}
 		else
 		{
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 		}
 	}
 	

@@ -33,7 +33,7 @@ public class Settings_GeneralSetting_page
     	PageFactory.initElements(driver, this);
     }
     
-    @FindBy(xpath = "//div[@class='settings']")
+    @FindBy(xpath = "//button[@mattooltip='Settings']")
     WebElement Setting;
     
     @FindBy(xpath = "//span[contains(.,'General Settings')]")
@@ -226,12 +226,12 @@ Thread.sleep(1000);
 //		JavascriptExecutor js=(JavascriptExecutor)driver;
 //		js.executeScript("arguments[0].scrollIntoView(true);",TipScreen_YesToggle );
 //		TipScreen_YesToggle.click();
-		for(int i=1;i<=8;i++)
+		for(int i=1;i<=18;i++)
 		{
 		driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
 		}
 		
-		Thread.sleep(1500);
+		Thread.sleep(2500);
 		if(TipScreen_YesToggle.isSelected())
 		{
 			

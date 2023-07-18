@@ -117,7 +117,7 @@ public WebDriver driver;
 		Thread.sleep(5000);
 		//Load the Label Printer page
 		driver.get(Utility.getProperty("baseURL")+"settings/"+"EmvSettings");
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		
 		emv.emvset();
 		Thread.sleep(5000);

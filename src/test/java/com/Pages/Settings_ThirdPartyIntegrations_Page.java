@@ -302,7 +302,7 @@ public class Settings_ThirdPartyIntegrations_Page {
 	@FindBy(xpath = "(//span[contains(.,'Address Type')]/../input)[1]")
 	WebElement AddressType;
 		
-	@FindBy(xpath = "//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option")
+	@FindBy(xpath = "//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div")
 	WebElement AddressTypeOption;
 	
 	@FindBy(xpath = "//span[contains(.,'Street Address')]/../input")
@@ -478,14 +478,23 @@ public class Settings_ThirdPartyIntegrations_Page {
 		
 		Thread.sleep(1000);
 		
-		List<WebElement> menuList=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option"));
+		List<WebElement> menuList=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div"));
 		
 		int menuSize=menuList.size();
 		
-		int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-		
-		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option["+randomMenu+"]")).click();
+		if(menuSize<=3)
+		{
+			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
 
+		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomMenu+"]")).click();
+		}
+		else if(menuSize>3)
+		{
+			int randomMenu=ThreadLocalRandom.current().nextInt(1, 3);
+
+		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomMenu+"]")).click();
+		
+		}
 		UrbanPiperPriceInput.clear();
 		
 		UrbanPiperPriceInput.sendKeys("30000");
@@ -493,14 +502,26 @@ public class Settings_ThirdPartyIntegrations_Page {
 		//click the OLO
 		OLOInput.click();
 		
-		List<WebElement> menuList1=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option"));
+		List<WebElement> menuList1=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div"));
 		
 		int menuSize1=menuList1.size();
 		
 		int randomMenu1=ThreadLocalRandom.current().nextInt(2, menuSize1);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option["+randomMenu1+"]")).click();
 
+		if(menuSize<=3)
+		{
+			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
+
+		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomMenu+"]")).click();
+		}
+		else
+		{
+			int randomMenu=ThreadLocalRandom.current().nextInt(1, 3);
+
+		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomMenu+"]")).click();
+		
+		}
 		OLOPriceInput.clear();
 		
 		OLOPriceInput.sendKeys("30000");
@@ -509,13 +530,13 @@ public class Settings_ThirdPartyIntegrations_Page {
 		//click the Chowly
 		ChowlyInput.click();
 		
-		List<WebElement> menuList2=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option"));
+		List<WebElement> menuList2=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div"));
 		
 		int menuSize2=menuList2.size();
 		
 		int randomMenu2=ThreadLocalRandom.current().nextInt(2, menuSize2);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option["+randomMenu2+"]")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomMenu2+"]")).click();
 
 		ChowlyPriceInput.clear();
 		
@@ -526,13 +547,13 @@ public class Settings_ThirdPartyIntegrations_Page {
 		//click the Deliverect
 		DeliverectInput.click();
 		
-		List<WebElement> menuList3=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option"));
+		List<WebElement> menuList3=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div"));
 		
 		int menuSize3=menuList3.size();
 		
 		int randomMenu3=ThreadLocalRandom.current().nextInt(2, menuSize3);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option["+randomMenu3+"]")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomMenu3+"]")).click();
 
 		DeliverectPriceInput.clear();
 		
@@ -542,13 +563,13 @@ public class Settings_ThirdPartyIntegrations_Page {
 		//click the Urban Eats
 		UrbanEatsInput.click();
 		
-		List<WebElement> menuList4=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option"));
+		List<WebElement> menuList4=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div"));
 		
 		int menuSize4=menuList4.size();
 		
 		int randomMenu4=ThreadLocalRandom.current().nextInt(2, menuSize4);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option["+randomMenu4+"]")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomMenu4+"]")).click();
 
 		UrbanEatsPriceInput.clear();
 		
@@ -1550,13 +1571,13 @@ public class Settings_ThirdPartyIntegrations_Page {
 		
 		Thread.sleep(1000);
 		
-		List<WebElement> menuList=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option"));
+		List<WebElement> menuList=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div"));
 		
 		int menuSize=menuList.size();
 		
 		int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option["+randomMenu+"]")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomMenu+"]")).click();
 
 		StreetAddress.clear();
 				
@@ -1790,13 +1811,13 @@ public class Settings_ThirdPartyIntegrations_Page {
 		
 		Thread.sleep(1000);
 		
-		List<WebElement> menuList1=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option"));
+		List<WebElement> menuList1=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div"));
 		
 		int menuSize1=menuList1.size();
 		
 		int randomMenu1=ThreadLocalRandom.current().nextInt(1, menuSize1);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option["+randomMenu1+"]")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomMenu1+"]")).click();
 		Thread.sleep(5000);
 		
 		//click the Business Entity Type
@@ -1804,13 +1825,13 @@ public class Settings_ThirdPartyIntegrations_Page {
 		
 		Thread.sleep(1000);
 		
-		List<WebElement> menuList2=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option"));
+		List<WebElement> menuList2=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div"));
 		
 		int menuSize2=menuList2.size();
 		
 		int randomMenu2=ThreadLocalRandom.current().nextInt(1, menuSize2);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option["+randomMenu2+"]")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomMenu2+"]")).click();
 
 		
 		//click the Identification Documents Type
@@ -1818,13 +1839,13 @@ public class Settings_ThirdPartyIntegrations_Page {
 		
 		Thread.sleep(1000);
 		
-		List<WebElement> menuList3=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option"));
+		List<WebElement> menuList3=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div"));
 		
 		int menuSize3=menuList3.size();
 		
 		int randomMenu3=ThreadLocalRandom.current().nextInt(1, menuSize3);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option["+randomMenu3+"]")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomMenu3+"]")).click();
 																																																																																																													
 		Thread.sleep(5000);
 		//click the Address Type
@@ -1832,13 +1853,13 @@ public class Settings_ThirdPartyIntegrations_Page {
 		
 		Thread.sleep(1000);
 		
-		List<WebElement> menuList4=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option"));
+		List<WebElement> menuList4=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div"));
 		
 		int menuSize4=menuList4.size();
 		
 		int randomMenu4=ThreadLocalRandom.current().nextInt(1, menuSize4);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option["+randomMenu4+"]")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomMenu4+"]")).click();
 
 		IdentityDocumentsName.clear();
 		
@@ -2046,13 +2067,13 @@ public class Settings_ThirdPartyIntegrations_Page {
 		
 		Thread.sleep(1000);
 		
-		List<WebElement> menuList5=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option"));
+		List<WebElement> menuList5=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div"));
 		
 		int menuSize5=menuList5.size();
 		
 		int randomMenu5=ThreadLocalRandom.current().nextInt(1, menuSize5);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option["+randomMenu5+"]")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomMenu5+"]")).click();
 
 		
 		
@@ -2061,13 +2082,13 @@ public class Settings_ThirdPartyIntegrations_Page {
 		
 		Thread.sleep(1000);
 		
-		List<WebElement> menuList6=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option"));
+		List<WebElement> menuList6=driver.findElements(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div"));
 		
 		int menuSize6=menuList6.size();
 		
 		int randomMenu6=ThreadLocalRandom.current().nextInt(1, menuSize6);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/select-option["+randomMenu6+"]")).click();
+		driver.findElement(By.xpath("//div[contains(@class,'selectbox-component-panel')]/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomMenu6+"]")).click();
 		
 		SaveBtn.click();Thread.sleep(3000);
 		

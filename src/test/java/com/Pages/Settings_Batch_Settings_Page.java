@@ -25,7 +25,7 @@ public class Settings_Batch_Settings_Page
 		PageFactory.initElements(driver, this);
 	}
 	
-	 @FindBy(xpath = "//div[@class='settings']")
+	 @FindBy(xpath = "//button[@mattooltip='Settings']")
 	 WebElement Settings;
 	 
 	 @FindBy(xpath = "//span[.='Batch Settings']")
@@ -43,10 +43,10 @@ public class Settings_Batch_Settings_Page
 	 @FindBy(xpath = "//span[.='Batch Submit Device']/../../div[2]/div/app-selectbox/div/mat-form-field/div/div/div/div/div")
 	 WebElement Batch_Submit_Device_DropDown;
 	 
-	 @FindBy(xpath = "//div[contains(@class,'options')]/select-option[1]/div")
+	 @FindBy(xpath = "//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")
 	 WebElement Node1;
 	 
-	 @FindBy(xpath = "//div[contains(@class,'options')]/select-option[2]/div")
+	 @FindBy(xpath = "//div[@class='cdk-virtual-scroll-content-wrapper']/div[2]/select-option")
 	 WebElement Node2;
 	 
 	 @FindBy(xpath = "//span[.='Default Batch Payment ']/../../div[2]/div/app-selectbox/div/mat-form-field/div/div/div[3]/input")

@@ -119,7 +119,7 @@ public class Settings_Till_Setting_Page {
 	@FindBy(xpath =  "//span[contains(.,'Cancel')]")
 	WebElement CancelBtn_BankDeposit;
 	
-	@FindBy(xpath =  "//span[contains(.,'NEW DENOMINATION')]")
+	@FindBy(xpath =  "//span[contains(.,'DENOMINATION')]")
 	WebElement AddDenominationBtn;
 	
 	@FindBy(xpath =  "//mat-label[contains(.,'Display Name')]/../../../input")
@@ -131,8 +131,11 @@ public class Settings_Till_Setting_Page {
 	@FindBy(xpath =  "//span[contains(.,'Close')]")
 	WebElement close_Btn;
 	
-	@FindBy(xpath =  "//input[@data-placeholder='Search']")
+	@FindBy(xpath =  "//span[contains(.,'Search')]/../input")
 	WebElement search_denomination;
+	
+	@FindBy(xpath =  "//input[@placeholder='Search']")
+	WebElement search_denomination1;
 	
 	@FindBy(xpath =  "//div[contains(@class,'cdk-drop-list')]/div/data-grid-row/div/div[3]/button")
 	WebElement deleteButton_Denomination;
@@ -439,20 +442,25 @@ public class Settings_Till_Setting_Page {
 		String s1 = denomination_Name_First_Row.getText();
 		
 		Thread.sleep(3000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+		
+		Thread.sleep(3000);
 		//click the close till
-		driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div/data-grid-row/div/div/div/button")).click();
+		//driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div/data-grid-row/div/div/div/button")).click();
 	
 		//click the close button
 		Close_btn.click();
 		
 		//click the delete button
-		driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div/data-grid-row/div/div/div/button")).click();
+		//driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div/data-grid-row/div/div/div/button")).click();
 		
 		//click the close button
 		No_btn.click();
 		
 		//click the delete button
-		driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div/data-grid-row/div/div/div/button")).click();
+		//driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div/data-grid-row/div/div/div/button")).click();
+		//click the close button
+		Close_btn.click();
 		
 		//click the close button
 		Yes_btn.click();
@@ -466,10 +474,10 @@ public class Settings_Till_Setting_Page {
 		}
 		
 		//clear the search field
-		search_denomination.clear();
+		search_denomination1.clear();
 		
 		//enter the required text in the Search bar
-		search_denomination.sendKeys(s1);
+		search_denomination1.sendKeys(s1);
 		
 		Thread.sleep(5000);
 		
@@ -678,6 +686,35 @@ public class Settings_Till_Setting_Page {
 		
 		//enter the required text in the Search bar
 		search_denomination.sendKeys(s1);
+		
+		Thread.sleep(5000);
+		
+		//getting the web-element count for searched result
+		List<WebElement> s = driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div"));
+		
+		for(int i = 1; i <= s.size(); i++)
+		{
+			if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]/span")).getText().contains(s1))
+			{
+				test.log(LogStatus.PASS, "Required keywords are displayed when user search the result is : "+driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]/span")).getText());
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Required keywords are not displayed when user search the result is : "+driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]/span")).getText());
+			}
+		}
+	}
+	
+	public void denomination_Search1() throws Exception {
+		Thread.sleep(5000);
+		//Get the value of first denomination name
+		String s1 = denomination_Name_First_Row.getText();
+		
+		//clear the search field
+		search_denomination1.clear();
+		
+		//enter the required text in the Search bar
+		search_denomination1.sendKeys(s1);
 		
 		Thread.sleep(5000);
 		
@@ -1122,7 +1159,7 @@ public class Settings_Till_Setting_Page {
 		Thread.sleep(1500);
 		//Click the denomination 
 		driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);Thread.sleep(1500);
-		Denominations.click();
+		Denominations.click();Thread.sleep(1000);
 		
 		//check whether the application 
 		if(AddDenominationBtn.isDisplayed())

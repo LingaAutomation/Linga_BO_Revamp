@@ -22,7 +22,7 @@ public class Settings_Additional_Settings_Page
 
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath = "//div[@class='settings']")
+	@FindBy(xpath = "//button[@mattooltip='Settings']")
 	WebElement Settings;
 	
 	@FindBy(xpath = "//span[.='Additional Settings']")
@@ -88,11 +88,11 @@ public class Settings_Additional_Settings_Page
 	}
 	public void Click_Save() throws Exception 
 	{
-		Common_XPaths cmp = new Common_XPaths(driver, test);
+		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Utility ut = new Utility();
 		
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
     	if(save.isEnabled())
     	{
    		Thread.sleep(500);

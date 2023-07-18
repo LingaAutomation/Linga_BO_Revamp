@@ -2,6 +2,7 @@ package com.Test;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -125,7 +126,14 @@ public class Settings_Integrations_WebHook
 		wh.Navigating_Settings();
 		Thread.sleep(1000);
 		wh.Navigating_WebHooks();
-		Thread.sleep(20000);
+		Thread.sleep(5000);
+		try {
+			if(driver.findElement(By.xpath("//h3[contains(.,'Web Hooks')]")).isDisplayed()) {
+				test.log(LogStatus.PASS, "Web Hooks page is loaded successfully");
+			}
+		}catch(Exception E) {
+			test.log(LogStatus.FAIL, "Web Hooks page is not loaded");
+		}
 	}
 	@Test(priority = 4,enabled = false)
 	 public void Adding_Request_Header(WebDriver driver) throws Exception
@@ -365,13 +373,13 @@ public class Settings_Integrations_WebHook
 		wh.Update();
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Store Updated Successfully"))
  		{
- 			test.log(LogStatus.PASS, "User enter the invalid URL but application allows to update the store");
+ 			test.log(LogStatus.PASS, "User enter the valid URL but application allows to update the store");
 
  			ut.PassedCaptureScreenshotAsBASE64(driver, test);
  		}
  		else
  		{
- 			test.log(LogStatus.FAIL, "User enter the invalid URLthat's why application not allows to update the store");
+ 			test.log(LogStatus.FAIL, "User enter the valid URL but application not allows to update the store");
 
  			ut.FailedCaptureScreenshotAsBASE64(driver, test);
  		}

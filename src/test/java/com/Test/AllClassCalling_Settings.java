@@ -5,6 +5,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -17,6 +18,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.ExtentManager;
 import Utility.Utility;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class AllClassCalling_Settings {
 	public WebDriver driver;
@@ -55,13 +57,18 @@ public class AllClassCalling_Settings {
 	{
 		
 		Thread.sleep(2000);
-		//Call the chrome driver
-		System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
-		//Open the Chrome window
-		driver = new ChromeDriver();
-		//Wait for 30 seconds
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		Thread.sleep(20000);
+//		//Call the chrome driver
+//		System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
+//		//Open the Chrome window
+//		driver = new ChromeDriver();
+//		//Wait for 30 seconds
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+//		Thread.sleep(20000);
+		ChromeOptions chrOpt=new ChromeOptions();
+		chrOpt.addArguments("--remote-allow-origins=*");
+		WebDriverManager.chromedriver().setup();
+		driver=new ChromeDriver(chrOpt);
+		
 		
 		//Maximize the Chrome window
 		driver.manage().window().maximize();
@@ -86,18 +93,19 @@ public class AllClassCalling_Settings {
 		test.log(LogStatus.INFO, "-------********************   Settings(Starting)   ********************-------");
 	}
 
+
 	
-//	@Test(priority=319,enabled = true)
-//	public void Settings_Account_License() throws Exception
-//	{
-//		test.log(LogStatus.INFO, "-------********************   Settings_Account_License(Starting)   ********************-------");
-//		
-//		Settings_Account_License als = new Settings_Account_License();
-//		Thread.sleep(30000);
-//		als.Open_AccountLicense_Page(driver);
-//		
-//		test.log(LogStatus.INFO, "-------********************   Settings_Account_License(Ending)   ********************-------");
-//	}
+	@Test(priority=319,enabled = true)
+	public void Settings_Account_License() throws Exception
+	{
+		test.log(LogStatus.INFO, "-------********************   Settings_Account_License(Starting)   ********************-------");
+		
+		Settings_Account_License als = new Settings_Account_License();
+		Thread.sleep(30000);
+		als.Open_AccountLicense_Page(driver);
+		
+		test.log(LogStatus.INFO, "-------********************   Settings_Account_License(Ending)   ********************-------");
+	}
 
 	
 	@Test(priority=14,enabled = true)
@@ -105,7 +113,7 @@ public class AllClassCalling_Settings {
 	{
 		test.log(LogStatus.INFO, "-------********************   Settings_Till_Setting(Starting)   ********************-------");
 
-		Settings_Till_Setting als = new Settings_Till_Setting();
+		Settgings_Till_Setting als = new Settgings_Till_Setting();
 		Thread.sleep(30000);
 		als.Open_TillSettings_Page(driver);
 		als.verifyAutomaticGlobalTill(driver);
@@ -275,7 +283,7 @@ public class AllClassCalling_Settings {
 		test.log(LogStatus.INFO, "-------********************   Settings_Batch_Settings(Ending)   ********************-------");
 	}
 	
-	@Test(priority=35,enabled = false)
+	@Test(priority=35,enabled = true)
 	public void Settings_Business_Hours() throws Exception
 	{
 		test.log(LogStatus.INFO, "-------********************   Settings_Batch_Settings(Starting)   ********************-------");
@@ -370,7 +378,7 @@ public class AllClassCalling_Settings {
 		Thread.sleep(1000);
 		als.Entering_Invalid_AmountPer_Symbol(driver);
 		Thread.sleep(1000);
-//		als.Entering_Inavlaid_AmountPer(driver);
+		als.Entering_Invalid_AmountPer(driver);
 		Thread.sleep(1000);
 		als.Entering_Invalid_AmountPercentage(driver);
 		Thread.sleep(1000);
@@ -565,6 +573,9 @@ public class AllClassCalling_Settings {
 		test.log(LogStatus.INFO, "-------********************   Settings_AccountBalance(Ending)   ********************-------");
 	}
 	
+	
+	
+	
 	@Test(priority=71,enabled = true)	
 	public void Settings_POS_Custom_URL() throws Exception
 	{
@@ -573,29 +584,36 @@ public class AllClassCalling_Settings {
 		Settings_POSCustomURL als = new Settings_POSCustomURL();
 		Thread.sleep(30000);
 		als.Open_POSUrl_Page(driver);
-		//als.Add_NewURL(driver);
-//		als.Edit_and_Update_POS_URL(driver);
+		als.Verify_PosCustomUrlPath(driver);
+		als.Add_New_customer_url(driver);
+		als.Edit_customer_url(driver);
 		als.Delete_customer_url(driver);
+		als.more_than_ten_customer_url(driver);
+		als.Verify_More_than_ten_customer_url(driver);
+		als.Delete_All_customer_url(driver);
 		
 		test.log(LogStatus.INFO, "-------********************   Settings_POS_Custom_URL(Ending)   ********************-------");
 	}
 	
-//	@Test(priority=74,enabled = true)	
-//	public void Settings_Delivery() throws Exception
-//	{
-//		test.log(LogStatus.INFO, "-------********************   Settings_Delivery(Starting)   ********************-------");
-//		
-//		Settings_Delivery als = new Settings_Delivery();
-//		Thread.sleep(30000);
-//		als.Open_Delivery_Page(driver);
-//		als.Delivery_setting_Page(driver);
-//		//als.Delivery_Zone_Page(driver);
-//		//als.Delivery_PUC_Page(driver);
-//		als.Delivery_Driver_Page(driver);
-//		als.Delivery_Save(driver);
-//		
-//		test.log(LogStatus.INFO, "-------********************   Settings_Delivery(Ending)   ********************-------");
-//	}
+	@Test(priority=74,enabled = true)	
+	public void Settings_Delivery_Settings () throws Exception
+	{
+		test.log(LogStatus.INFO, "-------********************   Settings_Delivery(Starting)   ********************-------");
+		
+		Settings_Delivery_Settings  als = new Settings_Delivery_Settings ();
+		Thread.sleep(30000);
+		als.Open_Delivery_Page(driver);
+		als.Delivery_setting_Page(driver);
+		als.Add_Delivery_Zone(driver);
+		als.Edit_and_Update_Delivery_Zone(driver);
+		als.Delete_Delivery_Zone(driver);
+//		als.Delivery_Zone_Page(driver);
+		als.Delivery_PUC_Page(driver);
+		als.Delivery_Driver_Page(driver);
+		als.Delivery_Save(driver);
+		
+		test.log(LogStatus.INFO, "-------********************   Settings_Delivery(Ending)   ********************-------");
+	}
 	
 	@Test(priority=77,enabled = true)	
 	public void Settings_StoreInventory() throws Exception
@@ -775,6 +793,7 @@ public class AllClassCalling_Settings {
 	}
 	
 	
+	
 	@Test(priority=107,enabled = true)	
 	public void Settings_ThirdPartyIntegrations() throws Exception
 	{
@@ -787,7 +806,7 @@ public class AllClassCalling_Settings {
 		test.log(LogStatus.INFO, "-------*******************   Settings_ThirdPartyIntegrations(Ending)   *******************-------");
 	}
 	
-	@Test(priority=110,enabled = true)	
+	@Test(priority=110,enabled = true)
 	public void Settings_Printer_Rerouting() throws Exception
 	{
 		test.log(LogStatus.INFO, "-------*******************   Settings_Printer_Rerouting(Starting)   *******************-------");
@@ -813,69 +832,28 @@ public class AllClassCalling_Settings {
 	
 	
 	
+	@Test(priority=320,enabled = true)	
+	public void Settings_Payroll_Report () throws Exception
+	{
+		Settings_Payroll_Report a=new Settings_Payroll_Report();
+		a.Open_Payroll_Report_Settings_Page(driver);
+		a.Save_Payroll_Report_Settings(driver);
+		a.Add_OverTime_Settings_Daily(driver);
+	}
 	
+	@Test(priority =  321)
+	public void Settings_Fiscal() throws Exception
+	{
+		Settings_Fiscal a=new Settings_Fiscal();
+		a.Open_ForcedPunchInOut_Page(driver);
+		a.RefreshAndPaginination(driver);
+		a.VerifyTheAddFiscalSettings(driver);
+		a.VerifyTheEditFiscalSettings(driver);
+		a.VerifyTheDeleteFiscalSettings(driver);
+
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Test(priority=320)
+	@Test(priority=350)
 	public void End_Settings()
 	{
 		test.log(LogStatus.INFO, "-------********************   Settings(Ending)   ********************-------");

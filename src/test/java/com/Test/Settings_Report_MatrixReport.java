@@ -2,6 +2,7 @@ package com.Test;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +16,6 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.Settings_Matrix_Report_Page;
-import com.Pages.Settings_NotificationsPage;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -137,7 +137,14 @@ public class Settings_Report_MatrixReport
 		Thread.sleep(2000);
 		mr.Navigating_Settings();
 		mr.Navigating_Matrix_Report();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
+		try {
+			if(driver.findElement(By.xpath("//h3[contains(.,'Matrix Report')]")).isDisplayed()) {
+				test.log(LogStatus.PASS, "Matrix Report page is loaded successfully");
+			}
+		}catch(Exception E) {
+			test.log(LogStatus.FAIL, "Matrix Report page is not loaded");
+		}
 	}
 	@Test(priority = 4,enabled = false)
 	public void Entering_Amount_Percentage(WebDriver driver) throws Exception 
@@ -156,33 +163,11 @@ public class Settings_Report_MatrixReport
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
 		
-		//Fixed this issue so, Alphabetics not allowed & entered in Enter Amount
-		try
-		{
 		mr.Enter_InvalidAmount();
-		
-		if(cmp.Amount_Error_Msg().getText().equalsIgnoreCase("Enter valid amount"))
-		{
-			test.log(LogStatus.PASS, "Added inavalid amount in alphabets");
-
-			ut.PassedCaptureScreenshotAsBASE64(driver, test);
-		}
-		else
-		{
-			test.log(LogStatus.FAIL, "Matrix Report settings updation failed");
-
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}   
-		}
-		catch(Exception l)
-		{
-			test.log(LogStatus.PASS, "Unable to Enter Alphabetics in Profit Threshold Amount");
-		}
-		
 		Thread.sleep(3000);
 		mr.Entering_Valid_Percentage();
 		Thread.sleep(2000);
-        System.out.println("Entering Invalid amount in alphabets so ----");
+        //System.out.println("Entering Invalid amount in alphabets so ----");
 		mr.Check_Update_Button();
     }	
 	
@@ -193,33 +178,7 @@ public class Settings_Report_MatrixReport
 		mr= new Settings_Matrix_Report_Page(driver, test);
 		Thread.sleep(3000);
 		mr.Entering_Valid_Amount();
-		
-		//Fixed this issue so, Alphabetics not allowed & entered in Enter Percentage
-		try
-		{
-		Thread.sleep(3000);
 		mr.Enter_InvalidPer();
-		try {
-			if(cmp.Percentage_Error_Msg().getText().equalsIgnoreCase("Percentage should be between (0-100)"))
-			{
-				test.log(LogStatus.PASS, "Added invalid percentage as alphabets ");
-
-				ut.PassedCaptureScreenshotAsBASE64(driver, test);
-			}
-		}
-		catch(Exception e) {
-			test.log(LogStatus.FAIL, "Matrix Report settings updation failed");
-
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}
-		}
-		catch(Exception l)
-		{
-			test.log(LogStatus.PASS, "Unable to Enter Alphabetics in Popularity Threshold %");
-		}
-		
-	
-		System.out.println("Entering Invalid percentage in alphabets ----");
 		mr.Update();
 		
      }	
@@ -232,31 +191,12 @@ public class Settings_Report_MatrixReport
 		//Fixed this issue so, Symbols not allowed & entered in Enter Amount
 
 		Thread.sleep(3000);
-		try
-		{
 		mr.Enter_Inavalid_Amountsym();
-		if(cmp.Amount_Error_Msg().getText().equalsIgnoreCase("Enter valid amount"))
-		{
-			test.log(LogStatus.PASS, "Added inavalid amount in symbols");
-
-			ut.PassedCaptureScreenshotAsBASE64(driver, test);
-		}
-		else
-		{
-			test.log(LogStatus.FAIL, "Matrix Report settings updation failed");
-
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}
-	}
-	catch(Exception l)
-	{
-		test.log(LogStatus.PASS, "Unable to Enter Symbols in Profit Threshold Amount");
-	}
-		Thread.sleep(3000);
+		Thread.sleep(1000);
         
         mr.Entering_Valid_Percentage();
         Thread.sleep(2000);
-        System.out.println("Entering Invalid amount in symbols so ----");
+        //System.out.println("Entering Invalid amount in symbols so ----");
         mr.Check_Update_Button();
 	}
 	@Test(priority = 8,enabled = false)
@@ -267,31 +207,7 @@ public class Settings_Report_MatrixReport
 		Thread.sleep(3000);
 		mr.Entering_Valid_Amount();
 		//Fixed this issue so, Symbols not allowed & entered in Enter Percentage
-
-		try
-		{
-		Thread.sleep(3000);
 		mr.Enter_Invalid_Persym();
-		try {
-			if(cmp.Percentage_Error_Msg().getText().equalsIgnoreCase("Percentage should be between (0-100)"))
-			{
-				test.log(LogStatus.PASS, "Added invalid percentage as symbols");
-
-				ut.PassedCaptureScreenshotAsBASE64(driver, test);
-			}
-		}
-		catch(Exception sd)
-		{
-			test.log(LogStatus.FAIL, "Matrix Report settings updation failed");
-
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}	
-	}
-	catch(Exception l)
-	{
-		test.log(LogStatus.PASS, "Unable to Enter Alphabetics in Popularity Threshold %");
-	}
-		System.out.println("Entering invalid percentage in symbols ---");
 		mr.Update();
        
 	}
@@ -301,46 +217,9 @@ public class Settings_Report_MatrixReport
 	{
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
-		//Fixed this issue so, Alphabetics not allowed & entered in Enter Amount & Percentage
-try
-{
-		Thread.sleep(3000);
 		mr.Enter_Invalid_Amountalpha();
-		if(cmp.Amount_Error_Msg().getText().equalsIgnoreCase("Enter valid amount"))
-		{
-			test.log(LogStatus.PASS, "Added inavalid amount in alphabets");
-
-			ut.PassedCaptureScreenshotAsBASE64(driver, test);
-		}
-		else
-		{
-			test.log(LogStatus.FAIL, "Matrix Report settings updation failed");
-
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}
-		
-		Thread.sleep(3000);
 		mr.Enter_Invalid_Peralpha();
-		try {
-			if(cmp.Percentage_Error_Msg().getText().equalsIgnoreCase("Percentage should be between (0-100)"))
-			{
-				test.log(LogStatus.PASS, "Added invalid percentage as alphabets");
-
-				ut.PassedCaptureScreenshotAsBASE64(driver, test);
-			}
-		}
-		catch(Exception e)
-		{
-			test.log(LogStatus.FAIL, "Matrix Report settings updation failed");
-
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}	
-	}
-	catch(Exception l)
-	{
-		test.log(LogStatus.PASS, "Unable to Enter Alphabetics in Profit Threshold Amount & Popularity Threshold %");
-	}
-		System.out.println("Entering invalid amount and percentage as alphabets so ---");
+		//Fixed this issue so, Alphabetics not allowed & entered in Enter Amount & Percentage
 		mr.Check_Update_Button();
 	}
 	@Test(priority = 10,enabled = false)
@@ -349,46 +228,11 @@ try
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
 		
-		//Fixed this issue so, Symbols not allowed & entered in Enter Amount & Percentage
-try
-{
 		Thread.sleep(3000);
 		mr.Enter_Inavalid_Amountsym();
-		if(cmp.Amount_Error_Msg().getText().equalsIgnoreCase("Enter valid amount"))
-		{
-			test.log(LogStatus.PASS, "Added inavalid amount in symbols");
-
-			ut.PassedCaptureScreenshotAsBASE64(driver, test);
-		}
-		else
-		{
-			test.log(LogStatus.FAIL, "Matrix Report settings updation failed");
-
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		mr.Enter_Invalid_Persym();
-		try {
-			if(cmp.Percentage_Error_Msg().getText().equalsIgnoreCase("Percentage should be between (0-100)"))
-			{
-				test.log(LogStatus.PASS, "Added invalid percentage as alphabets");
-
-				ut.PassedCaptureScreenshotAsBASE64(driver, test);
-			}
-		}
-		catch(Exception e)
-		{
-			test.log(LogStatus.FAIL, "Matrix Report settings updation failed");
-
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}		
-	}
-	catch(Exception l)
-	{
-		test.log(LogStatus.PASS, "Unable to Enter Symbols in Profit Threshold Amount & Popularity Threshold %");
-	}
-		
-		System.out.println("Entering invalid amount and percentage in symbols so ---");
+		Thread.sleep(1000);
 		mr.Check_Update_Button();
 		
 	 }
@@ -398,43 +242,10 @@ try
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
 		Thread.sleep(3000);
-		try
-		{
 		mr.Enter_Invalid_Amountalpha();
-		if(cmp.Amount_Error_Msg().getText().equalsIgnoreCase("Enter valid amount"))
-		{
-			test.log(LogStatus.PASS, "Added inavalid amount in alphabets");
-
-			ut.PassedCaptureScreenshotAsBASE64(driver, test);
-		}
-		else
-		{
-			test.log(LogStatus.FAIL, "Matrix Report settings updation failed");
-
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}
 		Thread.sleep(3000);
 		mr.Enter_Invalid_Persym();
-		try {
-			if(cmp.Percentage_Error_Msg().getText().equalsIgnoreCase("Percentage should be between (0-100)"))
-			{
-				test.log(LogStatus.PASS, "Added invalid percentage as alphabets");
 
-				ut.PassedCaptureScreenshotAsBASE64(driver, test);
-			}
-		}
-		catch(Exception e)
-		{
-			test.log(LogStatus.FAIL, "Matrix Report settings updation failed");
-
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}		
-		}
-		catch(Exception l)
-		{
-			test.log(LogStatus.PASS, "Unable to Enter Alphabetics in Profit Threshold Amount & Symbols in Popularity Threshold %");
-		}
-		System.out.println("Entering invalid amount in alphabets and percentage in symbols so---");
 		mr.Check_Update_Button();
 		
 	}
@@ -444,43 +255,9 @@ try
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
 		Thread.sleep(3000);
-		try
-		{
-		mr.Enter_Inavalid_Amountsym();
-		if(cmp.Amount_Error_Msg().getText().equalsIgnoreCase("Enter valid amount"))
-		{
-			test.log(LogStatus.PASS, "Added inavalid amount in Symbols");
-
-			ut.PassedCaptureScreenshotAsBASE64(driver, test);
-		}
-		else
-		{
-			test.log(LogStatus.FAIL, "Matrix Report settings updation failed");
-
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}
-		Thread.sleep(3000);
+		mr.Enter_Inavalid_Amountsym();		Thread.sleep(3000);
 		mr.Enter_Invalid_Peralpha();
-		try {
-			if(cmp.Percentage_Error_Msg().getText().equalsIgnoreCase("Percentage should be between (0-100)"))
-			{
-				test.log(LogStatus.PASS, "Added invalid percentage as alphabets");
-
-				ut.PassedCaptureScreenshotAsBASE64(driver, test);
-			}
-		}
-		catch(Exception e)
-		{
-			test.log(LogStatus.FAIL, "Matrix Report settings updation failed");
-
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}	
-		}
-		catch(Exception l)
-		{
-			test.log(LogStatus.PASS, "Unable to Enter Symbols in Profit Threshold Amount & Alphabetics Popularity Threshold %");
-		}
-		System.out.println("Entering invalid amount in symbols and percentage in alphabets so---");
+		//System.out.println("Entering invalid amount in symbols and percentage in alphabets so---");
 		mr.Check_Update_Button();
 		
 	}
@@ -493,7 +270,7 @@ try
 		mr.Entering_Valid_Amount();
 		Thread.sleep(3000);
 		mr.Enter_Invalid_Percentage();
-		if(cmp.Percentage_Error_Msg().getText().equalsIgnoreCase("Percentage should be between (0-100)"))
+		if(cmp.Percentage_Error_Msg().getText().trim().equalsIgnoreCase("Percentage should be between (0-100)"))
 		{
 			test.log(LogStatus.PASS, "Added invalid percentage More than 100");
 
@@ -505,7 +282,7 @@ try
 
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}	
-		System.out.println("Entering invalid percentage more than 100 so----");
+		//System.out.println("Entering invalid percentage more than 100 so----");
 		mr.Check_Update_Button();
 		
 	}

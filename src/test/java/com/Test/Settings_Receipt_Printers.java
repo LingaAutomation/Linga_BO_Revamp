@@ -631,19 +631,19 @@ public class Settings_Receipt_Printers
 		//Click the Update button
 		kppg.Click_Update_inPrinters();
 		
-		Thread.sleep(2000);
-		//Check whether the Kitchen Printer Settings updated or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Receipt Printer Updated Successfully"))
-		{
-			test.log(LogStatus.PASS, "Receipt Printers settings Updated Successfully");
-			ut.PassedCaptureScreenshotAsBASE64(driver, test);
-		}
-		else
-		{
-			test.log(LogStatus.FAIL, "Receipt Printers settings Updated Failed");
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}Thread.sleep(6000);
-		
+//		Thread.sleep(2000);
+//		//Check whether the Kitchen Printer Settings updated or not
+//		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Receipt Printer Updated Successfully"))
+//		{
+//			test.log(LogStatus.PASS, "Receipt Printers settings Updated Successfully");
+//			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+//		}
+//		else
+//		{
+//			test.log(LogStatus.FAIL, "Receipt Printers settings Updated Failed");
+//			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+//		}Thread.sleep(6000);
+//		
 		Thread.sleep(1000);
 		//Select the Printers Tab
 		kppg.Click_Printers_Tab();

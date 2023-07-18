@@ -2,6 +2,7 @@ package com.Test;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +14,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.Pages.Settings_Additional_Settings_Page;
-import com.Pages.Settings_NotificationsPage;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -107,32 +107,43 @@ public class Settings_Additional
 	@Test(priority=3,enabled = false)
 	public void Navigating_Additional_Settings(WebDriver driver) throws Exception 
 	{
-		Common_XPaths cmp = new Common_XPaths(driver, test);
+		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_Additional_Settings_Page as = new Settings_Additional_Settings_Page(driver, test);
 		
 		Thread.sleep(5000);
 		//load the Notifications page
 		Thread.sleep(2000);
 		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2"));
+		Thread.sleep(1000);
 		as.Click_Setting();
 		Thread.sleep(1000);
 		as.Click_Additional_Settings();
-		Thread.sleep(2000);
-		//cmp.VerifyMainScreenPageHeader("Additional Settings");
+		Thread.sleep(5000);
+		try {
+			if(driver.findElement(By.xpath("//h3[contains(.,'Additional Settings')]")).isDisplayed()) {
+				test.log(LogStatus.PASS, "Additional Settings page is loaded successfully");
+			}
+		}catch(Exception E) {
+			test.log(LogStatus.FAIL, "Additional Settings page is not loaded");
+		}
 		
 	}
 	@Test(priority=4,enabled = false)
 	public void Enable_And_Save_Additional_Settings(WebDriver driver) throws Exception 
 	{
-		Common_XPaths cmp = new Common_XPaths(driver, test);
+		Thread.sleep(8000);
+		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_Additional_Settings_Page as = new Settings_Additional_Settings_Page(driver, test);
+		as.Selecting_Include_Credits_No();
 		as.Selecting_Include_Credits_Yes();
 		Thread.sleep(2000);
 		as.Click_Save();
+		as.Selecting_Employee_Tipout_No();
 		as.Selecting_Employee_Tipout_Yes();
 		Thread.sleep(2000);
 		as.Click_Save();
 		Thread.sleep(3000);
+		as.Selecting_Auto_Close_No();
 		as.Selecting_Auto_Close_Yes();
 		Thread.sleep(2000);
 		as.Click_Save();
@@ -143,7 +154,7 @@ public class Settings_Additional
 	@Test(priority=5,enabled = false)
 	public void Disable_And_Save_Additional_Settings(WebDriver driver) throws Exception
 	{
-		Common_XPaths cmp = new Common_XPaths(driver, test);
+		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_Additional_Settings_Page as = new Settings_Additional_Settings_Page(driver, test);
 		as.Selecting_Include_Credits_No();
 		Thread.sleep(2000);
@@ -166,7 +177,7 @@ public class Settings_Additional
 	@Test(priority=6,enabled = false)
 	public void Navigating_Back(WebDriver driver) throws Exception 
 	{
-		Common_XPaths cmp = new Common_XPaths(driver, test);
+		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_Additional_Settings_Page as = new Settings_Additional_Settings_Page(driver, test);
 		as.Navigating_Back();
 		Thread.sleep(2000);

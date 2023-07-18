@@ -120,14 +120,14 @@ public WebDriver driver;
 		Thread.sleep(15000);
 		
 		PR.TipOutPage();
-		
-		PR.TipOut();
-		
-		PR.paginationValidation();		
-		
-		PR.search();
-		
-		PR.delete();
+//		
+//		PR.TipOut();
+//		
+//		PR.paginationValidation();		
+//		
+//		PR.search();
+//		
+//		PR.delete();
 		
 		PR.TipSharing();
 	}

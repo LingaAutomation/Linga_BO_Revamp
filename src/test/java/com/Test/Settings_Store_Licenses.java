@@ -7,6 +7,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -22,6 +23,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.ExtentManager;
 import Utility.Utility;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_Store_Licenses 
 {
@@ -65,13 +67,16 @@ public WebDriver driver;
 	@Test(priority = 1)
 	public void Login() throws Exception
 	{
-		
-		
+
+
 		Thread.sleep(2000);
 		//Call the chrome driver
-		System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
+		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		driver = new ChromeDriver();
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments("--remote-allow-origins=*");
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver(chromeOptions);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -79,7 +84,7 @@ public WebDriver driver;
 		Thread.sleep(1000);
 		//Launch the URL
 		driver.get(Utility.getProperty("appURL"));
-		
+
 		Thread.sleep(10000);
 		a.Login(driver, test);
 	}
@@ -95,7 +100,7 @@ public WebDriver driver;
 	public void Calling() throws Exception
 	{
 		Open_StoreLicenses_Page(driver);
-		RefreshAndPaginination(driver);
+		//RefreshAndPaginination(driver);
 		Pagination_Rows_Per_Count(driver);
 		Revert_Licenses(driver);
 

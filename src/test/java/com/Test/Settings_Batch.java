@@ -129,10 +129,17 @@ public class Settings_Batch
 		//load the Notifications page
 		Thread.sleep(2000);
 		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2"));
-   	   bs.Click_Settings();
-   	   Thread.sleep(2000);
-   	   bs.Click_BatchSettings();
-   	   Thread.sleep(2000);
+		
+		  bs.Click_Settings(); Thread.sleep(2000); bs.Click_BatchSettings();
+		 
+			Thread.sleep(5000);
+			try {
+				if(driver.findElement(By.xpath("//h3[contains(.,'Batch Settings')]")).isDisplayed()) {
+					test.log(LogStatus.PASS, "Batch Settings page is loaded successfully");
+				}
+			}catch(Exception E) {
+				test.log(LogStatus.FAIL, "Batch Settings page is not loaded");
+			}
 	}
 	@Test(priority = 4,enabled = false)
 	public void Enable_Auto_Batch_YesToggle(WebDriver driver) throws Exception 
@@ -141,7 +148,8 @@ public class Settings_Batch
 		{
 		driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
 		}
-		Thread.sleep(2000);
+		Thread.sleep(8000);
+		bs.Click_Enable_AutoBatch_No();
 		bs.Click_Enable_AutoBatch_YesToggle();
 		Thread.sleep(2000);
 		bs.Save();

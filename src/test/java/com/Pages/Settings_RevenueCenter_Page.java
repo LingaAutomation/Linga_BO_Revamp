@@ -30,7 +30,7 @@ public class Settings_RevenueCenter_Page
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//div[@class='settings']")
+	@FindBy(xpath = "//button[@mattooltip='Settings']")
 	WebElement Settings;
 
 	@FindBy(xpath = "//span[.='Revenue Center']")
@@ -45,16 +45,16 @@ public class Settings_RevenueCenter_Page
 	@FindBy(xpath = "//app-auto-complete/div/mat-form-field/div/div/div[3]/div/div/input")
 	WebElement Node;
 
-	@FindBy(xpath = "//option-panel/div/div/select-option[1]/div/mat-checkbox")
+	@FindBy(xpath = "//option-panel/div/div/select-option/div/mat-checkbox")
 	WebElement Select_All;
 
-	@FindBy(xpath = "//option-panel/div/div/select-option[2]/div/mat-checkbox")
+	@FindBy(xpath = "//option-panel/div/div/cdk-virtual-scroll-viewport/div/div[1]/select-option/div/mat-checkbox")
 	WebElement Node1;
 
-	@FindBy(xpath = "//option-panel/div/div/select-option[3]/div/mat-checkbox")
+	@FindBy(xpath = "//option-panel/div/div/cdk-virtual-scroll-viewport/div/div[2]/select-option/div/mat-checkbox")
 	WebElement Node2;
 
-	@FindBy(xpath = "//option-panel/div/div/select-option[4]/div/mat-checkbox")
+	@FindBy(xpath = "//option-panel/div/div/cdk-virtual-scroll-viewport/div/div[3]/select-option/div/mat-checkbox")
 	WebElement Node3;
 
 	@FindBy(xpath = "//button[.='Save']")
@@ -173,13 +173,15 @@ public class Settings_RevenueCenter_Page
 	}
 	public void Search_Delete() throws Exception 
 	{
+
 		search.sendKeys("Re");
 		Thread.sleep(1000);
 		search.clear();
-		search.sendKeys("Reve");
+		search.sendKeys("Revenue");Thread.sleep(1000);
 		
 		//Get the Revenue Center
 		String GetRevenue_First=driver.findElement(By.xpath("//data-grid/div/div[3]/div[1]/div/data-grid-row/div/div[1]")).getText();
+	
 //		delete.click();
 		driver.findElement(By.xpath("//span[.='"+GetRevenue_First+" ']/../../div[3]/div[2]/button")).click();
 		Common_XPaths cmp = new Common_XPaths(driver, test);

@@ -14,6 +14,8 @@ public class Settings_Web_Hooks_Page
 {
 	public WebDriver driver;
     public ExtentTest test;
+    
+    String invaildURL = "testing";
    
     
     public Settings_Web_Hooks_Page(WebDriver driver, ExtentTest test) 
@@ -24,7 +26,7 @@ public class Settings_Web_Hooks_Page
     	PageFactory.initElements(driver, this);
     }
     
-    @FindBy(xpath = "//div[@class='settings']")
+    @FindBy(xpath = "//button[@mattooltip='Settings']")
 	WebElement Settings;
     
     @FindBy(xpath = "//span[.='Web Hooks']")
@@ -164,7 +166,8 @@ public class Settings_Web_Hooks_Page
     {
     	CloseOrderText.clear();
     	Thread.sleep(2000);
-    	CloseOrderText.sendKeys("https://mystore.lingaros.com/main.html");	
+    	CloseOrderText.sendKeys(invaildURL);
+    	test.log(LogStatus.INFO, "The invalid url is : "+invaildURL);
     }
     public void Entering_Closeorder_NUM_ALPHA_Spechar() throws Exception 
     {
@@ -208,7 +211,8 @@ public class Settings_Web_Hooks_Page
     {
     	OpenOrderText.clear();
     	Thread.sleep(1000);
-    	OpenOrderText.sendKeys("https://mystore.lingaros.com/main.html");	
+    	OpenOrderText.sendKeys(invaildURL);	
+    	test.log(LogStatus.INFO, "The invalid url is : "+invaildURL);
     }
     public void Clikcing_Openorder_WebHooks_Yes()
     {
@@ -246,7 +250,8 @@ public class Settings_Web_Hooks_Page
     {
     	UpdateOrderText.clear();
     	Thread.sleep(1000);
-    	UpdateOrderText.sendKeys("https://mystore.lingaros.com/main.html");	
+    	UpdateOrderText.sendKeys(invaildURL);	
+    	test.log(LogStatus.INFO, "The invalid url is : "+invaildURL);
     }
     public void Clicking_Updateorder_WebHooks_Yes()
     {

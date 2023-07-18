@@ -159,7 +159,7 @@ public class Payroll_Report_SettingsPage
 		Payroll_Week_Start_DayInputBx.click();
 		
 		Thread.sleep(1000);
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -168,7 +168,7 @@ public class Payroll_Report_SettingsPage
 		
 		Thread.sleep(1000);
 
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -414,7 +414,7 @@ public class Payroll_Report_SettingsPage
 		List<WebElement> rowList=driver.findElements(By.xpath("//table[@class='mat-calendar-table']/tbody/tr"));
 		List<WebElement> colList=driver.findElements(By.xpath("//table[@class='mat-calendar-table']/tbody/tr[2]/td"));
 		
-	//List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	//List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int rowSize=rowList.size();
 		

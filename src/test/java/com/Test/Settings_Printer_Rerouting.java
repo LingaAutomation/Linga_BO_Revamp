@@ -152,7 +152,7 @@ public WebDriver driver;
 		
 		PR.AddRerouteByNode_DateRangeWithTime_RestrictionDays();
 		
-		PR.AddRerouteByNode_AllDays_NoRestrictionTime_Role();
+	    PR.AddRerouteByNode_AllDays_NoRestrictionTime_Role();
 		
 		PR.AddRerouteByNode_AllDays_RestrictionTime_Role();
 		

@@ -13,7 +13,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
-import com.Pages.Settings_NotificationsPage;
 import com.Pages.Settings_RevenueCenter_Page;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -122,17 +121,17 @@ public class Settings_RevenueCenter
 	public void Navigating_RevenueCenter(WebDriver driver) throws Exception
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
-		Common_XPaths cmp = new Common_XPaths(driver, test);
+		//Common_XPaths cmp = new Common_XPaths(driver, test);
    	 
 		Thread.sleep(8000);
 		//load the Notifications page
 		Thread.sleep(2000);
-		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2"));
+		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2")+"revenueCenter");
 		Thread.sleep(2000);
 		RC.Navigating_Settings();
 		Thread.sleep(4000);
 		RC.Clicking_RevenueCenter();
-		Thread.sleep(6000);
+		Thread.sleep(8000);
 		
 	}
 	@Test(priority=4,enabled = false)
@@ -310,17 +309,18 @@ public class Settings_RevenueCenter
 	public void Search_And_Delete(WebDriver driver) throws Exception
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
-		Common_XPaths cmp = new Common_XPaths(driver, test);
+		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Thread.sleep(3000);
 		RC.Search_Delete();
 		Thread.sleep(3000);
 		
 	}
+	
 	@Test(priority=12,enabled = false)
 	public void Handling_pagination(WebDriver driver) throws Exception
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
-		Common_XPaths cmp = new Common_XPaths(driver, test);
+		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Thread.sleep(3000);
 		RC.Pagination();
 		
@@ -353,7 +353,7 @@ public class Settings_RevenueCenter
 	public void Sorting_Column(WebDriver driver) throws Exception
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
-		Common_XPaths cmp = new Common_XPaths(driver, test);
+		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Thread.sleep(3000);
 		RC.Sorting_Name();
 		Thread.sleep(3000);

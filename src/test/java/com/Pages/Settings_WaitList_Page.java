@@ -27,7 +27,7 @@ public class Settings_WaitList_Page
 
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(xpath = "//div[@class='settings']")
+	@FindBy(xpath = "//button[@mattooltip='Settings']")
 	WebElement Settings;
 	
 	@FindBy(xpath = "//span[.='Wait List']")

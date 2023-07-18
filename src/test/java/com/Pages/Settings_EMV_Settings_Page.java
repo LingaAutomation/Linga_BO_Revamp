@@ -115,13 +115,13 @@ public class Settings_EMV_Settings_Page {
 	{
 		TypeInputBox.click();
 		
-	    List<WebElement> TypeList=driver.findElements(By.xpath("//div[contains(@class,'options')]/select-option"));
+	    List<WebElement> TypeList=driver.findElements(By.xpath("//div/select-option"));
 		
 		int Type=TypeList.size();
 		
 		int randomType=ThreadLocalRandom.current().nextInt(1, Type);
 		
-		driver.findElement(By.xpath("//div[contains(@class,'options')]/select-option["+randomType+"]")).click();
+		driver.findElement(By.xpath("//div["+randomType+"]/select-option")).click();
 	
 	}
 }

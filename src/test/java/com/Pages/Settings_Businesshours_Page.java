@@ -30,7 +30,7 @@ public class Settings_Businesshours_Page
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//div[@class='settings']")
+	@FindBy(xpath = "//button[@mattooltip='Settings']")
 	WebElement Settings;
 
 	@FindBy(xpath = "//span[.='Business Hours']")

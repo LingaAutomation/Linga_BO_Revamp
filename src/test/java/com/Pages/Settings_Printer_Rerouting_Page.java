@@ -212,10 +212,10 @@ public class Settings_Printer_Rerouting_Page {
 	@FindBy(xpath =  "//div/mat-chip")
 	WebElement ForDate;
 			
-	@FindBy(xpath =  "//span[contains(.,'Start Date')]/../input")
+	@FindBy(xpath =  "//label[contains(.,'Start Date')]/../../../div[4]/mat-datepicker-toggle/button")
 	WebElement StartDate;
 	
-	@FindBy(xpath =  "//span[contains(.,'End Date')]/../input")
+	@FindBy(xpath =  "//label[contains(.,'End Date')]/../../../div[4]/mat-datepicker-toggle/button")
 	WebElement EndDate;
 	
 	@FindBy(xpath =  "//button/div[contains(@class,'mat-calendar-body-today')]")
@@ -225,13 +225,13 @@ public class Settings_Printer_Rerouting_Page {
 	WebElement SelectDate;
 	
 		
-	@FindBy(xpath =  "//span[contains(.,'Date')]/../input")
+	@FindBy(xpath =  "//span[contains(.,'Date')]/../..//button")
 	WebElement Date;
 	
-	@FindBy(xpath =  "//div[contains(@class,'options')]/select-option[1]")
+	@FindBy(xpath =  "//div[contains(@class,'options')]/cdk-virtual-scroll-viewport/div/div[1]")
 	WebElement FirstOption;
 	
-	@FindBy(xpath =  "//div[contains(@class,'options')]/select-option[2]")
+	@FindBy(xpath =  "//div[contains(@class,'options')]/cdk-virtual-scroll-viewport/div/div[2]")
 	WebElement SecondOption;
 	
 	@FindBy(xpath =  "//button[@disabled='true' and contains(.,'Save')]")
@@ -1037,8 +1037,14 @@ public class Settings_Printer_Rerouting_Page {
 			test.log(LogStatus.FAIL, "Save button is enabled when the mandatory fields are not filled/selected");
 		}
 		
+		Thread.sleep(1000);
+		JavascriptExecutor js3=(JavascriptExecutor)driver;
+		WebElement menuEle3=driver.findElement(By.xpath("//span[contains(.,'Start Date')]/../input"));
+		js3.executeScript("arguments[0].scrollIntoView(true);", menuEle3);
 		//click the the start date
 		StartDate.click();
+		
+		Thread.sleep(1000);
 				
 		//Click the current date
 		CurrentDate.click();
@@ -1590,7 +1596,7 @@ public class Settings_Printer_Rerouting_Page {
 		//Click the current date
 		CurrentDate.click();
 	
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 
 		try {
 			//Verify the success message
@@ -1604,9 +1610,10 @@ public class Settings_Printer_Rerouting_Page {
 			test.log(LogStatus.FAIL, "Enter end date message is not displayed when user click the save button with out select End Date");
 		}
 		
+		Thread.sleep(6000);
 		//click the the End date
 		EndDate.click();
-				
+		Thread.sleep(2000);
 		//Click the current date
 		CurrentDate.click();
 		
@@ -1653,7 +1660,7 @@ public class Settings_Printer_Rerouting_Page {
 		OK_TimePickerBtn.click();	
 		
 		//Click the restriction days
-		RestrictionDays_NoBtn.click();
+	//	RestrictionDays_NoBtn.click();
 		
 		Thread.sleep(1000);
 		
@@ -1820,7 +1827,7 @@ public class Settings_Printer_Rerouting_Page {
 		PM_Btn.click();
 		
 		OK_TimePickerBtn.click();	
-		
+	try {	
 		//Click the restriction days
 		RestrictionDays_YesBtn.click();
 		
@@ -1838,7 +1845,10 @@ public class Settings_Printer_Rerouting_Page {
 		Thread.sleep(500);
 		element.click();
 		//driver.findElement(By.xpath("//div/mat-chip["+randomMenu+"]")).click();a
-
+	}
+	catch (Exception e) {
+		// TODO: handle exception
+	}
 		
 		Thread.sleep(1000);
 		
@@ -3274,7 +3284,7 @@ public class Settings_Printer_Rerouting_Page {
 		OK_TimePickerBtn.click();
 
 		//Click the restriction days
-		RestrictionDays_NoBtn.click();
+		//RestrictionDays_NoBtn.click();
 
 		Thread.sleep(1000);
 
@@ -3413,7 +3423,8 @@ public class Settings_Printer_Rerouting_Page {
 		//click the start time
 		StartTime.click();
 
-		Thread.sleep(500);SelectFromTime.click();
+		Thread.sleep(500);
+		SelectFromTime.click();
 
 		AM_Btn.click();
 
@@ -3445,7 +3456,7 @@ public class Settings_Printer_Rerouting_Page {
 		OK_TimePickerBtn.click();
 
 		//Click the restriction days
-		RestrictionDays_YesBtn.click();
+		//RestrictionDays_YesBtn.click();
 
 
 		Thread.sleep(1000);

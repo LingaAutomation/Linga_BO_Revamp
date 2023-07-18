@@ -2289,34 +2289,34 @@ public class Settings_Scales_Page {
 		Column_option.click();
 		
 		//Deselect Select All
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 		Thread.sleep(500);
 		
 		Thread.sleep(1000);
-		List<WebElement> FilterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> FilterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 				
 		for(int i = 2; i <= FilterList.size(); i++)
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+i+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+i+"]/select-option")).click();
 			
-			if(driver.findElement(By.xpath("//div[contains(@class,'data-grid-headers')]/div/data-grid-row/div/div[1]/div/span")).getText().equalsIgnoreCase(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+i+"]/div")).getText()))
+			if(driver.findElement(By.xpath("//div[contains(@class,'data-grid-headers')]/div/data-grid-row/div/div[1]/div/span")).getText().equalsIgnoreCase(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+i+"]/select-option/div")).getText()))
 				
 			{
-				test.log(LogStatus.PASS, driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+i+"]/div")).getText()+ " Filtered Successfully");
+				test.log(LogStatus.PASS, driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+i+"]/select-option/div")).getText()+ " Filtered Successfully");
 				
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
 			else
 			{
-				test.log(LogStatus.FAIL, driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+i+"]/div")).getText()+ " Filter Unsuccessful. Wrongly filtered as "+driver.findElement(By.xpath("//div[contains(@class,'data-grid-headers')]/div/data-grid-row/div/div[1]/div/span")).getText());
+				test.log(LogStatus.FAIL, driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+i+"]/select-option/div")).getText()+ " Filter Unsuccessful. Wrongly filtered as "+driver.findElement(By.xpath("//div[contains(@class,'data-grid-headers')]/div/data-grid-row/div/div[1]/div/span")).getText());
 				
 				ut.FailedCaptureScreenshotAsBASE64(driver, test);
 			}
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+i+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+i+"]/select-option")).click();
 		}
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 		Thread.sleep(3000);
 		Column_option.click();Thread.sleep(3000);
 	}

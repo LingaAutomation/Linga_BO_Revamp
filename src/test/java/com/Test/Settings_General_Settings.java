@@ -107,8 +107,9 @@ public class Settings_General_Settings
 		Thread.sleep(8000);
 		//load the Notifications page
 		Thread.sleep(2000);
-		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2"));
+		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2")+"generalSettings");
 		gs.NavigatingSettings();
+		Thread.sleep(2000);
 		gs.NavigateGeneralSetting();
 		Thread.sleep(20000);
 

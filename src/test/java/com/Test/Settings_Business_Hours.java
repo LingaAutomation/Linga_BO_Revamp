@@ -115,11 +115,18 @@ public class Settings_Business_Hours
     		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2"));
     	 bh.Navigating_Settings();
     	 bh.NavigatingBusinessHours();
-         //Thread.sleep(20000);
+			Thread.sleep(5000);
+			try {
+				if(driver.findElement(By.xpath("//h3[contains(.,'Business Hours')]")).isDisplayed()) {
+					test.log(LogStatus.PASS, "Business Hours page is loaded successfully");
+				}
+			}catch(Exception E) {
+				test.log(LogStatus.FAIL, "Business Hours page is not loaded");
+			}
      }
 	@Test(priority = 4,enabled = false)
 	public void Changing_Store_Hours(WebDriver driver) throws Exception 
-	{
+	{Thread.sleep(5000);
          cmp= new Common_XPaths(driver,test);
    	     bh= new Settings_Businesshours_Page(driver, test);
    	      

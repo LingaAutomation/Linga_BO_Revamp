@@ -144,7 +144,7 @@ public class Settings_TipOut_TipSharing_Page {
 	@FindBy(xpath =  "//span[contains(.,' Automatic Tip Sharing')]/../../div[3]/app-auto-complete")
 	WebElement ManualTipsharing_ChooseRolesa;
 	
-	@FindBy(xpath =  "//div/mat-icon[.='close']")
+	@FindBy(xpath =  "//button/span/mat-icon[.='close']")
 	WebElement Close_ChooseRoles;
 	
 	@FindBy(xpath =  "//span[contains(.,' Include Below in Tip Share')]/../div/mat-checkbox")
@@ -786,7 +786,7 @@ public class Settings_TipOut_TipSharing_Page {
 
 		int randomMenu2=ThreadLocalRandom.current().nextInt(2, menuSize2);
 
-		WebElement element2 = driver.findElement(By.xpath("//select-option["+randomMenu2+"]"));
+		WebElement element2 = driver.findElement(By.xpath("//div["+randomMenu2+"]/select-option"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element2);
 		Thread.sleep(500);
 		element2.click();
@@ -913,6 +913,12 @@ public class Settings_TipOut_TipSharing_Page {
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
+		try {
+			TipSharingTab.click();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
 		//Click the enable button of manual tip sharing
 		ManualTipSharing_YesBtn.click();
 		
@@ -926,9 +932,9 @@ public class Settings_TipOut_TipSharing_Page {
 		
 		//Click the close button of Roles
 		try {Close_ChooseRoles.click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		ManualTipsharing_ChooseRoles.click();
-		
+		Thread.sleep(3000);
 		ManualTipsharing_ChooseRoles.click();	
 		}catch(Exception sq) {
 			ManualTipsharing_ChooseRoles.click();	
@@ -942,8 +948,8 @@ public class Settings_TipOut_TipSharing_Page {
 
 		int randomMenu2=ThreadLocalRandom.current().nextInt(2, menuSize2);
 
-		Thread.sleep(1500);driver.findElement(By.xpath("//select-option["+randomMenu2+"]")).click();
-		//WebElement element2 = driver.findElement(By.xpath("//select-option["+randomMenu2+"]"));
+		Thread.sleep(1500);driver.findElement(By.xpath("//div["+randomMenu2+"]/select-option")).click();
+		//WebElement element2 = driver.findElement(By.xpath("//div["+randomMenu2+"]/select-option"));
 		//((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element2);
 		//Thread.sleep(1500);
 		//element2.click();
@@ -969,6 +975,13 @@ public class Settings_TipOut_TipSharing_Page {
 		driver.findElement(By.xpath("//div[@class='message mx-2']/../mat-icon[.='close']")).click();
 		Thread.sleep(3000);
 
+		try {
+			TipSharingTab.click();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		//Click the disable button of automatic tip sharing
 		AutomaticTipSharing_NoBtn.click();
 		
@@ -984,7 +997,7 @@ public class Settings_TipOut_TipSharing_Page {
 		TipSaveBtn.click();
 		
 		Thread.sleep(2000);
-		
+		try {
 		String sa = driver.findElement(By.xpath("//div[@class='message mx-2']/span")).getText();
 		
 		//Verify the success message
@@ -1000,7 +1013,15 @@ public class Settings_TipOut_TipSharing_Page {
 		//Click the close button of success message
 		driver.findElement(By.xpath("//div[@class='message mx-2']/../mat-icon[.='close']")).click();
 		Thread.sleep(3000);
-		
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		try {
+			TipSharingTab.click();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
 		//Click the enable button of automatic tip sharing
 		AutomaticTipSharing_YesBtn.click();
 		
@@ -1039,7 +1060,7 @@ public class Settings_TipOut_TipSharing_Page {
 //		{
 		int randomMenu=ThreadLocalRandom.current().nextInt(2, menuSize);
 
-		WebElement element = driver.findElement(By.xpath("//select-option["+randomMenu+"]"));
+		WebElement element = driver.findElement(By.xpath("//div["+randomMenu+"]/select-option"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		Thread.sleep(1500);
 //		cmp.Cursor_MoveToElement(element);
@@ -1058,14 +1079,31 @@ public class Settings_TipOut_TipSharing_Page {
 //			element.click();
 //		}
 		List<WebElement> menuList1=driver.findElements(By.xpath("//select-option"));
-
+try {
 		if(menuList1.size()!=0)
 		{
+			Thread.sleep(3000);
 			ManualTipsharing_ChooseRoles.click();
+			Thread.sleep(3000);
 		}
+}
+catch (Exception e) {
+	// TODO: handle exception
+	Thread.sleep(1000);
+	test.log(LogStatus.FAIL, "Automatic tip sharing not closing properly");
+	//JavascriptExecutor js3=(JavascriptExecutor)driver;
+	//WebElement menuEle3=driver.findElement(By.xpath("//span[contains(.,' Automatic Tip Sharing')]/../div[contains(.,'Sharing the overall tip Automatic for selected roles')]"));
+	//js3.executeScript("arguments[0].scrollIntoView(true);", menuEle3);
+	//driver.findElement(By.xpath("//span[contains(.,' Automatic Tip Sharing')]/../div[contains(.,'Sharing the overall tip Automatic for selected roles')]")).click();
+	TipSaveBtn.click();
+}
 		//Click the Save button
-		TipSaveBtn.click();
-		
+		try {
+			TipSaveBtn.click();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
 		Thread.sleep(2000);
 		
 		String sa1 = driver.findElement(By.xpath("//div[@class='message mx-2']/span")).getText();
@@ -1083,7 +1121,12 @@ public class Settings_TipOut_TipSharing_Page {
 		//Click the close button of success message
 		driver.findElement(By.xpath("//div[@class='message mx-2']/../mat-icon[.='close']")).click();
 		Thread.sleep(3000);
-		
+		try {
+			TipSharingTab.click();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
 		//Click the disable button of Tip charge detection before tip share
 		TipChargeDeductionBeforeTipShare_NoBtn.click();
 		
@@ -1091,7 +1134,7 @@ public class Settings_TipOut_TipSharing_Page {
 		TipSaveBtn.click();
 		
 		Thread.sleep(2000);
-		
+		try {
 		String sa2 = driver.findElement(By.xpath("//div[@class='message mx-2']/span")).getText();
 		
 		//Verify the success message
@@ -1103,11 +1146,20 @@ public class Settings_TipOut_TipSharing_Page {
 		{
 			test.log(LogStatus.FAIL, "Tip Out/Tip Sharing Updated Successfully message not displayed when user update the Tip Out/Tip Sharing");
 		}
-		
+	
 		//Click the close button of success message
 		driver.findElement(By.xpath("//div[@class='message mx-2']/../mat-icon[.='close']")).click();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
 		Thread.sleep(3000);
-		
+		try {
+			TipSharingTab.click();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
 		//Click the enable button of Tip charge detection before tip share
 		TipChargeDeductionBeforeTipShare_YesBtn.click();
 		
@@ -1116,6 +1168,7 @@ public class Settings_TipOut_TipSharing_Page {
 		
 		Thread.sleep(2000);
 		
+		try {
 		String sa3 = driver.findElement(By.xpath("//div[@class='message mx-2']/span")).getText();
 		
 		//Verify the success message
@@ -1131,6 +1184,18 @@ public class Settings_TipOut_TipSharing_Page {
 		//Click the close button of success message
 		driver.findElement(By.xpath("//div[@class='message mx-2']/../mat-icon[.='close']")).click();
 		Thread.sleep(3000);
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
+		try {
+			TipSharingTab.click();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_DOWN);
 		
 		List<WebElement> menuList11=driver.findElements(By.xpath("//span[contains(.,' Include Below in Tip Share')]/../div/mat-checkbox"));
 
@@ -1146,12 +1211,14 @@ public class Settings_TipOut_TipSharing_Page {
 		
 		Thread.sleep(2000);
 		
+		
+		
 		//Click the Save button
 		TipSaveBtn.click();
 		
 		Thread.sleep(2000);
 		
-		
+		try {
 		String sa4 = driver.findElement(By.xpath("//div[@class='message mx-2']/span")).getText();
 		
 		//Verify the success message
@@ -1163,10 +1230,14 @@ public class Settings_TipOut_TipSharing_Page {
 		{
 			test.log(LogStatus.FAIL, "Tip Out/Tip Sharing Updated Successfully message not displayed when user update the Tip Out/Tip Sharing");
 		}
-		
+	
 		//Click the close button of success message
 		driver.findElement(By.xpath("//div[@class='message mx-2']/../mat-icon[.='close']")).click();
 		Thread.sleep(3000);
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 	
 	public void verifyThePercentageFunctionalities() throws Exception

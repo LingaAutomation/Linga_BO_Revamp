@@ -173,15 +173,16 @@ public WebDriver driver;
 	    pos.POS_Access_URL_Yes();
 		Thread.sleep(2000);
 		//pos.Click_URLLink_btn();
-	//	Thread.sleep(2000);
+		Thread.sleep(2000);
 		
 		pos.Enter_Name(Utility.getProperty("POS_URL_Name"));
 		Thread.sleep(2000);
 		pos.Enter_Url("www.pos.com");
 		Thread.sleep(2000);
 		//Upload picture
-		cmp.Upload_Picture(Utility.getProperty("Settings_Store_Information_Store_Image_Path"));
-		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[@mattooltipclass]/../input")).sendKeys(Utility.getProperty("Settings_Store_Information_Store_Image_Path"));
+		//cmp.Upload_Picture(Utility.getProperty("Settings_Store_Information_Store_Image_Path"));
+		Thread.sleep(3000);
 		driver.findElement(By.xpath("//button[contains(.,'SAVE')]")).click();
 		
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("POS custom url Saved Successfully"))
@@ -296,13 +297,18 @@ public WebDriver driver;
 		// TODO: handle exception
 	}
 		
-		
+		Thread.sleep(2000);
+		//pos.Click_URLLink_btn();
+		Thread.sleep(2000);
 		pos.Enter_Name(Utility.getProperty("POS_URL_Name"));
 		Thread.sleep(2000);
 		pos.Enter_Url("www.pos.com");
 		Thread.sleep(2000);
 		//Upload picture
-		cmp.Upload_Picture(Utility.getProperty("Settings_Store_Information_Store_Image_Path"));
+		driver.findElement(By.xpath("//div[@mattooltipclass]/../input")).sendKeys(Utility.getProperty("Settings_Store_Information_Store_Image_Path"));
+
+		//Upload picture
+		//cmp.Upload_Picture(Utility.getProperty("Settings_Store_Information_Store_Image_Path"));
 	
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//button[contains(.,'SAVE')]")).click();

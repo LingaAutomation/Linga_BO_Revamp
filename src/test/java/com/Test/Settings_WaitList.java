@@ -143,7 +143,7 @@ public class Settings_WaitList
 		Thread.sleep(8000);
 		//load the Notifications page
 		Thread.sleep(2000);
-		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2"));
+		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2")+"waitList");
 		wl.Click_Settings();
 		Thread.sleep(1000);
 		wl.Click_WaitList();
@@ -312,6 +312,7 @@ public class Settings_WaitList
 	}
 	public void Deleting_Wait_List(WebDriver driver) throws Exception
 	{
+		Thread.sleep(4000);
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
 		wl.Delete();

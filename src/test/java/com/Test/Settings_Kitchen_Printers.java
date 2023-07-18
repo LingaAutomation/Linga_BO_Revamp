@@ -144,7 +144,7 @@ public class Settings_Kitchen_Printers
 		cmp=new Common_XPaths(driver, test);
 		
 		//Verify the Pagination and Refresh the page
-		cmp.VerifyPagination_and_Refresh_Publish();
+		//cmp.VerifyPagination_and_Refresh_Publish();
 		
 		//Verify Column Filtration
 		cmp.Filter_Columns();

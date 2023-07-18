@@ -381,7 +381,7 @@ public class Settings_Delivery_Settings {
 		//Verify Filter Column
 		cmp.Filter_Columns();
 		
-		cmp.SearchBox().click();
+		cmp.SearchBox();
 		
 		Thread.sleep(3000);
 		//Click the Delivery Zone
