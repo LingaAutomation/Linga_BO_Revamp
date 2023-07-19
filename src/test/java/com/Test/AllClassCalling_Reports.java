@@ -473,9 +473,6 @@ public class AllClassCalling_Reports {
 			a.Gift_Card_Report_Date_Range(driver);
 		}
 		
-		
-		
-		
 		@Test(priority = 20,enabled = true)
 		public void Reports_GiveX_Report() throws Exception
 		{
@@ -501,23 +498,23 @@ public class AllClassCalling_Reports {
 		public void Reports_Discount_Report() throws Exception
 		{
 			Reports_Discount_Report a=new Reports_Discount_Report();
-			a.Open_Customer_Preference_Report_Page(driver);
+			a.Open_Discount_Report_Page(driver);
 //			a.RefreshAndPaginination(driver);
-			a.Customer_Preference_Report_Today(driver);
-			a.Customer_Preference_Report_Yesterday(driver);
-			a.Customer_Preference_Report_Last_N_Days(driver);
-			a.Customer_Preference_Report_This_Week(driver);
-			a.Customer_Preference_Report_Last_Week(driver);
-			a.Customer_Preference_Report_Last_7_Days(driver);
-			a.Customer_Preference_Report_This_Month(driver);
-			a.Customer_Preference_Report_Last_Month(driver);
-			a.Customer_Preference_Report_Last_30_Days(driver);
-			a.Customer_Preference_Report_Specific_Date(driver);
-			a.Customer_Preference_Report_Date_Range(driver);
+			a.Discount_Report_Today(driver);
+			a.Discount_Report_Yesterday(driver);
+			a.Discount_Report_Last_N_Days(driver);
+			a.Discount_Report_This_Week(driver);
+			a.Discount_Report_Last_Week(driver);
+			a.Discount_Report_Last_7_Days(driver);
+			a.Discount_Report_This_Month(driver);
+			a.Discount_Report_Last_Month(driver);
+			a.Discount_Report_Last_30_Days(driver);
+			a.Discount_Report_Specific_Date(driver);
+			a.Discount_Report_Date_Range(driver);
 		}
 		
 		
-		@Test(priority = 22,enabled = true)
+		@Test(priority = 22,enabled = false)
 		public void Reports_Store_Credit_Report() throws Exception
 		{
 			// Not Impletemented

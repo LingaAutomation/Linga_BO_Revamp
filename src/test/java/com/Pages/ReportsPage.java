@@ -927,6 +927,9 @@ public class ReportsPage
 	@FindBy(xpath = "//label[contains(.,'Date Type')]/../../input")
 	WebElement Date_Type_InputBx;
 	
+	@FindBy(xpath = "//select-option[contains(.,'No results match')]")
+	WebElement No_Results_MatchInfo_InDropDown;
+	
 	public WebElement Node_InputBox()
 	{
 		return Node_InputBx;

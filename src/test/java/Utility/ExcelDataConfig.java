@@ -28,7 +28,7 @@ public class ExcelDataConfig {
 	public ExcelDataConfig(String excelPath)
 	{
 		try {
-			File src = new File(excelPath);
+			File src = new File(System.getProperty("user.dir")+excelPath);
 			
 			FileInputStream fis = new FileInputStream(src);
 			
@@ -244,7 +244,7 @@ public class ExcelDataConfig {
 
 	public void toWrite(String excelpath) throws Exception
 	{
-		FileOutputStream fos=new FileOutputStream(excelpath);
+		FileOutputStream fos=new FileOutputStream(System.getProperty("user.dir")+excelpath);
 		wb.write(fos);
 	}
 

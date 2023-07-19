@@ -104,23 +104,23 @@ public WebDriver driver;
 	@Test(priority=2)
 	public void Calling() throws Exception
 	{
-		Open_Customer_Preference_Report_Page(driver);
+		Open_Discount_Report_Page(driver);
 //		RefreshAndPaginination(driver);
-		Customer_Preference_Report_Today(driver);
-		Customer_Preference_Report_Yesterday(driver);
-		Customer_Preference_Report_Last_N_Days(driver);
-		Customer_Preference_Report_This_Week(driver);
-		Customer_Preference_Report_Last_Week(driver);
-		Customer_Preference_Report_Last_7_Days(driver);
-		Customer_Preference_Report_This_Month(driver);
-		Customer_Preference_Report_Last_Month(driver);
-		Customer_Preference_Report_Last_30_Days(driver);
-		Customer_Preference_Report_Specific_Date(driver);
-		Customer_Preference_Report_Date_Range(driver);
+		Discount_Report_Today(driver);
+		Discount_Report_Yesterday(driver);
+		Discount_Report_Last_N_Days(driver);
+		Discount_Report_This_Week(driver);
+		Discount_Report_Last_Week(driver);
+		Discount_Report_Last_7_Days(driver);
+		Discount_Report_This_Month(driver);
+		Discount_Report_Last_Month(driver);
+		Discount_Report_Last_30_Days(driver);
+		Discount_Report_Specific_Date(driver);
+		Discount_Report_Date_Range(driver);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Customer_Preference_Report_Page(WebDriver driver) throws Exception
+	public void Open_Discount_Report_Page(WebDriver driver) throws Exception
 	{
 		
 		repts=new ReportsPage(driver, test);
@@ -185,7 +185,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Customer_Preference_Report_Today(WebDriver driver) throws Exception
+	public void Discount_Report_Today(WebDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -233,7 +233,7 @@ public WebDriver driver;
 
 
 	@Test(priority = 4,enabled = false)
-	public void Customer_Preference_Report_Yesterday(WebDriver driver) throws Exception
+	public void Discount_Report_Yesterday(WebDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -280,7 +280,7 @@ public WebDriver driver;
 
 
 	@Test(priority = 4,enabled = false)
-	public void Customer_Preference_Report_Last_N_Days(WebDriver driver) throws Exception
+	public void Discount_Report_Last_N_Days(WebDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -326,7 +326,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Customer_Preference_Report_This_Week(WebDriver driver) throws Exception
+	public void Discount_Report_This_Week(WebDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -372,7 +372,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Customer_Preference_Report_Last_Week(WebDriver driver) throws Exception
+	public void Discount_Report_Last_Week(WebDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -418,7 +418,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Customer_Preference_Report_Last_7_Days(WebDriver driver) throws Exception
+	public void Discount_Report_Last_7_Days(WebDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -465,7 +465,7 @@ public WebDriver driver;
 
 
 	@Test(priority = 4,enabled = false)
-	public void Customer_Preference_Report_This_Month(WebDriver driver) throws Exception
+	public void Discount_Report_This_Month(WebDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -512,7 +512,7 @@ public WebDriver driver;
 
 
 	@Test(priority = 4,enabled = false)
-	public void Customer_Preference_Report_Last_Month(WebDriver driver) throws Exception
+	public void Discount_Report_Last_Month(WebDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -558,7 +558,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Customer_Preference_Report_Last_30_Days(WebDriver driver) throws Exception
+	public void Discount_Report_Last_30_Days(WebDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -604,7 +604,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Customer_Preference_Report_Specific_Date(WebDriver driver) throws Exception
+	public void Discount_Report_Specific_Date(WebDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -650,7 +650,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Customer_Preference_Report_Date_Range(WebDriver driver) throws Exception
+	public void Discount_Report_Date_Range(WebDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);

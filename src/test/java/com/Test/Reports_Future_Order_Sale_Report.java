@@ -159,7 +159,7 @@ public WebDriver driver;
 		//driver.findElement(By.xpath("//label[contains(.,'Check Number')]/../../input")).sendKeys(Utility.getProperty("FutureOrderCheckNum"));
 		
 		//Select the order date
-		driver.findElement(By.xpath("//label[contains(.,'Order Date')]/../../input")).click();
+		driver.findElement(By.xpath("//label[contains(.,'Order Date')]/../../..//mat-datepicker-toggle/button")).click();
 		
 		String FromDate = Utility.getProperty("FutureOrderDate");
 				
@@ -187,7 +187,7 @@ public WebDriver driver;
 				
 				Thread.sleep(1000);
 				//select the delivery
-				driver.findElement(By.xpath("//label[contains(.,'Delivery Date')]/../../input")).click();
+				driver.findElement(By.xpath("//label[contains(.,'Delivery Date')]/../../..//mat-datepicker-toggle/button")).click();
 
 				Thread.sleep(500);
 				String ToDate = Utility.getProperty("FutureOrderDeliveryDate");
