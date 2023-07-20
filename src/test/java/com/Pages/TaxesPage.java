@@ -58,34 +58,34 @@ public class TaxesPage {
 	@FindBy(xpath = "//div[contains(@class,'col radio-box-button')]/div/div[.='Tax On Check Tax']")
 	WebElement TaxOnCheck_TaxBtn;
 	
-	@FindBy(xpath = "//h5[contains(.,'Include In Daily Summary Report')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Include In Daily Summary Report')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement IncludeDailySummaryReport_YesBtn;
 	
-	@FindBy(xpath = "//h5[contains(.,'Include In Daily Summary Report')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Include In Daily Summary Report')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement IncludeDailySummaryReport_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Apply On Subtotal')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[@name='applyOnRawCheck']/../..//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement ApplySubtotal_YesBtn;
 	 
-	@FindBy(xpath = "//span[contains(.,'Apply On Subtotal')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[@name='applyOnRawCheck']/../..//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement ApplySubtotal_NoBtn;
 	 
-	@FindBy(xpath = "//span[contains(.,'Inclusive')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Inclusive')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Inclusive_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Inclusive')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Inclusive')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Inclusive_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Quantity Based')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Quantity Based')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement QuantityBased_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Quantity Based')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Quantity Based')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement QuantityBased_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Default Tax')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Default Tax')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement DefaultTax_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Default Tax')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Default Tax')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement DefaultTax_NoBtn;
 	
 	@FindBy(xpath = "//div[@class='editable-data-grid']/div/div[1]/app-input/div/div/mat-form-field/div/div/div[4]/input")

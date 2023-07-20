@@ -39,7 +39,7 @@ public class Common_XPaths {
 	}
 	
 	
-	@FindBy(xpath = "//input[@data-placeholder='Search']")
+	@FindBy(xpath = "//input[contains(@data-placeholder,'Search')]")
 	WebElement SearchBox;
 
 	@FindBy(xpath = "//div[@class='option-list']//input[@data-placeholder='Search']")
@@ -352,6 +352,23 @@ public class Common_XPaths {
 	{
 		Thread.sleep(1000);
 		if(Alert_Popup.getText().equalsIgnoreCase("Are you sure you want to delete this item?"))
+		{
+			test.log(LogStatus.PASS, "Delete Pop Up Displayed");
+			
+			DeleteBtn.click();
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Delete Pop Up not Displayed");
+			
+		}
+		
+	}
+	
+	public void Click_DeleteButton_Message(String Message) throws Exception
+	{
+		Thread.sleep(1000);
+		if(Alert_Popup.getText().equalsIgnoreCase(Message))
 		{
 			test.log(LogStatus.PASS, "Delete Pop Up Displayed");
 			

@@ -57,34 +57,34 @@ public class CategoriesPage {
 	@FindBy(xpath = "//label[contains(.,'Item Service Charge')]/../../input")
 	WebElement ItemServiceChargeDropBtn;
 	
-	@FindBy(xpath = "//div[contains(@id,'visibility')]/div[2]/div[1]/div[1]/div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide In POS')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement HideinPOS_YesBtn;
 	//span[contains(.,'Hide in POS')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]
 	
-	@FindBy(xpath = "//div[contains(@id,'visibility')]/div[2]/div[1]/div[1]/div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide In POS')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement HideinPOS_NoBtn;
 	//span[contains(.,'Hide in POS')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]
 	
-	@FindBy(xpath = "//div[contains(@id,'visibility')]/div[2]/div[1]/div[2]/div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide in Online Order')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement HideinOnlineOrder_YesBtn;
 	//span[contains(.,'Hide in Online Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]
 		
-	@FindBy(xpath = "//div[contains(@id,'visibility')]/div[2]/div[1]/div[2]/div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide in Online Order')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement HideinOnlineOrder_NoBtn;
 	//span[contains(.,'Hide in Online Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]
 	
-	@FindBy(xpath = "//div[contains(@id,'visibility')]/div[2]/div[2]/div[1]/div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide Menu Item In Kiosk')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement HideinKiosk_YesBtn;
 	//span[contains(.,'Hide in Kiosk')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]
 		
-	@FindBy(xpath = "//div[contains(@id,'visibility')]/div[2]/div[2]/div[1]/div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide Menu Item In Kiosk')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement HideinKiosk_NoBtn;
 	//span[contains(.,'Hide in Kiosk')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]
 	
-	@FindBy(xpath = "//span[contains(.,'Conversational')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Conversational')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Conversational_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Conversational')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Conversational')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Conversational_NoBtn;
 	
 	@FindBy(xpath="//div[contains(@id,'kitchen-printers')]//app-chip/div/mat-chip-list/div/mat-chip[1]")
@@ -475,7 +475,7 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		
 		int randomServSizeLvl=ThreadLocalRandom.current().nextInt(1, ServSizeLvl);
 		
-		if(ServSizeLvl<=2)
+		if(ServSizeLvl<=5)
 		{
 			Thread.sleep(1000);
 //			ServingSizeLevelDropBtn.click();
@@ -490,10 +490,16 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 			driver.findElement(By.xpath("//div["+ServSizeLvl+"]/select-option")).click();
 			}
 		}
-		else
+		else if(ServSizeLvl==1)
 		{
 			Thread.sleep(1000);
 			driver.findElement(By.xpath("//div["+randomServSizeLvl+"]/select-option")).click();
+		}
+		else if(ServSizeLvl>5)
+		{
+			int randomServSizeLvl1=ThreadLocalRandom.current().nextInt(1, ServSizeLvl);
+			driver.findElement(By.xpath("//div["+randomServSizeLvl1+"]/select-option")).click();
+
 		}
 	
 		List<WebElement> ServSizeLvlList1=driver.findElements(By.xpath("//div/select-option"));

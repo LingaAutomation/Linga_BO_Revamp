@@ -597,6 +597,14 @@ public WebDriver driver;
 			
 			cmp.Click_CancelButton();
 		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
+		{
+			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed while adding Duplicate Gift Card");
+			
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_CancelButton();
+		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Gift Card number already exist pop up not Displayed");

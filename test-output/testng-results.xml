@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="13" total="16" passed="3" failed="0" skipped="0">
+<testng-results ignored="4" total="7" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-07-20T13:03:06 IST" name="Default suite" finished-at="2023-07-20T13:07:02 IST" duration-ms="236517">
+  <suite started-at="2023-07-20T19:30:58 IST" name="Default suite" finished-at="2023-07-20T19:33:40 IST" duration-ms="161569">
     <groups>
     </groups>
-    <test started-at="2023-07-20T13:03:06 IST" name="Default test" finished-at="2023-07-20T13:07:02 IST" duration-ms="236517">
-      <class name="com.Test.Reports_Sale_Recap_Report">
-        <test-method signature="Login()[pri:1, instance:com.Test.Reports_Sale_Recap_Report@43599640]" started-at="2023-07-20T13:03:06 IST" name="Login" finished-at="2023-07-20T13:04:05 IST" duration-ms="59162" status="PASS">
+    <test started-at="2023-07-20T19:30:58 IST" name="Default test" finished-at="2023-07-20T19:33:40 IST" duration-ms="161569">
+      <class name="com.Test.Product_Items_Sort_Menu_Config">
+        <test-method signature="Login()[pri:1, instance:com.Test.Product_Items_Sort_Menu_Config@13b3d178]" started-at="2023-07-20T19:30:58 IST" name="Login" finished-at="2023-07-20T19:31:50 IST" duration-ms="51594" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Reports_Sale_Recap_Report@43599640]" started-at="2023-07-20T13:04:05 IST" name="TestFail" finished-at="2023-07-20T13:04:05 IST" duration-ms="4" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_Sort_Menu_Config@13b3d178]" started-at="2023-07-20T19:31:50 IST" name="TestFail" finished-at="2023-07-20T19:31:50 IST" duration-ms="5" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login status=SUCCESS method=Reports_Sale_Recap_Report.Login()[pri:1, instance:com.Test.Reports_Sale_Recap_Report@43599640] output={null}]]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=Product_Items_Sort_Menu_Config.Login()[pri:1, instance:com.Test.Product_Items_Sort_Menu_Config@13b3d178] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method signature="Calling()[pri:2, instance:com.Test.Reports_Sale_Recap_Report@43599640]" started-at="2023-07-20T13:04:05 IST" name="Calling" finished-at="2023-07-20T13:06:55 IST" duration-ms="170201" status="PASS">
+        <test-method signature="Calling()[pri:2, instance:com.Test.Product_Items_Sort_Menu_Config@13b3d178]" started-at="2023-07-20T19:31:50 IST" name="Calling" finished-at="2023-07-20T19:33:34 IST" duration-ms="103907" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Calling -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Reports_Sale_Recap_Report@43599640]" started-at="2023-07-20T13:06:55 IST" name="TestFail" finished-at="2023-07-20T13:06:55 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_Sort_Menu_Config@13b3d178]" started-at="2023-07-20T19:33:34 IST" name="TestFail" finished-at="2023-07-20T19:33:34 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Calling status=SUCCESS method=Reports_Sale_Recap_Report.Calling()[pri:2, instance:com.Test.Reports_Sale_Recap_Report@43599640] output={null}]]]>
+                <![CDATA[[TestResult name=Calling status=SUCCESS method=Product_Items_Sort_Menu_Config.Calling()[pri:2, instance:com.Test.Product_Items_Sort_Menu_Config@13b3d178] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method signature="LogOut()[pri:50, instance:com.Test.Reports_Sale_Recap_Report@43599640]" started-at="2023-07-20T13:06:55 IST" name="LogOut" finished-at="2023-07-20T13:07:00 IST" duration-ms="4902" status="PASS">
+        <test-method signature="LogOut()[pri:50, instance:com.Test.Product_Items_Sort_Menu_Config@13b3d178]" started-at="2023-07-20T19:33:34 IST" name="LogOut" finished-at="2023-07-20T19:33:38 IST" duration-ms="3780" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogOut -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Reports_Sale_Recap_Report@43599640]" started-at="2023-07-20T13:07:00 IST" name="TestFail" finished-at="2023-07-20T13:07:00 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_Sort_Menu_Config@13b3d178]" started-at="2023-07-20T19:33:38 IST" name="TestFail" finished-at="2023-07-20T19:33:38 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=LogOut status=SUCCESS method=Reports_Sale_Recap_Report.LogOut()[pri:50, instance:com.Test.Reports_Sale_Recap_Report@43599640] output={null}]]]>
+                <![CDATA[[TestResult name=LogOut status=SUCCESS method=Product_Items_Sort_Menu_Config.LogOut()[pri:50, instance:com.Test.Product_Items_Sort_Menu_Config@13b3d178] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method is-config="true" signature="flushTest()[pri:0, instance:com.Test.Reports_Sale_Recap_Report@43599640]" started-at="2023-07-20T13:07:00 IST" name="flushTest" finished-at="2023-07-20T13:07:02 IST" duration-ms="2206" status="PASS">
+        <test-method is-config="true" signature="flushTest()[pri:0, instance:com.Test.Product_Items_Sort_Menu_Config@13b3d178]" started-at="2023-07-20T19:33:38 IST" name="flushTest" finished-at="2023-07-20T19:33:40 IST" duration-ms="2246" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flushTest -->
-      </class> <!-- com.Test.Reports_Sale_Recap_Report -->
+      </class> <!-- com.Test.Product_Items_Sort_Menu_Config -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

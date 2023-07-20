@@ -867,7 +867,12 @@ public WebDriver driver;
 				Thread.sleep(1000);
 				
 			}
+		 else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Saved Successfully and Store data published successfully"))
+			{
+				test.log(LogStatus.FAIL, "Duplicate Tax saved and Published");
 			
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			}
 		else
 		{
 			test.log(LogStatus.FAIL, "Tax Name already exist pop up not Displayed");

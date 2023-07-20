@@ -44,10 +44,10 @@ public class GratuitiesPage {
 	@FindBy(xpath = "//label[contains(.,'Max. Percentage')]/../../input")
 	WebElement Max_Percentage_InputBox;
 	
-	@FindBy(xpath = "//span[contains(.,'Auto Gratuity')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Auto Gratuity')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Auto_Gratuity_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Auto Gratuity')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Auto Gratuity')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Auto_Gratuity_NoBtn;
 
 	@FindBy(xpath = "//label[contains(.,'Auto Gratuity Seat Count')]/../../input")

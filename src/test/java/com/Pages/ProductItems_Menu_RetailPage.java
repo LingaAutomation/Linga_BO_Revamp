@@ -300,54 +300,54 @@ public class ProductItems_Menu_RetailPage {
 		cmp.Click_Wait_ForElementClickable(Category_InputBx, 60);
 		Thread.sleep(1000);
 //		Category_InputBx.click();
-		
-		Thread.sleep(1000);
-	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-		
-		
-		int menuSize=menuList.size();
-		
-		if(menuSize==0)
-		{
-			Category_InputBx.click();
-			Thread.sleep(10000);
-
-		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-			
-			
-			int menuSize1=menuList1.size();
-			
-			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
-			
-			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-			
-			
-		}
-		else if(menuSize<=6)
-		{
-		
-		int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-		
-		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-		}
-		else
-		{
-			int randomMenu=ThreadLocalRandom.current().nextInt(1, 6);
-			
-			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-		
-		}
-		
-		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-
-		
-		if(menuList1.size()!=0)
-		{
-			Category_InputBx.click();
-		}
+		cmp.Click_DropDown_withSearch(Category_InputBx, "Category Level selected");
+//		Thread.sleep(1000);
+//	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//		
+//		
+//		int menuSize=menuList.size();
+//		
+//		if(menuSize==0)
+//		{
+//			Category_InputBx.click();
+//			Thread.sleep(10000);
+//
+//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//			
+//			
+//			int menuSize1=menuList1.size();
+//			
+//			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
+//			
+//			
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//			
+//			
+//		}
+//		else if(menuSize<=6)
+//		{
+//		
+//		int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
+//		
+//		
+//		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//		}
+//		else
+//		{
+//			int randomMenu=ThreadLocalRandom.current().nextInt(1, 6);
+//			
+//			
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//		
+//		}
+//		
+//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//
+//		
+//		if(menuList1.size()!=0)
+//		{
+//			Category_InputBx.click();
+//		}
 	}
 	
 
@@ -362,72 +362,73 @@ public class ProductItems_Menu_RetailPage {
 		cmp.Click_Wait_ForElementClickable(SubCategory_InputBx, 60);
 //		SubCategory_InputBx.click();
 	
+		cmp.Click_DropDown_withSearch(SubCategory_InputBx, "Sub Category Level selected");
 	
-		Thread.sleep(1000);
-		List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-		
-			int menuSize=menuList.size();
-		
-			if(menuSize==0)
-			{
-			SubCategory_InputBx.click();
-			
-			Thread.sleep(1000);
-			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-			
-			int menuSize1=menuList1.size();
-		
-			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
-		
-		
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-		
-			}
-			else if(menuSize==1)
-			{
-				try
-				{
-				if(driver.findElement(By.xpath("//select-option[contains(.,'No results match')]")).isDisplayed())
-				{
-					
-					test.log(LogStatus.INFO, "Sub Categories not available for Selected Category");
-					
-					driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
-					driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
-
-					Click_Category_LevelType();
-					Thread.sleep(1000);
-					Select_Category_LevelType();
-					
-				}
-				}
-				catch(Exception e)
-				{
-					driver.findElement(By.xpath("//select-option[1]")).click();
-				}
-			}
-			else if(menuSize>=1 && menuSize<=6)
-			{
-				int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-		
-		
-				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-			}
-			else
-			{
-				int randomMenu=ThreadLocalRandom.current().nextInt(1, 6);
-			
-			
-				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-			
-			}
-		
-			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-
-			if(menuList1.size()!=0)
-			{
-				SubCategory_InputBx.click();
-			}
+//		Thread.sleep(1000);
+//		List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//		
+//			int menuSize=menuList.size();
+//		
+//			if(menuSize==0)
+//			{
+//			SubCategory_InputBx.click();
+//			
+//			Thread.sleep(1000);
+//			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//			
+//			int menuSize1=menuList1.size();
+//		
+//			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
+//		
+//		
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//		
+//			}
+//			else if(menuSize==1)
+//			{
+//				try
+//				{
+//				if(driver.findElement(By.xpath("//select-option[contains(.,'No results match')]")).isDisplayed())
+//				{
+//					
+//					test.log(LogStatus.INFO, "Sub Categories not available for Selected Category");
+//					
+//					driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+//					driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+//
+//					Click_Category_LevelType();
+//					Thread.sleep(1000);
+//					Select_Category_LevelType();
+//					
+//				}
+//				}
+//				catch(Exception e)
+//				{
+//					driver.findElement(By.xpath("//select-option[1]")).click();
+//				}
+//			}
+//			else if(menuSize>=1 && menuSize<=6)
+//			{
+//				int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
+//		
+//		
+//				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//			}
+//			else
+//			{
+//				int randomMenu=ThreadLocalRandom.current().nextInt(1, 6);
+//			
+//			
+//				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//			
+//			}
+//		
+//			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//
+//			if(menuList1.size()!=0)
+//			{
+//				SubCategory_InputBx.click();
+//			}
 		
 	}
 	
@@ -444,53 +445,54 @@ public class ProductItems_Menu_RetailPage {
 		Thread.sleep(1000);
 //		Category_InputBx.click();
 		
-		Thread.sleep(1000);
-	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-		
-		
-		int menuSize=menuList.size();
-		
-		if(menuSize==0)
-		{
-			Category_RetailInventoryInputBx.click();
-			Thread.sleep(10000);
-
-		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-			
-			
-			int menuSize1=menuList1.size();
-			
-			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
-			
-			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-			
-			
-		}
-		else if(menuSize<=6)
-		{
-		
-		int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-		
-		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-		}
-		else
-		{
-			int randomMenu=ThreadLocalRandom.current().nextInt(1, 6);
-			
-			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-		
-		}
-		
-		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-
-		
-		if(menuList1.size()!=0)
-		{
-			Category_RetailInventoryInputBx.click();
-		}
+		new Common_XPaths(driver, test).Click_DropDown_withSearch(Category_RetailInventoryInputBx, "Category Selected");
+//		Thread.sleep(1000);
+//	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//		
+//		
+//		int menuSize=menuList.size();
+//		
+//		if(menuSize==0)
+//		{
+//			Category_RetailInventoryInputBx.click();
+//			Thread.sleep(10000);
+//
+//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//			
+//			
+//			int menuSize1=menuList1.size();
+//			
+//			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
+//			
+//			
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//			
+//			
+//		}
+//		else if(menuSize<=6)
+//		{
+//		
+//		int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
+//		
+//		
+//		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//		}
+//		else
+//		{
+//			int randomMenu=ThreadLocalRandom.current().nextInt(1, 6);
+//			
+//			
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//		
+//		}
+//		
+//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//
+//		
+//		if(menuList1.size()!=0)
+//		{
+//			Category_RetailInventoryInputBx.click();
+//		}
 	}
 	
 
@@ -505,72 +507,72 @@ public class ProductItems_Menu_RetailPage {
 		cmp.Click_Wait_ForElementClickable(SubCategory_RetailInventoryInputBx, 60);
 //		SubCategory_InputBx.click();
 	
-	
+		new Common_XPaths(driver, test).Click_DropDown_withSearch(SubCategory_RetailInventoryInputBx, "SubCategory selected");
 		Thread.sleep(1000);
-		List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-		
-			int menuSize=menuList.size();
-		
-			if(menuSize==0)
-			{
-				SubCategory_RetailInventoryInputBx.click();
-			
-			Thread.sleep(1000);
-			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-			
-			int menuSize1=menuList1.size();
-		
-			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
-		
-		
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-		
-			}
-			else if(menuSize==1)
-			{
-				try
-				{
-				if(driver.findElement(By.xpath("//select-option[contains(.,'No results match')]")).isDisplayed())
-				{
-					
-					test.log(LogStatus.INFO, "Sub Categories not available for Selected Category");
-					
-					driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
-					driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
-
-					Click_Category_LevelType();
-					Thread.sleep(1000);
-					Select_Category_RetailInventoryLevelType();
-					
-				}
-				}
-				catch(Exception e)
-				{
-					driver.findElement(By.xpath("//select-option[1]")).click();
-				}
-			}
-			else if(menuSize>=1 && menuSize<=6)
-			{
-				int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-		
-		
-				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-			}
-			else
-			{
-				int randomMenu=ThreadLocalRandom.current().nextInt(1, 6);
-			
-			
-				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-			
-			}
-		
-			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-
-			if(menuList1.size()!=0)
-			{
-				SubCategory_RetailInventoryInputBx.click();
-			}
+//		List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//		
+//			int menuSize=menuList.size();
+//		
+//			if(menuSize==0)
+//			{
+//				SubCategory_RetailInventoryInputBx.click();
+//			
+//			Thread.sleep(1000);
+//			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//			
+//			int menuSize1=menuList1.size();
+//		
+//			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
+//		
+//		
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//		
+//			}
+//			else if(menuSize==1)
+//			{
+//				try
+//				{
+//				if(driver.findElement(By.xpath("//select-option[contains(.,'No results match')]")).isDisplayed())
+//				{
+//					
+//					test.log(LogStatus.INFO, "Sub Categories not available for Selected Category");
+//					
+//					driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+//					driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+//
+//					Click_Category_LevelType();
+//					Thread.sleep(1000);
+//					Select_Category_RetailInventoryLevelType();
+//					
+//				}
+//				}
+//				catch(Exception e)
+//				{
+//					driver.findElement(By.xpath("//select-option[1]")).click();
+//				}
+//			}
+//			else if(menuSize>=1 && menuSize<=6)
+//			{
+//				int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
+//		
+//		
+//				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//			}
+//			else
+//			{
+//				int randomMenu=ThreadLocalRandom.current().nextInt(1, 6);
+//			
+//			
+//				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//			
+//			}
+//		
+//			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//
+//			if(menuList1.size()!=0)
+//			{
+//				SubCategory_RetailInventoryInputBx.click();
+//			}
 		
 	}
 
@@ -2191,106 +2193,114 @@ public class ProductItems_Menu_RetailPage {
 	
 	public void Select_Inventory_Unit_RetailItem() throws Exception
 	{
-		Inventory_Unit_RetailItemInputBx.click();
 		
-		Thread.sleep(1000);
-		Thread.sleep(2000);
-		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-			
-		if(menuList1.size()>1)
-		{
-			int menuSize=menuList1.size();
-			
-			
-			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-			
-			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-		
-		}
-		else
-		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
-		}
-		
+		new Common_XPaths(driver, test).Click_DropDown_withSearch(Inventory_Unit_RetailItemInputBx, "Inventory Unit selected");
+//		Inventory_Unit_RetailItemInputBx.click();
+//		
+//		Thread.sleep(1000);
+//		Thread.sleep(2000);
+//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//			
+//		if(menuList1.size()>1)
+//		{
+//			int menuSize=menuList1.size();
+//			
+//			
+//			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
+//			
+//			
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//		
+//		}
+//		else
+//		{
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+//		}
+//		
 	}
 	
 	public void Select_Vendor_RetailItem() throws Exception
 	{
-		Vendor_RetailItemInputBx.click();
 		
-		Thread.sleep(1000);
-		Thread.sleep(2000);
-		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-			
-		if(menuList1.size()>1)
-		{
-			int menuSize=menuList1.size();
-			
-			
-			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-			
-			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-		
-		}
-		else
-		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
-		}
-		
+		new Common_XPaths(driver, test).Click_DropDown_withSearch(Vendor_RetailItemInputBx, "Vendor Selected");
+//		Vendor_RetailItemInputBx.click();
+//		
+//		Thread.sleep(1000);
+//		Thread.sleep(2000);
+//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//			
+//		if(menuList1.size()>1)
+//		{
+//			int menuSize=menuList1.size();
+//			
+//			
+//			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
+//			
+//			
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//		
+//		}
+//		else
+//		{
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+//		}
+//		
 	}
 	
 	
 	public void Select_Primary_Storage_RetailItem() throws Exception
 	{
-		Primary_Storage_RetailItemInputBx.click();
+		new Common_XPaths(driver, test).Click_DropDown_withSearch(Primary_Storage_RetailItemInputBx, "Primary storage selected");
 		
-		Thread.sleep(1000);
-		Thread.sleep(2000);
-		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-			
-		if(menuList1.size()>1)
-		{
-			int menuSize=menuList1.size();
-			
-			
-			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-			
-			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-		
-		}
-		else
-		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
-		}
-		
+//		Primary_Storage_RetailItemInputBx.click();
+//		
+//		Thread.sleep(1000);
+//		Thread.sleep(2000);
+//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//			
+//		if(menuList1.size()>1)
+//		{
+//			int menuSize=menuList1.size();
+//			
+//			
+//			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
+//			
+//			
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//		
+//		}
+//		else
+//		{
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+//		}
+//		
 	}
 	
 	public void Select_Secondary_Storage_RetailItem() throws Exception
 	{
-		Secondary_Storage_RetailItemInputBx.click();
+		new Common_XPaths(driver, test).Click_DropDown_withSearch(Secondary_Storage_RetailItemInputBx, "Secondary storage selected");
 		
-		Thread.sleep(1000);
-		Thread.sleep(2000);
-		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-			
-		if(menuList1.size()>1)
-		{
-			int menuSize=menuList1.size();
-			
-			
-			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-			
-			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-		
-		}
-		else
-		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
-		}
+//		Secondary_Storage_RetailItemInputBx.click();
+//		
+//		Thread.sleep(1000);
+//		Thread.sleep(2000);
+//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//			
+//		if(menuList1.size()>1)
+//		{
+//			int menuSize=menuList1.size();
+//			
+//			
+//			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
+//			
+//			
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//		
+//		}
+//		else
+//		{
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+//		}
 		
 	}
 	

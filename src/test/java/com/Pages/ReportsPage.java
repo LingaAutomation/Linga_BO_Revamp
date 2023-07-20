@@ -81,7 +81,7 @@ public class ReportsPage
 	@FindBy(xpath = "//label[contains(.,'End Date')]/../../..//mat-datepicker-toggle/button")
 	WebElement End_DateInputBx;
 	
-	@FindBy(xpath = "//span[contains(.,'No transaction for selected time period')]")
+	@FindBy(xpath = "//td[contains(.,'No transaction for selected time period')]")
 	WebElement No_TransactionFound_InfoMsg;
 	
 	@FindBy(xpath = "//button[contains(.,'APPLY')]")

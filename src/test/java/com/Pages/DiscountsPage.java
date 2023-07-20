@@ -61,28 +61,28 @@ public class DiscountsPage {
 	@FindBy(xpath = "//select-option[contains(.,'After Tax')]")
 	WebElement After_TaxBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Include Additional Modifiers')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Include Additional Modifiers')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement IncludeAdditionalModifiers_YesBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Include Additional Modifiers')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Include Additional Modifiers')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement IncludeAdditionalModifiers_NoBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Combine With Other Discount')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Combine With Other Discount')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Combine_WithOther_Discount_YesBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Combine With Other Discount')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Combine With Other Discount')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Combine_WithOther_Discount_NoBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Apply For Discounted Price')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Apply For Discounted Price')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Apply_For_Discounted_Price_YesBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Apply For Discounted Price')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Apply For Discounted Price')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Apply_For_Discounted_Price_NoBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'All Serving Sizes in Category')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'All Serving Sizes in Category')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement All_Serving_Sizes_inCategory_YesBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'All Serving Sizes in Category')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'All Serving Sizes in Category')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement All_Serving_Sizes_inCategory_NoBtn;
 	
 	@FindBy(xpath = "//label[contains(.,'Serving Size')]/../../div/div/input")
@@ -91,34 +91,34 @@ public class DiscountsPage {
 	@FindBy(xpath = "//label[contains(.,'Serving Size')]/../../../div[4]/div/button")
 	WebElement Serving_Size_CloseBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'EMPLOYEE DISCOUNT')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'EMPLOYEE DISCOUNT')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Employee_Discount_YesBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'EMPLOYEE DISCOUNT')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'EMPLOYEE DISCOUNT')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Employee_Discount_NoBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Attach Customer')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Attach Customer')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Attach_Customer_YesBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Attach Customer')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Attach Customer')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Attach_Customer_NoBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Coupon Only')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Coupon Only')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Coupon_Only_YesBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Coupon Only')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Coupon Only')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Coupon_Only_NoBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Auto Discount')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Auto Discount')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Auto_Discount_YesBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Auto Discount')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Auto Discount')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Auto_Discount_NoBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Restrict POS visiblity by user role')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Restrict POS visiblity by user role')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Restrict_POS_Visiblity_ByUser_YesBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Restrict POS visiblity by user role')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Restrict POS visiblity by user role')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Restrict_POS_Visiblity_ByUser_NoBtn;
 	
 	@FindBy(xpath = "//div[@class='radio-box'][contains(.,'Promo')]")
@@ -835,16 +835,16 @@ public class DiscountsPage {
 	
 	///////////// Open Item Discount  /////////////////////////
 	
-	@FindBy(xpath = "//h6[contains(.,'Discount In Percentage')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Discount In Percentage')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Discount_In_Percentage_YesBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Discount In Percentage')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Discount In Percentage')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Discount_In_Percentage_NoBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Discount In Amount')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Discount In Amount')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Discount_In_Amount_YesBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Discount In Amount')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Discount In Amount')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Discount_In_Amount_NoBtn;
 	
 	@FindBy(xpath = "//label[contains(.,'Minimum Percentage')]/../../input")

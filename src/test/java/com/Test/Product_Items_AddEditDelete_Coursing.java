@@ -692,6 +692,12 @@ public WebDriver driver;
 			
 			cmp.Click_CancelButton();
 		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Course Saved Successfully"))
+		{
+			test.log(LogStatus.FAIL, "Duplicate Course Saved");
+		
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Course Name already exist pop up not Displayed");

@@ -584,6 +584,12 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 			
 			cmp.Click_CancelButton();
 		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Serving Size Level Saved Successfully"))
+		{
+			test.log(LogStatus.FAIL, "Duplicate Serving Size Level Saved");
+		
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Name already exist pop up not Displayed");

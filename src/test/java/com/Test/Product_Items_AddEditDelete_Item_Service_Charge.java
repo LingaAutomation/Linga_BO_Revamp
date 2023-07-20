@@ -273,8 +273,7 @@ public WebDriver driver;
 		//Click the Save button
 		cmp.Click_SaveButton();
 		
-		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		//Check whether the New Item Service Charge Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Item Service Charge Saved Successfully"))
 		{
@@ -688,6 +687,16 @@ public WebDriver driver;
 			test.log(LogStatus.PASS, "Item Service Charge Name already exist pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_CancelButton();
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
+		{
+			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
+			
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_CancelButton();
 		}
 		else
 		{

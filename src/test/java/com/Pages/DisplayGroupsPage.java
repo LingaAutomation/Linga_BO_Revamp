@@ -59,20 +59,27 @@ public class DisplayGroupsPage {
 		New_DisplayGroupBtn.click();
 	}
 	
-	public void Select_MenuItemsDisplayGroup() 
+	public void Select_MenuItemsDisplayGroup() throws Exception 
 	{
+		Thread.sleep(2000);
 		Menu_ItemsDropBtn.click();
 		
-	List<WebElement> menuList=driver.findElements(By.xpath("//div/select-option"));
-		
-		int menuSize=menuList.size();
-		
-		
-		int randomMenu=ThreadLocalRandom.current().nextInt(2, menuSize);
-		
-		
-		driver.findElement(By.xpath("//div["+randomMenu+"]/select-option")).click();
-		
+		List<WebElement> menuList=driver.findElements(By.xpath("//div/select-option"));
+			
+			int menuSize=menuList.size();
+			
+			
+			int randomMenu=ThreadLocalRandom.current().nextInt(2, menuSize);
+			
+			String menu = driver.findElement(By.xpath("//div["+randomMenu+"]/select-option")).getText();
+			
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//input[contains(@name,'search')]")).sendKeys(menu);
+			
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//div[1]/select-option")).click();
+			
+			Menu_ItemsDropBtn.click();
 	}
 	
 	public void Select_AtoZSorting() throws Exception

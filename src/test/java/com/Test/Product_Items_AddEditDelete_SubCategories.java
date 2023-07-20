@@ -886,6 +886,12 @@ public WebDriver driver;
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub-Category Saved Successfully"))
+		{
+			test.log(LogStatus.FAIL, "Duplicate Sub-Category");
+		
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Sub Category Name already exist pop up not Displayed");

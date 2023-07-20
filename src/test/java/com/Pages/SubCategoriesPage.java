@@ -38,11 +38,25 @@ public class SubCategoriesPage {
 	@FindBy(xpath = "//input[@data-placeholder='Select Category']")
 	WebElement CategoryDropBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Apply default serving size levels')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Apply default serving size levels')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement ApplyDefaultServingSize_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Apply default serving size levels')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Apply default serving size levels')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement ApplyDefaultServingSize_NoBtn;
+	
+	@FindBy(xpath = "//app-toggle[contains(.,'Enable Age Restriction')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	WebElement Enable_Age_Restriction_YesBtn;
+		
+	@FindBy(xpath = "//app-toggle[contains(.,'Enable Age Restriction')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	WebElement Enable_Age_Restriction_NoBtn;
+	
+	@FindBy(xpath = "//app-toggle[contains(.,'Exclude Check Tax')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	WebElement Exclude_Check_Tax_YesBtn;
+		
+	@FindBy(xpath = "//app-toggle[contains(.,'Exclude Check Tax')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	WebElement Exclude_Check_Tax_NoBtn;
+	
+	
 	
 	@FindBy(xpath = "//button[contains(.,'APPLY')]")
 	WebElement ApplyBtn;
@@ -105,6 +119,54 @@ public class SubCategoriesPage {
 		if(ApplyDefaultServingSize_YesBtn.isEnabled())
 		{
 			ApplyDefaultServingSize_NoBtn.click();
+		}
+		else
+		{
+		
+		}
+	}
+	
+	public void Enable_Age_Restriction_Toggle()
+	{
+		if(Enable_Age_Restriction_YesBtn.isSelected())
+		{
+			
+		}
+		else
+		{
+			Enable_Age_Restriction_YesBtn.click();
+		}
+	}
+	
+	public void Disable_Age_Restriction_Toggle()
+	{
+		if(Enable_Age_Restriction_YesBtn.isEnabled())
+		{
+			Enable_Age_Restriction_NoBtn.click();
+		}
+		else
+		{
+		
+		}
+	}
+	
+	public void Enable_Exclude_Check_Tax_Toggle()
+	{
+		if(Exclude_Check_Tax_YesBtn.isSelected())
+		{
+			
+		}
+		else
+		{
+			Exclude_Check_Tax_YesBtn.click();
+		}
+	}
+	
+	public void Disable_Exclude_Check_Tax_Toggle()
+	{
+		if(Exclude_Check_Tax_YesBtn.isEnabled())
+		{
+			Exclude_Check_Tax_NoBtn.click();
 		}
 		else
 		{

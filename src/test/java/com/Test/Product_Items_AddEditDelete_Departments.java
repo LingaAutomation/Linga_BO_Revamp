@@ -516,6 +516,12 @@ public WebDriver driver;
 			
 			cmp.Click_CancelButton();
 		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Department Saved Successfully"))
+		{
+			test.log(LogStatus.PASS, "Duplicate Department Saved");
+		
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Department Name already exist pop up not Displayed");

@@ -66,13 +66,13 @@ public class GiftCardsPage {
 	@FindBy(xpath = "//select-option[contains(.,'Others')]")
 	WebElement Others_CardType;
 	
-	@FindBy(xpath = "//p[contains(.,'Edit')]")
+	@FindBy(xpath = "//button[contains(.,'Edit')]")
 	WebElement EditGC_Btn;
 	
-	@FindBy(xpath = "//p[contains(.,'Delete')]")
+	@FindBy(xpath = "//button[contains(.,'Delete')]")
 	WebElement DeleteGC_Btn;
 	
-	@FindBy(xpath = "//p[contains(.,'Recharge')]")
+	@FindBy(xpath = "//button[contains(.,'Recharge')]")
 	WebElement RechargeGC_Btn;
 	
 	
@@ -88,7 +88,7 @@ public class GiftCardsPage {
 		cmp.SearchBox.sendKeys(str);
 		
 		Thread.sleep(4000);
-		driver.findElement(By.xpath("//data-grid-row[contains(.,'"+str+"')]/div/div[3]/div/button")).click();
+		driver.findElement(By.xpath("//tr[contains(.,'"+str+"')]/td[3]/div/button")).click();
 		
 		Thread.sleep(1000);
 		
@@ -107,7 +107,7 @@ public class GiftCardsPage {
 		cmp.SearchBox.sendKeys(str);
 		
 		Thread.sleep(3500);
-		driver.findElement(By.xpath("//data-grid-row[contains(.,'"+str+"')]/div/div[3]/div/button")).click();
+		driver.findElement(By.xpath("//tr[contains(.,'"+str+"')]/td[3]/div/button")).click();
 		
 		Thread.sleep(1000);
 		
@@ -125,7 +125,7 @@ public class GiftCardsPage {
 
 		cmp.SearchBox.sendKeys(str);
 		Thread.sleep(3500);
-		driver.findElement(By.xpath("//data-grid-row[contains(.,'"+str+"')]/div/div[3]/div/button")).click();
+		driver.findElement(By.xpath("//tr[contains(.,'"+str+"')]/td[3]/div/button")).click();
 		
 		Thread.sleep(1000);
 		

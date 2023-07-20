@@ -197,6 +197,8 @@ public class Product_Items_AddEditDelete_Modifiers
 				else
 				{
 					test.log(LogStatus.FAIL, "Proceed to Inventory Mapping not selected when Clicking Proceed Without Saving");
+			
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
 				if(mp.InfoContent().getText().equalsIgnoreCase("Please add basic details and serving sizes before entering inventory details"))
@@ -206,6 +208,8 @@ public class Product_Items_AddEditDelete_Modifiers
 				else
 				{
 					test.log(LogStatus.FAIL, "Please add basic details and serving sizes before entering inventory details not Displayed");
+				
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				Thread.sleep(1000);
 				//Click Serving Size and Prefix Tab
@@ -238,9 +242,12 @@ public class Product_Items_AddEditDelete_Modifiers
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
+						Thread.sleep(1000);
 						//Click Basic Details Tab
 						mp.Click_BasicDetailsTab();
 		
+						Thread.sleep(1000);
+
 		//Upload picture
 		cmp.Upload_Picture(Utility.getProperty("Settings_Store_Information_Store_Image_Path"));
 		
@@ -263,9 +270,10 @@ public class Product_Items_AddEditDelete_Modifiers
 				{
 					test.log(LogStatus.FAIL, "Set maximum no of time that modifier can be used pop up not Displayed");
 					
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Enter Secondary name
 		mp.Enter_SecondaryName("S1");
 		
@@ -284,6 +292,8 @@ public class Product_Items_AddEditDelete_Modifiers
 		else
 		{
 			test.log(LogStatus.FAIL, "Enter valid maximum number of times not diisplayed when Entering 0");
+		
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
 		

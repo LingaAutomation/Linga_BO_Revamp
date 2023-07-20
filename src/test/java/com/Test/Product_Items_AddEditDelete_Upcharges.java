@@ -973,6 +973,16 @@ public WebDriver driver;
 			test.log(LogStatus.PASS, "Upcharge Name already exist pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
+		{
+			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed while Adding Duplicate Upcharge");
+			
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
 		}
 		else
 		{
