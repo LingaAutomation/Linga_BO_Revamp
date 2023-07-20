@@ -736,6 +736,69 @@ public class AllClassCalling_Reports {
 		}
 		
 		@Test(priority = 31,enabled = true)
+		public void Reports_Employee_Gratuity_Report() throws Exception
+		{
+			Reports_Employee_Gratuity_Report a=new Reports_Employee_Gratuity_Report();
+			a.Open_Employee_Gratuity_Report_Page(driver);
+//						a.RefreshAndPaginination(driver);
+			a.Employee_Gratuity_Report_Verify_Employee_Gratuity_Search(driver);
+			a.Employee_Gratuity_Report_Today(driver);
+			a.Employee_Gratuity_Report_Yesterday(driver);
+			a.Employee_Gratuity_Report_Last_N_Days(driver);
+			a.Employee_Gratuity_Report_This_Week(driver);
+			a.Employee_Gratuity_Report_Last_Week(driver);
+			a.Employee_Gratuity_Report_Last_7_Days(driver);
+			a.Employee_Gratuity_Report_This_Month(driver);
+			a.Employee_Gratuity_Report_Last_Month(driver);
+			a.Employee_Gratuity_Report_Last_30_Days(driver);
+			a.Employee_Gratuity_Report_Specific_Date(driver);
+			a.Employee_Gratuity_Report_Date_Range(driver);
+		}
+		
+
+		@Test(priority = 32,enabled = true)
+		public void Reports_Employee_CashTip() throws Exception
+		{
+			Reports_Employee_CashTip a=new Reports_Employee_CashTip();
+			a.Open_Employee_CashTip_Report_Page(driver);
+//			a.RefreshAndPaginination(driver);
+			a.Employee_CashTip_Report_Today_All(driver);
+			a.Employee_CashTip_Report_Yesterday_All(driver);
+			a.Employee_CashTip_Report_Last_N_Days_All(driver);
+			a.Employee_CashTip_Report_This_Week_All(driver);
+			a.Employee_CashTip_Report_Last_Week_All(driver);
+			a.Employee_CashTip_Report_Last_7_Days_All(driver);
+			a.Employee_CashTip_Report_This_Month_All(driver);
+			a.Employee_CashTip_Report_Last_Month_All(driver);
+			a.Employee_CashTip_Report_Last_30_Days_All(driver);
+			a.Employee_CashTip_Report_Specific_Date_All(driver);
+			a.Employee_CashTip_Report_Date_Range_All(driver);
+			a.Employee_CashTip_Report_Today_Active(driver);
+			a.Employee_CashTip_Report_Yesterday_Active(driver);
+			a.Employee_CashTip_Report_Last_N_Days_Active(driver);
+			a.Employee_CashTip_Report_This_Week_Active(driver);
+			a.Employee_CashTip_Report_Last_Week_Active(driver);
+			a.Employee_CashTip_Report_Last_7_Days_Active(driver);
+			a.Employee_CashTip_Report_This_Month_Active(driver);
+			a.Employee_CashTip_Report_Last_Month_Active(driver);
+			a.Employee_CashTip_Report_Last_30_Days_Active(driver);
+			a.Employee_CashTip_Report_Specific_Date_Active(driver);
+			a.Employee_CashTip_Report_Date_Range_Active(driver);
+			a.Employee_CashTip_Report_Today_Inactive(driver);
+			a.Employee_CashTip_Report_Yesterday_Inactive(driver);
+			a.Employee_CashTip_Report_Last_N_Days_Inactive(driver);
+			a.Employee_CashTip_Report_This_Week_Inactive(driver);
+			a.Employee_CashTip_Report_Last_Week_Inactive(driver);
+			a.Employee_CashTip_Report_Last_7_Days_Inactive(driver);
+			a.Employee_CashTip_Report_This_Month_Inactive(driver);
+			a.Employee_CashTip_Report_Last_Month_Inactive(driver);
+			a.Employee_CashTip_Report_Last_30_Days_Inactive(driver);
+			a.Employee_CashTip_Report_Specific_Date_Inactive(driver);
+			a.Employee_CashTip_Report_Date_Range_Inactive(driver);
+
+		}
+		
+		@Test(priority = 36,enabled = true)
 		public void Reports_HA_Activity_Report() throws Exception
 		{
 			Reports_HA_Activity_Report a=new Reports_HA_Activity_Report();
@@ -756,7 +819,7 @@ public class AllClassCalling_Reports {
 		}
 		
 
-		@Test(priority = 32,enabled = true)
+		@Test(priority = 37,enabled = true)
 		public void Reports_HA_Statement() throws Exception
 		{
 			Reports_HA_Statement a=new Reports_HA_Statement();
@@ -775,7 +838,7 @@ public class AllClassCalling_Reports {
 			a.HA_Statement_Date_Range(driver);
 		}
 		
-		@Test(priority = 33,enabled = true)
+		@Test(priority = 38,enabled = true)
 		public void Reports_Driver_Report() throws Exception
 		{
 			Reports_Driver_Report a=new Reports_Driver_Report();
@@ -795,7 +858,7 @@ public class AllClassCalling_Reports {
 			a.Driver_Report_Date_Range(driver);
 		}
 		
-		@Test(priority = 34,enabled = true)
+		@Test(priority = 39,enabled = true)
 		public void Reports_Batch_Report() throws Exception
 		{
 			Reports_Batch_Report a=new Reports_Batch_Report();
@@ -815,7 +878,7 @@ public class AllClassCalling_Reports {
 			a.Batch_Report_Date_Range(driver);
 		}
 		
-		@Test(priority = 35,enabled = true)
+		@Test(priority = 40,enabled = true)
 		public void Reports_Refund_Report() throws Exception
 		{
 			Reports_Refund_Report a=new Reports_Refund_Report();
@@ -845,7 +908,7 @@ public class AllClassCalling_Reports {
 			a.Refund_Report_Date_Range_PaymentType(driver);
 		}
 		
-		@Test(priority = 36,enabled = true)
+		@Test(priority = 41,enabled = true)
 		public void Reports_Till_Report() throws Exception
 		{
 			Reports_Till_Report a=new Reports_Till_Report();
@@ -865,7 +928,7 @@ public class AllClassCalling_Reports {
 			a.Till_Report_Date_Range(driver);
 		}
 		
-		@Test(priority = 37,enabled = true)
+		@Test(priority = 42,enabled = true)
 		public void Reports_Cash_Transaction_Report() throws Exception
 		{
 			Reports_Cash_Transaction_Report a=new Reports_Cash_Transaction_Report();
@@ -885,13 +948,13 @@ public class AllClassCalling_Reports {
 			a.Cash_Transaction_Report_Date_Range(driver);
 		}
 		
-		@Test(priority = 39,enabled = false)
+		@Test(priority = 43,enabled = false)
 		public void Reports_Comparison_Report() throws Exception
 		{
 			
 		}
 		
-		@Test(priority = 40,enabled = true)
+		@Test(priority = 44,enabled = true)
 		public void Reports_Customer_Preference_Report() throws Exception
 		{
 			Reports_Customer_Preference_Report a=new Reports_Customer_Preference_Report();
@@ -910,7 +973,7 @@ public class AllClassCalling_Reports {
 			a.Customer_Preference_Report_Date_Range(driver);
 		}
 		
-		@Test(priority = 41,enabled = true)
+		@Test(priority = 45,enabled = true)
 		public void Reports_Daily_Tender_Report() throws Exception
 		{
 			Reports_Daily_Tender_Report a=new Reports_Daily_Tender_Report();
@@ -929,7 +992,7 @@ public class AllClassCalling_Reports {
 			a.Daily_Tender_Report_Date_Range(driver);
 		}
 		
-		@Test(priority = 42,enabled = true)
+		@Test(priority = 46,enabled = true)
 		public void Reports_Daily_Summary_Report() throws Exception
 		{
 			Reports_Daily_Summary_Report a=new Reports_Daily_Summary_Report();
@@ -949,7 +1012,7 @@ public class AllClassCalling_Reports {
 			a.Daily_Summary_Report_Date_Range(driver);
 		}
 		
-		@Test(priority = 43,enabled = true)
+		@Test(priority = 47,enabled = true)
 		public void Reports_Tax_Report() throws Exception
 		{
 			Reports_Tax_Report a=new Reports_Tax_Report();
@@ -969,7 +1032,7 @@ public class AllClassCalling_Reports {
 			a.Tax_Report_Date_Range(driver);
 		}
 		
-		@Test(priority = 44,enabled = true)
+		@Test(priority = 48,enabled = true)
 		public void Reports_Revenue_Center() throws Exception
 		{
 			Reports_Revenue_Center a=new Reports_Revenue_Center();
@@ -989,7 +1052,7 @@ public class AllClassCalling_Reports {
 			a.Revenue_Center_Report_Date_Range(driver);
 		}
 		
-		@Test(priority = 45,enabled = true)
+		@Test(priority = 49,enabled = true)
 		public void Reports_Account_Balance_Report() throws Exception
 		{
 			Reports_Account_Balance_Report a=new Reports_Account_Balance_Report();
@@ -998,7 +1061,7 @@ public class AllClassCalling_Reports {
 			a.AccountBalance_Sale_Report(driver);
 		}
 		
-		@Test(priority = 46,enabled = true)
+		@Test(priority = 50,enabled = true)
 		public void Reports_Membership_Summary_Report() throws Exception
 		{
 			Reports_Membership_Summary_Report a=new Reports_Membership_Summary_Report();
@@ -1007,7 +1070,7 @@ public class AllClassCalling_Reports {
 			a.Membership_Summary_Sale_Report(driver);
 		}
 		
-		@Test(priority = 46,enabled = true)
+		@Test(priority = 51,enabled = true)
 		public void Reports_Membership_Statement() throws Exception
 		{
 			Reports_Membership_Statement a=new Reports_Membership_Statement();

@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.poi.openxml4j.util.ZipSecureFile;
 import org.apache.poi.sl.usermodel.VerticalAlignment;
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.Cell;
@@ -21,19 +22,21 @@ import org.apache.poi.xwpf.usermodel.VerticalAlign;
 
 public class ExcelDataConfig {
 	
-	XSSFWorkbook wb;
+	public XSSFWorkbook wb;
 	
-	XSSFSheet sheet1,sheet2,sheet3,sheet4,sheet5,sheet6,sheet7,sheet8,sheet9,sheet10;
+	public XSSFSheet sheet1,sheet2,sheet3,sheet4,sheet5,sheet6,sheet7,sheet8,sheet9,sheet10;
 	
 	public ExcelDataConfig(String excelPath)
 	{
+		ZipSecureFile.setMinInflateRatio(0);
+		
 		try {
 			File src = new File(System.getProperty("user.dir")+excelPath);
 			
 			FileInputStream fis = new FileInputStream(src);
 			
 			wb = new XSSFWorkbook(fis);
-			this.wb=wb;
+			
 			
 		} 
 		
@@ -47,7 +50,6 @@ public class ExcelDataConfig {
 	
 	public String getData(String SheetName, int row, int column)
 	{
-
 		sheet1 = wb.getSheet(SheetName);
 		
 		String data = sheet1.getRow(row).getCell(column).getStringCellValue();
@@ -94,7 +96,7 @@ public class ExcelDataConfig {
 	
 	public void setreportData(String sheetName, int row, int column, String ReportValue) throws Exception
 	{
-		
+
 			
 			sheet1 = wb.getSheet(sheetName);
 			
