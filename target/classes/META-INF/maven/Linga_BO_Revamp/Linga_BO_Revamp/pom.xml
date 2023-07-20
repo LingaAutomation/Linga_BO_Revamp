@@ -68,6 +68,12 @@
     <version>7.4.0</version>
     <scope>test</scope>
 </dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.xmlbeans/xmlbeans -->
+<dependency>
+    <groupId>org.apache.xmlbeans</groupId>
+    <artifactId>xmlbeans</artifactId>
+    <version>3.1.0</version>
+</dependency>
 <!-- https://mvnrepository.com/artifact/com.relevantcodes/extentreports -->
 <dependency>
     <groupId>com.relevantcodes</groupId>
@@ -252,7 +258,7 @@
   				<artifactId>maven-surefire-plugin</artifactId>
   				<version>3.1.2</version>
   				<configuration>
-					  <suiteXmlFiles>testng.xml</suiteXmlFiles>
+					  <suiteXmlFiles>testng_Reports.xml</suiteXmlFiles>
 				  </configuration>
 		  </plugin>
 		  

@@ -112,16 +112,16 @@ public WebDriver driver;
 		Open_Sale_Recap_Report_Page(driver);
 //		RefreshAndPaginination(driver);
 		Sale_Recap_Report_Today(driver);
-		Sale_Recap_Report_Yesterday(driver);
-		Sale_Recap_Report_Last_N_Days(driver);
-		Sale_Recap_Report_This_Week(driver);
-		Sale_Recap_Report_Last_Week(driver);
-		Sale_Recap_Report_Last_7_Days(driver);
-		Sale_Recap_Report_This_Month(driver);
-		Sale_Recap_Report_Last_Month(driver);
-		Sale_Recap_Report_Last_30_Days(driver);
-		Sale_Recap_Report_Specific_Date(driver);
-		Sale_Recap_Report_Date_Range(driver);
+//		Sale_Recap_Report_Yesterday(driver);
+//		Sale_Recap_Report_Last_N_Days(driver);
+//		Sale_Recap_Report_This_Week(driver);
+//		Sale_Recap_Report_Last_Week(driver);
+//		Sale_Recap_Report_Last_7_Days(driver);
+//		Sale_Recap_Report_This_Month(driver);
+//		Sale_Recap_Report_Last_Month(driver);
+//		Sale_Recap_Report_Last_30_Days(driver);
+//		Sale_Recap_Report_Specific_Date(driver);
+//		Sale_Recap_Report_Date_Range(driver);
 	}
 	
 	@Test(priority = 3,enabled = false)

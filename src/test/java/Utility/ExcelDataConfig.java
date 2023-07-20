@@ -33,7 +33,7 @@ public class ExcelDataConfig {
 			FileInputStream fis = new FileInputStream(src);
 			
 			wb = new XSSFWorkbook(fis);
-			
+			this.wb=wb;
 			
 		} 
 		
@@ -94,7 +94,7 @@ public class ExcelDataConfig {
 	
 	public void setreportData(String sheetName, int row, int column, String ReportValue) throws Exception
 	{
-
+		
 			
 			sheet1 = wb.getSheet(sheetName);
 			
