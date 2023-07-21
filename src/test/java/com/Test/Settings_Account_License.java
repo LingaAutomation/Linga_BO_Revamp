@@ -109,6 +109,9 @@ public WebDriver driver;
 	public void Open_AccountLicense_Page(WebDriver driver) throws Exception
 	{
 		AccLIC = new Settings_Account_License_Page(driver, test);
+		cmp = new Common_XPaths(driver, test);
+		
+		
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//span[.='Enterprise']")).click();
 		Thread.sleep(5000);
@@ -123,8 +126,8 @@ public WebDriver driver;
 		AccLIC.resetKey();
 		//AccLIC.paginationValidation(); //It will execute when user verify the rows per page availability
 		AccLIC.search();
-		AccLIC.Ascending_And_Descending_Order();
-		AccLIC.Filter_Columns();
+		//AccLIC.Ascending_And_Descending_Order();  //Due to the right scroll for table is not working so, need to check on that issue(Issue by automation technical side)
+		cmp.Filter_Columns_Table();
 	}
 		
 }

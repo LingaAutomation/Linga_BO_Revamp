@@ -232,7 +232,7 @@ public class Settings_Label_Printers
 				
 				Thread.sleep(1000);
 				//Enable Service Type Restriction
-				kppg.Enable_EnableServiceTypeRestriction();
+				kppg.Enable_EnableServiceTypeRestriction1();
 				
 				Thread.sleep(1000);
 				//Enable Apply To All Categories
@@ -572,7 +572,7 @@ public class Settings_Label_Printers
 		kppg.Enter_IPAddress(Utility.getProperty("Label_Printer_IP"));
 		
 		//Enable Service Type Restriction
-		kppg.Enable_EnableServiceTypeRestriction();
+		kppg.Enable_EnableServiceTypeRestriction1();
 		
 		
 		//Enable Apply To All Categories

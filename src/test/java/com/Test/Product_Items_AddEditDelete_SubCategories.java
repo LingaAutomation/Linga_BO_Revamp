@@ -273,7 +273,7 @@ public WebDriver driver;
 		
 		Thread.sleep(1000);
 		//Select Hide in Kiosk
-		ctp.Select_HideinKiosk();
+		sctp.Enable_Hide_MenuItem_In_Kiosk_Toggle();
 		
 		Thread.sleep(1000);
 		//Select Conversational
@@ -513,7 +513,7 @@ public WebDriver driver;
 				
 		Thread.sleep(1000);
 		//Disable Hide in Kiosk
-		ctp.DeSelect_HideinKiosk();
+		sctp.Disable_Hide_MenuItem_In_Kiosk_Toggle();
 		
 		Thread.sleep(1000);
 		//Click the Update and Publish button

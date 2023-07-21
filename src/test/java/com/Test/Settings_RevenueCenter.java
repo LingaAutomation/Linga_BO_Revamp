@@ -126,11 +126,9 @@ public class Settings_RevenueCenter
 		Thread.sleep(8000);
 		//load the Notifications page
 		Thread.sleep(2000);
-		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2")+"revenueCenter");
+		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id2")+"revenueCenter");
 		Thread.sleep(2000);
-		RC.Navigating_Settings();
-		Thread.sleep(4000);
-		RC.Clicking_RevenueCenter();
+
 		Thread.sleep(8000);
 		
 	}

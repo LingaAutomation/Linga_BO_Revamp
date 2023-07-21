@@ -2568,7 +2568,9 @@ public WebDriver driver;
 				}
 				else
 				{
-					for(int i=1;i<=5;i++)
+					try{
+						for(int i=1;i<=5;i++)
+					
 					{
 					            String Consume_Date =driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
 		                        String Name =driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[2]")).getText();
@@ -2605,11 +2607,17 @@ public WebDriver driver;
 									// TODO: handle exception
 								}
 					}
+					}
+						catch (Exception e) {
+							test.log(LogStatus.INFO, "Not Able to back detail data");
+						}
+					}
+					
 				}
 		}
 		
 		
-	}
+	
 	@Test(priority = 4,enabled = false)
 	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_Last30Days_TimePeriod_Apply(WebDriver driver) throws Exception
 	{
@@ -2691,11 +2699,9 @@ public WebDriver driver;
 				}
 				else
 				{
+					try{
+						for(int i=1;i<=5;i++)
 					
-					try {
-						
-					
-					for(int i=1;i<=5;i++)
 					{
 					            String Consume_Date =driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
 		                        String Name =driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[2]")).getText();
@@ -2726,27 +2732,18 @@ public WebDriver driver;
 		    						
 		                        	driver.findElement(By.xpath("//mat-icon[contains(.,'keyboard_arrow_left')]/../div[contains(.,'Back')]")).click();
 		                        }
-		                        
-		                        }
-		                        catch (Exception e) {
-		                        	Thread.sleep(3000);
-			                    	
-			                    	JavascriptExecutor js = (JavascriptExecutor) driver;
-		    						js.executeScript("arguments[0].scrollIntoView();",  driver.findElement(By.xpath("//mat-icon[contains(.,'keyboard_arrow_left')]/../div[contains(.,'Back')]")));
-		    						
-			                        if(driver.findElement(By.xpath("//mat-icon[contains(.,'keyboard_arrow_left')]/../div[contains(.,'Back')]")).isDisplayed()) {
-			                        	Thread.sleep(3000);
-			    					
-			    						
-			                        	driver.findElement(By.xpath("//mat-icon[contains(.,'keyboard_arrow_left')]/../div[contains(.,'Back')]")).click();
-			                        }
-								}
-					}   
+		                                
 		                        }
 		                        catch (Exception e) {
 									// TODO: handle exception
 								}
 					}
+					}
+						catch (Exception e) {
+							test.log(LogStatus.INFO, "Not Able to back detail data");
+						}
+					}
+					
 				}
 		}
 		
@@ -2833,7 +2830,9 @@ public WebDriver driver;
 				}
 				else
 				{
-					for(int i=1;i<=5;i++)
+					try{
+						for(int i=1;i<=5;i++)
+					
 					{
 					            String Consume_Date =driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
 		                        String Name =driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[2]")).getText();
@@ -2870,11 +2869,16 @@ public WebDriver driver;
 									// TODO: handle exception
 								}
 					}
+					}
+						catch (Exception e) {
+							test.log(LogStatus.INFO, "Not Able to back detail data");
+						}
+					}
+					
 				}
 		}
 		
 		
-	}
 
 	@Test(priority = 4,enabled = false)
 	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_Today_EXPORT_Cancel_Clos(WebDriver driver) throws Exception

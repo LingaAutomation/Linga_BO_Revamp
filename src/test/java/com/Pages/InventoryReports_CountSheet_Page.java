@@ -37,14 +37,14 @@ public class InventoryReports_CountSheet_Page
 	{
 		Type.click();
 		Thread.sleep(500);
-		driver.findElement(By.xpath("//select-option[contains(.,' ALL ')]")).click();
+		driver.findElement(By.xpath("//select-option/div[contains(.,'ALL')]")).click();
 	}
 	
 	public void Select_Type_Inventory_Item() throws Exception 
 	{
 		Type.click();
 		Thread.sleep(500);
-		driver.findElement(By.xpath("//select-option[contains(.,' Inventory Item ')]")).click();
+		driver.findElement(By.xpath("//select-option/div[contains(.,'Inventory Item')]")).click();
 	}
 	
 
@@ -52,21 +52,21 @@ public class InventoryReports_CountSheet_Page
 	{
 		Type.click();
 		Thread.sleep(500);
-		driver.findElement(By.xpath("//select-option[contains(.,' Retail Item ')]")).click();
+		driver.findElement(By.xpath("//select-option/div[contains(.,'Retail Item')]")).click();
 	}
 	
 	public void Select_Type_Sub_Recipe() throws Exception 
 	{
 		Type.click();
 		Thread.sleep(500);
-		driver.findElement(By.xpath("//select-option[contains(.,' Sub Recipe ')]")).click();
+		driver.findElement(By.xpath("//select-option/div[contains(.,'Sub Recipe')]")).click();
 	}
 	
 	public void Select_Type_Menu_Item() throws Exception 
 	{
 		Type.click();
 		Thread.sleep(500);
-		driver.findElement(By.xpath("//select-option[contains(.,' Menu Item ')]")).click();
+		driver.findElement(By.xpath("//select-option/div[contains(.,'Menu Item')]")).click();
 	}
 	
 	@FindBy(xpath = "(//input[@placeholder='Select Item Type'])[3]")
@@ -76,14 +76,14 @@ public class InventoryReports_CountSheet_Page
 	{
 		Category_Level_InputBox.click();
 		Thread.sleep(500);
-		driver.findElement(By.xpath("//div[.=' Category ']")).click();
+		driver.findElement(By.xpath("(//select-option/div[contains(.,'Category')])[1]")).click();
 	}
 	
 	public void Select_Category_Level_As_SubCategory() throws Exception 
 	{
 		Category_Level_InputBox.click();
 		Thread.sleep(500);
-		driver.findElement(By.xpath("//div[.=' Sub Category ']")).click();
+		driver.findElement(By.xpath("(//select-option/div[contains(.,'Category')])[2]")).click();
 	}
 	
 //	@FindBy(xpath = "(//input[@placeholder='Select Item Type'])[4]")
@@ -107,7 +107,7 @@ public class InventoryReports_CountSheet_Page
 	{
 		Storage_Location_InputBox.click();
 		Thread.sleep(500);
-		driver.findElement(By.xpath("//select-option[contains(.,' ALL ')]")).click();
+		driver.findElement(By.xpath("//select-option/div[contains(.,'ALL')]")).click();
 		
 	}
 	

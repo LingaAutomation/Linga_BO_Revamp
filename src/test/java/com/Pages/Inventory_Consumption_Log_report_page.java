@@ -20,7 +20,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class InventoryReport_Consumption_LogPage {
+public class Inventory_Consumption_Log_report_page {
 	
 	public WebDriver driver;
 	public ExtentTest test;
@@ -29,7 +29,7 @@ public class InventoryReport_Consumption_LogPage {
 	Common_XPaths cmp;
 	
 	TaxesPage tx;
-	public InventoryReport_Consumption_LogPage(WebDriver driver,ExtentTest test)
+	public Inventory_Consumption_Log_report_page(WebDriver driver,ExtentTest test)
 	{
 		this.driver=driver;
 		this.test=test;
@@ -458,7 +458,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 		Type_InputBx.click();
 		Thread.sleep(1000);
-        driver.findElement(By.xpath("//select-option/div[contains(.,'ALL')]")).click();
+        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'ALL')]")).click();
 	}
 	
 	public void Select_type_Inventory_Item() throws InterruptedException
@@ -466,7 +466,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 		Type_InputBx.click();
 		Thread.sleep(1000);
-        driver.findElement(By.xpath("//select-option/div[contains(.,'Inventory Item')]")).click();
+        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,' Inventory Item ')]")).click();
 	}
 
 	public void Select_type_Retail_Item() throws InterruptedException
@@ -474,7 +474,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 		Type_InputBx.click();
 		Thread.sleep(1000);
-        driver.findElement(By.xpath("//select-option/div[contains(.,'Retail Item')]")).click();
+        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,' Retail Item')]")).click();
 	}
 	
 	public void Select_type_SubRecipe () throws InterruptedException
@@ -482,7 +482,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 		Type_InputBx.click();
 		Thread.sleep(1000);
-        driver.findElement(By.xpath("//select-option/div[contains(.,'Sub Recipe')]")).click();
+        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'Sub Recipe')]")).click();
 	}
 	
 	public void Select_type_MenuItem () throws InterruptedException
@@ -490,7 +490,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 		Type_InputBx.click();
 		Thread.sleep(1000);
-        driver.findElement(By.xpath("//select-option/div[contains(.,'Menu Item')]")).click();
+        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'Menu Item')]")).click();
 	}
 	
 	public void Select_ConsumptionType_All() throws InterruptedException
@@ -498,7 +498,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 		Consumption_Type_InputBx.click();
 		Thread.sleep(1000);
-        driver.findElement(By.xpath("//select-option/div[contains(.,'ALL')]")).click();
+        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'ALL')]")).click();
 	}
 	
 	
@@ -507,7 +507,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 		Consumption_Type_InputBx.click();
 		Thread.sleep(1000);
-        driver.findElement(By.xpath("//select-option/div[contains(.,'System')]")).click();
+        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'System')]")).click();
 	}
 
 	public void Select_ConsumptionType_Manual() throws InterruptedException
@@ -515,7 +515,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 		Consumption_Type_InputBx.click();
 		Thread.sleep(1000);
-        driver.findElement(By.xpath("//select-option/div[contains(.,'Manual')]")).click();
+        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'Manual')]")).click();
 	}
 	
 	public void Select_Category_Level_All() throws InterruptedException
@@ -523,7 +523,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 		Category_Level_InputBx.click();
 		Thread.sleep(1000);
-        driver.findElement(By.xpath("//select-option/div[contains(.,'ALL')]")).click();
+        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'ALL')]")).click();
 	}
 	
 	
@@ -532,7 +532,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 		Category_Level_InputBx.click();
 		Thread.sleep(1000);
-        driver.findElement(By.xpath("(//select-option/div[contains(.,'Category')])[1]")).click();
+        driver.findElement(By.xpath("(//select-option/div/div/div[contains(.,'Category')])[1]")).click();
 	}
 	
 	public void Select_Category_Level_SubCategory() throws InterruptedException
@@ -540,7 +540,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 		Category_Level_InputBx.click();
 		Thread.sleep(1000);
-        driver.findElement(By.xpath("//select-option/div[contains(.,'Sub Category')]")).click();
+        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'Sub Category')]")).click();
 	}
 
 	public void Select_ConsumptionType_SubCategory() throws InterruptedException
@@ -548,7 +548,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 		Consumption_Type_InputBx.click();
 		Thread.sleep(1000);
-        driver.findElement(By.xpath("(//select-option/div[contains(.,'Sub Category')])[1]")).click();
+        driver.findElement(By.xpath("(//select-option/div/div/div[contains(.,'Sub Category')])[1]")).click();
 	}
 	
 	public void Select_ConsumptionType_Category() throws InterruptedException
@@ -556,7 +556,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 		Consumption_Type_InputBx.click();
 		Thread.sleep(1000);
-        driver.findElement(By.xpath("(//select-option/div[contains(.,'Category')])[1]")).click();
+        driver.findElement(By.xpath("(//select-option/div/div/div[contains(.,'Category')])[1]")).click();
 	}
 	
 	
@@ -565,7 +565,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 	//	Category_InputBx.click();
 		Thread.sleep(1000);
-       // driver.findElement(By.xpath("(//select-option/div[contains(.,'Sub Category')])[1]")).click();
+       // driver.findElement(By.xpath("(//select-option/div/div/div[contains(.,'Sub Category')])[1]")).click();
 	
 		Thread.sleep(1000);
 		cmp=new Common_XPaths(driver, test);
@@ -596,7 +596,7 @@ public class InventoryReport_Consumption_LogPage {
 			
 		
 		
-			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
+			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
 	}
 	
 	public void Select_Any_SubRecipe() throws Exception
@@ -604,7 +604,7 @@ public class InventoryReport_Consumption_LogPage {
 		Thread.sleep(1000);
 		SubRecipe_InputBx.click();
 		Thread.sleep(1000);
-    //    driver.findElement(By.xpath("(//select-option/div[contains(.,'Sub Category')])[1]")).click();
+    //    driver.findElement(By.xpath("(//select-option/div/div/div[contains(.,'Sub Category')])[1]")).click();
 	
 		Thread.sleep(1000);
 		cmp=new Common_XPaths(driver, test);
@@ -637,11 +637,11 @@ public class InventoryReport_Consumption_LogPage {
 			
 		
 		
-			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
+			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
 	}
 	catch (Exception e) {
 
-		driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
+		driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
 	}
 	}
 	public void Select_Any_Subcategory() throws Exception
@@ -679,10 +679,10 @@ public class InventoryReport_Consumption_LogPage {
 			
 		
 		
-			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
+			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
 	}
 		catch (Exception e) {
-			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
+			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
 		}
 	}
 
@@ -721,10 +721,10 @@ public class InventoryReport_Consumption_LogPage {
 			
 		
 		
-			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
+			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
 	}
 	catch (Exception e) {
-		driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
+		driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
 	}
 	}
 }

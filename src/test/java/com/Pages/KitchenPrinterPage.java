@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -50,22 +51,22 @@ public class KitchenPrinterPage
 	@FindBy(xpath = "//app-input[@label='IP Address']/div/div/mat-form-field/div/div/div[4]/input")
 	WebElement IP_AddressInputBx;
 	
-	@FindBy(xpath = "//span[contains(.,'Enable Service Type Restriction')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Enable Service Type Restriction')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement EnableServiceTypeRestriction_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Enable Service Type Restriction')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Enable Service Type Restriction')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement EnableServiceTypeRestriction_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Apply To All Categories')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Apply To All Categories')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement ApplyToAllCategories_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Apply To All Categories')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Apply To All Categories')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement ApplyToAllCategories_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Apply To All Menu Items')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Apply To All Menu Items')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement ApplyToAllMenuItems_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Apply To All Menu Items')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Apply To All Menu Items')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement ApplyToAllMenuItems_NoBtn;
 	
 	@FindBy(xpath = "//span[contains(.,'Expo Device')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
@@ -235,7 +236,7 @@ public class KitchenPrinterPage
 	{
 		Printer_ModelInputBox.click();
 		
-		List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int PrinterSize=PrinterList.size();
 		
@@ -243,7 +244,7 @@ public class KitchenPrinterPage
 		int randomPrinter=ThreadLocalRandom.current().nextInt(1, PrinterSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 	
 	}
 	
@@ -251,7 +252,7 @@ public class KitchenPrinterPage
 	{
 		Alternate_PrinterInputBox.click();
 		
-		List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int PrinterSize=PrinterList.size();
 		
@@ -259,7 +260,7 @@ public class KitchenPrinterPage
 		int randomPrinter=ThreadLocalRandom.current().nextInt(1, PrinterSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 	
 	}
 	
@@ -281,10 +282,10 @@ public class KitchenPrinterPage
 		
 	}
 	
-	@FindBy(xpath = "//p[contains(.,'Select Service Types')]/..//button[contains(.,'Show All')]")
+	@FindBy(xpath = "//p[contains(.,'Allow Service Types')]/..//button[contains(.,'Show All')]")
 	WebElement ShowAll_ServiceTypesBtn;
 	
-	public void Enable_EnableServiceTypeRestriction()
+	public void Enable_EnableServiceTypeRestriction() throws Exception
 	{
 		if(EnableServiceTypeRestriction_YesBtn.isSelected())
 		{
@@ -304,7 +305,53 @@ public class KitchenPrinterPage
 		}
 		catch(Exception k) {}
 		
+		for(int i = 0;i <=15;i++) {
+			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+		}
 		
+		Thread.sleep(2000);
+		List<WebElement> ServTypeList=driver.findElements(By.xpath("//app-chip[contains(@name,'service')]/div/mat-chip-list/div/mat-chip"));
+		
+
+		int ServTypeSize=ServTypeList.size();
+		
+		
+		
+		int randomServType=ThreadLocalRandom.current().nextInt(1, ServTypeSize);
+		
+		
+		driver.findElement(By.xpath("//app-chip[contains(@name,'service')]/div/mat-chip-list/div/mat-chip["+randomServType+"]")).click();
+	
+	}
+	
+	@FindBy(xpath = "//p[contains(.,'Select Service Types')]/..//button[contains(.,'Show All')]")
+	WebElement ShowAll_ServiceTypesBtn1;
+	
+	public void Enable_EnableServiceTypeRestriction1() throws Exception
+	{
+		if(EnableServiceTypeRestriction_YesBtn.isSelected())
+		{
+			
+		}
+		else
+		{
+			EnableServiceTypeRestriction_YesBtn.click();
+		}
+		
+		try
+		{
+		if(ShowAll_ServiceTypesBtn1.isDisplayed())
+		{
+			ShowAll_ServiceTypesBtn1.click();
+		}
+		}
+		catch(Exception k) {}
+		
+		for(int i = 0;i <=15;i++) {
+			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+		}
+		
+		Thread.sleep(2000);
 		List<WebElement> ServTypeList=driver.findElements(By.xpath("//app-chip[contains(@name,'service')]/div/mat-chip-list/div/mat-chip"));
 		
 
@@ -404,7 +451,7 @@ public class KitchenPrinterPage
 		
         Printer_ModelInputBox.click();
 		
-		List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int PrinterSize=PrinterList.size();
 		
@@ -412,7 +459,7 @@ public class KitchenPrinterPage
 		int randomPrinter=ThreadLocalRandom.current().nextInt(1, PrinterSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
 	
 		KitchenPrinterNameInputBx.clear();
 		KitchenPrinterNameInputBx.sendKeys(str1);
@@ -517,7 +564,7 @@ public class KitchenPrinterPage
 		
 		
 		
-		List<WebElement> AlterPrinterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> AlterPrinterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int AlterPrinterSize=AlterPrinterList.size();
 		
@@ -525,13 +572,13 @@ public class KitchenPrinterPage
 		{
 			Alternate_PrinterInputBox.click();
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 
 
 		}
 		else if(AlterPrinterSize==1)
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+AlterPrinterSize+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+AlterPrinterSize+"]/select-option")).click();
 
 		}
 		else if(AlterPrinterSize<=10)
@@ -539,14 +586,14 @@ public class KitchenPrinterPage
 		int randomAlterPrinter=ThreadLocalRandom.current().nextInt(1, AlterPrinterSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomAlterPrinter+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomAlterPrinter+"]/select-option")).click();
 		}
 		else
 		{
 			int randomAlterPrinter=ThreadLocalRandom.current().nextInt(1, 10);
 			
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomAlterPrinter+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomAlterPrinter+"]/select-option")).click();
 		
 		}
 	}

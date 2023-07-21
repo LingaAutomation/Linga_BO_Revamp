@@ -56,7 +56,11 @@ public class SubCategoriesPage {
 	@FindBy(xpath = "//app-toggle[contains(.,'Exclude Check Tax')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Exclude_Check_Tax_NoBtn;
 	
-	
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide Menu Item In Kiosk')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	WebElement Hide_MenuItem_In_Kiosk_YesBtn;
+		
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide Menu Item In Kiosk')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	WebElement Hide_MenuItem_In_Kiosk_NoBtn;
 	
 	@FindBy(xpath = "//button[contains(.,'APPLY')]")
 	WebElement ApplyBtn;
@@ -213,6 +217,30 @@ public class SubCategoriesPage {
 			
 				ut.FailedCaptureScreenshotAsBASE64(driver, test);
 			}
+		}
+	}
+	
+	public void Enable_Hide_MenuItem_In_Kiosk_Toggle()
+	{
+		if(Hide_MenuItem_In_Kiosk_YesBtn.isSelected())
+		{
+			
+		}
+		else
+		{
+			Hide_MenuItem_In_Kiosk_YesBtn.click();
+		}
+	}
+	
+	public void Disable_Hide_MenuItem_In_Kiosk_Toggle()
+	{
+		if(Hide_MenuItem_In_Kiosk_YesBtn.isEnabled())
+		{
+			Hide_MenuItem_In_Kiosk_NoBtn.click();
+		}
+		else
+		{
+		
 		}
 	}
 }

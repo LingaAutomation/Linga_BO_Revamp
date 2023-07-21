@@ -73,11 +73,11 @@ public class CategoriesPage {
 	WebElement HideinOnlineOrder_NoBtn;
 	//span[contains(.,'Hide in Online Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]
 	
-	@FindBy(xpath = "//app-toggle[contains(.,'Hide Menu Item In Kiosk')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide In Kiosk')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement HideinKiosk_YesBtn;
 	//span[contains(.,'Hide in Kiosk')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]
 		
-	@FindBy(xpath = "//app-toggle[contains(.,'Hide Menu Item In Kiosk')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide In Kiosk')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement HideinKiosk_NoBtn;
 	//span[contains(.,'Hide in Kiosk')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]
 	
@@ -473,11 +473,12 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		int ServSizeLvl=ServSizeLvlList.size();
 		
 		
-		int randomServSizeLvl=ThreadLocalRandom.current().nextInt(1, ServSizeLvl);
 		
-		if(ServSizeLvl<=5)
+		if(ServSizeLvl>1&&ServSizeLvl<=6)
 		{
 			Thread.sleep(1000);
+			int randomServSizeLvl=ThreadLocalRandom.current().nextInt(2, ServSizeLvl);
+
 //			ServingSizeLevelDropBtn.click();
 			
 			if(driver.findElement(By.xpath("//div["+ServSizeLvl+"]/select-option")).isEnabled())
@@ -492,12 +493,12 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		}
 		else if(ServSizeLvl==1)
 		{
-			Thread.sleep(1000);
-			driver.findElement(By.xpath("//div["+randomServSizeLvl+"]/select-option")).click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//div[1]/select-option")).click();
 		}
-		else if(ServSizeLvl>5)
+		else if(ServSizeLvl>6)
 		{
-			int randomServSizeLvl1=ThreadLocalRandom.current().nextInt(1, ServSizeLvl);
+			int randomServSizeLvl1=ThreadLocalRandom.current().nextInt(2, 6);
 			driver.findElement(By.xpath("//div["+randomServSizeLvl1+"]/select-option")).click();
 
 		}

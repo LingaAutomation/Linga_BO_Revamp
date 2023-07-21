@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,34 +33,34 @@ public class Settings_Account_License_Page {
 	@FindBy(xpath = "//h3[.='Account Licenses']")
 	WebElement AccountLicense_Heading;
 	
-	@FindBy(xpath = "//span[contains(.,'Node ID')]")
+	@FindBy(xpath = "//tr/th[contains(.,'Node ID')]")
 	WebElement NodeID_Col;
 	
-	@FindBy(xpath = "//span[contains(.,'Store')]")
+	@FindBy(xpath = "//tr/th[contains(.,'Store')]")
 	WebElement Store_Col;
 	
-	@FindBy(xpath = "//span[contains(.,'Device Type')]")
+	@FindBy(xpath = "//tr/th[contains(.,'Device Type')]")
 	WebElement DeviceType_Col;
 	
-	@FindBy(xpath = "//span[contains(.,'Device Name')]")
+	@FindBy(xpath = "//tr/th[contains(.,'Device Name')]")
 	WebElement DeviceName_Col;
 	
-	@FindBy(xpath = "//span[contains(.,'Last Login Time')]")
+	@FindBy(xpath = "//tr/th[contains(.,'Last Login Time')]")
 	WebElement LastLoginTime_Col;
 	
-	@FindBy(xpath = "//span[contains(.,'Last Access Time')]")
+	@FindBy(xpath = "//tr/th[contains(.,'Last Access Time')]")
 	WebElement LastAccessTime_Col;
 	
-	@FindBy(xpath = "//span[contains(.,'Last Sync Time')]")
+	@FindBy(xpath = "//tr/th[contains(.,'Last Sync Time')]")
 	WebElement LastSyncTime_Col;
 	
-	@FindBy(xpath = "//div/div[8]/div[contains(.,'Actions')]")
+	@FindBy(xpath = "//tr/th[contains(.,'Actions')]")
 	WebElement Actions_Col;
 
-	@FindBy(xpath = "//span[contains(.,'Rows per page')]")
+	@FindBy(xpath = "//div[contains(.,'Items per page') and contains(@class,'paginator-page-size-label')]")
 	WebElement RowsPerPage;
 	
-	@FindBy(xpath = "//button[contains(@class,'mat-button-base active')]")
+	@FindBy(xpath = "//button[contains(@class,'custom-paginator-arrow')]")
 	WebElement Pagination_Option;
 	
 	@FindBy(xpath = "//input[contains(@data-placeholder,'Search')]")
@@ -67,19 +69,19 @@ public class Settings_Account_License_Page {
 	@FindBy(xpath = "//span[contains(.,'COLUMNS')]")
 	WebElement Column_option;
 	
-	@FindBy(xpath =  "//span[contains(.,'Rows per page:')]/../../div[2]/app-selectbox/div/mat-form-field/div")
+	@FindBy(xpath =  "//div[contains(.,'Items per page') and contains(@class,'paginator-page-size-label')]/../mat-form-field/div/div")
 	WebElement rowsPerPage_btn;
 	
-	@FindBy(xpath =  "//select-option[1]/div")
+	@FindBy(xpath =  "//mat-option[1]/div")
 	WebElement fiveRows_Option;
 	
-	@FindBy(xpath =  "//select-option[2]/div")
+	@FindBy(xpath =  "//mat-option[2]/div")
 	WebElement tenRows_Option;
 	
-	@FindBy(xpath =  "//select-option[3]/div")
+	@FindBy(xpath =  "//mat-option[3]/div")
 	WebElement fifteenRows_Option;
 	
-	@FindBy(xpath =  "//select-option[4]/div")
+	@FindBy(xpath =  "//mat-option[4]/div")
 	WebElement twentyRows_Option;
 	
 	@FindBy(xpath =  "//span[contains(.,'SIGN OUT')]")
@@ -106,12 +108,22 @@ public class Settings_Account_License_Page {
 	public void resetKey() throws Exception {
 		String sas = "";
 		
+		Thread.sleep(500); 
+		//Click the Columns option
+		driver.findElement(By.xpath("//button[contains(.,'COLUMNS')]")).click();Thread.sleep(500); 
+		
+		//Click the Device Type
+		driver.findElement(By.xpath("//label[contains(.,'Device Type')]")).click();Thread.sleep(500); 
+		
+		//Click the Device Name
+		driver.findElement(By.xpath("//label[contains(.,'Device Name')]")).click();Thread.sleep(1000); 
+		
 		//Click the Last Access Time
 		LastAccessTime_Col.click();
 		
 		ArrayList<String> ArLst=new ArrayList<String>();
 		
-		List<WebElement> Lst=driver.findElements(By.xpath("//data-grid-row/div/div[8]/div/button"));
+		List<WebElement> Lst=driver.findElements(By.xpath("//button[contains(.,'SIGN OUT')]"));
 		
 		for(WebElement ele:Lst)
 		{
@@ -130,7 +142,7 @@ public class Settings_Account_License_Page {
 		
 		if(sortedLst.equals(ArLst))
 		{
-			test.log(LogStatus.PASS, "Ascending Order Sorted Correctly for "+driver.findElement(By.xpath("//data-grid-row/div/div[6]/div/span[@class='header-title']")).getText());
+			test.log(LogStatus.PASS, "Ascending Order Sorted Correctly for "+driver.findElement(By.xpath("//thead/tr/th[6]")).getText());
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			System.out.println("Sorted List from Table(Actual - Ascending) : "+ArLst);
@@ -138,7 +150,7 @@ public class Settings_Account_License_Page {
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "Ascending Order Sorted Incorrect for "+driver.findElement(By.xpath("//data-grid-row/div/div[6]/div/span[@class='header-title']")).getText());
+			test.log(LogStatus.FAIL, "Ascending Order Sorted Incorrect for "+driver.findElement(By.xpath("//thead/tr/th[6]")).getText());
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -147,13 +159,13 @@ public class Settings_Account_License_Page {
 		}
 		
 		//Get the value from the table
-		//String sa = driver.findElement(By.xpath("//div[contains(@class,'grid-rows')]/div[1]/div/data-grid-row/div/div[1]/span")).getText();
+		//String sa = driver.findElement(By.xpath("//tbody/tr[1]/td[1]/span")).getText();
 
 		
 		//Click the signout button
 		for(int i = 1; i <= Lst.size(); i++)
 		{
-			driver.findElement(By.xpath("(//data-grid-row/div/div[8]/div/button)["+i+"]")).click();
+			driver.findElement(By.xpath("(//button[contains(.,'SIGN OUT')])["+i+"]")).click();
 			
 			Thread.sleep(2000);
 			
@@ -188,7 +200,7 @@ public class Settings_Account_License_Page {
 				Thread.sleep(2000);			
 				ArrayList<String> ArLst1=new ArrayList<String>();
 				
-				List<WebElement> Lst1=driver.findElements(By.xpath("//data-grid-row/div/div[8]/div/button"));
+				List<WebElement> Lst1=driver.findElements(By.xpath("//button[contains(.,'SIGN OUT')]"));
 				
 				for(WebElement ele1:Lst1)
 				{
@@ -254,11 +266,11 @@ public class Settings_Account_License_Page {
 		}
 		
 		//Get the value from the table
-		String saq = driver.findElement(By.xpath("//div[contains(@class,'grid-rows')]/div[1]/div/data-grid-row/div/div[1]/span")).getText();
+		String saq = driver.findElement(By.xpath("//tbody/tr[1]/td[1]/span")).getText();
 
-		driver.findElement(By.xpath("//data-grid-row/div/div/div/button")).click();
+		driver.findElement(By.xpath("//button[contains(.,'SIGN OUT')]")).click();
 		
-		Thread.sleep(8000);
+		Thread.sleep(4000);
 		
 		try {
 			String s1 = driver.findElement(By.xpath("//div[@class='message mx-2']/span")).getText();
@@ -358,7 +370,7 @@ public class Settings_Account_License_Page {
 		 * +sortedLsta); }
 		 * 
 		 * //Get the value from the table //String sa = driver.findElement(By.xpath(
-		 * "//div[contains(@class,'grid-rows')]/div[1]/div/data-grid-row/div/div[1]/span")).getText();
+		 * "//tbody/tr[1]/td[1]/span")).getText();
 		 * 
 		 * //Click the signout button for(int i = 1; i <= Lst.size(); i++) {
 		 * driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div["+i+
@@ -446,7 +458,7 @@ public class Settings_Account_License_Page {
 		 * +sortedLstb); }
 		 * 
 		 * //Get the value from the table String sa = driver.findElement(By.xpath(
-		 * "//div[contains(@class,'grid-rows')]/div[1]/div/data-grid-row/div/div[1]/span")).getText();
+		 * "//tbody/tr[1]/td[1]/span")).getText();
 		 * 
 		 * //Click the signout button for(int i = 1; i <= Lst.size(); i++) {
 		 * driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div["+i+
@@ -936,18 +948,18 @@ public class Settings_Account_License_Page {
 		Thread.sleep(15000);
 		
 		//Get the value from the table
-		String sa = driver.findElement(By.xpath("//div[contains(@class,'grid-rows')]/div[1]/div/data-grid-row/div/div[1]/span")).getText();
+		String sa = driver.findElement(By.xpath("//tbody/tr[1]/td[1]/span")).getText();
 		
-		List<WebElement> qw = driver.findElements(By.xpath("//div[contains(@class,'grid-rows')]/div[1]/div/data-grid-row/div/div/span"));
+		List<WebElement> qw = driver.findElements(By.xpath("//tbody/tr[1]/td/span"));
 	
 		Search_option.sendKeys(sa);
 		
 		Thread.sleep(5000);
 		
-		List<WebElement> qw1 = driver.findElements(By.xpath("//div[contains(@class,'grid-rows')]/div[1]/div/data-grid-row/div/div/span"));
+		List<WebElement> qw1 = driver.findElements(By.xpath("//tbody/tr[1]/td/span"));
 		
 		//Get the value from the table
-		String sa1 = driver.findElement(By.xpath("//div[contains(@class,'grid-rows')]/div[1]/div/data-grid-row/div/div[1]/span")).getText();
+		String sa1 = driver.findElement(By.xpath("//tbody/tr[1]/td[1]/span")).getText();
 
 		if(sa.equals(sa1))
 		{

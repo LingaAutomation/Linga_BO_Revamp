@@ -101,7 +101,7 @@ public class Settings_Front_End_Receipt_Template {
 	public void Calling() throws Exception
 	{
 		Open_Label_Printer_Page(driver);
-		Disable_All_Front_End_Receipt_Template_Settings(driver);
+	//	Disable_All_Front_End_Receipt_Template_Settings(driver);
 		Verify_Disabled_and_Enable_All_Front_End_Receipt_Template_Settings(driver);
 		Verify_Enabled_All_Front_End_Receipt_Template_Settings(driver);
 
@@ -1153,6 +1153,11 @@ public class Settings_Front_End_Receipt_Template {
 					test.log(LogStatus.PASS, "Address Check Box in Store Info not Selected while Reopening the page After Saved");					
 
 					Thread.sleep(1000);
+					for(int i=1;i<=3;i++) 
+					{
+						Thread.sleep(500);
+						driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+					}
 					fert.Address_StoreInfo_CheckBox().click();
 		
 				}
@@ -1289,6 +1294,11 @@ public class Settings_Front_End_Receipt_Template {
 					test.log(LogStatus.PASS, "Table Name Check Box in Check Details not Selected while Reopening the page After Saved");					
 
 					Thread.sleep(1000);
+					for(int i=1;i<=5;i++) 
+					{
+						Thread.sleep(500);
+						driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+					}
 					fert.Table_Name_CheckBox().click();
 	
 				}
@@ -1308,6 +1318,7 @@ public class Settings_Front_End_Receipt_Template {
 					test.log(LogStatus.PASS, "Seat Number Check Box in Check Details not Selected while Reopening the page After Saved");					
 
 					Thread.sleep(1000);
+					
 					fert.Seat_Number_CheckBox().click();
 	
 				}
@@ -1484,7 +1495,11 @@ public class Settings_Front_End_Receipt_Template {
 				catch(Exception g)
 				{
 					test.log(LogStatus.PASS, "Exclude Zero Price Menu Item Check Box in Order Summary not Selected while Reopening the page After Saved");					
-
+                    for(int i=1;i<=6;i++) 
+                    {
+                    	Thread.sleep(500);
+                    	driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+                    }
 					Thread.sleep(1000);
 					fert.Exclude_ZeroPrice_MenuItem_CheckBox().click();
 
@@ -1762,7 +1777,11 @@ public class Settings_Front_End_Receipt_Template {
 				catch(Exception g)
 				{
 					test.log(LogStatus.PASS, "Address Check Box in Customer Info not Selected while Reopening the page After Saved");					
-
+                    for(int i=1;i<=5;i++) 
+                    {
+                    	Thread.sleep(500);
+                    	driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+                    }
 					Thread.sleep(1000);
 					fert.Address_CustomerInfo_CheckBox().click();
 		

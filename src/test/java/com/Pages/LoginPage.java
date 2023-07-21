@@ -1,6 +1,7 @@
 package com.Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -152,6 +153,13 @@ public class LoginPage {
 	
 	public void Log_Out() throws Exception
 	{
+		
+		for(int i=1;i<=3;i++)
+		{
+			Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+		}
+		
 		Thread.sleep(1000);
 		Profile_Tab.click();
 		

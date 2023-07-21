@@ -28,22 +28,22 @@ public class Settings_Additional_Settings_Page
 	@FindBy(xpath = "//span[.='Additional Settings']")
 	WebElement Additional_Settings;
 	
-	@FindBy(xpath = "//span[.='Include Credits in Daily Summary Report']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+	@FindBy(xpath = "//span[.='Include Credits in Daily Summary Report']/../../div[2]/app-toggle/div/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
 	WebElement include_Credit_NoToggle;
 	
-    @FindBy(xpath = "//span[.='Include Credits in Daily Summary Report']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+    @FindBy(xpath = "//span[.='Include Credits in Daily Summary Report']/../../div[2]/app-toggle/div/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
 	WebElement include_Credit_YesToggle;
     
-    @FindBy(xpath = "//span[.='Employee Tip Out Deducted from Cash Expected on Reports ']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+    @FindBy(xpath = "//span[.='Employee Tip Out Deducted from Cash Expected on Reports ']/../../div[2]/app-toggle/div/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement Employee_Tipout_NoToggle;
     
-    @FindBy(xpath = "//span[.='Employee Tip Out Deducted from Cash Expected on Reports ']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+    @FindBy(xpath = "//span[.='Employee Tip Out Deducted from Cash Expected on Reports ']/../../div[2]/app-toggle/div/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement Employee_Tipout_YesToggle;
     
-    @FindBy(xpath = "//span[.='Auto Print Close Day Report']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+    @FindBy(xpath = "//span[.='Auto Print Close Day Report']/../../div[2]/app-toggle/div/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement Auto_Close_NoToggle;
     
-    @FindBy(xpath = "//span[.='Auto Print Close Day Report']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+    @FindBy(xpath = "//span[.='Auto Print Close Day Report']/../../div[2]/app-toggle/div/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement Auto_Close_YesToggle;
     
     @FindBy(xpath = "//button[.='SAVE']")

@@ -95,6 +95,7 @@ public class Settings_Additional
 	@Test(priority=2)
 	public void Calling() throws Exception
 	{
+		Thread.sleep(1000);
 		Navigating_Additional_Settings(driver);
 		Thread.sleep(2000);
 		Enable_And_Save_Additional_Settings(driver);
@@ -108,16 +109,17 @@ public class Settings_Additional
 	public void Navigating_Additional_Settings(WebDriver driver) throws Exception 
 	{
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
-		Settings_Additional_Settings_Page as = new Settings_Additional_Settings_Page(driver, test);
+		//Settings_Additional_Settings_Page as = new Settings_Additional_Settings_Page(driver, test);
 		
-		Thread.sleep(5000);
+		Thread.sleep(15000);
 		//load the Notifications page
 		Thread.sleep(2000);
-		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2"));
-		Thread.sleep(1000);
-		as.Click_Setting();
-		Thread.sleep(1000);
-		as.Click_Additional_Settings();
+		driver.get(Utility.getProperty("baseURL")+"settings/"+"additionalSettings");
+		Thread.sleep(5000);
+//
+//		as.Click_Setting();
+//		Thread.sleep(1000);
+//		as.Click_Additional_Settings();
 		Thread.sleep(5000);
 		try {
 			if(driver.findElement(By.xpath("//h3[contains(.,'Additional Settings')]")).isDisplayed()) {

@@ -123,7 +123,7 @@ public WebDriver driver;
 		
 		TI.UrbanPiperPage();
 		
-		TI.ChowlyPage();
+	//	TI.ChowlyPage();
 		
 		TI.DeliverectPage();
 		

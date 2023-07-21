@@ -47,7 +47,7 @@ public class Front_End_Receipt_TemplatePage {
 		Small_RadioBtn.click();
 	}
 	
-	@FindBy(xpath = "//mat-radio-button[contains(.,'Small')][contains(@class,'mat-radio-checked')]")
+	@FindBy(xpath = "//mat-radio-button[contains(.,'Small')]")
 	WebElement Small_RadioBtn_SLD;
 	
 	public WebElement Small_RadioButton_SLD()

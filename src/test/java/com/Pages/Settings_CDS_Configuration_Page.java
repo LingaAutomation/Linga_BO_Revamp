@@ -44,28 +44,28 @@ public class Settings_CDS_Configuration_Page {
 	@FindBy(xpath =  "//span[contains(.,'SAVE')]")
 	WebElement Update;
 	
-	@FindBy(xpath =  "//span[contains(.,'Show Advertisements')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath =  "//span[contains(.,'Show Advertisements')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement No_btn_SA;
 	
-	@FindBy(xpath =  "//span[contains(.,'Show Advertisements')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button[@aria-pressed='true']")
+	@FindBy(xpath =  "//span[contains(.,'Show Advertisements')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button[@aria-pressed='true']")
 	WebElement No_btn_SA_isSelected;
 	
-	@FindBy(xpath =  "//span[contains(.,'Show Advertisements')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath =  "//span[contains(.,'Show Advertisements')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Yes_btn_SA;
 	
-	@FindBy(xpath =  "//span[contains(.,'Show Advertisements')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button[@aria-pressed='true']")
+	@FindBy(xpath =  "//span[contains(.,'Show Advertisements')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button[@aria-pressed='true']")
 	WebElement Yes_btn_SA_isSelected;
 	
-	@FindBy(xpath =  "//span[contains(.,'Customer Profile')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath =  "//span[contains(.,'Customer Profile')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement No_btn_CP;
 	
-	@FindBy(xpath =  "//span[contains(.,'Customer Profile')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button[@aria-pressed='true']")
+	@FindBy(xpath =  "//span[contains(.,'Customer Profile')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button[@aria-pressed='true']")
 	WebElement No_btn_CP_isSelected;
 	
-	@FindBy(xpath =  "//span[contains(.,'Customer Profile')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath =  "//span[contains(.,'Customer Profile')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Yes_btn_CP;
 	
-	@FindBy(xpath =  "//span[contains(.,'Customer Profile')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath =  "//span[contains(.,'Customer Profile')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button[@aria-pressed='true']")
 	WebElement Yes_btn_CP_isSelected;
 	
 	@FindBy(xpath =  "//span[contains(.,'Choose Theme')]/../../div[2]/div/app-selectbox/div/mat-form-field/div")

@@ -44,7 +44,7 @@ public class Inventory_InventoryModifiers_Page {
 	@FindBy(xpath =  "//mat-icon[contains(.,'remove_circle_outline')]")
 	WebElement InactiveBtn;
 	
-	@FindBy(xpath =  "//input[@placeholder='Search']")
+	@FindBy(xpath =  "//input[contains(@data-placeholder,'Search')]")
 	WebElement Search;
 	
 	@FindBy(xpath =  "//button[contains(.,'COLUMNS')]")
@@ -337,7 +337,7 @@ public class Inventory_InventoryModifiers_Page {
 		
 		//Click the Inventory Details
 		inventoryDetails.click();
-		Thread.sleep(25000);
+		Thread.sleep(50000);
 		
 		//Click the modifiers tab option
 		ModifiersTab.click();

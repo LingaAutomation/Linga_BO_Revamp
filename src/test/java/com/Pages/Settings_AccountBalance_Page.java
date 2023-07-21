@@ -119,7 +119,7 @@ public class Settings_AccountBalance_Page {
 			paid_out.clear();
 			Thread.sleep(1000);
 			paid_out.sendKeys(RandomStringUtils.randomAlphabetic(10));
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			update_btn.click();Thread.sleep(1500);
 			if(AlertMessageTitle.getText().equals(Str))
 			{
@@ -757,8 +757,8 @@ public class Settings_AccountBalance_Page {
 			gratiuty_tip.clear();
 			Thread.sleep(1000);
 			gratiuty_tip.sendKeys(RandomStringUtils.randomAlphabetic(10));
-			Thread.sleep(1000);
-			update_btn.click();Thread.sleep(1500);
+			Thread.sleep(2000);
+			update_btn.click();Thread.sleep(2000);
 			if(AlertMessageTitle.getText().equals(Str))
 			{
 				test.log(LogStatus.PASS, "Gratuity/Tip(Alphabetic) - Account Balance Saved Successfully when user change the Gratuity/Tip");

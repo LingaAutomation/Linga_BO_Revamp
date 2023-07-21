@@ -1,5 +1,6 @@
 package com.Pages;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -10,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -121,6 +124,11 @@ public class InventoryPage extends BasePage
 	@FindBy(xpath = "//button[contains(@class,'action-button')]")
 	WebElement Action_InventoryItemBtn;
 	
+	@FindBy(xpath = "//tr//button")
+	WebElement Action_InventoryItemBtn_two;
+	
+	
+	
 	@FindBy(xpath = "//button[contains(@class,'action-button')]")
 	WebElement Action_Inventory_PlusBtn;
 	
@@ -151,8 +159,9 @@ public class InventoryPage extends BasePage
 	
 	public void Click_Action_InventoryItem_AdjustInventoryBtn()
 	{
-		Action_InventoryItemBtn.click();
+		Action_InventoryItemBtn_two.click();
 	}
+	
 	
 	
 	
@@ -246,6 +255,63 @@ public class InventoryPage extends BasePage
 	public void Select_Inventory_Item() throws Exception
 	{
 		Inventory_Item_InputBx.click();
+		
+		List<WebElement> optList=driver.findElements(By.xpath("//cdk-virtual-scroll-viewport//div/div//select-option"));
+ 
+		int optionSize=optList.size();
+		if(optionSize==0)
+		{
+			
+			List<WebElement> optList1=driver.findElements(By.xpath("//cdk-virtual-scroll-viewport//div/div//select-option"));
+			
+			int optionSize1=optList1.size();
+			
+			
+			int randomOpt=ThreadLocalRandom.current().nextInt(1, optionSize1);
+			
+			Thread.sleep(1000);
+
+			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+"]//select-option")).click();
+		
+		}
+		else if(optionSize==1)
+		{
+			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+optionSize+"]//select-option")).click();
+		
+		}
+		else if(optionSize<=10)
+		{
+			
+		int randomOpt=ThreadLocalRandom.current().nextInt(1, optionSize);
+		
+		Thread.sleep(1000);
+
+		driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+"]//select-option")).click();
+		}
+		else
+		{
+			int randomOpt=ThreadLocalRandom.current().nextInt(1, 10);
+			
+			Thread.sleep(1000);
+
+			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+"]//select-option")).click();
+			
+		}
+		
+		List<WebElement> Optist1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+
+		if(Optist1.size()!=0)
+		{
+			Inventory_Item_InputBx.click();
+			
+		}
+		
+		
+	}
+	
+	public void Select_Inventory_Unit() throws Exception
+	{
+		Inventory_Unit_InputBx.click();
 		
 		List<WebElement> optList=driver.findElements(By.xpath("//cdk-virtual-scroll-viewport//div/div//select-option"));
  
@@ -1266,7 +1332,7 @@ driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+
 	@FindBy(xpath = "//label[contains(.,'Transfer Status')]/../../input")
 	WebElement Transfer_StatusInputBx;
 	
-	@FindBy(xpath = "//span[contains(.,'Transfer Logs not found')]")
+	@FindBy(xpath = "//td[contains(.,'Transfer Logs not found')]")
 	WebElement No_TransferLogsErrorMsg;
 
 	public void Select_Type(String Option)
@@ -1305,7 +1371,7 @@ driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+
 	@FindBy(xpath = "//app-selectbox[@name='placedVia']//input")
 	WebElement Place_Order_ViaInputBx;
 	
-	@FindBy(xpath = "//button[contains(.,'Place Order')]")
+	@FindBy(xpath = "//button[contains(.,'PLACE ORDER')]")
 	WebElement Place_Order_btn;
 
 	@FindBy(xpath = "//button[@mattooltip='Click to see actions']")
@@ -1343,6 +1409,12 @@ driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+
 	
 	@FindBy(xpath = "//h3[contains(.,'Purchase Order')]")
 	WebElement Purchase_OrderHeader;
+	
+	public WebElement Place_Order_ViaInputBx() {
+		
+		return Place_Order_ViaInputBx;
+	}
+	
 	
 	public void Click_New_Purchase_Order()
 	{
@@ -1630,6 +1702,99 @@ driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+
 	@FindBy(xpath = "//span[contains(.,'No production Record for Selected Menu Item')]")
 	WebElement No_Production_Record_PrepareMenuItem_Logs;
 	
+	@FindBy(xpath = "//input[contains(@data-placeholder,'Search')]")
+	WebElement SearchBox;
+	
+	public void Click_Wait_ForElementClickable(WebElement ele,int time)
+	{
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(time));
+		wait.until(ExpectedConditions.elementToBeClickable(ele)).click();
+	}
+	
+	public void Wait_ForElementVisibility(WebElement ele,int time)
+	{
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(time));
+		wait.until(ExpectedConditions.elementToBeClickable(ele));
+	}
+	
+	
+	public void SearchAndClickEdit(String SearchValue) throws Exception
+	{
+		
+		Wait_ForElementVisibility(SearchBox, 180);
+	
+		Thread.sleep(1000);
+		SearchBox.clear();
+		Thread.sleep(2000);
+
+		SearchBox.sendKeys(SearchValue);
+		Thread.sleep(2000);
+		try
+		{
+			Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[.=' "+SearchValue+" ']/../../td//div[1]/button")).click();
+		
+		}
+		catch(Exception g)
+		{
+			
+			Thread.sleep(2000);
+
+			driver.findElement(By.xpath("//span[.='"+SearchValue+" ']/../../div//div[1]/button")).click();
+		}
+		
+		}
+	
+	public void SearchAndClickActivate(String SearchValue) throws Exception
+	{
+//		WebDriverWait wt=new WebDriverWait(driver, Duration.ofSeconds(300));
+		Wait_ForElementVisibility(SearchBox, 180);
+		Thread.sleep(1000);
+		SearchBox.clear();
+		Thread.sleep(1000);
+
+		SearchBox.sendKeys(SearchValue);
+		Thread.sleep(2000);
+		
+		try
+		{
+		driver.findElement(By.xpath("//span[.=' "+SearchValue+" ']/../../td//div/button")).click();
+		}
+		catch(Exception h)
+		{
+			driver.findElement(By.xpath("//span[.='"+SearchValue+" ']/../../div//div/button")).click();
+
+		}
+	}
+	public void SearchAndClickDelete(String SearchValue) throws Exception
+	{
+		Wait_ForElementVisibility(SearchBox, 180);
+		try
+		{
+		Thread.sleep(1000);
+		SearchBox.clear();
+		Thread.sleep(2000);
+
+		SearchBox.sendKeys(SearchValue);
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//span[.=' "+SearchValue+" ']/../../td//div[2]/button")).click();
+		Thread.sleep(1000);
+		}
+		catch(Exception h)
+		{
+			Thread.sleep(1000);
+			SearchBox.clear();
+			Thread.sleep(2000);
+
+			SearchBox.sendKeys(SearchValue);
+			Thread.sleep(2000);
+
+			driver.findElement(By.xpath("//span[.='"+SearchValue+" ']/../../div//div[2]/button")).click();
+			Thread.sleep(1000);
+		}
+	}
+	
 	public void Select_Consumption_Status(String Option) throws Exception
 	{
 		new Common_XPaths(driver, test).Click_DropDown_withSearchText(Consumption_StatusInputBx, Option, "Comsumption Status Selected");
@@ -1879,5 +2044,62 @@ driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+
 	public WebElement No_Wastage_Report_Found_InfoMessage()
 	{
 		return No_Wastage_Report_FoundInfoMsg;
+	}
+	
+
+public void SearchAndVerify_SearchBox() throws Exception
+	{
+		
+		try
+		{
+			
+		if(driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).isDisplayed())
+		{
+		String SearchText=driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText().substring(0, 3);
+
+		Thread.sleep(1000);
+		SearchBox.clear();
+		Thread.sleep(2000);
+
+		SearchBox.sendKeys(SearchText);
+		Thread.sleep(2000);
+		
+		
+		
+		if(driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).isDisplayed())
+		{
+			test.log(LogStatus.PASS, "Searched item displayed when entering 3 Characters in Search Box");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Searched item not displayed when entering 3 Characters in Search box");
+		}
+		}
+		}
+		catch(Exception k)
+		{
+			if(driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr/td[2]")).isDisplayed())
+			{
+				String SearchText=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr/td[2]")).getText().substring(0, 3);
+
+				Thread.sleep(1000);
+				SearchBox.clear();
+				Thread.sleep(2000);
+
+				SearchBox.sendKeys(SearchText);
+				Thread.sleep(2000);
+				
+				
+				
+				if(driver.findElement(By.xpath("///tbody[contains(@role,'rowgroup')]/tr/td[2]")).isDisplayed())
+				{
+					test.log(LogStatus.PASS, "Searched item displayed when entering 3 Characters in Search Box");
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Searched item not displayed when entering 3 Characters in Search box");
+				}
+			}
+		}
 	}
 }

@@ -110,10 +110,10 @@ public class Settings_KDS_Configuration_Page {
 	@FindBy(xpath = "//h6[contains(.,'Disable KDS Broadcast')]")
 	WebElement Disable_KDS_Broadcast_Option;
 	
-	@FindBy(xpath = "//h6[contains(.,'Disable KDS Broadcast')]/../../div/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button/span[.='No']")
+	@FindBy(xpath = "//h6[contains(.,'Disable KDS Broadcast')]/../../div//div/mat-button-toggle-group/mat-button-toggle/button/span[.='No']")
 	WebElement Disable_KDS_Broadcast_Option_No_Btn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Disable KDS Broadcast')]/../../div/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button/span[.='Yes']")
+	@FindBy(xpath = "//h6[contains(.,'Disable KDS Broadcast')]/../../div//div/mat-button-toggle-group/mat-button-toggle/button/span[.='Yes']")
 	WebElement Disable_KDS_Broadcast_Option_Yes_Btn;
 	
 	@FindBy(xpath = "//h6[.='Modifier color']")
@@ -183,73 +183,73 @@ public class Settings_KDS_Configuration_Page {
 	@FindBy(xpath = "//h6[.='Status 3']/../../div[2]/div[2]/app-input/div/div/div/button[2]")
 	WebElement Status3AfterMinsDownArrow;
 	
-	@FindBy(xpath = "//h6[contains(.,'Customer Arrived Notification')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+	@FindBy(xpath = "//h6[contains(.,'Customer Arrived Notification')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
 	WebElement CustomerArrivedNotification_No_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Customer Arrived Notification')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+	@FindBy(xpath = "//h6[contains(.,'Customer Arrived Notification')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
 	WebElement CustomerArrivedNotification_Yes_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:QSR')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:QSR')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
 	WebElement Completed_Order_QSR_No_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:QSR')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:QSR')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
 	WebElement Completed_Order_QSR_Yes_Toggle;
 	
 	@FindBy(xpath = "//h6[contains(.,'Completed Order:QSR')]/../../../div[5]/div[2]/div/textarea")
 	WebElement Completed_Order_QSR_TextArea;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:Table Service')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:Table Service')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
 	WebElement Completed_Order_TableService_No_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:Table Service')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:Table Service')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
 	WebElement Completed_Order_TableService_Yes_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:QSR')]/../../../div[7]/div[2]/div/textarea")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:Table Service')]/../../../div[7]/div[2]/div/textarea")
 	WebElement Completed_Order_TableService_TextArea;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:Online Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:Online Order')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
 	WebElement Completed_Order_Online_No_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:Online Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:Online Order')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
 	WebElement Completed_Order_Online_Yes_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:QSR')]/../../../div[9]/div[2]/div/textarea")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:Online Order')]/../../../div[9]/div[2]/div/textarea")
 	WebElement Completed_Order_Online_TextArea;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:Delivery Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:Delivery Order')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
 	WebElement Completed_Order_Delivery_No_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:Delivery Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:Delivery Order')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
 	WebElement Completed_Order_Delivery_Yes_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:QSR')]/../../../div[11]/div[2]/div/textarea")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:Delivery Order')]/../../../div[11]/div[2]/div/textarea")
 	WebElement Completed_Order_Delivery_TextArea;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:To Go Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:To Go Order')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
 	WebElement Completed_Order_ToGo_No_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:To Go Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:To Go Order')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
 	WebElement Completed_Order_ToGo_Yes_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:QSR')]/../../../div[13]/div[2]/div/textarea")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:To Go Order')]/../../../div[13]/div[2]/div/textarea")
 	WebElement Completed_Order_ToGo_TextArea;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:For Here Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:For Here Order')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
 	WebElement Completed_Order_ForHere_No_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:For Here Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:For Here Order')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
 	WebElement Completed_Order_ForHere_Yes_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:QSR')]/../../../div[15]/div[2]/div/textarea")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:For Here Order')]/../../../div[15]/div[2]/div/textarea")
 	WebElement Completed_Order_ForHere_TextArea;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:Bar Tab Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:Bar Tab Order')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
 	WebElement Completed_Order_BarTab_No_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:Bar Tab Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:Bar Tab Order')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
 	WebElement Completed_Order_BarTab_Yes_Toggle;
 	
-	@FindBy(xpath = "//h6[contains(.,'Completed Order:QSR')]/../../../div[17]/div[2]/div/textarea")
+	@FindBy(xpath = "//h6[contains(.,'Completed Order:Bar Tab Order')]/../../../div[17]/div[2]/div/textarea")
 	WebElement Completed_Order_BarTab_TextArea;
 	
 	@FindBy(xpath = "//h6[contains(.,'Customer Arrived Notification')]")

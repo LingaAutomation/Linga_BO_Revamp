@@ -47,7 +47,7 @@ public class Inventory_Purchase_Template_Page {
 	@FindBy(xpath =  "//mat-icon[contains(.,'remove_circle_outline')]")
 	WebElement InactiveBtn;
 	
-	@FindBy(xpath =  "//input[@placeholder='Search']")
+	@FindBy(xpath =  "//input[contains(@placeholder,'Search')]")
 	WebElement Search;
 	
 	@FindBy(xpath =  "//button[contains(.,'COLUMNS')]")
@@ -652,6 +652,7 @@ public class Inventory_Purchase_Template_Page {
 	}
 
 	public void increaseOrDecreaseTheQuantity() throws Exception {
+		cmp = new Common_XPaths(driver, test);
 		// Get the item quantity
 		String qty = ItemQuantity.getAttribute("value");
 
@@ -713,7 +714,7 @@ public class Inventory_Purchase_Template_Page {
 				test.log(LogStatus.FAIL,"Actual and expected price are not same and the difference is(When user click the increase button) : "+ diff);
 			}
 		}
-		
+		try {
 		//Click the update button
 		Update_Btn.click();
 		
@@ -723,6 +724,17 @@ public class Inventory_Purchase_Template_Page {
 			test.log(LogStatus.PASS,"Purchase template updated Successfully!. popup displayed after click the Update button");
 		} else {
 			test.log(LogStatus.FAIL,"Purchase template updated Successfully!. popup is not displayed after click the Update button");
+		}
+		}
+		catch (Exception e) {
+			
+			if(driver.findElement(By.xpath("//button[contains(.,'UPDATE')]")).isDisplayed()) {
+				cmp.Click_BackspaceButton();
+				
+				test.log(LogStatus.FAIL,"Not able to click on Update Button");
+				
+			}
+			
 		}
 	}
 	

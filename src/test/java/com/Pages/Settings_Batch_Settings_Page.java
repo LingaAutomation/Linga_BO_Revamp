@@ -31,10 +31,10 @@ public class Settings_Batch_Settings_Page
 	 @FindBy(xpath = "//span[.='Batch Settings']")
 	 WebElement Batch_Settings;
 	 
-	 @FindBy(xpath = "//span[.='Enable Auto Batch']/../..//div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+	 @FindBy(xpath = "//span[.='Enable Auto Batch']/../..//div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
 	 WebElement Enable_AutoBatch_Yes;
 	 
-	 @FindBy(xpath = "//span[.='Enable Auto Batch']/../..//div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+	 @FindBy(xpath = "//span[.='Enable Auto Batch']/../..//div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
 	 WebElement Enable_AutoBatch_No;
 	 
 	 @FindBy(xpath = "//app-time-picker[@label='Time']/div/app-input/div/div/mat-form-field/div/div/div[4]/input")
@@ -230,12 +230,21 @@ public class Settings_Batch_Settings_Page
 	 }
 	 public void Pagination() throws Exception 
 	 {
-		 Right_Arrow.click();
-		 Thread.sleep(1000);
-		 Right_Arrow.click();
-		 Thread.sleep(1000);
-		 Left_Arrow.click();
-		 Thread.sleep(1000);
+		 try {
+			 if(driver.findElement(By.xpath("//td[contains(.,'Batch not found')]")).isDisplayed()) {
+				 test.log(LogStatus.INFO, "Batch is not available at this time");
+			 }
+		 }catch(Exception d) {
+			 test.log(LogStatus.INFO, "Batch is available");
+			 
+			 Right_Arrow.click();
+			 Thread.sleep(1000);
+			 Right_Arrow.click();
+			 Thread.sleep(1000);
+			 Left_Arrow.click();
+			 Thread.sleep(1000);
+		 }
+
 	 }
 	 public void Navigate_Back() 
 	 {

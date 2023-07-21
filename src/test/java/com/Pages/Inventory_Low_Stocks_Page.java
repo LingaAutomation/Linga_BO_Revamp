@@ -102,7 +102,7 @@ public class Inventory_Low_Stocks_Page {
 	@FindBy(xpath = "//button[contains(.,'Delete')]")
 	WebElement delete_Confirmation_Btn;
 	
-	@FindBy(xpath = "//button[contains(.,'Place Order')]")
+	@FindBy(xpath = "//button[contains(.,'PLACE ORDER ')]")
 	WebElement Place_Order_Btn;
 
 	@FindBy(xpath = "//div[@class='message mx-2']/span")
@@ -520,10 +520,16 @@ public class Inventory_Low_Stocks_Page {
 			}
 		}
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
+		driver.findElement(By.xpath("html")).sendKeys(Keys.PAGE_UP);
+		Thread.sleep(1500);
 		// Click the place order button
 		Place_Order_Btn.click();
-
+		Thread.sleep(1500);
+		driver.findElement(By.xpath("html")).sendKeys(Keys.ARROW_UP);
+		driver.findElement(By.xpath("html")).sendKeys(Keys.ARROW_UP);
+		driver.findElement(By.xpath("html")).sendKeys(Keys.ARROW_UP);
+		driver.findElement(By.xpath("html")).sendKeys(Keys.ARROW_UP);
 		Thread.sleep(1500);
 		// get the success message
 		if (successMessage.getText().equals("Purchase order saved successfully!.")) {

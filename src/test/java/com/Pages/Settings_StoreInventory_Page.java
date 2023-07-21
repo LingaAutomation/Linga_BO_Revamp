@@ -99,9 +99,9 @@ public class Settings_StoreInventory_Page {
 	public void VendorCC_toggle() throws Exception {
 		driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("(//div[@class='toggle-component-group'])[2]/mat-button-toggle-group/mat-button-toggle[1]")).click();
+		driver.findElement(By.xpath("(//div[@id='toggle-component'])[2]//mat-button-toggle-group/mat-button-toggle[1]")).click();
 		Thread.sleep(500);
-		driver.findElement(By.xpath("(//div[@class='toggle-component-group'])[2]/mat-button-toggle-group/mat-button-toggle[2]")).click();
+		driver.findElement(By.xpath("(//div[@id='toggle-component'])[2]//mat-button-toggle-group/mat-button-toggle[2]")).click();
 		driver.findElement(By.xpath("(//input[contains(@type,'email')])[2]")).clear();
 		driver.findElement(By.xpath("(//input[contains(@type,'email')])[2]")).sendKeys(Utility.getProperty("userName"));
 		Thread.sleep(1000);

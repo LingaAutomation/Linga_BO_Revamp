@@ -196,6 +196,8 @@ public WebDriver driver;
 		{
 			test.log(LogStatus.FAIL, "KDS Configuration saved successfully message displayed successfully message is not displayed when used do the changes in Field options");
 		}
+		
+		Thread.sleep(4000);
 
 	}
 	

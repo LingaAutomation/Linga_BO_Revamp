@@ -112,9 +112,8 @@ public class Settings_Business_Hours
     	 bh= new Settings_Businesshours_Page(driver, test);
 
     		Thread.sleep(5000);
-    		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2"));
-    	 bh.Navigating_Settings();
-    	 bh.NavigatingBusinessHours();
+    		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id2")+"storeHours");
+
 			Thread.sleep(5000);
 			try {
 				if(driver.findElement(By.xpath("//h3[contains(.,'Business Hours')]")).isDisplayed()) {

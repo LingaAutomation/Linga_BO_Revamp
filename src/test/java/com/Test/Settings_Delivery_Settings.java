@@ -102,11 +102,11 @@ public class Settings_Delivery_Settings {
 	public void Calling() throws Exception
 	{
 		Open_Delivery_Page(driver);
-		Delivery_setting_Page(driver);
-		Add_Delivery_Zone(driver);
-		Edit_and_Update_Delivery_Zone(driver);
-		Delete_Delivery_Zone(driver);
-//		Delivery_Zone_Page(driver);
+//		Delivery_setting_Page(driver);
+//		Add_Delivery_Zone(driver);
+//		Edit_and_Update_Delivery_Zone(driver);
+		//Delete_Delivery_Zone(driver);
+		Delivery_Zone_Page(driver);
 		Delivery_PUC_Page(driver);
 		Delivery_Driver_Page(driver);
 		Delivery_Save(driver);
@@ -381,6 +381,9 @@ public class Settings_Delivery_Settings {
 		//Verify Filter Column
 		cmp.Filter_Columns();
 		
+		driver.findElement(By.xpath("//button[contains(.,'COLUMNS')]")).click();
+		Thread.sleep(500);
+		
 		cmp.SearchBox();
 		
 		Thread.sleep(3000);
@@ -630,7 +633,11 @@ Thread.sleep(500);
 //Click the Activate button
 cmp.Click_ActivateButton();
 
-
+for(int i=1;i<=6;i++) 
+{
+	Thread.sleep(500);
+	driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+}
 Thread.sleep(500);
 //Enable Active Status
 cmp.Click_InactivetoActiveButton();
@@ -640,7 +647,11 @@ Thread.sleep(500);
 cmp.VerifyActive_InactiveStatus("Active");
 
 
-
+for(int i=1;i<=8;i++) 
+{
+	Thread.sleep(500);
+	driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+}
 
 		
 	}

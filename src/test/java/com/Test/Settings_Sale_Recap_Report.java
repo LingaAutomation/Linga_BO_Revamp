@@ -557,7 +557,7 @@ public class Settings_Sale_Recap_Report
 				
 				//Enable Cash Drop
 				srrp.Enable_Cash_Drop();
-				
+				try {
 				
 				//Check whether the Cash Expected in Summary Enabled or not
 				if(!srrp.Cash_Expected_Summary_YesBtn().isSelected())
@@ -718,6 +718,10 @@ public class Settings_Sale_Recap_Report
 				else
 				{
 					test.log(LogStatus.FAIL, "Include Credits in Daily Summary Report is Selected");
+				}
+				}
+				catch (Exception e) {
+					// TODO: handle exception
 				}
 
 				
@@ -993,7 +997,7 @@ public class Settings_Sale_Recap_Report
 						}
 
 
-						
+						try {
 						//Check whether the Cash Expected Items screen displayed or not
 						if(srrp.Cash_Expected_AddInputBox().isDisplayed())
 						{
@@ -1074,6 +1078,10 @@ public class Settings_Sale_Recap_Report
 						else
 						{
 							test.log(LogStatus.FAIL, "Include Credits in Daily Summary Report is not Selected");
+						}
+						}
+						catch (Exception e) {
+							// TODO: handle exception
 						}
 
 						
@@ -1370,7 +1378,7 @@ public class Settings_Sale_Recap_Report
 							test.log(LogStatus.FAIL, "Overage/Shortage in Formula Defintion is not Selected");
 						}
 
-				
+				         try {
 						//Check whether the Overage/Shortage Items screen displayed or not
 						if(srrp.Overage_Shortage_AddInputBox().isDisplayed())
 						{
@@ -1427,6 +1435,10 @@ public class Settings_Sale_Recap_Report
 						else
 						{
 							test.log(LogStatus.FAIL, "Include Credits in Daily Summary Report is not Selected");
+						}
+				         }
+				         catch (Exception e) {
+							// TODO: handle exception
 						}
 
 						

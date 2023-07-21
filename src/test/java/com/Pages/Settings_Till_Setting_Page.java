@@ -62,40 +62,40 @@ public class Settings_Till_Setting_Page {
 	@FindBy(xpath =  "//span[contains(.,'SAVE')]")
 	WebElement Save;
 	
-	@FindBy(xpath =  "//span[contains(.,'Automatic Global Till')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath =  "//span[contains(.,'Automatic Global Till')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement No_btn_AGT;
 	
-	@FindBy(xpath =  "//span[contains(.,'Automatic Global Till')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath =  "//span[contains(.,'Automatic Global Till')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Yes_btn_AGT;
 	
-	@FindBy(xpath =  "//span[contains(.,'Force Cash Out at Clock Out')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath =  "//span[contains(.,'Force Cash Out at Clock Out')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement No_btn_FCOCO;
 	
-	@FindBy(xpath =  "//span[contains(.,'Force Cash Out at Clock Out')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath =  "//span[contains(.,'Force Cash Out at Clock Out')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Yes_btn_FCOCO;
 	
-	@FindBy(xpath =  "//span[contains(.,'Restrict Partial Payments')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath =  "//span[contains(.,'Restrict Partial Payments')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement No_btn_RPP;
 	
-	@FindBy(xpath =  "//span[contains(.,'Restrict Partial Payments')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath =  "//span[contains(.,'Restrict Partial Payments')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Yes_btn_RPP;
 	
-	@FindBy(xpath =  "//span[contains(.,'Automatic Global Till')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button[@aria-pressed='true']")
+	@FindBy(xpath =  "//span[contains(.,'Automatic Global Till')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button[@aria-pressed='true']")
 	WebElement No_btn_AGT_selected;
 	
-	@FindBy(xpath =  "//span[contains(.,'Automatic Global Till')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button[@aria-pressed='true']")
+	@FindBy(xpath =  "//span[contains(.,'Automatic Global Till')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button[@aria-pressed='true']")
 	WebElement Yes_btn_AGT_selected;
 	
-	@FindBy(xpath =  "//span[contains(.,'Force Cash Out at Clock Out')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button[@aria-pressed='true']")
+	@FindBy(xpath =  "//span[contains(.,'Force Cash Out at Clock Out')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button[@aria-pressed='true']")
 	WebElement No_btn_FCOCO_selected;
 	
-	@FindBy(xpath =  "//span[contains(.,'Force Cash Out at Clock Out')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button[@aria-pressed='true']")
+	@FindBy(xpath =  "//span[contains(.,'Force Cash Out at Clock Out')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button[@aria-pressed='true']")
 	WebElement Yes_btn_FCOCO_selected;
 	
-	@FindBy(xpath =  "//span[contains(.,'Restrict Partial Payments')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button[@aria-pressed='true']")
+	@FindBy(xpath =  "//span[contains(.,'Restrict Partial Payments')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button[@aria-pressed='true']")
 	WebElement No_btn_RPP_selected;
 	
-	@FindBy(xpath =  "//span[contains(.,'Restrict Partial Payments')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button[@aria-pressed='true']")
+	@FindBy(xpath =  "//span[contains(.,'Restrict Partial Payments')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button[@aria-pressed='true']")
 	WebElement Yes_btn_RPP_selected;
 	
 	@FindBy(xpath =  "//span[contains(.,'BANK DEPOSIT')]")
@@ -376,7 +376,7 @@ public class Settings_Till_Setting_Page {
 
 	
 	public void closeTill() throws Exception {
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		
 		//Click the close till
 		CloseTills.click();
@@ -416,7 +416,7 @@ public class Settings_Till_Setting_Page {
 			test.log(LogStatus.FAIL, "Open By Colum is not displayed while user click the Close Till button");
 		}
 		
-		if(search_denomination.isDisplayed()) {
+		if(search_denomination1.isDisplayed()) {
 			test.log(LogStatus.PASS, "Search option is displayed while user click the Close Till button");
 		}
 		else {
@@ -982,7 +982,7 @@ public class Settings_Till_Setting_Page {
 		//Click the yes toggle of Restrict Partial Payments
 		Yes_btn_RPP.click();
 		
-		Click_Save();Thread.sleep(1000);
+		Click_Save();Thread.sleep(2000);
 		
 		//Check whether the success message is displayed
 		if(successMessage.getText().equals("Till Settings Updated Successfully"))
@@ -1493,6 +1493,8 @@ public class Settings_Till_Setting_Page {
 	
 	public void Delete_Denomination() throws InterruptedException {
 		
+		Thread.sleep(3000);
+		
 		List<WebElement> col = driver.findElements(By.xpath("//div[contains(@class,'cdk-drop-list grid-rows')]/div"));
 		
 		String as = driver.findElement(By.xpath("//div[contains(@class,'cdk-drop-list grid-rows')]/div["+col.size()+"]/div/data-grid-row/div/div[1]/span")).getText();
@@ -1502,10 +1504,10 @@ public class Settings_Till_Setting_Page {
 		
 		//click the close button
 		Close_btn.click();
-		
+		Thread.sleep(1000);
 		//click the delete button
 		driver.findElement(By.xpath("//div[contains(@class,'cdk-drop-list grid-rows')]/div["+col.size()+"]/div/data-grid-row/div/div[3]/div/button")).click();
-		
+		Thread.sleep(1000);
 		//click the close button
 		Cancel_btn.click();
 		

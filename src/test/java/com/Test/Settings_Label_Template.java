@@ -445,58 +445,58 @@ public class Settings_Label_Template
 						
 						
 						
-						if(ltp.Selected_TemplateName().equalsIgnoreCase("Template 1"))
-						{
-							
-							//Get the Customer Info
-							String CustomerInfo_Font_Aft=ltp.CustomerInfo_EpsonBox().getAttribute("value");
-							
-							
-							
-						//Check whether the Templated Updated or not
-						if(CustomerInfo_FontBef.equals(CustomerInfo_Font_Aft))
-						{
-							test.log(LogStatus.PASS, "Customer Info Font Not Changed After Reopen the Page");
-						}
-						else
-						{
-							test.log(LogStatus.FAIL, "Customer Info Changed After Reopen the Page");
-						}
-						}
-						else
-						{
-							
-							//Get the Check & Date
-							String CustomerAddress_Phone_FontAft=ltp.Customer_Address_Phone_Option().getAttribute("value");
-					
-							//Get the Check & Date
-							String DeliveryNotes_FontAft=ltp.Delivery_Notes_Option().getAttribute("value");
-					
-							
-		
-							//Check whether the Templated Updated or not
-							if(CustomerAddress_Phone_FontBef.equals(CustomerAddress_Phone_FontAft))
-							{
-								test.log(LogStatus.PASS, "Customer Address & Phone Font Not Changed After Reopen the Page");
-							}
-							else
-							{
-								test.log(LogStatus.FAIL, "Customer Address & Phone Changed After Reopen the Page");
-							}
-							
-							
-							
-							//Check whether the Templated Updated or not
-							if(DeliveryNotes_FontBef.equals(DeliveryNotes_FontAft))
-							{
-								test.log(LogStatus.PASS, "Delivery Notes Font Not Changed After Reopen the Page");
-							}
-							else
-							{
-								test.log(LogStatus.FAIL, "Delivery Notes Info Changed After Reopen the Page");
-							}
-		
-						}
+//						if(ltp.Selected_TemplateName().equalsIgnoreCase("Template 1"))
+//						{
+//							
+//							//Get the Customer Info
+//							String CustomerInfo_Font_Aft=ltp.CustomerInfo_EpsonBox().getAttribute("value");
+//							
+//							
+//							
+//							//Check whether the Templated Updated or not
+//							if(CustomerInfo_FontBef.equals(CustomerInfo_Font_Aft))
+//							{
+//								test.log(LogStatus.PASS, "Customer Info Font Not Changed After Reopen the Page");
+//							}
+//							else
+//							{
+//								test.log(LogStatus.FAIL, "Customer Info Changed After Reopen the Page");
+//							}
+//						}
+//						else
+//						{
+//							
+//							//Get the Check & Date
+//							String CustomerAddress_Phone_FontAft=ltp.Customer_Address_Phone_Option().getAttribute("value");
+//					
+//							//Get the Check & Date
+//							String DeliveryNotes_FontAft=ltp.Delivery_Notes_Option().getAttribute("value");
+//					
+//							
+//		
+//							//Check whether the Templated Updated or not
+//							if(CustomerAddress_Phone_FontBef.equals(CustomerAddress_Phone_FontAft))
+//							{
+//								test.log(LogStatus.PASS, "Customer Address & Phone Font Not Changed After Reopen the Page");
+//							}
+//							else
+//							{
+//								test.log(LogStatus.FAIL, "Customer Address & Phone Changed After Reopen the Page");
+//							}
+//							
+//							
+//							
+//							//Check whether the Templated Updated or not
+//							if(DeliveryNotes_FontBef.equals(DeliveryNotes_FontAft))
+//							{
+//								test.log(LogStatus.PASS, "Delivery Notes Font Not Changed After Reopen the Page");
+//							}
+//							else
+//							{
+//								test.log(LogStatus.FAIL, "Delivery Notes Info Changed After Reopen the Page");
+//							}
+//		
+//						}
 		
 //						if(cmp.Save_ButtonTwo().isEnabled())
 //						{
@@ -551,39 +551,48 @@ public class Settings_Label_Template
 		//Enter the Width
 		ltp.Enter_Width("5");
 		
-		//Verify whether the Min and Max Error Msg Displayed or not
-		ltp.Verify_Width_ErrorMsg();
+		//Enter the Width
+		ltp.Enter_Height("6");
 		
-				
-				//Enter the Width
-				ltp.Enter_Height("6");
-				
-				//Verify whether the Min and Max Error Msg Displayed or not
-				ltp.Verify_Height_ErrorMsg();
+		if(Bef_Temp == "Template 1") {
+			//Verify whether the Min and Max Error Msg Displayed or not
+			ltp.Verify_Width_ErrorMsg();
+
+			//Verify whether the Min and Max Error Msg Displayed or not
+			ltp.Verify_Height_ErrorMsg();
+		}else {
+			//Verify whether the Min and Max Error Msg Displayed or not
+			ltp.Verify_Width_ErrorMsg_Template2();
+
+			//Verify whether the Min and Max Error Msg Displayed or not
+			ltp.Verify_Height_ErrorMsg_Template2();
+		}
+		
+
 				
 				if(cmp.Save_ButtonTwo().isEnabled())
 				{
-				//Click the Save button
-				cmp.Click_Save_ButtonTwo();
+					//Click the Save button
+					cmp.Click_Save_ButtonTwo();
+					
+					if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Please Select Valid Width and Height"))
+					{
+						test.log(LogStatus.PASS, "Please Select Valid Width and Height is Displayed");
+						
+						ut.PassedCaptureScreenshotAsBASE64(driver, test);
+					}
+					else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Delivery Label Template Saved Successfully"))
+					{
+						test.log(LogStatus.FAIL, "Label Template Saved with Invalid Width or Height");
 				
-				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Please Select Valid Width and Height"))
-				{
-					test.log(LogStatus.PASS, "Please Select Valid Width and Height is Displayed");
-					
-					ut.PassedCaptureScreenshotAsBASE64(driver, test);
-				}
-				else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Delivery Label Template Saved Successfully"))
-				{
-					test.log(LogStatus.FAIL, "Label Template Saved with Invalid Width or Height");
-			
-					ut.FailedCaptureScreenshotAsBASE64(driver, test);
-				}
-				else
-				{
-					test.log(LogStatus.FAIL, "Please Select Valid Width and Height is not Displayed");
-					
-					ut.FailedCaptureScreenshotAsBASE64(driver, test);
-				}
+						ut.FailedCaptureScreenshotAsBASE64(driver, test);
+					}
+					else
+					{
+						test.log(LogStatus.FAIL, "Please Select Valid Width and Height is not Displayed");
+						
+						ut.FailedCaptureScreenshotAsBASE64(driver, test);
+					}
 				}
 				else
 				{
@@ -606,22 +615,21 @@ public class Settings_Label_Template
 				
 				
 				Thread.sleep(2000);
+				//Select Enable Autocut
+				ltp.Select_Enable_Autocut_CheckBox();
 				try
 				{
-				//Check whether the Enable Autocut Disabeld or not
-				if(ltp.Enable_Autocut_CheckBox_SLD().isDisplayed())
-				{
-					test.log(LogStatus.PASS, "Enable Autocut Check Box Enabled while Reopening the page After Saved");					
-				}
+					//Check whether the Enable Autocut Disabeld or not
+					if(ltp.Enable_Autocut_CheckBox_SLD().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enable Autocut Check Box Enabled while Reopening the page After Saved");					
+					}
 				}
 				catch (Exception e) 
 				{
 					test.log(LogStatus.FAIL, "Enable AutocutCheck Box not Enabled while Reopening the page After Saved");
-					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
-				//Select Enable Autocut
-				ltp.Select_Enable_Autocut_CheckBox();
 				
 				for(int i=1;i<=3;i++)
 				{
@@ -632,84 +640,84 @@ public class Settings_Label_Template
 				//Click Font Options Down Right arrow
 				ltp.Open_CheckDetails_Screen();
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				//Select the Business Name Font
 				try
 				{
-				if(ltp.Business_Name_CheckDetails_CheckBox_SLD().isDisplayed())
-				{
-					ltp.Business_Name_CheckDetails_CheckBox().click();
-				}
+					if(ltp.Business_Name_CheckDetails_CheckBox_SLD().isDisplayed())
+					{
+						ltp.Business_Name_CheckDetails_CheckBox().click();
+					}
 				}
 				catch(Exception l)
 				{}
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Server Name Font
-				if(ltp.Server_Name_CheckDetails_CheckBox_SLD().isDisplayed())
-				{
-					ltp.Server_Name_CheckDetails_CheckBox().click();
-				}
+					//Select the Server Name Font
+					if(ltp.Server_Name_CheckDetails_CheckBox_SLD().isDisplayed())
+					{
+						ltp.Server_Name_CheckDetails_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Check Number Font
-				if(ltp.Check_Number_CheckDetails_CheckBox_SLD().isDisplayed())
-				{
-					ltp.Check_Number_CheckDetails_CheckBox().click();
-				}
-				}
-				catch(Exception l) {}
-				
-				
-				Thread.sleep(1000);
-				try
-				{
-				//Select the Order Type Font
-				if(ltp.Order_Type_CheckDetails_CheckBox_SLD().isDisplayed())
-				{
-					ltp.Order_Type_CheckDetails_CheckBox().click();
-				}
+					//Select the Check Number Font
+					if(ltp.Check_Number_CheckDetails_CheckBox_SLD().isDisplayed())
+					{
+						ltp.Check_Number_CheckDetails_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Date & Time Font
-				if(ltp.Date_Time_CheckDetails_CheckBox_SLD().isDisplayed())
-				{
-					ltp.Date_Time_CheckDetails_CheckBox().click();
-				}
+					//Select the Order Type Font
+					if(ltp.Order_Type_CheckDetails_CheckBox_SLD().isDisplayed())
+					{
+						ltp.Order_Type_CheckDetails_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Pay Status Font
-				if(ltp.PayStatus_CheckDetails_CheckBox_SLD().isDisplayed())
-				{
-					ltp.PayStatus_CheckDetails_CheckBox().click();
+					//Select the Date & Time Font
+					if(ltp.Date_Time_CheckDetails_CheckBox_SLD().isDisplayed())
+					{
+						ltp.Date_Time_CheckDetails_CheckBox().click();
+					}
 				}
+				catch(Exception l) {}
+				
+				
+				//Thread.sleep(1000);
+				try
+				{
+					//Select the Pay Status Font
+					if(ltp.PayStatus_CheckDetails_CheckBox_SLD().isDisplayed())
+					{
+						ltp.PayStatus_CheckDetails_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
 				try
 				{
-				Thread.sleep(1000);
-				//Select the Menu Item Number Font
-				if(ltp.MenuItem_Number_CheckDetails_CheckBox_SLD().isDisplayed())
-				{
-					ltp.MenuItem_Number_CheckDetails_CheckBox().click();
-				}
+					//Thread.sleep(1000);
+					//Select the Menu Item Number Font
+					if(ltp.MenuItem_Number_CheckDetails_CheckBox_SLD().isDisplayed())
+					{
+						ltp.MenuItem_Number_CheckDetails_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
@@ -719,39 +727,39 @@ public class Settings_Label_Template
 				//Get the Business Name
 				String Busi_NameFontBef=ltp.Business_Name_Option().getAttribute("value");
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				//Select the Font for Check Details
 				ltp.Select_CheckDetails_Font_Option();
 				
 				//Get the Check Details Font Name
 				String Check_DetailsFontBef=ltp.CheckDetails_Font_Option().getAttribute("value");
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				//Select Order Type & Pay Status
 				ltp.Select_OrderType_PayStatus_Font_Option();
 				
 				//Get the Order Type & Pay Status in Check Details
 				String OrderType_PayStatusFontBef=ltp.OrderType_PayStatus_Font_Option().getAttribute("value");
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Check Details Check box in Check Details screen
-				if(ltp.CheckDetails_CheckDetails_CheckBox_SLD().isDisplayed())
-				{
-					ltp.CheckDetails_CheckDetails_CheckBox().click();
-				}
+					//Select the Check Details Check box in Check Details screen
+					if(ltp.CheckDetails_CheckDetails_CheckBox_SLD().isDisplayed())
+					{
+						ltp.CheckDetails_CheckDetails_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Order Type & Pay Status
-				if(ltp.OrderType_PayStatus_CheckDetails_CheckBox_SLD().isDisplayed())
-				{
-					ltp.OrderType_PayStatus_CheckDetails_CheckBox().click();
-				}
+					//Select the Order Type & Pay Status
+					if(ltp.OrderType_PayStatus_CheckDetails_CheckBox_SLD().isDisplayed())
+					{
+						ltp.OrderType_PayStatus_CheckDetails_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
@@ -768,47 +776,47 @@ public class Settings_Label_Template
 				Thread.sleep(2000);
 				try
 				{
-				//Select the Menu Item Name Font
-				if(ltp.MenuItem_Name_MenuItemInfo_CheckBox_SLD().isDisplayed())
-				{
-					ltp.MenuItem_Name_MenuItemInfo_CheckBox().click();
-				}
-				}
-				catch(Exception l) {}
-				
-				
-				Thread.sleep(1000);
-				try
-				{
-				//Select the Modifiers Font
-				if(ltp.Modifiers_MenuItemInfo_CheckBox_SLD().isDisplayed())
-				{
-					ltp.Modifiers_MenuItemInfo_CheckBox().click();
-				}
+					//Select the Menu Item Name Font
+					if(ltp.MenuItem_Name_MenuItemInfo_CheckBox_SLD().isDisplayed())
+					{
+						ltp.MenuItem_Name_MenuItemInfo_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Menu Item Serving Size Font
-				if(ltp.MenuItem_ServingSize_MenuItemInfo_CheckBox_SLD().isDisplayed())
-				{
-					ltp.MenuItem_ServingSize_MenuItemInfo_CheckBox().click();
-				}
+					//Select the Modifiers Font
+					if(ltp.Modifiers_MenuItemInfo_CheckBox_SLD().isDisplayed())
+					{
+						ltp.Modifiers_MenuItemInfo_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Item Notes Font
-				if(ltp.ItemNotes_MenuItemInfo_CheckBox_SLD().isDisplayed())
-				{
-					ltp.ItemNotes_MenuItemInfo_CheckBox().click();
+					//Select the Menu Item Serving Size Font
+					if(ltp.MenuItem_ServingSize_MenuItemInfo_CheckBox_SLD().isDisplayed())
+					{
+						ltp.MenuItem_ServingSize_MenuItemInfo_CheckBox().click();
+					}
 				}
+				catch(Exception l) {}
+				
+				
+				//Thread.sleep(1000);
+				try
+				{
+					//Select the Item Notes Font
+					if(ltp.ItemNotes_MenuItemInfo_CheckBox_SLD().isDisplayed())
+					{
+						ltp.ItemNotes_MenuItemInfo_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
@@ -827,11 +835,11 @@ public class Settings_Label_Template
 				Thread.sleep(1000);
 				try
 				{
-				//Select the Bottom Divider Font
-				if(ltp.BottomDivider_MenuItemInfo_CheckBox_SLD().isDisplayed())
-				{
-					ltp.BottomDivider_MenuItemInfo_CheckBox().click();
-				}
+					//Select the Bottom Divider Font
+					if(ltp.BottomDivider_MenuItemInfo_CheckBox_SLD().isDisplayed())
+					{
+						ltp.BottomDivider_MenuItemInfo_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
@@ -843,48 +851,48 @@ public class Settings_Label_Template
 				//Open Customer Info screen
 				ltp.Open_Customer_Info_Screen();
 				
-				Thread.sleep(1000);
+				Thread.sleep(2000);
 				try
 				{
-				//Select the Customer Name Font
-				if(ltp.CustomerName_CustomerInfo_CheckBox_SLD().isDisplayed())
-				{
-					ltp.CustomerName_CustomerInfo_CheckBox().click();
-				}
+					//Select the Customer Name Font
+					if(ltp.CustomerName_CustomerInfo_CheckBox_SLD().isDisplayed())
+					{
+						ltp.CustomerName_CustomerInfo_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Customer Address Font
-				if(ltp.CustomerAddress_CustomerInfo_CheckBox_SLD().isDisplayed())
-				{
-					ltp.CustomerAddress_CustomerInfo_CheckBox().click();
-				}
+					//Select the Customer Address Font
+					if(ltp.CustomerAddress_CustomerInfo_CheckBox_SLD().isDisplayed())
+					{
+						ltp.CustomerAddress_CustomerInfo_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Delivery Notes Font
-				if(ltp.DeliveryNotes_CustomerInfo_CheckBox_SLD().isDisplayed())
-				{
-					ltp.DeliveryNotes_CustomerInfo_CheckBox().click();
-				}
+					//Select the Delivery Notes Font
+					if(ltp.DeliveryNotes_CustomerInfo_CheckBox_SLD().isDisplayed())
+					{
+						ltp.DeliveryNotes_CustomerInfo_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Phone Number Font
-				if(ltp.PhoneNumber_CustomerInfo_CheckBox_SLD().isDisplayed())
-				{
-					ltp.PhoneNumber_CustomerInfo_CheckBox().click();
-				}
+					//Select the Phone Number Font
+					if(ltp.PhoneNumber_CustomerInfo_CheckBox_SLD().isDisplayed())
+					{
+						ltp.PhoneNumber_CustomerInfo_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 					
@@ -903,14 +911,14 @@ public class Settings_Label_Template
 				String CustomerDetails_CustomerInfoFontBef=ltp.CustomerDetails_CustomerInfo_Font_Option().getAttribute("value");
 				
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Phone Number Font
-				if(ltp.RightDivider_CustomerInfo_CheckBox_SLD().isDisplayed())
-				{
-					ltp.RightDivider_CustomerInfo_CheckBox().click();
-				}
+					//Select the Phone Number Font
+					if(ltp.RightDivider_CustomerInfo_CheckBox_SLD().isDisplayed())
+					{
+						ltp.RightDivider_CustomerInfo_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
@@ -926,83 +934,83 @@ public class Settings_Label_Template
 				Thread.sleep(1000);
 				try
 				{
-				//Select the Sub Total in Order Summary
-				if(ltp.SubTotal_OrderSummary_CheckBox_SLD().isDisplayed())
-				{
-					ltp.SubTotal_OrderSummary_CheckBox().click();
-				}
-				}
-				catch(Exception l) {}
-				
-				
-				Thread.sleep(1000);
-				try
-				{
-				//Select the Tip in Order Summary
-				if(ltp.Tip_OrderSummary_CheckBox_SLD().isDisplayed())
-				{
-					ltp.Tip_OrderSummary_CheckBox().click();
-				}
+					//Select the Sub Total in Order Summary
+					if(ltp.SubTotal_OrderSummary_CheckBox_SLD().isDisplayed())
+					{
+						ltp.SubTotal_OrderSummary_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Discounts in Order Summary
-				if(ltp.Discounts_OrderSummary_CheckBox_SLD().isDisplayed())
-				{
-					ltp.Discounts_OrderSummary_CheckBox().click();
-				}
+					//Select the Tip in Order Summary
+					if(ltp.Tip_OrderSummary_CheckBox_SLD().isDisplayed())
+					{
+						ltp.Tip_OrderSummary_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Total in Order Summary
-				if(ltp.Total_OrderSummary_CheckBox_SLD().isDisplayed())
-				{
-					ltp.Total_OrderSummary_CheckBox().click();
-				}
+					//Select the Discounts in Order Summary
+					if(ltp.Discounts_OrderSummary_CheckBox_SLD().isDisplayed())
+					{
+						ltp.Discounts_OrderSummary_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Delivery Fee in Order Summary
-				if(ltp.DeliveryFee_OrderSummary_CheckBox_SLD().isDisplayed())
-				{
-					ltp.DeliveryFee_OrderSummary_CheckBox().click();
-				}
+					//Select the Total in Order Summary
+					if(ltp.Total_OrderSummary_CheckBox_SLD().isDisplayed())
+					{
+						ltp.Total_OrderSummary_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Balance Due in Order Summary
-				if(ltp.BalanceDue_OrderSummary_CheckBox_SLD().isDisplayed())
-				{
-					ltp.BalanceDue_OrderSummary_CheckBox().click();
-				}
+					//Select the Delivery Fee in Order Summary
+					if(ltp.DeliveryFee_OrderSummary_CheckBox_SLD().isDisplayed())
+					{
+						ltp.DeliveryFee_OrderSummary_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
 				
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				try
 				{
-				//Select the Tax in Order Summary
-				if(ltp.Tax_OrderSummary_CheckBox_SLD().isDisplayed())
-				{
-					ltp.Tax_OrderSummary_CheckBox().click();
+					//Select the Balance Due in Order Summary
+					if(ltp.BalanceDue_OrderSummary_CheckBox_SLD().isDisplayed())
+					{
+						ltp.BalanceDue_OrderSummary_CheckBox().click();
+					}
 				}
+				catch(Exception l) {}
+				
+				
+				//Thread.sleep(1000);
+				try
+				{
+					//Select the Tax in Order Summary
+					if(ltp.Tax_OrderSummary_CheckBox_SLD().isDisplayed())
+					{
+						ltp.Tax_OrderSummary_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
@@ -1031,7 +1039,7 @@ public class Settings_Label_Template
 				//Click the Save button
 				cmp.Click_Save_ButtonTwo();
 				
-				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Delivery Label Template Saved Successfully"))
+				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Zebra Label Template Saved Successfully"))
 				{
 					test.log(LogStatus.PASS, "Label Template Saved Successfully for Zebra Label Template (Selecting Font & Disable All Check)");
 					
@@ -1045,8 +1053,6 @@ public class Settings_Label_Template
 				}
 				
 				
-				
-				
 				Thread.sleep(1000);
 				//Click the Epson Box
 				ltp.Click_EpsonBox_LabelTemplate();
@@ -1058,23 +1064,23 @@ public class Settings_Label_Template
 				Thread.sleep(2000);
 				//Navigate to Back
 //				driver.navigate().back();
-				driver.navigate().refresh();
-				Thread.sleep(5000);
+//				driver.navigate().refresh();
+//				Thread.sleep(3000);
 				//Navigate to Forward
 //				driver.navigate().forward();
 				
 				//Click the Zebra Template
-				ltp.Click_Zebra_LabelTemplate();
+//				ltp.Click_Zebra_LabelTemplate();
 				
 				
 				Thread.sleep(2000);
 				try
 				{
-				//Check whether the Enable Autocut Disabeld or not
-				if(ltp.Enable_Autocut_CheckBox_SLD().isDisplayed())
-				{
-					test.log(LogStatus.PASS, "Enable Autocut Check Box Selected while Reopening the page After Saved");					
-				}
+					//Check whether the Enable Autocut Disabeld or not
+					if(ltp.Enable_Autocut_CheckBox_SLD().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enable Autocut Check Box Selected while Reopening the page After Saved");					
+					}
 				}
 				catch (Exception e)
 				{
@@ -1130,141 +1136,139 @@ public class Settings_Label_Template
 						
 						
 						
-						Thread.sleep(1000);
+						
 						try
 						{
-						//Select the Business Name Font
-						if(ltp.Business_Name_CheckDetails_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.FAIL, "Business Name Check Box Selected while Reopening the page After Saved");
-							ut.FailedCaptureScreenshotAsBASE64(driver, test);
-						}
+							//Select the Business Name Font
+							if(ltp.Business_Name_CheckDetails_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Business Name Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Business Name
+								ltp.Business_Name_CheckDetails_CheckBox().click();
+							}
 						}
 						catch(Exception p)
 						{
-							test.log(LogStatus.PASS, "Business Name Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Business Name
-							ltp.Business_Name_CheckDetails_CheckBox().click();
+
+							test.log(LogStatus.FAIL, "Business Name Check Box Selected while Reopening the page After Saved");
+							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						
 						}
 						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Server Name Font
-						if(ltp.Server_Name_CheckDetails_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.FAIL, "Server Name Check Box Selected while Reopening the page After Saved");
-							ut.FailedCaptureScreenshotAsBASE64(driver, test);
+							//Select the Server Name Font
+							if(ltp.Server_Name_CheckDetails_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Server Name Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Server Name
+								ltp.Server_Name_CheckDetails_CheckBox().click();
+								
 							
-						
-						}
+							}
 						}
 						catch(Exception k)
 						{
-							test.log(LogStatus.PASS, "Server Name Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Server Name
-							ltp.Server_Name_CheckDetails_CheckBox().click();
+
+							test.log(LogStatus.FAIL, "Server Name Check Box Selected while Reopening the page After Saved");
+							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Check Number Font
-						if(ltp.Check_Number_CheckDetails_CheckBox_SLD().isDisplayed())
+							//Select the Check Number Font
+							if(ltp.Check_Number_CheckDetails_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Check Number Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Check Number
+								ltp.Check_Number_CheckDetails_CheckBox().click(); 
+								
+							
+							}
+						}
+						catch (Exception e) 
 						{
 							test.log(LogStatus.FAIL, "Check Number Check Box Selected while Reopening the page After Saved");
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
-						
 						}
-						}
-						catch (Exception e) 
-						{
-							test.log(LogStatus.PASS, "Check Number Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Check Number
-							ltp.Check_Number_CheckDetails_CheckBox().click(); 
-						}
-						
-						Thread.sleep(1000);
+
 						try
 						{
-						//Select the Order Type Font
-						if(ltp.Order_Type_CheckDetails_CheckBox_SLD().isDisplayed())
+							//Select the Order Type Font
+							if(ltp.Order_Type_CheckDetails_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Order Type Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Order Type
+								ltp.Order_Type_CheckDetails_CheckBox().click();
+								
+							
+							}
+						}
+						catch (Exception e) 
 						{
 							test.log(LogStatus.FAIL, "Order Type Check Box Selected while Reopening the page After Saved");
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
-						
 						}
+						
+						try
+						{
+							//Select the Date & Time Font
+							if(ltp.Date_Time_CheckDetails_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Date & Time Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Date & Time
+								ltp.Date_Time_CheckDetails_CheckBox().click();
+							}
 						}
 						catch (Exception e) 
 						{
-							test.log(LogStatus.PASS, "Order Type Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Order Type
-							ltp.Order_Type_CheckDetails_CheckBox().click();
-						}
-						
-						Thread.sleep(1000);
-						try
-						{
-						//Select the Date & Time Font
-						if(ltp.Date_Time_CheckDetails_CheckBox().isDisplayed())
-						{
-						
+
 							test.log(LogStatus.FAIL, "Date & Time Check Box Selected while Reopening the page After Saved");
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
+						
 						}
+						
+						try
+						{
+							//Select the Pay Status Font
+							if(ltp.PayStatus_CheckDetails_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Pay Status Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Pay Status
+								ltp.PayStatus_CheckDetails_CheckBox().click();
+								
+							}
 						}
 						catch (Exception e) 
 						{
-							test.log(LogStatus.PASS, "Date & Time Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Date & Time
-							ltp.Date_Time_CheckDetails_CheckBox().click();	
-						
-						}
-						
-						Thread.sleep(1000);
-						try
-						{
-						//Select the Pay Status Font
-						if(ltp.PayStatus_CheckDetails_CheckBox().isDisplayed())
-						{
-							
 							test.log(LogStatus.FAIL, "Pay Status Check Box Selected while Reopening the page After Saved");
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
-						}
-						}
-						catch (Exception e) 
-						{
-							test.log(LogStatus.PASS, "Pay Status Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Pay Status
-							ltp.PayStatus_CheckDetails_CheckBox().click();
 						
 						}
 						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Menu Item Number Font
-						if(ltp.MenuItem_Number_CheckDetails_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.FAIL, "Menu Item Number Check Box Selected while Reopening the page After Saved");
-							ut.FailedCaptureScreenshotAsBASE64(driver, test);
-						
-						}
+							//Select the Menu Item Number Font
+							if(ltp.MenuItem_Number_CheckDetails_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Menu Item Number Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Menu Item Number
+								ltp.MenuItem_Number_CheckDetails_CheckBox().click();
+							
+							}
 						}
 						catch (Exception e)
 						{
-							test.log(LogStatus.PASS, "Menu Item Number Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Menu Item Number
-							ltp.MenuItem_Number_CheckDetails_CheckBox().click();
+
+							test.log(LogStatus.FAIL, "Menu Item Number Check Box Selected while Reopening the page After Saved");
+							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 
 						
@@ -1309,42 +1313,42 @@ public class Settings_Label_Template
 							test.log(LogStatus.FAIL, "Order Type & Pay Status Font in Zebra Template Changed After Reopen the Page");
 						}
 			
-						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Check Details Check box in Check Details screen
-						if(ltp.CheckDetails_CheckDetails_CheckBox_SLD().isDisplayed())
+							//Select the Check Details Check box in Check Details screen
+							if(ltp.CheckDetails_CheckDetails_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Check Details Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Check Details
+								ltp.CheckDetails_CheckDetails_CheckBox().click();
+								
+							}
+						}
+						catch (Exception e) 
 						{
 							test.log(LogStatus.FAIL, "Check Details Check Box Selected while Reopening the page After Saved");
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
-						}
-						catch (Exception e) 
-						{
-							test.log(LogStatus.PASS, "Check Details Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Check Details
-							ltp.CheckDetails_CheckDetails_CheckBox().click();
-						}
 						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Order Type & Pay Status
-						if(ltp.OrderType_PayStatus_CheckDetails_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.FAIL, "Order Type & Pay Status Check Box Selected while Reopening the page After Saved");
-							ut.FailedCaptureScreenshotAsBASE64(driver, test);
-						}
+							//Select the Order Type & Pay Status
+							if(ltp.OrderType_PayStatus_CheckDetails_CheckBox_SLD1().isDisplayed())
+							{
+
+								test.log(LogStatus.PASS, "Order Type & Pay Status Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Order Type & Pay Status
+
+								ltp.OrderType_PayStatus_CheckDetails_CheckBox().click();
+							}
 						}
 						catch(Exception l)
 						{
-						
-							test.log(LogStatus.PASS, "Order Type & Pay Status Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Order Type & Pay Status
-							ltp.OrderType_PayStatus_CheckDetails_CheckBox().click();
+
+							test.log(LogStatus.FAIL, "Order Type & Pay Status Check Box Selected while Reopening the page After Saved");
+							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
 						Thread.sleep(2000);
@@ -1355,81 +1359,77 @@ public class Settings_Label_Template
 						//Open the Menu Info
 						ltp.Open_MenuItem_Info_Screen();
 						
-
-						Thread.sleep(1000);
 						try
 						{
 									//Select the Menu Item Name Font
-									if(ltp.MenuItem_Name_MenuItemInfo_CheckBox_SLD().isDisplayed())
+									if(ltp.MenuItem_Name_MenuItemInfo_CheckBox_SLD1().isDisplayed())
 									{
-										test.log(LogStatus.FAIL, "Menu Item Name Check Box Selected while Reopening the page After Saved");					
-										ut.FailedCaptureScreenshotAsBASE64(driver, test);
-									}
-						}
-						catch (Exception e) 
-						{
-								
 										test.log(LogStatus.PASS, "Menu Item Name Check Box not Selected while Reopening the page After Saved");					
 										
 										//Enable Menu Item Name
 										ltp.MenuItem_Name_MenuItemInfo_CheckBox().click();
+										
+									}
+						}
+						catch (Exception e) 
+						{
+							test.log(LogStatus.FAIL, "Menu Item Name Check Box Selected while Reopening the page After Saved");					
+							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 									
-									Thread.sleep(1000);
 									try
 									{
-									//Select the Modifiers Font
-									if(ltp.Modifiers_MenuItemInfo_CheckBox_SLD().isDisplayed())
+										//Select the Modifiers Font
+										if(ltp.Modifiers_MenuItemInfo_CheckBox_SLD1().isDisplayed())
+										{
+											test.log(LogStatus.PASS, "Modifiers Check Box not Selected while Reopening the page After Saved");					
+											
+											
+											//Enable Modifiers
+											ltp.Modifiers_MenuItemInfo_CheckBox().click();
+											
+										}
+									}
+									catch (Exception e)
 									{
 										test.log(LogStatus.FAIL, "Modifiers Check Box Selected while Reopening the page After Saved");
 										ut.FailedCaptureScreenshotAsBASE64(driver, test);
 									}
-									}
-									catch (Exception e)
-									{
-									
-										test.log(LogStatus.PASS, "Modifiers Check Box not Selected while Reopening the page After Saved");					
-										
-										
-										//Enable Modifiers
-										ltp.Modifiers_MenuItemInfo_CheckBox().click();
-									}
 						
-									Thread.sleep(1000);
 									try
 									{
-									//Select the Menu Item Serving Size Font
-									if(ltp.MenuItem_ServingSize_MenuItemInfo_CheckBox_SLD().isDisplayed())
+										//Select the Menu Item Serving Size Font
+										if(ltp.MenuItem_ServingSize_MenuItemInfo_CheckBox_SLD1().isDisplayed())
+										{
+											test.log(LogStatus.PASS, "Menu Item Serving Size Check Box not Selected while Reopening the page After Saved");					
+											
+											//Enable Menu Item Serving Size
+												ltp.MenuItem_ServingSize_MenuItemInfo_CheckBox().click();
+										
+										}
+									}
+									catch(Exception l)
 									{
 										test.log(LogStatus.FAIL, "Menu Item Serving Size Check Box Selected while Reopening the page After Saved");
 										ut.FailedCaptureScreenshotAsBASE64(driver, test);
 									}
-									}
-									catch(Exception l)
-									{
-										test.log(LogStatus.PASS, "Menu Item Serving Size Check Box not Selected while Reopening the page After Saved");					
-										
-										//Enable Menu Item Serving Size
-											ltp.MenuItem_ServingSize_MenuItemInfo_CheckBox().click();
-									}
 									
-									
-									Thread.sleep(1000);
 									try
 									{
-									//Select the Item Notes Font
-									if(ltp.ItemNotes_MenuItemInfo_CheckBox_SLD().isDisplayed())
+										//Select the Item Notes Font
+										if(ltp.ItemNotes_MenuItemInfo_CheckBox_SLD1().isDisplayed())
+										{
+											test.log(LogStatus.PASS, "Item Notes Check Box not Selected while Reopening the page After Saved");					
+											
+											//Enable Item Notes
+												ltp.ItemNotes_MenuItemInfo_CheckBox().click();
+											
+										}
+									}
+									catch(Exception l)
 									{
 										test.log(LogStatus.FAIL, "Item Notes Check Box Selected while Reopening the page After Saved");
 										ut.FailedCaptureScreenshotAsBASE64(driver, test);
-									}
-									}
-									catch(Exception l)
-									{
-										test.log(LogStatus.PASS, "Item Notes Check Box not Selected while Reopening the page After Saved");					
-										
-										//Enable Item Notes
-											ltp.ItemNotes_MenuItemInfo_CheckBox().click();
 									}
 						
 						//Get the Business Name
@@ -1460,22 +1460,22 @@ public class Settings_Label_Template
 							test.log(LogStatus.FAIL, "Modifiers & Notes Font in Zebra Template Changed After Reopen the Page");
 						}
 						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Bottom Divider Font
-						if(ltp.BottomDivider_MenuItemInfo_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.FAIL, "Bottom Divider Check Box Selected while Reopening the page After Saved");
-							ut.FailedCaptureScreenshotAsBASE64(driver, test);
-						}
+							//Select the Bottom Divider Font
+							if(ltp.BottomDivider_MenuItemInfo_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Bottom Divider Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Botton Divider
+									ltp.BottomDivider_MenuItemInfo_CheckBox().click();
+								
+							}
 						}
 						catch(Exception l)
 						{
-							test.log(LogStatus.PASS, "Bottom Divider Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Botton Divider
-								ltp.BottomDivider_MenuItemInfo_CheckBox().click();
+							test.log(LogStatus.FAIL, "Bottom Divider Check Box Selected while Reopening the page After Saved");
+							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
 						Thread.sleep(2000);
@@ -1486,78 +1486,77 @@ public class Settings_Label_Template
 						//Open Customer Info
 						ltp.Open_Customer_Info_Screen();
 						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Customer Name
-						if(ltp.CustomerName_CustomerInfo_CheckBox_SLD().isDisplayed())
+							//Select the Customer Name
+							if(ltp.CustomerName_CustomerInfo_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Customer Name Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Customer Name
+								ltp.CustomerName_CustomerInfo_CheckBox().click();	
+								
+							}
+						}
+						catch(Exception l)
 						{
 							test.log(LogStatus.FAIL, "Customer Name Check Box Selected while Reopening the page After Saved");
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
+							
+						try
+						{
+							//Select the Customer Address Font
+							if(ltp.CustomerAddress_CustomerInfo_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Customer Address Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Customer Address
+									ltp.CustomerAddress_CustomerInfo_CheckBox().click();
+							
+							}
 						}
 						catch(Exception l)
 						{
-							test.log(LogStatus.PASS, "Customer Name Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Customer Name
-							ltp.CustomerName_CustomerInfo_CheckBox().click();	
-						}
-							
-						Thread.sleep(1000);
-						try
-						{
-						//Select the Customer Address Font
-						if(ltp.CustomerAddress_CustomerInfo_CheckBox_SLD().isDisplayed())
-						{
-							
 							test.log(LogStatus.FAIL, "Customer Address Check Box Selected while Reopening the page After Saved");
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
-						}
-						catch(Exception l)
-						{
-							test.log(LogStatus.PASS, "Customer Address Check Box not Selected while Reopening the page After Saved");					
 							
-							//Enable Customer Address
-								ltp.CustomerAddress_CustomerInfo_CheckBox().click();
-						}
-							
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Delivery Notes Font
-						if(ltp.DeliveryNotes_CustomerInfo_CheckBox_SLD().isDisplayed())
+							//Select the Delivery Notes Font
+							if(ltp.DeliveryNotes_CustomerInfo_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Delivery Notes Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Delivery Notes
+									ltp.DeliveryNotes_CustomerInfo_CheckBox().click();
+								
+							}
+						}
+						catch(Exception k)
 						{
 							test.log(LogStatus.FAIL, "Delivery Notes Check Box Selected while Reopening the page After Saved");
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
-						}
-						catch(Exception k)
-						{
-							test.log(LogStatus.PASS, "Delivery Notes Check Box not Selected while Reopening the page After Saved");					
 							
-							//Enable Delivery Notes
-								ltp.DeliveryNotes_CustomerInfo_CheckBox().click();
-						}
-							
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Phone Number Font
-						if(ltp.PhoneNumber_CustomerInfo_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.FAIL, "Phone Number Check Box Selected while Reopening the page After Saved");
-							ut.FailedCaptureScreenshotAsBASE64(driver, test);
-						
-						}
+							//Select the Phone Number Font
+							if(ltp.PhoneNumber_CustomerInfo_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Phone Number Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Phone Number
+									ltp.PhoneNumber_CustomerInfo_CheckBox().click();
+								
+							
+							}
 						}
 						catch(Exception l)
 						{
-							test.log(LogStatus.PASS, "Phone Number Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Phone Number
-								ltp.PhoneNumber_CustomerInfo_CheckBox().click();
+							test.log(LogStatus.FAIL, "Phone Number Check Box Selected while Reopening the page After Saved");
+							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
 						
@@ -1587,23 +1586,23 @@ public class Settings_Label_Template
 							test.log(LogStatus.FAIL, "Customer Details Font in Zebra Template Changed After Reopen the Page");
 						}
 
-						Thread.sleep(1000);
 						try
 						{
 									//Select the Phone Number Font
-									if(ltp.RightDivider_CustomerInfo_CheckBox_SLD().isDisplayed())
+									if(ltp.RightDivider_CustomerInfo_CheckBox_SLD1().isDisplayed())
 									{
-										test.log(LogStatus.FAIL, "Right Divider Check Box Selected while Reopening the page After Saved");
-										ut.FailedCaptureScreenshotAsBASE64(driver, test);
+										test.log(LogStatus.PASS, "Right Divider Check Box not Selected while Reopening the page After Saved");					
+										
+										//Enable Right Divider
+										ltp.RightDivider_CustomerInfo_CheckBox().click();
+
 									}
 						}
 						catch(Exception p)
 						{
-									test.log(LogStatus.PASS, "Right Divider Check Box not Selected while Reopening the page After Saved");					
-										
-									//Enable Right Divider
-									ltp.RightDivider_CustomerInfo_CheckBox().click();
-										
+									
+							test.log(LogStatus.FAIL, "Right Divider Check Box Selected while Reopening the page After Saved");
+							ut.FailedCaptureScreenshotAsBASE64(driver, test);		
 						}
 						
 						Thread.sleep(2000);
@@ -1617,136 +1616,129 @@ public class Settings_Label_Template
 						Thread.sleep(1000);
 						try
 						{
-						//Select the Sub Total in Order Summary
-						if(ltp.SubTotal_OrderSummary_CheckBox_SLD().isDisplayed())
+							//Select the Sub Total in Order Summary
+							if(ltp.SubTotal_OrderSummary_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Sub Total Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Sub Total
+									ltp.SubTotal_OrderSummary_CheckBox().click();
+							}
+						}
+						catch(Exception p)
 						{
 							test.log(LogStatus.FAIL, "Sub Total Check Box Selected while Reopening the page After Saved");
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
-						}
-						catch(Exception p)
-						{
-							test.log(LogStatus.PASS, "Sub Total Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Sub Total
-								ltp.SubTotal_OrderSummary_CheckBox().click();
-						}
 						
 						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Tip in Order Summary
-						if(ltp.Tip_OrderSummary_CheckBox_SLD().isDisplayed())
+							//Select the Tip in Order Summary
+							if(ltp.Tip_OrderSummary_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Tip Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Tip
+									ltp.Tip_OrderSummary_CheckBox().click();
+							}
+						}
+						catch(Exception p)
 						{
 							test.log(LogStatus.FAIL, "Tip Check Box Selected while Reopening the page After Saved");
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
-						}
-						catch(Exception p)
-						{
-							test.log(LogStatus.PASS, "Tip Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Tip
-								ltp.Tip_OrderSummary_CheckBox().click();
-						}
 						
 						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Discounts in Order Summary
-						if(ltp.Discounts_OrderSummary_CheckBox_SLD().isDisplayed())
+							//Select the Discounts in Order Summary
+							if(ltp.Discounts_OrderSummary_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Discounts Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Discounts
+									ltp.Discounts_OrderSummary_CheckBox().click();
+								
+							}
+						}
+						catch(Exception p)
 						{
 							test.log(LogStatus.FAIL, "Discounts Check Box Selected while Reopening the page After Saved");
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
-						}
-						}
-						catch(Exception p)
-						{
-							test.log(LogStatus.PASS, "Discounts Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Discounts
-								ltp.Discounts_OrderSummary_CheckBox().click();
 							
 						}
 						
 						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Total in Order Summary
-						if(ltp.Total_OrderSummary_CheckBox_SLD().isDisplayed())
+							//Select the Total in Order Summary
+							if(ltp.Total_OrderSummary_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Total Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Total
+								ltp.Total_OrderSummary_CheckBox().click();
+							
+							}
+						}
+						catch(Exception l)
 						{
 							test.log(LogStatus.FAIL, "Total Check Box Selected while Reopening the page After Saved");
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
-						
-						}
-						}
-						catch(Exception l)
-						{
-							test.log(LogStatus.PASS, "Total Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Total
-							ltp.Total_OrderSummary_CheckBox().click();
 						}
 						
-						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Delivery Fee in Order Summary
-						if(ltp.DeliveryFee_OrderSummary_CheckBox_SLD().isDisplayed())
-						{
-						
-							test.log(LogStatus.FAIL, "Delivery Fee Check Box Selected while Reopening the page After Saved");
-							ut.FailedCaptureScreenshotAsBASE64(driver, test);
-						}
+							//Select the Delivery Fee in Order Summary
+							if(ltp.DeliveryFee_OrderSummary_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Delivery Fee Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Delivery Fee
+									ltp.DeliveryFee_OrderSummary_CheckBox().click();
+							}
 						}
 						catch (Exception e)
 						{
-							test.log(LogStatus.PASS, "Delivery Fee Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Delivery Fee
-								ltp.DeliveryFee_OrderSummary_CheckBox().click();
+
+							test.log(LogStatus.FAIL, "Delivery Fee Check Box Selected while Reopening the page After Saved");
+							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Balance Due in Order Summary
-						if(ltp.BalanceDue_OrderSummary_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.FAIL, "Balance Due Check Box Selected while Reopening the page After Saved");
-							ut.FailedCaptureScreenshotAsBASE64(driver, test);
-						
-						}
+							//Select the Balance Due in Order Summary
+							if(ltp.BalanceDue_OrderSummary_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Balance Due Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Balance Due
+									ltp.BalanceDue_OrderSummary_CheckBox().click();
+							}
 						}
 						catch(Exception l)
 						{
-							test.log(LogStatus.PASS, "Balance Due Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Balance Due
-								ltp.BalanceDue_OrderSummary_CheckBox().click();
-						}
-						
-						Thread.sleep(1000);
-						try
-						{
-						//Select the Tax in Order Summary
-						if(ltp.Tax_OrderSummary_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.FAIL, "Tax Check Box Selected while Reopening the page After Saved");
+							test.log(LogStatus.FAIL, "Balance Due Check Box Selected while Reopening the page After Saved");
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
+						
+						try
+						{
+							//Select the Tax in Order Summary
+							if(ltp.Tax_OrderSummary_CheckBox_SLD1().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Tax Check Box not Selected while Reopening the page After Saved");					
+								
+								//Enable Tax
+									ltp.Tax_OrderSummary_CheckBox().click();
+								
+							}
 						}
 						catch(Exception p)
 						{
-							test.log(LogStatus.PASS, "Tax Check Box not Selected while Reopening the page After Saved");					
-							
-							//Enable Tax
-								ltp.Tax_OrderSummary_CheckBox().click();
+							test.log(LogStatus.FAIL, "Tax Check Box Selected while Reopening the page After Saved");
+							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 
 
@@ -1789,7 +1781,7 @@ public class Settings_Label_Template
 						
 						Thread.sleep(2000);
 						//Verify whether the Label Template Saved or not
-						if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Zabra Label Template Saved Successfully"))
+						if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Zebra Label Template Saved Successfully"))
 						{
 							test.log(LogStatus.PASS, "Label Template Saved Successfully for Zebra Label Template (Enable All Checkbox)");
 							
@@ -1803,7 +1795,7 @@ public class Settings_Label_Template
 						}
 						
 						Thread.sleep(2000);
-						driver.navigate().refresh();
+						//driver.navigate().refresh();
 						
 						Thread.sleep(5000);
 						
@@ -1816,26 +1808,25 @@ public class Settings_Label_Template
 						Thread.sleep(1000);
 						try
 						{
-						//Select the Business Name Font
-						if(ltp.Business_Name_CheckDetails_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Business Name Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Business Name Font
+							if(ltp.Business_Name_CheckDetails_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Business Name Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception l)
 						{
 							test.log(LogStatus.FAIL, "Business Name Check Box not Selected while Reopening the page After Saved");
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
-						
-						Thread.sleep(1000);
+		
 						try
 						{
-						//Select the Server Name Font
-						if(ltp.Server_Name_CheckDetails_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Server Name Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Server Name Font
+							if(ltp.Server_Name_CheckDetails_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Server Name Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception p)
 						{
@@ -1843,15 +1834,13 @@ public class Settings_Label_Template
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Check Number Font
-						if(ltp.Check_Number_CheckDetails_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Check Number Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Check Number Font
+							if(ltp.Check_Number_CheckDetails_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Check Number Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception l)
 						{
@@ -1859,14 +1848,13 @@ public class Settings_Label_Template
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Order Type Font
-						if(ltp.Order_Type_CheckDetails_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Order Type Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Order Type Font
+							if(ltp.Order_Type_CheckDetails_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Order Type Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception l)
 						{
@@ -1874,14 +1862,13 @@ public class Settings_Label_Template
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Date & Time Font
-						if(ltp.Date_Time_CheckDetails_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Date & Time Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Date & Time Font
+							if(ltp.Date_Time_CheckDetails_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Date & Time Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception e)
 						{
@@ -1889,14 +1876,13 @@ public class Settings_Label_Template
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Pay Status Font
-						if(ltp.PayStatus_CheckDetails_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Pay Status Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Pay Status Font
+							if(ltp.PayStatus_CheckDetails_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Pay Status Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception p)
 						{
@@ -1904,14 +1890,13 @@ public class Settings_Label_Template
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Menu Item Number Font
-						if(ltp.MenuItem_Number_CheckDetails_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Menu Item Number Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Menu Item Number Font
+							if(ltp.MenuItem_Number_CheckDetails_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Menu Item Number Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception p)
 						{
@@ -1919,16 +1904,13 @@ public class Settings_Label_Template
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 
-					
-						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Check Details Check box in Check Details screen
-						if(ltp.CheckDetails_CheckDetails_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Check Details Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Check Details Check box in Check Details screen
+							if(ltp.CheckDetails_CheckDetails_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Check Details Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception p)
 						{
@@ -1936,14 +1918,13 @@ public class Settings_Label_Template
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Order Type & Pay Status
-						if(ltp.OrderType_PayStatus_CheckDetails_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Order Type & Pay Status Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Order Type & Pay Status
+							if(ltp.OrderType_PayStatus_CheckDetails_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Order Type & Pay Status Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception p)
 						{
@@ -1974,14 +1955,13 @@ public class Settings_Label_Template
 									test.log(LogStatus.FAIL, "Menu Item Name Check Box not Selected while Reopening the page After Saved");
 						}
 									
-									Thread.sleep(1000);
 									try
 									{
-									//Select the Modifiers Font
-									if(ltp.Modifiers_MenuItemInfo_CheckBox_SLD().isDisplayed())
-									{
-										test.log(LogStatus.PASS, "Modifiers Check Box Selected while Reopening the page After Saved");					
-									}
+										//Select the Modifiers Font
+										if(ltp.Modifiers_MenuItemInfo_CheckBox_SLD().isDisplayed())
+										{
+											test.log(LogStatus.PASS, "Modifiers Check Box Selected while Reopening the page After Saved");					
+										}
 									}
 									catch(Exception p)
 									{
@@ -1989,14 +1969,13 @@ public class Settings_Label_Template
 									ut.FailedCaptureScreenshotAsBASE64(driver, test);
 									}
 									
-									Thread.sleep(1000);
 									try
 									{
-									//Select the Menu Item Serving Size Font
-									if(ltp.MenuItem_ServingSize_MenuItemInfo_CheckBox_SLD().isDisplayed())
-									{
-										test.log(LogStatus.PASS, "Menu Item Serving Size Check Box Selected while Reopening the page After Saved");					
-									}
+										//Select the Menu Item Serving Size Font
+										if(ltp.MenuItem_ServingSize_MenuItemInfo_CheckBox_SLD().isDisplayed())
+										{
+											test.log(LogStatus.PASS, "Menu Item Serving Size Check Box Selected while Reopening the page After Saved");					
+										}
 									}
 									catch(Exception p)
 									{
@@ -2004,15 +1983,13 @@ public class Settings_Label_Template
 									ut.FailedCaptureScreenshotAsBASE64(driver, test);
 									}
 									
-									
-									Thread.sleep(1000);
 									try
 									{
-									//Select the Item Notes Font
-									if(ltp.ItemNotes_MenuItemInfo_CheckBox_SLD().isDisplayed())
-									{
-										test.log(LogStatus.PASS, "Item Notes Check Box Selected while Reopening the page After Saved");					
-									}
+										//Select the Item Notes Font
+										if(ltp.ItemNotes_MenuItemInfo_CheckBox_SLD().isDisplayed())
+										{
+											test.log(LogStatus.PASS, "Item Notes Check Box Selected while Reopening the page After Saved");					
+										}
 									}
 									catch(Exception p)
 									{
@@ -2020,16 +1997,13 @@ public class Settings_Label_Template
 										ut.FailedCaptureScreenshotAsBASE64(driver, test);
 									}
 						
-						
-						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Bottom Divider Font
-						if(ltp.BottomDivider_MenuItemInfo_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Bottom Divider Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Bottom Divider Font
+							if(ltp.BottomDivider_MenuItemInfo_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Bottom Divider Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception p)
 						{
@@ -2045,14 +2019,14 @@ public class Settings_Label_Template
 						//Open Customer Info
 						ltp.Open_Customer_Info_Screen();
 						
-						Thread.sleep(1000);
+						Thread.sleep(2000);
 						try
 						{
-						//Select the Customer Name
-						if(ltp.CustomerName_CustomerInfo_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Customer Name Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Customer Name
+							if(ltp.CustomerName_CustomerInfo_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Customer Name Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception p)
 						{
@@ -2060,14 +2034,13 @@ public class Settings_Label_Template
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 							
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Customer Address Font
-						if(ltp.CustomerAddress_CustomerInfo_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Customer Address Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Customer Address Font
+							if(ltp.CustomerAddress_CustomerInfo_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Customer Address Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception p)
 						{
@@ -2075,14 +2048,13 @@ public class Settings_Label_Template
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 							
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Delivery Notes Font
-						if(ltp.DeliveryNotes_CustomerInfo_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Delivery Notes Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Delivery Notes Font
+							if(ltp.DeliveryNotes_CustomerInfo_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Delivery Notes Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception l)
 						{
@@ -2090,14 +2062,13 @@ public class Settings_Label_Template
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 							
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Phone Number Font
-						if(ltp.PhoneNumber_CustomerInfo_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Phone Number Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Phone Number Font
+							if(ltp.PhoneNumber_CustomerInfo_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Phone Number Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception p)
 						{
@@ -2134,11 +2105,11 @@ public class Settings_Label_Template
 						Thread.sleep(1000);
 						try
 						{
-						//Select the Sub Total in Order Summary
-						if(ltp.SubTotal_OrderSummary_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Sub Total Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Sub Total in Order Summary
+							if(ltp.SubTotal_OrderSummary_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Sub Total Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception p)
 						{
@@ -2146,15 +2117,13 @@ public class Settings_Label_Template
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Tip in Order Summary
-						if(ltp.Tip_OrderSummary_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Tip Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Tip in Order Summary
+							if(ltp.Tip_OrderSummary_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Tip Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception l)
 						{
@@ -2162,15 +2131,13 @@ public class Settings_Label_Template
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Discounts in Order Summary
-						if(ltp.Discounts_OrderSummary_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Discounts Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Discounts in Order Summary
+							if(ltp.Discounts_OrderSummary_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Discounts Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception l)
 						{
@@ -2178,15 +2145,13 @@ public class Settings_Label_Template
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Total in Order Summary
-						if(ltp.Total_OrderSummary_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Total Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Total in Order Summary
+							if(ltp.Total_OrderSummary_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Total Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception p)
 						{
@@ -2194,15 +2159,13 @@ public class Settings_Label_Template
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Delivery Fee in Order Summary
-						if(ltp.DeliveryFee_OrderSummary_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Delivery Fee Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Delivery Fee in Order Summary
+							if(ltp.DeliveryFee_OrderSummary_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Delivery Fee Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception p)
 						{
@@ -2210,15 +2173,13 @@ public class Settings_Label_Template
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Balance Due in Order Summary
-						if(ltp.BalanceDue_OrderSummary_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Balance Due Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Balance Due in Order Summary
+							if(ltp.BalanceDue_OrderSummary_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Balance Due Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception p)
 						{
@@ -2226,14 +2187,13 @@ public class Settings_Label_Template
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						Thread.sleep(1000);
 						try
 						{
-						//Select the Tax in Order Summary
-						if(ltp.Tax_OrderSummary_CheckBox_SLD().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Tax Check Box Selected while Reopening the page After Saved");					
-						}
+							//Select the Tax in Order Summary
+							if(ltp.Tax_OrderSummary_CheckBox_SLD().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Tax Check Box Selected while Reopening the page After Saved");					
+							}
 						}
 						catch(Exception p)
 						{
@@ -2251,22 +2211,22 @@ public class Settings_Label_Template
 						Thread.sleep(2000);
 						if(cmp.Save_ButtonTwo().isEnabled())
 						{
-						//Click the Save button
-						cmp.Click_Save_ButtonTwo();
-						
-						Thread.sleep(3000);
-						if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Delivery Label Template Saved Successfully"))
-						{
-							test.log(LogStatus.PASS, "Label Template Saved Successfully for Zebra Label Template");
+							//Click the Save button
+							cmp.Click_Save_ButtonTwo();
 							
-							ut.PassedCaptureScreenshotAsBASE64(driver, test);
-						}
-						else
-						{
-							test.log(LogStatus.FAIL, "Label Template Save Failed for Zebra Label Template");
-							
-							ut.FailedCaptureScreenshotAsBASE64(driver, test);
-						}
+							Thread.sleep(3000);
+							if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Zebra Label Template Saved Successfully"))
+							{
+								test.log(LogStatus.PASS, "Label Template Saved Successfully for Zebra Label Template");
+								
+								ut.PassedCaptureScreenshotAsBASE64(driver, test);
+							}
+							else
+							{
+								test.log(LogStatus.FAIL, "Label Template Save Failed for Zebra Label Template");
+								
+								ut.FailedCaptureScreenshotAsBASE64(driver, test);
+							}
 						}
 						
 	}
@@ -2345,20 +2305,20 @@ public class Settings_Label_Template
 				
 				
 				Thread.sleep(1000);
+				//Select Enable Autocut
+				ltp.Select_Enable_Autocut_CheckBox();
 				try
 				{
-				//Check whether the Enable Autocut Disabeld or not
-				if(ltp.Enable_Autocut_CheckBox_SLD().isDisplayed())
-				{
-					test.log(LogStatus.PASS, "Enable Autocut Check Box Enabled while Reopening the page After Saved");					
-				}
+					//Check whether the Enable Autocut Disabeld or not
+					if(ltp.Enable_Autocut_CheckBox_SLD().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enable Autocut Check Box Enabled while Reopening the page After Saved");					
+					}
 				}
 				catch(Exception k)
 				{
 					test.log(LogStatus.FAIL, "Enable AutocutCheck Box not Enabled while Reopening the page After Saved");
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
-					//Select Enable Autocut
-					ltp.Select_Enable_Autocut_CheckBox();
 				}
 				
 				
@@ -2372,58 +2332,54 @@ public class Settings_Label_Template
 				//Click Font Options Down Right arrow
 				ltp.Open_CheckDetails_Screen();
 				
-				Thread.sleep(1000);
+				
 				try
 				{
-				//Select the Date & Time Font
-				if(ltp.Date_Time_CheckDetails_CheckBox_SLD().isDisplayed())
-				{
-					ltp.Date_Time_CheckDetails_CheckBox().click();
-				}
+					//Select the Date & Time Font
+					if(ltp.Date_Time_CheckDetails_CheckBox_SLD().isDisplayed())
+					{
+						ltp.Date_Time_CheckDetails_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Sale Number
-				if(ltp.SaleNumber_KitchenLabel_CheckBox_SLD().isDisplayed())
-				{
-					ltp.SaleNumber_KitchenLabel_CheckBox().click();
-				}
+					//Select the Sale Number
+					if(ltp.SaleNumber_KitchenLabel_CheckBox_SLD().isDisplayed())
+					{
+						ltp.SaleNumber_KitchenLabel_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Order Number Font
-				if(ltp.OrderNumber_KitchenLabel_CheckBox_SLD().isDisplayed())
-				{
-					ltp.OrderNumber_KitchenLabel_CheckBox().click();
-				}
+					//Select the Order Number Font
+					if(ltp.OrderNumber_KitchenLabel_CheckBox_SLD().isDisplayed())
+					{
+						ltp.OrderNumber_KitchenLabel_CheckBox().click();
+					}
 				}
 				catch(Exception p) {}
 
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Customer Name Font
-				if(ltp.CustomerName_CustomerInfo_CheckBox_SLD().isDisplayed())
-				{
-					ltp.CustomerName_CustomerInfo_CheckBox().click();
-				}
+					//Select the Customer Name Font
+					if(ltp.CustomerName_CustomerInfo_CheckBox_SLD().isDisplayed())
+					{
+						ltp.CustomerName_CustomerInfo_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Order Type Font
-				if(ltp.Order_Type_CheckDetails_CheckBox_SLD().isDisplayed())
-				{
-					ltp.Order_Type_CheckDetails_CheckBox().click();
-				}
+					//Select the Order Type Font
+					if(ltp.Order_Type_CheckDetails_CheckBox_SLD().isDisplayed())
+					{
+						ltp.Order_Type_CheckDetails_CheckBox().click();
+					}
 				}
 				catch(Exception p) {}
 				
@@ -2436,14 +2392,13 @@ public class Settings_Label_Template
 				//Get the Check Details Font Name
 				String Check_DetailsFont_KitcLblBef=ltp.CheckDetails_Font_Option().getAttribute("value");
 				
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Bottom Divider Check box in Check Details screen
-				if(ltp.BottomDivider_MenuItemInfo_CheckBox_SLD().isDisplayed())
-				{
-					ltp.BottomDivider_MenuItemInfo_CheckBox().click();
-				}
+					//Select the Bottom Divider Check box in Check Details screen
+					if(ltp.BottomDivider_MenuItemInfo_CheckBox_SLD().isDisplayed())
+					{
+						ltp.BottomDivider_MenuItemInfo_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
@@ -2468,15 +2423,13 @@ public class Settings_Label_Template
 				//Get the Business Name
 				String TitleFontSize_MenuInfo_KitcLeblBef=ltp.Modifiers_FontSize_KitchenLabel_Font_Option().getAttribute("value");
 				
-				
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Menu Item Name Bottom Divider
-				if(ltp.MenuItem_Name_BottomDivider_KitchenLabel_CheckBox_SLD().isDisplayed())
-				{
-					ltp.MenuItem_Name_BottomDivider_KitchenLabel_CheckBox().click();
-				}
+					//Select the Menu Item Name Bottom Divider
+					if(ltp.MenuItem_Name_BottomDivider_KitchenLabel_CheckBox_SLD().isDisplayed())
+					{
+						ltp.MenuItem_Name_BottomDivider_KitchenLabel_CheckBox().click();
+					}
 				}
 				catch(Exception l) {}
 				
@@ -2489,7 +2442,7 @@ public class Settings_Label_Template
 				
 				Thread.sleep(3000);
 				//Check whether the Label Template Saved or not
-				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Delivery Label Template Saved Successfully"))
+				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Kitchen Label Template Saved Successfully"))
 				{
 					test.log(LogStatus.PASS, "Label Template Saved Successfully for Kitchen Label Template (Selecting Font & Disable All Check)");
 					
@@ -2530,11 +2483,11 @@ public class Settings_Label_Template
 				Thread.sleep(2000);
 				try
 				{
-				//Check whether the Enable Autocut Disabeld or not
-				if(ltp.Enable_Autocut_CheckBox_SLD().isDisplayed())
-				{
-					test.log(LogStatus.PASS, "Enable Autocut Check Box Selected while Reopening the page After Saved");					
-				}
+					//Check whether the Enable Autocut Disabeld or not
+					if(ltp.Enable_Autocut_CheckBox_SLD().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enable Autocut Check Box Selected while Reopening the page After Saved");					
+					}
 				}
 				catch(Exception p)
 				{
@@ -2577,98 +2530,92 @@ public class Settings_Label_Template
 				Thread.sleep(1000);
 				try
 				{
-				//Select the Date & Time in Kitchen Label
-				if(ltp.Date_Time_CheckDetails_CheckBox_SLD().isDisplayed())
+					//Select the Date & Time in Kitchen Label
+					if(ltp.Date_Time_CheckDetails_CheckBox_SLD1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Date & Time Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Date & Time
+							ltp.Date_Time_CheckDetails_CheckBox().click();
+					}
+				}
+				catch(Exception p)
 				{
 					test.log(LogStatus.FAIL, "Date & Time Check Box Selected while Reopening the page After Saved");
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
-				}
-				catch(Exception p)
-				{
-					test.log(LogStatus.PASS, "Date & Time Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Date & Time
-						ltp.Date_Time_CheckDetails_CheckBox().click();
-				}
 			
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Sale Number
-				if(ltp.SaleNumber_KitchenLabel_CheckBox_SLD().isDisplayed())
+					//Select the Sale Number
+					if(ltp.SaleNumber_KitchenLabel_CheckBox_SLD1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Sale Number Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Sale Number
+							ltp.SaleNumber_KitchenLabel_CheckBox().click();
+						
+					}
+				}
+				catch(Exception p)
 				{
 					test.log(LogStatus.FAIL, "Sale Number Check Box Selected while Reopening the page After Saved");
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
-				}
-				catch(Exception p)
-				{
-					test.log(LogStatus.PASS, "Sale Number Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Sale Number
-						ltp.SaleNumber_KitchenLabel_CheckBox().click();
-					
-				}
 				
-				
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Order Number in Kitchen Label
-				if(ltp.OrderNumber_KitchenLabel_CheckBox_SLD().isDisplayed())
+					//Select the Order Number in Kitchen Label
+					if(ltp.OrderNumber_KitchenLabel_CheckBox_SLD1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Order Number Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Order Number
+							ltp.OrderNumber_KitchenLabel_CheckBox().click();
+					}
+				}
+				catch(Exception l)
 				{
 					test.log(LogStatus.FAIL, "Order Number Check Box Selected while Reopening the page After Saved");
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
-				
-				}
-				}
-				catch(Exception l)
-				{
-					test.log(LogStatus.PASS, "Order Number Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Order Number
-						ltp.OrderNumber_KitchenLabel_CheckBox().click();
 				}
 			
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Customer Name
-				if(ltp.CustomerName_CustomerInfo_CheckBox_SLD().isDisplayed())
+					//Select the Customer Name
+					if(ltp.CustomerName_CustomerInfo_CheckBox_SLD1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Customer Name Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Customer Name
+							ltp.CustomerName_CustomerInfo_CheckBox().click();
+					}
+				}
+				catch(Exception l)
 				{
 					test.log(LogStatus.FAIL, "Customer Name Check Box Selected while Reopening the page After Saved");
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
-				
-				}
-				}
-				catch(Exception l)
-				{
-					test.log(LogStatus.PASS, "Customer Name Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Customer Name
-						ltp.CustomerName_CustomerInfo_CheckBox().click();
 				}
 				
-				
-
-				Thread.sleep(1000);
+				driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+				driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 				try
 				{
-				//Select the Order Type
-				if(ltp.Order_Type_CheckDetails_CheckBox_SLD().isDisplayed())
-				{
-					test.log(LogStatus.FAIL, "Order Type Check Box Selected while Reopening the page After Saved");
-					ut.FailedCaptureScreenshotAsBASE64(driver, test);
-				
-				}
+					//Select the Order Type
+					if(ltp.Order_Type_CheckDetails_CheckBox_SLD1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Order Type Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Order Type
+							ltp.Order_Type_CheckDetails_CheckBox().click();
+					
+					}
 				}
 				catch(Exception l)
 				{
-					test.log(LogStatus.PASS, "Order Type Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Order Type
-						ltp.Order_Type_CheckDetails_CheckBox().click();
+
+					test.log(LogStatus.FAIL, "Order Type Check Box Selected while Reopening the page After Saved");
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
 				
@@ -2688,20 +2635,19 @@ public class Settings_Label_Template
 				Thread.sleep(1000);
 				try
 				{
-				//Select the Bottom Divider
-				if(ltp.BottomDivider_MenuItemInfo_CheckBox_SLD().isDisplayed())
-				{
-					test.log(LogStatus.FAIL, "Bottom Divider Check Box Selected while Reopening the page After Saved");
-					ut.FailedCaptureScreenshotAsBASE64(driver, test);
-				
-				}
+					//Select the Bottom Divider
+					if(ltp.BottomDivider_MenuItemInfo_CheckBox_SLD1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Bottom Divider Check Box not Selected while Reopening the page After Saved");					
+					
+						//Enable Order Type
+						ltp.Order_Type_CheckDetails_CheckBox().click();
+					}
 				}
 				catch(Exception l)
 				{
-					test.log(LogStatus.PASS, "Bottom Divider Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Order Type
-						ltp.Order_Type_CheckDetails_CheckBox().click();
+					test.log(LogStatus.FAIL, "Bottom Divider Check Box Selected while Reopening the page After Saved");
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
 				Thread.sleep(1000);
@@ -2743,20 +2689,19 @@ public class Settings_Label_Template
 				Thread.sleep(1000);
 				try
 				{
-				//Select the Menu Item Name Bottom Divider
-				if(ltp.MenuItem_Name_BottomDivider_KitchenLabel_CheckBox_SLD().isDisplayed())
-				{
-					test.log(LogStatus.FAIL, "Menu Item Name Bottom Divider Check Box Selected while Reopening the page After Saved");
-					ut.FailedCaptureScreenshotAsBASE64(driver, test);
-				
-				}
+					//Select the Menu Item Name Bottom Divider
+					if(ltp.MenuItem_Name_BottomDivider_KitchenLabel_CheckBox_SLD1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Menu Item Name Bottom Divider Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Order Type
+							ltp.MenuItem_Name_BottomDivider_KitchenLabel_CheckBox().click();
+					}
 				}
 				catch(Exception l)
 				{
-					test.log(LogStatus.PASS, "Menu Item Name Bottom Divider Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Order Type
-						ltp.MenuItem_Name_BottomDivider_KitchenLabel_CheckBox().click();
+					test.log(LogStatus.FAIL, "Menu Item Name Bottom Divider Check Box Selected while Reopening the page After Saved");
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
 				
@@ -2782,7 +2727,7 @@ public class Settings_Label_Template
 				}
 				
 				Thread.sleep(2000);
-				driver.navigate().refresh();
+				//driver.navigate().refresh();
 				
 				Thread.sleep(5000);
 				
@@ -2792,11 +2737,11 @@ public class Settings_Label_Template
 				Thread.sleep(1000);
 				try
 				{
-				//Select the Date & Time in Kitchen Label
-				if(ltp.Date_Time_CheckDetails_CheckBox_SLD().isDisplayed())
-				{
-					test.log(LogStatus.PASS, "Date & Time Check Box Selected while Reopening the page After Saved");					
-				}
+					//Select the Date & Time in Kitchen Label
+					if(ltp.Date_Time_CheckDetails_CheckBox_SLD().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Date & Time Check Box Selected while Reopening the page After Saved");					
+					}
 				}
 				catch(Exception p)
 				{
@@ -2804,15 +2749,14 @@ public class Settings_Label_Template
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 			
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Sale Number
-				if(ltp.SaleNumber_KitchenLabel_CheckBox_SLD().isDisplayed())
-				{
-					test.log(LogStatus.PASS, "Sale Number Check Box Selected while Reopening the page After Saved");					
-
-				}
+					//Select the Sale Number
+					if(ltp.SaleNumber_KitchenLabel_CheckBox_SLD().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Sale Number Check Box Selected while Reopening the page After Saved");					
+	
+					}
 				}
 				catch(Exception l)
 				{
@@ -2820,16 +2764,14 @@ public class Settings_Label_Template
 				ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
-				
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Order Number in Kitchen Label
-				if(ltp.OrderNumber_KitchenLabel_CheckBox_SLD().isDisplayed())
-				{
-					test.log(LogStatus.PASS, "Order Number Check Box Selected while Reopening the page After Saved");					
-	
-				}
+					//Select the Order Number in Kitchen Label
+					if(ltp.OrderNumber_KitchenLabel_CheckBox_SLD().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Order Number Check Box Selected while Reopening the page After Saved");					
+		
+					}
 				}
 				catch(Exception l)
 				{
@@ -2837,15 +2779,14 @@ public class Settings_Label_Template
 				ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 			
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Customer Name
-				if(ltp.CustomerName_CustomerInfo_CheckBox_SLD().isDisplayed())
-				{
-					test.log(LogStatus.PASS, "Customer Name Check Box Selected while Reopening the page After Saved");					
-		
-				}
+					//Select the Customer Name
+					if(ltp.CustomerName_CustomerInfo_CheckBox_SLD().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Customer Name Check Box Selected while Reopening the page After Saved");					
+			
+					}
 				}
 				catch(Exception p)
 				{
@@ -2853,17 +2794,14 @@ public class Settings_Label_Template
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
-				
-
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Order Type
-				if(ltp.Order_Type_CheckDetails_CheckBox_SLD().isDisplayed())
-				{
-					test.log(LogStatus.PASS, "Order Type Check Box Selected while Reopening the page After Saved");					
-
-				}
+					//Select the Order Type
+					if(ltp.Order_Type_CheckDetails_CheckBox_SLD().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Order Type Check Box Selected while Reopening the page After Saved");					
+	
+					}
 				}
 				catch(Exception p)
 				{
@@ -2871,16 +2809,14 @@ public class Settings_Label_Template
 				ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
-
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Bottom Divider
-				if(ltp.BottomDivider_MenuItemInfo_CheckBox_SLD().isDisplayed())
-				{
-					test.log(LogStatus.PASS, "Bottom Divider Check Box Selected while Reopening the page After Saved");					
-		
-				}
+					//Select the Bottom Divider
+					if(ltp.BottomDivider_MenuItemInfo_CheckBox_SLD().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Bottom Divider Check Box Selected while Reopening the page After Saved");					
+			
+					}
 				}
 				catch(Exception p)
 				{
@@ -2888,15 +2824,14 @@ public class Settings_Label_Template
 				ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
-				Thread.sleep(1000);
 				try
 				{
-				//Select the Bottom Divider
-				if(ltp.MenuItem_Name_BottomDivider_KitchenLabel_CheckBox_SLD().isDisplayed())
-				{
-					test.log(LogStatus.PASS, "Menu Item Name Bottom Divider Check Box Selected while Reopening the page After Saved");					
-	
-				}
+					//Select the Bottom Divider
+					if(ltp.MenuItem_Name_BottomDivider_KitchenLabel_CheckBox_SLD().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Menu Item Name Bottom Divider Check Box Selected while Reopening the page After Saved");					
+		
+					}
 				}
 				catch(Exception k)
 				{
@@ -2926,15 +2861,7 @@ public class Settings_Label_Template
 							test.log(LogStatus.FAIL, "Label Template Save Failed for Kitchen Label Template");
 							
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
-						}
-						
-				}
-						
-						
-						
-					
-						
+						}					
+				}		
 	}
-	
-		
 }

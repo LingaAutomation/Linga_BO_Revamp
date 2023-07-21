@@ -60,16 +60,16 @@ public class Settings_TipOut_TipSharing_Page {
 	@FindBy(xpath = "//div[contains(.,'TIP SHARING') and @class='mat-tab-label-content']")
 	WebElement TipSharingTab;
 	
-	@FindBy(xpath =  "//span[.=' Tip out based on percentage of sales']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]")
+	@FindBy(xpath =  "//span[.='Tip out based on percentage of sales']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement TipOutBasedOnPercentageOfSales_NoBtn;
 	
-	@FindBy(xpath =  "//span[.=' Tip out based on percentage of sales']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]")
+	@FindBy(xpath =  "//span[.='Tip out based on percentage of sales']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement TipOutBasedOnPercentageOfSales_YesBtn;
 	
-	@FindBy(xpath =  "//span[.='Tip Share Per Hour ']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]")
+	@FindBy(xpath =  "//span[.='Tip Share Per Hour']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement TipSharePerHour_NoBtn;
 	
-	@FindBy(xpath =  "//span[.='Tip Share Per Hour ']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]")
+	@FindBy(xpath =  "//span[.='Tip Share Per Hour']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement TipSharePerHour_YesBtn;
 	
 	@FindBy(xpath = "//button[contains(.,'TIP OUT')]")
@@ -129,10 +129,10 @@ public class Settings_TipOut_TipSharing_Page {
 	@FindBy(xpath =  "//span[contains(.,'Percentage')]/../../../../../div/button[2]")
 	WebElement Percentage_Down;
 	
-	@FindBy(xpath =  "//span[.=' Manual Tip Sharing']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]")
+	@FindBy(xpath =  "//span[.='Manual Tip Sharing']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement ManualTipSharing_NoBtn;
 	
-	@FindBy(xpath =  "//span[.=' Manual Tip Sharing']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]")
+	@FindBy(xpath =  "//span[.='Manual Tip Sharing']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement ManualTipSharing_YesBtn;
 		
 	@FindBy(xpath =  "//span[contains(.,'Choose Roles')]/../div/div/input")
@@ -154,16 +154,16 @@ public class Settings_TipOut_TipSharing_Page {
 	
 	//div/mat-icon[.='close']
 	
-	@FindBy(xpath =  "//span[.=' Automatic Tip Sharing']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]")
+	@FindBy(xpath =  "//span[.='Automatic Tip Sharing']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement AutomaticTipSharing_NoBtn;
 	
-	@FindBy(xpath =  "//span[.=' Automatic Tip Sharing']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]")
+	@FindBy(xpath =  "//span[.='Automatic Tip Sharing']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement AutomaticTipSharing_YesBtn;
 	
-	@FindBy(xpath =  "//span[.=' Tip Charge Deduction Before Tip Share']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]")
+	@FindBy(xpath =  "//span[.='Tip Charge Deduction Before Tip Share']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement TipChargeDeductionBeforeTipShare_NoBtn;
 	
-	@FindBy(xpath =  "//span[.=' Tip Charge Deduction Before Tip Share']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]")
+	@FindBy(xpath =  "//span[.='Tip Charge Deduction Before Tip Share']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement TipChargeDeductionBeforeTipShare_YesBtn;
 	
 	@FindBy(xpath =  "//span[contains(.,'TIP OUT NAME') and @class='header-title']")

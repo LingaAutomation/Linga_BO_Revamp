@@ -82,10 +82,10 @@ public class Settings_Businesshours_Page
 	@FindBy(xpath = "//button[.=' UPDATE ']")
 	WebElement Update;
 	
-	@FindBy(xpath = "//select-option[.=' OPEN ']")
+	@FindBy(xpath = "//select-option[contains(.,'OPEN')]")
 	WebElement Open;
 	
-	@FindBy(xpath = "//select-option[.=' CLOSED ']")
+	@FindBy(xpath = "//select-option[contains(.,'CLOSED')]")
 	WebElement Closed;
 	
 	@FindBy(xpath = "//button[contains(.,' Cancel')]")

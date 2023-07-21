@@ -48,7 +48,7 @@ public class Settings_StoreInformation_Page {
 	@FindBy(xpath =  "//mat-label[contains(.,'Business Type')]/../../../../div[4]")
 	WebElement Business_input;
 	
-	@FindBy(xpath =  "//div/select-option[4]/div")
+	@FindBy(xpath =  "//div[4]/select-option/div")
 	WebElement FourthBusinessType;
 	
 	@FindBy(xpath =  "//mat-label[contains(.,'Phone Number')]/../../../input")
@@ -75,10 +75,10 @@ public class Settings_StoreInformation_Page {
 	@FindBy(xpath =  "//mat-label[contains(.,'Default Language')]/../../../input")
 	WebElement DefaultLaunguage_input;
 	
-	@FindBy(xpath =  "//div/select-option[4]/div/mat-checkbox")
+	@FindBy(xpath =  "//div[4]/select-option/div/mat-checkbox")
 	WebElement FourthLaunguage_CheckBox;
 	
-	@FindBy(xpath =  "//div/select-option[1]/div")
+	@FindBy(xpath =  "//div[1]/select-option/div")
 	WebElement firstLanguage;
 	
 	@FindBy(xpath =  "//mat-icon[.='cancel']")
@@ -1173,7 +1173,8 @@ public class Settings_StoreInformation_Page {
 		
 		String s = ToolTip.getText();
 		
-		if(s.equals("Display's registered country")) {
+		if(s.equals("Display's registered country")) 
+		{
 			test.log(LogStatus.PASS, "When user move the mouse over the particular element then the required tooltip is available for country field");
 		}
 		else {
@@ -1216,28 +1217,28 @@ public class Settings_StoreInformation_Page {
 	}
 	
 	// Newly Added 
-	public void Enter_Phone_Number(String Phone) throws Exception
-	{
-		new Common_XPaths(driver, test).Enter_Text(PhoneNumber_input, Phone, "Phone Number Entered");
-	}
-	
-	public void Enter_Apartment(String Apt) throws Exception
-	{
-		new Common_XPaths(driver, test).Enter_Text(Apartment_input, Apt, "Apartment suite address Entered");
-	}
-	
-	public void Enter_ZipCode(String Zipcode) throws Exception
-	{
-		new Common_XPaths(driver, test).Enter_Text(ZipCode_input, Zipcode, "Zip Code Entered");
-	}
-	
-	public void Enter_City(String City) throws Exception
-	{
-		new Common_XPaths(driver, test).Enter_Text(City_input, City, "City Entered");
-	}
-	
-	public void Enter_State(String State) throws Exception
-	{
-		new Common_XPaths(driver, test).Enter_Text(State_input, State, "State Entered");
-	}
+		public void Enter_Phone_Number(String Phone) throws Exception
+		{
+			new Common_XPaths(driver, test).Enter_Text(PhoneNumber_input, Phone, "Phone Number Entered");
+		}
+		
+		public void Enter_Apartment(String Apt) throws Exception
+		{
+			new Common_XPaths(driver, test).Enter_Text(Apartment_input, Apt, "Apartment suite address Entered");
+		}
+		
+		public void Enter_ZipCode(String Zipcode) throws Exception
+		{
+			new Common_XPaths(driver, test).Enter_Text(ZipCode_input, Zipcode, "Zip Code Entered");
+		}
+		
+		public void Enter_City(String City) throws Exception
+		{
+			new Common_XPaths(driver, test).Enter_Text(City_input, City, "City Entered");
+		}
+		
+		public void Enter_State(String State) throws Exception
+		{
+			new Common_XPaths(driver, test).Enter_Text(State_input, State, "State Entered");
+		}
 }

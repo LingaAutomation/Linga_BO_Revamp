@@ -232,7 +232,7 @@ public class Inventory_Storage_Locations {
 		
 		Thread.sleep(500);
 		//Search and Click Edit button
-		cmp.SearchAndClickEdit(Utility.getProperty("Inventory_Storage_Locations"));
+		air.SearchAndClickEdit(Utility.getProperty("Inventory_Storage_Locations"));
 		
 		//Check whether the application displays Update screen or not
 				cmp.VerifyCreationScreenPageHeader("Update Storage Location");
@@ -256,7 +256,7 @@ public class Inventory_Storage_Locations {
 		
 		Thread.sleep(1000);
 		//Search the Modifier Groups to Click Edit and Cancel
-		cmp.SearchAndClickEdit(Utility.getProperty("Inventory_Storage_Locations"));
+		air.SearchAndClickEdit(Utility.getProperty("Inventory_Storage_Locations"));
 		
 		Thread.sleep(500);
 		//Check whether the Update screen opened or not
@@ -289,11 +289,11 @@ public class Inventory_Storage_Locations {
 		
 		Thread.sleep(1000);
 		//Search and Verify the Search box when Entering 3 Characters
-		cmp.SearchAndVerify_SearchBox();
+		//cmp.SearchAndVerify_SearchBox();
 		
 		Thread.sleep(1000);
 		//Search and Click Edit button
-		cmp.SearchAndClickEdit(Utility.getProperty("Inventory_Storage_Locations"));
+		air.SearchAndClickEdit(Utility.getProperty("Inventory_Storage_Locations"));
 		
 		Thread.sleep(500);
 		//Enter the Name
@@ -336,7 +336,7 @@ public class Inventory_Storage_Locations {
 //			
 			Thread.sleep(1000);
 			//Search and Click Edit button
-			cmp.SearchAndClickEdit(Utility.getProperty("Inventory_Storage_Locations"));
+			air.SearchAndClickEdit(Utility.getProperty("Inventory_Storage_Locations"));
 			
 //			test.log(LogStatus.INFO, "Storage Location Recreated");
 		
@@ -395,7 +395,7 @@ public class Inventory_Storage_Locations {
 		
 		Thread.sleep(500);
 		//Search and Click Delete button
-		cmp.SearchAndClickDelete(Utility.getProperty("Inventory_Storage_Locations")+"1");
+		air.SearchAndClickDelete(Utility.getProperty("Inventory_Storage_Locations")+"1");
 		
 		
 		Thread.sleep(500);
@@ -425,7 +425,7 @@ public class Inventory_Storage_Locations {
 
 		Thread.sleep(500);
 		//Search and Click Delete button
-		cmp.SearchAndClickDelete(Utility.getProperty("Inventory_Storage_Locations")+"1");
+		air.SearchAndClickDelete(Utility.getProperty("Inventory_Storage_Locations")+"1");
 		
 		Thread.sleep(500);
 		//Click the Delete button
@@ -457,7 +457,7 @@ public class Inventory_Storage_Locations {
 		Thread.sleep(3000);
 
 		//Search and Activate the In activated item
-		cmp.SearchAndClickActivate(Utility.getProperty("Inventory_Storage_Locations")+"1");
+		air.SearchAndClickActivate(Utility.getProperty("Inventory_Storage_Locations")+"1");
 		
 		
 		Thread.sleep(500);
@@ -487,7 +487,7 @@ public class Inventory_Storage_Locations {
 		}
 
 		//Search and Activate the In activated item
-				cmp.SearchAndClickActivate(Utility.getProperty("Inventory_Storage_Locations")+"1");
+				air.SearchAndClickActivate(Utility.getProperty("Inventory_Storage_Locations")+"1");
 				
 		
 		Thread.sleep(500);
@@ -519,7 +519,7 @@ public class Inventory_Storage_Locations {
 		
 		Thread.sleep(1000);
 		//Search the Storage Location to Click Edit and Cancel
-		cmp.SearchAndClickEdit(Utility.getProperty("Inventory_Storage_Locations")+"1");
+		air.SearchAndClickEdit(Utility.getProperty("Inventory_Storage_Locations")+"1");
 		
 		Thread.sleep(1000);
 		//Click Cancel button

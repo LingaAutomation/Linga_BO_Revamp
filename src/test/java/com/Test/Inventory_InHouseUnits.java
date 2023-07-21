@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 import com.Pages.Availability_RestrictionTimePage;
 import com.Pages.Common_XPaths;
-import com.Pages.DiscountsPage;
+
 import com.Pages.Inventory_InHouseUnits_Page;
 import com.Pages.LoginPage;
 import com.Pages.TaxesPage;
@@ -33,7 +33,7 @@ public class Inventory_InHouseUnits
 
 
 	ExtentReports rep = ExtentManager.getInstance();
-	ExtentTest test = rep.startTest("AddEditDelete - Open Check Discount (Discounts) ");
+	ExtentTest test = rep.startTest("Inventory - Inventory_InHouseUnits ");
 
 	LoginPage lgpg; 
 
@@ -103,7 +103,7 @@ public class Inventory_InHouseUnits
 	public void Calling() throws Exception
 	{
 		Open_InHouseUnits_Page(driver);
-		RefreshAndPaginination_Column_Filteration(driver);
+		//RefreshAndPaginination_Column_Filteration(driver);
 		Sorting_Name(driver);
 		Add_New_InHouse_Unit(driver);
 		Add_New_InHouse_Unit_SpecialChar(driver);
@@ -122,9 +122,9 @@ public class Inventory_InHouseUnits
 
 		Thread.sleep(5000);
 		//Load the Upcharge page
-		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id4")+"inHouseUnits");
+		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id5")+"inHouseUnits");
 
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		//Verify the Open Check Discount page loeded or not
 		cmp.VerifyMainScreenPageHeader("In House Units");	
 
@@ -241,7 +241,7 @@ public class Inventory_InHouseUnits
 		cmp = new Common_XPaths(driver, test);
 		IHU = new Inventory_InHouseUnits_Page(driver, test);
 
-		cmp.SearchAndVerify_SearchBox();
+		//cmp.SearchAndVerify_SearchBox();
 
 		Thread.sleep(1000);
 

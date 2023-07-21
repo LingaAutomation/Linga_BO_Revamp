@@ -111,7 +111,7 @@ public class InventoryReport_COGS_Page {
 			Thread.sleep(1000);
 			CogosType_ReportInputBx.click();
 			Thread.sleep(1000);
-	        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,' Products/Items ')]")).click();
+	        driver.findElement(By.xpath("//select-option/div[contains(.,'Products/Items')]")).click();
 		}
 		
 		
@@ -120,7 +120,7 @@ public class InventoryReport_COGS_Page {
 			Thread.sleep(1000);
 			CogosType_ReportInputBx.click();
 			Thread.sleep(1000);
-	        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,' Inventory ')]")).click();
+	        driver.findElement(By.xpath("//select-option/div[contains(.,'Inventory')]")).click();
 		}
 		
 		public void Select_type_All() throws InterruptedException
@@ -128,7 +128,7 @@ public class InventoryReport_COGS_Page {
 			Thread.sleep(1000);
 			TYpe_InputBx.click();
 			Thread.sleep(1000);
-	        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,' All ')]")).click();
+	        driver.findElement(By.xpath("//select-option/div[contains(.,'All')]")).click();
 		}
 		
 		public void Select_Level_All() throws InterruptedException
@@ -136,7 +136,7 @@ public class InventoryReport_COGS_Page {
 			Thread.sleep(1000);
 			Level_InputBx.click();
 			Thread.sleep(1000);
-	        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,' All ')]")).click();
+	        driver.findElement(By.xpath("//select-option/div[contains(.,'All')]")).click();
 		}
 		
 		public void Select_type_Menu_item() throws InterruptedException
@@ -144,7 +144,7 @@ public class InventoryReport_COGS_Page {
 			Thread.sleep(1000);
 			TYpe_InputBx.click();
 			Thread.sleep(1000);
-	        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,' Menu Item ')]")).click();
+	        driver.findElement(By.xpath("//select-option/div[contains(.,'Menu Item')]")).click();
 		}
 		
 		public void Select_type_Retail_item() throws InterruptedException
@@ -152,7 +152,7 @@ public class InventoryReport_COGS_Page {
 			Thread.sleep(1000);
 			TYpe_InputBx.click();
 			Thread.sleep(1000);
-	        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,' Retail Item ')]")).click();
+	        driver.findElement(By.xpath("//select-option/div[contains(.,'Retail Item')]")).click();
 		}
 		
 		
@@ -163,7 +163,7 @@ public class InventoryReport_COGS_Page {
 			Thread.sleep(1000);
 			TYpe_InputBx.click();
 			Thread.sleep(1000);
-	        driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'Modifier')]")).click();
+	        driver.findElement(By.xpath("//select-option/div[contains(.,'Modifier')]")).click();
 		}
 		
 		public void Select_type_Category() throws InterruptedException
@@ -171,7 +171,7 @@ public class InventoryReport_COGS_Page {
 			Thread.sleep(1000);
 			Level_InputBx.click();
 			Thread.sleep(1000);
-	        driver.findElement(By.xpath("(//select-option/div/div/div[contains(.,'Category')])[1]")).click();
+	        driver.findElement(By.xpath("(//select-option/div[contains(.,'Category')])[1]")).click();
 		}
 		
 		public void Select_type_SubCategory() throws InterruptedException
@@ -179,7 +179,7 @@ public class InventoryReport_COGS_Page {
 			Thread.sleep(1000);
 			Level_InputBx.click();
 			Thread.sleep(1000);
-	        driver.findElement(By.xpath("(//select-option/div/div/div[contains(.,'Category')])[2]")).click();
+	        driver.findElement(By.xpath("(//select-option/div[contains(.,'Category')])[2]")).click();
 		}
 		public void Select_Today_TimePeriod() throws InterruptedException
 		{

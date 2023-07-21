@@ -143,10 +143,10 @@ public class Settings_WaitList
 		Thread.sleep(8000);
 		//load the Notifications page
 		Thread.sleep(2000);
-		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2")+"waitList");
-		wl.Click_Settings();
+		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id2")+"waitList");
+	
 		Thread.sleep(1000);
-		wl.Click_WaitList();
+		
 	}
 	public void Creating_New_Wait_List(WebDriver driver) throws Exception
 	{

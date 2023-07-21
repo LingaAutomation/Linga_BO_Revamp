@@ -1,5 +1,7 @@
 package com.Test;
 
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.OutputType;
@@ -13,8 +15,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.Pages.Common_XPaths;
+import com.Pages.Settings_Delivary_Settings_Page;
 import com.Pages.LoginPage;
-import com.Pages.Settings_StoreInventory_Page;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -23,10 +25,10 @@ import Utility.ExtentManager;
 import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Settings_StoreInventory {
+public class Settings_Delivery {
 	public WebDriver driver;
 	ExtentReports rep = ExtentManager.getInstance();
-	ExtentTest test = rep.startTest("Store Inventory Settings");
+	ExtentTest test = rep.startTest("Delivery Settings");
 	
 	LoginPage lgpg; 
 	
@@ -34,7 +36,7 @@ public class Settings_StoreInventory {
 	
 	Common_XPaths cmp;
 	LoginTest a=new LoginTest();
-	Settings_StoreInventory_Page sti;
+	Settings_Delivary_Settings_Page ds;
 	
 	@AfterClass
 	public void flushTest() throws Exception
@@ -61,7 +63,6 @@ public class Settings_StoreInventory {
 	@Test(priority = 1)
 	public void Login() throws Exception
 	{
-		
 		
 		Thread.sleep(2000);
 		//Call the chrome driver
@@ -92,47 +93,88 @@ public class Settings_StoreInventory {
 	@Test(priority=2)
 	public void Calling() throws Exception
 	{
-		Open_StoreInv_Page(driver);
-		Bussiness_Date(driver);
-		select_toggles(driver);
+		Open_Delivery_Page(driver);
+		Delivery_setting_Page(driver);
+		//Delivery_Zone_Page(driver);
+		//Delivery_PUC_Page(driver);
+		Delivery_Driver_Page(driver);
+		Delivery_Save(driver);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_StoreInv_Page(WebDriver driver) throws Exception
+	public void Open_Delivery_Page(WebDriver driver) throws Exception
 	{
 		
-		sti=new Settings_StoreInventory_Page(driver, test);
+		ds=new Settings_Delivary_Settings_Page(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		
+		
+		//ds.Click_store();
+		//Thread.sleep(5000);
+		
+		//Load page
+		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id2")+"delivery");
+
 		Thread.sleep(5000);
-		Thread.sleep(5000);
-		//Load the Label Printer page
-		driver.get(Utility.getProperty("baseURL")+"settings/"+"storeInventory");
+		//Verify the Departments page loaded or not
+		cmp.VerifyMainScreenPageHeader("Delivery");
+		
 		Thread.sleep(5000);
 		
-		sti.storeInv_set();
+	}
+	
+	@Test(priority = 3,enabled = false)
+	public void Delivery_setting_Page(WebDriver driver) throws Exception
+	{
+		Thread.sleep(1000);
+		ds.Click_Setting_Delivery();
 		Thread.sleep(5000);
 	}
 	
-	public void Bussiness_Date(WebDriver driver) throws Exception
+	@Test(priority = 3,enabled = false)
+	public void Delivery_Zone_Page(WebDriver driver) throws Exception
 	{
-		sti.Dates();
+		ds.Click_zone_Delivery();
 		Thread.sleep(5000);
-	}
-	
-	public void select_toggles(WebDriver driver) throws Exception
-	{
-		sti.All_toggle();
-		Thread.sleep(2000);
-		sti.SummaryAlert_toggle();
-		Thread.sleep(2000);
-		sti.VendorCC_toggle();
-		Thread.sleep(2000);
-		sti.update();
-		//Wait for 30 seconds
-		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
-		Thread.sleep(3000);
+		ds.Delivery_new();//null value save
+		Thread.sleep(5000);
+		ds.Click_Edit_zone();
+		Thread.sleep(5000);
+		ds.Click_Delete();
+		Thread.sleep(5000);
+		ds.Click_alert_Delete();
+		Thread.sleep(5000);
+		ds.Click_Active();
+		Thread.sleep(5000);
+		ds.Click_Inctive();
+		Thread.sleep(5000);
+		ds.search_zone();
+		Thread.sleep(5000);
+		cmp.Filter_Columns();
+		Thread.sleep(5000);
+	
+		
 	}
 	
+	@Test(priority = 3,enabled = false)
+	public void Delivery_PUC_Page(WebDriver driver) throws Exception
+	{
+		ds.Click_puc_Delivery();
+		Thread.sleep(10000);
+	}
+	
+	@Test(priority = 3,enabled = false)
+	public void Delivery_Driver_Page(WebDriver driver) throws Exception
+	{
+		ds.Click_Driver_Delivery();
+		Thread.sleep(5000);
+	}
+	
+	@Test(priority = 3,enabled = false)
+	public void Delivery_Save(WebDriver driver) throws Exception
+	{
+		ds.Click_Save();
+		Thread.sleep(5000);
+	}
 }

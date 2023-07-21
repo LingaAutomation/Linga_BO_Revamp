@@ -292,7 +292,8 @@ public class Settings_Delivary_Settings_Page {
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
-		min.clear(); min.sendKeys(Utility.getProperty("minute1"));
+		min.clear();
+		min.sendKeys(Utility.getProperty("minute1"));
 		Thread.sleep(500);
 		String msg1=driver.findElement(By.xpath("//div[contains(@class,'tab-content')]/div[4]/div[2]/div[2]")).getText();
 		save_btn.click();

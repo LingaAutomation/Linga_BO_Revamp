@@ -130,13 +130,11 @@ public class Settings_Report_MatrixReport
 		Thread.sleep(8000);
 		//load the Notifications page
 		Thread.sleep(2000);
-		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2"));
+		driver.get(Utility.getProperty("baseURL")+"settings/"+"storeMatrix");
 //		driver.get(Utility.getProperty("baseURL")+"settings/"+"storeMatrix");
 
 		Thread.sleep(2000);
 		Thread.sleep(2000);
-		mr.Navigating_Settings();
-		mr.Navigating_Matrix_Report();
 		Thread.sleep(5000);
 		try {
 			if(driver.findElement(By.xpath("//h3[contains(.,'Matrix Report')]")).isDisplayed()) {

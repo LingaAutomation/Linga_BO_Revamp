@@ -53,40 +53,40 @@ public class Availability_RestrictionTimePage
 	@FindBy(xpath = "//div[contains(@class,'col radio-box-button')]/div[contains(.,'Specific Date')]")
 	WebElement SpecificDate_AvailabiltyBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Restriction Time')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Restriction Time')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement RestrictionTime_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Restriction Time')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Restriction Time')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement RestrictionTime_NoBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Available Time')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Available Time')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement AvailableTime_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Available Time')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Available Time')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement AvailableTime_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Available Months')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Available Months')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement AvailableMonths_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Available Months')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Available Months')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement AvailableMonths_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Restriction Months')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Restriction Months')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement RestrictionMonths_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Restriction Months')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Restriction Months')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement RestrictionMonths_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Available Days')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Available Days')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement AvailableDays_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Available Days')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Available Days')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement AvailableDays_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Restriction Days')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Restriction Days')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement RestrictionDays_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Restriction Days')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Restriction Days')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement RestrictionDays_NoBtn;
 	
 	@FindBy(xpath = "//app-time-picker[@name='startTime']/div/app-input/div/div/mat-form-field/div/div/div[4]/input")	
@@ -131,7 +131,7 @@ public class Availability_RestrictionTimePage
 		@FindBy(xpath = "//label[contains(.,'End Date')]/../../..//mat-datepicker-toggle")
 		WebElement EndDate_DateRangeInputBox;
 		
-		@FindBy(xpath = "//date-picker[@label='Date *']/div/mat-form-field/div/div/div[3]/../..//mat-datepicker-toggle")
+		@FindBy(xpath = "//date-picker[@label='Date']//mat-datepicker-toggle/button")
 		WebElement SpecificDate_DateRangeInputBox;
 		
 		@FindBy(xpath = "//app-time-picker[@name='startTime']/div/app-input/div/div/mat-form-field/div/div/div[4]/input")
@@ -140,10 +140,10 @@ public class Availability_RestrictionTimePage
 		@FindBy(xpath = "//app-time-picker[@name='endTime']/div/app-input/div/div/mat-form-field/div/div/div[4]/input")
 		WebElement EndTime_AvailableTimeDateRangeInputBox;
 		
-		@FindBy(xpath = "//app-date-range-with-time/div/div[18]//app-time-picker[contains(@label,'Start Time')]//input")
+		@FindBy(xpath = "//app-date-range-with-time//app-time-picker[contains(@label,'Start Time')]//input")
 		WebElement Start_Time_RestrictionTime_DateRangeWithTime;
 		
-		@FindBy(xpath = "//app-date-range-with-time/div/div[18]//app-time-picker[contains(@label,'End Time')]//input")
+		@FindBy(xpath = "//app-date-range-with-time//app-time-picker[contains(@label,'End Time')]//input")
 		WebElement End_Time_RestrictionTime_DateRangeWithTime;
 		
 	public void Click_AlwaysButton()
@@ -220,11 +220,11 @@ public class Availability_RestrictionTimePage
 //		}
 //		else
 //		{
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			RestrictionTime_YesBtn.click();
 //		}
 		
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		StartTime_RestrictionTimeInputBtn.click();
 		
 //		if(TimePickerHeader.isDisplayed())
@@ -698,6 +698,7 @@ public class Availability_RestrictionTimePage
 			
 			Thread.sleep(1000);
 
+			 
 			Enter_RestrictionTime();
 			Thread.sleep(1000);
 
@@ -873,44 +874,53 @@ public class Availability_RestrictionTimePage
 //driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
 		
 		Thread.sleep(1000);
-			RestrictionDays_YesBtn.click();
-//		}
-			
-			Thread.sleep(1000);
-//			driver.findElement(By.tagName("html")).sendKeys(Keys.DOWN);
-//			js1.executeScript("arguments[0].scrollIntoView(true);", ShowAll_RestrictionDaysBtn);
-//			if(ShowAll_RestrictionDaysBtn.isDisplayed())
-//			{
-//				ShowAll_RestrictionDaysBtn.click();
-//			}
-//			
-		
-		
-			
-		List<WebElement> RestrictDaysList=driver.findElements(By.xpath("//app-chip[@name='restrictDays']/div/mat-chip-list/div/mat-chip"));
-		Thread.sleep(1000);
-		
 		try
 		{
-		if(ShowAll_RestrictionDaysBtn.isDisplayed())
-		{
-			ShowAll_RestrictionDaysBtn.click();
+			if(RestrictionDays_YesBtn.isDisplayed())
+			{
+				RestrictionDays_YesBtn.click();
+//				}
+					
+					Thread.sleep(1000);
+//					driver.findElement(By.tagName("html")).sendKeys(Keys.DOWN);
+//					js1.executeScript("arguments[0].scrollIntoView(true);", ShowAll_RestrictionDaysBtn);
+//					if(ShowAll_RestrictionDaysBtn.isDisplayed())
+//					{
+//						ShowAll_RestrictionDaysBtn.click();
+//					}
+//					
+				
+				
+					
+				List<WebElement> RestrictDaysList=driver.findElements(By.xpath("//app-chip[@name='restrictDays']/div/mat-chip-list/div/mat-chip"));
+				Thread.sleep(1000);
+				
+				try
+				{
+				if(ShowAll_RestrictionDaysBtn.isDisplayed())
+				{
+					ShowAll_RestrictionDaysBtn.click();
+				}
+				}
+				catch(Exception p) {}
+				
+				Thread.sleep(1000);
+				for(int j=5;j<=RestrictDaysList.size();j++)
+				{
+					Thread.sleep(1000);
+//					if(driver.findElement(By.xpath("//app-chip[@name='restrictDays']/div/mat-chip-list/div/mat-chip["+j+"]")).isEnabled())
+//					{
+//						
+//					}
+//					else
+//					{
+					driver.findElement(By.xpath("//app-chip[@name='restrictDays']/div/mat-chip-list/div/mat-chip["+j+"]")).click();
+//					}
+				}
+			}
 		}
-		}
-		catch(Exception p) {}
-		
-		Thread.sleep(1000);
-		for(int j=5;j<=RestrictDaysList.size();j++)
+		catch(Exception po)
 		{
-			Thread.sleep(1000);
-//			if(driver.findElement(By.xpath("//app-chip[@name='restrictDays']/div/mat-chip-list/div/mat-chip["+j+"]")).isEnabled())
-//			{
-//				
-//			}
-//			else
-//			{
-			driver.findElement(By.xpath("//app-chip[@name='restrictDays']/div/mat-chip-list/div/mat-chip["+j+"]")).click();
-//			}
 		}
 		
 		for(int i=1;i<=3;i++)

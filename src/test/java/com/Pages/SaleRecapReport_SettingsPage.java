@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -31,16 +32,16 @@ public class SaleRecapReport_SettingsPage
 	}
 	
 	
-	@FindBy(xpath = "//span[contains(.,'Guest/Checks')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Guest/Checks')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Guest_Checks_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Guest/Checks')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Guest/Checks')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Guest_Checks_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Cover')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Cover')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Cover_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Cover')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Cover')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Cover_NoBtn;
 	
 	@FindBy(xpath = "//div[@class='radio-box'][.='Category']")
@@ -62,40 +63,40 @@ public class SaleRecapReport_SettingsPage
 	@FindBy(xpath = "//label[.='Menu Item *']/../../div/div/input")
 	WebElement MenuItems_LevelTypeInputBx;
 	
-	@FindBy(xpath = "//span[contains(.,'Grand Sales')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Grand Sales')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Grand_Sales_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Grand Sales')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Grand Sales')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Grand_Sales_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Gross Receipt')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Gross Receipt')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Gross_Receipt_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Gross Receipt')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Gross Receipt')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Gross_Receipt_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Gross Void')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Gross Void')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Gross_Void_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Gross Void')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Gross Void')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Gross_Void_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Net Void')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Net Void')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Net_Void_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Net Void')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Net Void')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Net_Void_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'CC Split Up')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'CC Split Up')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement CC_SplitUp_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'CC Split Up')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'CC Split Up')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement CC_SplitUp_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Other Payments Split Up')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Other Payments Split Up')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement OtherPayments_SplitUp_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Other Payments Split Up')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Other Payments Split Up')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement OtherPayments_SplitUp_NoBtn;
 	
 	@FindBy(xpath = "//app-radio-box-button[@name='selectedBusinesBox']/div/div/div/div[contains(.,'System Defined')]")
@@ -104,64 +105,64 @@ public class SaleRecapReport_SettingsPage
 	@FindBy(xpath = "//app-radio-box-button[@name='selectedBusinesBox']/div/div/div/div[contains(.,'User Defined')]")
 	WebElement UserDefined_PaymentNameBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Tax Split Up')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Tax Split Up')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Tax_SplitUp_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Tax Split Up')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Tax Split Up')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Tax_SplitUp_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Tax Exempt')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Tax Exempt')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Tax_Exempt_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Tax Exempt')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Tax Exempt')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Tax_Exempt_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Tax with Net sales')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Tax with Net sales')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Taxwith_NetSales_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Tax with Net sales')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Tax with Net sales')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Taxwith_NetSales_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Opening Balance')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Opening Balance')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement OpeningBalance_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Opening Balance')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Opening Balance')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement OpeningBalance_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Paid In/Out')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Paid In/Out')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement PaidIn_Out_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Paid In/Out')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Paid In/Out')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement PaidIn_Out_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Cash Drop')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Cash Drop')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Cash_Drop_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Cash Drop')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Cash Drop')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Cash_Drop_NoBtn;
 	
-	@FindBy(xpath = "//div[@id='summary']//span[contains(.,'Cash Expected')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//div[@id='summary']//span[contains(.,'Cash Expected')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Cash_Expected_Summary_YesBtn;
 	
-	@FindBy(xpath = "//div[@id='summary']//span[contains(.,'Cash Expected')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//div[@id='summary']//span[contains(.,'Cash Expected')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Cash_Expected_Summary_NoBtn;
 	
-	@FindBy(xpath = "//div[@id='summary']//span[contains(.,'Over / Shortage')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//div[@id='summary']//span[contains(.,'Over / Shortage')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Over_Shortage_Summary_YesBtn;
 	
-	@FindBy(xpath = "//div[@id='summary']//span[contains(.,'Over / Shortage')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//div[@id='summary']//span[contains(.,'Over / Shortage')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Over_Shortage_Summary_NoBtn;
 	
-	@FindBy(xpath = "//div[@id='formulaDefinition']//span[contains(.,'Cash Expected')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//div[@id='formulaDefinition']//span[contains(.,'Cash Expected')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Cash_Expected_FormulaDef_YesBtn;
 	
-	@FindBy(xpath = "//div[@id='formulaDefinition']//span[contains(.,'Cash Expected')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//div[@id='formulaDefinition']//span[contains(.,'Cash Expected')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Cash_Expected_FormulaDef_NoBtn;
 	
-	@FindBy(xpath = "//div[@id='formulaDefinition']//span[contains(.,'Overage/Shortage')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//div[@id='formulaDefinition']//span[contains(.,'Overage/Shortage')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Over_Shortage_Summary_FormulaDef_YesBtn;
 	
-	@FindBy(xpath = "//div[@id='formulaDefinition']//span[contains(.,'Overage/Shortage')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//div[@id='formulaDefinition']//span[contains(.,'Overage/Shortage')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Over_Shortage_Summary_FormulaDef_NoBtn;
 	
 	@FindBy(xpath = "//div[@id='formulaDefinition']/div[2]/div/div[2]/app-auto-complete/div/mat-form-field/div/div/div[3]/div/div/input")
@@ -186,28 +187,28 @@ public class SaleRecapReport_SettingsPage
 	@FindBy(xpath = "//div[@id='formulaDefinition']/div[3]/div/div[3]/app-auto-complete/div/mat-form-field/div/div/div[3]/div/div/input")
 	WebElement Overage_Shortage_SubtractInputBox;
 	
-	@FindBy(xpath = "//span[contains(.,'Department Summary')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Department Summary')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Department_Summary_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Department Summary')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Department Summary')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Department_Summary_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Category Summary')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Category Summary')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Category_Summary_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Category Summary')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Category Summary')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Category_Summary_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Hourly Summary')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Hourly Summary')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement Hourly_Summary_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Hourly Summary')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Hourly Summary')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement Hourly_Summary_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Include Credits in Daily Summary Report')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Include Credits in Daily Summary Report')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement IncludeCredits_in_DailySummaryReport_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Include Credits in Daily Summary Report')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Include Credits in Daily Summary Report')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement IncludeCredits_in_DailySummaryReport_NoBtn;
 	
 	@FindBy(xpath = "//button[.='UPDATE']")
@@ -322,9 +323,9 @@ public class SaleRecapReport_SettingsPage
 //		ac.doubleClick(Category_LevelTypeInputBx).build().perform();
 		
 		Thread.sleep(2000);
-		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isEnabled())
+		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isEnabled())
 		{
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
 			
 		}
 		
@@ -338,7 +339,7 @@ public class SaleRecapReport_SettingsPage
 		
 		Thread.sleep(1000);
 	
-	List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
+	List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
 		
 		int PrinterSize=PrinterList.size();
 		
@@ -346,13 +347,13 @@ public class SaleRecapReport_SettingsPage
 		{
 			Category_LevelTypeInputBx.click();
 			
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
 
 
 		}
 		else if(PrinterSize==1)
 		{
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+PrinterSize+"]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+PrinterSize+"]/select-option")).click();
 
 		}
 		else if(PrinterSize<=10)
@@ -360,24 +361,30 @@ public class SaleRecapReport_SettingsPage
 		int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
+		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
 		}
 		else
 		{
 			int randomPrinter=ThreadLocalRandom.current().nextInt(2, 10);
 			Thread.sleep(1000);
 			
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
 		
 		}
 		Thread.sleep(1000);
 		
 		Thread.sleep(1000);
-		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
+		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
 		
 		Thread.sleep(1000);
 		if(PrinterList1.size()!=0)
 		{
+			driver.findElement(By.xpath("(//span[.='General'])[1]")).click();
+			for(int j=1;j<=5;j++) 
+			{
+				Thread.sleep(1000);
+				driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+			}
 			Thread.sleep(1000);
 			Category_LevelTypeInputBx.click();
 		}
@@ -390,9 +397,9 @@ public class SaleRecapReport_SettingsPage
 		SubCategory_LevelTypeInputBx.click();
 		
 		Thread.sleep(2000);
-		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isEnabled())
+		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isEnabled())
 		{
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
 			
 		}
 		
@@ -406,7 +413,7 @@ public class SaleRecapReport_SettingsPage
 		
 		Thread.sleep(1000);
 	
-	List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
+	List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
 		
 		int PrinterSize=PrinterList.size();
 		
@@ -414,13 +421,13 @@ public class SaleRecapReport_SettingsPage
 		{
 			SubCategory_LevelTypeInputBx.click();
 			
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
 
 
 		}
 		else if(PrinterSize==1)
 		{
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+PrinterSize+"]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+PrinterSize+"]")).click();
 
 		}
 		else if(PrinterSize<=10)
@@ -428,22 +435,29 @@ public class SaleRecapReport_SettingsPage
 		int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
+		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
 		}
 		else
 		{
 			int randomPrinter=ThreadLocalRandom.current().nextInt(2, 10);
 			Thread.sleep(1000);
 			
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
 		
 		}
 		Thread.sleep(1000);
-		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
+		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
 		
 		Thread.sleep(1000);
 		if(PrinterList1.size()!=0)
 		{
+			
+			driver.findElement(By.xpath("(//span[.='General'])[1]")).click();
+			for(int j=1;j<=5;j++) 
+			{
+				Thread.sleep(1000);
+				driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+			}
 			Thread.sleep(1000);
 			SubCategory_LevelTypeInputBx.click();
 		}
@@ -456,9 +470,9 @@ public class SaleRecapReport_SettingsPage
 		MenuItems_LevelTypeInputBx.click();
 		
 		Thread.sleep(2000);
-		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isEnabled())
+		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isEnabled())
 		{
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
 			
 		}
 		
@@ -472,7 +486,7 @@ public class SaleRecapReport_SettingsPage
 		
 		Thread.sleep(1000);
 	
-	List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
+	List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
 		
 		int PrinterSize=PrinterList.size();
 		
@@ -480,13 +494,13 @@ public class SaleRecapReport_SettingsPage
 		{
 			MenuItems_LevelTypeInputBx.click();
 			
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
 
 
 		}
 		else if(PrinterSize==1)
 		{
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+PrinterSize+"]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+PrinterSize+"]")).click();
 
 		}
 		else if(PrinterSize<=10)
@@ -494,24 +508,30 @@ public class SaleRecapReport_SettingsPage
 		int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 		Thread.sleep(1000);
 		
-		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
+		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
 		}
 		else
 		{
 			int randomPrinter=ThreadLocalRandom.current().nextInt(2, 10);
 			Thread.sleep(1000);
 			
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
 		
 		}
 		Thread.sleep(1000);
 		
 		Thread.sleep(1000);
-		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
+		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
 		
 		Thread.sleep(1000);
 		if(PrinterList1.size()!=0)
 		{
+			driver.findElement(By.xpath("(//span[.='General'])[1]")).click();
+			for(int j=1;j<=5;j++) 
+			{
+				Thread.sleep(1000);
+				driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+			}
 			Thread.sleep(1000);
 			MenuItems_LevelTypeInputBx.click();
 		}
@@ -520,7 +540,7 @@ public class SaleRecapReport_SettingsPage
 	
 	public void SelectAll_LevelTypeItems()
 	{
-		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
 	
 	}
 	
@@ -1004,9 +1024,9 @@ public class SaleRecapReport_SettingsPage
 		Cash_Expected_AddInputBox.click();
 		
 		Thread.sleep(1000);
-		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isEnabled())
+		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isEnabled())
 		{
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
 			
 		}
 		Thread.sleep(1000);
@@ -1018,15 +1038,15 @@ public class SaleRecapReport_SettingsPage
 		Cash_Expected_AddInputBox.click();
 		
 //		Thread.sleep(1000);
-//		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isSelected())
+//		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isSelected())
 //		{
-//			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
 //			
 //		}
 			
 			
 	
-		List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
+		List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
 		
 	
 		int PrinterSize=PrinterList.size();
@@ -1036,13 +1056,13 @@ public class SaleRecapReport_SettingsPage
 			Thread.sleep(1000);
 			Cash_Expected_AddInputBox.click();
 			
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
 
 			
 		}
 		else if(PrinterSize==1)
 		{
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+PrinterSize+"]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+PrinterSize+"]")).click();
 
 		}
 		else if(PrinterSize<=6)
@@ -1050,19 +1070,19 @@ public class SaleRecapReport_SettingsPage
 		int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 		Thread.sleep(500);
 		
-		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
+		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
 		}
 		else
 		{
 			int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 			Thread.sleep(500);
 			
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
 		
 		}
 		Thread.sleep(1000);
 		
-		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
+		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
 		
 		if(PrinterList1.size()!=0)
 		{
@@ -1078,7 +1098,7 @@ public class SaleRecapReport_SettingsPage
 		Cash_Expected_SubtractInputBox.click();
 		
 
-//		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
+//		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
 //		
 //		for(int i=1;i<=PrinterList1.size();i++)
 //		{
@@ -1088,16 +1108,16 @@ public class SaleRecapReport_SettingsPage
 //		int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 //		
 		
-//		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
+//		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
 //		}
 		Thread.sleep(1000);
-		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isEnabled())
+		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isEnabled())
 		{
 			
 		}
 		else
 		{
-		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
 		}
 		
 	}
@@ -1140,9 +1160,9 @@ public class SaleRecapReport_SettingsPage
 		Overage_Shortage_AddInputBox.click();
 		
 		Thread.sleep(1000);
-		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isSelected())
+		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isSelected())
 		{
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
 			
 		}
 		
@@ -1155,15 +1175,15 @@ public class SaleRecapReport_SettingsPage
 		Overage_Shortage_AddInputBox.click();
 		
 //		Thread.sleep(1000);
-//		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isSelected())
+//		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isSelected())
 //		{
-//			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
 //			
 //		}
 			
 			
 	
-		List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
+		List<WebElement> PrinterList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
 		
 	
 		int PrinterSize=PrinterList.size();
@@ -1173,12 +1193,12 @@ public class SaleRecapReport_SettingsPage
 			Thread.sleep(1000);
 			Overage_Shortage_AddInputBox.click();
 			
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
 
 		}
 		else if(PrinterSize==1)
 		{
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+PrinterSize+"]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+PrinterSize+"]")).click();
 
 		}
 		else if(PrinterSize<=6)
@@ -1186,18 +1206,18 @@ public class SaleRecapReport_SettingsPage
 		int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 		Thread.sleep(500);
 		
-		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
+		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
 		}
 		else
 		{
 			int randomPrinter=ThreadLocalRandom.current().nextInt(2, 6);
 			Thread.sleep(500);
 			
-			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
+			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
 			
 		}
 		
-		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
+		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
 		
 		Thread.sleep(1000);
 		
@@ -1217,7 +1237,7 @@ public class SaleRecapReport_SettingsPage
 		Overage_Shortage_SubtractInputBox.click();
 		
 
-//		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
+//		List<WebElement> PrinterList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
 //		
 //		for(int i=1;i<=PrinterList1.size();i++)
 //		{
@@ -1227,16 +1247,16 @@ public class SaleRecapReport_SettingsPage
 //		int randomPrinter=ThreadLocalRandom.current().nextInt(2, PrinterSize);
 //		
 		
-//		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomPrinter+"]/select-option")).click();
+//		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomPrinter+"]")).click();
 //		}
 		Thread.sleep(1000);
-		if(driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).isEnabled())
+		if(driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).isEnabled())
 		{
 			
 		}
 		else
 		{
-		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
+		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
 		}
 	}
 	

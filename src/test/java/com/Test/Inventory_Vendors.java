@@ -280,7 +280,7 @@ public WebDriver driver;
 		
 		Thread.sleep(500);
 		//Search and Click Edit button
-		cmp.SearchAndClickEdit(Utility.getProperty("Inventory_Vendor"));
+		air.SearchAndClickEdit(Utility.getProperty("Inventory_Vendor"));
 		
 		Thread.sleep(500);
 		//Check whether the Update screen opened or not
@@ -304,7 +304,7 @@ public WebDriver driver;
 		
 		Thread.sleep(500);
 		//Search and Click Edit button
-		cmp.SearchAndClickEdit(Utility.getProperty("Inventory_Vendor"));
+		air.SearchAndClickEdit(Utility.getProperty("Inventory_Vendor"));
 		
 		
 		Thread.sleep(1000);
@@ -331,11 +331,11 @@ public WebDriver driver;
 	
 		Thread.sleep(1000);
 		//Search and Verify the Search box when Entering 3 Characters
-		cmp.SearchAndVerify_SearchBox();
+		//cmp.SearchAndVerify_SearchBox();
 		
 		Thread.sleep(1000);
 		//Search and Click Edit button
-		cmp.SearchAndClickEdit(Utility.getProperty("Inventory_Vendor"));
+		air.SearchAndClickEdit(Utility.getProperty("Inventory_Vendor"));
 		
 		Thread.sleep(500);
 		//Enter the Name
@@ -361,7 +361,7 @@ public WebDriver driver;
 
 			Thread.sleep(1000);
 			//Search and Click Edit button
-			cmp.SearchAndClickEdit(Utility.getProperty("Inventory_Vendor"));
+			air.SearchAndClickEdit(Utility.getProperty("Inventory_Vendor"));
 			
 		}	
 		else
@@ -424,11 +424,11 @@ public WebDriver driver;
 		air=new InventoryPage(driver, test);
 		
 		//Search and Click Delete button
-		cmp.SearchAndClickDelete(Utility.getProperty("Inventory_Vendor")+"1");
+		air.SearchAndClickDelete(Utility.getProperty("Inventory_Vendor")+"1");
 		
 		Thread.sleep(500);
 		//Click the Delete button
-		cmp.Alert_PopupMsg("Are you sure you want to delete this item?");
+		cmp.Alert_PopupMsg("Are you sure you want to Delete!");
 		
 		//Click the Cancel button
 		cmp.Click_CancelButtonInAlert();
@@ -454,10 +454,10 @@ public WebDriver driver;
 		
 		
 		//Search and Click Delete button
-		cmp.SearchAndClickDelete(Utility.getProperty("Inventory_Vendor")+"1");
+		air.SearchAndClickDelete(Utility.getProperty("Inventory_Vendor")+"1");
 		
 		//Click Delete button
-		cmp.Click_DeleteButton();
+		cmp.Click_DeleteButton_Message("Are you sure you want to Delete!");
 		
 		Thread.sleep(3000);
 		//Check whether the New Course Saved or not
@@ -481,7 +481,7 @@ public WebDriver driver;
 		cmp.VerifyActive_InactiveStatus("Inactive");
 		
 		//Search and Activate the In activated item
-				cmp.SearchAndClickActivate(Utility.getProperty("Inventory_Vendor")+"1");
+				air.SearchAndClickActivate(Utility.getProperty("Inventory_Vendor")+"1");
 				
 				Thread.sleep(500);
 				//Click the Delete button
@@ -510,7 +510,7 @@ public WebDriver driver;
 
 		
 		//Search and Activate the In activated item
-		cmp.SearchAndClickActivate(Utility.getProperty("Inventory_Vendor")+"1");
+		air.SearchAndClickActivate(Utility.getProperty("Inventory_Vendor")+"1");
 		
 		//Click Activate button
 				cmp.Click_ActivateButton();
@@ -541,7 +541,7 @@ public WebDriver driver;
 		
 		Thread.sleep(1000);
 		//Search the Vendor to Click Edit and Cancel
-		cmp.SearchAndClickEdit(Utility.getProperty("Inventory_Vendor")+"1");
+		air.SearchAndClickEdit(Utility.getProperty("Inventory_Vendor")+"1");
 		
 		Thread.sleep(1000);
 		//Click Cancel button

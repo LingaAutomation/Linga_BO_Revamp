@@ -113,7 +113,7 @@ public WebDriver driver;
 		verifyTheCloseTill_UI(driver);
 	}
 	
-	@Test(priority = 3,enabled = false)
+	@Test(priority = 3,enabled = false,description="Navigate the application to the Till Settings page")
 	public void Open_TillSettings_Page(WebDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
@@ -129,28 +129,28 @@ public WebDriver driver;
 		tsp.verify_TillSettings_Page();
 	}
 	
-	@Test(priority = 4,enabled = false)
+	@Test(priority = 4,enabled = false,description="Verify the Automatic Global Till and its field in the Till Settings page")
 	public void verifyAutomaticGlobalTill(WebDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
 		tsp.automaticGlobalTill();
 	}
 	
-	@Test(priority = 5,enabled = false)
+	@Test(priority = 5,enabled = false,description="Verify the Force Cash Out at Clock Out toggle in the Till Settings page")
 	public void verifyForceCashOutAtClockOut(WebDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
 		tsp.forceCashOutatClockOut();
 	}
 	
-	@Test(priority = 6,enabled = false)
+	@Test(priority = 6,enabled = false,description="Verify the Restrict Partial Payment toggle in the Till Settings page")
 	public void verifyRestrictPartialPayments(WebDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
 		tsp.restrictPartialPaymnets();
 	}
 	
-	@Test(priority = 7,enabled = false)
+	@Test(priority = 7,enabled = false,description="Verify the Bank Deposite(With valid and invalid amount) in the Till Settings page")
 	public void verifyAddBankDeposit(WebDriver driver) throws Exception
 	{
 		Thread.sleep(15000);
@@ -204,7 +204,7 @@ public WebDriver driver;
 		}
 	}
 	
-	@Test(priority = 8,enabled = false)
+	@Test(priority = 8,enabled = false,description="Verify the Denomination in the Till Settings page")
 	public void verifyTheDenominationsUI(WebDriver driver) throws Exception
 	{
 		Thread.sleep(8000);
@@ -340,30 +340,31 @@ public WebDriver driver;
 				
 	}
 
-	@Test(priority = 9,enabled = false)
+	@Test(priority = 9,enabled = false,description="Verify the Denomination search in the Till Settings page")
 	public void verifyTheDenominationsSearch(WebDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
 		tsp.denomination_Search();
 	}
 	
-	@Test(priority = 10,enabled = false)
+	@Test(priority = 10,enabled = false,description="Verify the Denomination - Pagination in the Till Settings page")
 	public void verifyTheDenominationsPagination(WebDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
 		tsp.paginationValidations();
 	}
 	
-	@Test(priority = 11,enabled = false)
+	@Test(priority = 11,enabled = false,description="Verify the Denomination deletion in the Till Settings page")
 	public void verifyTheDenominationsDeletion(WebDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
 		tsp.clickTheDenominationsBtn();
+		Thread.sleep(5000);
 		tsp.Delete_Denomination();
 		Thread.sleep(10000);
 	}
 	
-	@Test(priority = 12,enabled = false)
+	@Test(priority = 12,enabled = false,description="Verify the Close Till in the Till Settings page")
 	public void verifyTheCloseTill_UI(WebDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);

@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\raja.s\AppData\Local\Temp\testng-eclipse-40357894\testng-customsuite.xml</span>
+                    <span>C:\Users\raja.s\AppData\Local\Temp\testng-eclipse-405087759\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -93,7 +93,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_AddEditDelete_DisplayGroups" class="method navigator-link" hash-for-method="Calling">Calling</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,17 +118,12 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_Sort_Menu_Config" class="method navigator-link" hash-for-method="Calling">Calling</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_AddEditDelete_DisplayGroups" class="method navigator-link" hash-for-method="LogOut">LogOut</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_Sort_Menu_Config" class="method navigator-link" hash-for-method="LogOut">LogOut</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_Sort_Menu_Config" class="method navigator-link" hash-for-method="Login">Login</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_AddEditDelete_DisplayGroups" class="method navigator-link" hash-for-method="Login">Login</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -129,10 +138,10 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.Test.Product_Items_Sort_Menu_Config</span>
+              <img src="failed.png"/>
+              <span class="class-name">com.Test.Product_Items_AddEditDelete_DisplayGroups</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -140,8 +149,78 @@
                   <a name="Calling">
                   </a> <!-- Calling -->
                   <span class="method-name">Calling</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//app-time-picker[@name=&apos;startTime&apos;]/div/app-input/div/div/mat-form-field/div/div/div[4]/input&quot;}
+  (Session info: chrome=114.0.5735.199)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
+System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.6&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [92270a7cb37d0d598c0baa2987bf4e7e, findElement {using=xpath, value=//app-time-picker[@name=&apos;startTime&apos;]/div/app-input/div/div/mat-form-field/div/div/div[4]/input}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:57085}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:57085/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 92270a7cb37d0d598c0baa2987bf4e7e
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:199)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:132)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy17.click(Unknown Source)
+	at com.Pages.Availability_RestrictionTimePage.Enter_RestrictionTime(Availability_RestrictionTimePage.java:228)
+	at com.Pages.Availability_RestrictionTimePage.Select_DateRange(Availability_RestrictionTimePage.java:702)
+	at com.Test.Product_Items_AddEditDelete_DisplayGroups.Edit_and_Update_DisplayGroups_DateRange_ZtoA_Sorting(Product_Items_AddEditDelete_DisplayGroups.java:384)
+	at com.Test.Product_Items_AddEditDelete_DisplayGroups.Calling(Product_Items_AddEditDelete_DisplayGroups.java:124)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:794)
+	at org.testng.TestRunner.run(TestRunner.java:596)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+	at org.testng.TestNG.runSuites(TestNG.java:1063)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.Test.Product_Items_AddEditDelete_DisplayGroups</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
                   <a name="LogOut">
@@ -161,7 +240,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\raja.s\AppData\Local\Temp\testng-eclipse-40357894\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\raja.s\AppData\Local\Temp\testng-eclipse-405087759\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -170,7 +249,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.Test.Product_Items_Sort_Menu_Config&quot;/&gt;
+      &lt;class name=&quot;com.Test.Product_Items_AddEditDelete_DisplayGroups&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -213,16 +292,16 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'Calling')
-data.setCell(0, 2, 'com.Test.Product_Items_Sort_Menu_Config')
-data.setCell(0, 3, 103907);
+data.setCell(0, 2, 'com.Test.Product_Items_AddEditDelete_DisplayGroups')
+data.setCell(0, 3, 116694);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'Login')
-data.setCell(1, 2, 'com.Test.Product_Items_Sort_Menu_Config')
-data.setCell(1, 3, 51594);
+data.setCell(1, 2, 'com.Test.Product_Items_AddEditDelete_DisplayGroups')
+data.setCell(1, 3, 39424);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'LogOut')
-data.setCell(2, 2, 'com.Test.Product_Items_Sort_Menu_Config')
-data.setCell(2, 3, 3780);
+data.setCell(2, 2, 'com.Test.Product_Items_AddEditDelete_DisplayGroups')
+data.setCell(2, 3, 7007);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
@@ -242,19 +321,33 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">4 ignored methods</span>
+            <span class="header-content">11 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">com.Test.Product_Items_Sort_Menu_Config</span>
+              <span class="ignored-class-name">com.Test.Product_Items_AddEditDelete_DisplayGroups</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">Category_Navigating</span>
+                <span class="ignored-method-name">Edit_Delete_MenuItems_and_Update_DisplayGroups_DateRangeWithTime</span>
                 <br/>
-                <span class="ignored-method-name">Sort_MenuItem</span>
+                <span class="ignored-method-name">Delete_and_Active_Inactive_DisplayGroups</span>
                 <br/>
-                <span class="ignored-method-name">Open_Sort_Menu_Config_Page</span>
+                <span class="ignored-method-name">Edit_and_Update_DisplayGroups_DateRange_ZtoA_Sorting</span>
                 <br/>
-                <span class="ignored-method-name">Sort_Categories</span>
+                <span class="ignored-method-name">Edit_and_Update_DisplayGroups_DaysOfWeek</span>
+                <br/>
+                <span class="ignored-method-name">Edit_and_Update_DisplayGroups_Specific_Date_Custom_Sorting</span>
+                <br/>
+                <span class="ignored-method-name">Edit_and_Close_Cancel_DisplayGroups</span>
+                <br/>
+                <span class="ignored-method-name">Add_DisplayGroups</span>
+                <br/>
+                <span class="ignored-method-name">Open_DisplayGroups_Page</span>
+                <br/>
+                <span class="ignored-method-name">RefreshAndPaginination</span>
+                <br/>
+                <span class="ignored-method-name">Edit_and_Update_DisplayGroups_DaysOfMonth_AtoZ_Sorting</span>
+                <br/>
+                <span class="ignored-method-name">Create_DuplicateDisplayGroup</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -266,34 +359,36 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.Test.Product_Items_Sort_Menu_Config</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.Test.Product_Items_AddEditDelete_DisplayGroups</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">Login</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TestFail([TestResult name=Login status=SUCCESS method=Product_Items_Sort_Menu_Config.Login()[pri:1, instance:...)</span>
-                <span class="method-start">51599 ms</span>
+                <span class="method-name">TestFail([TestResult name=Login status=SUCCESS method=Product_Items_AddEditDelete_DisplayGroups.Login()[pri:1...)</span>
+                <span class="method-start">39429 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">Calling</span>
-                <span class="method-start">51608 ms</span>
+                <span class="method-start">39443 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TestFail([TestResult name=Calling status=SUCCESS method=Product_Items_Sort_Menu_Config.Calling()[pri:2, insta...)</span>
-                <span class="method-start">155517 ms</span>
+                <span class="method-name">TestFail([TestResult name=Calling status=FAILURE method=Product_Items_AddEditDelete_DisplayGroups.Calling()[p...)</span>
+                <span class="method-start">156148 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">LogOut</span>
-                <span class="method-start">155518 ms</span>
+                <span class="method-start">156417 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TestFail([TestResult name=LogOut status=SUCCESS method=Product_Items_Sort_Menu_Config.LogOut()[pri:50, instan...)</span>
-                <span class="method-start">159300 ms</span>
+                <span class="method-name">TestFail([TestResult name=LogOut status=SUCCESS method=Product_Items_AddEditDelete_DisplayGroups.LogOut()[pri...)</span>
+                <span class="method-start">163425 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">flushTest</span>
-                <span class="method-start">159300 ms</span>
+                <span class="method-start">163425 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

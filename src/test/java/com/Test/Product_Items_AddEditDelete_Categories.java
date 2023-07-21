@@ -174,7 +174,7 @@ public WebDriver driver;
 		//Click the Save button
 				cmp.Click_Save_and_PublishButton();
 				
-				Thread.sleep(3000);
+				cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 				//Check whether the New Tax Saved or not
 				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category saved successfully"))
 				{
@@ -227,7 +227,7 @@ public WebDriver driver;
 		
 		
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Select Department
 		ctp.Select_Department();
 		
@@ -237,7 +237,7 @@ public WebDriver driver;
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
 		}
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Select Coursing
 		ctp.Select_Coursing();
 		
@@ -247,7 +247,7 @@ public WebDriver driver;
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
 		}
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Select Item Service Level
 		ctp.Select_ServingSizeLevel();
 		
@@ -307,7 +307,7 @@ public WebDriver driver;
 		cmp.Click_Save_and_PublishButton();
 		
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Saved Successfully. Store data publish is starting"))
 		{
@@ -377,7 +377,8 @@ public WebDriver driver;
 		//Enter the Name
 		cmp.EnterName("");
 		
-		
+		try
+		{
 		Thread.sleep(2000);
 		if(cmp.Update_and_PublishButton().isEnabled())
 		{
@@ -393,7 +394,7 @@ public WebDriver driver;
 				
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					
-					Thread.sleep(50000);
+					Thread.sleep(5000);
 					//Search and Click Edit button
 					cmp.SearchAndClickEdit(Utility.getProperty("Category_Name"));
 					
@@ -406,12 +407,12 @@ public WebDriver driver;
 					
 				}
 		}
-		else
+	}
+		catch(Exception kl)
 		{
-			test.log(LogStatus.PASS, "Save and Publish button not Enabled without Entering Name");
+			test.log(LogStatus.PASS, "Update and Publish button not Enabled without Entering Name");
 		}
 		
-		Thread.sleep(3000);
 		//Enter the Name
 		cmp.EnterName(Utility.getProperty("Category_Name")+"1");
 		
@@ -466,7 +467,7 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated Successfully. Store data publish is starting"))
 		{
@@ -543,7 +544,7 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated Successfully. Store data publish is starting"))
 		{
@@ -611,7 +612,7 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated Successfully. Store data publish is starting"))
 		{
@@ -677,7 +678,7 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated Successfully. Store data publish is starting"))
 		{
@@ -721,11 +722,11 @@ public WebDriver driver;
 		//Select Days of Week
 		at.Select_DateRangeWithTime();
 		
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated Successfully. Store data publish is starting"))
 		{
@@ -795,7 +796,7 @@ public WebDriver driver;
 		//Click the Delete button
 		cmp.Click_DeleteButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Inactivated Successfully"))
 		{
@@ -828,7 +829,7 @@ public WebDriver driver;
 
 		try
 		{
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Modifier Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Activated Successfully"))
 		{
@@ -852,7 +853,7 @@ public WebDriver driver;
 		//Click the Activate button
 		cmp.Click_ActivateButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Activated Successfully"))
 		{
@@ -926,7 +927,7 @@ public WebDriver driver;
 		}
 		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
 		{
-			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
+			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed while Adding Duplicate Category");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			

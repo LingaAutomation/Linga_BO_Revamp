@@ -122,10 +122,8 @@ public class Settings_Integrations_WebHook
 		Thread.sleep(6000);
 		//load the Notifications page
 		Thread.sleep(2000);
-		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2"));
-		wh.Navigating_Settings();
-		Thread.sleep(1000);
-		wh.Navigating_WebHooks();
+		driver.get(Utility.getProperty("baseURL")+"settings/"+"webhooks");
+
 		Thread.sleep(5000);
 		try {
 			if(driver.findElement(By.xpath("//h3[contains(.,'Web Hooks')]")).isDisplayed()) {

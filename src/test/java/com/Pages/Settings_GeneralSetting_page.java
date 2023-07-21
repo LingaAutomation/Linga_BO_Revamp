@@ -39,64 +39,64 @@ public class Settings_GeneralSetting_page
     @FindBy(xpath = "//span[contains(.,'General Settings')]")
     WebElement General_Setting;
     
-    @FindBy(xpath = "//span[.='Prompt Tip Screen before Credit Card Screen']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+    @FindBy(xpath = "//span[.='Prompt Tip Screen before Credit Card Screen']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement TipScreen_NoToggle;
     
-    @FindBy(xpath = "//span[.='Prompt Tip Screen before Credit Card Screen']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+    @FindBy(xpath = "//span[.='Prompt Tip Screen before Credit Card Screen']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement TipScreen_YesToggle;
     
-    @FindBy(xpath = "//span[.='Enable Intranet sync ']/../..//button[.='Yes']")
+    @FindBy(xpath = "//span[.='Enable Intranet sync']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement Intranetsync_YesToggle;
     
-    @FindBy(xpath = "//span[.='Enable Intranet sync ']/../..//button[.='No']")
+    @FindBy(xpath = "//span[.='Enable Intranet sync']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement Intranetsync_NoToggle;
     
     @FindBy(xpath = "//span[.='Preferred Network ']/../..//input")
     WebElement Prferred_Network_Textbox;
     
-    @FindBy(xpath = "//span[.='Enable Pre Auth']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+    @FindBy(xpath = "//span[.='Enable Pre Auth']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement PreAuth;
     
-    @FindBy(xpath = "//span[.='Enable Pre Auth']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+    @FindBy(xpath = "//span[.='Enable Pre Auth']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement PreAuth_NoToggle;
     
     @FindBy(xpath = "//div[@class='mat-form-field-infix ng-tns-c79-130']")
     WebElement Pre_AuthAmount;
     
-    @FindBy(xpath = "//span[.='Enable Extended Pre Auth ']/../..//button[.='Yes']")
+    @FindBy(xpath = "//span[.='Enable Extended Pre Auth']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement Extended_PreAuth;
     
-    @FindBy(xpath = "//span[.='Enable Extended Pre Auth ']/../..//button[.='No']")
+    @FindBy(xpath = "//span[.='Enable Extended Pre Auth']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement Extended_PreAuth_NoToggle;
     
-    @FindBy(xpath = "//span[.='Disable Gift Card Tip']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+    @FindBy(xpath = "//span[.='Disable Gift Card Tip']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement Giftcard_YesToggle;
     
-    @FindBy(xpath = "//span[.='Disable Gift Card Tip']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+    @FindBy(xpath = "//span[.='Disable Gift Card Tip']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement Giftcard_NoToggle;
     
-    @FindBy(xpath = "//span[.='Employee Tip Out Deducted from Cash Expected on Reports ']/../..//button[.='Yes']")
+    @FindBy(xpath = "//span[.='Employee Tip Out Deducted from Cash Expected on Reports']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement Tipout_YesToggle;
     
-    @FindBy(xpath = "//span[.='Employee Tip Out Deducted from Cash Expected on Reports ']/../..//button[.='No']")
+    @FindBy(xpath = "//span[.='Employee Tip Out Deducted from Cash Expected on Reports']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement Tipout_NoToggle;
     
-    @FindBy(xpath ="//span[.='Enable Gratuity Line in Credit Card Screen ']/../..//button[.='Yes']")
+    @FindBy(xpath ="//span[.='Enable Gratuity Line in Credit Card Screen']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement Gratuity_line_YesToggle;
     
-    @FindBy(xpath ="//span[.='Enable Gratuity Line in Credit Card Screen ']/../..//button[.='No']")
+    @FindBy(xpath ="//span[.='Enable Gratuity Line in Credit Card Screen']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement Gratuity_line_NoToggle;
     
-    @FindBy(xpath = "//span[.='Disable Customer Nationality']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+    @FindBy(xpath = "//span[.='Disable Customer Nationality']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement Disable_Nationality_YesToggle;
     
-    @FindBy(xpath = "//span[.='Disable Customer Nationality']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+    @FindBy(xpath = "//span[.='Disable Customer Nationality']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement Disable_Nationality_NoToggle;
     
-    @FindBy(xpath = "//span[.='Require Tax ID on Exempt Transaction']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+    @FindBy(xpath = "//span[.='Require Tax ID on Exempt Transaction']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement TaxExempt_YesToggle;
     
-    @FindBy(xpath = "//span[.='Require Tax ID on Exempt Transaction']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+    @FindBy(xpath = "//span[.='Require Tax ID on Exempt Transaction']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement TaxExempt_NoToggle;
     
     @FindBy(xpath = "//span[.='Auto Log Off ']/../..//button[.='arrow_drop_up']")
@@ -118,16 +118,16 @@ public class Settings_GeneralSetting_page
     @FindBy(xpath = "//span[.='Custom Split Button Action ']/../..//mat-chip[.=' Split by Seat ']")
     WebElement CustomSplit_Splitbyseat;
     
-    @FindBy(xpath = "//span[.='Auto Generate House Account Number ']/../..//button[.='Yes']")
+    @FindBy(xpath = "//span[.='Auto Generate House Account Number']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement HouseAccount_YesToggle;
     
-    @FindBy(xpath = "//span[.='Auto Generate House Account Number ']/../..//button[.='No']")
+    @FindBy(xpath = "//span[.='Auto Generate House Account Number']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement HouseAccount_NoToggle;
     
-    @FindBy(xpath = "//span[.='Auto Print Close Day Report']/../..//button[.='Yes']")
+    @FindBy(xpath = "//span[.='Auto Print Close Day Report']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement AutoClose_DayReport_YesToggle;
     
-    @FindBy(xpath = "//span[.='Auto Print Close Day Report']/../..//button[.='No']")
+    @FindBy(xpath = "//span[.='Auto Print Close Day Report']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement AutoClose_DayReport_NoToggle;
     
     @FindBy(xpath = "//span[.='Log In/Clock In Via']/../..//mat-chip[.=' PIN ']")
@@ -166,16 +166,16 @@ public class Settings_GeneralSetting_page
     @FindBy(xpath = "//span[.='Hide Seat Number in Kitchen Print']/../../div[3]/app-chip/div/mat-chip-list/div/mat-chip[6]")
     WebElement Hide_Weborder;
     
-    @FindBy(xpath = "//span[.='Membership Auto Renewal ']/../..//button[.='Yes']")
+    @FindBy(xpath = "//span[.='Membership Auto Renewal']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement Memship_Auto_Renewal_YesToggle;
     
-    @FindBy(xpath = "//span[.='Membership Auto Renewal ']/../..//button[.='No']")
+    @FindBy(xpath = "//span[.='Membership Auto Renewal']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement Memship_Auto_Renewal_NoToggle;
     
-    @FindBy(xpath = "//span[.='Store Level Customer ']/../..//button[.='Yes']")
+    @FindBy(xpath = "//span[.='Store Level Customer']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement Store_Level_Custo_YesToggle;
     
-    @FindBy(xpath = "//span[.='Store Level Customer ']/../..//button[.='No']")
+    @FindBy(xpath = "//span[.='Store Level Customer']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement Store_Level_Custo_NoToggle;
     
     @FindBy(xpath = "//span[contains(.,'12 Hours')]/../..")
@@ -193,10 +193,10 @@ public class Settings_GeneralSetting_page
     @FindBy(xpath = "//span[contains(.,'DD-MM-YYYY')]/../..")
     WebElement DateForm_3rd;
     
-    @FindBy(xpath = "//span[.='Tip Suggestion on Credit Card Receipt  ']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
+    @FindBy(xpath = "//span[.='Tip Suggestion on Credit Card Receipt ']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='Yes']")
     WebElement Tip_Suggestion_YesToggle;
     
-    @FindBy(xpath = "//span[.='Tip Suggestion on Credit Card Receipt  ']/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[.='No']")
+    @FindBy(xpath = "//span[.='Tip Suggestion on Credit Card Receipt ']/../../div[2]/mat-button-toggle-group/mat-button-toggle/button[.='No']")
     WebElement Tip_Suggestion_NoToggle;
     
     @FindBy(xpath = "//button[.='UPDATE']" )
@@ -237,7 +237,7 @@ Thread.sleep(1000);
 			
 		}
 		else
-		{
+		{driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 			Thread.sleep(1000);
 			TipScreen_YesToggle.click();
 		}

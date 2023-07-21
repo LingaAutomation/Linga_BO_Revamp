@@ -75,10 +75,10 @@ public class Label_TemplatePage
 	{
 		try
 		{
-		if(Enable_Autocut_ChkBox_SLD.isDisplayed())
-		{
-			
-		}
+			if(Enable_Autocut_ChkBox_SLD.isDisplayed())
+			{
+				
+			}
 		}
 		catch(Exception l)
 		{
@@ -114,7 +114,7 @@ public class Label_TemplatePage
 		Select_TemplateInputBox.click();
 		
 		
-	List<WebElement> TemplateList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> TemplateList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int TemplateSize=TemplateList.size();
 		
@@ -122,7 +122,7 @@ public class Label_TemplatePage
 		int randomTemplate=ThreadLocalRandom.current().nextInt(1, TemplateSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomTemplate+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomTemplate+"]/select-option")).click();
 	
 	}
 	
@@ -202,7 +202,7 @@ public class Label_TemplatePage
 	{
 		Check_Date_InputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -210,7 +210,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -226,7 +226,7 @@ public class Label_TemplatePage
 	{
 		Business_Name_InputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -234,7 +234,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -250,7 +250,7 @@ public class Label_TemplatePage
 	{
 		Menu_ItemName_InputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -258,7 +258,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -274,7 +274,7 @@ public class Label_TemplatePage
 	{
 		Customer_Address_Phone_InputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -282,7 +282,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -298,7 +298,7 @@ public class Label_TemplatePage
 	{
 		Delivery_Notes_InputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -306,7 +306,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -322,7 +322,7 @@ public class Label_TemplatePage
 	{
 		Modifiers_InputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -330,7 +330,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -346,7 +346,7 @@ public class Label_TemplatePage
 	{
 		CustomerInfo_EpsonBox_InputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -354,7 +354,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -408,29 +408,8 @@ public class Label_TemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Business Name')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Business_Name_CheckDetails_ChkBox_SLD;
 	
-//	public void Select_Business_Name_CheckDetails_CheckBox()
-//	{
-//		if(Business_Name_CheckDetails_ChkBox.isSelected())
-//		{
-//			
-//		}
-//		else
-//		{
-//			Business_Name_CheckDetails_ChkBox.click();
-//		}
-//	}
-//	
-//	public void UnSelect_Business_Name_CheckDetails_CheckBox()
-//	{
-//		if(Business_Name_CheckDetails_ChkBox.isSelected())
-//		{
-//			Business_Name_CheckDetails_ChkBox.click();		
-//		}
-//		else
-//		{
-//			
-//		}
-//	}
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Business Name')][contains(@class,'ng-untouched')]")
+	WebElement Business_Name_CheckDetails_ChkBox_SLD1;
 	
 	
 	public WebElement Business_Name_CheckDetails_CheckBox()
@@ -443,23 +422,20 @@ public class Label_TemplatePage
 		return Business_Name_CheckDetails_ChkBox_SLD;
 	}
 	
+	public WebElement Business_Name_CheckDetails_CheckBox_SLD1()
+	{
+		return Business_Name_CheckDetails_ChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Server Name')]")
 	WebElement Server_Name_CheckDetails_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Server Name')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Server_Name_CheckDetails_ChkBox_SLD;
 	
-//	public void Select_Server_Name_CheckDetails_CheckBox()
-//	{
-//		if(Server_Name_CheckDetails_ChkBox.isSelected())
-//		{
-//			
-//		}
-//		else
-//		{
-//			Server_Name_CheckDetails_ChkBox.click();
-//		}
-//	}
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Server Name')][contains(@class,'ng-untouched')]")
+	WebElement Server_Name_CheckDetails_ChkBox_SLD1;
+	
 	
 	public WebElement Server_Name_CheckDetails_CheckBox()
 	{
@@ -470,6 +446,11 @@ public class Label_TemplatePage
 	{
 		return Server_Name_CheckDetails_ChkBox_SLD;
 	}
+	
+	public WebElement Server_Name_CheckDetails_CheckBox_SLD1()
+	{
+		return Server_Name_CheckDetails_ChkBox_SLD1;
+	}
 
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Check Number')]")
@@ -478,17 +459,9 @@ public class Label_TemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Check Number')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Check_Number_CheckDetails_ChkBox_SLD;
 	
-//	public void Select_Server_Name_CheckDetails_CheckBox()
-//	{
-//		if(Server_Name_CheckDetails_ChkBox.isSelected())
-//		{
-//			
-//		}
-//		else
-//		{
-//			Server_Name_CheckDetails_ChkBox.click();
-//		}
-//	}
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Check Number')][contains(@class,'ng-untouched')]")
+	WebElement Check_Number_CheckDetails_ChkBox_SLD1;
+	
 	
 	public WebElement Check_Number_CheckDetails_CheckBox()
 	{
@@ -499,6 +472,11 @@ public class Label_TemplatePage
 	{
 		return Check_Number_CheckDetails_ChkBox_SLD;
 	}
+	
+	public WebElement Check_Number_CheckDetails_CheckBox_SLD1()
+	{
+		return Check_Number_CheckDetails_ChkBox_SLD1;
+	}
 
 	
 	@FindBy(xpath = "//mat-expansion-panel-header[contains(.,'Check Details')]/../div/div/div/div/div[2]/div/app-checkbox/div/mat-checkbox[contains(.,'Order Type')]")
@@ -506,6 +484,9 @@ public class Label_TemplatePage
 	
 	@FindBy(xpath = "//mat-expansion-panel-header[contains(.,'Check Details')]/../div/div/div/div/div[2]/div/app-checkbox/div/mat-checkbox[contains(.,'Order Type')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Order_Type_CheckDetails_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-expansion-panel-header[contains(.,'Check Details')]/../div/div/div/div/div[2]/div/app-checkbox/div/mat-checkbox[contains(.,'Order Type')][contains(@class,'ng-untouched')]")
+	WebElement Order_Type_CheckDetails_ChkBox_SLD1;
 	
 	public WebElement Order_Type_CheckDetails_CheckBox()
 	{
@@ -516,6 +497,11 @@ public class Label_TemplatePage
 	{
 		return Order_Type_CheckDetails_ChkBox_SLD;
 	}
+	
+	public WebElement Order_Type_CheckDetails_CheckBox_SLD1()
+	{
+		return Order_Type_CheckDetails_ChkBox_SLD1;
+	}
 
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Date & Time')]")
@@ -524,6 +510,8 @@ public class Label_TemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Date & Time')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Date_Time_CheckDetails_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Date & Time')][contains(@class,'ng-untouched')]")
+	WebElement Date_Time_CheckDetails_ChkBox_SLD1;
 	
 	public WebElement Date_Time_CheckDetails_CheckBox()
 	{
@@ -535,6 +523,11 @@ public class Label_TemplatePage
 		return Date_Time_CheckDetails_ChkBox_SLD;
 	}
 	
+	public WebElement Date_Time_CheckDetails_CheckBox_SLD1()
+	{
+		return Date_Time_CheckDetails_ChkBox_SLD1;
+	}
+	
 	
 	@FindBy(xpath = "//mat-expansion-panel-header[contains(.,'Check Details')]/../div/div/div/div/div[2]/div/app-checkbox/div/mat-checkbox[contains(.,'Pay Status')]")
 	WebElement PayStatus_CheckDetails_ChkBox;
@@ -542,6 +535,8 @@ public class Label_TemplatePage
 	@FindBy(xpath = "//mat-expansion-panel-header[contains(.,'Check Details')]/../div/div/div/div/div[2]/div/app-checkbox/div/mat-checkbox[contains(.,'Pay Status')][contains(@class,'mat-checkbox-checked')]")
 	WebElement PayStatus_CheckDetails_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-expansion-panel-header[contains(.,'Check Details')]/../div/div/div/div/div[2]/div/app-checkbox/div/mat-checkbox[contains(.,'Pay Status')][contains(@class,'ng-untouched')]")
+	WebElement PayStatus_CheckDetails_ChkBox_SLD1;
 	
 	public WebElement PayStatus_CheckDetails_CheckBox()
 	{
@@ -553,13 +548,20 @@ public class Label_TemplatePage
 		return PayStatus_CheckDetails_ChkBox_SLD;
 	}
 	
+	public WebElement PayStatus_CheckDetails_CheckBox_SLD1()
+	{
+		return PayStatus_CheckDetails_ChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Menu Item Number')]")
 	WebElement MenuItem_Number_CheckDetails_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Menu Item Number')][contains(@class,'mat-checkbox-checked')]")
 	WebElement MenuItem_Number_CheckDetails_ChkBox_SLD;
 	
-	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Menu Item Number')][contains(@class,'ng-untouched')]")
+	WebElement MenuItem_Number_CheckDetails_ChkBox_SLD1;
+
 	public WebElement MenuItem_Number_CheckDetails_CheckBox()
 	{
 		return MenuItem_Number_CheckDetails_ChkBox;
@@ -570,6 +572,11 @@ public class Label_TemplatePage
 		return MenuItem_Number_CheckDetails_ChkBox_SLD;
 	}
 	
+	public WebElement MenuItem_Number_CheckDetails_CheckBox_SLD1()
+	{
+		return MenuItem_Number_CheckDetails_ChkBox_SLD1;
+	}
+	
 	
 	@FindBy(xpath = "//label[contains(.,'Business Name Font')]/../../input")
 	WebElement BusinessName_Zebra_Font_InputBox;
@@ -578,7 +585,7 @@ public class Label_TemplatePage
 	{
 		BusinessName_Zebra_Font_InputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -586,7 +593,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -603,7 +610,7 @@ public class Label_TemplatePage
 	{
 		CheckDetails_Font_InputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -611,7 +618,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -627,7 +634,7 @@ public class Label_TemplatePage
 	{
 		OrderType_PayStatus_InputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -635,7 +642,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -650,6 +657,8 @@ public class Label_TemplatePage
 	@FindBy(xpath = "//div[contains(.,'Dash Dividers')]/div/div/app-checkbox/div/mat-checkbox[contains(.,'Check Details')][contains(@class,'mat-checkbox-checked')]")
 	WebElement CheckDetails_CheckDetails_ChkBox_SLD;
 	
+	@FindBy(xpath = "//div[contains(.,'Dash Dividers')]/div/div/app-checkbox/div/mat-checkbox[contains(.,'Check Details')][contains(@class,'ng-untouched')]")
+	WebElement CheckDetails_CheckDetails_ChkBox_SLD1;
 	
 	public WebElement CheckDetails_CheckDetails_CheckBox()
 	{
@@ -661,13 +670,20 @@ public class Label_TemplatePage
 		return CheckDetails_CheckDetails_ChkBox_SLD;
 	}
 	
+	public WebElement CheckDetails_CheckDetails_CheckBox_SLD1()
+	{
+		return CheckDetails_CheckDetails_ChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//div[contains(.,'Dash Dividers')]/div/div/app-checkbox/div/mat-checkbox[contains(.,'Order Type & Pay Status')]")
 	WebElement OrderType_PayStatus_CheckDetails_ChkBox;
 	
 	@FindBy(xpath = "//div[contains(.,'Dash Dividers')]/div/div/app-checkbox/div/mat-checkbox[contains(.,'Order Type & Pay Status')]")
 	WebElement OrderType_PayStatus_CheckDetails_ChkBox_SLD;
 	
-
+	@FindBy(xpath = "//div[contains(.,'Dash Dividers')]/div/div/app-checkbox/div/mat-checkbox[contains(.,'Order Type & Pay Status')][contains(@class,'ng-untouched')]")
+	WebElement OrderType_PayStatus_CheckDetails_ChkBox_SLD1;
+	
 	public WebElement OrderType_PayStatus_CheckDetails_CheckBox()
 	{
 		return OrderType_PayStatus_CheckDetails_ChkBox;
@@ -676,6 +692,11 @@ public class Label_TemplatePage
 	public WebElement OrderType_PayStatus_CheckDetails_CheckBox_SLD()
 	{
 		return OrderType_PayStatus_CheckDetails_ChkBox_SLD;
+	}
+	
+	public WebElement OrderType_PayStatus_CheckDetails_CheckBox_SLD1()
+	{
+		return OrderType_PayStatus_CheckDetails_ChkBox_SLD1;
 	}
 	
 	
@@ -721,6 +742,10 @@ public class Label_TemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Menu Item Name')][contains(@class,'mat-checkbox-checked')]")
 	WebElement MenuItem_Name_MenuItemInfo_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Menu Item Name')][contains(@class,'ng-untouched')]")
+	WebElement MenuItem_Name_MenuItemInfo_ChkBox_SLD1;
+	
+	
 	public WebElement MenuItem_Name_MenuItemInfo_CheckBox()
 	{
 		return MenuItem_Name_MenuItemInfo_ChkBox;
@@ -731,6 +756,11 @@ public class Label_TemplatePage
 		return MenuItem_Name_MenuItemInfo_ChkBox_SLD;
 	}
 	
+	public WebElement MenuItem_Name_MenuItemInfo_CheckBox_SLD1()
+	{
+		return MenuItem_Name_MenuItemInfo_ChkBox_SLD1;
+	}
+	
 	
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Modifiers')]")
@@ -738,6 +768,9 @@ public class Label_TemplatePage
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Modifiers')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Modifiers_MenuItemInfo_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Modifiers')][contains(@class,'ng-untouched')]")
+	WebElement Modifiers_MenuItemInfo_ChkBox_SLD1;
 	
 	
 	public WebElement Modifiers_MenuItemInfo_CheckBox()
@@ -750,11 +783,20 @@ public class Label_TemplatePage
 		return Modifiers_MenuItemInfo_ChkBox_SLD;
 	}
 	
+	public WebElement Modifiers_MenuItemInfo_CheckBox_SLD1()
+	{
+		return Modifiers_MenuItemInfo_ChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Menu Item Serving Size')]")
 	WebElement MenuItem_ServingSize_MenuItemInfo_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Menu Item Serving Size')][contains(@class,'mat-checkbox-checked')]")
 	WebElement MenuItem_ServingSize_MenuItemInfo_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Menu Item Serving Size')][contains(@class,'ng-untouched')]")
+	WebElement MenuItem_ServingSize_MenuItemInfo_ChkBox_SLD1;
+	
 	
 	public WebElement MenuItem_ServingSize_MenuItemInfo_CheckBox()
 	{
@@ -766,11 +808,20 @@ public class Label_TemplatePage
 		return MenuItem_ServingSize_MenuItemInfo_ChkBox_SLD;
 	}
 	
+	public WebElement MenuItem_ServingSize_MenuItemInfo_CheckBox_SLD1()
+	{
+		return MenuItem_ServingSize_MenuItemInfo_ChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Item Notes')]")
 	WebElement ItemNotes_MenuItemInfo_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Item Notes')][contains(@class,'mat-checkbox-checked')]")
 	WebElement ItemNotes_MenuItemInfo_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Item Notes')][contains(@class,'ng-untouched')]")
+	WebElement ItemNotes_MenuItemInfo_ChkBox_SLD1;
+	
 	
 	public WebElement ItemNotes_MenuItemInfo_CheckBox()
 	{
@@ -782,11 +833,19 @@ public class Label_TemplatePage
 		return ItemNotes_MenuItemInfo_ChkBox_SLD;
 	}
 	
+	public WebElement ItemNotes_MenuItemInfo_CheckBox_SLD1()
+	{
+		return ItemNotes_MenuItemInfo_ChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Bottom Divider')]")
 	WebElement BottomDivider_MenuItemInfo_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Bottom Divider')][contains(@class,'mat-checkbox-checked')]")
 	WebElement BottomDivider_MenuItemInfo_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Bottom Divider')][contains(@class,'ng-untouched')]")
+	WebElement BottomDivider_MenuItemInfo_ChkBox_SLD1;
 	
 	public WebElement BottomDivider_MenuItemInfo_CheckBox()
 	{
@@ -796,6 +855,11 @@ public class Label_TemplatePage
 	public WebElement BottomDivider_MenuItemInfo_CheckBox_SLD()
 	{
 		return BottomDivider_MenuItemInfo_ChkBox_SLD;
+	}
+	
+	public WebElement BottomDivider_MenuItemInfo_CheckBox_SLD1()
+	{
+		return BottomDivider_MenuItemInfo_ChkBox_SLD1;
 	}
 	
 	public void Verify_Selected_Fonts_and_Text(WebElement web,String str)
@@ -821,7 +885,7 @@ public class Label_TemplatePage
 	{
 		ItemName_ServingSize_MenuItemInfoInputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -829,7 +893,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -845,7 +909,7 @@ public class Label_TemplatePage
 	{
 		Modifiers_Notes_MenuItemInfoInputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -853,7 +917,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -905,6 +969,9 @@ public class Label_TemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Customer Name')][contains(@class,'mat-checkbox-checked')]")
 	WebElement CustomerName_CustomerInfo_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Customer Name')][contains(@class,'ng-untouched')]")
+	WebElement CustomerName_CustomerInfo_ChkBox_SLD1;
+	
 	
 	public WebElement CustomerName_CustomerInfo_CheckBox()
 	{
@@ -916,12 +983,20 @@ public class Label_TemplatePage
 		return CustomerName_CustomerInfo_ChkBox_SLD;
 	}
 	
+	public WebElement CustomerName_CustomerInfo_CheckBox_SLD1()
+	{
+		return CustomerName_CustomerInfo_ChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Customer Address')]")
 	WebElement CustomerAddress_CustomerInfo_ChkBox;
 	
 
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Customer Address')][contains(@class,'mat-checkbox-checked')]")
 	WebElement CustomerAddress_CustomerInfo_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Customer Address')][contains(@class,'ng-untouched')]")
+	WebElement CustomerAddress_CustomerInfo_ChkBox_SLD1;
 	
 	
 	public WebElement CustomerAddress_CustomerInfo_CheckBox()
@@ -934,12 +1009,19 @@ public class Label_TemplatePage
 		return CustomerAddress_CustomerInfo_ChkBox_SLD;
 	}
 	
+	public WebElement CustomerAddress_CustomerInfo_CheckBox_SLD1()
+	{
+		return CustomerAddress_CustomerInfo_ChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Delivery Notes')]")
 	WebElement DeliveryNotes_CustomerInfo_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Delivery Notes')][contains(@class,'mat-checkbox-checked')]")
 	WebElement DeliveryNotes_CustomerInfo_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Delivery Notes')][contains(@class,'ng-untouched')]")
+	WebElement DeliveryNotes_CustomerInfo_ChkBox_SLD1;
 	
 	public WebElement DeliveryNotes_CustomerInfo_CheckBox()
 	{
@@ -951,6 +1033,11 @@ public class Label_TemplatePage
 		return DeliveryNotes_CustomerInfo_ChkBox_SLD;
 	}
 	
+	public WebElement DeliveryNotes_CustomerInfo_CheckBox_SLD1()
+	{
+		return DeliveryNotes_CustomerInfo_ChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Phone Number')]")
 	WebElement PhoneNumber_CustomerInfo_ChkBox;
 	
@@ -958,6 +1045,8 @@ public class Label_TemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Phone Number')][contains(@class,'mat-checkbox-checked')]")
 	WebElement PhoneNumber_CustomerInfo_ChkBox_SLD;
 
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Phone Number')][contains(@class,'ng-untouched')]")
+	WebElement PhoneNumber_CustomerInfo_ChkBox_SLD1;
 	
 	public WebElement PhoneNumber_CustomerInfo_CheckBox()
 	{
@@ -969,11 +1058,19 @@ public class Label_TemplatePage
 		return PhoneNumber_CustomerInfo_ChkBox_SLD;
 	}
 	
+	public WebElement PhoneNumber_CustomerInfo_CheckBox_SLD1()
+	{
+		return PhoneNumber_CustomerInfo_ChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Right Divider')]")
 	WebElement RightDivider_CustomerInfo_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Right Divider')][contains(@class,'mat-checkbox-checked')]")
 	WebElement RightDivider_CustomerInfo_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Right Divider')][contains(@class,'ng-untouched')]")
+	WebElement RightDivider_CustomerInfo_ChkBox_SLD1;
 	
 	
 	public WebElement RightDivider_CustomerInfo_CheckBox()
@@ -985,6 +1082,11 @@ public class Label_TemplatePage
 	{
 		return RightDivider_CustomerInfo_ChkBox_SLD;
 	}
+	
+	public WebElement RightDivider_CustomerInfo_CheckBox_SLD1()
+	{
+		return RightDivider_CustomerInfo_ChkBox_SLD1;
+	}
 
 	@FindBy(xpath = "//label[contains(.,'Customer Name')]/../../input")
 	WebElement CustomerName_CustomerInfoInputBox;
@@ -993,7 +1095,7 @@ public class Label_TemplatePage
 	{
 		CustomerName_CustomerInfoInputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -1001,7 +1103,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -1019,7 +1121,7 @@ public class Label_TemplatePage
 	{
 		CustomerDetails_CustomerInfoInputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -1027,7 +1129,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -1081,6 +1183,8 @@ public class Label_TemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Sub Total')][contains(@class,'mat-checkbox-checked')]")
 	WebElement SubTotal_OrderSummaryChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Sub Total')][contains(@class,'ng-untouched')]")
+	WebElement SubTotal_OrderSummaryChkBox_SLD1;
 	
 	public WebElement SubTotal_OrderSummary_CheckBox()
 	{
@@ -1092,11 +1196,19 @@ public class Label_TemplatePage
 		return SubTotal_OrderSummaryChkBox_SLD;
 	}
 	
+	public WebElement SubTotal_OrderSummary_CheckBox_SLD1()
+	{
+		return SubTotal_OrderSummaryChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Tip')]")
 	WebElement Tip_OrderSummaryChkBox;
 
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Tip')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Tip_OrderSummaryChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Tip')][contains(@class,'ng-untouched')]")
+	WebElement Tip_OrderSummaryChkBox_SLD1;
 	
 	public WebElement Tip_OrderSummary_CheckBox()
 	{
@@ -1108,11 +1220,20 @@ public class Label_TemplatePage
 		return Tip_OrderSummaryChkBox_SLD;
 	}
 	
+	public WebElement Tip_OrderSummary_CheckBox_SLD1()
+	{
+		return Tip_OrderSummaryChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Discounts')]")
 	WebElement Discounts_OrderSummaryChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Discounts')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Discounts_OrderSummaryChkBox_SLD;
+	
+
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Discounts')][contains(@class,'ng-untouched')]")
+	WebElement Discounts_OrderSummaryChkBox_SLD1;
 	
 	public WebElement Discounts_OrderSummary_CheckBox()
 	{
@@ -1124,11 +1245,20 @@ public class Label_TemplatePage
 		return Discounts_OrderSummaryChkBox_SLD;
 	}
 	
+	public WebElement Discounts_OrderSummary_CheckBox_SLD1()
+	{
+		return Discounts_OrderSummaryChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//mat-expansion-panel-header[contains(.,'Order Summary')]/../div/div/div/div/div[2]/div/app-checkbox[2]/div/mat-checkbox[contains(.,'Total')]")
 	WebElement Total_OrderSummaryChkBox;
 
 	@FindBy(xpath = "//mat-expansion-panel-header[contains(.,'Order Summary')]/../div/div/div/div/div[2]/div/app-checkbox[2]/div/mat-checkbox[contains(.,'Total')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Total_OrderSummaryChkBox_SLD;
+	
+
+	@FindBy(xpath = "//mat-expansion-panel-header[contains(.,'Order Summary')]/../div/div/div/div/div[2]/div/app-checkbox[2]/div/mat-checkbox[contains(.,'Total')][contains(@class,'ng-untouched')]")
+	WebElement Total_OrderSummaryChkBox_SLD1;
 	
 	public WebElement Total_OrderSummary_CheckBox()
 	{
@@ -1140,12 +1270,19 @@ public class Label_TemplatePage
 		return Total_OrderSummaryChkBox_SLD;
 	}
 	
+	public WebElement Total_OrderSummary_CheckBox_SLD1()
+	{
+		return Total_OrderSummaryChkBox_SLD1;
+	}
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Delivery Fee')]")
 	WebElement DeliveryFee_OrderSummaryChkBox;
 
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Delivery Fee')][contains(@class,'mat-checkbox-checked')]")
 	WebElement DeliveryFee_OrderSummaryChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Delivery Fee')][contains(@class,'ng-untouched')]")
+	WebElement DeliveryFee_OrderSummaryChkBox_SLD1;
 	
 	public WebElement DeliveryFee_OrderSummary_CheckBox()
 	{
@@ -1157,12 +1294,21 @@ public class Label_TemplatePage
 		return DeliveryFee_OrderSummaryChkBox_SLD;
 	}
 	
+	
+	public WebElement DeliveryFee_OrderSummary_CheckBox_SLD1()
+	{
+		return DeliveryFee_OrderSummaryChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Balance Due')]")
 	WebElement BalanceDue_OrderSummaryChkBox;
 	
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Balance Due')][contains(@class,'mat-checkbox-checked')]")
 	WebElement BalanceDue_OrderSummaryChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Balance Due')][contains(@class,'ng-untouched')]")
+	WebElement BalanceDue_OrderSummaryChkBox_SLD1;
 	
 	public WebElement BalanceDue_OrderSummary_CheckBox()
 	{
@@ -1174,12 +1320,19 @@ public class Label_TemplatePage
 		return BalanceDue_OrderSummaryChkBox_SLD;
 	}
 	
+	public WebElement BalanceDue_OrderSummary_CheckBox_SLD1()
+	{
+		return BalanceDue_OrderSummaryChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Tax')]")
 	WebElement Tax_OrderSummaryChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Tax')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Tax_OrderSummaryChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Tax')][contains(@class,'ng-untouched')]")
+	WebElement Tax_OrderSummaryChkBox_SLD1;
 	
 	public WebElement Tax_OrderSummary_CheckBox()
 	{
@@ -1191,6 +1344,11 @@ public class Label_TemplatePage
 		return Tax_OrderSummaryChkBox_SLD;
 	}
 	
+	public WebElement Tax_OrderSummary_CheckBox_SLD1()
+	{
+		return Tax_OrderSummaryChkBox_SLD1;
+	}
+	
 	@FindBy(xpath = "//label[contains(.,'Order Summary')]/../../input")
 	WebElement OrderSummary_OrderSummaryInputBox;
 	
@@ -1198,7 +1356,7 @@ public class Label_TemplatePage
 	{
 		OrderSummary_OrderSummaryInputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -1206,7 +1364,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -1222,7 +1380,7 @@ public class Label_TemplatePage
 	{
 		BalanceDue_OrderSummaryInputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -1230,7 +1388,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -1247,7 +1405,7 @@ public class Label_TemplatePage
 	{
 		Item_Name_FontSize_KitchenLabelInputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -1255,7 +1413,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -1271,7 +1429,7 @@ public class Label_TemplatePage
 	{
 		Modifiers_FontSize_KitchenLabelInputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -1279,7 +1437,7 @@ public class Label_TemplatePage
 		int randomOption=ThreadLocalRandom.current().nextInt(1, OptionSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	
@@ -1294,6 +1452,8 @@ public class Label_TemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Menu Item Name Bottom Divider')][contains(@class,'mat-checkbox-checked')]")
 	WebElement MenuItem_Name_BottomDivider_KitchenLabelChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Menu Item Name Bottom Divider')][contains(@class,'ng-untouched')]")
+	WebElement MenuItem_Name_BottomDivider_KitchenLabelChkBox_SLD1;
 
 	public WebElement MenuItem_Name_BottomDivider_KitchenLabel_CheckBox()
 	{
@@ -1303,6 +1463,11 @@ public class Label_TemplatePage
 	public WebElement MenuItem_Name_BottomDivider_KitchenLabel_CheckBox_SLD()
 	{
 		return MenuItem_Name_BottomDivider_KitchenLabelChkBox_SLD;
+	}
+	
+	public WebElement MenuItem_Name_BottomDivider_KitchenLabel_CheckBox_SLD1()
+	{
+		return MenuItem_Name_BottomDivider_KitchenLabelChkBox_SLD1;
 	}
 	
 	public String RandomInput()
@@ -1352,6 +1517,42 @@ public class Label_TemplatePage
 		
 	}
 	
+	@FindBy(xpath = "//span[contains(.,'Minimum Width is 2 and Maximum Width is 4')]")
+	WebElement Width_ErrorMsg_Template2;
+	
+	public void Verify_Width_ErrorMsg_Template2()
+	{
+		//Verify whether the Min and Max Error Msg Displayed or not
+				if(Width_ErrorMsg.isDisplayed())
+				{
+					test.log(LogStatus.PASS, "Minimum Width is 2 and Maximum Width is 4 Error Displayed");
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Minimum Width is 2 and Maximum Width is 4 Error not displayed");
+				}
+	}
+	
+	@FindBy(xpath = "//span[contains(.,'Minimum Height is 1 and Maximum Height is 3')]")
+	WebElement Height_ErrorMsg_Template2;
+	
+	public void Verify_Height_ErrorMsg_Template2()
+	{
+		//Verify whether the Min and Max Error Msg Displayed or not
+		if(Height_ErrorMsg.isDisplayed())
+		{
+			test.log(LogStatus.PASS, "Minimum Height is 1 and Maximum Height is 3 Error Displayed");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Minimum Height is 1 and Maximum Height is 3 Error not displayed");
+		}
+		
+	}
+	
+	
+	
+	
 	@FindBy(xpath = "//h3[.='Label Template']")
 	WebElement Label_TemplateHeader;
 	
@@ -1399,6 +1600,9 @@ public class Label_TemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Sale Number')][contains(@class,'mat-checkbox-checked')]")
 	WebElement SaleNumber_KitchenLabelChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Sale Number')][contains(@class,'ng-untouched')]")
+	WebElement SaleNumber_KitchenLabelChkBox_SLD1;
+	
 	
 	public WebElement SaleNumber_KitchenLabel_CheckBox()
 	{
@@ -1410,12 +1614,21 @@ public class Label_TemplatePage
 		return SaleNumber_KitchenLabelChkBox_SLD;
 	}
 	
+	public WebElement SaleNumber_KitchenLabel_CheckBox_SLD1()
+	{
+		return SaleNumber_KitchenLabelChkBox_SLD1;
+	}
+	
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Order Number')]")
 	WebElement OrderNumber_KitchenLabelChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Order Number')][contains(@class,'mat-checkbox-checked')]")
 	WebElement OrderNumber_KitchenLabelChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Order Number')][contains(@class,'ng-untouched')]")
+	WebElement OrderNumber_KitchenLabelChkBox_SLD1;
+	
 	
 	public WebElement OrderNumber_KitchenLabel_CheckBox()
 	{
@@ -1425,5 +1638,10 @@ public class Label_TemplatePage
 	public WebElement OrderNumber_KitchenLabel_CheckBox_SLD()
 	{
 		return OrderNumber_KitchenLabelChkBox_SLD;
+	}
+	
+	public WebElement OrderNumber_KitchenLabel_CheckBox_SLD1()
+	{
+		return OrderNumber_KitchenLabelChkBox_SLD1;
 	}
 }

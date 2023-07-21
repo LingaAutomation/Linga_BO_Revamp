@@ -5,6 +5,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import org.apache.poi.ss.formula.ptg.AddPtg;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -458,10 +459,21 @@ public class TaxesPage {
 	public void Select_Evertec_TaxType() throws Exception
 	{
 		Thread.sleep(1000);
-		Evertec_TaxType_InputBx.click();
-		
-		Thread.sleep(500);
-		driver.findElement(By.xpath("//select-option[contains(.,'None')]")).click();
+		try
+		{
+			if(Evertec_TaxType_InputBx.isDisplayed())
+			{
+				Evertec_TaxType_InputBx.click();
+				
+				Thread.sleep(500);
+				driver.findElement(By.xpath("//select-option[contains(.,'None')]")).click();
+			}
+		}
+		catch(Exception k)
+		{
+			test.log(LogStatus.INFO, "Evertec Tax Type is not Enabled for this Store");
+		}
+
 	}
 	
 	public void Enter_CheckTax(String str) throws Exception
@@ -561,7 +573,9 @@ public class TaxesPage {
 		
 		Click_TaxOnCheckTax();
 		
-		Thread.sleep(500);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+		
+		Thread.sleep(1000);
 		if(driver.findElement(By.xpath("//mat-chip-list[@class='mat-chip-list']/div/mat-chip")).isDisplayed()) 
 		{
 			List<WebElement> ItemList=driver.findElements(By.xpath("//mat-chip-list[@class='mat-chip-list']/div/mat-chip"));
@@ -572,6 +586,8 @@ public class TaxesPage {
 			
 			int randomItemTax=ThreadLocalRandom.current().nextInt(1, ItemTaxSize);
 			
+			try
+			{
 			if(ShowAll_TaxOn_CheckTaxBtn.isDisplayed())
 			{
 				Thread.sleep(1000);
@@ -580,7 +596,8 @@ public class TaxesPage {
 
 			driver.findElement(By.xpath("//mat-chip-list[@class='mat-chip-list']/div/mat-chip["+randomItemTax+"]")).click();
 			}
-			else
+			}
+			catch(Exception ll)
 			{
 				Thread.sleep(1000);
 

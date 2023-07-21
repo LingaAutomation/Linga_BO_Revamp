@@ -105,10 +105,10 @@ public class KitchenPrinterTemplatePage
 	@FindBy(xpath = "//div[.='Additional Details']/../../div[contains(.,'keyboard_arrow_down')]")
 	WebElement Additional_Details_ArrowDownBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Enable Driver Receipt')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//h6[contains(.,'Enable Driver Receipt')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Enable_DriverReceipt_YesBtn;
 	
-	@FindBy(xpath = "//h6[contains(.,'Enable Driver Receipt')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//h6[contains(.,'Enable Driver Receipt')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Enable_DriverReceipt_NoBtn;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Store Name')]")
@@ -117,17 +117,28 @@ public class KitchenPrinterTemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Store Name')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Store_Name_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Store Name')][contains(@class,'ng-untouched')]")
+	WebElement Store_Name_ChkBox_SLD1;
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Table Name')]")
 	WebElement Table_Name_ChkBox;
 	
+	//ng-untouched
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Table Name')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Table_Name_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Table Name')][contains(@class,'ng-untouched')]")
+	WebElement Table_Name_ChkBox_SLD1;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Check Number')]")
 	WebElement Check_Number_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Check Number')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Check_Number_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Check Number')][contains(@class,'ng-untouched')]")
+	WebElement Check_Number_ChkBox_SLD1;
 	
 	@FindBy(xpath = "//app-checkbox[@name='kitchenPrinterTemplateCheckNumber']/../div[1]/div/app-radio-button/div/mat-radio-group/div/mat-radio-button[contains(.,'Inline')]")
 	WebElement Inline_Position_Check_Number_RadioBtn;
@@ -148,6 +159,9 @@ public class KitchenPrinterTemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Printer Name')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Printer_Name_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Printer Name')][contains(@class,'ng-untouched')]")
+	WebElement Printer_Name_ChkBox_SLD1;
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Server Name')]")
 	WebElement Server_Name_ChkBox;
 	
@@ -155,11 +169,17 @@ public class KitchenPrinterTemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Server Name')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Server_Name_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Server Name')][contains(@class,'ng-untouched')]")
+	WebElement Server_Name_ChkBox_SLD1;
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Customer Name')]")
 	WebElement Customer_Name_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Customer Name')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Customer_Name_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Customer Name')][contains(@class,'ng-untouched')]")
+	WebElement Customer_Name_ChkBox_SLD1;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Print Date & Time')]")
 	WebElement Printer_DateTime_ChkBox;
@@ -167,17 +187,26 @@ public class KitchenPrinterTemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Print Date & Time')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Printer_DateTime_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Print Date & Time')][contains(@class,'ng-untouched')]")
+	WebElement Printer_DateTime_ChkBox_SLD1;
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'PickUp Date & Time')]")
 	WebElement PickUp_DateTime_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'PickUp Date & Time')][contains(@class,'mat-checkbox-checked')]")
 	WebElement PickUp_DateTime_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'PickUp Date & Time')][contains(@class,'ng-untouched')]")
+	WebElement PickUp_DateTime_ChkBox_SLD1;
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Service Type')]")
 	WebElement ServiceType_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Service Type')][contains(@class,'mat-checkbox-checked')]")
 	WebElement ServiceType_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Service Type')][contains(@class,'ng-untouched')]")
+	WebElement ServiceType_ChkBox_SLD1;
 	
 	@FindBy(xpath = "//app-checkbox[@name='kitchenPrinterTemplateServiceType']/../div[2]/div/app-radio-button/div/mat-radio-group/div/mat-radio-button[contains(.,'Inline')]")
 	WebElement Inline_Position_Service_Type_RadioBtn;
@@ -199,11 +228,17 @@ public class KitchenPrinterTemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Split By Course')][contains(@class,'mat-checkbox-checked')]")
 	WebElement SplitByCourse_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Split By Course')][contains(@class,'ng-untouched')]")
+	WebElement SplitByCourse_ChkBox_SLD1;
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Other language Menu Name')]")
 	WebElement OtherLanguage_MenuName_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Other language Menu Name')][contains(@class,'mat-checkbox-checked')]")
 	WebElement OtherLanguage_MenuName_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Other language Menu Name')][contains(@class,'ng-untouched')]")
+	WebElement OtherLanguage_MenuName_ChkBox_SLD1;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Menu Price')]")
 	WebElement Menu_Price_ChkBox;
@@ -211,11 +246,17 @@ public class KitchenPrinterTemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Menu Price')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Menu_Price_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Menu Price')][contains(@class,'ng-untouched')]")
+	WebElement Menu_Price_ChkBox_SLD1;
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Consolidate Menu In Kitchen')]")
 	WebElement Consolidate_Menu_InKitchen_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Consolidate Menu In Kitchen')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Consolidate_Menu_InKitchen_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Consolidate Menu In Kitchen')][contains(@class,'ng-untouched')]")
+	WebElement Consolidate_Menu_InKitchen_ChkBox_SLD1;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Quantity Before Item Name')]")
 	WebElement QuantityBefore_ItemName_ChkBox;
@@ -223,11 +264,17 @@ public class KitchenPrinterTemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Quantity Before Item Name')][contains(@class,'mat-checkbox-checked')]")
 	WebElement QuantityBefore_ItemName_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Quantity Before Item Name')][contains(@class,'ng-untouched')]")
+	WebElement QuantityBefore_ItemName_ChkBox_SLD1;
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Split Menu Quantity')]")
 	WebElement Split_MenuQuantity_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Split Menu Quantity')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Split_MenuQuantity_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Split Menu Quantity')][contains(@class,'ng-untouched')]")
+	WebElement Split_MenuQuantity_ChkBox_SLD1;
 	
 	public WebElement Split_MenuQuantity_CheckBox()
 	{
@@ -246,11 +293,17 @@ public class KitchenPrinterTemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Enable Item Summary')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Enable_ItemSummary_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Enable Item Summary')][contains(@class,'ng-untouched')]")
+	WebElement Enable_ItemSummary_ChkBox_SLD1;
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'All Modifiers in Modifier Print')]")
 	WebElement  AllModifiers_inModifierPrint_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'All Modifiers in Modifier Print')][contains(@class,'mat-checkbox-checked')]")
 	WebElement  AllModifiers_inModifierPrint_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'All Modifiers in Modifier Print')][contains(@class,'ng-untouched')]")
+	WebElement  AllModifiers_inModifierPrint_ChkBox_SLD1;
 	
 	//Customer Info screen
 	
@@ -260,11 +313,17 @@ public class KitchenPrinterTemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Address')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Address__CustomerInfo_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Address')][contains(@class,'ng-untouched')]")
+	WebElement Address__CustomerInfo_ChkBox_SLD1;
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Email')]")
 	WebElement Email_CustomerInfo_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Email')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Email_CustomerInfo_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Email')][contains(@class,'ng-untouched')]")
+	WebElement Email_CustomerInfo_ChkBox_SLD1;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Phone Number')]")
 	WebElement Phone_Number_CustomerInfo_ChkBox;
@@ -272,11 +331,17 @@ public class KitchenPrinterTemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Phone Number')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Phone_Number_CustomerInfo_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Phone Number')][contains(@class,'ng-untouched')]")
+	WebElement Phone_Number_CustomerInfo_ChkBox_SLD1;
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Customer Notes')]")
 	WebElement Customer_Notes_CustomerInfo_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Customer Notes')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Customer_Notes_CustomerInfo_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Customer Notes')][contains(@class,'ng-untouched')]")
+	WebElement Customer_Notes_CustomerInfo_ChkBox_SLD1;
 	
 	@FindBy(xpath = "//mat-radio-button[contains(.,'At Top of Check')]")
 	WebElement Top_of_Check_RadioBtn;
@@ -314,11 +379,17 @@ public class KitchenPrinterTemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Total')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Total_DriverReceipt_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Total')][contains(@class,'ng-untouched')]")
+	WebElement Total_DriverReceipt_ChkBox_SLD1;
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Signature')]")
 	WebElement Signature_DriverReceipt_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Signature')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Signature_DriverReceipt_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Signature')][contains(@class,'ng-untouched')]")
+	WebElement Signature_DriverReceipt_ChkBox_SLD1;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Balance Due')]")
 	WebElement Balance_Due_DriverReceipt_ChkBox;
@@ -326,11 +397,18 @@ public class KitchenPrinterTemplatePage
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Balance Due')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Balance_Due_DriverReceipt_ChkBox_SLD;
 	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Balance Due')][contains(@class,'ng-untouched')]")
+	WebElement Balance_Due_DriverReceipt_ChkBox_SLD1;
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Tip')]")
 	WebElement Tip_DriverReceipt_ChkBox;
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Tip')][contains(@class,'mat-checkbox-checked')]")
 	WebElement Tip_DriverReceipt_ChkBox_SLD;
+	
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Tip')][contains(@class,'ng-untouched')]")
+	WebElement Tip_DriverReceipt_ChkBox_SLD1;
 	
 
 	
@@ -340,6 +418,9 @@ public class KitchenPrinterTemplatePage
 	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Cut Paper After Each print')][contains(@class,'mat-checkbox-checked')]")
 	WebElement  CutPaper_After_EachPrint_ChkBox_SLD;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Cut Paper After Each print')][contains(@class,'ng-untouched')]")
+	WebElement  CutPaper_After_EachPrint_ChkBox_SLD1;
 	
 	public WebElement Small_FontSize()
 	{
@@ -445,6 +526,11 @@ public class KitchenPrinterTemplatePage
 		return Store_Name_ChkBox_SLD;
 	}
 	
+	public WebElement Store_Name_CheckBox_Selected1()
+	{
+		return Store_Name_ChkBox_SLD1;
+	}
+	
 	public WebElement Table_Name_CheckBox()
 	{
 		return Table_Name_ChkBox;
@@ -456,6 +542,11 @@ public class KitchenPrinterTemplatePage
 		return Table_Name_ChkBox_SLD;
 	}
 	
+	public WebElement Table_Name_CheckBox_Selected1()
+	{
+		return Table_Name_ChkBox_SLD1;
+	}
+	
 	public WebElement Check_Number_CheckBox()
 	{
 		return Check_Number_ChkBox;
@@ -464,6 +555,11 @@ public class KitchenPrinterTemplatePage
 	public WebElement Check_Number_CheckBox_Selected()
 	{
 		return Check_Number_ChkBox_SLD;
+	}
+	
+	public WebElement Check_Number_CheckBox_Selected1()
+	{
+		return Check_Number_ChkBox_SLD1;
 	}
 	
 	public WebElement Inline_Position_Check_Number_RadioButton()
@@ -497,6 +593,11 @@ public class KitchenPrinterTemplatePage
 		return Printer_Name_ChkBox_SLD;
 	}
 	
+	public WebElement Printer_Name_CheckBox_Selected1()
+	{
+		return Printer_Name_ChkBox_SLD1;
+	}
+	
 	public WebElement Server_Name_CheckBox()
 	{
 		return Server_Name_ChkBox;
@@ -505,6 +606,11 @@ public class KitchenPrinterTemplatePage
 	public WebElement Server_Name_CheckBox_Selected()
 	{
 		return Server_Name_ChkBox_SLD;
+	}
+	
+	public WebElement Server_Name_CheckBox_Selected1()
+	{
+		return Server_Name_ChkBox_SLD1;
 	}
 	
 	public WebElement Printer_DateTime_CheckBox()
@@ -518,6 +624,11 @@ public class KitchenPrinterTemplatePage
 		return Printer_DateTime_ChkBox_SLD;
 	}
 	
+	public WebElement Printer_DateTime_CheckBox_Selected1()
+	{
+		return Printer_DateTime_ChkBox_SLD1;
+	}
+	
 	public WebElement Customer_Name_CheckBox()
 	{
 		return Customer_Name_ChkBox;
@@ -526,6 +637,11 @@ public class KitchenPrinterTemplatePage
 	public WebElement Customer_Name_CheckBox_Selected()
 	{
 		return Customer_Name_ChkBox_SLD;
+	}
+	
+	public WebElement Customer_Name_CheckBox_Selected1()
+	{
+		return Customer_Name_ChkBox_SLD1;
 	}
 	
 	public WebElement PickUp_DateTime_CheckBox()
@@ -538,6 +654,11 @@ public class KitchenPrinterTemplatePage
 		return PickUp_DateTime_ChkBox_SLD;
 	}
 	
+	public WebElement PickUp_DateTime_CheckBox_Selected1()
+	{
+		return PickUp_DateTime_ChkBox_SLD1;
+	}
+	
 	public WebElement ServiceType_CheckBox()
 	{
 		return ServiceType_ChkBox;
@@ -547,6 +668,11 @@ public class KitchenPrinterTemplatePage
 	public WebElement ServiceType_CheckBox_Selected()
 	{
 		return ServiceType_ChkBox_SLD;
+	}
+	
+	public WebElement ServiceType_CheckBox_Selected1()
+	{
+		return ServiceType_ChkBox_SLD1;
 	}
 	
 	public WebElement Inline_Position_Service_Type_RadioButton()
@@ -611,6 +737,11 @@ public class KitchenPrinterTemplatePage
 		return SplitByCourse_ChkBox_SLD;
 	}
 	
+	public WebElement SplitByCourse_CheckBox_Selected1()
+	{
+		return SplitByCourse_ChkBox_SLD1;
+	}
+	
 	public WebElement OtherLanguage_MenuName_CheckBox()
 	{
 		return OtherLanguage_MenuName_ChkBox;
@@ -622,6 +753,11 @@ public class KitchenPrinterTemplatePage
 		return OtherLanguage_MenuName_ChkBox_SLD;
 	}
 	
+	public WebElement OtherLanguage_MenuName_CheckBox_Selected1()
+	{
+		return OtherLanguage_MenuName_ChkBox_SLD1;
+	}
+	
 	public WebElement Menu_Price_CheckBox()
 	{
 		return Menu_Price_ChkBox;
@@ -630,6 +766,11 @@ public class KitchenPrinterTemplatePage
 	public WebElement Menu_Price_CheckBox_Selected()
 	{
 		return Menu_Price_ChkBox_SLD;
+	}
+	
+	public WebElement Menu_Price_CheckBox_Selected1()
+	{
+		return Menu_Price_ChkBox_SLD1;
 	}
 	
 	public WebElement Consolidate_Menu_InKitchen_CheckBox()
@@ -643,6 +784,11 @@ public class KitchenPrinterTemplatePage
 		return Consolidate_Menu_InKitchen_ChkBox_SLD;
 	}
 	
+	public WebElement Consolidate_Menu_InKitchen_CheckBox_Selected1()
+	{
+		return Consolidate_Menu_InKitchen_ChkBox_SLD1;
+	}
+	
 	public WebElement QuantityBefore_ItemName_CheckBox()
 	{
 		return QuantityBefore_ItemName_ChkBox;
@@ -652,6 +798,11 @@ public class KitchenPrinterTemplatePage
 	public WebElement QuantityBefore_ItemName_CheckBox_Selected()
 	{
 		return QuantityBefore_ItemName_ChkBox_SLD;
+	}
+	
+	public WebElement QuantityBefore_ItemName_CheckBox_Selected1()
+	{
+		return QuantityBefore_ItemName_ChkBox_SLD1;
 	}
 	
 	public WebElement Enable_ItemSummary_CheckBox()
@@ -664,6 +815,11 @@ public class KitchenPrinterTemplatePage
 		return Enable_ItemSummary_ChkBox_SLD;
 	}
 	
+	public WebElement Enable_ItemSummary_CheckBox_Selected1()
+	{
+		return Enable_ItemSummary_ChkBox_SLD1;
+	}
+	
 	public WebElement AllModifiers_inModifierPrint_CheckBox()
 	{
 		return AllModifiers_inModifierPrint_ChkBox;
@@ -673,6 +829,11 @@ public class KitchenPrinterTemplatePage
 	public WebElement AllModifiers_inModifierPrint_CheckBox_Selected()
 	{
 		return AllModifiers_inModifierPrint_ChkBox_SLD;
+	}
+	
+	public WebElement AllModifiers_inModifierPrint_CheckBox_Selected1()
+	{
+		return AllModifiers_inModifierPrint_ChkBox_SLD1;
 	}
 	
 	public void Open_Customer_Info_Screen() throws Exception
@@ -736,6 +897,11 @@ public class KitchenPrinterTemplatePage
 		return Address__CustomerInfo_ChkBox_SLD;
 	}
 	
+	public WebElement Address__CustomerInfo_CheckBox_Selected1()
+	{
+		return Address__CustomerInfo_ChkBox_SLD1;
+	}
+	
 	public WebElement Email_CustomerInfo_CheckBox()
 	{
 		return Email_CustomerInfo_ChkBox;
@@ -744,6 +910,11 @@ public class KitchenPrinterTemplatePage
 	public WebElement Email_CustomerInfo_CheckBox_Selected()
 	{
 		return Email_CustomerInfo_ChkBox_SLD;
+	}
+	
+	public WebElement Email_CustomerInfo_CheckBox_Selected1()
+	{
+		return Email_CustomerInfo_ChkBox_SLD1;
 	}
 	
 	public WebElement Phone_Number_CustomerInfo_CheckBox()
@@ -756,6 +927,11 @@ public class KitchenPrinterTemplatePage
 		return Phone_Number_CustomerInfo_ChkBox_SLD;
 	}
 	
+	public WebElement Phone_Number_CustomerInfo_CheckBox_Selected1()
+	{
+		return Phone_Number_CustomerInfo_ChkBox_SLD1;
+	}
+	
 	public WebElement Customer_Notes_CustomerInfo_CheckBox()
 	{
 		return Customer_Notes_CustomerInfo_ChkBox;
@@ -764,6 +940,11 @@ public class KitchenPrinterTemplatePage
 	public WebElement Customer_Notes_CustomerInfo_CheckBox_Selected()
 	{
 		return Customer_Notes_CustomerInfo_ChkBox_SLD;
+	}
+	
+	public WebElement Customer_Notes_CustomerInfo_CheckBox_Selected1()
+	{
+		return Customer_Notes_CustomerInfo_ChkBox_SLD1;
 	}
 	
 	public void Open_Driver_ReceiptOptions_Screen() throws Exception
@@ -872,6 +1053,11 @@ public class KitchenPrinterTemplatePage
 		return CutPaper_After_EachPrint_ChkBox_SLD;
 	}
 	
+	public WebElement CutPaper_After_EachPrint_CheckBox_Selected1()
+	{
+		return CutPaper_After_EachPrint_ChkBox_SLD1;
+	}
+	
 	public WebElement Total_DriverReceipt_CheckBox()
 	{
 		return Total_DriverReceipt_ChkBox;
@@ -880,6 +1066,11 @@ public class KitchenPrinterTemplatePage
 	public WebElement Total_DriverReceipt_CheckBox_Selected()
 	{
 		return Total_DriverReceipt_ChkBox_SLD;
+	}
+	
+	public WebElement Total_DriverReceipt_CheckBox_Selected1()
+	{
+		return Total_DriverReceipt_ChkBox_SLD1;
 	}
 	
 	public WebElement Tip_DriverReceipt_CheckBox()
@@ -893,6 +1084,11 @@ public class KitchenPrinterTemplatePage
 		return Tip_DriverReceipt_ChkBox_SLD;
 	}
 	
+	public WebElement Tip_DriverReceipt_CheckBox_Selected1()
+	{
+		return Tip_DriverReceipt_ChkBox_SLD1;
+	}
+	
 	public WebElement Signature_DriverReceipt_CheckBox()
 	{
 		return Signature_DriverReceipt_ChkBox;
@@ -902,6 +1098,11 @@ public class KitchenPrinterTemplatePage
 	public WebElement Signature_DriverReceipt_CheckBox_Selected()
 	{
 		return Signature_DriverReceipt_ChkBox_SLD;
+	}
+	
+	public WebElement Signature_DriverReceipt_CheckBox_Selected1()
+	{
+		return Signature_DriverReceipt_ChkBox_SLD1;
 	}
 	
 	public WebElement Balance_Due_DriverReceipt_CheckBox()
@@ -915,13 +1116,17 @@ public class KitchenPrinterTemplatePage
 		return Balance_Due_DriverReceipt_ChkBox_SLD;
 	}
 	
+	public WebElement Balance_Due_DriverReceipt_CheckBox_Selected1()
+	{
+		return Balance_Due_DriverReceipt_ChkBox_SLD1;
+	}
 	
 	public void Select_Font_Style_Option() throws Exception
 	{
 		Thread.sleep(1000);
 		Font_Style_InputBox.click();
 		
-	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> OptionList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int OptionSize=OptionList.size();
 		
@@ -930,7 +1135,7 @@ public class KitchenPrinterTemplatePage
 		
 		Thread.sleep(1000);
 
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomOption+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomOption+"]/select-option")).click();
 	
 	}
 	

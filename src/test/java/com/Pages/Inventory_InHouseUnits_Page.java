@@ -36,7 +36,7 @@ public class Inventory_InHouseUnits_Page
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//input[@data-placeholder='Search']")
+	@FindBy(xpath = "//input[contains(@data-placeholder,'Search')]")
 	WebElement SearchBox;
 	
 	@FindBy(xpath = "//span[.=' NEW IN HOUSE UNITS ']")

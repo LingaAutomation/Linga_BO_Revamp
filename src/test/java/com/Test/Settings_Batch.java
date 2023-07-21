@@ -107,7 +107,7 @@ public class Settings_Batch
 		Thread.sleep(1000);
 		Selecting_Batch_Payment_Device(driver);
 		Thread.sleep(1000);
-		Selecting_Rows_Per_Page(driver);
+		//Selecting_Rows_Per_Page(driver);   //Need to confirm the page count 5,10,15,20 or 10,20,50,100
 		Thread.sleep(1000);
 		Handiling_Pagination(driver);
 		Thread.sleep(1000);
@@ -128,9 +128,9 @@ public class Settings_Batch
 		Thread.sleep(5000);
 		//load the Notifications page
 		Thread.sleep(2000);
-		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2"));
+		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id2")+"batchSettings");
 		
-		  bs.Click_Settings(); Thread.sleep(2000); bs.Click_BatchSettings();
+		  //bs.Click_Settings(); Thread.sleep(2000); bs.Click_BatchSettings();
 		 
 			Thread.sleep(5000);
 			try {

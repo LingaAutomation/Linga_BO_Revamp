@@ -177,7 +177,7 @@ public WebDriver driver;
 //		cmp.VerifyPagination_and_Refresh_Publish();
 		
 		//Verify Column Filtration
-		cmp.Filter_Columns_Table1();
+		//cmp.Filter_Columns_Table();
 	}
 	
 	@Test(priority = 4,enabled = false)

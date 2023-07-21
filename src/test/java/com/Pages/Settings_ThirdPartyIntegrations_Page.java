@@ -146,52 +146,52 @@ public class Settings_ThirdPartyIntegrations_Page {
 	@FindBy(xpath = "//button[contains(.,'PUBLISH MENU ITEM')]")
 	WebElement PublishMenuItemBtn;
 	
-	@FindBy(xpath = "//h4[.='Store Action']/../div/div/div/div[.='Zomato']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath = "//h4[.='Store Action']/../div//div/span[.='Zomato']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement StoreActionZomato_No;
 	
-	@FindBy(xpath = "//h4[.='Store Action']/../div/div/div/div[.='Zomato']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath = "//h4[.='Store Action']/../div//div/span[.='Zomato']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement StoreActionZomato_Yes;
 	
-	@FindBy(xpath = "//h4[.='Store Action']/../div/div/div/div[.='Swiggy']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath = "//h4[.='Store Action']/../div//div/span[.='Swiggy']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement StoreActionSwiggy_No;
 	
-	@FindBy(xpath = "//h4[.='Store Action']/../div/div/div/div[.='Swiggy']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath = "//h4[.='Store Action']/../div//div/span[.='Swiggy']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement StoreActionSwiggy_Yes;
 	
-	@FindBy(xpath = "//h4[.='Store Action']/../div/div/div/div[.='Uber Eats']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath = "//h4[.='Store Action']/../div//div/span[.='Uber Eats']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement StoreActionUberEats_No;
 	
-	@FindBy(xpath = "//h4[.='Store Action']/../div/div/div/div[.='Uber Eats']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath = "//h4[.='Store Action']/../div//div/span[.='Uber Eats']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement StoreActionUberEats_Yes;
 	
-	@FindBy(xpath = "//h4[.='Store Action']/../div/div/div/div[.='Enable Store']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath = "//h4[.='Store Action']/../div//div/span[.='Enable Store']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement StoreActionEnableStore_No;
 	
-	@FindBy(xpath = "//h4[.='Store Action']/../div/div/div/div[.='Enable Store']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath = "//h4[.='Store Action']/../div//div/span[.='Enable Store']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement StoreActionEnableStore_Yes;
 	
-	@FindBy(xpath = "//h4[.='Integration Action']/../div/div/div/div[.='Zomato']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath = "//h4[.='Integration Action']/../div//div/span[.='Zomato']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement IntegrationActionZomato_No;
 	
-	@FindBy(xpath = "//h4[.='Integration Action']/../div/div/div/div[.='Zomato']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath = "//h4[.='Integration Action']/../div//div/span[.='Zomato']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement IntegrationActionZomato_Yes;
 	
-	@FindBy(xpath = "//h4[.='Integration Action']/../div/div/div/div[.='Swiggy']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath = "//h4[.='Integration Action']/../div//div/span[.='Swiggy']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement IntegrationActionSwiggy_No;
 	
-	@FindBy(xpath = "//h4[.='Integration Action']/../div/div/div/div[.='Swiggy']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath = "//h4[.='Integration Action']/../div//div/span[.='Swiggy']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement IntegrationActionSwiggy_Yes;
 	
-	@FindBy(xpath = "//h4[.='Integration Action']/../div/div/div/div[.='Uber Eats']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath = "//h4[.='Integration Action']/../div//div/span[.='Uber Eats']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement IntegrationActionUberEats_No;
 	
-	@FindBy(xpath = "//h4[.='Integration Action']/../div/div/div/div[.='Uber Eats']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath = "//h4[.='Integration Action']/../div//div/span[.='Uber Eats']/../..//div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement IntegrationActionUberEats_Yes;
 	
-	@FindBy(xpath = "//div[.='Enable Menu Item']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath = "//div[.='Enable Menu Item']/../../div/div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement EnableMenuItem_No;
 	
-	@FindBy(xpath = "//div[.='Enable Menu Item']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath = "//div[.='Enable Menu Item']/../../div/div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement EnableMenuItem_Yes;
 	
 	@FindBy(xpath = "//h3[.='Chowly']")
@@ -236,34 +236,34 @@ public class Settings_ThirdPartyIntegrations_Page {
 	@FindBy(xpath = "//span[contains(.,'Location ID')]/../input")
 	WebElement LocationID;
 	
-	@FindBy(xpath = "//div[.='Publish MenuItems To Deliverect']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath = "//div[.='Publish MenuItems To Deliverect']/../../div/div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement PublishMenuItemsToDeliverect_No;
 	
-	@FindBy(xpath = "//div[.='Publish MenuItems To Deliverect']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath = "//div[.='Publish MenuItems To Deliverect']/../../div/div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement PublishMenuItemsToDeliverect_Yes;
 	
 	@FindBy(xpath = "//h3[.='Doordash']")
 	WebElement Doordash_Head;
 	
-	@FindBy(xpath = "//div[.='Enable Doordash Drive']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath = "//div[.='Enable Doordash Drive']/../../div/div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement EnableDoordashDrive_No;
 	
-	@FindBy(xpath = "//div[.='Enable Doordash Drive']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath = "//div[.='Enable Doordash Drive']/../../div/div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement EnableDoordashDrive_Yes;
 	
 	@FindBy(xpath = "//h3[.='Uber Eats']")
 	WebElement UberEats_Head;
 	
-	@FindBy(xpath = "//div[.='Activate Integration']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath = "//div[.='Activate Integration']/../../div/div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement ActivateIntegaration_No;
 	
-	@FindBy(xpath = "//div[.='Activate Integration']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath = "//div[.='Activate Integration']/../../div/div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement ActivateIntegaration_Yes;
 	
-	@FindBy(xpath = "//div[.='Publish Menu Items To Uber Eats']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath = "//div[.='Publish Menu Items To Uber Eats']/../../div/div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement PublishMenuItemsToUberEats_No;
 	
-	@FindBy(xpath = "//div[.='Publish Menu Items To Uber Eats']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath = "//div[.='Publish Menu Items To Uber Eats']/../../div/div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement PublishMenuItemsToUberEats_Yes;
 	
 	@FindBy(xpath = "//span[contains(.,'User Name')]/../input")
@@ -281,10 +281,10 @@ public class Settings_ThirdPartyIntegrations_Page {
 	@FindBy(xpath = "//span[contains(.,'Service Time')]/../input")
 	WebElement ServiceTime;
 	
-	@FindBy(xpath = "//div[.='Is Restaurant Open']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[1]/button")
+	@FindBy(xpath = "//div[.='Is Restaurant Open']/../../div/div[2]/mat-button-toggle-group/mat-button-toggle[1]/button")
 	WebElement IsRestaurantOpen_No;
 	
-	@FindBy(xpath = "//div[.='Is Restaurant Open']/../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[2]/button")
+	@FindBy(xpath = "//div[.='Is Restaurant Open']/../../div/div[2]/mat-button-toggle-group/mat-button-toggle[2]/button")
 	WebElement IsRestaurantOpen_Yes;
 
 	@FindBy(xpath = "//h3[.='PayPal']")

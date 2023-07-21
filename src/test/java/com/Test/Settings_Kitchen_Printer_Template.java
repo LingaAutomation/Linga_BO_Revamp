@@ -1,10 +1,9 @@
 package com.Test;
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -12,22 +11,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
-
-import com.Pages.Availability_RestrictionTimePage;
 import com.Pages.Common_XPaths;
 import com.Pages.KitchenPrinterTemplatePage;
-import com.Pages.KitchenPrinterTemplatePage;
-import com.Test.LoginTest;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -476,6 +464,12 @@ public class Settings_Kitchen_Printer_Template
 //					kpt.At_Top_of_Check_RadioButton().click();
 //				}
 				
+				for(int i=1;i<=5;i++) 
+				{
+					Thread.sleep(500);
+					driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+				}
+				
 //				Thread.sleep(1000);
 				try
 				{
@@ -487,6 +481,7 @@ public class Settings_Kitchen_Printer_Template
 				}
 				catch(Exception k)
 				{
+					
 					kpt.At_Top_of_Check_RadioButton().click();
 
 				}
@@ -551,6 +546,13 @@ public class Settings_Kitchen_Printer_Template
 				//Close Customer Info Screen
 				kpt.Close_Customer_Info_Screen();
 				
+				
+				for(int i=1;i<=4;i++) 
+				{
+					Thread.sleep(500);
+					driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+				}
+				
 				Thread.sleep(1000);
 				//Open Driver Receipt Options
 				kpt.Open_Driver_ReceiptOptions_Screen();
@@ -613,13 +615,13 @@ public class Settings_Kitchen_Printer_Template
 	{
 		cmp=new Common_XPaths(driver, test);
 		kpt=new KitchenPrinterTemplatePage(driver, test);
-		Thread.sleep(2000);
+		Thread.sleep(15000);
 	
 				
 				Thread.sleep(5000);
 			
 				//Check whether the Small Font Size Selected or not
-				if(kpt.Small_FontSize_Selected().isDisplayed())
+				if(kpt.Small_FontSize().isDisplayed())
 				{
 					test.log(LogStatus.PASS, "Small Font Size is Selected");
 				}
@@ -638,218 +640,198 @@ public class Settings_Kitchen_Printer_Template
 				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Store Name Checkbox
-				if(kpt.Store_Name_CheckBox_Selected().isDisplayed())
+					//Check and Enable Store Name Checkbox
+					if(kpt.Store_Name_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Store Name Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Store Name
+						kpt.Store_Name_CheckBox().click();
+		
+					
+					}
+				}
+				catch(Exception g)
 				{
 					test.log(LogStatus.FAIL, "Store Name Check Box Selected while Reopening the page After Saved");
-	
-				
-				}
-				}
-				catch(Exception g)
-				{
-					
-					test.log(LogStatus.PASS, "Store Name Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Store Name
-					kpt.Store_Name_CheckBox().click();
 				}
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Table Name Checkbox
-				if(kpt.Table_Name_CheckBox_Selected().isDisplayed())
+					//Check and Enable Table Name Checkbox
+					if(kpt.Table_Name_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Table Name Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Table Name
+						kpt.Table_Name_CheckBox().click();
+					}
+				}
+				catch(Exception g)
 				{
 					test.log(LogStatus.FAIL, "Table Name Check Box Selected while Reopening the page After Saved");
-
-				}
-				}
-				catch(Exception g)
-				{
-					test.log(LogStatus.PASS, "Table Name Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Table Name
-					kpt.Table_Name_CheckBox().click();
-					
 				}
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Check Number Checkbox
-				if(kpt.Check_Number_CheckBox_Selected().isDisplayed())
-				{
-				
-					test.log(LogStatus.FAIL, "Check Number Check Box Selected while Reopening the page After Saved");
-
-				}
+					//Check and Enable Check Number Checkbox
+					if(kpt.Check_Number_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Check Number Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Check Number
+						kpt.Check_Number_CheckBox().click();
+						
+						try
+						{
+							Thread.sleep(1000);
+							if(kpt.Inline_Position_Check_Number_RadioButton().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Inline Position for Check Number Radio button Displayed");
+							
+								Thread.sleep(1000);
+								kpt.Inline_Position_Check_Number_RadioButton().click();
+							}
+							
+						}
+						catch(Exception k)
+						{
+							test.log(LogStatus.FAIL, "Inline Position for Check Number Radio button not Displayed");
+		
+						}
+					}
 				}
 				catch(Exception g)
 				{
-					
-					test.log(LogStatus.PASS, "Check Number Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Check Number
-					kpt.Check_Number_CheckBox().click();
-					
-					try
-					{
-						Thread.sleep(1000);
-						if(kpt.Inline_Position_Check_Number_RadioButton().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Inline Position for Check Number Radio button Displayed");
-						
-							Thread.sleep(1000);
-							kpt.Inline_Position_Check_Number_RadioButton().click();
-						}
-						
-					}
-					catch(Exception k)
-					{
-						test.log(LogStatus.FAIL, "Inline Position for Check Number Radio button not Displayed");
-	
-					}
+					test.log(LogStatus.FAIL, "Check Number Check Box Selected while Reopening the page After Saved");
 				}			
 				
 	
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Printer Name Checkbox
-				if(kpt.Printer_Name_CheckBox_Selected().isDisplayed())
-				{
-					test.log(LogStatus.FAIL, "Printer Name Check Box Selected while Reopening the page After Saved");
-		
-				
-				}
+					//Check and Enable Printer Name Checkbox
+					if(kpt.Printer_Name_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Printer Name Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Printer Name
+						kpt.Printer_Name_CheckBox().click();
+					}
 				}
 				catch(Exception g)
 				{
-					test.log(LogStatus.PASS, "Printer Name Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Printer Name
-					kpt.Printer_Name_CheckBox().click();
-				
+					test.log(LogStatus.FAIL, "Printer Name Check Box Selected while Reopening the page After Saved");
 				}
 				
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Server Name Checkbox
-				if(kpt.Server_Name_CheckBox_Selected().isDisplayed())
-				{
-					
-					test.log(LogStatus.FAIL, "Server Name Check Box Selected while Reopening the page After Saved");
-
-				}
+					//Check and Enable Server Name Checkbox
+					if(kpt.Server_Name_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Server Name Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Server Name
+						kpt.Server_Name_CheckBox().click();	
+					}
 				}
 				catch(Exception j)
-				{
-					test.log(LogStatus.PASS, "Server Name Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Server Name
-					kpt.Server_Name_CheckBox().click();
+				{					
+					test.log(LogStatus.FAIL, "Server Name Check Box Selected while Reopening the page After Saved");
 				}
 				
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Print Date & Time Checkbox
-				if(kpt.Printer_DateTime_CheckBox_Selected().isDisplayed())
-				{
-					
-					test.log(LogStatus.FAIL, "Print Date & Time Check Box Selected while Reopening the page After Saved");
-	
-				}
+					//Check and Enable Print Date & Time Checkbox
+					if(kpt.Printer_DateTime_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Print Date & Time Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Print Date & Time
+						kpt.Printer_DateTime_CheckBox().click();		
+					}
 				}
 				catch(Exception k)
 				{
-					test.log(LogStatus.PASS, "Print Date & Time Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Print Date & Time
-					kpt.Printer_DateTime_CheckBox().click();
+					test.log(LogStatus.FAIL, "Print Date & Time Check Box Selected while Reopening the page After Saved");
 				}
 				
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Customer Name Checkbox
-				if(kpt.Customer_Name_CheckBox_Selected().isDisplayed())
+					//Check and Enable Customer Name Checkbox
+					if(kpt.Customer_Name_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Customer Name Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Customer Name
+						kpt.Customer_Name_CheckBox().click();
+					}
+				}
+				catch(Exception l)
 				{
 					test.log(LogStatus.FAIL, "Customer Name Check Box Selected while Reopening the page After Saved");
-		
-				
-				}
-				}
-				catch(Exception l)
-				{
-					test.log(LogStatus.PASS, "Customer Name Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Customer Name
-					kpt.Customer_Name_CheckBox().click();
 				}
 				
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable PickUp Date & Time Checkbox
-				if(kpt.PickUp_DateTime_CheckBox_Selected().isDisplayed())
-				{
-					test.log(LogStatus.FAIL, "PickUp Date & Time Check Box Selected while Reopening the page After Saved");
-	
-				
-				}
+					//Check and Enable PickUp Date & Time Checkbox
+					if(kpt.PickUp_DateTime_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "PickUp Date & Time Check Box not Selected while Reopening the page After Saved");					
+						
+						Thread.sleep(1000);
+						//Enable PickUp Date & Time
+						kpt.PickUp_DateTime_CheckBox().click();
+					}
 				}
 				catch(Exception k)
 				{
-					test.log(LogStatus.PASS, "PickUp Date & Time Check Box not Selected while Reopening the page After Saved");					
-					
-					Thread.sleep(1000);
-					//Enable PickUp Date & Time
-					kpt.PickUp_DateTime_CheckBox().click();
+					test.log(LogStatus.FAIL, "PickUp Date & Time Check Box Selected while Reopening the page After Saved");
 				}
 				
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Service Type Checkbox
-				if(kpt.ServiceType_CheckBox_Selected().isDisplayed())
-				{
-					test.log(LogStatus.FAIL, "Service Type Check Box Selected while Reopening the page After Saved");
-
-				}
+					//Check and Enable Service Type Checkbox
+					if(kpt.ServiceType_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Service Type Check Box not Selected while Reopening the page After Saved");					
+						
+						Thread.sleep(1000);
+						//Enable Service Type
+						kpt.ServiceType_CheckBox().click();
+						
+						try
+						{
+							if(kpt.Inline_Position_Service_Type_RadioButton().isDisplayed())
+							{
+								test.log(LogStatus.PASS, "Inline Position for Service Type Radio button Displayed");
+							
+								Thread.sleep(1000);
+								kpt.Inline_Position_Service_Type_RadioButton().click();
+							}
+							
+						}
+						catch(Exception g)
+						{
+							test.log(LogStatus.FAIL, "Inline Position for Service Type Radio button not Displayed");
+						}	
+					}
 				}
 				catch(Exception l)
 				{
-					test.log(LogStatus.PASS, "Service Type Check Box not Selected while Reopening the page After Saved");					
-					
-					Thread.sleep(1000);
-					//Enable Service Type
-					kpt.ServiceType_CheckBox().click();
-					
-					try
-					{
-						if(kpt.Inline_Position_Service_Type_RadioButton().isDisplayed())
-						{
-							test.log(LogStatus.PASS, "Inline Position for Service Type Radio button Displayed");
-						
-							Thread.sleep(1000);
-							kpt.Inline_Position_Service_Type_RadioButton().click();
-						}
-						
-					}
-					catch(Exception g)
-					{
-						test.log(LogStatus.FAIL, "Inline Position for Service Type Radio button not Displayed");
-	
-					}
-				
+					test.log(LogStatus.FAIL, "Service Type Check Box Selected while Reopening the page After Saved");
 				}
 				
 				Thread.sleep(1000);
@@ -864,61 +846,54 @@ public class Settings_Kitchen_Printer_Template
 				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Split By Course Checkbox
-				if(kpt.SplitByCourse_CheckBox_Selected().isDisplayed())
+					//Check and Enable Split By Course Checkbox
+					if(kpt.SplitByCourse_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Split By Course Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Split By Course
+						kpt.SplitByCourse_CheckBox().click();
+					}
+				}
+				catch(Exception l)
 				{
 					test.log(LogStatus.FAIL, "Split By Course Check Box Selected while Reopening the page After Saved");
-			
-				
-				}
-				}
-				catch(Exception l)
-				{
-					test.log(LogStatus.PASS, "Split By Course Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Split By Course
-					kpt.SplitByCourse_CheckBox().click();
 				}
 				
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Other language Menu Name Checkbox
-				if(kpt.OtherLanguage_MenuName_CheckBox_Selected().isDisplayed())
+					//Check and Enable Other language Menu Name Checkbox
+					if(kpt.OtherLanguage_MenuName_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Other language Menu Name Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Other language Menu Name
+						kpt.OtherLanguage_MenuName_CheckBox().click();
+					}
+				}
+				catch(Exception l)
 				{
-					
 					test.log(LogStatus.FAIL, "Other language Menu Name Check Box Selected while Reopening the page After Saved");
-	
-				}
-				}
-				catch(Exception l)
-				{
-					test.log(LogStatus.PASS, "Other language Menu Name Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Other language Menu Name
-					kpt.OtherLanguage_MenuName_CheckBox().click();
-				
 				}
 				
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Menu Price Checkbox
-				if(kpt.Menu_Price_CheckBox_Selected().isDisplayed())
+					//Check and Enable Menu Price Checkbox
+					if(kpt.Menu_Price_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Menu Price Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Menu Price
+						kpt.Menu_Price_CheckBox().click();
+					}
+				}
+				catch(Exception l)
 				{
 					test.log(LogStatus.FAIL, "Menu Price Check Box Selected while Reopening the page After Saved");
-	
-				
-				}
-				}
-				catch(Exception l)
-				{
-					test.log(LogStatus.PASS, "Menu Price Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Menu Price
-					kpt.Menu_Price_CheckBox().click();
 				}
 				
 				
@@ -926,14 +901,7 @@ public class Settings_Kitchen_Printer_Template
 				try
 				{
 				//Check and Enable Consolidate Menu In Kitchen Checkbox
-				if(kpt.Consolidate_Menu_InKitchen_CheckBox_Selected().isDisplayed())
-				{
-				
-					test.log(LogStatus.FAIL, "Consolidate Menu In Kitchen Check Box Selected while Reopening the page After Saved");
-	
-				}
-				}
-				catch(Exception l)
+				if(kpt.Consolidate_Menu_InKitchen_CheckBox_Selected1().isDisplayed())
 				{
 					test.log(LogStatus.PASS, "Consolidate Menu In Kitchen Check Box not Selected while Reopening the page After Saved");					
 					
@@ -943,69 +911,66 @@ public class Settings_Kitchen_Printer_Template
 					}
 					
 					//Enable Consolidate Menu In Kitchen
-					kpt.Consolidate_Menu_InKitchen_CheckBox().click();
+					kpt.Consolidate_Menu_InKitchen_CheckBox().click();	
+				}
+				}
+				catch(Exception l)
+				{
+					test.log(LogStatus.FAIL, "Consolidate Menu In Kitchen Check Box Selected while Reopening the page After Saved");
 				}
 				
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Quantity Before Item Name Checkbox
-				if(kpt.QuantityBefore_ItemName_CheckBox_Selected().isDisplayed())
+					//Check and Enable Quantity Before Item Name Checkbox
+					if(kpt.QuantityBefore_ItemName_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Quantity Before Item Name Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Quantity Before Item Name
+						kpt.QuantityBefore_ItemName_CheckBox().click();
+					}
+				}
+				catch(Exception l)
 				{
-				
 					test.log(LogStatus.FAIL, "Quantity Before Item Name Check Box Selected while Reopening the page After Saved");
-	
-				}
-				}
-				catch(Exception l)
-				{
-					test.log(LogStatus.PASS, "Quantity Before Item Name Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Quantity Before Item Name
-					kpt.QuantityBefore_ItemName_CheckBox().click();
-				
 				}
 				
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Enable Item Summary Checkbox
-				if(kpt.Enable_ItemSummary_CheckBox_Selected().isDisplayed())
+					//Check and Enable Enable Item Summary Checkbox
+					if(kpt.Enable_ItemSummary_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enable Item Summary Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Enable Item Summary
+						kpt.Enable_ItemSummary_CheckBox().click();		
+					}
+				}
+				catch(Exception l)
 				{
-				
 					test.log(LogStatus.FAIL, "Enable Item Summary Check Box Selected while Reopening the page After Saved");
-	
-				}
-				}
-				catch(Exception l)
-				{
-					
-					test.log(LogStatus.PASS, "Enable Item Summary Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Enable Item Summary
-					kpt.Enable_ItemSummary_CheckBox().click();
 				}
 				
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable All Modifiers in Modifier Print Checkbox
-				if(kpt.AllModifiers_inModifierPrint_CheckBox_Selected().isDisplayed())
-				{
-				
-					test.log(LogStatus.FAIL, "All Modifiers in Modifier Print Check Box Selected while Reopening the page After Saved");
-	
-				}
+					//Check and Enable All Modifiers in Modifier Print Checkbox
+					if(kpt.AllModifiers_inModifierPrint_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "All Modifiers in Modifier Print Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable All Modifiers in Modifier Print
+						kpt.AllModifiers_inModifierPrint_CheckBox().click();		
+					}
 				}
 				catch(Exception l)
 				{
-					test.log(LogStatus.PASS, "All Modifiers in Modifier Print Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable All Modifiers in Modifier Print
-					kpt.AllModifiers_inModifierPrint_CheckBox().click();
+					test.log(LogStatus.FAIL, "All Modifiers in Modifier Print Check Box Selected while Reopening the page After Saved");
 				}
 				
 			
@@ -1037,77 +1002,69 @@ public class Settings_Kitchen_Printer_Template
 				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Address Checkbox
-				if(kpt.Address__CustomerInfo_CheckBox_Selected().isDisplayed())
-				{
-					
-					test.log(LogStatus.FAIL, "Address Check Box Selected while Reopening the page After Saved");
-	
-				}
+					//Check and Enable Address Checkbox
+					if(kpt.Address__CustomerInfo_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Address Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Address
+						kpt.Address__CustomerInfo_CheckBox().click();		
+					}
 				}
 				catch(Exception l)
 				{
-					test.log(LogStatus.PASS, "Address Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Address
-					kpt.Address__CustomerInfo_CheckBox().click();
+					test.log(LogStatus.FAIL, "Address Check Box Selected while Reopening the page After Saved");
 				}
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Email Checkbox
-				if(kpt.Email_CustomerInfo_CheckBox_Selected().isDisplayed())
-				{
-					
-					test.log(LogStatus.FAIL, "Email Check Box Selected while Reopening the page After Saved");
-		
-				}
+					//Check and Enable Email Checkbox
+					if(kpt.Email_CustomerInfo_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Email Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Email
+						kpt.Email_CustomerInfo_CheckBox().click();
+					}
 				}
 				catch(Exception p)
 				{
-					test.log(LogStatus.PASS, "Email Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Email
-					kpt.Email_CustomerInfo_CheckBox().click();
+					test.log(LogStatus.FAIL, "Email Check Box Selected while Reopening the page After Saved");
 				}
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Phone Number Checkbox
-				if(kpt.Phone_Number_CustomerInfo_CheckBox_Selected().isDisplayed())
+					//Check and Enable Phone Number Checkbox
+					if(kpt.Phone_Number_CustomerInfo_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Phone Number Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Phone Number
+						kpt.Phone_Number_CustomerInfo_CheckBox().click();			
+					}
+				}
+				catch(Exception l)
 				{
 					test.log(LogStatus.FAIL, "Phone Number Check Box Selected while Reopening the page After Saved");
-		
-				}
-				}
-				catch(Exception l)
-				{
-					test.log(LogStatus.PASS, "Phone Number Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Phone Number
-					kpt.Phone_Number_CustomerInfo_CheckBox().click();
-				
 				}
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Customer Notes Checkbox
-				if(kpt.Customer_Notes_CustomerInfo_CheckBox_Selected().isDisplayed())
-				{
-					
-					test.log(LogStatus.FAIL, "Customer Notes Check Box Selected while Reopening the page After Saved");
-
-				}
+					//Check and Enable Customer Notes Checkbox
+					if(kpt.Customer_Notes_CustomerInfo_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Customer Notes Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Customer Notes
+						kpt.Customer_Notes_CustomerInfo_CheckBox().click();	
+					}
 				}
 				catch(Exception p)
 				{
-					test.log(LogStatus.PASS, "Customer Notes Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Customer Notes
-					kpt.Customer_Notes_CustomerInfo_CheckBox().click();
+					test.log(LogStatus.FAIL, "Customer Notes Check Box Selected while Reopening the page After Saved");
 				}
 				
 				Thread.sleep(2000);
@@ -1182,62 +1139,53 @@ public class Settings_Kitchen_Printer_Template
 				Thread.sleep(1000);
 				try
 				{
-				//Disable Total Checkbox
-				if(kpt.Total_DriverReceipt_CheckBox_Selected().isDisplayed())
-				{
-					
-	
-				}
+					//Disable Total Checkbox
+					if(kpt.Total_DriverReceipt_CheckBox_Selected1().isDisplayed())
+					{
+						kpt.Total_DriverReceipt_CheckBox().click();
+					}
 				}
 				catch(Exception l)
 				{
-					kpt.Total_DriverReceipt_CheckBox().click();
 				}
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Disable Tip Checkbox
-				if(kpt.Tip_DriverReceipt_CheckBox_Selected().isDisplayed())
-				{
-					
-		
-				}
+					//Disable Tip Checkbox
+					if(kpt.Tip_DriverReceipt_CheckBox_Selected1().isDisplayed())
+					{
+						kpt.Tip_DriverReceipt_CheckBox().click();
+					}
 				}
 				catch(Exception l)
 				{
-					kpt.Tip_DriverReceipt_CheckBox().click();
 				}
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Disable Signature Checkbox
-				if(kpt.Signature_DriverReceipt_CheckBox_Selected().isDisplayed())
-				{
-					
-	
-				}
+					//Disable Signature Checkbox
+					if(kpt.Signature_DriverReceipt_CheckBox_Selected1().isDisplayed())
+					{
+						kpt.Signature_DriverReceipt_CheckBox().click();
+					}
 				}
 				catch(Exception l)
 				{
-					kpt.Signature_DriverReceipt_CheckBox().click();
 				}
 				
 //				Thread.sleep(1000);
 				try
 				{
-				//Disable Balance Due Checkbox
-				if(kpt.Balance_Due_DriverReceipt_CheckBox_Selected().isDisplayed())
-				{
-					
-	
-				}
+					//Disable Balance Due Checkbox
+					if(kpt.Balance_Due_DriverReceipt_CheckBox_Selected1().isDisplayed())
+					{
+						kpt.Balance_Due_DriverReceipt_CheckBox().click();
+					}
 				}
 				catch(Exception l)
-				{
-					kpt.Balance_Due_DriverReceipt_CheckBox().click();
-				}
+				{}
 				
 				
 				Thread.sleep(1000);
@@ -1252,20 +1200,18 @@ public class Settings_Kitchen_Printer_Template
 				Thread.sleep(1000);
 				try
 				{
-				//Check and Enable Cut Paper After Each print Checkbox
-				if(kpt.CutPaper_After_EachPrint_CheckBox_Selected().isDisplayed())
-				{
-					test.log(LogStatus.FAIL, "Cut Paper After Each print Check Box Selected while Reopening the page After Saved");
-
-				
-				}
+					//Check and Enable Cut Paper After Each print Checkbox
+					if(kpt.CutPaper_After_EachPrint_CheckBox_Selected1().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Cut Paper After Each print Check Box not Selected while Reopening the page After Saved");					
+						
+						//Enable Cut Paper After Each print
+						kpt.CutPaper_After_EachPrint_CheckBox().click();
+					}
 				}
 				catch(Exception k)
 				{
-					test.log(LogStatus.PASS, "Cut Paper After Each print Check Box not Selected while Reopening the page After Saved");					
-					
-					//Enable Cut Paper After Each print
-					kpt.CutPaper_After_EachPrint_CheckBox().click();
+					test.log(LogStatus.FAIL, "Cut Paper After Each print Check Box Selected while Reopening the page After Saved");
 				}
 				
 				Thread.sleep(1000);

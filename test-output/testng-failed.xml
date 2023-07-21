@@ -3,33 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Test.AllClassCalling_Product_and_Items">
+      <class name="com.Test.Product_Items_AddEditDelete_DisplayGroups">
         <methods>
-          <include name="Product_Items_AddEditDelete_Gratuities"/>
-          <include name="Product_Items_AddEditDelete_SubCategories"/>
-          <include name="Product_Items_AddEditDelete_Item_Based_Discount"/>
-          <include name="Product_Items_AddEditDelete_Open_Item_Discount"/>
-          <include name="Login"/>
-          <include name="TestFail"/>
-          <include name="Product_Items_AddEditDelete_GiftCards"/>
-          <include name="Product_Items_AddEditDelete_MenuItem"/>
-          <include name="Product_Items_AddEditDelete_Taxes"/>
           <include name="flushTest"/>
-          <include name="Product_Items_AddEditDelete_ModifierGroups"/>
-          <include name="Product_Items_AddEditDelete_Upcharges"/>
-          <include name="Product_Items_AddEditDelete_Categories"/>
-          <include name="Product_Items_AddEditDelete_Modifiers"/>
-          <include name="Product_Items_AddEditDelete_Open_Check_Discount"/>
-          <include name="Product_Items_AddEditDelete_MixAndMatch_Discount"/>
-          <include name="Product_Items_AddEditDelete_RetailItem"/>
-          <include name="LogOut"/>
-          <include name="Product_Items_AddEditDelete_Check_Based_Discount"/>
-          <include name="Product_Items_AddEditDelete_DisplayGroups"/>
-          <include name="Product_Items_Meito"/>
-          <include name="Product_Items_AddEditDelete_Item_Service_Charge"/>
-          <include name="Product_Items_Bulk_Update"/>
+          <include name="TestFail"/>
+          <include name="Calling"/>
         </methods>
-      </class> <!-- com.Test.AllClassCalling_Product_and_Items -->
+      </class> <!-- com.Test.Product_Items_AddEditDelete_DisplayGroups -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

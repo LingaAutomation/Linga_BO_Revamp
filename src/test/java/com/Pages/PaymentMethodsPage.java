@@ -236,7 +236,7 @@ public class PaymentMethodsPage
 	{
 		CurrencyID_Inputbox.click();
 		
-	List<WebElement> CurrencyList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> CurrencyList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int CurrencySize=CurrencyList.size();
 		
@@ -245,18 +245,18 @@ public class PaymentMethodsPage
 			
 			CurrencyID_Inputbox.click();
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 			
 		}
 		else if(CurrencySize==1)
 		{
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+CurrencySize+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+CurrencySize+"]/select-option")).click();
 			
 			
-			System.out.println("Selected Currency : "+driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+CurrencySize+"]")).getText());
+			System.out.println("Selected Currency : "+driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+CurrencySize+"]/select-option")).getText());
 			
-			test.log(LogStatus.INFO, "Selected Currency as : "+driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+CurrencySize+"]")).getText());
+			test.log(LogStatus.INFO, "Selected Currency as : "+driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+CurrencySize+"]/select-option")).getText());
 			
 		}
 		else if(CurrencySize<=10)
@@ -264,28 +264,28 @@ public class PaymentMethodsPage
 		int randomCurrency=ThreadLocalRandom.current().nextInt(1, CurrencySize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomCurrency+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomCurrency+"]/select-option")).click();
 	
 		
-		System.out.println("Selected Currency : "+driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomCurrency+"]")).getText());
+		System.out.println("Selected Currency : "+driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomCurrency+"]/select-option")).getText());
 		
-		test.log(LogStatus.INFO, "Selected Currency as : "+driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomCurrency+"]")).getText());
+		test.log(LogStatus.INFO, "Selected Currency as : "+driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomCurrency+"]/select-option")).getText());
 		}
 		else
 		{
 			int randomCurrency=ThreadLocalRandom.current().nextInt(1, 10);
 			
 			
-			System.out.println("Selected Currency : "+driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomCurrency+"]")).getText());
+			System.out.println("Selected Currency : "+driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomCurrency+"]/select-option")).getText());
 			
-			test.log(LogStatus.INFO, "Selected Currency as : "+driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomCurrency+"]")).getText());
+			test.log(LogStatus.INFO, "Selected Currency as : "+driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomCurrency+"]/select-option")).getText());
 		
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomCurrency+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomCurrency+"]/select-option")).click();
 		
 		
 		}
 		
-		List<WebElement> CurrencyList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> CurrencyList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 
 		if(CurrencyList1.size()!=0)
 		{
@@ -375,7 +375,7 @@ public class PaymentMethodsPage
 		
 		Model_TypeInputbox.click();
 		
-	List<WebElement> ModelTypeList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> ModelTypeList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 		
 		int ModelTypeSize=ModelTypeList.size();
 		
@@ -384,27 +384,27 @@ public class PaymentMethodsPage
 			Model_TypeInputbox.click();
 
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div[1]/select-option")).click();
 
 		}
 		else if(ModelTypeSize==1)
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+ModelTypeSize+"]")).click();
+			driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+ModelTypeSize+"]/select-option")).click();
 
 		}
 		else
 		{
 		int randomModelType=ThreadLocalRandom.current().nextInt(1, ModelTypeSize);
 		
-		System.out.println("Selected Model Type : "+driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomModelType+"]")).getText());
+		System.out.println("Selected Model Type : "+driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomModelType+"]/select-option")).getText());
 
-		test.log(LogStatus.INFO, "Selected Model Type as : "+driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomModelType+"]")).getText());
+		test.log(LogStatus.INFO, "Selected Model Type as : "+driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomModelType+"]/select-option")).getText());
 
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomModelType+"]")).click();
+		driver.findElement(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div["+randomModelType+"]/select-option")).click();
 		}
 		
-		List<WebElement> ModelTypeList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> ModelTypeList1=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));
 
 		if(ModelTypeList1.size()!=0)
 		{

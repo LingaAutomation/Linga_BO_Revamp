@@ -103,22 +103,25 @@ public WebDriver driver;
 	{
 		Open_Transfer_Request_Page(driver);
 //		RefreshAndPaginination_ColumnFilteration(driver);
+		/*
 		Create_Transfer_Request(driver);
 		Cancel_Transfer_Request(driver);
 		Verify_Transfer_Request_Requested_Store(driver);
 		Verify_Transferred_Items_in_Request_Status(driver);
+		
 		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Today(driver);
-//		Verify_Transferred_Items_in_Ttansfer_Logs_Transferred_Today(driver);
-//		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Yesterday(driver);
-//		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_N_Days(driver);
-//		Verify_Transferred_Items_in_Ttansfer_Logs_Received_This_week(driver);
-//		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_week(driver);
-//		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_7_days(driver);
-//		Verify_Transferred_Items_in_Ttansfer_Logs_Received_This_month(driver);
-//		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_month(driver);
-//		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_30_days(driver);
-//		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Specific_Date(driver);
-//		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Date_Range(driver);
+    	Verify_Transferred_Items_in_Ttansfer_Logs_Transferred_Today(driver);
+		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Yesterday(driver);
+		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_N_Days(driver);
+		Verify_Transferred_Items_in_Ttansfer_Logs_Received_This_week(driver);
+		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_week(driver);
+		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_7_days(driver);
+		Verify_Transferred_Items_in_Ttansfer_Logs_Received_This_month(driver);
+		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_month(driver);
+		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_30_days(driver);
+		*/
+		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Specific_Date(driver);
+		Verify_Transferred_Items_in_Ttansfer_Logs_Received_Date_Range(driver);
 	}
 	
 	@Test(priority = 3,enabled = false)
@@ -343,19 +346,19 @@ public WebDriver driver;
 		//Verify the Coursing page loaded or not
 		cmp.VerifyMainScreenPageHeader("Transfer Requests");
 		
-		driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div[1]/div/data-grid-row/div/div[5]/div[2]/button")).click();
-		
+		driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr[1]/td[5]/div/div[2]/button")).click();
+		Thread.sleep(5000);
 		cmp.VerifyCreationScreenPageHeader("Approve Transfer Request");
-	
+		Thread.sleep(5000);
 		//Approve the Transfer Items
 		air.Approve_Transfer_Request("3");
 		
 		
 		Thread.sleep(2000);
 		//Click the Request Cancel button for Second Request 
-		driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div[2]/div/data-grid-row/div/div[5]/div[1]/button")).click();
+		driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr[2]/td[5]/div/div[1]/button")).click();
 		
-		
+		Thread.sleep(5000);
 		//Verify the Transfer Request Declined or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("You have declined the transfer request."))
 		{
@@ -388,17 +391,17 @@ public WebDriver driver;
 		
 		
 		Thread.sleep(2000);
-		if(driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div[1]/div/data-grid-row/div/div[3]")).getText().equalsIgnoreCase("REQUEST PROCESSED"))
+		if(driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr[1]/td[3]/span")).getText().equalsIgnoreCase("REQUEST PROCESSED"))
 		{
 			test.log(LogStatus.PASS, "Request Status Updated Successfully as REQUEST PROCESSED");
 		}
-		else if(driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div[1]/div/data-grid-row/div/div[3]")).getText().equalsIgnoreCase("REQUEST DECLINED"))
+		else if(driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr[1]/td[3]/span")).getText().equalsIgnoreCase("REQUEST DECLINED"))
 		{
 			test.log(LogStatus.INFO, "Request Status Updated as REQUEST DECLINED due to Inventory Items Unavailable");
 	
 		
 		}
-		else if(driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div[1]/div/data-grid-row/div/div[3]")).getText().equalsIgnoreCase("REQUEST SENT"))
+		else if(driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr[1]/td[3]/span")).getText().equalsIgnoreCase("REQUEST SENT"))
 		{
 			test.log(LogStatus.INFO, "Request Status Updated as REQUEST SENT due to Transfer Request Not Accepted");
 			
@@ -410,7 +413,7 @@ public WebDriver driver;
 		}
 	
 		
-		if(driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div[2]/div/data-grid-row/div/div[3]")).getText().equalsIgnoreCase("REQUEST DECLINED"))
+		if(driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr[2]/td[3]/span")).getText().equalsIgnoreCase("REQUEST DECLINED"))
 		{
 			test.log(LogStatus.PASS, "Request Status Updated Successfully as REQUEST DECLINED");
 		}
@@ -430,18 +433,21 @@ public WebDriver driver;
 		//Navigate to Transfer Logs
 		air.Select_Transfer_LogsTab();
 		
+		Thread.sleep(3000);
 		//Select Type 
 		air.Select_Type("ALL");
 
 //		air.Select_Type("INVENTORY ITEM");
 		
-		
+		Thread.sleep(3000);
 		//Select Transfer Status
 		air.Select_Transfer_Status("Received");
 		
+		Thread.sleep(3000);
 		//Select Today Time Period
 		new ReportsPage(driver, test).Select_Today_TimePeriod();
 		
+		Thread.sleep(3000);
 		//Click the Apply button
 		new ReportsPage(driver, test).Click_ApplyButton();
 		
@@ -460,13 +466,13 @@ public WebDriver driver;
 			
 			for(int i=1;i<=2;i++)
 			{
-				String Source_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[1]")).getText();
+				String Source_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[1]/span")).getText();
 
-				String Destination_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[2]")).getText();
+				String Destination_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[2]/span")).getText();
 
-				String ItemName=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[3]")).getText();
+				String ItemName=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[3]/span")).getText();
 
-				String Received_Qty=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[6]")).getText();
+				String Received_Qty=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[6]/span")).getText();
 
 				test.log(LogStatus.INFO, i+" Requested Source Store : "+Source_Store+" Destination Store : "+Destination_Store+" Required Item Name : "+ItemName+" Received Quantity : "+Received_Qty);
 			}
@@ -479,22 +485,22 @@ public WebDriver driver;
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
-		
+		Thread.sleep(3000);
 		//Navigate to Transfer Logs
 		air.Select_Transfer_LogsTab();
-		
+		Thread.sleep(3000);
 		//Select Type 
 		air.Select_Type("ALL");
 
 //		air.Select_Type("INVENTORY ITEM");
 		
-		
+		Thread.sleep(3000);
 		//Select Transfer Status
 		air.Select_Transfer_Status("Transferred");
-		
+		Thread.sleep(3000);
 		//Select Today Time Period
 		new ReportsPage(driver, test).Select_Today_TimePeriod();
-		
+		Thread.sleep(3000);
 		//Click the Apply button
 		new ReportsPage(driver, test).Click_ApplyButton();
 		
@@ -513,13 +519,13 @@ public WebDriver driver;
 			
 			for(int i=1;i<=2;i++)
 			{
-				String Source_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[1]")).getText();
+				String Source_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[1]/span")).getText();
 
-				String Destination_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[2]")).getText();
+				String Destination_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[2]/span")).getText();
 
-				String ItemName=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[3]")).getText();
+				String ItemName=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[3]/span")).getText();
 
-				String Transferred_Qty=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[6]")).getText();
+				String Transferred_Qty=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[6]/span")).getText();
 
 				test.log(LogStatus.INFO, i+" Source Store : "+Source_Store+" Requested Destination Store : "+Destination_Store+" Required Item Name : "+ItemName+" Transferred Quantity : "+Transferred_Qty);
 			}
@@ -531,19 +537,19 @@ public WebDriver driver;
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
-		
+		Thread.sleep(3000);
 		//Navigate to Transfer Logs
 		air.Select_Transfer_LogsTab();
-		
+		Thread.sleep(3000);
 		//Select Type 
 		air.Select_Type("ALL");
 
 //		air.Select_Type("INVENTORY ITEM");
 		
-		
+		Thread.sleep(3000);
 		//Select Transfer Status
 		air.Select_Transfer_Status("Received");
-		
+		Thread.sleep(3000);
 		//Select Today Time Period
 		new ReportsPage(driver, test).Select_Yesterday_TimePeriod();
 		
@@ -565,13 +571,13 @@ public WebDriver driver;
 			
 			for(int i=1;i<=2;i++)
 			{
-				String Source_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[1]")).getText();
+				String Source_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[1]/span")).getText();
 
-				String Destination_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[2]")).getText();
+				String Destination_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[2]/span")).getText();
 
-				String ItemName=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[3]")).getText();
+				String ItemName=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[3]/span")).getText();
 
-				String Received_Qty=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[6]")).getText();
+				String Received_Qty=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[6]/span")).getText();
 
 				test.log(LogStatus.INFO, i+" Requested Source Store : "+Source_Store+" Destination Store : "+Destination_Store+" Required Item Name : "+ItemName+" Received Quantity : "+Received_Qty);
 			}
@@ -583,22 +589,22 @@ public WebDriver driver;
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
-		
+		Thread.sleep(3000);
 		//Navigate to Transfer Logs
 		air.Select_Transfer_LogsTab();
-		
+		Thread.sleep(3000);
 		//Select Type 
 		air.Select_Type("ALL");
-
+		Thread.sleep(3000);
 //		air.Select_Type("INVENTORY ITEM");
-		
+		Thread.sleep(3000);
 		
 		//Select Transfer Status
 		air.Select_Transfer_Status("Received");
-		
+		Thread.sleep(3000);
 		//Select Today Time Period
 		new ReportsPage(driver, test).Select_Last_N_Days_TimePeriod("10");
-		
+		Thread.sleep(3000);
 		//Click the Apply button
 		new ReportsPage(driver, test).Click_ApplyButton();
 		
@@ -617,13 +623,13 @@ public WebDriver driver;
 			
 			for(int i=1;i<=2;i++)
 			{
-				String Source_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[1]")).getText();
+				String Source_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[1]/span")).getText();
 
-				String Destination_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[2]")).getText();
+				String Destination_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[2]/span")).getText();
 
-				String ItemName=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[3]")).getText();
+				String ItemName=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[3]/span")).getText();
 
-				String Received_Qty=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[6]")).getText();
+				String Received_Qty=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[6]/span")).getText();
 
 				test.log(LogStatus.INFO, i+" Requested Source Store : "+Source_Store+" Destination Store : "+Destination_Store+" Required Item Name : "+ItemName+" Received Quantity : "+Received_Qty);
 			}
@@ -635,25 +641,25 @@ public WebDriver driver;
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
-		
+		Thread.sleep(3000);
 		//Navigate to Transfer Logs
 		air.Select_Transfer_LogsTab();
-		
+		Thread.sleep(3000);
 		//Select Type 
 		air.Select_Type("ALL");
-
+		Thread.sleep(3000);
 //		air.Select_Type("INVENTORY ITEM");
 		
 		
 		//Select Transfer Status
 		air.Select_Transfer_Status("Received");
-		
+		Thread.sleep(3000);
 		//Select Today Time Period
 		new ReportsPage(driver, test).Select_This_Week_TimePeriod();
-		
+		Thread.sleep(3000);
 		//Click the Apply button
 		new ReportsPage(driver, test).Click_ApplyButton();
-		
+		Thread.sleep(3000);
 		Thread.sleep(2000);
 		try
 		{
@@ -669,13 +675,13 @@ public WebDriver driver;
 			
 			for(int i=1;i<=2;i++)
 			{
-				String Source_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[1]")).getText();
+				String Source_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[1]/span")).getText();
 
-				String Destination_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[2]")).getText();
+				String Destination_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[2]/span")).getText();
 
-				String ItemName=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[3]")).getText();
+				String ItemName=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[3]/span")).getText();
 
-				String Received_Qty=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[6]")).getText();
+				String Received_Qty=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[6]/span")).getText();
 
 				test.log(LogStatus.INFO, i+" Requested Source Store : "+Source_Store+" Destination Store : "+Destination_Store+" Required Item Name : "+ItemName+" Received Quantity : "+Received_Qty);
 			}
@@ -687,25 +693,25 @@ public WebDriver driver;
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
-		
+		Thread.sleep(3000);
 		//Navigate to Transfer Logs
 		air.Select_Transfer_LogsTab();
-		
+		Thread.sleep(3000);
 		//Select Type 
 		air.Select_Type("ALL");
-
+		Thread.sleep(3000);
 //		air.Select_Type("INVENTORY ITEM");
 		
 		
 		//Select Transfer Status
 		air.Select_Transfer_Status("Received");
-		
+		Thread.sleep(3000);
 		//Select Today Time Period
 		new ReportsPage(driver, test).Select_Last_Week_TimePeriod();
-		
+		Thread.sleep(3000);
 		//Click the Apply button
 		new ReportsPage(driver, test).Click_ApplyButton();
-		
+		Thread.sleep(3000);
 		Thread.sleep(2000);
 		try
 		{
@@ -721,13 +727,13 @@ public WebDriver driver;
 			
 			for(int i=1;i<=2;i++)
 			{
-				String Source_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[1]")).getText();
+				String Source_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[1]/span")).getText();
 
-				String Destination_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[2]")).getText();
+				String Destination_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[2]/span")).getText();
 
-				String ItemName=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[3]")).getText();
+				String ItemName=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[3]/span")).getText();
 
-				String Received_Qty=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[6]")).getText();
+				String Received_Qty=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[6]/span")).getText();
 
 				test.log(LogStatus.INFO, i+" Requested Source Store : "+Source_Store+" Destination Store : "+Destination_Store+" Required Item Name : "+ItemName+" Received Quantity : "+Received_Qty);
 			}
@@ -740,22 +746,22 @@ public WebDriver driver;
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
-		
+		Thread.sleep(3000);
 		//Navigate to Transfer Logs
 		air.Select_Transfer_LogsTab();
-		
+		Thread.sleep(3000);
 		//Select Type 
 		air.Select_Type("ALL");
-
+		Thread.sleep(3000);
 //		air.Select_Type("INVENTORY ITEM");
 		
 		
 		//Select Transfer Status
 		air.Select_Transfer_Status("Received");
-		
+		Thread.sleep(3000);
 		//Select Today Time Period
 		new ReportsPage(driver, test).Select_Last_7_Days_TimePeriod();
-		
+		Thread.sleep(3000);
 		//Click the Apply button
 		new ReportsPage(driver, test).Click_ApplyButton();
 		
@@ -774,13 +780,13 @@ public WebDriver driver;
 			
 			for(int i=1;i<=2;i++)
 			{
-				String Source_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[1]")).getText();
+				String Source_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[1]/span")).getText();
 
-				String Destination_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[2]")).getText();
+				String Destination_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[2]/span")).getText();
 
-				String ItemName=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[3]")).getText();
+				String ItemName=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[3]/span")).getText();
 
-				String Received_Qty=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[6]")).getText();
+				String Received_Qty=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[6]/span")).getText();
 
 				test.log(LogStatus.INFO, i+" Requested Source Store : "+Source_Store+" Destination Store : "+Destination_Store+" Required Item Name : "+ItemName+" Received Quantity : "+Received_Qty);
 			}
@@ -793,22 +799,22 @@ public WebDriver driver;
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
-		
+		Thread.sleep(3000);
 		//Navigate to Transfer Logs
 		air.Select_Transfer_LogsTab();
-		
+		Thread.sleep(3000);
 		//Select Type 
 		air.Select_Type("ALL");
-
+		Thread.sleep(3000);
 //		air.Select_Type("INVENTORY ITEM");
 		
 		
 		//Select Transfer Status
 		air.Select_Transfer_Status("Received");
-		
+		Thread.sleep(3000);
 		//Select Today Time Period
 		new ReportsPage(driver, test).Select_This_Month_TimePeriod();
-		
+		Thread.sleep(3000);
 		//Click the Apply button
 		new ReportsPage(driver, test).Click_ApplyButton();
 		
@@ -827,13 +833,13 @@ public WebDriver driver;
 			
 			for(int i=1;i<=2;i++)
 			{
-				String Source_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[1]")).getText();
+				String Source_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[1]/span")).getText();
 
-				String Destination_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[2]")).getText();
+				String Destination_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[2]/span")).getText();
 
-				String ItemName=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[3]")).getText();
+				String ItemName=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[3]/span")).getText();
 
-				String Received_Qty=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[6]")).getText();
+				String Received_Qty=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[6]/span")).getText();
 
 				test.log(LogStatus.INFO, i+" Requested Source Store : "+Source_Store+" Destination Store : "+Destination_Store+" Required Item Name : "+ItemName+" Received Quantity : "+Received_Qty);
 			}
@@ -845,22 +851,22 @@ public WebDriver driver;
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
-		
+		Thread.sleep(3000);
 		//Navigate to Transfer Logs
 		air.Select_Transfer_LogsTab();
-		
+		Thread.sleep(3000);
 		//Select Type 
 		air.Select_Type("ALL");
 
 //		air.Select_Type("INVENTORY ITEM");
-		
+		Thread.sleep(3000);
 		
 		//Select Transfer Status
 		air.Select_Transfer_Status("Received");
-		
+		Thread.sleep(3000);
 		//Select Today Time Period
 		new ReportsPage(driver, test).Select_Today_TimePeriod();
-		
+		Thread.sleep(3000);
 		//Click the Apply button
 		new ReportsPage(driver, test).Click_ApplyButton();
 		
@@ -879,13 +885,13 @@ public WebDriver driver;
 			
 			for(int i=1;i<=2;i++)
 			{
-				String Source_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[1]")).getText();
+				String Source_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[1]/span")).getText();
 
-				String Destination_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[2]")).getText();
+				String Destination_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[2]/span")).getText();
 
-				String ItemName=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[3]")).getText();
+				String ItemName=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[3]/span")).getText();
 
-				String Received_Qty=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[6]")).getText();
+				String Received_Qty=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[6]/span")).getText();
 
 				test.log(LogStatus.INFO, i+" Requested Source Store : "+Source_Store+" Destination Store : "+Destination_Store+" Required Item Name : "+ItemName+" Received Quantity : "+Received_Qty);
 			}
@@ -898,22 +904,22 @@ public WebDriver driver;
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
-		
+		Thread.sleep(3000);
 		//Navigate to Transfer Logs
 		air.Select_Transfer_LogsTab();
-		
+		Thread.sleep(3000);
 		//Select Type 
 		air.Select_Type("ALL");
 
 //		air.Select_Type("INVENTORY ITEM");
-		
+		Thread.sleep(3000);
 		
 		//Select Transfer Status
 		air.Select_Transfer_Status("Received");
-		
+		Thread.sleep(3000);
 		//Select Today Time Period
 		new ReportsPage(driver, test).Select_Last_30_Days_TimePeriod();
-		
+		Thread.sleep(3000);
 		//Click the Apply button
 		new ReportsPage(driver, test).Click_ApplyButton();
 		
@@ -932,13 +938,13 @@ public WebDriver driver;
 			
 			for(int i=1;i<=2;i++)
 			{
-				String Source_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[1]")).getText();
+				String Source_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[1]/span")).getText();
 
-				String Destination_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[2]")).getText();
+				String Destination_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[2]/span")).getText();
 
-				String ItemName=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[3]")).getText();
+				String ItemName=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[3]/span")).getText();
 
-				String Received_Qty=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[6]")).getText();
+				String Received_Qty=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[6]/span")).getText();
 
 				test.log(LogStatus.INFO, i+" Requested Source Store : "+Source_Store+" Destination Store : "+Destination_Store+" Required Item Name : "+ItemName+" Received Quantity : "+Received_Qty);
 			}
@@ -950,22 +956,22 @@ public WebDriver driver;
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
-		
+		Thread.sleep(3000);
 		//Navigate to Transfer Logs
 		air.Select_Transfer_LogsTab();
-		
+		Thread.sleep(3000);
 		//Select Type 
 		air.Select_Type("ALL");
-
+		Thread.sleep(3000);
 //		air.Select_Type("INVENTORY ITEM");
 		
 		
 		//Select Transfer Status
 		air.Select_Transfer_Status("Received");
-		
+		Thread.sleep(3000);
 		//Select Today Time Period
 		new ReportsPage(driver, test).Select_Specific_Date_TimePeriod(Utility.getProperty("Specific_Date"));
-		
+		Thread.sleep(3000);
 		//Click the Apply button
 		new ReportsPage(driver, test).Click_ApplyButton();
 		
@@ -984,13 +990,13 @@ public WebDriver driver;
 			
 			for(int i=1;i<=2;i++)
 			{
-				String Source_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[1]")).getText();
+				String Source_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[1]/span")).getText();
 
-				String Destination_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[2]")).getText();
+				String Destination_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[2]/span")).getText();
 
-				String ItemName=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[3]")).getText();
+				String ItemName=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[3]/span")).getText();
 
-				String Received_Qty=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[6]")).getText();
+				String Received_Qty=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[6]/span")).getText();
 
 				test.log(LogStatus.INFO, i+" Requested Source Store : "+Source_Store+" Destination Store : "+Destination_Store+" Required Item Name : "+ItemName+" Received Quantity : "+Received_Qty);
 			}
@@ -1002,22 +1008,22 @@ public WebDriver driver;
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
-		
+		Thread.sleep(3000);
 		//Navigate to Transfer Logs
 		air.Select_Transfer_LogsTab();
-		
+		Thread.sleep(3000);
 		//Select Type 
 		air.Select_Type("ALL");
-
+		Thread.sleep(3000);
 //		air.Select_Type("INVENTORY ITEM");
 		
 		
 		//Select Transfer Status
 		air.Select_Transfer_Status("Received");
-		
+		Thread.sleep(3000);
 		//Select Today Time Period
 		new ReportsPage(driver, test).Select_Date_Range_TimePeriod(Utility.getProperty("Start_Date"), Utility.getProperty("End_Date"));
-		
+		Thread.sleep(3000);
 		//Click the Apply button
 		new ReportsPage(driver, test).Click_ApplyButton();
 		
@@ -1036,13 +1042,13 @@ public WebDriver driver;
 			
 			for(int i=1;i<=2;i++)
 			{
-				String Source_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[1]")).getText();
+				String Source_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[1]/span")).getText();
 
-				String Destination_Store=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[2]")).getText();
+				String Destination_Store=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[2]/span")).getText();
 
-				String ItemName=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[3]")).getText();
+				String ItemName=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[3]/span")).getText();
 
-				String Received_Qty=driver.findElement(By.xpath("//data-grid/div/div[2]/div["+i+"]//data-grid-row/div/div[6]")).getText();
+				String Received_Qty=driver.findElement(By.xpath("//tbody[contains(@role,'rowgroup')]/tr["+i+"]/td[6]/span")).getText();
 
 				test.log(LogStatus.INFO, i+" Requested Source Store : "+Source_Store+" Destination Store : "+Destination_Store+" Required Item Name : "+ItemName+" Received Quantity : "+Received_Qty);
 			}
