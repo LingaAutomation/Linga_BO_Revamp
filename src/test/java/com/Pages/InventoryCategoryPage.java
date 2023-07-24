@@ -40,6 +40,11 @@ public class InventoryCategoryPage {
 	
 	
 	
+	@FindBy(xpath = "//button[contains(.,'NEW SUB-CATEGORY')]")
+	WebElement New_SubCategoryBtn;
+	
+	
+	
 	@FindBy(xpath = "//app-input[contains(@name,'name')]/div/div/mat-form-field/div/div/div/input")
 	WebElement Name_category;
 	
@@ -71,10 +76,10 @@ public class InventoryCategoryPage {
 	@FindBy(xpath = "//app-input[contains(@name,'description')]/div/div/mat-form-field/div/div/div/textarea")
 	WebElement Description_Box;
 	
-	@FindBy(xpath = "//div[contains(@class,'row ')]/div[contains(.,'Enable Taxes')]/../div/div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[contains(.,'No')]")
+	@FindBy(xpath = "//div[contains(@class,'row ')]/div/div[contains(.,'Enable Taxes')]/../div[2]/app-toggle/div/div/mat-button-toggle-group/mat-button-toggle/button[contains(.,'No')]")
 	WebElement EnableTax_No;
 	
-	@FindBy(xpath = "//div[contains(@class,'row ')]/div[contains(.,'Enable Taxes')]/../div/div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[contains(.,'Yes')]")
+	@FindBy(xpath = "//div[contains(@class,'row ')]/div/div[contains(.,'Enable Taxes')]/../div[2]/app-toggle/div/div/mat-button-toggle-group/mat-button-toggle/button[contains(.,'Yes')]")
 	WebElement EnableTax_Yes;
 	
 	@FindBy(xpath = "//button[contains(@mattooltip,'POS')]/span[2]")
@@ -121,6 +126,12 @@ public class InventoryCategoryPage {
 	{
 		New_CategoryBtn.click();
 	}
+	
+	public void Click_NewSubCategory()
+	{
+		New_SubCategoryBtn.click();
+	}
+	
 	
 	public void Clear_Name_category()
 	{
@@ -316,7 +327,7 @@ public class InventoryCategoryPage {
 		
 			Verify_Search(str);
 		
-			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
+			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
 	}
 	
 	//New sub Recipe

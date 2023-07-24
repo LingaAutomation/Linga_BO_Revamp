@@ -116,11 +116,11 @@ public WebDriver driver;
 	public void Calling() throws Exception
 	{
 		Open_DisplayGroups_Page(driver);
-//		RefreshAndPaginination(driver);
-//		Add_DisplayGroups(driver);
-//		Edit_and_Close_Cancel_DisplayGroups(driver);
-//		Edit_and_Update_DisplayGroups_DaysOfWeek(driver);
-//		Edit_and_Update_DisplayGroups_DaysOfMonth_AtoZ_Sorting(driver);
+		RefreshAndPaginination(driver);
+		Add_DisplayGroups(driver);
+		Edit_and_Close_Cancel_DisplayGroups(driver);
+		Edit_and_Update_DisplayGroups_DaysOfWeek(driver);
+		Edit_and_Update_DisplayGroups_DaysOfMonth_AtoZ_Sorting(driver);
 		Edit_and_Update_DisplayGroups_DateRange_ZtoA_Sorting(driver);
 		Edit_and_Update_DisplayGroups_Specific_Date_Custom_Sorting(driver);
 		Edit_Delete_MenuItems_and_Update_DisplayGroups_DateRangeWithTime(driver);

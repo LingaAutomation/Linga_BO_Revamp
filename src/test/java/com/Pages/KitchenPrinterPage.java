@@ -51,22 +51,22 @@ public class KitchenPrinterPage
 	@FindBy(xpath = "//app-input[@label='IP Address']/div/div/mat-form-field/div/div/div[4]/input")
 	WebElement IP_AddressInputBx;
 	
-	@FindBy(xpath = "//span[contains(.,'Enable Service Type Restriction')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Enable Service Type Restriction')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement EnableServiceTypeRestriction_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Enable Service Type Restriction')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Enable Service Type Restriction')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement EnableServiceTypeRestriction_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Apply To All Categories')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Apply To All Categories')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement ApplyToAllCategories_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Apply To All Categories')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Apply To All Categories')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement ApplyToAllCategories_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Apply To All Menu Items')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Apply To All Menu Items')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement ApplyToAllMenuItems_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Apply To All Menu Items')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Apply To All Menu Items')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement ApplyToAllMenuItems_NoBtn;
 	
 	@FindBy(xpath = "//span[contains(.,'Expo Device')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
@@ -81,10 +81,10 @@ public class KitchenPrinterPage
 	@FindBy(xpath = "//app-input[@label='Queue Device Ip Address']/div/div/mat-form-field/div/div/div[4]/input")
 	WebElement Queue_Device_IP_AddressInputBx;
 	
-	@FindBy(xpath = "//span[contains(.,'Alternate Printer')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Alternate Printer')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement AlternatePrinter_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Alternate Printer')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Alternate Printer')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement AlternatePrinter_NoBtn;
 	
 	@FindBy(xpath = "//app-selectbox[@label='Alternate Printer']/div/mat-form-field/div/div/div[3]/input")
@@ -748,22 +748,22 @@ public class KitchenPrinterPage
 	@FindBy(xpath = "//button[contains(.,'NEW RECEIPT PRINTER')]")
 	WebElement New_ReceiptPrinterBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Set as Default')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Set as Default')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement SetasDefault_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Set as Default')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Set as Default')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement SetasDefault_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Auto Print Receipt')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Auto Print Receipt')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement AutoPrintReceipt_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Auto Print Receipt')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Auto Print Receipt')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement AutoPrintReceipt_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Show CC Receipt Screen')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Show CC Receipt Screen')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Show_CC_ReceiptScreen_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Show CC Receipt Screen')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Show CC Receipt Screen')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Show_CC_ReceiptScreen_NoBtn;
 
 	
@@ -865,10 +865,10 @@ public class KitchenPrinterPage
 		return Show_CC_ReceiptScreen_YesBtn;
 	}
 	
-	@FindBy(xpath = "//span[contains(.,'Print CC Customer Copy')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Print CC Customer Copy')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Print_CC_CustomerCopy_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Print CC Customer Copy')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Print CC Customer Copy')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Print_CC_CustomerCopy_NoBtn;
 
 	public void Enable_Print_CC_CustomerCopy()
@@ -902,10 +902,10 @@ public class KitchenPrinterPage
 		return Print_CC_CustomerCopy_YesBtn;
 	}
 	
-	@FindBy(xpath = "//span[contains(.,'Show Digital Receipt Screen')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Show Digital Receipt Screen')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Show_Digital_ReceiptScreen_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Show Digital Receipt Screen')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Show Digital Receipt Screen')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Show_Digital_ReceiptScreen_NoBtn;
 
 	public void Enable_Show_Digital_ReceiptScreen()
@@ -937,10 +937,10 @@ public class KitchenPrinterPage
 		return Show_Digital_ReceiptScreen_YesBtn;
 	}
 	
-	@FindBy(xpath = "//span[contains(.,'Show Digital Receipt in CDS')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Show Digital Receipt in CDS')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Show_Digital_ReceiptinCDS_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Show Digital Receipt in CDS')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Show Digital Receipt in CDS')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Show_Digital_ReceiptinCDS_NoBtn;
 	
 	public void Enable_Show_Digital_ReceiptinCDS()
@@ -972,10 +972,10 @@ public class KitchenPrinterPage
 		return Show_Digital_ReceiptinCDS_YesBtn;
 	}
 	
-	@FindBy(xpath = "//span[contains(.,'Show Signature Pad')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Show Signature Pad')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Show_SignaturePad_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Show Signature Pad')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Show Signature Pad')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Show_SignaturePad_NoBtn;
 	
 	public void Enable_Show_SignaturePad()
@@ -1007,10 +1007,10 @@ public class KitchenPrinterPage
 		return Show_SignaturePad_YesBtn;
 	}
 	
-	@FindBy(xpath = "//span[contains(.,'Print CC Merchant Copy')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Print CC Merchant Copy')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Print_CC_MerchantCopy_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Print CC Merchant Copy')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Print CC Merchant Copy')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Print_CC_MerchantCopy_NoBtn;
 	
 	
@@ -1044,10 +1044,10 @@ public class KitchenPrinterPage
 	}
 	
 	
-	@FindBy(xpath = "//span[contains(.,'Remove Tip Line')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Remove Tip Line')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Remove_Tip_Line_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Remove Tip Line')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Remove Tip Line')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Remove_Tip_Line_NoBtn;
 	
 	
@@ -1080,10 +1080,10 @@ public class KitchenPrinterPage
 		return Remove_Tip_Line_YesBtn;
 	}
 	
-	@FindBy(xpath = "//span[contains(.,'Enable Itemized Receipt')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Enable Itemized Receipt')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Enable_Itemized_Receipt_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Enable Itemized Receipt')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Enable Itemized Receipt')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Enable_Itemized_Receipt_NoBtn;
 	
 	public void Enable_Enable_Itemized_Receipt()
@@ -1161,6 +1161,66 @@ public class KitchenPrinterPage
 	{
 		return Alternate_PrinterInputBox;
 	}
+	
+	@FindBy(xpath = "//input[@data-placeholder='Search ']")
+	WebElement SearchBox;
+	
+	public void SearchAndClickEdit(String SearchValue) throws Exception
+	{
+		
+		//Wait_ForElementVisibility(SearchBox, 180);
+	
+		Thread.sleep(1000);
+		SearchBox.clear();
+		Thread.sleep(2000);
+
+		SearchBox.sendKeys(SearchValue);
+		Thread.sleep(2000);
+		try
+		{
+			Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[.=' "+SearchValue+" ']/../../td//div[1]/button")).click();
+		
+		}
+		catch(Exception g)
+		{
+			
+			Thread.sleep(2000);
+
+			driver.findElement(By.xpath("//span[.='"+SearchValue+" ']/../../div//div[1]/button")).click();
+		}
+		
+		}
+	
+	public void SearchAndClickDelete(String SearchValue) throws Exception
+	{
+		//Wait_ForElementVisibility(SearchBox, 180);
+		try
+		{
+		Thread.sleep(1000);
+		SearchBox.clear();
+		Thread.sleep(2000);
+
+		SearchBox.sendKeys(SearchValue);
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//span[.=' "+SearchValue+" ']/../../td//div[2]/button")).click();
+		Thread.sleep(1000);
+		}
+		catch(Exception h)
+		{
+			Thread.sleep(1000);
+			SearchBox.clear();
+			Thread.sleep(2000);
+
+			SearchBox.sendKeys(SearchValue);
+			Thread.sleep(2000);
+
+			driver.findElement(By.xpath("//span[.='"+SearchValue+" ']/../../div//div[2]/button")).click();
+			Thread.sleep(1000);
+		}
+	}
+	
 	
 	
 }

@@ -453,15 +453,39 @@ public class UpchargesPage {
 		
 		int deptSize=departList.size();
 		
+		if(deptSize>1&&deptSize<=6)
+		{
+			int randomDept=ThreadLocalRandom.current().nextInt(1, deptSize);
+			
+			String opt=driver.findElement(By.xpath("//div["+randomDept+"]/select-option")).getText();
+//			
+//			Category_InputBox.sendKeys(opt);
+			
+			Thread.sleep(5000);
+			driver.findElement(By.xpath("//select-option//div[contains(.,'"+opt+"')]")).click();
 		
-		int randomDept=ThreadLocalRandom.current().nextInt(1, deptSize);
+		}
+		else if(deptSize>=6)
+		{
+			int randomDept=ThreadLocalRandom.current().nextInt(1, 6);
+			
+			String opt=driver.findElement(By.xpath("//div["+randomDept+"]/select-option")).getText();
+//			
+//			Category_InputBox.sendKeys(opt);
+			
+			Thread.sleep(5000);
+			driver.findElement(By.xpath("//select-option//div[contains(.,'"+opt+"')]")).click();
 		
-		String opt=driver.findElement(By.xpath("//div["+randomDept+"]/select-option")).getText();
+		}
+		else if(deptSize==1)
+		{
+			driver.findElement(By.xpath("//div[1]/select-option")).click();
+
+		}
+			
 		
-		Category_InputBox.sendKeys(opt);
 		
-		Thread.sleep(5000);
-		driver.findElement(By.xpath("//select-option//div[.=' "+opt+" '][@class='row']")).click();
+		
 		Thread.sleep(3000);
 		List<WebElement> departList1=driver.findElements(By.xpath("//div/select-option"));
 
@@ -503,6 +527,8 @@ public class UpchargesPage {
 		
 		System.out.println(SubCategorySize);
 		
+		
+		
 //		try
 //		{
 		Thread.sleep(1000);
@@ -510,15 +536,45 @@ public class UpchargesPage {
 		
 		int deptSize=departList.size();
 		
+//		
+		if(deptSize>1&&deptSize<=6)
+		{
+			int randomDept=ThreadLocalRandom.current().nextInt(1, deptSize);
+			
+			String opt=driver.findElement(By.xpath("//div["+randomDept+"]/select-option")).getText();
+//			
+//			Category_InputBox.sendKeys(opt);
+			
+			Thread.sleep(5000);
+			driver.findElement(By.xpath("//select-option//div[contains(.,'"+opt+"')]")).click();
 		
-		int randomDept=ThreadLocalRandom.current().nextInt(1, deptSize);
+		}
+		else if(deptSize>=6)
+		{
+			int randomDept=ThreadLocalRandom.current().nextInt(1, 6);
+			
+			String opt=driver.findElement(By.xpath("//div["+randomDept+"]/select-option")).getText();
+//			
+//			Category_InputBox.sendKeys(opt);
+			
+			Thread.sleep(5000);
+			driver.findElement(By.xpath("//select-option//div[contains(.,'"+opt+"')]")).click();
 		
-		String opt=driver.findElement(By.xpath("//div["+randomDept+"]/select-option")).getText();
+		}
+		else if(deptSize==1)
+		{
+			driver.findElement(By.xpath("//div[1]/select-option")).click();
+
+		}
 		
-		Category_InputBox.sendKeys(opt);
-		
-		Thread.sleep(5000);
-		driver.findElement(By.xpath("//select-option//div[.=' "+opt+" '][@class='row']")).click();
+//		int randomDept=ThreadLocalRandom.current().nextInt(1, deptSize);
+//		
+//		String opt=driver.findElement(By.xpath("//div["+randomDept+"]/select-option")).getText();
+//		
+//		Category_InputBox.sendKeys(opt);
+//		
+//		Thread.sleep(5000);
+//		driver.findElement(By.xpath("//select-option//div[contains(.,'"+opt+"')]")).click();
 		Thread.sleep(3000);
 		List<WebElement> departList1=driver.findElements(By.xpath("//div/select-option"));
 
@@ -563,15 +619,44 @@ cmp=new Common_XPaths(driver, test);
 		
 		int deptSize=departList.size();
 		
+		if(deptSize>1&&deptSize<=6)
+		{
+			int randomDept=ThreadLocalRandom.current().nextInt(1, deptSize);
+			
+			String opt=driver.findElement(By.xpath("//div["+randomDept+"]/select-option")).getText();
+//			
+//			Category_InputBox.sendKeys(opt);
+			
+			Thread.sleep(5000);
+			driver.findElement(By.xpath("//select-option//div[contains(.,'"+opt+"')]")).click();
 		
-		int randomDept=ThreadLocalRandom.current().nextInt(1, deptSize);
+		}
+		else if(deptSize>=6)
+		{
+			int randomDept=ThreadLocalRandom.current().nextInt(1, 6);
+			
+			String opt=driver.findElement(By.xpath("//div["+randomDept+"]/select-option")).getText();
+//			
+//			Category_InputBox.sendKeys(opt);
+			
+			Thread.sleep(5000);
+			driver.findElement(By.xpath("//select-option//div[contains(.,'"+opt+"')]")).click();
 		
-		String opt=driver.findElement(By.xpath("//div["+randomDept+"]/select-option")).getText();
-		
-		MenuItem_InputBox.sendKeys(opt);
-		
-		Thread.sleep(5000);
-		driver.findElement(By.xpath("//select-option//div[.=' "+opt+" '][@class='row']")).click();
+		}
+		else if(deptSize==1)
+		{
+			driver.findElement(By.xpath("//div[1]/select-option")).click();
+
+		}
+//		
+//		int randomDept=ThreadLocalRandom.current().nextInt(1, deptSize);
+//		
+//		String opt=driver.findElement(By.xpath("//div["+randomDept+"]/select-option")).getText();
+//		
+//		MenuItem_InputBox.sendKeys(opt);
+//		
+//		Thread.sleep(5000);
+//		driver.findElement(By.xpath("//select-option//div[contains(.,'"+opt+"')]")).click();
 		Thread.sleep(3000);
 		List<WebElement> departList1=driver.findElements(By.xpath("//div/select-option"));
 

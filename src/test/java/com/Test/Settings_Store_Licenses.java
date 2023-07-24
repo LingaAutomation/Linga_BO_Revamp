@@ -100,7 +100,7 @@ public WebDriver driver;
 	public void Calling() throws Exception
 	{
 		Open_StoreLicenses_Page(driver);
-		//RefreshAndPaginination(driver);
+		RefreshAndPaginination(driver);
 		Pagination_Rows_Per_Count(driver);
 		Revert_Licenses(driver);
 

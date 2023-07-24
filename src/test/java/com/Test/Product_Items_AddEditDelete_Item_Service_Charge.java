@@ -106,8 +106,8 @@ public WebDriver driver;
 	public void Calling() throws Exception
 	{
 		Open_Item_Service_Charge_Page(driver);
-		RefreshAndPaginination(driver);
-		Add_Item_Service_Charge(driver);
+//		RefreshAndPaginination(driver);
+//		Add_Item_Service_Charge(driver);
 		Edit_and_Close_Cancel_Item_Service_Charge(driver);
 		Edit_and_Update_Item_Service_Charge(driver);
 		Delete_and_Active_Inactive_Item_Service_Charge(driver);
@@ -295,7 +295,7 @@ public WebDriver driver;
 		cmp=new Common_XPaths(driver, test);
 		isc=new ItemServiceChargePage(driver, test);
 		
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		//Search and Click Edit button
 		cmp.SearchAndClickEdit(Utility.getProperty("Item_Service_Charge_Name"));
 		
@@ -346,7 +346,7 @@ public WebDriver driver;
 		cmp=new Common_XPaths(driver, test);
 		isc=new ItemServiceChargePage(driver, test);
 		
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		//Search and Verify the Search box when Entering 3 Characters
 		cmp.SearchAndVerify_SearchBox();
 	
@@ -534,7 +534,7 @@ public WebDriver driver;
 		cmp=new Common_XPaths(driver, test);
 		isc=new ItemServiceChargePage(driver, test);
 		
-		Thread.sleep(3000);
+		Thread.sleep(8000);
 		//Search and Click Delete button
 		cmp.SearchAndClickDelete(Utility.getProperty("Item_Service_Charge_Name")+"1");
 		

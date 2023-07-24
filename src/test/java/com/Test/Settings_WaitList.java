@@ -114,7 +114,7 @@ public class Settings_WaitList
 		Thread.sleep(2000);
 		Deleting_Wait_List(driver);
 		Thread.sleep(2000);
-		Handling_Rows_and_Pagination(driver);
+		//Handling_Rows_and_Pagination(driver);
 		Thread.sleep(2000);
 		Sorting_Columns(driver);
 		Thread.sleep(2000);
@@ -124,7 +124,6 @@ public class Settings_WaitList
 		Thread.sleep(2000);
 		Creating_New_Reason(driver);
 		Thread.sleep(2000);
-		//Capturing_Reason_Error(driver);
 		Search_Delete_Reason(driver);
 		Thread.sleep(2000);
 		Handling_Rows_and_Pagination(driver);
@@ -143,10 +142,10 @@ public class Settings_WaitList
 		Thread.sleep(8000);
 		//load the Notifications page
 		Thread.sleep(2000);
-		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id2")+"waitList");
-	
+		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("Store_Id2")+"waitList");
+		wl.Click_Settings();
 		Thread.sleep(1000);
-		
+		wl.Click_WaitList();
 	}
 	public void Creating_New_Wait_List(WebDriver driver) throws Exception
 	{
@@ -363,8 +362,9 @@ public class Settings_WaitList
 	}
 	public void Capturing_Reason_Error(WebDriver driver) throws Exception
 	{
-		//Common_XPaths cmp = new Common_XPaths(driver, test);
+		Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
+		wl.New_Reason();
 		wl.Capturing_Reason_Error();
 		if(wl.Reason_ErrMsg().getText().equalsIgnoreCase("Please enter waitlist reason")) 
 		{
@@ -379,6 +379,8 @@ public class Settings_WaitList
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		Thread.sleep(4000);
+		 Thread.sleep(3000);
+		 cmp.Click_CloseButton();
 	}
 	public void Search_Delete_Reason(WebDriver driver) throws Exception 
 	{
@@ -394,7 +396,21 @@ public class Settings_WaitList
 		Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
 		wl.New_Reason();
-		wl.Creating_New_Reason();
+		wl.Creating_New_Reason1();
+		
+		if(wl.Reason_ErrMsg().getText().equalsIgnoreCase("Please enter waitlist reason")) 
+		{
+			test.log(LogStatus.PASS, "not entered any Reason");
+
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Entered Reason ");
+
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}
+		
 		Thread.sleep(2000);
 		cmp.Click_CloseButton();
 		Thread.sleep(2000);

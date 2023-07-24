@@ -47,7 +47,7 @@ public class Inventory_Sub_Category_Page {
 	@FindBy(xpath =  "//mat-icon[contains(.,'remove_circle_outline')]")
 	WebElement InactiveBtn;
 	
-	@FindBy(xpath =  "//input[@placeholder='Search']")
+	@FindBy(xpath =  "//input[contains(@placeholder,'Search')]")
 	WebElement Search;
 	
 	@FindBy(xpath =  "//button[contains(.,'COLUMNS')]")
@@ -86,10 +86,10 @@ public class Inventory_Sub_Category_Page {
 	@FindBy(xpath =  "//label[contains(.,'Code')]/../../input")
 	WebElement Code;
 	
-	@FindBy(xpath =  "//app-toggle[@name='isTaxOverRide']/div/mat-button-toggle-group/mat-button-toggle[1]")
+	@FindBy(xpath =  "//app-toggle[@name='isTaxOverRide']/div/div/mat-button-toggle-group/mat-button-toggle[1]")
 	WebElement OverrideTax_No;
 
-	@FindBy(xpath =  "//app-toggle[@name='isTaxOverRide']/div/mat-button-toggle-group/mat-button-toggle[2]")
+	@FindBy(xpath =  "//app-toggle[@name='isTaxOverRide']/div/div/mat-button-toggle-group/mat-button-toggle[2]")
 	WebElement OverrideTax_Yes;
 	
 	@FindBy(xpath =  "//label[contains(.,'Tax')]/../../input")
@@ -701,7 +701,7 @@ public class Inventory_Sub_Category_Page {
 		
 		Thread.sleep(500);
 		//Click the Sub Category Option
-		driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'Sub Category')]")).click();
+		driver.findElement(By.xpath("//select-option/div[contains(.,'Sub Category')]")).click();
 		
 		
 		Thread.sleep(1000);
@@ -711,7 +711,7 @@ public class Inventory_Sub_Category_Page {
 			CategoryFld.click();
 			
 			//select the required category
-			driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'"+Cate+"')]")).click();
+			driver.findElement(By.xpath("//select-option/div[contains(.,'"+Cate+"')]")).click();
 		}catch(Exception s) {
 			test.log(LogStatus.FAIL, "Unable to Select the required Category in the Sub Recipe page and the Category is : "+Cate);
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
@@ -724,7 +724,7 @@ public class Inventory_Sub_Category_Page {
 			Thread.sleep(2000);
 			if(driver.findElement(By.xpath("//select-option")).isDisplayed()) {
 				//select the required sub category
-				driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'"+subc+"')]")).click();
+				driver.findElement(By.xpath("//select-option/div[contains(.,'"+subc+"')]")).click();
 			}
 			
 			Thread.sleep(1000);
@@ -773,7 +773,7 @@ public class Inventory_Sub_Category_Page {
 		
 		Thread.sleep(500);
 		//Click the Sub Category Option
-		driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'Sub Category')]")).click();
+		driver.findElement(By.xpath("//select-option/div[contains(.,'Sub Category')]")).click();
 		Thread.sleep(1000);
 		
 		try {
@@ -781,7 +781,7 @@ public class Inventory_Sub_Category_Page {
 			CategoryFld_Menu.click();Thread.sleep(3000);
 			
 			//select the required category
-			driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'"+Cate+"')]")).click();Thread.sleep(1000);
+			driver.findElement(By.xpath("//select-option/div[contains(.,'"+Cate+"')]")).click();Thread.sleep(1000);
 		}catch(Exception s) {
 			test.log(LogStatus.FAIL, "Unable to Select the required Category in the Menu Item page and the Category is : "+Cate);
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);

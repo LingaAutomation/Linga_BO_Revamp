@@ -145,7 +145,11 @@ public class Settings_Label_Printers
 		cmp=new Common_XPaths(driver, test);
 		
 		//Verify the Pagination and Refresh the page
-		//cmp.VerifyPagination_and_Refresh_Publish();
+		cmp.VerifyPagination_and_Refresh_Publish();
+		
+		for (int i=1;i<=4;i++) {
+			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+		}
 		
 		//Verify Column Filtration
 		cmp.Filter_Columns();
@@ -270,9 +274,10 @@ public class Settings_Label_Printers
 	{
 		cmp=new Common_XPaths(driver, test);
 		kppg=new KitchenPrinterPage(driver, test);
-
 		
-		Thread.sleep(1000);
+		//driver.navigate().refresh();
+		
+         Thread.sleep(5000);
 		//Search the Label Printers to Click Edit and Cancel
 		cmp.SearchAndClickEdit(Utility.getProperty("Label_Printer_Name"));
 		
@@ -664,6 +669,9 @@ public class Settings_Label_Printers
 			test.log(LogStatus.FAIL, "Label Printer IP address already exists pop up not Displayed");
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			
+			//Click the Cancel button
+			cmp.Click_CancelButton();
 		}
 
 	}
@@ -727,6 +735,8 @@ public class Settings_Label_Printers
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
+		
+		Thread.sleep(3000);
 	}
 	
 

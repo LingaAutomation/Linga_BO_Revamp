@@ -147,7 +147,7 @@ public class Settings_Kitchen_Printers
 		//cmp.VerifyPagination_and_Refresh_Publish();
 		
 		//Verify Column Filtration
-		cmp.Filter_Columns_Table();
+		cmp.Filter_Columns();
 	}
 	
 	@Test(priority = 4,enabled = false)

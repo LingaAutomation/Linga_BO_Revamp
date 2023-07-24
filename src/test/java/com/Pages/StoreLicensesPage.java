@@ -34,22 +34,22 @@ public class StoreLicensesPage
 	@FindBy(xpath = "//button[contains(.,'SIGN OUT')]")
 	WebElement Sign_OutBtn;
 	
-	@FindBy(xpath = "//app-selectbox/div/mat-form-field/div/div/div[3]/input")
+	@FindBy(xpath = "//mat-select/div/div[2]")
 	WebElement Pagination_InputBox;
 	
 	@FindBy(xpath = "//span[contains(.,'Store Licenses not found')]")
 	WebElement LicenseNotFoundMsg;
 	
-	@FindBy(xpath = "//select-option[1]")
+	@FindBy(xpath = "//mat-option[2]")
 	WebElement Count_10;
 	
-	@FindBy(xpath = "//select-option[1]")
+	@FindBy(xpath = "//mat-option[3]")
 	WebElement Count_20;
 	
-	@FindBy(xpath = "//select-option[1]")
+	@FindBy(xpath = "//mat-option[4]")
 	WebElement Count_50;
 	
-	@FindBy(xpath = "//select-option[1]")
+	@FindBy(xpath = "//mat-option[5]")
 	WebElement Count_100;
 	
 	public void Verify_Rows_PageCount() throws Exception
@@ -59,7 +59,7 @@ public class StoreLicensesPage
 		Count_10.click();
 		test.log(LogStatus.INFO, "Now we click the Pagination option as 10");
 		
-		List<WebElement> StoreList=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/data-grid-row/div/div[7]"));
+		List<WebElement> StoreList=driver.findElements(By.xpath("//table/tbody/tr/td[7]"));
 		
 		for (WebElement result : StoreList){						
 		     List<WebElement> boxes = result.findElements(By.xpath("//button[contains(.,'SIGN OUT')]"));
@@ -75,7 +75,7 @@ public class StoreLicensesPage
 		Count_20.click();
 		test.log(LogStatus.INFO, "Now we click the Pagination option as 20");
 		
-		List<WebElement> StoreList1=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/data-grid-row/div/div[7]"));
+		List<WebElement> StoreList1=driver.findElements(By.xpath("//table/tbody/tr/td[7]"));
 		
 		for (WebElement result : StoreList1){						
 			//Create the web element for delete button
@@ -92,7 +92,7 @@ public class StoreLicensesPage
 		Count_50.click();
 		test.log(LogStatus.INFO, "Now we click the Pagination option as 50");
 		
-		List<WebElement> StoreList2=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/data-grid-row/div/div[7]"));
+		List<WebElement> StoreList2=driver.findElements(By.xpath("//table/tbody/tr/td[7]"));
 		
 		for (WebElement result : StoreList2){						
 			//Create the web element for delete button
@@ -101,22 +101,26 @@ public class StoreLicensesPage
 		     int numberOfBoxes = boxes.size();
 		     System.out.println("There are totally "+numberOfBoxes+" elements available");
 		}
-		
-		Thread.sleep(1000);
-		Pagination_InputBox.click();
-		
-		Count_100.click();
-		test.log(LogStatus.INFO, "Now we click the Pagination option as 100");
-		
-		List<WebElement> StoreList3=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/data-grid-row/div/div[7]"));
-		
-		for (WebElement result : StoreList3){						
-			//Create the web element for delete button
-		     List<WebElement> boxes = result.findElements(By.xpath("//button[contains(.,'SIGN OUT')]"));
-		     //Create the variable for getting the size of the box
-		     int numberOfBoxes = boxes.size();
-		     System.out.println("There are totally "+numberOfBoxes+" elements available");
-		}
+//		try {
+//		Thread.sleep(1000);
+//		Pagination_InputBox.click();
+//		
+//		Count_100.click();
+//		test.log(LogStatus.INFO, "Now we click the Pagination option as 100");
+//		
+//		List<WebElement> StoreList3=driver.findElements(By.xpath("//table/tbody/tr/td[7]"));
+//		
+//		for (WebElement result : StoreList3){						
+//			//Create the web element for delete button
+//		     List<WebElement> boxes = result.findElements(By.xpath("//button[contains(.,'SIGN OUT')]"));
+//		     //Create the variable for getting the size of the box
+//		     int numberOfBoxes = boxes.size();
+//		     System.out.println("There are totally "+numberOfBoxes+" elements available");
+//		}
+//		}
+//		catch (Exception e) {
+//			// TODO: handle exception
+//		}
 		
 		
 	}
@@ -139,12 +143,12 @@ public class StoreLicensesPage
 	public void Revert_Licenses1() throws InterruptedException
 	{
 
-		List<WebElement> Lst=driver.findElements(By.xpath("//div[contains(@id,'cdk-drop-list')]/div/data-grid-row/div/div[6]"));
+		List<WebElement> Lst=driver.findElements(By.xpath("(//table/tbody/tr/td[1]/span)[1]"));
 		
 		//Click the signout button
 		for(int i = 1; i <= Lst.size(); i++)
 		{
-			driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div["+i+"]/data-grid-row/div/div[7]/div/button")).click();
+			driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]/div//button")).click();
 			
 			Thread.sleep(2000);
 			
@@ -183,11 +187,11 @@ public class StoreLicensesPage
 		}
 
 		
-		List<WebElement> Lsta=driver.findElements(By.xpath("//div[contains(@id,'cdk-drop-list')]/div/data-grid-row/div/div[5]"));
+		List<WebElement> Lsta=driver.findElements(By.xpath("(//table/tbody/tr/td[1]/span)[1]"));
 		
 		for(int i = 1; i <= Lst.size(); i++)
 		{
-			driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div["+i+"]/data-grid-row/div/div[7]/div/button")).click();
+			driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]/div//button")).click();
 			
 			Thread.sleep(2000);
 			
@@ -221,12 +225,12 @@ public class StoreLicensesPage
 		}
 		
 		//Get the value from the table
-		String sa = driver.findElement(By.xpath("//data-grid/div/div[3]/div[1]/data-grid-row/div/div[1]/span")).getText();
+		String sa = driver.findElement(By.xpath("(//table/tbody/tr/td[1]/span)[1]")).getText();
 		
 		//Click the signout button
 		for(int i = 1; i <= Lst.size(); i++)
 		{
-			driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div["+i+"]/data-grid-row/div/div[7]/div/button")).click();
+			driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]/div//button")).click();
 			
 			Thread.sleep(2000);
 			

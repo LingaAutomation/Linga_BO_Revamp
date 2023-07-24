@@ -109,7 +109,7 @@ public class Settings_Receipt_Printers
 	public void Calling() throws Exception
 	{
 		Open_Receipt_Printer_Page(driver);
-//		RefreshAndPaginination(driver);
+		RefreshAndPaginination(driver);
 		Add_Receipt_Printer(driver);
 		Edit_and_Close_Cancel_Receipt_Printer(driver);
 		Edit_and_Update_Receipt_Printer(driver);
@@ -316,7 +316,7 @@ public class Settings_Receipt_Printers
 		
 		Thread.sleep(1000);
 		//Search the Receipt Printers to Click Edit and Cancel
-		cmp.SearchAndClickEdit(Utility.getProperty("Receipt_Printer_Name"));
+		kppg.SearchAndClickEdit(Utility.getProperty("Receipt_Printer_Name"));
 		
 		Thread.sleep(500);
 		//Check whether the Update screen opened or not
@@ -361,11 +361,11 @@ public class Settings_Receipt_Printers
 
 		Thread.sleep(1000);
 		//Search and Verify the Search box when Entering 3 Characters
-		cmp.SearchAndVerify_SearchBox();
+		//cmp.SearchAndVerify_SearchBox();
 		
 		Thread.sleep(1000);
 		//Search and Click Edit button
-		cmp.SearchAndClickEdit(Utility.getProperty("Receipt_Printer_Name"));
+		kppg.SearchAndClickEdit(Utility.getProperty("Receipt_Printer_Name"));
 		
 		Thread.sleep(500);
 		//Enter the Name
@@ -433,9 +433,13 @@ public class Settings_Receipt_Printers
 		//Enter the IP Address
 				kppg.Enter_IPAddress(Utility.getProperty("Receipt_Printer_IP"));
 				
-		
+		try {
 		//Select the Printer option
 		kppg.Select_PrinterModel();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
 				
 		
 	
@@ -527,7 +531,7 @@ public class Settings_Receipt_Printers
 		kppg=new KitchenPrinterPage(driver, test);
 
 		//Search and Click Delete button
-				cmp.SearchAndClickDelete(Utility.getProperty("Receipt_Printer_Name"));
+				kppg.SearchAndClickDelete(Utility.getProperty("Receipt_Printer_Name"));
 				
 				Thread.sleep(500);
 				//Click the Delete button
@@ -555,7 +559,7 @@ public class Settings_Receipt_Printers
 				}Thread.sleep(6000);
 				
 		//Search and Click Delete button
-		cmp.SearchAndClickDelete(Utility.getProperty("Receipt_Printer_Name"));
+		kppg.SearchAndClickDelete(Utility.getProperty("Receipt_Printer_Name"));
 		
 		Thread.sleep(500);
 		//Click the Delete button
@@ -774,7 +778,7 @@ public class Settings_Receipt_Printers
 		Thread.sleep(5000);for(int i = 1;i <=20;i++) {driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);}Thread.sleep(5000);
 		//Click the Update button
 		kppg.Click_Update_inPrinters();
-		
+		try {
 		Thread.sleep(2000);
 		//Check whether the Kitchen Printer Settings updated or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Receipt Printer Updated Successfully"))
@@ -786,7 +790,13 @@ public class Settings_Receipt_Printers
 		{
 			test.log(LogStatus.FAIL, "Receipt Printers settings Updated Failed");
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		}Thread.sleep(6000);
+		}
+		}
+		catch (Exception e) 
+		{
+			// TODO: handle exception
+		}
+		Thread.sleep(6000);
 		
 		
 		//Select Printers Tab

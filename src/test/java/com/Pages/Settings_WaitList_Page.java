@@ -54,28 +54,28 @@ public class Settings_WaitList_Page
 	@FindBy(xpath = "//app-selectbox[@name='minutes']/div/mat-form-field/div/div/div[4]")
 	WebElement minutes_dropdown;
 	
-	@FindBy(xpath = "//div[.=' 00 ']")
+	@FindBy(xpath = "//select-option[contains(.,'00')]")
 	WebElement Time_Zero;
 	
-	@FindBy(xpath = "//div[.=' min ']")
+	@FindBy(xpath = "//div[contains(.,'min')]")
 	WebElement minutes;
 	
-	@FindBy(xpath = "//div[.=' 02 ']")
+	@FindBy(xpath = "//select-option[contains(.,'02')]")
 	WebElement Two_hours;
 	
-	@FindBy(xpath = "//div[.=' 01 ']")
+	@FindBy(xpath = "//select-option[contains(.,'01')]")
 	WebElement one_hour;
 	
-	@FindBy(xpath = "//div[.=' 10 ']")
+	@FindBy(xpath = "//select-option[contains(.,'10')]")
 	WebElement Ten_minutes;
 	
-	@FindBy(xpath = "//div[.=' 05 ']")
+	@FindBy(xpath = "//select-option[contains(.,'05')]")
 	WebElement Five_minutes;
 	
-	 @FindBy(xpath = "//input[@data-placeholder='Search']")
+	 @FindBy(xpath = "//input[contains(@data-placeholder,'Search')]")
 	 WebElement Search;
 	 
-     @FindBy(xpath = "//data-grid-row/div/div[4]/div/button/span")
+     @FindBy(xpath = "//td/div/div/button")
      WebElement delete;
 
 	 @FindBy(xpath = "//span[.=' Rows per page: ']/../../div[2]/app-selectbox/div/mat-form-field/div/div/div[3]/input")
@@ -111,7 +111,7 @@ public class Settings_WaitList_Page
 	 @FindBy(xpath = "//app-input[@type='textarea']/div/div/mat-form-field/div/div/div[4]/textarea")
 	 WebElement Reason_Textbox;
 	 
-	 @FindBy(xpath = "//div[.='Please enter waitlist reason']")
+	 @FindBy(xpath = "//p[@class='color-red']")
 	 WebElement Reason_Error;
 	 
 	 @FindBy(xpath = "//span[.='occupied@123 ']/../../div[2]")
@@ -253,7 +253,7 @@ public class Settings_WaitList_Page
 	}
 	public void Search() throws Exception 
 	{
-		Common_XPaths cmp = new Common_XPaths(driver, test);
+		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Utility ut = new Utility();
 	    Search.clear();
 	    Thread.sleep(1000);
@@ -291,12 +291,10 @@ public class Settings_WaitList_Page
 	    Search.sendKeys("3345");
 	    Thread.sleep(1000);
 		
-		Right_Arrow.click();
-		Thread.sleep(1000);
-		for(int i=1;i<=4;i++)
-		{
-		driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
-		}
+		/*
+		 * Right_Arrow.click(); Thread.sleep(1000); for(int i=1;i<=4;i++) {
+		 * driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN); }
+		 */
 		delete.click();
 		Thread.sleep(1000);
 		cmp.Alert_PopupMsg("Are you sure you want to delete this item?");
@@ -320,7 +318,7 @@ public class Settings_WaitList_Page
 	 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 	 		}
 		 Thread.sleep(1000);
-		 Left_Arrow.click();
+		// Left_Arrow.click();
 		
 	   }
 
@@ -505,7 +503,7 @@ public class Settings_WaitList_Page
 	
 	 public void Sorting_MinSeat() throws Exception 
 	 {
-		 Common_XPaths cmp= new Common_XPaths(driver, test);
+		 //Common_XPaths cmp= new Common_XPaths(driver, test);
 		 Utility ut = new Utility();
 
 		 for(int i=1;i<=6;i++)
@@ -547,7 +545,7 @@ public class Settings_WaitList_Page
 	 }
 	 public void Sorting_MaxSeat() throws Exception 
 	 {
-		 Common_XPaths cmp= new Common_XPaths(driver, test);
+		 //Common_XPaths cmp= new Common_XPaths(driver, test);
 		 Utility ut = new Utility();
 
 		 for(int i=1;i<=6;i++)
@@ -589,7 +587,7 @@ public class Settings_WaitList_Page
 	 }
 	 public void Sorting_OccupiedTime() throws Exception 
 	 {
-		 Common_XPaths cmp= new Common_XPaths(driver, test);
+		 //Common_XPaths cmp= new Common_XPaths(driver, test);
 		 Utility ut = new Utility();
 
 		 for(int i=1;i<=6;i++)
@@ -676,9 +674,10 @@ public class Settings_WaitList_Page
 	 }
 	 public void Capturing_Reason_Error() throws Exception 
 	 {
+		 //System.out.println("sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss");
 		 Reason_Textbox.clear();
 		 Thread.sleep(1000);
-		 Reason_Textbox.sendKeys(sas);
+		 Reason_Textbox.sendKeys(sas + "111");
 		 Reason_Textbox.clear();
 	 }
 	 public void Search_Delete_Reason() throws Exception 
@@ -719,10 +718,20 @@ public class Settings_WaitList_Page
 		 Reason_Textbox.clear();
 		 Thread.sleep(1000);
 		 Reason_Textbox.sendKeys("occupied@123");
+		 Thread.sleep(1000);
+	 }
+	 public void Creating_New_Reason1() throws Exception 
+	 {
+		 Reason_Textbox.clear();
+		 Thread.sleep(1000);
+		 Reason_Textbox.sendKeys("occupied@123");
+		 Thread.sleep(1000);
+		 for(int i = 1;i <=20 ; i++) {Reason_Textbox.sendKeys(Keys.BACK_SPACE);}
+		 Thread.sleep(1000);
 	 }
 	 public void Sorting_Reasons() throws Exception 
 	 {
-		 Common_XPaths cmp= new Common_XPaths(driver, test);
+		 //Common_XPaths cmp= new Common_XPaths(driver, test);
 		 Utility ut = new Utility();
 
 		 for(int i=1;i<=6;i++)

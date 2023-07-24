@@ -837,7 +837,7 @@ public class Inventory_Adjust_Inventory_Reasons
 		//Select the Inventory Item Tab
 		new InventoryPage(driver, test).Select_Inventory_Item_AdjustInventoryTab();
 		
-		String InvenItem=driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div[1]/div/data-grid-row/div/div[1]")).getText();
+		String InvenItem=driver.findElement(By.xpath("//tbody/tr[1]/td[1]/span")).getText();
 		
 		
 				
@@ -848,9 +848,11 @@ public class Inventory_Adjust_Inventory_Reasons
 		air.Click_Action_InventoryItem_AdjustInventoryBtn();
 		
 		//Get the Reason Type
-		String ReasonType=air.Count_Adj_InvInputBox().getAttribute("value");
+		String ReasonType=air.Reason_Type_Adj_InvInputBox().getAttribute("value");
 		
 		String Expected_Reason=Utility.getProperty("New_InventoryReason_Name");
+		
+		System.out.println(Expected_Reason);
 		
 		//Verify the Default Reason Type is Reflected on the Adjust Inventory Item or not
 		if(Expected_Reason.equalsIgnoreCase(ReasonType))
@@ -869,14 +871,16 @@ public class Inventory_Adjust_Inventory_Reasons
 		//Adjusing Count 
 		String Adjusting_count="20";
 		
+		air.Count_Adj_InvInputBox().clear();
+		
 		//Adjust the Inventory
 		air.Count_Adj_InvInputBox().sendKeys(Adjusting_count);
 		
 		//Click the Update button
-		cmp.Update_Button();
+		cmp.Update_Button().click();
 		
 		
-		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 30);
+		 cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 30);
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Stock adjusted successfully"))
 		{
 			test.log(LogStatus.PASS, "Stock adjusted successfully");
@@ -904,11 +908,11 @@ public class Inventory_Adjust_Inventory_Reasons
 				//Search the Inventory Item
 				new Common_XPaths(driver, test).Search(InvenItem);
 				
-				String ActualInvItem=driver.findElement(By.xpath("//div[@class='data-grid']//div[contains(@class,'cdk-drop-list')]/div[2]//div[2][contains(@class,'grid-column')]")).getText();
+				String ActualInvItem=driver.findElement(By.xpath("//tbody/tr[2]/td[2]/span")).getText();
 				
-				String Prev_Count_AdjInvRpt=driver.findElement(By.xpath("//div[@class='data-grid']//div[contains(@class,'cdk-drop-list')]/div[2]//div[5][contains(@class,'grid-column')]")).getText();
+				String Prev_Count_AdjInvRpt=driver.findElement(By.xpath("//tbody/tr[2]/td[5]/span")).getText();
 				
-				String Adjusted_Count_AdjInvRpt=driver.findElement(By.xpath("//div[@class='data-grid']//div[contains(@class,'cdk-drop-list')]/div[2]//div[6][contains(@class,'grid-column')]")).getText();
+				String Adjusted_Count_AdjInvRpt=driver.findElement(By.xpath("//tbody/tr[2]/td[6]/span")).getText();
 	
 				if(Adjusting_count.equals(Adjusted_Count_AdjInvRpt))
 				{

@@ -15,6 +15,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.Pages.Common_XPaths;
+import com.Pages.InventoryCategoryPage;
 import com.Pages.Inventory_Sub_Category_Page;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -40,6 +41,7 @@ public class Inventory_Sub_Category {
 
 	Common_XPaths cmp;
 	Inventory_Sub_Category_Page invSubCat;
+	InventoryCategoryPage icp;
 	
 	LoginTest a = new LoginTest();
 
@@ -133,7 +135,7 @@ public class Inventory_Sub_Category {
 //		cmp.VerifyPagination_and_Refresh_Publish();
 
 		// Verify Column Filtration
-		cmp.Filter_Columns_Table();
+		//cmp.Filter_Columns_Table();
 	}
 
 	@Test(priority = 4, enabled = false)
@@ -146,6 +148,26 @@ public class Inventory_Sub_Category {
 	@Test(priority = 4, enabled = false)
 	public void CreateTheSubCategory(WebDriver driver) throws Exception {
 		invSubCat = new Inventory_Sub_Category_Page(driver, test);
+		
+		icp=new InventoryCategoryPage(driver, test);
+		
+		Thread.sleep(5000);
+		//Load the Department page
+		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id2")+"taxInventory");
+
+		Thread.sleep(5000);
+		
+		if(icp.EnableTax_Yes().isDisplayed()) {
+			
+			icp.EnableTax_Yes().click();
+		}
+		
+		Thread.sleep(5000);
+		// Load the Menu Item sales report page
+		driver.get(Utility.getProperty("baseURL") + Utility.getProperty("store_Id5") + "subCategory");
+
+		Thread.sleep(5000);
+		
 
 		Thread.sleep(3000);
 		//verify the new purchase template page

@@ -226,8 +226,7 @@ public WebDriver driver;
 		cmp.EnterName(Utility.getProperty("Category_Name"));
 		
 		
-		
-		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
+		Thread.sleep(2000);
 		//Select Department
 		ctp.Select_Department();
 		
@@ -237,7 +236,6 @@ public WebDriver driver;
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
 		}
 		
-		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Select Coursing
 		ctp.Select_Coursing();
 		
@@ -247,7 +245,7 @@ public WebDriver driver;
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
 		}
 		
-		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
+		Thread.sleep(2000);
 		//Select Item Service Level
 		ctp.Select_ServingSizeLevel();
 		

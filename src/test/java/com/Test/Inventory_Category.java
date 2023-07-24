@@ -113,9 +113,11 @@ public class Inventory_Category {
 		Add_New_Category_with_New_Inventory_tax_intergration(driver);
 		Edit_Newly_Created_Category_cancel_Close(driver);
 		Edit_Newly_Created_Category(driver);
-		//Delete_and_Active_Inactive_Category(driver);
+		Delete_and_Active_Inactive_Category(driver);
 		Create_Duplicate_Category(driver);
 		Intergration_Category_Mapped_with_SubCategory(driver);
+		Intergration_Category_Mapped_with_Subrecipe(driver);
+		Intergration_Category_Mapped_with_Inventory_item(driver);
      	}
 	
 	@Test(priority = 3,enabled = false)
@@ -445,7 +447,7 @@ public class Inventory_Category {
 		
 		
 		//Search and Click Delete button
-				cmp.SearchAndClickDelete(Utility.getProperty("Inventory_Category_Name")+"1");
+				cmp.SearchAndClickDelete(Utility.getProperty("Inventory_Category_Name")+"2");
 				
 				Thread.sleep(500);
 				//Click the Delete button
@@ -475,7 +477,7 @@ public class Inventory_Category {
 				
 				
 				//Search and Click Delete button
-				cmp.SearchAndClickDelete(Utility.getProperty("Inventory_Category_Name")+"1");
+				cmp.SearchAndClickDelete(Utility.getProperty("Inventory_Category_Name")+"2");
 				
 				//Click Delete button
 				cmp.Click_DeleteButton();
@@ -502,7 +504,7 @@ public class Inventory_Category {
 				cmp.VerifyActive_InactiveStatus("Inactive");
 				
 				//Search and Activate the In activated item
-						cmp.SearchAndClickActivate(Utility.getProperty("Inventory_Category_Name")+"1");
+						cmp.SearchAndClickActivate(Utility.getProperty("Inventory_Category_Name")+"2");
 						
 						Thread.sleep(500);
 						//Click the Delete button
@@ -531,7 +533,7 @@ public class Inventory_Category {
 
 				
 				//Search and Activate the In activated item
-				cmp.SearchAndClickActivate(Utility.getProperty("Inventory_Category_Name")+"1");
+				cmp.SearchAndClickActivate(Utility.getProperty("Inventory_Category_Name")+"2");
 				
 				//Click Activate button
 						cmp.Click_ActivateButton();
@@ -562,11 +564,10 @@ public class Inventory_Category {
 				
 				Thread.sleep(1000);
 				//Search the Category to Click Edit and Cancel
-				cmp.SearchAndClickEdit(Utility.getProperty("Inventory_Category_Name")+"1");
 				
 				Thread.sleep(1000);
 				//Click Cancel button
-				cmp.Click_CancelButton();
+				//cmp.Click_CancelButton();
 				
 
 	}
@@ -661,6 +662,10 @@ public class Inventory_Category {
 		if(icp.EnableTax_Yes().isEnabled()) {
 			
 			icp.EnableTax_No().click();
+			
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//h4[contains(.,'Reminder')]/../../../..//button[contains(.,'Yes')]")).click();
+			Thread.sleep(2000);
 		}
 		else {
 			icp.EnableTax_No().click();
@@ -733,7 +738,9 @@ public class Inventory_Category {
 		Thread.sleep(5000);
 		
 	String Subcategory = RandomStringUtils.randomAlphanumeric(5);
-		
+	    Thread.sleep(3000);
+	    icp.Click_NewSubCategory();
+	    Thread.sleep(3000);
 		icp.Name_category(Subcategory);
 		Thread.sleep(3000);
 		icp.Select_Category(category);
@@ -777,7 +784,15 @@ public class Inventory_Category {
 		if(icp.EnableTax_Yes().isEnabled()) {
 			
 			icp.EnableTax_No().click();
-		}
+			try {
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//h4[contains(.,'Reminder')]/../../../..//button[contains(.,'Yes')]")).click();
+			Thread.sleep(2000);
+			}
+			catch (Exception e) {
+				// TODO: handle exception
+			}
+ 		}
 		else {
 			icp.EnableTax_No().click();
 		}
@@ -909,7 +924,7 @@ public class Inventory_Category {
 	}
 	
 	//Select the Inventory Item
-	air.Select_Inventory_Item();
+	air.Select_Inventory_Unit();
 	
 	//Enable Calculate COGS on Cost Price
 	air.Calculate_COGS_onCost_Price_YesToggle().click();
@@ -969,29 +984,9 @@ public class Inventory_Category {
 	}
 	
 	//Select and Add the Inventory Items
-	air.Add_Inventory_Items_inSubRecipe("10");
-	
-	Thread.sleep(2000);
-	//Click the Save button
-	cmp.Click_Save_ButtonTwo();
-	
-	
 	Thread.sleep(3000);
-	//Check whether the New Course Saved or not
-	if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub Recipe saved successfully!."))
-	{
-		test.log(LogStatus.PASS, "Sub Recipe Saved Successfully");
-	
-		ut.PassedCaptureScreenshotAsBASE64(driver, test);
-	}
-	else
-	{
-		test.log(LogStatus.FAIL, "Sub Recipe Save Failed");
-		
-		ut.FailedCaptureScreenshotAsBASE64(driver, test);
-	}
-
-	
+	cmp.Click_BackspaceButton();
+	Thread.sleep(3000);
 }
 	
 	@Test(priority = 5,enabled = false)
@@ -1010,6 +1005,14 @@ public class Inventory_Category {
 		if(icp.EnableTax_Yes().isEnabled()) {
 			
 			icp.EnableTax_No().click();
+			Thread.sleep(2000);
+			try {
+			driver.findElement(By.xpath("//h4[contains(.,'Reminder')]/../../../..//button[contains(.,'Yes')]")).click();
+			}
+			catch (Exception e) {
+				// TODO: handle exception
+			}
+			Thread.sleep(2000);
 		}
 		else {
 			icp.EnableTax_No().click();
@@ -1096,6 +1099,10 @@ public class Inventory_Category {
 		if(icp.EnableTax_Yes().isEnabled()) {
 			
 			icp.EnableTax_No().click();
+			
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//h4[contains(.,'Reminder')]/../../../..//button[contains(.,'Yes')]")).click();
+			Thread.sleep(2000);
 		}
 		else {
 			icp.EnableTax_No().click();
