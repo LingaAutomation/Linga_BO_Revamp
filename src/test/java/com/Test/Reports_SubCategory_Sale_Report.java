@@ -114,7 +114,7 @@ public WebDriver driver;
 	public void Calling() throws Exception
 	{
 		Open_SubCategory_Report_Page(driver);
-//		RefreshAndPaginination(driver);
+		RefreshAndPaginination(driver);
 		SubCategory_Report_Today(driver);
 		SubCategory_Report_Yesterday(driver);
 		SubCategory_Report_Last_N_Days(driver);

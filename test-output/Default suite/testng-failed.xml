@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Test.Product_Items_AddEditDelete_Item_Service_Charge">
+      <class name="com.Test.Product_Items_AddEditDelete_Open_Item_Discount">
         <methods>
           <include name="flushTest"/>
-          <include name="TestFail"/>
           <include name="Calling"/>
-          <include name="LogOut"/>
+          <include name="TestFail"/>
         </methods>
-      </class> <!-- com.Test.Product_Items_AddEditDelete_Item_Service_Charge -->
+      </class> <!-- com.Test.Product_Items_AddEditDelete_Open_Item_Discount -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -36,6 +36,15 @@ public class InventoryPage extends BasePage
 		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy(xpath = "//button[contains(.,'Apply')]")
+	WebElement Apply_Btn;
+	
+	public void Click_ApplyButton()
+	{
+		Apply_Btn.click();
+	}
+	
+	
 	@FindBy(xpath = "//button[contains(.,'NEW ADJUSTMENT REASON')]")
 	WebElement New_Adjustment_ReasonBtn;
 	

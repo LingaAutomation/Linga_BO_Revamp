@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -38,22 +39,22 @@ public class ModifierGroupsPage {
 	@FindBy(xpath = "//button[contains(.,'NEW MODIFIER GROUP')]")
 	WebElement New_ModifierGroupBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Pizza Topping')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Pizza Topping')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement PizzaTopping_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Pizza Topping')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Pizza Topping')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement PizzaTopping_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Hide Modifier Group')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Hide Modifier Group')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement HideModifierGroup_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Hide Modifier Group')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Hide Modifier Group')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement HideModifierGroup_NoBtn;
 	
-	@FindBy(xpath = "//div[@class='modifier-group-search']/mat-form-field/div/div/div[4]/div/div/input")
+	@FindBy(xpath = "//app-auto-complete[@label='Search Modifiers']/..//div/mat-form-field/div/div[1]/div[3]//input")
 	WebElement Modifiers_SearchInputBox;
 	
-	@FindBy(xpath = "//button[contains(.,'Add Price')]")
+	@FindBy(xpath = "//button[contains(.,'Add Serving')]")
 	WebElement Add_PriceBtn;
 	
 	@FindBy(xpath = "//label[contains(.,'Priority')]/../../input")
@@ -80,10 +81,10 @@ public class ModifierGroupsPage {
 	@FindBy(xpath = "//h3[contains(.,'Inventory Menu Item')]")
 	WebElement Inventory_MenuItemHeader;
 	
-	@FindBy(xpath = "//div[contains(@id,'cdk-drop-list')]/div[1]/data-grid-row/div/div[1]")
+	@FindBy(xpath = "//div[contains(@id,'cdk-drop-list')]/div[1]/div/mat-icon")
 	WebElement FirstModifier;
 	
-	@FindBy(xpath = "//div[contains(@id,'cdk-drop-list')]/div[2]/data-grid-row/div/div[1]")
+	@FindBy(xpath = "//div[contains(@id,'cdk-drop-list')]/div[2]/div/mat-icon")
 	WebElement SecondModifier;
 	
 	public void Click_NewModifierGroup()
@@ -181,7 +182,7 @@ public class ModifierGroupsPage {
 //		{
 		Thread.sleep(1000);
 
-			List<WebElement> NameLst=driver.findElements(By.xpath("//div[contains(@id,'cdk-drop-list')]/div/data-grid-row/div/div[1]"));
+			List<WebElement> NameLst=driver.findElements(By.xpath("//tbody/tr/td[1]"));
 			
 			for(WebElement ele:NameLst)
 			{ 
@@ -209,7 +210,7 @@ public class ModifierGroupsPage {
 
 			ArrayList<String> AfterArLst=new ArrayList<String>();
 		
-			List<WebElement> NameAfterSort=driver.findElements(By.xpath("//div[contains(@id,'cdk-drop-list')]/div/data-grid-row/div/div[1]"));
+			List<WebElement> NameAfterSort=driver.findElements(By.xpath("//tbody/tr/td[1]"));
 			Thread.sleep(1000);
 
 			for(WebElement ele:NameAfterSort)
@@ -254,7 +255,7 @@ public class ModifierGroupsPage {
 //		{
 		Thread.sleep(1000);
 
-			List<WebElement> NameLst=driver.findElements(By.xpath("//div[contains(@id,'cdk-drop-list')]/div/data-grid-row/div/div[1]"));
+			List<WebElement> NameLst=driver.findElements(By.xpath("//tbody/tr/td[1]"));
 			
 			for(WebElement ele:NameLst)
 			{
@@ -287,7 +288,7 @@ WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 
 			ArrayList<String> AfterArLst=new ArrayList<String>();
 			
-			List<WebElement> NameAfterSort=driver.findElements(By.xpath("//div[contains(@id,'cdk-drop-list')]/div/data-grid-row/div/div[1]"));
+			List<WebElement> NameAfterSort=driver.findElements(By.xpath("//tbody/tr/td[1]"));
 			Thread.sleep(1000);
 	
 						for(WebElement ele:NameAfterSort)
@@ -332,42 +333,73 @@ WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 		Thread.sleep(1000);
 
 		Custom_Sort.click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 
 //		WebElement First=driver.findElement(By.xpath(""));
 //		WebElement Second=driver.findElement(By.xpath(""));
-//		
+		try{
 		Actions ac=new Actions(driver);
 		ac.dragAndDrop(FirstModifier, SecondModifier).build().perform();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 	}
 	
 	public void Select_Modifiers() throws Exception
 	{
 	Common_XPaths cmp=new Common_XPaths(driver, test);
-		for(int i=1;i<=6;i++)
-		{
-		Modifiers_SearchInputBox.click();
+//		for(int i=1;i<=6;i++)
+//		{
+//		Modifiers_SearchInputBox.click();
+//	
+//        List<WebElement> CategoryList=driver.findElements(By.xpath("//div/select-option"));
+//		
+//		int CategorySize=CategoryList.size();
+//		
+//		System.out.println(CategorySize);
+//		
+//		
+//         int randomDept=ThreadLocalRandom.current().nextInt(1, CategorySize);
+//		
+//		String opt=driver.findElement(By.xpath("//div["+randomDept+"]/select-option")).getText();
+//		
+//		Modifiers_SearchInputBox.sendKeys(opt);
+//		
+//		
+//		
+//		
+//		
+//		Thread.sleep(5000);
+//		driver.findElement(By.xpath("//select-option//div[.=' "+opt+" '][@class='row']")).click();
+//		Thread.sleep(3000);
+//		List<WebElement> departList1=driver.findElements(By.xpath("//div/select-option"));
+//
+//		if(departList1.size()!=0)
+//		{
+//			Modifiers_SearchInputBox.click();
+//		}
+//
+//		}
+//		
+//	
+//	for(int i=1;i<=3;i++)
+//	{
+//		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[3]")).click();
+//		
+//		Thread.sleep(1000);
+//		cmp.Click_DeleteButton();
+//	}
 	
-		List<WebElement> OpSizeList=driver.findElements(By.xpath("//div[@class='options']/select-option"));
-		
-		int OpSizeSize=OpSizeList.size();
-		
-		
-		int randomOpSize=ThreadLocalRandom.current().nextInt(2, OpSizeSize);
-		
-		
-		driver.findElement(By.xpath("//div[@class='options']/select-option["+randomOpSize+"]")).click();
-		}
+	Modifiers_SearchInputBox.click();
+	Thread.sleep(500);
+	driver.findElement(By.xpath("//div[3]/select-option")).click();
+	Thread.sleep(500);
+	Modifiers_SearchInputBox.click();
 	
-	for(int i=1;i<=3;i++)
-	{
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[4]/data-grid-row/div/div[3]")).click();
-		
-		Thread.sleep(1000);
-		cmp.Click_DeleteButton();
-	}
+	
 	}
 	
 	public void Enter_SetPriceHere(String str) throws Exception
@@ -377,40 +409,62 @@ WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 		
 		mp.Enable_SetPriceHere();
 		
-		for(int i=1;i<=5;i++)
+		for(int i=1;i<=3;i++)
 		{
 			Add_PriceBtn.click();
 		}
 		
-		List<WebElement> servingSizeList=driver.findElements(By.xpath("//app-input-table/div/div/div/app-selectbox/div/mat-form-field/div/div/div[3]/input"));
+List<WebElement> servingSizeList=driver.findElements(By.xpath("//app-selectbox/div[contains(@class,'selectbox-component')][@class='selectbox-component size-stretch']/mat-form-field//input"));
 		
 		
 		
-		for(int i=2;i<=servingSizeList.size();i++)
+		for(int i=2;i<=servingSizeList.size()+1;i++)
 		{
-			driver.findElement(By.xpath("//app-input-table/div/div["+i+"]/div/app-selectbox/div/mat-form-field/div/div/div[3]/input")).click();
+			driver.findElement(By.xpath("//div[@id='editable-data-grid']/div["+i+"]/div/app-selectbox/div[contains(@class,'selectbox-component')][@class='selectbox-component size-stretch']//input")).click();
 			
-			List<WebElement> OpSizeList=driver.findElements(By.xpath("//div[@class='options']/select-option"));
+			List<WebElement> OpSizeList=driver.findElements(By.xpath("//div/option-panel/div/div/cdk-virtual-scroll-viewport/div/div"));
 			
 			int OpSizeSize=OpSizeList.size();
 			
 			
 			int randomOpSize=ThreadLocalRandom.current().nextInt(1, OpSizeSize);
 			
+			Thread.sleep(5000);
+			try {
+			driver.findElement(By.xpath("//div/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomOpSize+"]")).click();
+			}
+			catch (Exception e) {
+				driver.findElement(By.xpath("//div/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomOpSize+"]")).click();
+			}
 			
-			driver.findElement(By.xpath("//div[@class='options']/select-option["+randomOpSize+"]")).click();
+			driver.findElement(By.xpath("//div[@id='editable-data-grid']/div["+i+"]/div/app-input/div/div/mat-form-field/div/div/div//input")).clear();
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//div[@id='editable-data-grid']/div["+i+"]/div/app-input/div/div/mat-form-field/div/div/div//input")).sendKeys(str);
+			Thread.sleep(1000);
+			
 		
-			
-			driver.findElement(By.xpath("//app-input-table/div/div["+i+"]/div/app-input/div/div/mat-form-field/div/div/div[4]/input")).clear();
-			
-			driver.findElement(By.xpath("//app-input-table/div/div["+i+"]/div/app-input/div/div/mat-form-field/div/div/div[4]/input")).sendKeys(str);
 		}
+//		driver.findElement(By.xpath("//div[@id='editable-data-grid']/div[2]/div/app-input/div/div/mat-form-field/div/div/div//input")).clear();
+//		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//div[@id='editable-data-grid']/div[2]/div/app-input/div/div/mat-form-field/div/div/div//input")).sendKeys(str);
+//		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//div[@id='editable-data-grid']/div[3]/div/app-input/div/div/mat-form-field/div/div/div//input")).clear();
+//		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//div[@id='editable-data-grid']/div[3]/div/app-input/div/div/mat-form-field/div/div/div//input")).sendKeys(str);
+//		driver.findElement(By.xpath("//div[@id='editable-data-grid']/div[4]/div/app-input/div/div/mat-form-field/div/div/div//input")).clear();
+//		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//div[@id='editable-data-grid']/div[4]/div/app-input/div/div/mat-form-field/div/div/div//input")).sendKeys(str);
+		Thread.sleep(2000);
 		
-		Thread.sleep(1000);
+		for(int i=1;i<=2;i++) 
+		{
+			Thread.sleep(500);
+			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+		}
 		for(int i=1;i<=3;i++)
 		{
 			Thread.sleep(1000);
-			driver.findElement(By.xpath("//app-input-table/div/div[4]/div[3]")).click();
+			driver.findElement(By.xpath("//app-input-table/div/div[2]/div[3]")).click();
 			
 			Thread.sleep(1000);
 			cmp.Click_DeleteButton();

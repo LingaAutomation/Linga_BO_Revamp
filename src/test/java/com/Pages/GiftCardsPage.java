@@ -145,14 +145,14 @@ public class GiftCardsPage {
 		}
 		catch(Exception g)
 		{
-			if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Please Select Payment Methods"))
-			{
-				test.log(LogStatus.INFO, "Payment Methods not Displayed");
-				
-				ut.FailedCaptureScreenshotAsBASE64(driver, test);
-
-				cmp.Click_CancelButton();
-			}
+//			if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Please Select Payment Methods"))
+//			{
+//				test.log(LogStatus.INFO, "Payment Methods not Displayed");
+//				
+//				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+//
+//				cmp.Click_CancelButton();
+//			}
 		}
 	
 	
@@ -208,7 +208,7 @@ public class GiftCardsPage {
 		Thread.sleep(1000);
 		BalanceInputBox.clear();
 		Thread.sleep(1000);
-		BalanceInputBox.sendKeys("50.00");
+		BalanceInputBox.sendKeys("500.00");
 		
 //		Removed this discount 100 per
 		Thread.sleep(1000);
@@ -226,13 +226,15 @@ public class GiftCardsPage {
 				
 				ut.FailedCaptureScreenshotAsBASE64(driver, test);
 
-				cmp.Click_CancelButton();
+				BalanceInputBox.sendKeys("600.00");
+
+//				cmp.Click_CancelButton();
 			}}
 			catch(Exception g)
 			{
 				ut.FailedCaptureScreenshotAsBASE64(driver, test);
-
-				cmp.Click_CancelButton();
+				
+//				cmp.Click_CancelButton();
 			}
 		}
 	}

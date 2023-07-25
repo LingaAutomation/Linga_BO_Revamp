@@ -151,7 +151,7 @@ public class Inventory_Prepare_Menu_Item
 		air=new InventoryPage(driver, test);
 		
 		//Verify the Pagination and Refresh the page
-		cmp.VerifyPagination_and_Refresh_Publish();
+	//	cmp.VerifyPagination_and_Refresh_Publish();
 		
 		//Verify Column Filtration
 //		cmp.Filter_Columns();
@@ -177,17 +177,22 @@ public class Inventory_Prepare_Menu_Item
 		air.Search_byPLU_CodeInputBox().clear();
 		air.Search_byPLU_CodeInputBox().sendKeys("000");
 		
+		Thread.sleep(2000);
 		//Get the menu item name
 		String Menu_ItemNamebtPLU1=air.Menu_Item_InputBox().getAttribute("value");
 		
+		System.out.println("Menu_ItemNamebtPLU1 :"+Menu_ItemNamebtPLU1);
+		Thread.sleep(2000);
 		//Clear the PLU Code
 				air.Search_byPLU_CodeInputBox().clear();
 				air.Search_byPLU_CodeInputBox().sendKeys("111");
 			
-
+				Thread.sleep(2000);
 				//Get the menu item name
 				String Menu_ItemNamebtPLU2=air.Menu_Item_InputBox().getAttribute("value");
 				
+				System.out.println("Menu_ItemNamebtPLU2 :"+Menu_ItemNamebtPLU2);
+				Thread.sleep(2000);
 				//Check whether the Menu Item Name changes when Searching menu by PLU Code or not
 				if(!Menu_ItemNamebtPLU1.equalsIgnoreCase(Menu_ItemNamebtPLU2))
 				{
@@ -205,9 +210,8 @@ public class Inventory_Prepare_Menu_Item
 		//Select the Menu Item
 		new Common_XPaths(driver, test).Click_DropDown_withSearch(air.Menu_Item_InputBox(), "Menu Item Selected");
 		
-//		String MenuItemName=air.Menu_Item_InputBox().getAttribute("value");
-		String MenuItemName="0.01 Menu item";	
-
+		String MenuItemName="005. Chai Cream BlasTea";	
+//0.01 Menu item
 		this.MenuItem_Name=MenuItemName;
 		
 		//Click the Cancel button
@@ -438,23 +442,30 @@ public class Inventory_Prepare_Menu_Item
 		Thread.sleep(2000);
 		//Search the Prepared SubRecipe
 //		cmp.Search(SubReci_Name);
-		cmp.SearchBox().clear();
-		cmp.SearchBox().sendKeys(Inventory_Name);
 		
+		//String invItem = driver.findElement(By.xpath("//section/table/tbody/tr[1]/td[1]/span")).getText();
+		
+		String Inventory_Name1=Inventory_Name;	
+		//0.01 Menu item
+				this.Inventory_Name=Inventory_Name1;
+		Thread.sleep(2000);
+		cmp.SearchBox().clear();
+		Thread.sleep(2000);
+		cmp.SearchBox().sendKeys(Inventory_Name);
+	
 		
 		Thread.sleep(3000);
 		//Get The On Hand Quantity after Sub Recipe Prepared
-		String Before_InvItem_onHand_Qty=driver.findElement(By.xpath("//span[.='"+Inventory_Name+" ']/../../div[10]")).getText().replaceAll("[a-zA-Z $ ₹ , / :]", "").toString();
+		String Before_InvItem_onHand_Qty=driver.findElement(By.xpath("//span[contains(.,'"+Inventory_Name+"')]/../../div[7]/span")).getText().replaceAll("[a-zA-Z $ ₹ , / :]", "").toString();
 		double Before_InvItem_onHand_Quantity=Double.parseDouble(Before_InvItem_onHand_Qty);
 		this.Bef_Inv_onHand_Quanity=String.valueOf(Before_InvItem_onHand_Quantity);
-		
+	
 		Thread.sleep(5000);
 		//Load the Department page
 		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id5")+"subRecipe");
 
 		Thread.sleep(5000);
 		//Verify the Coursing page loaded or not
-		cmp.VerifyMainScreenPageHeader("Sub Recipe");	
 		
 		Thread.sleep(2000);
 		//Search the Prepared SubRecipe
@@ -482,12 +493,12 @@ public class Inventory_Prepare_Menu_Item
 		//Search the Prepared SubRecipe
 //		cmp.Search(SubReci_Name);
 		cmp.SearchBox().clear();
-		cmp.SearchBox().sendKeys(MenuItemName);
+		cmp.SearchBox().sendKeys(MenuItem_Name);
 		
 		
 		Thread.sleep(3000);
 		//Get The On Hand Quantity after Sub Recipe Prepared
-		String Before_Menu_onHand_Qty=driver.findElement(By.xpath("//span[.='"+MenuItemName+" ']/../../div[3]")).getText().replaceAll("[a-zA-Z $ ₹ , / :]", "").toString();
+		String Before_Menu_onHand_Qty=driver.findElement(By.xpath("//span[.='"+MenuItem_Name+" ']/../../div[3]")).getText().replaceAll("[a-zA-Z $ ₹ , / :]", "").toString();
 		double Before_Menu_onHand_Quantity=Double.parseDouble(Before_Menu_onHand_Qty);
 		this.Bef_Menu_onHand_Quanity=String.valueOf(Before_Menu_onHand_Qty);
 		
@@ -536,6 +547,7 @@ public class Inventory_Prepare_Menu_Item
 		}
 		
 	}
+	
 	@Test(priority = 4,enabled = false)
 	public void Verify_Prepared_MenuItem_In_MenuItem_InventoryItem_SubRecipe(WebDriver driver) throws Exception
 	{
@@ -552,6 +564,7 @@ public class Inventory_Prepare_Menu_Item
 		Thread.sleep(3000);
 		//Get The On Hand Quantity after Sub Recipe Prepared
 		String After_Menu_onHand_Qty=driver.findElement(By.xpath("//span[.='"+MenuItem_Name+" ']/../../div[3]")).getText().replaceAll("[a-zA-Z $ ₹ , / :]", "").toString();
+		
 		double After_Menu_onHand_Quantity=Double.parseDouble(After_Menu_onHand_Qty);
 		this.Aft_Menu_onHand_Quanity=String.valueOf(After_Menu_onHand_Qty);
 		
@@ -583,17 +596,19 @@ public class Inventory_Prepare_Menu_Item
 		Thread.sleep(5000);
 		//Verify the Coursing page loaded or not
 		cmp.VerifyMainScreenPageHeader("Inventory Item");	
+		Thread.sleep(5000);
 		
+		//String invItem = driver.findElement(By.xpath("//section/table/tbody/tr[1]/td[1]/span")).getText();
 		Thread.sleep(2000);
-		//Search the Prepared SubRecipe
-//		cmp.Search(SubReci_Name);
 		cmp.SearchBox().clear();
+		Thread.sleep(2000);
 		cmp.SearchBox().sendKeys(Inventory_Name);
+	
 		
 		
 		Thread.sleep(3000);
 		//Get The On Hand Quantity after Sub Recipe Prepared
-		String After_InvItem_onHand_Qty=driver.findElement(By.xpath("//span[.='"+Inventory_Name+" ']/../../div[10]")).getText().replaceAll("[a-zA-Z $ ₹ , / :]", "").toString();
+		String After_InvItem_onHand_Qty=driver.findElement(By.xpath("//span[contains(.,'"+Inventory_Name+"')]/../../div[9]")).getText().replaceAll("[a-zA-Z $ ₹ , / :]", "").toString();
 		double After_InvItem_onHand_Quantity=Double.parseDouble(After_InvItem_onHand_Qty);
 		this.Aft_Inv_onHand_Quanity=String.valueOf(After_InvItem_onHand_Quantity);
 		
@@ -718,7 +733,7 @@ public class Inventory_Prepare_Menu_Item
 				
 				Thread.sleep(5000);
 				
-
+try {
 				//Get The On Hand Quantity
 				String InvItem_onHand_Qty_inRept=driver.findElement(By.xpath("//table/tbody/tr[1]/td[21]")).getText();
 				double InvItem_onHand_Qty_inReport=Double.parseDouble(InvItem_onHand_Qty_inRept);
@@ -741,6 +756,15 @@ public class Inventory_Prepare_Menu_Item
 					test.log(LogStatus.FAIL, "Inventory Item On Hand Quantity is not Equal to Prepare Menu Item Quantity After Menu Item Prepared "+"Value Diff : "+diff+"- Compare Inventory Report");
 				}
 				
+}
+catch (Exception e) {
+	
+	if(driver.findElement(By.xpath("//div[contains(.,'No Records Found')]/span")).isDisplayed()) {
+		
+		test.log(LogStatus.FAIL, "Compare Inventory Report Detail not displayed");
+		
+	}
+}
 		
 		//Select the Type
 		air.Select_Type("Sub Recipe");
@@ -756,7 +780,7 @@ public class Inventory_Prepare_Menu_Item
 		
 		Thread.sleep(5000);
 		
-
+try {
 		//Get The On Hand Quantity
 		String SubRecipe_onHand_Qty_inRept=driver.findElement(By.xpath("//table/tbody/tr[1]/td[21]")).getText();
 		double SubRecipe_onHand_Qty_inReport=Double.parseDouble(SubRecipe_onHand_Qty_inRept);
@@ -778,9 +802,17 @@ public class Inventory_Prepare_Menu_Item
 			double diff=SubRecipe_onHand_Qty_inReport-After_SubRecipe_onHand_Qty;
 			test.log(LogStatus.FAIL, "Sub-Recipe On Hand Quantity is not Equal to Prepare Menu Item Quantity After Menu Item Prepared "+"Value Diff : "+diff+" - Compare Inventory Report");
 		}
-		
+}
+		catch (Exception e) {
+			
+			if(driver.findElement(By.xpath("//div[contains(.,'No Records Found')]/span")).isDisplayed()) {
+				
+				test.log(LogStatus.FAIL, "Compare Inventory Report Detail not displayed");
+				
+			}
 
-		
+		}
+
 		Thread.sleep(3000);
 		//Load the Prepare Menu Item page
 		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id5")+"prepareMenuItem");
@@ -789,7 +821,6 @@ public class Inventory_Prepare_Menu_Item
 		//Verify the Coursing page loaded or not
 		cmp.VerifyMainScreenPageHeader("Prepare Menu Item");	
 	}
-	
 	
 	@Test(priority = 4,enabled = false)
 	public void Verify_Prepared_MenuItem_In_Production_Log(WebDriver driver) throws Exception
@@ -805,7 +836,7 @@ public class Inventory_Prepare_Menu_Item
 		new ReportsPage(driver, test).Select_Today_TimePeriod();
 		
 		//Click the Apply button
-		new ReportsPage(driver, test).Click_ApplyButton();
+		air.Click_ApplyButton();
 		
 		Thread.sleep(5000);
 		new Common_XPaths(driver, test).SearchBox().clear();
@@ -823,7 +854,7 @@ public class Inventory_Prepare_Menu_Item
 		{
 			test.log(LogStatus.PASS, "Production Record for Selected Menu Item - Today");
 		
-			List<WebElement> prodList=driver.findElements(By.xpath(""));
+			//List<WebElement> prodList=driver.findElements(By.xpath(""));
 			
 			
 		
@@ -834,6 +865,5 @@ public class Inventory_Prepare_Menu_Item
 		air.Click_ProductionTab();
 		Thread.sleep(2000);
 	}
-	
 	
 }

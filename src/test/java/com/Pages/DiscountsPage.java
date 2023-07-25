@@ -91,10 +91,10 @@ public class DiscountsPage {
 	@FindBy(xpath = "//label[contains(.,'Serving Size')]/../../../div[4]/div/button")
 	WebElement Serving_Size_CloseBtn;
 	
-	@FindBy(xpath = "//app-toggle[contains(.,'EMPLOYEE DISCOUNT')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Employee Discount')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Employee_Discount_YesBtn;
 	
-	@FindBy(xpath = "//app-toggle[contains(.,'EMPLOYEE DISCOUNT')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Employee Discount')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Employee_Discount_NoBtn;
 	
 	@FindBy(xpath = "//app-toggle[contains(.,'Attach Customer')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
@@ -338,6 +338,8 @@ public class DiscountsPage {
 		
 	
 		Thread.sleep(1000);
+		Serving_SizeInputBx.click();
+
 //		}
 	}
 	
@@ -600,6 +602,9 @@ public class DiscountsPage {
 		return Free_Item_DiscountRate_RadioBtn;
 	}
 	
+	@FindBy(xpath = "//app-chip[@name='discountUserRoles']//span[contains(.,'Show All')]")
+	WebElement Show_All_inRoles;
+	
 	//Select Roles
 	public void Select_Restrict_POS_VisibilityRoles() throws Exception
 	{
@@ -616,19 +621,26 @@ public class DiscountsPage {
 		Thread.sleep(1000);
 		
 		Thread.sleep(1000);
-		List<WebElement> SubCategoryList=driver.findElements(By.xpath("//div[@id='new-discount-visibility']/div[4]/div/app-chip/div/mat-chip-list/div/mat-chip"));
+		List<WebElement> SubCategoryList=driver.findElements(By.xpath("//app-chip[@name='discountUserRoles']/div/mat-chip-list/div/mat-chip"));
 		int size=SubCategoryList.size()-1;
 		
 		for(int i=1;i<=3;i++)
 		{
-		
+			try
+			{
+				if(Show_All_inRoles.isDisplayed())
+				{
+					Show_All_inRoles.click();
+				}
+			}
+			catch(Exception lp) {}
 //		int SubCategorySize=SubCategoryList.size();
 //		
 //		
 //		int randomSubCategory=ThreadLocalRandom.current().nextInt(2, SubCategorySize);
 //		
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[@id='new-discount-visibility']/div[4]/div/app-chip/div/mat-chip-list/div/mat-chip["+i+"]")).click();
+		driver.findElement(By.xpath("//app-chip[@name='discountUserRoles']/div/mat-chip-list/div/mat-chip["+i+"]")).click();
 		
 		Thread.sleep(1000);
 		}
@@ -638,14 +650,15 @@ public class DiscountsPage {
 	{
 		try
 		{
-		if(Disabled_SaveOrUpdate_Btn.isDisplayed())
+		if(Enter_Valid_PriorityErrorMsg.isDisplayed())
 		{
-			test.log(LogStatus.PASS, "Update/Save button is disabled when user enter the priority value is invalid");
+			test.log(LogStatus.PASS, "Enter Valid Priority is Displayed");
 		}
 		}
 		catch(Exception j)
 		{
-			test.log(LogStatus.FAIL, "Update/Save button is enabled when user enter the priority value is invalid");
+			test.log(LogStatus.FAIL, "Enter Valid Priority is not Displayed");
+		ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 	}
 	
@@ -661,6 +674,8 @@ public class DiscountsPage {
 		catch(Exception j)
 		{
 			test.log(LogStatus.FAIL, "Enter Valid Quantity is not Displayed");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 	}
 	
@@ -677,12 +692,33 @@ public class DiscountsPage {
 	public void Delete_AddOfferBtn() throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
+		
+		List<WebElement> Offers_list=driver.findElements(By.xpath("//div[@id='new-discount-offers']/div[2]/div/mat-accordion/app-accordion/div/mat-expansion-panel/mat-expansion-panel-header/span/div/div[4]/div/div/button"));
+		
+		try
+		{
+//		for(int i=1;i<=Offers_list.size();i++)
+//		{
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[@id='new-discount-offers']/div[2]/div/mat-accordion/app-accordion[2]/div/mat-expansion-panel/mat-expansion-panel-header/span/div/div[4]/div/div/button")).click();
 
 		Thread.sleep(1000);
 		cmp.Click_DeleteButton();
-		
+//		}
+		}
+		catch(Exception k)
+		{
+			try
+			{
+			if(driver.findElement(By.xpath("//div[@id='new-discount-offers']/div[2]/div/mat-accordion/app-accordion[1]/div/mat-expansion-panel/mat-expansion-panel-header/span/div/div[4]/div/div/button")).isDisplayed())
+			{
+				test.log(LogStatus.FAIL, "Already Added Offer Not Available");
+				
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			}
+			}
+			catch(Exception pl) {}
+		}
 		
 		try
 		{

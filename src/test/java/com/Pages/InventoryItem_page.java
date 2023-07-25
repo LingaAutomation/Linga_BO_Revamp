@@ -55,18 +55,18 @@ public class InventoryItem_page {
 	@FindBy(xpath = "//app-input[contains(@name,'parLevel')]/div/div/mat-form-field/div/div/div/input")
 	WebElement ParLevel;
 	
-	@FindBy(xpath = "//span[contains(.,'Calculate COGS On Cost Price')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Calculate COGS On Cost Price')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Calculate_COGS_On_Cost_Price_No;
 	
-	@FindBy(xpath = "//span[contains(.,'Calculate COGS On Cost Price')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Calculate COGS On Cost Price')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Calculate_COGS_On_Cost_Price_Yes;
 	
 	
-	@FindBy(xpath = "//span[contains(.,'Override Tax')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Override Tax')]/../../div[2]/app-toggle/div/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Override_Tax_No;
 	
 	
-	@FindBy(xpath = "//span[contains(.,'Override Tax')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Override Tax')]/../../div[2]/app-toggle/div/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Override_Tax_Yes;
 	
 	
@@ -248,7 +248,7 @@ public class InventoryItem_page {
 	{
 		Recipe_Unit_input.click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div/select-option/div/div/div[contains(.,'1 "+str+"')]")).click();
+		driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div/select-option/div[contains(.,'1 "+str+"')]")).click();
 		
 		
 	}
@@ -373,7 +373,7 @@ public class InventoryItem_page {
 		
 			Verify_Search(str);
 		
-			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
+			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
 	
 	}
 	public void Select_SubCategory() throws Exception
@@ -412,7 +412,7 @@ public class InventoryItem_page {
 
 			Verify_Search(driver.findElement(By.xpath("//div["+randomMenu+"]/select-option")).getText());
 		
-			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
+			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
 	*/	
 //		cmp.Cursor_MoveToElement(DepartmentDropBtn);
 		Thread.sleep(1000);
@@ -440,7 +440,7 @@ public class InventoryItem_page {
 
 			Verify_Search(driver.findElement(By.xpath("//div["+randomMenu2+"]/select-option")).getText());
 		
-			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
+			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
 		
 		
 	}
@@ -478,7 +478,7 @@ public class InventoryItem_page {
 
 			Verify_Search(driver.findElement(By.xpath("//div["+randomMenu+"]/select-option")).getText());
 		
-			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
+			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
 		
 		
 	}
@@ -515,7 +515,7 @@ public class InventoryItem_page {
 
 			Verify_Search(driver.findElement(By.xpath("//div["+randomMenu+"]/select-option")).getText());
 		
-			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
+			driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
 		
 		
 	}
@@ -591,7 +591,7 @@ public class InventoryItem_page {
 
 					Verify_Search(driver.findElement(By.xpath("//div["+randomMenu+"]/select-option")).getText());
 				
-					driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
+					driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
 				
 				
 			}
@@ -614,7 +614,7 @@ public class InventoryItem_page {
 				Thread.sleep(2000);
 				//Tax_category_Input.click();
 				
-				driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_DOWN);
+				//driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_DOWN);
 				Thread.sleep(2000);
 				//get text of tax 
 				 List<WebElement> text = driver.findElements(By.xpath("//cdk-virtual-scroll-viewport/div/div/select-option/div/div"));
@@ -628,7 +628,7 @@ public class InventoryItem_page {
 
 					Verify_Search(driver.findElement(By.xpath("//div["+randomMenu+"]/select-option")).getText());
 				
-					driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
+					driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
 				
 				
 			}
@@ -651,7 +651,7 @@ public class InventoryItem_page {
 				Thread.sleep(2000);
 				//Tax_category_Input.click();
 				
-				driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_DOWN);
+				//driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_DOWN);
 				Thread.sleep(2000);
 				//get text of tax 
 				 List<WebElement> text = driver.findElements(By.xpath("//cdk-virtual-scroll-viewport/div/div/select-option/div/div"));
@@ -665,7 +665,7 @@ public class InventoryItem_page {
 
 					Verify_Search(driver.findElement(By.xpath("//div["+randomMenu+"]/select-option")).getText());
 					Thread.sleep(2000);
-					driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div/div")).click();
+					driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div[1]/select-option/div")).click();
 				
 				
 			}
@@ -849,7 +849,7 @@ public class InventoryItem_page {
 	{
 		Select_purchaseUnit_input.click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div/select-option/div/div/div[contains(.,'1 "+str+"')]")).click();
+		driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div/select-option/div[contains(.,'1 "+str+"')]")).click();
 		
 		
 	}
@@ -906,10 +906,10 @@ driver.findElement(By.xpath("//app-input[contains(@name,'vendorReceivingQuantity
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	
 	try {
-	js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'"+str+"')]")));
+	js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//select-option/div[contains(.,'"+str+"')]")));
 
 	
-	driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'"+str+"')]")).click();
+	driver.findElement(By.xpath("//select-option/div[contains(.,'"+str+"')]")).click();
 	}
 	catch (Exception e) {
 		test.log(LogStatus.FAIL, "category is not selected from DropDown ");
@@ -927,9 +927,9 @@ driver.findElement(By.xpath("//app-input[contains(@name,'vendorReceivingQuantity
 	try {
 	JavascriptExecutor js = (JavascriptExecutor) driver;
 	
-	js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'"+str+"')]")));
+	js.executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("//select-option/div[contains(.,'"+str+"')]")));
 	
-	driver.findElement(By.xpath("//select-option/div/div/div[contains(.,'"+str+"')]")).click();
+	driver.findElement(By.xpath("//select-option/div[contains(.,'"+str+"')]")).click();
 	}
 	catch (Exception e) {
 		test.log(LogStatus.FAIL, "Item_Detail is not selected from DropDown ");
@@ -946,7 +946,7 @@ driver.findElement(By.xpath("//app-input[contains(@name,'vendorReceivingQuantity
 	Thread.sleep(2000);
 	try {
 	
-	driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div/select-option/div/div/div")).click();
+	driver.findElement(By.xpath("//cdk-virtual-scroll-viewport/div/div/select-option/div")).click();
 	}
 	catch (Exception e) {
 		// TODO: handle exception

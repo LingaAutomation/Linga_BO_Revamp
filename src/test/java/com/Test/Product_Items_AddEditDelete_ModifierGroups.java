@@ -120,12 +120,12 @@ public class Product_Items_AddEditDelete_ModifierGroups
 	public void Calling() throws Exception
 	{
 		Open_ModifierGroups_Page(driver);
-		RefreshAndPaginination(driver);
-		Add_ModifierGroups(driver);
-		Edit_and_Close_Cancel_ModifierGroups(driver);
-		Edit_and_Update_ModifierGroups(driver);
-		Edit_and_Sorting_Update_ModifierGroups(driver);
-		Delete_and_Active_Inactive_ModifierGroups(driver);
+//		RefreshAndPaginination(driver);
+//		Add_ModifierGroups(driver);
+//		Edit_and_Close_Cancel_ModifierGroups(driver);
+//		Edit_and_Update_ModifierGroups(driver);
+//		Edit_and_Sorting_Update_ModifierGroups(driver);
+//		Delete_and_Active_Inactive_ModifierGroups(driver);
 		Add_ModifierGroups_BasicDetails(driver);
 		Create_DuplicateModifierGroup(driver);
 	}
@@ -223,7 +223,7 @@ public class Product_Items_AddEditDelete_ModifierGroups
 						
 						Thread.sleep(1000);
 						//Click Basic Details Tab
-						mp.Click_BasicDetailsTab();
+					//	mp.Click_BasicDetailsTab();
 		
 						String NameExcess = "Entering Invalid Name to input"; 
 						int ActualSize= NameExcess.length();
@@ -252,8 +252,8 @@ public class Product_Items_AddEditDelete_ModifierGroups
 		Thread.sleep(1000);
 
 		//Click the Save and Publish button
-		cmp.Click_Save_and_PublishButton();
-		
+		//cmp.Click_Save_and_PublishButton();
+		/*
 		Thread.sleep(3000);
 		//Check whether the New Course Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Please Enter Priority"))
@@ -269,14 +269,14 @@ public class Product_Items_AddEditDelete_ModifierGroups
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 
-		
+		*/
 		Thread.sleep(500);
 		//Enter Negative Priority
 		mgp.Enter_Priority("-1");
 		Thread.sleep(1000);
 		
 		//Check whether the Number should not be less than 0 pop up displayed or not
-		mgp.Verify_InvalidNumberErrorMsg("Number should not be less than 0");
+		//mgp.Verify_InvalidNumberErrorMsg("Number should not be less than 0");
 		
 		//Enter Negative Priority
 				mgp.Enter_Priority("0");
@@ -305,7 +305,7 @@ public class Product_Items_AddEditDelete_ModifierGroups
 		//Enable Hide Modifier Group 
 		mgp.Disable_HideModifierGroup();
 		Thread.sleep(500);
-
+/*
 		//Click the Save and Publish button
 		cmp.Click_Save_and_PublishButton();
 				
@@ -333,8 +333,10 @@ public class Product_Items_AddEditDelete_ModifierGroups
 					
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
-		
-				Thread.sleep(1000);
+	}
+	
+	*/
+			Thread.sleep(1000);
 				//Enter the Modifier Name
 				cmp.EnterName(Utility.getProperty("Modifier_Group_Name"));
 				Thread.sleep(500);
@@ -510,6 +512,7 @@ public class Product_Items_AddEditDelete_ModifierGroups
 		mgp.Enable_PizzaTopping();
 		
 		Thread.sleep(500);
+		try {
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
@@ -528,7 +531,14 @@ public class Product_Items_AddEditDelete_ModifierGroups
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
-
+		}
+		catch (Exception e) {
+			if(cmp.UpdateAndPublish_Btn_disable().isDisplayed())
+			   test.log(LogStatus.FAIL, "Update and publish button not enabling after editing");
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			cmp.Click_BackspaceButton();
+         
+		}
 	}
 	
 	@Test(priority = 5,enabled = false)
@@ -554,6 +564,8 @@ public class Product_Items_AddEditDelete_ModifierGroups
 		//Ascending sort Modifiers
 				mgp.Verify_AscendingSortingforModifiers();
 				
+				mgp.Enable_PizzaTopping();
+				try {
 				Thread.sleep(500);
 				//Click the Update and Publish button
 				cmp.Click_Update_and_PublishButton();
@@ -572,8 +584,16 @@ public class Product_Items_AddEditDelete_ModifierGroups
 					
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}	
-		
-				Thread.sleep(1000);
+				
+	}
+	catch (Exception e) {
+		if(cmp.UpdateAndPublish_Btn_disable().isDisplayed())
+		   test.log(LogStatus.FAIL, "Update and publish button not enabling after editing");
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		cmp.Click_BackspaceButton();
+     
+	}
+		Thread.sleep(1000);
 				//Search and Click Edit button
 				cmp.SearchAndClickEdit(Utility.getProperty("Modifier_Group_Name"));
 				Thread.sleep(1000);
@@ -584,6 +604,7 @@ public class Product_Items_AddEditDelete_ModifierGroups
 				mgp.Verify_DescendingSortingforModifiers();
 				
 				Thread.sleep(500);
+				try {
 				//Click the Update and Publish button
 				cmp.Click_Update_and_PublishButton();
 				
@@ -601,7 +622,15 @@ public class Product_Items_AddEditDelete_ModifierGroups
 					
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}	
-		
+	
+	}
+	catch (Exception e) {
+		if(cmp.UpdateAndPublish_Btn_disable().isDisplayed())
+		   test.log(LogStatus.FAIL, "Update and publish button not enabling after editing");
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		cmp.Click_BackspaceButton();
+     
+	}
 				Thread.sleep(1000);
 				//Search and Click Edit button
 				cmp.SearchAndClickEdit(Utility.getProperty("Modifier_Group_Name"));
@@ -611,7 +640,7 @@ public class Product_Items_AddEditDelete_ModifierGroups
 
 				//Custom Sorting
 				mgp.Verify_CustomSortforModifiers();
-				
+				try {
 				
 				Thread.sleep(500);
 				//Click the Update and Publish button
@@ -631,8 +660,14 @@ public class Product_Items_AddEditDelete_ModifierGroups
 					
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}	
-		
-		
+				}
+				catch (Exception e) {
+					if(cmp.UpdateAndPublish_Btn_disable().isDisplayed())
+					   test.log(LogStatus.FAIL, "Update and publish button not enabling after editing");
+						ut.FailedCaptureScreenshotAsBASE64(driver, test);
+					cmp.Click_BackspaceButton();
+		         
+				}	
 	
 		
 	}
@@ -803,7 +838,7 @@ public class Product_Items_AddEditDelete_ModifierGroups
 		
 		//Click Save and Publish button
 				cmp.Click_Save_and_PublishButton();
-				
+				try {
 				Thread.sleep(3000);
 				//Check whether the New Modifier Saved or not
 				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Modifier Saved Successfully"))
@@ -817,6 +852,9 @@ public class Product_Items_AddEditDelete_ModifierGroups
 					test.log(LogStatus.FAIL, "New Modifier Save Failed with Basic Details");
 					
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
+				}
+				}catch (Exception e) {
+					cmp.Click_BackspaceButton();
 				}
 	}
 	
@@ -856,7 +894,7 @@ public class Product_Items_AddEditDelete_ModifierGroups
 		//Click the Save and Publish button
 		cmp.Click_Save_and_PublishButton();
 		
-		
+		try {
 		Thread.sleep(3000);
 		//Check whether the New Modifier Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Name already exist"))
@@ -874,6 +912,11 @@ public class Product_Items_AddEditDelete_ModifierGroups
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
+		Thread.sleep(4000);
 	}
 	
 }

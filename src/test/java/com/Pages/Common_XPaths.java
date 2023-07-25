@@ -722,22 +722,29 @@ public class Common_XPaths {
 		Thread.sleep(2000);
 
 		SearchBox.sendKeys(SearchValue);
+		
 		Thread.sleep(2000);
 		try
 		{
-			Thread.sleep(2000);
+			Wait_ForElementVisibility(driver.findElement(By.xpath("//span[.=' "+SearchValue+" ']/../../td//div[1]/button")), 50);
 		driver.findElement(By.xpath("//span[.=' "+SearchValue+" ']/../../td//div[1]/button")).click();
 		
+//			Wait_ForElementVisibility(driver.findElement(By.xpath("//span[contains(.,'"+SearchValue+"')]/../../td//div[1]/button")), 50);
+//			driver.findElement(By.xpath("//span[contains(.,'"+SearchValue+"')]/../../td//div[1]/button")).click();
+			
 		}
 		catch(Exception g)
 		{
 			
-			Thread.sleep(2000);
-
+			Wait_ForElementVisibility(driver.findElement(By.xpath("//span[.='"+SearchValue+" ']/../../div//div[1]/button")), 40);
 			driver.findElement(By.xpath("//span[.='"+SearchValue+" ']/../../div//div[1]/button")).click();
-		}
+		
+//			Wait_ForElementVisibility(driver.findElement(By.xpath("//span[.='"+SearchValue+"')]/../../div//div[1]/button")), 40);
+//			driver.findElement(By.xpath("//span[contains(.,'"+SearchValue+"')]/../../div//div[1]/button")).click();
 		
 		}
+		
+	}
 	
 	public void SearchAndClickDelete(String SearchValue) throws Exception
 	{
@@ -1515,5 +1522,14 @@ public class Common_XPaths {
 
 		return RandomText;
 		
+	}
+	
+
+	@FindBy(xpath = "//button[contains(.,'UPDATE AND PUBLISH')][@disabled='true']")
+	WebElement UpdateAndPublish_Btn_disable;
+	
+	public WebElement UpdateAndPublish_Btn_disable()
+	{
+		return UpdateAndPublish_Btn_disable;
 	}
 }

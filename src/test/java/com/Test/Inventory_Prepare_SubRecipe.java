@@ -171,7 +171,7 @@ public class Inventory_Prepare_SubRecipe
 		
 		Thread.sleep(10000);
 		//Get the List of SubRecipes
-		List<WebElement> SubRec_List=driver.findElements(By.xpath("//div[contains(@id,'cdk-drop-list')]/div/div/data-grid-row/div/div[1]"));
+		List<WebElement> SubRec_List=driver.findElements(By.xpath("//section/table/tbody/tr/td[1]/span"));
 		
 		
 		int SubRec_Size=SubRec_List.size();
@@ -180,7 +180,7 @@ public class Inventory_Prepare_SubRecipe
 		
 
 		//Get The Sub Recipe Name
-		String SubReci_Name=driver.findElement(By.xpath("//div[contains(@id,'cdk-drop-list')]/div["+randomOpt+"]/div/data-grid-row/div/div[1]")).getText();
+		String SubReci_Name=driver.findElement(By.xpath("//section/table/tbody/tr["+randomOpt+"]/td[1]/span")).getText();
 	
 		//Search the Sub recipe
 //		cmp.Search(SubReci_Name);
@@ -189,12 +189,12 @@ public class Inventory_Prepare_SubRecipe
 		
 		Thread.sleep(3000);
 		//Get The On Hand Quantity after Sub Recipe Prepared
-		String Before_onHand_Qty=driver.findElement(By.xpath("//span[.='"+SubReci_Name+" ']/../../div[3]")).getText().replaceAll("[a-zA-Z $ ₹ , :]", "").toString();
+		String Before_onHand_Qty=driver.findElement(By.xpath("//td[contains(.,'"+SubReci_Name+"')]/span/../../td[3]/span")).getText().replaceAll("[a-zA-Z $ ₹ , :]", "").toString();
 		double Before_onHand_Quantity=Double.parseDouble(Before_onHand_Qty);
 		this.Bef_onHand_Quanity=String.valueOf(Before_onHand_Quantity);
 		
 		//Get The On Hand Price after Sub Recipe Prepared
-		String Before_onHand_Pric=driver.findElement(By.xpath("//span[.='"+SubReci_Name+" ']/../../div[2]")).getText().replaceAll("[a-zA-Z $ ₹ , :]", "").toString();
+		String Before_onHand_Pric=driver.findElement(By.xpath("//td[contains(.,'"+SubReci_Name+"')]/span/../../td[2]/span")).getText().replaceAll("[a-zA-Z $ ₹ , :]", "").toString();
 		double Before_onHand_Price=Double.parseDouble(Before_onHand_Pric);
 		this.Bef_OnHand_Price=String.valueOf(Before_onHand_Price);
 		
@@ -217,8 +217,9 @@ public class Inventory_Prepare_SubRecipe
 		air.Select_Primary_Storage();
 		
 		//Click the Save button
-		cmp.Save_Button();
+		cmp.Save_Button().click();
 		
+		try {
 		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 30);
 		
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Sub Recipe Prepared Successfully"))
@@ -234,7 +235,12 @@ public class Inventory_Prepare_SubRecipe
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
-		
+		}
+		catch (Exception e) {
+			test.log(LogStatus.FAIL, "Not Able to save");
+			
+			cmp.Click_CancelButton();
+		}
 		//Search the Prepared SubRecipe
 //		cmp.Search(SubReci_Name);
 		cmp.SearchBox().clear();
@@ -245,12 +251,12 @@ public class Inventory_Prepare_SubRecipe
 		
 		Thread.sleep(3000);
 		//Get The On Hand Quantity after Sub Recipe Prepared
-		String After_onHand_Qty=driver.findElement(By.xpath("//span[.='"+SubReci_Name+" ']/../../div[3]")).getText().replaceAll("[a-zA-Z $ ₹ , :]", "").toString();
+		String After_onHand_Qty=driver.findElement(By.xpath("//td[contains(.,'"+SubReci_Name+"')]/span/../../td[3]")).getText().replaceAll("[a-zA-Z $ ₹ , :]", "").toString();
 		double After_onHand_Quantity=Double.parseDouble(After_onHand_Qty);
 		this.Aft_onHand_Quanity=String.valueOf(After_onHand_Quantity);
 		
 		//Get The On Hand Price after Sub Recipe Prepared
-		String After_onHand_Pric=driver.findElement(By.xpath("//span[.='"+SubReci_Name+" ']/../../div[2]")).getText().replaceAll("[a-zA-Z $ ₹ , :]", "").toString();
+		String After_onHand_Pric=driver.findElement(By.xpath("//td[contains(.,'"+SubReci_Name+"')]/span/../../td[2]/span")).getText().replaceAll("[a-zA-Z $ ₹ , :]", "").toString();
 		double After_onHand_Price=Double.parseDouble(After_onHand_Pric);
 		this.Aft_OnHand_Price=String.valueOf(After_onHand_Price);
 		
@@ -309,11 +315,11 @@ public class Inventory_Prepare_SubRecipe
 //		double Begin_Price_inReport=Double.parseDouble(Begin_Price_inRept);
 		
 		//Get The On Hand Quantity
-		String onHand_Qty_inRept=driver.findElement(By.xpath("//table/tbody/tr[1]/td[21]")).getText();
+		String onHand_Qty_inRept=driver.findElement(By.xpath("//table/tbody/tr[1]/td[21]")).getText().replaceAll("[a-zA-Z $ ₹ , :]", "").toString();
 		double onHand_Qty_inReport=Double.parseDouble(onHand_Qty_inRept);
 		
 		//Get The On Hand Price
-		String onHand_Price_inRept=driver.findElement(By.xpath("//table/tbody/tr[1]/td[22]")).getText();
+		String onHand_Price_inRept=driver.findElement(By.xpath("//table/tbody/tr[1]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ , :]", "").toString();
 		double onHand_Price_inReport=Double.parseDouble(onHand_Price_inRept);
 		
 		//On Hand Quantity in Sub Recipe Before

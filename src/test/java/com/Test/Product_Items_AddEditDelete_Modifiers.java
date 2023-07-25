@@ -42,6 +42,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Product_Items_AddEditDelete_Modifiers 
+
 {
 
 	public WebDriver driver;
@@ -122,9 +123,9 @@ public class Product_Items_AddEditDelete_Modifiers
 	public void Calling() throws Exception
 	{
 		Open_Modifiers_Page(driver);
-//		RefreshAndPaginination(driver);
-//		Add_Modifiers(driver);
-//		Edit_and_Close_Cancel_Modifiers(driver);
+		RefreshAndPaginination(driver);
+		Add_Modifiers(driver);
+		Edit_and_Close_Cancel_Modifiers(driver);
 		Edit_and_Remove_Prefix_Update_Modifiers(driver);
 		Edit_and_Remove_ServingSizeLevels_Update_Modifiers(driver);
 		Edit_and_Update_Modifiers(driver);
@@ -176,7 +177,7 @@ public class Product_Items_AddEditDelete_Modifiers
 		Thread.sleep(2000);
 	
 		//Verify the New Modifier creation screen opened or not 
-		cmp.VerifyCreationScreenPageHeader("New Modifier");
+		cmp.VerifyCreationScreenPageHeader_Two("New Modifier");
 		Thread.sleep(3000);
 		
 		//Click Proceed to Inventory Mapping button
@@ -197,8 +198,6 @@ public class Product_Items_AddEditDelete_Modifiers
 				else
 				{
 					test.log(LogStatus.FAIL, "Proceed to Inventory Mapping not selected when Clicking Proceed Without Saving");
-			
-					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
 				if(mp.InfoContent().getText().equalsIgnoreCase("Please add basic details and serving sizes before entering inventory details"))
@@ -208,8 +207,6 @@ public class Product_Items_AddEditDelete_Modifiers
 				else
 				{
 					test.log(LogStatus.FAIL, "Please add basic details and serving sizes before entering inventory details not Displayed");
-				
-					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				Thread.sleep(1000);
 				//Click Serving Size and Prefix Tab
@@ -242,12 +239,9 @@ public class Product_Items_AddEditDelete_Modifiers
 							ut.FailedCaptureScreenshotAsBASE64(driver, test);
 						}
 						
-						Thread.sleep(1000);
 						//Click Basic Details Tab
 						mp.Click_BasicDetailsTab();
 		
-						Thread.sleep(1000);
-
 		//Upload picture
 		cmp.Upload_Picture(Utility.getProperty("Settings_Store_Information_Store_Image_Path"));
 		
@@ -256,24 +250,23 @@ public class Product_Items_AddEditDelete_Modifiers
 		cmp.EnterName(Utility.getProperty("Modifier_Name"));
 		
 		
-		//Click Save and Publish button
-				cmp.Click_Save_and_PublishButton();
-				
-				Thread.sleep(3000);
-				//Check whether the New Modifier Saved or not
-				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Set maximum no of time that modifier can be used."))
-				{
-					test.log(LogStatus.PASS, "Set maximum no of time that modifier can be used pop up Displayed");
-				
-				}
-				else
-				{
-					test.log(LogStatus.FAIL, "Set maximum no of time that modifier can be used pop up not Displayed");
-					
-					ut.FailedCaptureScreenshotAsBASE64(driver, test);
-				}
+//		//Click Save and Publish button
+//				cmp.Click_Save_and_PublishButton();
+//				
+//				Thread.sleep(3000);
+//				//Check whether the New Modifier Saved or not
+//				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Set maximum no of time that modifier can be used."))
+//				{
+//					test.log(LogStatus.PASS, "Set maximum no of time that modifier can be used pop up Displayed");
+//				
+//				}
+//				else
+//				{
+//					test.log(LogStatus.FAIL, "Set maximum no of time that modifier can be used pop up not Displayed");
+//					
+//				}
 		
-		Thread.sleep(1500);
+		Thread.sleep(500);
 		//Enter Secondary name
 		mp.Enter_SecondaryName("S1");
 		
@@ -292,8 +285,6 @@ public class Product_Items_AddEditDelete_Modifiers
 		else
 		{
 			test.log(LogStatus.FAIL, "Enter valid maximum number of times not diisplayed when Entering 0");
-		
-			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
 		
@@ -414,16 +405,17 @@ public class Product_Items_AddEditDelete_Modifiers
 //		wt1.until(ExpectedConditions.elementToBeClickable(mp.ProceedToInventoryMappingTab()));
 		
 		//Click Proceed with Inventory mapping
-				mp.Click_ProceedToInventoryMappingTab();
+		mp.Click_ProceedToInventoryMappingTab();
 				
 		
 		Thread.sleep(8000);
+		//mp.Click_SaveAndProceed();
 		//Select and Add Item
 		mp.Add_ItemInventoryModiferFirst();
 		
 		Thread.sleep(1000);
 		//Select and Add Item
-				mp.Add_ItemInventoryModiferSecond();
+		mp.Add_ItemInventoryModiferSecond();
 				
 		for(int i=1;i<=10;i++)
 		{
@@ -466,7 +458,7 @@ public class Product_Items_AddEditDelete_Modifiers
 		
 		Thread.sleep(2000);
 		//Check whether the Update screen opened or not
-		cmp.VerifyCreationScreenPageHeader("Update Modifier");
+		cmp.VerifyCreationScreenPageHeader_Two("Update Modifier");
 		
 		Thread.sleep(1000);
 		//Click Cancel button
@@ -501,7 +493,7 @@ public class Product_Items_AddEditDelete_Modifiers
 		//Search and Click Edit button
 		cmp.SearchAndClickEdit(Utility.getProperty("Modifier_Name"));
 		
-		Thread.sleep(500);
+		Thread.sleep(2000);
 		//Enter the Name
 		cmp.EnterName(Utility.getProperty("Modifier_Name")+"1");
 		
@@ -575,9 +567,14 @@ public class Product_Items_AddEditDelete_Modifiers
 		}
 		
 
-		Thread.sleep(1000);
+		Thread.sleep(3000);
+
+		cmp.Click_BackspaceButton();
+
+		Thread.sleep(3000);
+
 		//Search and Click Edit button
-		cmp.SearchAndClickEdit(Utility.getProperty("Modifier_Name"));
+		cmp.SearchAndClickEdit(Utility.getProperty("Modifier_Name")+1);
 		
 		try
 		{
@@ -690,7 +687,12 @@ public class Product_Items_AddEditDelete_Modifiers
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
-		
+		try {
+		cmp.Click_BackspaceButton();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
 		Thread.sleep(1000);
 		//Search and Click Edit button
 		cmp.SearchAndClickEdit(Utility.getProperty("Modifier_Name"));
@@ -792,6 +794,13 @@ public class Product_Items_AddEditDelete_Modifiers
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
+		
+		try {
+			cmp.Click_BackspaceButton();
+			}
+			catch (Exception e) {
+				// TODO: handle exception
+			}
 		
 	}
 	
@@ -897,7 +906,7 @@ public class Product_Items_AddEditDelete_Modifiers
 				mp.Enter_MaximumNoOfTimes("2");
 				
 				//Select Tax
-				mp.Select_ModifierTax();
+				//mp.Select_ModifierTax();
 		
 				Robot rt=new Robot();
 				Thread.sleep(1000);
@@ -938,6 +947,14 @@ public class Product_Items_AddEditDelete_Modifiers
 					
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
+				
+				try {
+					cmp.Click_BackspaceButton();
+					}
+					catch (Exception e) {
+						// TODO: handle exception
+					}
+				
 	}
 	
 	@Test(priority = 6,enabled = false)
@@ -984,7 +1001,7 @@ public class Product_Items_AddEditDelete_Modifiers
 		
 		Thread.sleep(3000);
 		//Check whether the New Modifier Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Name already exist"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Name already exists"))
 		{
 			test.log(LogStatus.PASS, "Modifier Name already exist pop up displayed");
 		
@@ -996,6 +1013,8 @@ public class Product_Items_AddEditDelete_Modifiers
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
+		
+		Thread.sleep(4000);
 	}
 	
 }

@@ -106,18 +106,18 @@ public WebDriver driver;
 	public void Calling() throws Exception
 	{
 		Open_Item_Based_Discount_Page(driver);
-//		RefreshAndPaginination(driver);
-//		Add_Item_Based_Discount(driver);
-//		Edit_and_Close_Cancel_Item_Based_Discount(driver);
-//		Edit_and_Update_Item_Based_Discount_Percentage(driver);
-//		Edit_and_Update_SubCategory_Item_Based_Discount(driver);
-//		Edit_and_Update_MenuItem_Item_Based_Discount(driver);
-//		Edit_and_Update_Item_Based_Discount_DaysOfWeek(driver);
-//		Edit_and_Update_Item_Based_Discount_DaysOfMonth(driver);
-//		Edit_and_Update_Item_Based_Discount_DateRange(driver);
-//		Edit_and_Update_Item_Based_Discount_Specific_Date(driver);
-//		Edit_and_Update_Item_Based_Discount_DateRangeWithTime(driver);
-//		Delete_and_Active_Inactive_Item_Based_Discount(driver);
+		RefreshAndPaginination(driver);
+		Add_Item_Based_Discount(driver);
+		Edit_and_Close_Cancel_Item_Based_Discount(driver);
+		Edit_and_Update_Item_Based_Discount_Percentage(driver);
+		Edit_and_Update_SubCategory_Item_Based_Discount(driver);
+		Edit_and_Update_MenuItem_Item_Based_Discount(driver);
+		Edit_and_Update_Item_Based_Discount_DaysOfWeek(driver);
+		Edit_and_Update_Item_Based_Discount_DaysOfMonth(driver);
+		Edit_and_Update_Item_Based_Discount_DateRange(driver);
+		Edit_and_Update_Item_Based_Discount_Specific_Date(driver);
+		Edit_and_Update_Item_Based_Discount_DateRangeWithTime(driver);
+		Delete_and_Active_Inactive_Item_Based_Discount(driver);
 		Create_Duplicate_Item_Based_Discount(driver);
 		
 	}
@@ -242,6 +242,7 @@ public WebDriver driver;
 		{
 		}
 		
+		driver.findElement(By.tagName("html")).sendKeys(Keys.DOWN);
 				Thread.sleep(1000);
 		//Click the Priority
 		cmp.Enter_Priority("0");
@@ -338,23 +339,26 @@ public WebDriver driver;
 				
 //				try
 //				{
+				Thread.sleep(1000);	
 				//Select Serving Size
 				dcp.Select_Serving_Size();
 //				}
 //				catch(Exception l) {}
-				
-				//Select Promo Discount Type
+				Thread.sleep(1000);				//Select Promo Discount Type
 				dcp.Select_Promo_DiscountType();
 				
+				Thread.sleep(1000);	
 				//Enable Employee Discount
 				dcp.Enable_Employee_Discount();
 				
+				Thread.sleep(1000);	
 				//Select Amount Discount Rate Type 
 				dcp.Click_Amount_DiscountRateType();
 				
+				Thread.sleep(1000);	
 				//Enter the Amount values
 				cmp.Enter_Amount("1000");
-				Thread.sleep(500);
+				Thread.sleep(1000);
 				
 		//Select Always
 		at.Click_AlwaysButton();
@@ -372,13 +376,35 @@ public WebDriver driver;
 		cmp.Click_Save_and_PublishButton();
 		
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Item Based Discount Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Saved Successfully"))
 		{
 			test.log(LogStatus.PASS, "Item Based Discount Saved Successfully");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Price Should not exceed MenuItem Price"))
+		{
+			test.log(LogStatus.INFO, "Discount Price Should not exceed MenuItem Price");
+			
+			
+			Thread.sleep(1000);	
+			//Enter the Amount values
+			cmp.Enter_Amount("000");
+			
+			Thread.sleep(2000);
+			//Click the Save and Publish button
+			cmp.Click_Save_and_PublishButton();
+			
+			cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
+			//Check whether the Item Based Discount Saved or not
+			if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Saved Successfully"))
+			{
+				test.log(LogStatus.PASS, "Item Based Discount Saved Successfully");
+			
+				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			}
 		}
 		else
 		{
@@ -658,7 +684,7 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Item Based Discount Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
 		{
@@ -847,11 +873,11 @@ public WebDriver driver;
 		//Enter the Amount
 		cmp.Enter_Amount("1500");
 	
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Item Based Discount Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
 		{
@@ -956,11 +982,11 @@ public WebDriver driver;
 		//Enter the Percentage
 		cmp.Enter_Percentage("15000");
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Item Based Discount Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
 		{
@@ -1055,11 +1081,11 @@ public WebDriver driver;
 		//Disable Hide in POS
 		dcp.Disable_Restrict_POS_Visiblity_ByUser();
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Item Based Discount Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
 		{
@@ -1116,11 +1142,11 @@ public WebDriver driver;
 		//Select Available Time
 //		at.Enter_AvailableTime();
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Item Based Discount Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
 		{
@@ -1164,16 +1190,16 @@ public WebDriver driver;
 		for(int i = 1;i <= 10;i++) {driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);}Thread.sleep(4000);
 		//Select Category
 		ucp.Select_SubCategoryType();
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		
 		//Select Date Range
 		at.Select_DateRange();
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Item Based Discount Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
 		{
@@ -1226,7 +1252,7 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Item Based Discount Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
 		{
@@ -1274,11 +1300,11 @@ public WebDriver driver;
 		//Select DateRange with Time
 		at.Select_DateRangeWithTime();
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Item Based Discount Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
 		{
@@ -1413,11 +1439,11 @@ public WebDriver driver;
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Enable Active Status
 		cmp.Click_InactivetoActiveButton();
 				
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Check whether verify whether the Active page opened or not
 		cmp.VerifyActive_InactiveStatus("Active");
 		
@@ -1643,7 +1669,7 @@ public WebDriver driver;
 		cmp.Click_Save_and_PublishButton();
 		
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Item Based Discount Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Name already exists"))
 		{
@@ -1651,11 +1677,21 @@ public WebDriver driver;
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
+		{
+			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
+			
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
+		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Name already exists pop up not Displayed");
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
 		}
 		
 		   Thread.sleep(3000);

@@ -384,7 +384,7 @@ public WebDriver driver;
 		gcp.Select_GiftCard_Discount(Utility.getProperty("GiftCard_Number"));
 
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Update button
 		cmp.Click_UpdateButton();
 		

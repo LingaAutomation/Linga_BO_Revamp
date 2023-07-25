@@ -370,12 +370,12 @@ public WebDriver driver;
 				
 		Thread.sleep(2000);
 		//Click the Save and Publish button
-		cmp.Click_Update_and_PublishButton();
+		cmp.Click_Save_and_PublishButton();
 		
 		
 		Thread.sleep(3000);
 		//Check whether the Check Based Discount Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Saved Successfully"))
 		{
 			test.log(LogStatus.PASS, "Check Based Discount Saved Successfully");
 		
@@ -794,7 +794,10 @@ public WebDriver driver;
 		//Enter the Percentage
 		cmp.Enter_Percentage("15000");
 		
-		
+		Thread.sleep(1000);
+		ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		Thread.sleep(1000);
+	
 		//Select the Exclude Category
 		dcp.Select_Exclude_Category();
 		
@@ -898,7 +901,11 @@ public WebDriver driver;
 		//Enter the Set Price Amount
 		dcp.Enter_Set_Price("1000");
 		
-		
+		Thread.sleep(1000);
+		test.log(LogStatus.INFO, "To check available Offers before Update");
+		ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		Thread.sleep(1000);
+
 			
 		Thread.sleep(1500);
 		//Click the Update and Publish button
@@ -978,6 +985,12 @@ public WebDriver driver;
 		
 		//Enter the Priority
 		cmp.Enter_Priority("2");
+		
+		driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+
+		test.log(LogStatus.INFO, "To check available Offers after Update");
+		ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		
 		Thread.sleep(500);
 		//Add Offers
@@ -1410,11 +1423,27 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the Check Based Discount Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Name already exist"))
+		{
+			test.log(LogStatus.PASS, "Category Name already exist pop up displayed");
+		
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
 		{
 			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Saved Successfully"))
+		{
+			test.log(LogStatus.FAIL, "Duplicate Check Based Discount Saved");
+		
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		else
 		{
