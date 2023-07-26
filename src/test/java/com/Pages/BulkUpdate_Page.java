@@ -33,28 +33,28 @@ public class BulkUpdate_Page {
 	  
 	  
 	    
-	    @FindBy(xpath = "//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[6]/div//input")
+	    @FindBy(xpath = "//table/tbody/tr[1]/td[6]//input")
 	    WebElement TextInput;
 	    
 	    
 	    
-	    @FindBy(xpath = "//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[5]/div/span")
+	    @FindBy(xpath = "//table/tbody/tr[1]/td[5]//span")
 	    WebElement Existing_Price;
 	    
 	  
 	    
-	    @FindBy(xpath = "//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[7]/div/div")
+	    @FindBy(xpath = "//table/tbody/tr[1]/td[7]")
 	    WebElement Change_Price;
 	    
 	 
 	    
-	    @FindBy(xpath = "//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[3]/span")
+	    @FindBy(xpath = "//table/tbody/tr[1]/td[2]/span")
 	    WebElement Menu_Name;
 	    
 	    
 	    		
 	    @FindBy(xpath = "//input[@placeholder='Search']")
-	    WebElement Search_Bulk_Update;
+	    WebElement SearchBox_BulkUpdate;
 	    
 	  
 	    
@@ -63,7 +63,7 @@ public class BulkUpdate_Page {
 	    
 	  
 	    
-	    @FindBy(xpath = "//span[contains(.,'Category/Sub-Category')]/../div[1]")
+	    @FindBy(xpath = "//th[contains(.,'Category/Sub-Category')]/../th[1]/mat-checkbox")
 	    WebElement Check_Box_Bulk_Update;
 	    
 	  
@@ -80,19 +80,19 @@ public class BulkUpdate_Page {
 	    @FindBy(xpath = "//span[contains(@class,'closeBtn')]")
 	    WebElement Close_button;
 	    
-	    @FindBy(xpath = "//span[contains(.,'Operation Type')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[contains(.,'Decrease')]")
+	    @FindBy(xpath = "//app-toggle[@name='operationType']//mat-button-toggle-group/mat-button-toggle/button[contains(.,'Decrease')]")
 	    WebElement Decrease_button;
 	    
 	    
-	    @FindBy(xpath = "//span[contains(.,'Operation Type')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[contains(.,'Increase')]")
+	    @FindBy(xpath = "//app-toggle[@name='operationType']//mat-button-toggle-group/mat-button-toggle/button[contains(.,'Increase')]")
 	    WebElement Increase_button;
 	    
 	  
 	    
-	    @FindBy(xpath = "//span[contains(.,'Change By')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[contains(.,'Amount')]")
+	    @FindBy(xpath = "//app-toggle[@name='changeBy']//mat-button-toggle-group/mat-button-toggle/button[contains(.,'Amount')]")
 	    WebElement Amount_button;
 	    
-	    @FindBy(xpath = "//span[contains(.,'Change By')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle/button[contains(.,'Percentage')]")
+	    @FindBy(xpath = "//app-toggle[@name='changeBy']//mat-button-toggle-group/mat-button-toggle/button[contains(.,'Percentage')]")
 	    WebElement Percentage_button;
 	    
 	    @FindBy(xpath = "//label[contains(.,' Amount ')]/../../input")
@@ -134,7 +134,7 @@ public class BulkUpdate_Page {
 			
 String item_Name = Menu_Name.getText();
 			
-			Search_Bulk_Update.sendKeys(item_Name);
+			new Common_XPaths(driver, test).SearchBox.sendKeys(item_Name);
 			
 			String Existing_Menu_Price = Existing_Price.getText().replaceAll("[a-zA-Z $ ₹ , :]", "").substring(1).toString();
 			
@@ -145,7 +145,7 @@ String item_Name = Menu_Name.getText();
 			
 
 			Thread.sleep(3000);
-			Search_Bulk_Update.clear();
+			new Common_XPaths(driver, test).SearchBox.clear();
 			Thread.sleep(6000);
 			driver.navigate().refresh();
 			Thread.sleep(3000);
@@ -203,7 +203,7 @@ String item_Name = Menu_Name.getText();
 			
 			String item_Name = Menu_Name.getText();
 						
-						Search_Bulk_Update.sendKeys(item_Name);
+						new Common_XPaths(driver, test).SearchBox.sendKeys(item_Name);
 						
 						String Existing_Menu_Price = Existing_Price.getText().replaceAll("[a-zA-Z $ ₹ , :]", "").substring(1).toString();
 						
@@ -214,7 +214,7 @@ String item_Name = Menu_Name.getText();
 						
 
 						Thread.sleep(3000);
-						Search_Bulk_Update.clear();
+						new Common_XPaths(driver, test).SearchBox.clear();
 						Thread.sleep(6000);
 						driver.navigate().refresh();
 						Thread.sleep(3000);
@@ -274,7 +274,7 @@ String item_Name = Menu_Name.getText();
 			
 			String item_Name = Menu_Name.getText();
 						
-						Search_Bulk_Update.sendKeys(item_Name);
+						new Common_XPaths(driver, test).SearchBox.sendKeys(item_Name);
 						
 						String Existing_Menu_Price = Existing_Price.getText().replaceAll("[a-zA-Z $ ₹ , :]", "").substring(1).toString();
 						
@@ -285,7 +285,7 @@ String item_Name = Menu_Name.getText();
 						
 
 						Thread.sleep(3000);
-						Search_Bulk_Update.clear();
+						new Common_XPaths(driver, test).SearchBox.clear();
 						Thread.sleep(6000);
 						driver.navigate().refresh();
 						Thread.sleep(3000);
@@ -344,7 +344,7 @@ String item_Name = Menu_Name.getText();
 			
 			String item_Name = Menu_Name.getText();
 						
-						Search_Bulk_Update.sendKeys(item_Name);
+						new Common_XPaths(driver, test).SearchBox.sendKeys(item_Name);
 						
 						String Existing_Menu_Price = Existing_Price.getText().replaceAll("[a-zA-Z $ ₹ , :]", "").substring(1).toString();
 						
@@ -355,7 +355,7 @@ String item_Name = Menu_Name.getText();
 						
 
 						Thread.sleep(3000);
-						Search_Bulk_Update.clear();
+						new Common_XPaths(driver, test).SearchBox.clear();
 						Thread.sleep(6000);
 						driver.navigate().refresh();
 						Thread.sleep(3000);
@@ -448,7 +448,8 @@ String item_Name = Menu_Name.getText();
 		
 			String item_Name = Menu_Name.getText();
 			
-			Search_Bulk_Update.sendKeys(item_Name);
+//			new Common_XPaths(driver, test).SearchBox.sendKeys(item_Name);
+			new Common_XPaths(driver, test).SearchBox.sendKeys(item_Name);
 			
 			String Existing_Menu_Price = Existing_Price.getText().replaceAll("[a-zA-Z $ ₹ , :]", "").substring(1).toString();
 			
@@ -492,7 +493,7 @@ String item_Name = Menu_Name.getText();
 			}
 			
 			Thread.sleep(3000);
-			Search_Bulk_Update.clear();
+			new Common_XPaths(driver, test).SearchBox.clear();
 			Thread.sleep(6000);
 			driver.navigate().refresh();
 			Thread.sleep(3000);
@@ -500,9 +501,9 @@ String item_Name = Menu_Name.getText();
 			//Load the bulk Menu Updates page
 			driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id1")+"productItems");
 			Thread.sleep(6000);
-			Search_Bulk_Update.sendKeys(item_Name);
+			new Common_XPaths(driver, test).SearchBox.sendKeys(item_Name);
 			
-			String item_price = driver.findElement(By.xpath("//div[contains(.,'"+item_Name+"')]/../div[5]/div/div/span")).getText().replaceAll("[a-zA-Z $ ₹ , :]", "").substring(1).toString();
+			String item_price = driver.findElement(By.xpath("//td[contains(.,'"+item_Name+"')]/../td[5]")).getText().replaceAll("[a-zA-Z $ ₹ , :]", "").substring(1).toString();
 			Thread.sleep(6000);
 			
 			if(After_change_Existing_Menu_Price.equalsIgnoreCase(item_price)) {

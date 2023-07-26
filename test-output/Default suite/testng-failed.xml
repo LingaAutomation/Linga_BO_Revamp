@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Test.Product_Items_AddEditDelete_Open_Item_Discount">
+      <class name="com.Test.Product_Items_Bulk_Update">
         <methods>
-          <include name="flushTest"/>
           <include name="Calling"/>
+          <include name="flushTest"/>
           <include name="TestFail"/>
         </methods>
-      </class> <!-- com.Test.Product_Items_AddEditDelete_Open_Item_Discount -->
+      </class> <!-- com.Test.Product_Items_Bulk_Update -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

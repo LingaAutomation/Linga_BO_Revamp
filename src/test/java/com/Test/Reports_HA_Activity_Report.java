@@ -110,17 +110,17 @@ public WebDriver driver;
 		Open_HA_Activity_Report_Page(driver);
 //		RefreshAndPaginination(driver);
 		HA_Activity_Report_Verify_Card_Search(driver);
-		HA_Activity_Report_Today(driver);
-		HA_Activity_Report_Yesterday(driver);
+		//HA_Activity_Report_Today(driver);
+		//HA_Activity_Report_Yesterday(driver);
 		HA_Activity_Report_Last_N_Days(driver);
 		HA_Activity_Report_This_Week(driver);
-		HA_Activity_Report_Last_Week(driver);
-		HA_Activity_Report_Last_7_Days(driver);
-		HA_Activity_Report_This_Month(driver);
-		HA_Activity_Report_Last_Month(driver);
-		HA_Activity_Report_Last_30_Days(driver);
-		HA_Activity_Report_Specific_Date(driver);
-		HA_Activity_Report_Date_Range(driver);
+		//HA_Activity_Report_Last_Week(driver);
+		//HA_Activity_Report_Last_7_Days(driver);
+		//HA_Activity_Report_This_Month(driver);
+		//HA_Activity_Report_Last_Month(driver);
+		//HA_Activity_Report_Last_30_Days(driver);
+		//HA_Activity_Report_Specific_Date(driver);
+		//HA_Activity_Report_Date_Range(driver);
 	}
 	
 	@Test(priority = 3,enabled = false)

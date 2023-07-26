@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="8" total="11" passed="2" failed="1" skipped="0">
+<testng-results ignored="5" total="8" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-07-25T19:27:21 IST" name="Default suite" finished-at="2023-07-25T19:30:01 IST" duration-ms="159424">
+  <suite started-at="2023-07-26T19:12:20 IST" name="Default suite" finished-at="2023-07-26T19:15:20 IST" duration-ms="179553">
     <groups>
     </groups>
-    <test started-at="2023-07-25T19:27:21 IST" name="Default test" finished-at="2023-07-25T19:30:01 IST" duration-ms="159424">
-      <class name="com.Test.Product_Items_AddEditDelete_Open_Item_Discount">
-        <test-method signature="Login()[pri:1, instance:com.Test.Product_Items_AddEditDelete_Open_Item_Discount@4e07b95f]" started-at="2023-07-25T19:27:21 IST" name="Login" finished-at="2023-07-25T19:28:36 IST" duration-ms="74613" status="PASS">
+    <test started-at="2023-07-26T19:12:20 IST" name="Default test" finished-at="2023-07-26T19:15:20 IST" duration-ms="179553">
+      <class name="com.Test.Product_Items_Bulk_Update">
+        <test-method signature="Login()[pri:1, instance:com.Test.Product_Items_Bulk_Update@51c693d]" started-at="2023-07-26T19:12:20 IST" name="Login" finished-at="2023-07-26T19:13:07 IST" duration-ms="47318" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_AddEditDelete_Open_Item_Discount@4e07b95f]" started-at="2023-07-25T19:28:36 IST" name="TestFail" finished-at="2023-07-25T19:28:36 IST" duration-ms="11" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_Bulk_Update@51c693d]" started-at="2023-07-26T19:13:07 IST" name="TestFail" finished-at="2023-07-26T19:13:07 IST" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login status=SUCCESS method=Product_Items_AddEditDelete_Open_Item_Discount.Login()[pri:1, instance:com.Test.Product_Items_AddEditDelete_Open_Item_Discount@4e07b95f] output={null}]]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=Product_Items_Bulk_Update.Login()[pri:1, instance:com.Test.Product_Items_Bulk_Update@51c693d] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method signature="Calling()[pri:2, instance:com.Test.Product_Items_AddEditDelete_Open_Item_Discount@4e07b95f]" started-at="2023-07-25T19:28:36 IST" name="Calling" finished-at="2023-07-25T19:29:50 IST" duration-ms="73860" status="FAIL">
+        <test-method signature="Calling()[pri:2, instance:com.Test.Product_Items_Bulk_Update@51c693d]" started-at="2023-07-26T19:13:07 IST" name="Calling" finished-at="2023-07-26T19:15:09 IST" duration-ms="121505" status="FAIL">
           <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//button[.='EDIT']"}
-  (Session info: chrome=114.0.5735.199)
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//span[contains(.,'Category/Sub-Category')]/../div[1]"}
+  (Session info: chrome=114.0.5735.248)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.10.0', revision: 'c14d967899'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.6'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c552b188ce98dc963321b23057c32be1, findElement {using=xpath, value=//button[.='EDIT']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:52781}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52781/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c552b188ce98dc963321b23057c32be1]]>
+Command: [4854324f0eb3708a191c77a949f593dc, findElement {using=xpath, value=//span[contains(.,'Category/Sub-Category')]/../div[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.248, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:53453}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53453/devtoo..., se:cdpVersion: 114.0.5735.248, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4854324f0eb3708a191c77a949f593dc]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//button[.='EDIT']"}
-  (Session info: chrome=114.0.5735.199)
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//span[contains(.,'Category/Sub-Category')]/../div[1]"}
+  (Session info: chrome=114.0.5735.248)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.10.0', revision: 'c14d967899'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.6'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c552b188ce98dc963321b23057c32be1, findElement {using=xpath, value=//button[.='EDIT']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:52781}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52781/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c552b188ce98dc963321b23057c32be1
+Command: [4854324f0eb3708a191c77a949f593dc, findElement {using=xpath, value=//span[contains(.,'Category/Sub-Category')]/../div[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.248, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:53453}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53453/devtoo..., se:cdpVersion: 114.0.5735.248, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4854324f0eb3708a191c77a949f593dc
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -64,9 +64,9 @@ at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:3
 at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
 at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
 at jdk.proxy2/jdk.proxy2.$Proxy17.click(Unknown Source)
-at com.Pages.DiscountsPage.Click_Open_Edit(DiscountsPage.java:1408)
-at com.Test.Product_Items_AddEditDelete_Open_Item_Discount.Add_Open_Item_DiscountType_Promo(Product_Items_AddEditDelete_Open_Item_Discount.java:186)
-at com.Test.Product_Items_AddEditDelete_Open_Item_Discount.Calling(Product_Items_AddEditDelete_Open_Item_Discount.java:110)
+at com.Pages.BulkUpdate_Page.Bulk_update_menu_Item(BulkUpdate_Page.java:532)
+at com.Test.Product_Items_Bulk_Update.Verify_BulkUpdate_MenuItem_Update_Page(Product_Items_Bulk_Update.java:148)
+at com.Test.Product_Items_Bulk_Update.Calling(Product_Items_Bulk_Update.java:106)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -101,37 +101,37 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Calling -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_AddEditDelete_Open_Item_Discount@4e07b95f]" started-at="2023-07-25T19:29:50 IST" name="TestFail" finished-at="2023-07-25T19:29:50 IST" duration-ms="308" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_Bulk_Update@51c693d]" started-at="2023-07-26T19:15:09 IST" name="TestFail" finished-at="2023-07-26T19:15:09 IST" duration-ms="266" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Calling status=FAILURE method=Product_Items_AddEditDelete_Open_Item_Discount.Calling()[pri:2, instance:com.Test.Product_Items_AddEditDelete_Open_Item_Discount@4e07b95f] output={null}]]]>
+                <![CDATA[[TestResult name=Calling status=FAILURE method=Product_Items_Bulk_Update.Calling()[pri:2, instance:com.Test.Product_Items_Bulk_Update@51c693d] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method signature="LogOut()[pri:50, instance:com.Test.Product_Items_AddEditDelete_Open_Item_Discount@4e07b95f]" started-at="2023-07-25T19:29:50 IST" name="LogOut" finished-at="2023-07-25T19:29:58 IST" duration-ms="7755" status="PASS">
+        <test-method signature="LogOut()[pri:50, instance:com.Test.Product_Items_Bulk_Update@51c693d]" started-at="2023-07-26T19:15:09 IST" name="LogOut" finished-at="2023-07-26T19:15:17 IST" duration-ms="7586" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogOut -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_AddEditDelete_Open_Item_Discount@4e07b95f]" started-at="2023-07-25T19:29:58 IST" name="TestFail" finished-at="2023-07-25T19:29:58 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_Bulk_Update@51c693d]" started-at="2023-07-26T19:15:17 IST" name="TestFail" finished-at="2023-07-26T19:15:17 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=LogOut status=SUCCESS method=Product_Items_AddEditDelete_Open_Item_Discount.LogOut()[pri:50, instance:com.Test.Product_Items_AddEditDelete_Open_Item_Discount@4e07b95f] output={null}]]]>
+                <![CDATA[[TestResult name=LogOut status=SUCCESS method=Product_Items_Bulk_Update.LogOut()[pri:50, instance:com.Test.Product_Items_Bulk_Update@51c693d] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method is-config="true" signature="flushTest()[pri:0, instance:com.Test.Product_Items_AddEditDelete_Open_Item_Discount@4e07b95f]" started-at="2023-07-25T19:29:58 IST" name="flushTest" finished-at="2023-07-25T19:30:01 IST" duration-ms="2800" status="PASS">
+        <test-method is-config="true" signature="flushTest()[pri:0, instance:com.Test.Product_Items_Bulk_Update@51c693d]" started-at="2023-07-26T19:15:17 IST" name="flushTest" finished-at="2023-07-26T19:15:20 IST" duration-ms="2823" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flushTest -->
-      </class> <!-- com.Test.Product_Items_AddEditDelete_Open_Item_Discount -->
+      </class> <!-- com.Test.Product_Items_Bulk_Update -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

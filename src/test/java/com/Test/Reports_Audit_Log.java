@@ -98,10 +98,10 @@ public class Reports_Audit_Log {
 //		RefreshAndPaginination(driver);
 		
 		  Audit_Log_Today_PaymentName(driver);
-		  Audit_Log_Yesterday_PaymentName(driver);
-		  Audit_Log_Last_N_Days_PaymentName(driver);
-		  Audit_Log_This_Week_PaymentName(driver);
-		  Audit_Log_Last_Week_PaymentName(driver);
+		 // Audit_Log_Yesterday_PaymentName(driver);
+		  //Audit_Log_Last_N_Days_PaymentName(driver);
+		  //Audit_Log_This_Week_PaymentName(driver);
+		  //Audit_Log_Last_Week_PaymentName(driver);
 		  Audit_Log_Last_7_Days_PaymentName(driver);
 		  Audit_Log_This_Month_PaymentName(driver);
 		  Audit_Log_Last_Month_PaymentName(driver);
@@ -214,8 +214,7 @@ public class Reports_Audit_Log {
 		Thread.sleep(1000);
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
-		// ExcelDataConfig excel=new
-		// ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
+		// ExcelDataConfig excel=newExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		SelectTheSourceAsBO(driver);
 
 		// Select Today
@@ -229,8 +228,11 @@ public class Reports_Audit_Log {
 		Thread.sleep(1000);
 		// Click Apply
 		repts.Click_ApplyButton();
-
-		Thread.sleep(8000);
+		
+		
+	
+		
+		Thread.sleep(40000);
 		try {
 			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Today");

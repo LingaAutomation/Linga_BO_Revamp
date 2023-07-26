@@ -293,6 +293,8 @@ public WebDriver driver;
 //		}
 //		catch(Exception e)
 //		{
+		
+		
 //		}
 				
 				Thread.sleep(500);
@@ -675,7 +677,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the Mix and Match Discount Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Updated & Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "Mix and Match Discount updated successfully for Comp Discount Type and Set Each Item Price Discount Rate");
 		
@@ -840,7 +842,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the Mix and Match Discount Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Updated & Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "Mix and Match Discount updated successfully for Donation Discount Type");
 		
@@ -1061,7 +1063,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the Mix and Match Discount Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Updated & Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "Mix and Match Discount updated successfully for Days of Week");
 		
@@ -1113,7 +1115,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the Mix and Match Discount Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Updated & Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "Mix and Match Discount updated successfully for Days of Month");
 		
@@ -1158,7 +1160,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the Mix and Match Discount Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Updated & Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "Mix and Match Discount updated successfully for Date Range");
 		
@@ -1209,7 +1211,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the Mix and Match Discount Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Updated & Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "Mix and Match Discount updated successfully for Specific Date");
 		
@@ -1253,7 +1255,7 @@ public WebDriver driver;
 		
 		Thread.sleep(3000);
 		//Check whether the Mix and Match Discount Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Updated & Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "Mix and Match Discount updated successfully for Date Range with Time");
 		
@@ -1465,6 +1467,8 @@ public WebDriver driver;
 			test.log(LogStatus.PASS, "Name already exists pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
 		}
 		else
 		{

@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>2/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Jul 25 19:27:21 IST 2023</td>
+<td>Started on:</td><td>Wed Jul 26 19:12:20 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>159 seconds (159424 ms)</td>
+<tr><td>Total time:</td><td>179 seconds (179553 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,16 +75,16 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.Test.Product_Items_AddEditDelete_Open_Item_Discount.Calling()'><b>Calling</b><br>Test class: com.Test.Product_Items_AddEditDelete_Open_Item_Discount</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//button[.=&apos;EDIT&apos;]&quot;}
-  (Session info: chrome=114.0.5735.199)
+<td title='com.Test.Product_Items_Bulk_Update.Calling()'><b>Calling</b><br>Test class: com.Test.Product_Items_Bulk_Update</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[contains(.,&apos;Category/Sub-Category&apos;)]/../div[1]&quot;}
+  (Session info: chrome=114.0.5735.248)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.6&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c552b188ce98dc963321b23057c32be1, findElement {using=xpath, value=//button[.=&apos;EDIT&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:52781}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52781/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c552b188ce98dc963321b23057c32be1
+Command: [4854324f0eb3708a191c77a949f593dc, findElement {using=xpath, value=//span[contains(.,&apos;Category/Sub-Category&apos;)]/../div[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.248, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:53453}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53453/devtoo..., se:cdpVersion: 114.0.5735.248, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4854324f0eb3708a191c77a949f593dc
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -104,9 +104,9 @@ Session ID: c552b188ce98dc963321b23057c32be1
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
 	at jdk.proxy2/jdk.proxy2.$Proxy17.click(Unknown Source)
-	at com.Pages.DiscountsPage.Click_Open_Edit(DiscountsPage.java:1408)
-	at com.Test.Product_Items_AddEditDelete_Open_Item_Discount.Add_Open_Item_DiscountType_Promo(Product_Items_AddEditDelete_Open_Item_Discount.java:186)
-	at com.Test.Product_Items_AddEditDelete_Open_Item_Discount.Calling(Product_Items_AddEditDelete_Open_Item_Discount.java:110)
+	at com.Pages.BulkUpdate_Page.Bulk_update_menu_Item(BulkUpdate_Page.java:532)
+	at com.Test.Product_Items_Bulk_Update.Verify_BulkUpdate_MenuItem_Update_Page(Product_Items_Bulk_Update.java:148)
+	at com.Test.Product_Items_Bulk_Update.Calling(Product_Items_Bulk_Update.java:106)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -135,16 +135,16 @@ Session ID: c552b188ce98dc963321b23057c32be1
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace628599133", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace628599133'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//button[.=&apos;EDIT&apos;]&quot;}
-  (Session info: chrome=114.0.5735.199)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1874919946", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1874919946'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//span[contains(.,&apos;Category/Sub-Category&apos;)]/../div[1]&quot;}
+  (Session info: chrome=114.0.5735.248)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.6&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c552b188ce98dc963321b23057c32be1, findElement {using=xpath, value=//button[.=&apos;EDIT&apos;]}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.199, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:52781}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52781/devtoo..., se:cdpVersion: 114.0.5735.199, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c552b188ce98dc963321b23057c32be1
+Command: [4854324f0eb3708a191c77a949f593dc, findElement {using=xpath, value=//span[contains(.,&apos;Category/Sub-Category&apos;)]/../div[1]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 114.0.5735.248, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:53453}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53453/devtoo..., se:cdpVersion: 114.0.5735.248, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 4854324f0eb3708a191c77a949f593dc
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -164,9 +164,9 @@ Session ID: c552b188ce98dc963321b23057c32be1
 	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:70)
 	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:39)
 	at jdk.proxy2/jdk.proxy2.$Proxy17.click(Unknown Source)
-	at com.Pages.DiscountsPage.Click_Open_Edit(DiscountsPage.java:1408)
-	at com.Test.Product_Items_AddEditDelete_Open_Item_Discount.Add_Open_Item_DiscountType_Promo(Product_Items_AddEditDelete_Open_Item_Discount.java:186)
-	at com.Test.Product_Items_AddEditDelete_Open_Item_Discount.Calling(Product_Items_AddEditDelete_Open_Item_Discount.java:110)
+	at com.Pages.BulkUpdate_Page.Bulk_update_menu_Item(BulkUpdate_Page.java:532)
+	at com.Test.Product_Items_Bulk_Update.Verify_BulkUpdate_MenuItem_Update_Page(Product_Items_Bulk_Update.java:148)
+	at com.Test.Product_Items_Bulk_Update.Calling(Product_Items_Bulk_Update.java:106)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -196,8 +196,8 @@ Session ID: c552b188ce98dc963321b23057c32be1
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>73</td>
-<td>com.Test.Product_Items_AddEditDelete_Open_Item_Discount@4e07b95f</td></tr>
+<td>121</td>
+<td>com.Test.Product_Items_Bulk_Update@51c693d</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -207,15 +207,15 @@ Session ID: c552b188ce98dc963321b23057c32be1
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.Test.Product_Items_AddEditDelete_Open_Item_Discount.LogOut()'><b>LogOut</b><br>Test class: com.Test.Product_Items_AddEditDelete_Open_Item_Discount</td>
+<td title='com.Test.Product_Items_Bulk_Update.LogOut()'><b>LogOut</b><br>Test class: com.Test.Product_Items_Bulk_Update</td>
 <td></td>
 <td>7</td>
-<td>com.Test.Product_Items_AddEditDelete_Open_Item_Discount@4e07b95f</td></tr>
+<td>com.Test.Product_Items_Bulk_Update@51c693d</td></tr>
 <tr>
-<td title='com.Test.Product_Items_AddEditDelete_Open_Item_Discount.Login()'><b>Login</b><br>Test class: com.Test.Product_Items_AddEditDelete_Open_Item_Discount</td>
+<td title='com.Test.Product_Items_Bulk_Update.Login()'><b>Login</b><br>Test class: com.Test.Product_Items_Bulk_Update</td>
 <td></td>
-<td>74</td>
-<td>com.Test.Product_Items_AddEditDelete_Open_Item_Discount@4e07b95f</td></tr>
+<td>47</td>
+<td>com.Test.Product_Items_Bulk_Update@51c693d</td></tr>
 </table><p>
 </body>
 </html>

@@ -871,16 +871,16 @@ public class DiscountsPage {
 	
 	///////////// Open Item Discount  /////////////////////////
 	
-	@FindBy(xpath = "//app-toggle[contains(.,'Discount In Percentage')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[@name='discountIsPercentage']//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Discount_In_Percentage_YesBtn;
 	
-	@FindBy(xpath = "//app-toggle[contains(.,'Discount In Percentage')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[@name='discountIsPercentage']//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Discount_In_Percentage_NoBtn;
 	
-	@FindBy(xpath = "//app-toggle[contains(.,'Discount In Amount')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[@name='discountIsAmount']//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Discount_In_Amount_YesBtn;
 	
-	@FindBy(xpath = "//app-toggle[contains(.,'Discount In Amount')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[@name='discountIsAmount']//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Discount_In_Amount_NoBtn;
 	
 	@FindBy(xpath = "//label[contains(.,'Minimum Percentage')]/../../input")
@@ -1409,10 +1409,10 @@ public class DiscountsPage {
 	}
 	public WebElement Open_Item() 
 	{
-		return New_Open_Check_DiscountBtn;
+		return New_Open_Item_DiscountBtn;
 	}
 	public WebElement Open_Check() 
 	{
-		return New_Open_Item_DiscountBtn;
+		return New_Open_Check_DiscountBtn;
 	}
 }

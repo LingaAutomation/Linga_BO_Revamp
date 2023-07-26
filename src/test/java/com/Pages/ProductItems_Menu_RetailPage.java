@@ -1,5 +1,6 @@
 package com.Pages;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -9,6 +10,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -76,7 +79,7 @@ public class ProductItems_Menu_RetailPage {
 	@FindBy(xpath = "//input[@placeholder='Select Category']")
 	WebElement Category_InputBx;
 	
-	@FindBy(xpath = "//input[@placeholder='Select Sub Category']")
+	@FindBy(xpath = "//input[@placeholder='Select SubCategory']")
 	WebElement SubCategory_InputBx;
 	
 	@FindBy(xpath = "//mat-label[.=' Category ']/../../../input")
@@ -88,16 +91,16 @@ public class ProductItems_Menu_RetailPage {
 	@FindBy(xpath = "//label[contains(.,'Evertex Tax Type')]/../../input")
 	WebElement Evertex_Tax_TypeInputBx;
 	
-	@FindBy(xpath = "//span[contains(.,'Conversational UI at POS')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Conversational UI at POS')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Conversational_UI_atPOS_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Conversational UI at POS')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Conversational UI at POS')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Conversational_UI_atPOS_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Cut And Modify')]/../../div[2]/div/div/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Cut And Modify')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Cut_And_Modify_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Cut And Modify')]/../../div[2]/div/div/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Cut And Modify')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Cut_And_Modify_NoBtn;
 	
 	@FindBy(xpath = "//mat-button-toggle[contains(.,'FIXED')]")
@@ -106,13 +109,13 @@ public class ProductItems_Menu_RetailPage {
 	@FindBy(xpath = "//mat-button-toggle[contains(.,'VARIABLE')]")
 	WebElement Variable_Cost_TypeRadioBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Price Level Settings')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Price Level Settings')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Price_Level_Settings_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Price Level Settings')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Price Level Settings')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Price_Level_Settings_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Hide In Kiosk')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Hide In Kiosk')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Hide_In_Kiosk_YesBtn;
 	
 	public WebElement Hide_In_Kiosk_Yes()
@@ -121,10 +124,10 @@ public class ProductItems_Menu_RetailPage {
 	}
 	
 		
-	@FindBy(xpath = "//span[contains(.,'Hide In Kiosk')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Hide In Kiosk')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Hide_In_Kiosk_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'EBT Menu Item')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'EBT Menu Item')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement EBT_Menu_Item_YesBtn;
 		
 
@@ -133,10 +136,10 @@ public class ProductItems_Menu_RetailPage {
 		return EBT_Menu_Item_YesBtn;
 	}
 	
-	@FindBy(xpath = "//span[contains(.,'EBT Menu Item')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'EBT Menu Item')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement EBT_Menu_Item_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Hide In POS')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Hide In POS')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Hide_In_POS_YesBtn;
 	
 	public WebElement Hide_In_POS_Yes()
@@ -145,10 +148,10 @@ public class ProductItems_Menu_RetailPage {
 	}
 	
 		
-	@FindBy(xpath = "//span[contains(.,'Hide In POS')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Hide In POS')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Hide_In_POS_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Hide In Online Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Hide In Online Order')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Hide_In_Online_Order_YesBtn;
 	
 	public WebElement Hide_In_Online_Order_Yes()
@@ -157,10 +160,10 @@ public class ProductItems_Menu_RetailPage {
 	}
 	
 		
-	@FindBy(xpath = "//span[contains(.,'Hide In Online Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Hide In Online Order')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Hide_In_Online_Order_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'86 List')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'86 List')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Eighty_Six_List_YesBtn;
 	
 	public WebElement Eighty_Six_List_Yes()
@@ -168,10 +171,10 @@ public class ProductItems_Menu_RetailPage {
 		return Eighty_Six_List_YesBtn;
 	}
 		
-	@FindBy(xpath = "//span[contains(.,'86 List')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'86 List')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Eighty_Six_List_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Meito MenuItem')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Meito MenuItem')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Meito_MenuItem_YesBtn;
 	
 	public WebElement Meito_MenuItem_Yes()
@@ -179,7 +182,7 @@ public class ProductItems_Menu_RetailPage {
 		return Meito_MenuItem_YesBtn;
 	}
 		
-	@FindBy(xpath = "//span[contains(.,'Meito MenuItem')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Meito MenuItem')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Meito_MenuItem_NoBtn;
 	
 	@FindBy(xpath = "//button[contains(.,'Add Included Modifiers')]")
@@ -197,22 +200,22 @@ public class ProductItems_Menu_RetailPage {
 	@FindBy(xpath = "//span[contains(.,'Jump With Minimum Quantity')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Jump_With_Minimum_Quantity_NoBtn;
 	
-	@FindBy(xpath = "//h3[contains(.,'Mandatory Modifier Groups')]/../../..//span[contains(.,'Set Tiered Price')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//h3[contains(.,'Mandatory Modifier Groups')]/../../..//span[contains(.,'Set Tiered Price')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Set_Tiered_Price_MandatoryModifier_YesBtn;
 		
-	@FindBy(xpath = "//h3[contains(.,'Mandatory Modifier Groups')]/../../..//span[contains(.,'Set Tiered Price')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//h3[contains(.,'Mandatory Modifier Groups')]/../../..//span[contains(.,'Set Tiered Price')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Set_Tiered_Price_MandatoryModifier_NoBtn;
 	
-	@FindBy(xpath = "//h3[contains(.,'Optional Modifier Groups')]/../../..//span[contains(.,'Set Tiered Price')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//h3[contains(.,'Optional Modifier Groups')]/../../..//span[contains(.,'Set Tiered Price')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Set_Tiered_Price_OptionalModifier_YesBtn;
 		
-	@FindBy(xpath = "//h3[contains(.,'Optional Modifier Groups')]/../../..//span[contains(.,'Set Tiered Price')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//h3[contains(.,'Optional Modifier Groups')]/../../..//span[contains(.,'Set Tiered Price')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Set_Tiered_Price_OptionalModifier_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Alternate Modifier Group')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Alternate Modifier Group')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Alternate_Modifier_Group_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Alternate Modifier Group')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Alternate Modifier Group')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Alternate_Modifier_Group_NoBtn;
 	
 	public void Click_New_MenuItem()
@@ -300,54 +303,53 @@ public class ProductItems_Menu_RetailPage {
 		cmp.Click_Wait_ForElementClickable(Category_InputBx, 60);
 		Thread.sleep(1000);
 //		Category_InputBx.click();
-		cmp.Click_DropDown_withSearch(Category_InputBx, "Category Level selected");
-//		Thread.sleep(1000);
-//	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-//		
-//		
-//		int menuSize=menuList.size();
-//		
-//		if(menuSize==0)
-//		{
-//			Category_InputBx.click();
-//			Thread.sleep(10000);
-//
-//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-//			
-//			
-//			int menuSize1=menuList1.size();
-//			
-//			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
-//			
-//			
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-//			
-//			
-//		}
-//		else if(menuSize<=6)
-//		{
-//		
-//		int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-//		
-//		
-//		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-//		}
-//		else
-//		{
-//			int randomMenu=ThreadLocalRandom.current().nextInt(1, 6);
-//			
-//			
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-//		
-//		}
-//		
-//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-//
-//		
-//		if(menuList1.size()!=0)
-//		{
-//			Category_InputBx.click();
-//		}
+		
+		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(Category_InputBx)).click();
+//		CoursingDropBtn.click();
+		
+		Category_InputBx .click();
+		
+		Thread.sleep(1000);
+		List<WebElement> CategoryList=driver.findElements(By.xpath("//div/select-option"));
+		
+		int CategorySize=CategoryList.size();
+		
+		if(CategorySize<=6)
+		{
+		
+		int randomCategory=ThreadLocalRandom.current().nextInt(2, CategorySize);
+		
+		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
+		
+		cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomCategory+"]/select-option")).getText());
+		
+		driver.findElement(By.xpath("//div[1]/select-option")).click();
+		}
+		else
+		{
+			int randomCategory=ThreadLocalRandom.current().nextInt(1, 6);
+			
+			Thread.sleep(1000);
+//			driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
+			
+			cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomCategory+"]/select-option")).getText());
+			
+			driver.findElement(By.xpath("//div[1]/select-option")).click();
+		
+		}	
+		
+		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		
+		
+		
+		if(menuList1.size()!=0)
+		{
+			SubCategory_InputBx.click();
+		}
 	}
 	
 
@@ -362,28 +364,46 @@ public class ProductItems_Menu_RetailPage {
 		cmp.Click_Wait_ForElementClickable(SubCategory_InputBx, 60);
 //		SubCategory_InputBx.click();
 	
-		cmp.Click_DropDown_withSearch(SubCategory_InputBx, "Sub Category Level selected");
 	
+		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(SubCategory_InputBx)).click();
+//		CoursingDropBtn.click();
+		
+		SubCategory_InputBx.click();
+		
+		Thread.sleep(1000);
+		
+		driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
+//		List<WebElement> SubCategoryList=driver.findElements(By.xpath("//div/select-option"));
+//		
+//		int SubCategorySize=SubCategoryList.size();
+//		
+//		if(SubCategorySize<=6)
+//		{
+//		
+//		int randomSubCategory=ThreadLocalRandom.current().nextInt(1, SubCategorySize);
+//		
 //		Thread.sleep(1000);
-//		List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+////		driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
 //		
-//			int menuSize=menuList.size();
+//		cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomSubCategory+"]/select-option")).getText());
 //		
-//			if(menuSize==0)
-//			{
-//			SubCategory_InputBx.click();
+//		driver.findElement(By.xpath("//div[1]/select-option")).click();
+//		}
+//		else
+//		{
+//			int randomSubCategory=ThreadLocalRandom.current().nextInt(1, 6);
 //			
 //			Thread.sleep(1000);
-//			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+////			driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
 //			
-//			int menuSize1=menuList1.size();
+//			cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomSubCategory+"]/select-option")).getText());
+//			
+//			driver.findElement(By.xpath("//div[1]/select-option")).click();
 //		
-//			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
-//		
-//		
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-//		
-//			}
+//		}
 //			else if(menuSize==1)
 //			{
 //				try
@@ -422,13 +442,13 @@ public class ProductItems_Menu_RetailPage {
 //				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
 //			
 //			}
-//		
-//			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-//
-//			if(menuList1.size()!=0)
-//			{
-//				SubCategory_InputBx.click();
-//			}
+		
+			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+
+			if(menuList1.size()!=0)
+			{
+				SubCategory_InputBx.click();
+			}
 		
 	}
 	
@@ -445,54 +465,53 @@ public class ProductItems_Menu_RetailPage {
 		Thread.sleep(1000);
 //		Category_InputBx.click();
 		
-		new Common_XPaths(driver, test).Click_DropDown_withSearch(Category_RetailInventoryInputBx, "Category Selected");
-//		Thread.sleep(1000);
-//	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-//		
-//		
-//		int menuSize=menuList.size();
-//		
-//		if(menuSize==0)
-//		{
-//			Category_RetailInventoryInputBx.click();
-//			Thread.sleep(10000);
-//
-//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-//			
-//			
-//			int menuSize1=menuList1.size();
-//			
-//			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
-//			
-//			
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-//			
-//			
-//		}
-//		else if(menuSize<=6)
-//		{
-//		
-//		int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-//		
-//		
-//		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-//		}
-//		else
-//		{
-//			int randomMenu=ThreadLocalRandom.current().nextInt(1, 6);
-//			
-//			
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-//		
-//		}
-//		
-//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-//
-//		
-//		if(menuList1.size()!=0)
-//		{
-//			Category_RetailInventoryInputBx.click();
-//		}
+		Thread.sleep(1000);
+	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
+		
+		
+		int menuSize=menuList.size();
+		
+		if(menuSize==0)
+		{
+			Category_RetailInventoryInputBx.click();
+			Thread.sleep(10000);
+
+		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
+			
+			
+			int menuSize1=menuList1.size();
+			
+			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
+			
+			
+			driver.findElement(By.xpath("//div[@class='options with-height']']//div/div["+randomMenu+"]/select-option")).click();
+			
+			
+		}
+		else if(menuSize<=6)
+		{
+		
+		int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
+		
+		
+		driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
+		}
+		else
+		{
+			int randomMenu=ThreadLocalRandom.current().nextInt(1, 6);
+			
+			
+			driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
+		
+		}
+		
+		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
+
+		
+		if(menuList1.size()!=0)
+		{
+			Category_RetailInventoryInputBx.click();
+		}
 	}
 	
 
@@ -507,72 +526,72 @@ public class ProductItems_Menu_RetailPage {
 		cmp.Click_Wait_ForElementClickable(SubCategory_RetailInventoryInputBx, 60);
 //		SubCategory_InputBx.click();
 	
-		new Common_XPaths(driver, test).Click_DropDown_withSearch(SubCategory_RetailInventoryInputBx, "SubCategory selected");
+	
 		Thread.sleep(1000);
-//		List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-//		
-//			int menuSize=menuList.size();
-//		
-//			if(menuSize==0)
-//			{
-//				SubCategory_RetailInventoryInputBx.click();
-//			
-//			Thread.sleep(1000);
-//			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-//			
-//			int menuSize1=menuList1.size();
-//		
-//			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
-//		
-//		
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-//		
-//			}
-//			else if(menuSize==1)
-//			{
-//				try
-//				{
-//				if(driver.findElement(By.xpath("//select-option[contains(.,'No results match')]")).isDisplayed())
-//				{
-//					
-//					test.log(LogStatus.INFO, "Sub Categories not available for Selected Category");
-//					
-//					driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
-//					driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
-//
-//					Click_Category_LevelType();
-//					Thread.sleep(1000);
-//					Select_Category_RetailInventoryLevelType();
-//					
-//				}
-//				}
-//				catch(Exception e)
-//				{
-//					driver.findElement(By.xpath("//select-option[1]")).click();
-//				}
-//			}
-//			else if(menuSize>=1 && menuSize<=6)
-//			{
-//				int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-//		
-//		
-//				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-//			}
-//			else
-//			{
-//				int randomMenu=ThreadLocalRandom.current().nextInt(1, 6);
-//			
-//			
-//				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-//			
-//			}
-//		
-//			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-//
-//			if(menuList1.size()!=0)
-//			{
-//				SubCategory_RetailInventoryInputBx.click();
-//			}
+		List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
+		
+			int menuSize=menuList.size();
+		
+			if(menuSize==0)
+			{
+				SubCategory_RetailInventoryInputBx.click();
+			
+			Thread.sleep(1000);
+			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
+			
+			int menuSize1=menuList1.size();
+		
+			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
+		
+		
+			driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
+		
+			}
+			else if(menuSize==1)
+			{
+				try
+				{
+				if(driver.findElement(By.xpath("//select-option[contains(.,'No results match')]")).isDisplayed())
+				{
+					
+					test.log(LogStatus.INFO, "Sub Categories not available for Selected Category");
+					
+					driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+					driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+
+					Click_Category_LevelType();
+					Thread.sleep(1000);
+					Select_Category_RetailInventoryLevelType();
+					
+				}
+				}
+				catch(Exception e)
+				{
+					driver.findElement(By.xpath("//select-option[1]")).click();
+				}
+			}
+			else if(menuSize>=1 && menuSize<=6)
+			{
+				int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
+		
+		
+				driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
+			}
+			else
+			{
+				int randomMenu=ThreadLocalRandom.current().nextInt(1, 6);
+			
+			
+				driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
+			
+			}
+		
+			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
+
+			if(menuList1.size()!=0)
+			{
+				SubCategory_RetailInventoryInputBx.click();
+			}
 		
 	}
 
@@ -582,7 +601,7 @@ public class ProductItems_Menu_RetailPage {
 		Evertex_Tax_TypeInputBx.click();
 		
 		Thread.sleep(1000);
-	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
 		
 		int menuSize=menuList.size();
 		
@@ -590,7 +609,7 @@ public class ProductItems_Menu_RetailPage {
 		int randomMenu=ThreadLocalRandom.current().nextInt(2, menuSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+		driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
 		
 	}
 	
@@ -673,7 +692,7 @@ public class ProductItems_Menu_RetailPage {
 		driver.findElement(By.xpath("//form[@id='pricingCostForm']/div/div/div/div/app-selectbox/div/mat-form-field/div/div/div[3]/input")).click();
 
 		Thread.sleep(1000);
-	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
 		
 		int menuSize=menuList.size();
 	
@@ -683,18 +702,18 @@ public class ProductItems_Menu_RetailPage {
 			driver.findElement(By.xpath("//form[@id='pricingCostForm']/div/div/div/div/app-selectbox/div/mat-form-field/div/div/div[3]/input")).click();
 
 			Thread.sleep(1000);
-		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
 			
 			int menuSize1=menuList1.size();
 		
 		int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+		driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
 		}
 		else if(menuSize==1)
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
 
 		}
 		else
@@ -702,7 +721,7 @@ public class ProductItems_Menu_RetailPage {
 			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
 			
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+			driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
 			
 		}
 		
@@ -732,16 +751,18 @@ public class ProductItems_Menu_RetailPage {
 		
 		driver.findElement(By.xpath("//form[@id='pricingCostForm']/div/div/div/div/app-selectbox/div/mat-form-field/div/div/div[3]/input")).click();
 
-		Thread.sleep(1000);
-	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+//		Thread.sleep(1000);
+//	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
+//		
+//		int menuSize=menuList.size();
+//		
+//		
+//		int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
 		
-		int menuSize=menuList.size();
 		
+//		driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
 		
-		int randomMenu=ThreadLocalRandom.current().nextInt(2, menuSize);
-		
-		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+		driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
 	
 	Thread.sleep(1000);
 	driver.findElement(By.xpath("//form[@id='pricingCostForm']/div/div/div/div[2]//input")).clear();
@@ -779,7 +800,7 @@ public class ProductItems_Menu_RetailPage {
 		driver.findElement(By.xpath("//form[@id='pricingCostForm']/div/div/div/div/app-selectbox/div/mat-form-field/div/div/div[3]/input")).click();
 
 		Thread.sleep(2000);
-	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
 		
 	if(menuList.size()>1)
 	{
@@ -789,12 +810,12 @@ public class ProductItems_Menu_RetailPage {
 		int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+		driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
 	
 	}
 	else
 	{
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+		driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
 	}
 	
 	//Enter the cost
@@ -813,7 +834,7 @@ public class ProductItems_Menu_RetailPage {
 		driver.findElement(By.xpath("//form[@id='pricingCostForm']/div/div/div/div/app-selectbox/div/mat-form-field/div/div/div[3]/input")).click();
 
 		Thread.sleep(1000);
-	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+	List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
 		
 	if(menuList.size()>1)
 	{
@@ -823,12 +844,12 @@ public class ProductItems_Menu_RetailPage {
 		int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
 		
 		
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+		driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
 	
 	}
 	else
 	{
-		driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+		driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
 	}
 	//Enter the S No
 		driver.findElement(By.xpath("//form[@id='pricingCostForm']/div/div/div/div[2]//input")).clear();
@@ -904,13 +925,15 @@ public class ProductItems_Menu_RetailPage {
 			Add_Menu_ItemBtn.click();
 		}
 		
+		
+		
 		Thread.sleep(1000);
 		for(int i=1;i<=4;i++)
 		{
 			driver.findElement(By.xpath("//form[@id='comboForm']//div[contains(@class,'combo-config-data')]["+i+"]/div[1]/app-selectbox/div/mat-form-field/div/div/div[3]/input")).click();
 			
 			Thread.sleep(1000);
-			List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+			List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
 				
 			if(menuList.size()>1)
 			{
@@ -919,13 +942,18 @@ public class ProductItems_Menu_RetailPage {
 				
 				int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
 				
+				try {
+				driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
+				}
 				
-				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-			
+				catch (Exception e) {
+					driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
+				}
 			}
+			
 			else
 			{
-				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+				driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
 			}
 				
 				Thread.sleep(1000);
@@ -933,7 +961,7 @@ public class ProductItems_Menu_RetailPage {
 				driver.findElement(By.xpath("//form[@id='comboForm']//div[contains(@class,'combo-config-data')]["+i+"]/div[2]/app-selectbox/div/mat-form-field/div/div/div[3]/input")).click();
 				
 				Thread.sleep(1000);
-				List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+				List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
 					
 				if(menuList.size()>1)
 				{
@@ -941,14 +969,18 @@ public class ProductItems_Menu_RetailPage {
 					
 					
 					int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
+					try {
 					
-					
-					driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-				
+					driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
+					}
+					catch (Exception e)
+					{
+						driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
+					}
 				}
 				else
 				{
-					driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+					driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
 				}
 					
 					Thread.sleep(1000);
@@ -1394,59 +1426,58 @@ public class ProductItems_Menu_RetailPage {
 	public void Select_ModifierGroup_Include_Modifiers() throws Exception
 	{
 		Thread.sleep(1000);
-		ModifierGroup_IncludeModifier_InputBx.click();
+	//	ModifierGroup_IncludeModifier_InputBx.click();
+		
+		cmp.Click_Wait_ForElementClickable(ModifierGroup_IncludeModifier_InputBx, 60);
+		Thread.sleep(1000);
+//		Category_InputBx.click();
+		
+		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(ModifierGroup_IncludeModifier_InputBx)).click();
+//		CoursingDropBtn.click();
+		
+		ModifierGroup_IncludeModifier_InputBx .click();
 		
 		Thread.sleep(1000);
-		List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-			
-			int menuSize=menuList.size();
-			
-			
-			int randomMenu=ThreadLocalRandom.current().nextInt(2, menuSize);
-			
-			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+		List<WebElement> ModifierList=driver.findElements(By.xpath("//div/select-option"));
 		
-			
-			Thread.sleep(2000);
-			Modifier_IncludeModifier_InputBx.click();
+		int ModifierSize=ModifierList.size();
+		
+		if(ModifierSize<=6)
+		{
+		
+		int randomModifier=ThreadLocalRandom.current().nextInt(2, ModifierSize);
+		
+		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
+		
+		cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomModifier+"]/select-option")).getText());
+		
+		driver.findElement(By.xpath("//div[1]/select-option")).click();
+		}
+		else
+		{
+			int randomModifier=ThreadLocalRandom.current().nextInt(1, 6);
 			
 			Thread.sleep(1000);
-			List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-				
-				int menuSize1=menuList1.size();
-				
-				if(menuSize1==0)
-				{
-					
-					Thread.sleep(1000);
-					Modifier_IncludeModifier_InputBx.click();
-					
-					Thread.sleep(1000);
-					List<WebElement> menuList11=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-						
-						int menuSize11=menuList11.size();
-						
-					int randomMenu1=ThreadLocalRandom.current().nextInt(2, menuSize11);
-					
-					
-					driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu1+"]")).click();
-				
-				}
-				else if(menuSize1==1)
-				{
-					driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
-
-				}
-				else
-				{
-					int randomMenu1=ThreadLocalRandom.current().nextInt(1, menuSize1);
-					
-					
-					driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu1+"]")).click();
-				
-				}
-					
+//			driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
+			
+			cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomModifier+"]/select-option")).getText());
+			
+			driver.findElement(By.xpath("//div[1]/select-option")).click();
+		
+		}	
+		
+		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		
+		
+		
+		if(menuList1.size()!=0)
+		{
+			ModifierGroup_IncludeModifier_InputBx.click();
+		}
 				
 	}
 	
@@ -1456,44 +1487,52 @@ public class ProductItems_Menu_RetailPage {
 		Thread.sleep(1000);
 		Enable_Alternate_Modifier_Group();
 		
-		Thread.sleep(1000);
-		Alternate_Modifier_GroupInputBx.click();
+		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(Alternate_Modifier_GroupInputBx)).click();
+//		CoursingDropBtn.click();
+		
+		//Alternate_Modifier_GroupInputBx .click();
 		
 		Thread.sleep(1000);
-		Thread.sleep(1000);
-		List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-			
-			int menuSize=menuList.size();
-			
-			
-			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-			
-			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+		List<WebElement> ModifierList=driver.findElements(By.xpath("//div/select-option"));
 		
+		int ModifierSize=ModifierList.size();
+		
+		if(ModifierSize<=6)
+		{
+		
+		int randomModifier=ThreadLocalRandom.current().nextInt(2, ModifierSize);
+		
+		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
+		
+		cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomModifier+"]/select-option")).getText());
+		
+		driver.findElement(By.xpath("//div[1]/select-option")).click();
+		}
+		else
+		{
+			int randomModifier=ThreadLocalRandom.current().nextInt(1, 6);
+			
 			Thread.sleep(1000);
-			try
-			{
-			if(driver.findElement(By.xpath("//span[contains(.,'Invalid alternate modifier group')]")).isDisplayed())
-			{
-				Thread.sleep(1000);
-				Alternate_Modifier_GroupInputBx.click();
+//			driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
 			
-				Thread.sleep(1000);
-				List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-					
-					int menuSize1=menuList1.size();
-					
-					
-					int randomMenu1=ThreadLocalRandom.current().nextInt(1, menuSize1);
-					
-					
-					driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu1+"]")).click();
-				
-					
-			}
-			}
-			catch(Exception h) {}
+			cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomModifier+"]/select-option")).getText());
+			
+			driver.findElement(By.xpath("//div[1]/select-option")).click();
+		
+		}	
+		
+		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		
+		
+		
+		if(menuList1.size()!=0)
+		{
+			Alternate_Modifier_GroupInputBx.click();
+		}
 	}
 	
 	public WebElement Alternate_Modifier_Group_Yes()
@@ -1524,19 +1563,58 @@ public class ProductItems_Menu_RetailPage {
 	public void Select_ModifierGroup_Mandatory_Modifiers() throws Exception
 	{
 		Thread.sleep(1000);
-		ModifierGroup_MandatoryModifier_InputBx.click();
+	//	ModifierGroup_MandatoryModifier_InputBx.click();
+		
+		cmp.Click_Wait_ForElementClickable(ModifierGroup_MandatoryModifier_InputBx, 60);
+		Thread.sleep(1000);
+//		Category_InputBx.click();
+		
+		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(ModifierGroup_MandatoryModifier_InputBx)).click();
+//		CoursingDropBtn.click();
+		
+		ModifierGroup_MandatoryModifier_InputBx .click();
 		
 		Thread.sleep(1000);
-		List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-			
-			int menuSize=menuList.size();
-			
-			
-			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-			
-			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+		List<WebElement> ModifierList=driver.findElements(By.xpath("//div/select-option"));
 		
+		int ModifierSize=ModifierList.size();
+		
+		if(ModifierSize<=6)
+		{
+		
+		int randomModifier=ThreadLocalRandom.current().nextInt(2, ModifierSize);
+		
+		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
+		
+		cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomModifier+"]/select-option")).getText());
+		
+		driver.findElement(By.xpath("//div[1]/select-option")).click();
+		}
+		else
+		{
+			int randomModifier=ThreadLocalRandom.current().nextInt(1, 6);
+			
+			Thread.sleep(1000);
+//			driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
+			
+			cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomModifier+"]/select-option")).getText());
+			
+			driver.findElement(By.xpath("//div[1]/select-option")).click();
+		
+		}	
+		
+		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		
+		
+		
+		if(menuList1.size()!=0)
+		{
+			ModifierGroup_MandatoryModifier_InputBx.click();
+		}
 		
 	}
 	
@@ -1545,41 +1623,58 @@ public class ProductItems_Menu_RetailPage {
 		Thread.sleep(1000);
 		Add_Optional_Modifier_GroupBtn.click();
 		
-		ModifierGroup_OptionalModifier_InputBx.click();
+	//	ModifierGroup_OptionalModifier_InputBx.click();
+		
+		cmp.Click_Wait_ForElementClickable(ModifierGroup_OptionalModifier_InputBx, 60);
+		Thread.sleep(1000);
+//		Category_InputBx.click();
+		
+		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(ModifierGroup_OptionalModifier_InputBx)).click();
+//		CoursingDropBtn.click();
+		
+		ModifierGroup_OptionalModifier_InputBx .click();
 		
 		Thread.sleep(1000);
-		List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> ModifierList=driver.findElements(By.xpath("//div/select-option"));
+		
+		int ModifierSize=ModifierList.size();
+		
+		if(ModifierSize<=6)
+		{
+		
+		int randomModifier=ThreadLocalRandom.current().nextInt(2, ModifierSize);
+		
+		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
+		
+		cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomModifier+"]/select-option")).getText());
+		
+		driver.findElement(By.xpath("//div[1]/select-option")).click();
+		}
+		else
+		{
+			int randomModifier=ThreadLocalRandom.current().nextInt(1, 6);
 			
-			int menuSize=menuList.size();
+			Thread.sleep(1000);
+//			driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
 			
-			if(menuSize==0)
-			{
-				ModifierGroup_OptionalModifier_InputBx.click();
-				
-				Thread.sleep(1000);
-				List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-					
-					int menuSize1=menuList1.size();
-				
-				
-				int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
-				
-				
-				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+			cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomModifier+"]/select-option")).getText());
 			
-			}
-			else if(menuSize==1)
-			{
-				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+menuSize+"]")).click();
-	
-			}
-			else
-			{
-			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-			
-			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-			}
+			driver.findElement(By.xpath("//div[1]/select-option")).click();
+		
+		}	
+		
+		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		
+		
+		
+		if(menuList1.size()!=0)
+		{
+			ModifierGroup_OptionalModifier_InputBx.click();
+		}
 		
 	}
 	
@@ -1638,94 +1733,63 @@ public class ProductItems_Menu_RetailPage {
 		
 		Serving_Size_Set_Tiered_Price_MandatoryModiInputBx.click();
 		
+		cmp.Click_Wait_ForElementClickable(Serving_Size_Set_Tiered_Price_MandatoryModiInputBx, 60);
 		Thread.sleep(1000);
-		List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-			
-			int menuSize=menuList.size();
-			
-			if(menuSize==0)
-			{
-				Serving_Size_Set_Tiered_Price_MandatoryModiInputBx.click();
-				
-				Thread.sleep(1000);
-				List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-			
-				int menuSize1=menuList1.size();
-
-				int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
-				
-				
-				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-			
-			}
-			else if(menuSize==1)
-			{
-				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+menuSize+"]")).click();
+//		Category_InputBx.click();
 		
-			}
-			else
-			{
-			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-			
-			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-			}
+		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(Serving_Size_Set_Tiered_Price_MandatoryModiInputBx)).click();
+//		CoursingDropBtn.click();
+		
+		Serving_Size_Set_Tiered_Price_MandatoryModiInputBx .click();
+		try {
+		Thread.sleep(1000);
+		List<WebElement> ModifierList=driver.findElements(By.xpath("//div/select-option"));
+		
+		int ModifierSize=ModifierList.size();
+		
+		if(ModifierSize<=6)
+		{
+		
+		int randomModifier=ThreadLocalRandom.current().nextInt(2, ModifierSize);
+		
+		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
+		
+		cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomModifier+"]/select-option")).getText());
+		
+		driver.findElement(By.xpath("//div[1]/select-option")).click();
+		}
+		
+		
+		else
+		{
+			int randomModifier=ThreadLocalRandom.current().nextInt(1, 6);
 			
 			Thread.sleep(1000);
-			Add_ShiftBtn.click();
+//			driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
 			
-			List<WebElement> shiftList=driver.findElements(By.xpath("//div[@id='new-menu-item-mandatoryModifierGroups']//div[@class='editable-data-grid']/div"));
+			cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomModifier+"]/select-option")).getText());
 			
-			for(int i=2;i<=shiftList.size();i++)
-			{
-				driver.findElement(By.xpath("//div[@id='new-menu-item-mandatoryModifierGroups']//div[@class='editable-data-grid']/div["+i+"]/div[2]//input")).clear();
-				Thread.sleep(1000);
-				driver.findElement(By.xpath("//div[@id='new-menu-item-mandatoryModifierGroups']//div[@class='editable-data-grid']/div["+i+"]/div[2]//input")).sendKeys("10");
-				
-				
-				driver.findElement(By.xpath("//div[@id='new-menu-item-mandatoryModifierGroups']//div[@class='editable-data-grid']/div["+i+"]/div[3]//input")).click();
-				
-				Thread.sleep(1000);
-				List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-					
-					int menuSize1=menuList1.size();
-					
-					if(menuSize1==0)
-					{
-						driver.findElement(By.xpath("//div[@id='new-menu-item-mandatoryModifierGroups']//div[@class='editable-data-grid']/div["+i+"]/div[3]//input")).click();
-						
-						Thread.sleep(1000);
-						List<WebElement> menuList11=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-							
-							int menuSize11=menuList11.size();
-							
-							int randomMenu1=ThreadLocalRandom.current().nextInt(1, menuSize11);
-							
-							
-							driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu1+"]")).click();
-						
-							
-					}
-					else if(menuSize1==1)
-					{
-						driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+menuSize1+"]")).click();
-			
-					}
-					else
-					{
-					int randomMenu1=ThreadLocalRandom.current().nextInt(1, menuSize1);
-					
-					
-					driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu1+"]")).click();
-					}
-				
-				driver.findElement(By.xpath("//div[@id='new-menu-item-mandatoryModifierGroups']//div[@class='editable-data-grid']/div["+i+"]/div[4]//input")).clear();
-				Thread.sleep(1000);
-				driver.findElement(By.xpath("//div[@id='new-menu-item-mandatoryModifierGroups']//div[@class='editable-data-grid']/div["+i+"]/div[4]//input")).sendKeys("10000");
-				
-				
-				
-			}
+			driver.findElement(By.xpath("//div[1]/select-option")).click();
+		
+		}	
+		
+		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		
+		
+		
+		if(menuList1.size()!=0)
+		{
+			ModifierGroup_MandatoryModifier_InputBx.click();
+		}
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 	}
 	
 	
@@ -1736,12 +1800,13 @@ public class ProductItems_Menu_RetailPage {
 		Enable_Set_Tiered_Price_OptionalModifier();
 		
 		Thread.sleep(1000);
+		try {
 		Set_Tiered_Price_OptionalModiBtn.click();
 		
 		Serving_Size_Set_Tiered_Price_OptionalModiInputBx.click();
 		
 		Thread.sleep(1000);
-		List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> menuList=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
 			
 			int menuSize=menuList.size();
 			
@@ -1750,20 +1815,20 @@ public class ProductItems_Menu_RetailPage {
 				Serving_Size_Set_Tiered_Price_OptionalModiInputBx.click();
 				
 				Thread.sleep(1000);
-				List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+				List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
 					
 					int menuSize1=menuList1.size();
 					
 					int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize1);
 					
 					
-					driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+					driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
 				
 				
 			}
 			else if(menuSize==1)
 			{
-				driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+menuSize+"]")).click();
+				driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+menuSize+"]/select-option")).click();
 	
 			}
 			else
@@ -1771,7 +1836,7 @@ public class ProductItems_Menu_RetailPage {
 			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
 			
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+			driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
 			}
 			
 			
@@ -1793,7 +1858,7 @@ public class ProductItems_Menu_RetailPage {
 				driver.findElement(By.xpath("//div[@id='new-menu-item-optModifierGroups']//div[@class='editable-data-grid']/div["+i+"]/div[3]//input")).click();
 				
 				Thread.sleep(1000);
-				List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+				List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
 					
 					int menuSize1=menuList1.size();
 					
@@ -1802,19 +1867,19 @@ public class ProductItems_Menu_RetailPage {
 						driver.findElement(By.xpath("//div[@id='new-menu-item-optModifierGroups']//div[@class='editable-data-grid']/div["+i+"]/div[3]//input")).click();
 						
 						Thread.sleep(1000);
-						List<WebElement> menuList11=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+						List<WebElement> menuList11=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
 							
 							int menuSize11=menuList11.size();
 							
 						int randomMenu1=ThreadLocalRandom.current().nextInt(1, menuSize11);
 						
 						
-						driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu1+"]")).click();
+						driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu1+"]/select-option")).click();
 					
 					}
 					else if(menuSize1==1)
 					{
-						driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+menuSize1+"]")).click();
+						driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+menuSize1+"]/select-option")).click();
 		
 					}
 					else
@@ -1844,6 +1909,10 @@ public class ProductItems_Menu_RetailPage {
 				Thread.sleep(1000);
 				cmp.Click_DeleteButton();
 			}
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 	@FindBy(xpath = "//p[contains(.,'Enter Display Order')]")
@@ -1997,13 +2066,13 @@ public class ProductItems_Menu_RetailPage {
 	@FindBy(xpath = "//label[contains(.,'Level')]/../../input")
 	WebElement Level_RetailItemInputBx;
 	
-	@FindBy(xpath = "//div[@class='radio-box'][.='Standard Item']")
+	@FindBy(xpath = "(//div[.='Standard Item'])[3]")
 	WebElement Standard_Item_RadioBtn;
 	
-	@FindBy(xpath = "//div[@class='radio-box'][.='Item With Variants']")
+	@FindBy(xpath = "(//div[.='Item With Variants'])[3]")
 	WebElement Item_With_Variants_RadioBtn;
 	
-	@FindBy(xpath = "//div[@class='radio-box'][.='Composite Item']")
+	@FindBy(xpath = "//div[@class='radio-box'][.='Kit/Assembly']")
 	WebElement Composite_Item_RadioBtn;
 	
 	public void Click_Standard_Item_ProductType()
@@ -2053,7 +2122,7 @@ public class ProductItems_Menu_RetailPage {
 		
 		Thread.sleep(1000);
 		//Select Category
-		driver.findElement(By.xpath("//select-option[2]")).click();
+		driver.findElement(By.xpath("//div[2]/select-option")).click();
 	}
 	public WebElement Level_RetailItem()
 	{
@@ -2080,12 +2149,12 @@ public class ProductItems_Menu_RetailPage {
 			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
 			
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+			driver.findElement(By.xpath("//div[@class='options with-height']/ cdk-virtual-scroll-viewport/div/div["+randomMenu+"]/select-option")).click();
 		
 		}
 		else
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='options with-height']/ cdk-virtual-scroll-viewport/div/div/select-option")).click();
 		}
 		
 		
@@ -2094,7 +2163,7 @@ public class ProductItems_Menu_RetailPage {
 		driver.findElement(By.xpath("//app-selectbox[@name='retailSkuType']//input")).click();
 		
 		Thread.sleep(2000);
-		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='options with-height']/ cdk-virtual-scroll-viewport/div/div/select-option"));
 			
 		if(menuList1.size()>1)
 		{
@@ -2104,12 +2173,12 @@ public class ProductItems_Menu_RetailPage {
 			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
 			
 			
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+			driver.findElement(By.xpath("//div[@class='options with-height']/ cdk-virtual-scroll-viewport/div/div["+randomMenu+"]/select-option")).click();
 		
 		}
 		else
 		{
-			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+			driver.findElement(By.xpath("//div[@class='options with-height']/ cdk-virtual-scroll-viewport/div/div/select-option[1]")).click();
 		}
 		
 		
@@ -2119,11 +2188,15 @@ public class ProductItems_Menu_RetailPage {
 		//Enter SKU Code
 		driver.findElement(By.xpath("//app-input[@name='retailSkuCode']//input")).sendKeys(SKUCode);
 		
-		
+		try {
 		//Clear Supply Price
 		driver.findElement(By.xpath("//app-currency-input[@name='retailSupplyPrice']//input")).clear();
 		//Enter Supply Price
 		driver.findElement(By.xpath("//app-currency-input[@name='retailSupplyPrice']//input")).sendKeys(SupplyPrice);
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 		
 		//Clear Markup Percentage
@@ -2135,10 +2208,22 @@ public class ProductItems_Menu_RetailPage {
 		double MarkUp_Percentage=Double.parseDouble(MarkupPerc);
 		
 		double Expected_Selling_Price=Supply_Price*MarkUp_Percentage;
-		
-		
+		try {
+		String Act_SellPrice1=driver.findElement(By.xpath("//app-currency-input[@name='retailSellingPrice']//input")).getAttribute("value");
+		int selling = Integer.parseInt(Act_SellPrice1);
+		if(!(selling==100))
+		{
+			test.log(LogStatus.PASS,"By default selling price is not 100");
+		}
+		else {
+			test.log(LogStatus.FAIL, "By default selling price is 100");
+		}
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
 		//Get the Actual Selling Price
-		String Act_SellPrice=driver.findElement(By.xpath("//app-currency-input[@name='retailSupplyPrice']//input")).getAttribute("value");
+		String Act_SellPrice=driver.findElement(By.xpath("//app-currency-input[@name='retailSellingPrice']//input")).getAttribute("value");
 		double Actual_Selling_Price=Double.parseDouble(Act_SellPrice);
 		
 		if(Actual_Selling_Price==Expected_Selling_Price)
@@ -2193,42 +2278,42 @@ public class ProductItems_Menu_RetailPage {
 	
 	public void Select_Inventory_Unit_RetailItem() throws Exception
 	{
+		Inventory_Unit_RetailItemInputBx.click();
 		
-		new Common_XPaths(driver, test).Click_DropDown_withSearch(Inventory_Unit_RetailItemInputBx, "Inventory Unit selected");
-//		Inventory_Unit_RetailItemInputBx.click();
-//		
-//		Thread.sleep(1000);
-//		Thread.sleep(2000);
-//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-//			
-//		if(menuList1.size()>1)
-//		{
-//			int menuSize=menuList1.size();
-//			
-//			
-//			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
-//			
-//			
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
-//		
-//		}
-//		else
-//		{
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
-//		}
-//		
+		Thread.sleep(1000);
+		Thread.sleep(2000);
+		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
+	    try {
+		if(menuList1.size()>1)
+		{
+			int menuSize=menuList1.size();
+			
+			
+			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
+			
+			
+			driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
+		
+		}
+		else
+		{
+			driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
+		}
+	    }
+	    catch (Exception e) {
+	    	driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
+		}
+		
 	}
 	
 	public void Select_Vendor_RetailItem() throws Exception
 	{
+		Vendor_RetailItemInputBx.click();
 		
-		new Common_XPaths(driver, test).Click_DropDown_withSearch(Vendor_RetailItemInputBx, "Vendor Selected");
-//		Vendor_RetailItemInputBx.click();
-//		
-//		Thread.sleep(1000);
+		Thread.sleep(1000);
 //		Thread.sleep(2000);
-//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-//			
+//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
+//		try {	
 //		if(menuList1.size()>1)
 //		{
 //			int menuSize=menuList1.size();
@@ -2237,27 +2322,31 @@ public class ProductItems_Menu_RetailPage {
 //			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
 //			
 //			
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//			driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
 //		
 //		}
 //		else
 //		{
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+//			driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
 //		}
-//		
+//		}
+//		catch (Exception e) {
+//			driver.findElement(By.xpath("//div[@class='options with-height']//div/div[2]/select-option")).click();
+//		}
+		
+		driver.findElement(By.xpath("//div[@class='options with-height']//div/div[2]/select-option")).click();
+		
 	}
 	
 	
 	public void Select_Primary_Storage_RetailItem() throws Exception
 	{
-		new Common_XPaths(driver, test).Click_DropDown_withSearch(Primary_Storage_RetailItemInputBx, "Primary storage selected");
+		Primary_Storage_RetailItemInputBx.click();
 		
-//		Primary_Storage_RetailItemInputBx.click();
-//		
-//		Thread.sleep(1000);
+		Thread.sleep(1000);
 //		Thread.sleep(2000);
-//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-//			
+//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
+//		try {
 //		if(menuList1.size()>1)
 //		{
 //			int menuSize=menuList1.size();
@@ -2266,26 +2355,28 @@ public class ProductItems_Menu_RetailPage {
 //			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
 //			
 //			
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//			driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
 //		
 //		}
 //		else
 //		{
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+//			driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
 //		}
-//		
+//		}
+//		catch (Exception e) {
+//			driver.findElement(By.xpath("//div[@class='options with-height']//div/div[2]/select-option")).click();	
+//			}
+		driver.findElement(By.xpath("//div[@class='options with-height']//div/div[2]/select-option")).click();		
 	}
 	
 	public void Select_Secondary_Storage_RetailItem() throws Exception
 	{
-		new Common_XPaths(driver, test).Click_DropDown_withSearch(Secondary_Storage_RetailItemInputBx, "Secondary storage selected");
+		Secondary_Storage_RetailItemInputBx.click();
 		
-//		Secondary_Storage_RetailItemInputBx.click();
-//		
-//		Thread.sleep(1000);
+		Thread.sleep(1000);
 //		Thread.sleep(2000);
-//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
-//			
+//		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='options with-height']//div/div/select-option"));
+//		try {	
 //		if(menuList1.size()>1)
 //		{
 //			int menuSize=menuList1.size();
@@ -2294,20 +2385,25 @@ public class ProductItems_Menu_RetailPage {
 //			int randomMenu=ThreadLocalRandom.current().nextInt(1, menuSize);
 //			
 //			
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option["+randomMenu+"]")).click();
+//			driver.findElement(By.xpath("//div[@class='options with-height']//div/div["+randomMenu+"]/select-option")).click();
 //		
 //		}
 //		else
 //		{
-//			driver.findElement(By.xpath("//div[@class='option-list']/div/select-option[1]")).click();
+//			driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
 //		}
+//		}
+//		catch (Exception e) {
+//			driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
+//		}
+		driver.findElement(By.xpath("//div[@class='options with-height']//div/div[2]/select-option")).click();
 		
 	}
 	
-	@FindBy(xpath = "//span[contains(.,'Calculate COGS On Cost Price')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Calculate COGS On Cost Price')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Calculate_COGS_onCostPrice_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Calculate COGS On Cost Price')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Calculate COGS On Cost Price')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Calculate_COGS_onCostPrice_NoBtn;
 	
 	public void Enable_Calculate_COGS_onCostPrice()
@@ -2401,4 +2497,200 @@ public class ProductItems_Menu_RetailPage {
 		}
 	}
 	
+	@FindBy(xpath = "//input[@data-placeholder='Search ']")
+	WebElement SearchBox;
+	
+	public void SearchAndClickEdit(String SearchValue) throws Exception
+	{
+	
+		Thread.sleep(1000);
+		SearchBox.clear();
+		Thread.sleep(2000);
+
+		SearchBox.sendKeys(SearchValue);
+		Thread.sleep(2000);
+		try
+		{
+			Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[.='"+SearchValue+"']/../../td[8]/div/div[1]/button")).click();
+		
+		}
+		catch(Exception g)
+		{
+			try {
+				driver.findElement(By.xpath("//span[.='"+SearchValue+"']/../../td[9]/div/div[1]/button")).click();
+				Thread.sleep(1000);
+			}
+			catch (Exception e) {
+				// TODO: handle exception
+			
+			Thread.sleep(2000);
+
+			driver.findElement(By.xpath("//span[.='"+SearchValue+"']/../../div//div[1]/button")).click();
+		}
+		}
+		
+		}
+	
+	public void SearchAndClickDelete(String SearchValue) throws Exception
+	{
+
+		try
+		{
+		Thread.sleep(1000);
+		SearchBox.clear();
+		Thread.sleep(2000);
+
+		SearchBox.sendKeys(SearchValue);
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//span[.='"+SearchValue+"']/../../td[8]/div/div[2]/button")).click();
+		Thread.sleep(1000);
+		}
+		catch(Exception h)
+		{
+			try {
+				driver.findElement(By.xpath("//span[.='"+SearchValue+"']/../../td[9]/div/div[2]/button")).click();
+				Thread.sleep(1000);
+			}
+			catch (Exception e) {
+				// TODO: handle exception
+		
+			Thread.sleep(1000);
+			SearchBox.clear();
+			Thread.sleep(2000);
+
+			SearchBox.sendKeys(SearchValue);
+			Thread.sleep(2000);
+
+			driver.findElement(By.xpath("//span[.='"+SearchValue+"']/../../div//div[2]/button")).click();
+			Thread.sleep(1000);
+			}
+		}
+	}
+	
+	public void SearchAndClickDeleteCancel(String SearchValue) throws Exception
+	{
+		try {
+		Thread.sleep(1000);
+		SearchBox.clear();
+		Thread.sleep(2000);
+
+		SearchBox.sendKeys(SearchValue);
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//span[.='"+SearchValue+"']/../../td[3]//div[1]/button")).click();
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
+	
+	}
+	
+	public void SearchAndClickActivate(String SearchValue) throws Exception
+	{
+//		WebDriverWait wt=new WebDriverWait(driver, Duration.ofSeconds(300));
+		
+		Thread.sleep(1000);
+		SearchBox.clear();
+		Thread.sleep(1000);
+
+		SearchBox.sendKeys(SearchValue);
+		Thread.sleep(2000);
+		
+		try
+		{
+		driver.findElement(By.xpath("//span[.='"+SearchValue+"']/../../td[8]/div/div[1]/button")).click();
+		}
+		catch(Exception h)
+		{
+			try {
+				driver.findElement(By.xpath("//span[.='"+SearchValue+"']/../../td[9]/div/div[1]/button")).click();
+				Thread.sleep(1000);
+			}
+			catch (Exception e) {
+				// TODO: handle exception
+			
+			driver.findElement(By.xpath("//span[.='"+SearchValue+"']/../../div//div/button")).click();
+			}
+		}
+	}
+	
+	public void Click_RetailItem() 
+	{
+		driver.findElement(By.xpath("//span[.='RETAIL ITEMS']")).click();
+	}
+	
+	@FindBy(xpath = "//app-selectbox[@placeholder='Select Modifier']")
+	WebElement Modfier_Inputbox;
+
+	public void select_Modifier() throws Exception 
+	{
+		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		
+		wait.until(ExpectedConditions.elementToBeClickable(Modfier_Inputbox)).click();
+//		CoursingDropBtn.click();
+		
+//		Modfier_Inputbox .click();
+		
+		Thread.sleep(1000);
+		List<WebElement> ModifierList=driver.findElements(By.xpath("//div/select-option"));
+		
+		int ModifierSize=ModifierList.size();
+		
+		if(ModifierSize<=6)
+		{
+		
+		int randomModifier=ThreadLocalRandom.current().nextInt(2, ModifierSize);
+		
+		Thread.sleep(1000);
+//		driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
+		
+		cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomModifier+"]/select-option")).getText());
+		
+		driver.findElement(By.xpath("//div[1]/select-option")).click();
+		}
+		else
+		{
+			int randomModifier=ThreadLocalRandom.current().nextInt(1, 6);
+			
+			Thread.sleep(1000);
+//			driver.findElement(By.xpath("//div["+randomCoursing+"]/select-option")).click();
+			
+			cmp.Verify_Search(driver.findElement(By.xpath("//div["+randomModifier+"]/select-option")).getText());
+			
+			driver.findElement(By.xpath("//div[1]/select-option")).click();
+		
+		}	
+		
+		List<WebElement> menuList1=driver.findElements(By.xpath("//div[@class='option-list']/div/select-option"));
+		
+		
+		
+		if(menuList1.size()!=0)
+		{
+			Alternate_Modifier_GroupInputBx.click();
+		}
+		
+	}
+	
+	@FindBy(xpath = "//label[contains(.,'Tare Group')]/../../input")
+	WebElement TareGroupDropBtn;
+	
+	public void Select_TareGroup() throws Exception
+	{
+		cmp=new Common_XPaths(driver, test);
+		Thread.sleep(1000);
+//		cmp.Cursor_MoveToElement(TareGroupDropBtn);
+		Thread.sleep(1000);
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(120));
+		
+//		TareGroupDropBtn.click();
+		wait.until(ExpectedConditions.elementToBeClickable(TareGroupDropBtn)).click();
+		
+		driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
+		
+	}
 }

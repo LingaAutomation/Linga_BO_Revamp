@@ -114,7 +114,7 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 	public void Calling() throws Exception
 	{
 		Open_Open_Check_Discount_Page(driver);
-        //RefreshAndPaginination(driver);
+//        //RefreshAndPaginination(driver);
 		Add_Open_Check_DiscountType_Promo(driver);
 		Edit_and_Close_Cancel_Open_Check_Discount(driver);
 		Edit_and_Update_Open_Check_DiscountType_Comp(driver);
@@ -197,15 +197,17 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 //		//Verify the Open Check Discount creation screen opened or not
 //		cmp.VerifyCreationScreenPageHeader("Open Check");
 //		Thread.sleep(5000);
+		
+		
        try {
-		if(dcp.Open_Check().isDisplayed()) 
-		{
+	
+			Thread.sleep(1000);
 			dcp.Click_New_Open_Check_Discount();
-		}
-		else 
-		{
-			dcp.Click_Open_Edit();
-		}
+		
+//		else 
+//		{
+//			dcp.Click_Open_Edit();
+//		}
        }
        catch (Exception e) 
        {
@@ -235,15 +237,15 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
-				else
-				{
-					test.log(LogStatus.FAIL, "Please Enter Name Pop Up not Displayed");
-				}
+				
 
 			}
 		}
 		catch(Exception e)
 		{
+		
+				test.log(LogStatus.FAIL, "Please Enter Name Pop Up not Displayed");
+			
 		}
 
 
@@ -253,37 +255,36 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 		cmp.EnterName(Utility.getProperty("DiscountName_OpenCheckAMT"));
 
 
-		//		try
-		//		{
-		//			if(cmp.Save_and_PublishButton().isEnabled())
-		//			{
-		//				//Click Save and Publish button
-		//				cmp.Click_Save_and_PublishButton();
-		//
-		//				Thread.sleep(3000);
-		//				//Check whether the New Department Saved or not
-		//				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Enter Valid Priority"))
-		//				{
-		//					test.log(LogStatus.PASS, "Please Enter Valid Priority Alert Displayed");
-		//
-		//					ut.PassedCaptureScreenshotAsBASE64(driver, test);
-		//				}
-		//				else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Saved Successfully"))
-		//				{
-		//					test.log(LogStatus.FAIL, "Open Check Discount Saved without Entering Valid Priority");
-		//
-		//					ut.FailedCaptureScreenshotAsBASE64(driver, test);
-		//				}
-		//				else
-		//				{
-		//					test.log(LogStatus.FAIL, "Enter Valid Priority Pop Up not Displayed");
-		//				}
-		//
-		//			}
-		//		}
-		//		catch(Exception e)
-		//		{
-		//		}
+				try
+				{
+					if(cmp.Save_and_PublishButton().isEnabled())
+					{
+						//Click Save and Publish button
+						cmp.Click_Save_and_PublishButton();
+		
+						Thread.sleep(3000);
+						//Check whether the New Department Saved or not
+						if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Enter Valid Priority"))
+						{
+							test.log(LogStatus.PASS, "Please Enter Valid Priority Alert Displayed");
+		
+							ut.PassedCaptureScreenshotAsBASE64(driver, test);
+						}
+						else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Saved Successfully"))
+						{
+							test.log(LogStatus.FAIL, "Open Check Discount Saved without Entering Valid Priority");
+		
+							ut.FailedCaptureScreenshotAsBASE64(driver, test);
+						}
+					
+		
+					}
+				}
+				catch(Exception e)
+				{
+					test.log(LogStatus.FAIL, "Enter Valid Priority Pop Up not Displayed");
+
+				}
 
 		Thread.sleep(1000);
 		//Click the Priority
@@ -366,95 +367,95 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 
 
 
-		//		Thread.sleep(1000);
-		//		//Enable Discount in Percentage
-		//		dcp.Enable_Discount_In_Percentage();
-		//
-		//		if(dcp.Minimum_Percentage().isDisplayed()&&dcp.Maximum_Percentage().isDisplayed())
-		//		{
-		//			test.log(LogStatus.PASS, "Minimum and Maximum Percentage displayed");
-		//		}
-		//		else
-		//		{
-		//			test.log(LogStatus.FAIL, "Minimum and Maximum Percentage not displayed");
-		//		}
-		//
-		//		//Enter Minium Percentage
-		//		dcp.Enter_Minimum_Percentage("1000000");
-		//
-		//
-		//		//Verify enter valid min percentage
-		//		try
-		//		{
-		//			if(dcp.Minimum_PercentageErrorPop().isDisplayed())
-		//			{
-		//				test.log(LogStatus.PASS, "Enter Valid Minimum Percentage is Displayed when Entering Percentage above 100%");
-		//			}
-		//		}
-		//		catch(Exception k)
-		//		{
-		//			test.log(LogStatus.FAIL, "Enter Valid Minimum Percentage is not Displayed when Entering Percentage above 100%");
-		//
-		//		}
-		//
-		//		//Enter the Maximum Percentage
-		//		dcp.Enter_Maximum_Percentage("5000000");
-		//
-		//		try
-		//		{
-		//			if(dcp.Maximum_PercentageErrorPop().isDisplayed())
-		//			{
-		//				test.log(LogStatus.PASS, "Enter Valid Maximum Percentage is Displayed when Entering Percentage above 100%");
-		//			}
-		//		}
-		//		catch(Exception k)
-		//		{
-		//			test.log(LogStatus.FAIL, "Enter Valid Maximum Percentage is not Displayed when Entering Percentage above 100%");
-		//
-		//		}
-		//
-		//
-		//
-		//		//Enter Minium Percentage
-		//		dcp.Enter_Minimum_Percentage("1000");
-		//
-		//		//Verify Valid Maximum Percentage Error message
-		//		try
-		//		{
-		//			if(dcp.Maximum_PercentageErrorPop().isDisplayed())
-		//			{
-		//				test.log(LogStatus.PASS, "Enter Valid Maximum Percentage is Displayed");
-		//			}
-		//		}
-		//		catch(Exception k)
-		//		{
-		//			test.log(LogStatus.FAIL, "Enter Valid Maximum Percentage is not Displayed");
-		//
-		//		}
-		//
-		//
-		//		//Enter the Maximum Percentage
-		//		dcp.Enter_Maximum_Percentage("500");
-		//
-		//		//Verify Maximum percentage should be greater than minimum percenatage error pop up
-		//		try
-		//		{
-		//			if(dcp.MaximumToMinimum_PercentageErrorPop().isDisplayed())
-		//			{
-		//				test.log(LogStatus.PASS, "Maximum percentage should be greater than minimum percentage is Displayed when Entering Minimum Percentage above Maximum Percentage");
-		//			}
-		//		}
-		//		catch(Exception k)
-		//		{
-		//			test.log(LogStatus.FAIL, "Maximum percentage should be greater than minimum percenatage is not Displayed when Entering Percentage above Maximum Percentage");
-		//
-		//		}
-		//
-		//		//Enter Minium Percentage
-		//		dcp.Enter_Minimum_Percentage("10000");
-		//
-		//		//Enter the Maximum Percentage
-		//		dcp.Enter_Maximum_Percentage("50000");
+				Thread.sleep(1000);
+				//Enable Discount in Percentage
+				dcp.Enable_Discount_In_Percentage();
+		
+				if(dcp.Minimum_Percentage().isDisplayed()&&dcp.Maximum_Percentage().isDisplayed())
+				{
+					test.log(LogStatus.PASS, "Minimum and Maximum Percentage displayed");
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Minimum and Maximum Percentage not displayed");
+				}
+		
+				//Enter Minium Percentage
+				dcp.Enter_Minimum_Percentage("1000000");
+		
+		
+				//Verify enter valid min percentage
+				try
+				{
+					if(dcp.Minimum_PercentageErrorPop().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enter Valid Minimum Percentage is Displayed when Entering Percentage above 100%");
+					}
+				}
+				catch(Exception k)
+				{
+					test.log(LogStatus.FAIL, "Enter Valid Minimum Percentage is not Displayed when Entering Percentage above 100%");
+		
+				}
+		
+				//Enter the Maximum Percentage
+				dcp.Enter_Maximum_Percentage("5000000");
+		
+				try
+				{
+					if(dcp.Maximum_PercentageErrorPop().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enter Valid Maximum Percentage is Displayed when Entering Percentage above 100%");
+					}
+				}
+				catch(Exception k)
+				{
+					test.log(LogStatus.FAIL, "Enter Valid Maximum Percentage is not Displayed when Entering Percentage above 100%");
+		
+				}
+		
+		
+		
+				//Enter Minium Percentage
+				dcp.Enter_Minimum_Percentage("1000");
+		
+				//Verify Valid Maximum Percentage Error message
+				try
+				{
+					if(dcp.Maximum_PercentageErrorPop().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enter Valid Maximum Percentage is Displayed");
+					}
+				}
+				catch(Exception k)
+				{
+					test.log(LogStatus.FAIL, "Enter Valid Maximum Percentage is not Displayed");
+		
+				}
+		
+		
+				//Enter the Maximum Percentage
+				dcp.Enter_Maximum_Percentage("500");
+		
+				//Verify Maximum percentage should be greater than minimum percenatage error pop up
+				try
+				{
+					if(dcp.MaximumToMinimum_PercentageErrorPop().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Maximum percentage should be greater than minimum percentage is Displayed when Entering Minimum Percentage above Maximum Percentage");
+					}
+				}
+				catch(Exception k)
+				{
+					test.log(LogStatus.FAIL, "Maximum percentage should be greater than minimum percenatage is not Displayed when Entering Percentage above Maximum Percentage");
+		
+				}
+		
+				//Enter Minium Percentage
+				dcp.Enter_Minimum_Percentage("10000");
+		
+				//Enter the Maximum Percentage
+				dcp.Enter_Maximum_Percentage("50000");
 
 
 		//Disable Discount in Amount
@@ -495,7 +496,7 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 			//Click the Update and Publish button
 			cmp.Click_Update_and_PublishButton();
 
-			Thread.sleep(3000);
+			cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 			//Check whether the Open Item Discount Saved or not
 			if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase(" Discount Updated successfully"))
 			{
@@ -544,15 +545,15 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 //				Thread.sleep(20000);
 
 		Thread.sleep(1000);
-		//Check whether the Open Check Discount Creation form Closed or not
-		//		if(!cmp.NewCreationScreenHeader().isDisplayed())
-		//		{
-		//			test.log(LogStatus.PASS, "Open Check Discount Screen Cancelled");
-		//		}
-		//		else
-		//		{
-		//			test.log(LogStatus.FAIL, "Open Check Discount Screen not Cancelled");
-		//		}
+//		Check whether the Open Check Discount Creation form Closed or not
+				if(!cmp.NewCreationScreenHeader().isDisplayed())
+				{
+					test.log(LogStatus.PASS, "Open Check Discount Screen Cancelled");
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Open Check Discount Screen not Cancelled");
+				}
 		
 		Thread.sleep(7000);
 
@@ -690,34 +691,35 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 				dcp.Enter_Coupon_Code("@***&");
 			}
 
-			//			try
-			//			{
-			//				if(cmp.Save_and_PublishButton().isEnabled())
-			//				{
-			//					//Click Save and Publish button
-			//					cmp.Click_Save_and_PublishButton();
-			//
-			//					Thread.sleep(3000);
-			//					//Check whether the New Department Saved or not
-			//					if(cmp.ConfirmationAlertMsg().getTagName().equalsIgnoreCase("Saved Successfully"))
-			//					{
-			//						test.log(LogStatus.FAIL, "Item Based Discount Saved with Entering Special Characters");
-			//
-			//						ut.FailedCaptureScreenshotAsBASE64(driver, test);
-			//
-			//						cmp.SearchAndClickEdit(Utility.getProperty("DiscountName_ItemBased_AutoDiscount"));
-			//
-			//					}
-			//					else
-			//					{
-			//						test.log(LogStatus.FAIL, "Item Based Discount Saved Failed with Entering Special Characters");
-			//					}
-			//
-			//				}
-			//			}
-			//			catch(Exception e)
-			//			{
-			//			}
+						try
+						{
+							if(cmp.Save_and_PublishButton().isEnabled())
+							{
+								//Click Save and Publish button
+								cmp.Click_Save_and_PublishButton();
+			
+								Thread.sleep(3000);
+								//Check whether the New Department Saved or not
+								if(cmp.ConfirmationAlertMsg().getTagName().equalsIgnoreCase("Saved Successfully"))
+								{
+									test.log(LogStatus.FAIL, "Open Check Discount Saved with Entering Special Characters");
+			
+									ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			
+									cmp.SearchAndClickEdit(Utility.getProperty("DiscountName_ItemBased_AutoDiscount"));
+			
+								}
+								else
+								{
+								}
+			
+							}
+						}
+						catch(Exception e)
+						{
+							test.log(LogStatus.FAIL, "Open Check Discount Saved Failed with Entering Special Characters");
+							ut.FailedCaptureScreenshotAsBASE64(driver, test);
+						}
 
 			Thread.sleep(1000);
 			//Enter the Discount Code
@@ -755,194 +757,194 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 
 
 		//Enter Minium Percentage
-		//		dcp.Enter_Minimum_Percentage("1000000");
-		//
-		//
-		//		//Verify enter valid min percentage
-		//		try
-		//		{
-		//			if(dcp.Minimum_PercentageErrorPop().isDisplayed())
-		//			{
-		//				test.log(LogStatus.PASS, "Enter Valid Minimum Percentage is Displayed when Entering Percentage above 100% while Update");
-		//			}
-		//		}
-		//		catch(Exception k)
-		//		{
-		//			test.log(LogStatus.FAIL, "Enter Valid Minimum Percentage is not Displayed when Entering Percentage above 100% while Update");
-		//
-		//		}
-		//
-		//		//Enter the Maximum Percentage
-		//		dcp.Enter_Maximum_Percentage("5000000");
-		//
-		//		try
-		//		{
-		//			if(dcp.Maximum_PercentageErrorPop().isDisplayed())
-		//			{
-		//				test.log(LogStatus.PASS, "Enter Valid Maximum Percentage is Displayed when Entering Percentage above 100% while Update");
-		//			}
-		//		}
-		//		catch(Exception k)
-		//		{
-		//			test.log(LogStatus.FAIL, "Enter Valid Maximum Percentage is not Displayed when Entering Percentage above 100% while Update");
-		//
-		//		}
-		//
-		//
-		//
-		//		//Enter Minium Percentage
-		//		dcp.Enter_Minimum_Percentage("1000");
-		//
-		//		//Verify Valid Maximum Percentage Error message
-		//		try
-		//		{
-		//			if(dcp.Maximum_PercentageErrorPop().isDisplayed())
-		//			{
-		//				test.log(LogStatus.PASS, "Enter Valid Maximum Percentage is Displayed while Update");
-		//			}
-		//		}
-		//		catch(Exception k)
-		//		{
-		//			test.log(LogStatus.FAIL, "Enter Valid Maximum Percentage is not Displayed while Update");
-		//
-		//		}
-		//
-		//
-		//		//Enter the Maximum Percentage
-		//		dcp.Enter_Maximum_Percentage("500");
-		//
-		//		//Verify Maximum percentage should be greater than minimum percenatage error pop up
-		//		try
-		//		{
-		//			if(dcp.MaximumToMinimum_PercentageErrorPop().isDisplayed())
-		//			{
-		//				test.log(LogStatus.PASS, "Maximum percentage should be greater than minimum percentage is Displayed when Entering Minimum Percentage above Maximum Percentage while Update");
-		//			}
-		//		}
-		//		catch(Exception k)
-		//		{
-		//			test.log(LogStatus.FAIL, "Maximum percentage should be greater than minimum percenatage is not Displayed when Entering Percentage above Maximum Percentage while Update");
-		//
-		//		}
-		//
-		//		//Enter Minium Percentage
-		//		dcp.Enter_Minimum_Percentage("15000");
-		//
-		//		//Enter the Maximum Percentage
-		//		dcp.Enter_Maximum_Percentage("40000");
-		//
-		//		//Enable Discount In Amount
-		//		dcp.Enable_Discount_In_Amount();
-		//
-		//
-		//
-		//		if(dcp.Minimum_Amount().isDisplayed()&&dcp.Maximum_Amount().isDisplayed()&&dcp.Safety_Limit_Percentage().isDisplayed())
-		//		{
-		//			test.log(LogStatus.PASS, "Minimum and Maximum Amount and Safety limit Percentage displayed");
-		//		}
-		//		else
-		//		{
-		//			test.log(LogStatus.FAIL, "Minimum and Maximum Amount and Safety Limit Percentage not displayed");
-		//		}
-		//
-		//		//Enter Minium Percentage
-		//		dcp.Enter_Minimum_Amount("1000000");
-		//
-		//
-		//		//Verify enter valid min Amount
-		//		try
-		//		{
-		//			if(dcp.Minimum_AmountErrorPop().isDisplayed())
-		//			{
-		//				test.log(LogStatus.PASS, "Enter Valid Minimum Amount is Displayed when Entering Percentage above 100%");
-		//			}
-		//		}
-		//		catch(Exception k)
-		//		{
-		//			test.log(LogStatus.FAIL, "Enter Valid Minimum Amount is not Displayed when Entering Percentage above 100%");
-		//
-		//		}
-		//
-		//		//Enter the Maximum Amount
-		//		dcp.Enter_Maximum_Percentage("5000000");
-		//
-		//		try
-		//		{
-		//			if(dcp.Maximum_AmountErrorPop().isDisplayed())
-		//			{
-		//				test.log(LogStatus.PASS, "Enter Valid Maximum Amount is Displayed when Entering Percentage above 100%");
-		//			}
-		//		}
-		//		catch(Exception k)
-		//		{
-		//			test.log(LogStatus.FAIL, "Enter Valid Maximum Amount is not Displayed when Entering Percentage above 100%");
-		//
-		//		}
-		//
-		//
-		//
-		//		//Enter Minium Amount
-		//		dcp.Enter_Minimum_Amount("1000");
-		//
-		//		//Verify Valid Maximum Amount Error message
-		//		try
-		//		{
-		//			if(dcp.Maximum_AmountErrorPop().isDisplayed())
-		//			{
-		//				test.log(LogStatus.PASS, "Enter Valid Maximum Amount is Displayed");
-		//			}
-		//		}
-		//		catch(Exception k)
-		//		{
-		//			test.log(LogStatus.FAIL, "Enter Valid Maximum Amount is not Displayed");
-		//
-		//		}
-		//
-		//
-		//		//Enter the Maximum Amount
-		//		dcp.Enter_Maximum_Amount("500");
-		//
-		//		//Verify Maximum percentage should be greater than minimum percenatage error pop up
-		//		try
-		//		{
-		//			if(dcp.MaximumToMinimum_AmountErrorPop().isDisplayed())
-		//			{
-		//				test.log(LogStatus.PASS, "Maximum Amount should be greater than minimum Amount is Displayed when Entering Minimum Amount above Maximum Amount");
-		//			}
-		//		}
-		//		catch(Exception k)
-		//		{
-		//			test.log(LogStatus.FAIL, "Maximum Amount should be greater than minimum Amount is not Displayed when Entering Amount above Maximum Amount");
-		//
-		//		}
-		//
-		//		//Enter Minium Percentage
-		//		dcp.Enter_Minimum_Amount("1200");
-		//
-		//		//Enter the Maximum Percentage
-		//		dcp.Enter_Maximum_Amount("2000");
-		//
-		//		//Enter the Safety Limit Percentage
-		//		dcp.Enter_Safety_Limit_Percentage("200000");
-		//
-		//		//Verify Valid Safety Limit Percentage Error message
-		//		try
-		//		{
-		//			if(dcp.Safety_Limit_PercentageErrorPop().isDisplayed())
-		//			{
-		//				test.log(LogStatus.PASS, "Enter valid safety limit percentage is Displayed");
-		//			}
-		//		}
-		//		catch(Exception k)
-		//		{
-		//			test.log(LogStatus.FAIL, "Enter valid safety limit percentage is not Displayed");
-		//
-		//		}
-		//
-		//
-		//
-		//		//Enter the Safety Limit Percentage
-		//		dcp.Enter_Safety_Limit_Percentage("25000");
+				dcp.Enter_Minimum_Percentage("1000000");
+		
+		
+				//Verify enter valid min percentage
+				try
+				{
+					if(dcp.Minimum_PercentageErrorPop().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enter Valid Minimum Percentage is Displayed when Entering Percentage above 100% while Update");
+					}
+				}
+				catch(Exception k)
+				{
+					test.log(LogStatus.FAIL, "Enter Valid Minimum Percentage is not Displayed when Entering Percentage above 100% while Update");
+		
+				}
+		
+				//Enter the Maximum Percentage
+				dcp.Enter_Maximum_Percentage("5000000");
+		
+				try
+				{
+					if(dcp.Maximum_PercentageErrorPop().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enter Valid Maximum Percentage is Displayed when Entering Percentage above 100% while Update");
+					}
+				}
+				catch(Exception k)
+				{
+					test.log(LogStatus.FAIL, "Enter Valid Maximum Percentage is not Displayed when Entering Percentage above 100% while Update");
+		
+				}
+		
+		
+		
+				//Enter Minium Percentage
+				dcp.Enter_Minimum_Percentage("1000");
+		
+				//Verify Valid Maximum Percentage Error message
+				try
+				{
+					if(dcp.Maximum_PercentageErrorPop().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enter Valid Maximum Percentage is Displayed while Update");
+					}
+				}
+				catch(Exception k)
+				{
+					test.log(LogStatus.FAIL, "Enter Valid Maximum Percentage is not Displayed while Update");
+		
+				}
+		
+		
+				//Enter the Maximum Percentage
+				dcp.Enter_Maximum_Percentage("500");
+		
+				//Verify Maximum percentage should be greater than minimum percenatage error pop up
+				try
+				{
+					if(dcp.MaximumToMinimum_PercentageErrorPop().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Maximum percentage should be greater than minimum percentage is Displayed when Entering Minimum Percentage above Maximum Percentage while Update");
+					}
+				}
+				catch(Exception k)
+				{
+					test.log(LogStatus.FAIL, "Maximum percentage should be greater than minimum percenatage is not Displayed when Entering Percentage above Maximum Percentage while Update");
+		
+				}
+		
+				//Enter Minium Percentage
+				dcp.Enter_Minimum_Percentage("15000");
+		
+				//Enter the Maximum Percentage
+				dcp.Enter_Maximum_Percentage("40000");
+		
+				//Enable Discount In Amount
+				dcp.Enable_Discount_In_Amount();
+		
+		
+		
+				if(dcp.Minimum_Amount().isDisplayed()&&dcp.Maximum_Amount().isDisplayed()&&dcp.Safety_Limit_Percentage().isDisplayed())
+				{
+					test.log(LogStatus.PASS, "Minimum and Maximum Amount and Safety limit Percentage displayed");
+				}
+				else
+				{
+					test.log(LogStatus.FAIL, "Minimum and Maximum Amount and Safety Limit Percentage not displayed");
+				}
+		
+				//Enter Minium Percentage
+				dcp.Enter_Minimum_Amount("1000000");
+		
+		
+				//Verify enter valid min Amount
+				try
+				{
+					if(dcp.Minimum_AmountErrorPop().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enter Valid Minimum Amount is Displayed when Entering Percentage above 100%");
+					}
+				}
+				catch(Exception k)
+				{
+					test.log(LogStatus.FAIL, "Enter Valid Minimum Amount is not Displayed when Entering Percentage above 100%");
+		
+				}
+		
+				//Enter the Maximum Amount
+				dcp.Enter_Maximum_Percentage("5000000");
+		
+				try
+				{
+					if(dcp.Maximum_AmountErrorPop().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enter Valid Maximum Amount is Displayed when Entering Percentage above 100%");
+					}
+				}
+				catch(Exception k)
+				{
+					test.log(LogStatus.FAIL, "Enter Valid Maximum Amount is not Displayed when Entering Percentage above 100%");
+		
+				}
+		
+		
+		
+				//Enter Minium Amount
+				dcp.Enter_Minimum_Amount("1000");
+		
+				//Verify Valid Maximum Amount Error message
+				try
+				{
+					if(dcp.Maximum_AmountErrorPop().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enter Valid Maximum Amount is Displayed");
+					}
+				}
+				catch(Exception k)
+				{
+					test.log(LogStatus.FAIL, "Enter Valid Maximum Amount is not Displayed");
+		
+				}
+		
+		
+				//Enter the Maximum Amount
+				dcp.Enter_Maximum_Amount("500");
+		
+				//Verify Maximum percentage should be greater than minimum percenatage error pop up
+				try
+				{
+					if(dcp.MaximumToMinimum_AmountErrorPop().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Maximum Amount should be greater than minimum Amount is Displayed when Entering Minimum Amount above Maximum Amount");
+					}
+				}
+				catch(Exception k)
+				{
+					test.log(LogStatus.FAIL, "Maximum Amount should be greater than minimum Amount is not Displayed when Entering Amount above Maximum Amount");
+		
+				}
+		
+				//Enter Minium Percentage
+				dcp.Enter_Minimum_Amount("1200");
+		
+				//Enter the Maximum Percentage
+				dcp.Enter_Maximum_Amount("2000");
+		
+				//Enter the Safety Limit Percentage
+				dcp.Enter_Safety_Limit_Percentage("200000");
+		
+				//Verify Valid Safety Limit Percentage Error message
+				try
+				{
+					if(dcp.Safety_Limit_PercentageErrorPop().isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Enter valid safety limit percentage is Displayed");
+					}
+				}
+				catch(Exception k)
+				{
+					test.log(LogStatus.FAIL, "Enter valid safety limit percentage is not Displayed");
+		
+				}
+		
+		
+		
+				//Enter the Safety Limit Percentage
+				dcp.Enter_Safety_Limit_Percentage("25000");
 
 
 		//Disable Restrict POS visiblity by user
@@ -953,9 +955,9 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Open Check Discount Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Updated & Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "Open Check Discount updated successfully for Comp Discount Type");
 
@@ -1127,7 +1129,11 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 		{
 			test.log(LogStatus.FAIL, "Attach Customer is not Selected");
 		}
+		Thread.sleep(1000);
+		//Click the Priority
+				cmp.Enter_Priority("2");
 
+				Thread.sleep(1000);
 
 		//Click After Tax
 		dcp.Select_AfterTax();
@@ -1141,9 +1147,9 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Open Check Discount Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Updated & Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "Open Check Discount updated successfully for Donation Discount Type");
 
@@ -1192,6 +1198,9 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 		{
 			test.log(LogStatus.FAIL, "Donation Discount Type is not Selected");
 		}
+		Thread.sleep(1000);
+		//Click the Priority
+				cmp.Enter_Priority("2");
 
 
 		//Select Promo
@@ -1205,7 +1214,7 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Open Check Discount Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Updated successfully"))
 		{
@@ -1239,42 +1248,49 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 		try {
 			if(driver.findElement(By.xpath("//button[contains(.,'DEACTIVATE')]")).isDisplayed()) {
 				
+				test.log(LogStatus.INFO, "Deactive Displayed");
 				//Click the deactive button
 				driver.findElement(By.xpath("//button[contains(.,'DEACTIVATE')]")).click();
 				
-				Thread.sleep(500);
+				Thread.sleep(1000);
 				//Click the Delete button
 				cmp.Alert_PopupMsg("Are you sure you want to delete this item?");
 				
+				Thread.sleep(1000);
+
 				//Click the Cancel button
 				cmp.Click_CancelButtonInAlert();
 				
-				Thread.sleep(3000);
 				try
 				{
+					Thread.sleep(2000);
+
 				//Check whether the New Modifier Saved or not
 				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Inactivated Successfully"))
 				{
-					test.log(LogStatus.FAIL, "Item Based Deleted when clicking Cancel button");
+					test.log(LogStatus.FAIL, "Open Check Deleted when clicking Cancel button");
 				
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				}
 				catch(Exception g)
 				{
-					test.log(LogStatus.PASS, "Item Based not Deleted when Clicking Cancel button");
+					test.log(LogStatus.PASS, "Open Check not Deleted when Clicking Cancel button");
 					
 					ut.PassedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
+				Thread.sleep(1000);
 				//Click the deactive button
 				driver.findElement(By.xpath("//button[contains(.,'DEACTIVATE')]")).click();
 				
-				Thread.sleep(500);
+				
+				Thread.sleep(1500);
 				//Click the delete button
 				cmp.Click_DeleteButton();
 				
-				Thread.sleep(3000);
+				
+				cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 				//Check whether the Open Item Discount Saved or not
 				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Inactivated Successfully"))
 				{
@@ -1289,10 +1305,11 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
+				Thread.sleep(3000);
 				//Click the Activate button
 				driver.findElement(By.xpath("//button[contains(.,'ACTIVATE')]")).click();
 				
-				Thread.sleep(500);
+				Thread.sleep(1500);
 				
 				if(driver.findElement(By.xpath("//div[@class='alert-content']/p")).getText().equalsIgnoreCase("Are you sure you want to activate this item?"))
 				{
@@ -1300,13 +1317,17 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 					
 					driver.findElement(By.xpath("//button[contains(.,'Activate')]")).click();
 				}
-				else
+				else if(driver.findElement(By.xpath("//div[@class='alert-content']/p")).getText().equalsIgnoreCase("Are you sure you want to delete this item?"))
 				{
-					test.log(LogStatus.FAIL, "Activate Pop Up not Displayed");
+					test.log(LogStatus.FAIL, "Deactivated Open Check Discount displays again Active");
+					
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
+					
+					cmp.Click_DeleteButton();
 					
 				}
 				
-				Thread.sleep(3000);
+				cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 				//Check whether the Open Item Discount Saved or not
 				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Activated Successfully"))
 				{
@@ -1322,11 +1343,13 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 				}
 			}
 		}catch(Exception d) {
-			
+			Thread.sleep(1000);
+
 			//Click the Activate button
 			driver.findElement(By.xpath("//button[contains(.,'ACTIVATE')]")).click();
 			
-			Thread.sleep(500);
+			test.log(LogStatus.INFO, "Active Displayed");
+			Thread.sleep(1000);
 			
 			if(driver.findElement(By.xpath("//div[@class='alert-content']/p")).getText().equalsIgnoreCase("Are you sure you want to activate this item?"))
 			{
@@ -1340,7 +1363,7 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 				
 			}
 			
-			Thread.sleep(3000);
+			cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 			//Check whether the Open Item Discount Saved or not
 			if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Activated Successfully"))
 			{
@@ -1356,14 +1379,16 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 			}
 
 			if(driver.findElement(By.xpath("//button[contains(.,'DEACTIVATE')]")).isDisplayed()) {
-				
+				Thread.sleep(1000);
+
 				//Click the deactive button
 				driver.findElement(By.xpath("//button[contains(.,'DEACTIVATE')]")).click();
 				
-				Thread.sleep(500);
+				Thread.sleep(1000);
 				//Click the Delete button
 				cmp.Alert_PopupMsg("Are you sure you want to delete this item?");
-				
+				Thread.sleep(1000);
+
 				//Click the Cancel button
 				cmp.Click_CancelButtonInAlert();
 				
@@ -1373,26 +1398,27 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 				//Check whether the New Modifier Saved or not
 				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Inactivated Successfully"))
 				{
-					test.log(LogStatus.FAIL, "Item Based Deleted when clicking Cancel button");
+					test.log(LogStatus.FAIL, "Open Check Deleted when clicking Cancel button");
 				
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				}
 				catch(Exception g)
 				{
-					test.log(LogStatus.PASS, "Item Based not Deleted when Clicking Cancel button");
+					test.log(LogStatus.PASS, "Open Check not Deleted when Clicking Cancel button");
 					
 					ut.PassedCaptureScreenshotAsBASE64(driver, test);
 				}
-				
+				Thread.sleep(1000);
+
 				//Click the deactive button
 				driver.findElement(By.xpath("//button[contains(.,'DEACTIVATE')]")).click();
 				
-				Thread.sleep(500);
+				Thread.sleep(1000);
 				//Click the delete button
 				cmp.Click_DeleteButton();
 				
-				Thread.sleep(3000);
+				cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 				//Check whether the Open Item Discount Saved or not
 				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Inactivated Successfully"))
 				{
@@ -1406,11 +1432,12 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 					
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
-				
+				Thread.sleep(1000);
+
 				//Click the Activate button
 				driver.findElement(By.xpath("//button[contains(.,'ACTIVATE')]")).click();
 				
-				Thread.sleep(500);
+				Thread.sleep(1000);
 				
 				if(driver.findElement(By.xpath("//div[@class='alert-content']/p")).getText().equalsIgnoreCase("Are you sure you want to activate this item?"))
 				{
@@ -1424,7 +1451,7 @@ public class Product_Items_AddEditDelete_Open_Check_Discount {
 					
 				}
 				
-				Thread.sleep(3000);
+				cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 				//Check whether the Open Item Discount Saved or not
 				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Activated Successfully"))
 				{

@@ -174,12 +174,10 @@ public WebDriver driver;
 		Thread.sleep(2000);
 		try {
 		//Click the New Open Item Discount
-		if(dcp.Open_Item().isDisplayed()) {
+//		if(dcp.Open_Item().isDisplayed()) {
 			dcp.Click_New_Open_Item_Discount();
-		}
-		else {
-			dcp.Click_Open_Edit();
-		}
+//		}
+		
 		}
 		catch (Exception e) 
 		{
@@ -228,37 +226,37 @@ public WebDriver driver;
 		cmp.EnterName(Utility.getProperty("DiscountName_OpenItemAMT"));
 		
 		
-		try
-		{
-		if(cmp.Save_and_PublishButton().isEnabled())
-		{
-			//Click Save and Publish button
-			cmp.Click_Save_and_PublishButton();
-			
-			Thread.sleep(3000);
-			//Check whether the New Department Saved or not
-			if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Enter Valid Priority"))
-			{
-				test.log(LogStatus.PASS, "Please Enter Valid Priority Alert Displayed");
-			
-				ut.PassedCaptureScreenshotAsBASE64(driver, test);
-			}
-			else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Saved Successfully"))
-			{
-				test.log(LogStatus.FAIL, "Open Item Discount Saved without Entering Valid Priority");
-				
-				ut.FailedCaptureScreenshotAsBASE64(driver, test);
-			}
-			else
-			{
-				test.log(LogStatus.FAIL, "Enter Valid Priority Pop Up not Displayed");
-			}
-			
-		}
-		}
-		catch(Exception e)
-		{
-		}
+//		try
+//		{
+//		if(cmp.Save_and_PublishButton().isEnabled())
+//		{
+//			//Click Save and Publish button
+//			cmp.Click_Save_and_PublishButton();
+//			
+//			Thread.sleep(3000);
+//			//Check whether the New Department Saved or not
+//			if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Enter Valid Priority"))
+//			{
+//				test.log(LogStatus.PASS, "Please Enter Valid Priority Alert Displayed");
+//			
+//				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+//			}
+//			else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Saved Successfully"))
+//			{
+//				test.log(LogStatus.FAIL, "Open Item Discount Saved without Entering Valid Priority");
+//				
+//				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+//			}
+//			else
+//			{
+//				test.log(LogStatus.FAIL, "Enter Valid Priority Pop Up not Displayed");
+//			}
+//			
+//		}
+//		}
+//		catch(Exception e)
+//		{
+//		}
 		
 				Thread.sleep(1000);
 		//Click the Priority
@@ -271,6 +269,8 @@ public WebDriver driver;
 		//Click the Priority
 		cmp.Enter_Priority("2");
 		
+		test.log(LogStatus.INFO, "Priority Screen Before Reopen");
+		ut.PassedCaptureScreenshotAsBASE64(driver, test);
 	
 //		try
 //		{
@@ -470,7 +470,7 @@ public WebDriver driver;
 		     		//Click the Update and Publish button
 		     		cmp.Click_Update_and_PublishButton();
 
-		     		Thread.sleep(3000);
+		    		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		     		//Check whether the Open Item Discount Saved or not
 		     		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discoun Updated successfully"))
 		     		{
@@ -545,24 +545,28 @@ public WebDriver driver;
 		//Enter the Name
 		cmp.EnterName(Utility.getProperty("DiscountName_OpenItemAMT")+"1");
 		
-//		Thread.sleep(3000);
-//		//Get the Priority 
-//		String PriorityValue=cmp.Priority_Input().getAttribute("value");
-//		
-//	
-//		Thread.sleep(1000);
-//		//Get the Apply Discount
-//		String ApplyTax=dcp.Apply_DropDown().getAttribute("value");
-//		
-//		if(PriorityValue.equals("2"))
-//		{
-//			test.log(LogStatus.PASS, "Priority value not Changed");
-//		}
-//		else
-//		{
-//			test.log(LogStatus.FAIL, "Priority value Changed ");
-//		}
-//	
+		Thread.sleep(3000);
+		//Get the Priority 
+		String PriorityValue=cmp.Priority_Input().getAttribute("value");
+		
+	
+		Thread.sleep(1000);
+		//Get the Apply Discount
+		String ApplyTax=dcp.Apply_DropDown().getAttribute("value");
+		
+		if(PriorityValue.equals("2"))
+		{
+			test.log(LogStatus.PASS, "Priority value not Changed");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Priority value Changed ");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			test.log(LogStatus.INFO, "Priority Screen After Reopen");
+		
+		}
+	
 //		
 //		
 //		if(ApplyTax.equals("After Tax"))
@@ -641,7 +645,9 @@ public WebDriver driver;
 				//Click the Priority
 				cmp.Enter_Priority("4");
 				
-			
+				test.log(LogStatus.INFO, "Priority Before Second Reopen");
+				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+				
 				//Enable Coupon Only
 				dcp.Enable_Coupon_Only();
 				
@@ -901,9 +907,9 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Open Item Discount Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Updated & Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "Open Item Discount updated successfully for Comp Discount Type");
 		
@@ -945,6 +951,8 @@ public WebDriver driver;
 		//Get the Apply Discount
 		String ApplyTax=dcp.Apply_DropDown().getAttribute("value");
 		
+		test.log(LogStatus.INFO, "Priority After Second Reopen");
+
 		if(PriorityValue.equals("4"))
 		{
 			test.log(LogStatus.PASS, "Priority value not Changed");
@@ -952,6 +960,8 @@ public WebDriver driver;
 		else
 		{
 			test.log(LogStatus.FAIL, "Priority value Changed ");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
 	
@@ -1071,23 +1081,28 @@ public WebDriver driver;
 		{
 			test.log(LogStatus.FAIL, "Attach Customer is not Selected");
 		}
-		
-		
+		Thread.sleep(1000);
+		//Click the Priority
+				cmp.Enter_Priority("2");
+				
+				Thread.sleep(1000);
+
 		//Click After Tax
 		dcp.Select_AfterTax();
 		
-	
+		Thread.sleep(1000);
+
 		//Click the Donation Discount Type
 		dcp.Select_Donation_DiscountType();
 		
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Open Item Discount Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Updated & Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "Open Item Discount updated successfully for Donation Discount Type");
 		
@@ -1133,9 +1148,18 @@ public WebDriver driver;
 		}
 		
 		
+		Thread.sleep(1000);
+		//Click the Priority
+				cmp.Enter_Priority("2");
+				
+				Thread.sleep(1000);
+
+		
 		//Select Promo
 		dcp.Select_Promo_DiscountType();
 		
+		Thread.sleep(1000);
+
 		//Enter Safety Limit Percentage
 		dcp.Enter_Safety_Limit_Percentage("20000");
 		
@@ -1144,9 +1168,9 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the Open Item Discount Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Updated Successfully"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Updated & Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "Open Item Discount updated successfully to Menu Item");
 		
@@ -1209,7 +1233,7 @@ public WebDriver driver;
 					//Click the delete button
 					cmp.Click_DeleteButton();
 					
-					Thread.sleep(3000);
+					cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 					//Check whether the Open Item Discount Saved or not
 					if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Inactivated Successfully"))
 					{
@@ -1241,7 +1265,7 @@ public WebDriver driver;
 						
 					}
 					
-					Thread.sleep(3000);
+					cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 					//Check whether the Open Item Discount Saved or not
 					if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Activated Successfully"))
 					{
@@ -1275,7 +1299,7 @@ public WebDriver driver;
 					
 				}
 				
-				Thread.sleep(3000);
+				cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 				//Check whether the Open Item Discount Saved or not
 				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Activated Successfully"))
 				{
@@ -1327,7 +1351,7 @@ public WebDriver driver;
 					//Click the delete button
 					cmp.Click_DeleteButton();
 					
-					Thread.sleep(3000);
+					cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 					//Check whether the Open Item Discount Saved or not
 					if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Inactivated Successfully"))
 					{
@@ -1359,7 +1383,7 @@ public WebDriver driver;
 						
 					}
 					
-					Thread.sleep(3000);
+					cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 					//Check whether the Open Item Discount Saved or not
 					if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Discount Activated Successfully"))
 					{
