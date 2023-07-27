@@ -67,22 +67,24 @@ public class Reports_Employee_Labor_Report {
 	public void Login() throws Exception {
 
 		Thread.sleep(2000);
-		// Call the chrome driver
-		// System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
-		// Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
-		driver = new ChromeDriver(chromeOptions);
-
-		// Wait for 30 seconds
+		//Call the chrome driver
+//		System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Employee_Gratuity_Path"));
+//		//Open the Chrome window
+//		driver = new ChromeDriver();
+		
+		ChromeOptions chrOpt=new ChromeOptions();
+		chrOpt.addArguments("--remote-allow-origins=*");
+		WebDriverManager.chromedriver().setup();
+		driver=new ChromeDriver(chrOpt);
+		
+		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		// Maximize the Chrome window
+		//Maximize the Chrome window
 		driver.manage().window().maximize();
 		Thread.sleep(1000);
-		// Launch the URL
+		//Launch the URL
 		driver.get(Utility.getProperty("appURL"));
-
+		
 		Thread.sleep(10000);
 		a.Login(driver, test);
 	}
@@ -100,7 +102,7 @@ public class Reports_Employee_Labor_Report {
 		Labor_Report_Process_As_Daily_Weekly_In_Time(driver);
 		  Labor_Report_Today_Process_As_Daily(driver);
 		  Labor_Report_Yesterday_Process_As_Daily(driver);
-		  Labor_Report_Last_N_Days_Process_As_Daily(driver);
+//		  Labor_Report_Last_N_Days_Process_As_Daily(driver);
 		  Labor_Report_This_Week_Process_As_Daily(driver);
 		  Labor_Report_Last_Week_Process_As_Daily(driver);
 		  Labor_Report_Last_7_Days_Process_As_Daily(driver);
@@ -112,7 +114,7 @@ public class Reports_Employee_Labor_Report {
 		 Thread.sleep(1000);
 		Labor_Report_Today_Process_As_Weekly(driver);
 		Labor_Report_Yesterday_Process_As_Weekly(driver);
-		Labor_Report_Last_N_Days_Process_As_Weekly(driver);
+//		Labor_Report_Last_N_Days_Process_As_Weekly(driver);
 		Labor_Report_This_Week_Process_As_Weekly(driver);
 		Labor_Report_Last_Week_Process_As_Weekly(driver);
 		Labor_Report_Last_7_Days_Process_As_Weekly(driver);
@@ -276,11 +278,12 @@ public class Reports_Employee_Labor_Report {
 		Thread.sleep(500);
 	
 		//Select Last N days
-		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+	//	repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
 		
 		Thread.sleep(1000);
 		// Click Apply
-		repts.Click_ApplyButton();Thread.sleep(8000);
+		repts.Click_ApplyButton();
+		Thread.sleep(8000);
 		
 		Thread.sleep(8000);
 		try {
@@ -323,7 +326,7 @@ public class Reports_Employee_Labor_Report {
 		Thread.sleep(500);
 	
 		//Select Last N days
-		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+		//repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
 		
 		Thread.sleep(1000);
 		// Click Apply
@@ -371,7 +374,7 @@ public class Reports_Employee_Labor_Report {
 		Thread.sleep(500);
 	
 		//Select Last N days
-		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+		//repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
 		
 		Thread.sleep(1000);
 		// Click Apply
@@ -418,7 +421,7 @@ public class Reports_Employee_Labor_Report {
 		Thread.sleep(500);
 	
 		//Select Last N days
-		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+//		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
 		Thread.sleep(1000);
 		// Click Apply
 		repts.Click_ApplyButton();Thread.sleep(8000);
@@ -465,7 +468,7 @@ public class Reports_Employee_Labor_Report {
 		Thread.sleep(500);
 	
 		//Select Last N days
-		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+//		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
 		Thread.sleep(1000);
 		// Click Apply
 		repts.Click_ApplyButton();Thread.sleep(8000);
@@ -544,7 +547,8 @@ public class Reports_Employee_Labor_Report {
 			Thread.sleep(500);
 
 			//Select Last N days
-			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+		//	repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+			repts.Select_Last_7_Days_TimePeriod();
 			Thread.sleep(1000);
 			// Click Apply
 			repts.Click_ApplyButton();Thread.sleep(8000);
@@ -589,7 +593,9 @@ public class Reports_Employee_Labor_Report {
 			Thread.sleep(500);
 
 			//Select Last N days
-			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+//			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+			
+			repts.Select_Last_7_Days_TimePeriod();
 
 			Thread.sleep(1000);
 			// Click Apply
@@ -636,7 +642,8 @@ public class Reports_Employee_Labor_Report {
 			Thread.sleep(500);
 
 			//Select Last N days
-			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+//			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+			repts.Select_Last_7_Days_TimePeriod();
 			Thread.sleep(1000);
 			// Click Apply
 			repts.Click_ApplyButton();Thread.sleep(8000);
@@ -682,7 +689,8 @@ public class Reports_Employee_Labor_Report {
 			Thread.sleep(500);
 
 			//Select Last N days
-			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+//			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+			repts.Select_Last_7_Days_TimePeriod();
 
 			Thread.sleep(1000);
 			// Click Apply
@@ -729,7 +737,8 @@ public class Reports_Employee_Labor_Report {
 			Thread.sleep(500);
 
 			//Select Last N days
-			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+//			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+			repts.Select_Last_7_Days_TimePeriod();
 			Thread.sleep(1000);
 			// Click Apply
 			repts.Click_ApplyButton();Thread.sleep(8000);

@@ -582,15 +582,15 @@ String item_Name = Menu_Name.getText();
 			ArrayList<String> menuList=new ArrayList<String>();
 			ArrayList<String> priceList=new ArrayList<String>();
 			
-			String s1 = null;
-			String s2 = null;
-			String s3 = null;
-			String s4 = null;
-		
-			String u1 = null;
-			String u2 = null;
-			String u3 = null;
-			String u4 = null;
+//			String s1 = null;
+//			String s2 = null;
+//			String s3 = null;
+//			String s4 = null;
+//		
+//			String u1 = null;
+//			String u2 = null;
+//			String u3 = null;
+//			String u4 = null;
 			
 			
 	
@@ -600,7 +600,7 @@ String item_Name = Menu_Name.getText();
 		
 		
 		
-			List<WebElement> menuname = driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/div/data-grid-row/div/div[3]/span"));
+			List<WebElement> menuname = driver.findElements(By.xpath("//table/tbody/tr/td[2]"));
 			int size = menuname.size();
 			for (WebElement webElement : menuname) {
 	            String Menuname = webElement.getText();
@@ -610,13 +610,13 @@ String item_Name = Menu_Name.getText();
 			
 			for(int i=1;i<=size;i++) {
 				Thread.sleep(3000);
-          driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]//input")).sendKeys("3000");
+          driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]//input")).sendKeys("3000");
           Thread.sleep(3000);
 			}
 			
 			UPDATE_ITEM_PRICE.click();
 			
-			List<WebElement> menuname_price = driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/div/data-grid-row/div/div[5]/div/span"));
+			List<WebElement> menuname_price = driver.findElements(By.xpath("//table/tbody/tr/td[5]//span"));
 			for (WebElement webElement : menuname_price) {
 	            String Menuname_price = webElement.getText();
 	            System.out.println(Menuname_price);
@@ -634,7 +634,7 @@ String item_Name = Menu_Name.getText();
 			
 			try {
 				cmp.Verify_Search(menuList.get(i));
-			if(driver.findElement(By.xpath("//div[contains(.,'"+menuList.get(i)+"')]/../div/div[5]/div/div/span[contains(.,'"+priceList.get(i)+"')]")).isDisplayed())
+			if(driver.findElement(By.xpath("//td[contains(.,'"+menuList.get(i)+"')]/../td[5]/span[contains(.,'"+priceList.get(i)+"')]")).isDisplayed())
 				
 			{
 				test.log(LogStatus.PASS, menuList.get(i)+" Price Updated Successfully");

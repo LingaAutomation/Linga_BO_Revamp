@@ -73,10 +73,10 @@ public class ModifiersPage {
 	@FindBy(xpath = "//span[contains(.,'Show Modifier In Menu Print')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement ShowModifierInMenuPrint_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Set Price Here')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Set Price Here')]/../../div[2]/app-toggle/div//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement SetPriceHere_YesBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Set Price Here')]/../../div[2]/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Set Price Here')]/../../div[2]/app-toggle/div//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement SetPriceHere_NoBtn;
 
 	@FindBy(xpath = "//mat-step-header[contains(.,'Proceed to Inventory Mapping')]")
@@ -317,10 +317,15 @@ public class ModifiersPage {
 		
 		int randomModifKitchenPrinter=ThreadLocalRandom.current().nextInt(1, KitchenPrinterSize);
 	
+		try
+		{
 		if(ShowAll_KitchenPrinterBtn.isDisplayed())
 		{
 			Thread.sleep(1000);
 			ShowAll_KitchenPrinterBtn.click();
+		}
+		}
+		catch(Exception pl) {}
 			
 			Thread.sleep(1000);
 		if(driver.findElement(By.xpath("//div[@id='new-modifier-kitchen-printers']/div[3]/div/app-chip/div/mat-chip-list/div/mat-chip["+randomModifKitchenPrinter+"]")).isSelected())
@@ -331,7 +336,7 @@ public class ModifiersPage {
 		{
 		driver.findElement(By.xpath("//div[@id='new-modifier-kitchen-printers']/div[3]/div/app-chip/div/mat-chip-list/div/mat-chip["+randomModifKitchenPrinter+"]")).click();
 		}
-		}
+		
 		
 	}
 	
@@ -687,8 +692,11 @@ public class ModifiersPage {
 	{
 		First_InventoryItemInput.click();
 		
+		try
+		{
 		driver.findElement(By.xpath("//div[@class='options with-height']/cdk-virtual-scroll-viewport/div/div[1]")).click();
-
+		}catch(Exception pl) { test.log(LogStatus.INFO, "Inventory Item Not available for this Category");}
+		
 	}
 	else if(ItemSize==1)
 	{

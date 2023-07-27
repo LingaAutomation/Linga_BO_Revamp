@@ -78,12 +78,14 @@ public WebDriver driver;
 		
 		Thread.sleep(2000);
 		//Call the chrome driver
-		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
-		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
-		driver = new ChromeDriver(chromeOptions);
+//		System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
+//		//Open the Chrome window
+//		driver = new ChromeDriver();
+		
+		ChromeOptions chrOpt=new ChromeOptions();
+		chrOpt.addArguments("--remote-allow-origins=*");
+		WebDriverManager.chromedriver().setup();
+		driver=new ChromeDriver(chrOpt);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

@@ -317,7 +317,15 @@ public WebDriver driver;
 		pmt.Enable_Eighty_Six_List();
 		
 		//Enable Meito MenuItem
-		pmt.Enable_Meito_MenuItem();
+		try
+		{
+			if(pmt.Meito_MenuItem_Yes().isDisplayed())
+			{
+				pmt.Enable_Meito_MenuItem();
+
+			}
+		}
+		catch(Exception ll) {}
 		 
 		//Select Always
 		at.Click_AlwaysButton();

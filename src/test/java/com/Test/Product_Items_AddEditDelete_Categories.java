@@ -166,7 +166,7 @@ public WebDriver driver;
 		Thread.sleep(2000);
 	
 		//Verify the New Category creation screen opened or not
-		cmp.VerifyCreationScreenPageHeader("New Category");
+		cmp.VerifyCreationScreenPageHeader_Two("New Category");
 		Thread.sleep(2000);
 		
 		if(cmp.Save_and_PublishButton().isEnabled())
@@ -307,7 +307,7 @@ public WebDriver driver;
 		
 		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Saved Successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Saved and Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "New Category Saved and Published Successfully");
 		
@@ -335,7 +335,7 @@ public WebDriver driver;
 		
 		Thread.sleep(1000);
 		//Check whether the Update screen opened or not
-		cmp.VerifyCreationScreenPageHeader("Update Category");
+		cmp.VerifyCreationScreenPageHeader_Two("Update Category");
 		
 		Thread.sleep(1000);
 		//Click Cancel button
@@ -361,32 +361,33 @@ public WebDriver driver;
 		ctp=new CategoriesPage(driver, test);
 		at=new Availability_RestrictionTimePage(driver, test);
 	
-		Thread.sleep(50000);
+		Thread.sleep(3000);
 		//Search and Verify the Search box when Entering 3 Characters
 		cmp.SearchAndVerify_SearchBoxTwo();
 	
 		
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		//Search and Click Edit button
 		cmp.SearchAndClickEdit(Utility.getProperty("Category_Name"));
 		
 		
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		//Enter the Name
 		cmp.EnterName("");
 		
 		try
 		{
-		Thread.sleep(2000);
+//		Thread.sleep(2000);
 		if(cmp.Update_and_PublishButton().isEnabled())
 		{
+			Thread.sleep(2000);
 		//Click the Save button
 				cmp.Click_Update_and_PublishButton();
 				
 //				Thread.sleep(2000);
 				cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 30);
 				//Check whether the New Tax Saved or not
-				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated Successfully. Store data publish is starting"))
+				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated and Published Successfully"))
 				{
 					test.log(LogStatus.FAIL, "Category Updated successfully for Item Tax (Amount) without Name");
 				
@@ -411,6 +412,7 @@ public WebDriver driver;
 			test.log(LogStatus.PASS, "Update and Publish button not Enabled without Entering Name");
 		}
 		
+		Thread.sleep(2000);
 		//Enter the Name
 		cmp.EnterName(Utility.getProperty("Category_Name")+"1");
 		
@@ -419,7 +421,7 @@ public WebDriver driver;
 		ctp.Select_Department();
 		
 		for(int i=1;i<=3;i++)
-		{
+		{ 
 			Thread.sleep(1000);
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
 		}
@@ -467,7 +469,7 @@ public WebDriver driver;
 		
 		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated Successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated and Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "New Category updated and Publish successfully for Days of Week");
 		
@@ -544,7 +546,7 @@ public WebDriver driver;
 		
 		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated Successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated and Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "New Category updated and Publish successfully for Days of Month");
 		
@@ -612,7 +614,7 @@ public WebDriver driver;
 		
 		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated Successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated and Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "New Category updated and Publish successfully for Date Range");
 		
@@ -678,7 +680,7 @@ public WebDriver driver;
 		
 		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated Successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated and Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "New Category updated and Publish successfully for Specific Date");
 		
@@ -726,7 +728,7 @@ public WebDriver driver;
 		
 		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 40);
 		//Check whether the New Category Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated Successfully. Store data publish is starting"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated and Published Successfully"))
 		{
 			test.log(LogStatus.PASS, "New Category updated and Publish successfully for Date Range with Time");
 		

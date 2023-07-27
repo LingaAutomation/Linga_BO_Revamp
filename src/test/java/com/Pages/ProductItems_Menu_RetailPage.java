@@ -91,16 +91,16 @@ public class ProductItems_Menu_RetailPage {
 	@FindBy(xpath = "//label[contains(.,'Evertex Tax Type')]/../../input")
 	WebElement Evertex_Tax_TypeInputBx;
 	
-	@FindBy(xpath = "//span[contains(.,'Conversational UI at POS')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Conversational UI at POS')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Conversational_UI_atPOS_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Conversational UI at POS')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Conversational UI at POS')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Conversational_UI_atPOS_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Cut And Modify')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Cut And Modify')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Cut_And_Modify_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Cut And Modify')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Cut And Modify')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Cut_And_Modify_NoBtn;
 	
 	@FindBy(xpath = "//mat-button-toggle[contains(.,'FIXED')]")
@@ -109,13 +109,13 @@ public class ProductItems_Menu_RetailPage {
 	@FindBy(xpath = "//mat-button-toggle[contains(.,'VARIABLE')]")
 	WebElement Variable_Cost_TypeRadioBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Price Level Settings')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Price Level Settings')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Price_Level_Settings_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Price Level Settings')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Price Level Settings')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Price_Level_Settings_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Hide In Kiosk')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide In Kiosk')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Hide_In_Kiosk_YesBtn;
 	
 	public WebElement Hide_In_Kiosk_Yes()
@@ -124,10 +124,10 @@ public class ProductItems_Menu_RetailPage {
 	}
 	
 		
-	@FindBy(xpath = "//span[contains(.,'Hide In Kiosk')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide In Kiosk')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Hide_In_Kiosk_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'EBT Menu Item')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'EBT Menu Item')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement EBT_Menu_Item_YesBtn;
 		
 
@@ -136,10 +136,10 @@ public class ProductItems_Menu_RetailPage {
 		return EBT_Menu_Item_YesBtn;
 	}
 	
-	@FindBy(xpath = "//span[contains(.,'EBT Menu Item')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'EBT Menu Item')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement EBT_Menu_Item_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Hide In POS')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide In POS')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Hide_In_POS_YesBtn;
 	
 	public WebElement Hide_In_POS_Yes()
@@ -148,10 +148,10 @@ public class ProductItems_Menu_RetailPage {
 	}
 	
 		
-	@FindBy(xpath = "//span[contains(.,'Hide In POS')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide In POS')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Hide_In_POS_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Hide In Online Order')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide In Online Order')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Hide_In_Online_Order_YesBtn;
 	
 	public WebElement Hide_In_Online_Order_Yes()
@@ -160,10 +160,10 @@ public class ProductItems_Menu_RetailPage {
 	}
 	
 		
-	@FindBy(xpath = "//span[contains(.,'Hide In Online Order')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Hide In Online Order')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Hide_In_Online_Order_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'86 List')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'86 List')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Eighty_Six_List_YesBtn;
 	
 	public WebElement Eighty_Six_List_Yes()
@@ -171,10 +171,10 @@ public class ProductItems_Menu_RetailPage {
 		return Eighty_Six_List_YesBtn;
 	}
 		
-	@FindBy(xpath = "//span[contains(.,'86 List')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'86 List')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Eighty_Six_List_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Meito MenuItem')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Meito MenuItem')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Meito_MenuItem_YesBtn;
 	
 	public WebElement Meito_MenuItem_Yes()
@@ -182,7 +182,7 @@ public class ProductItems_Menu_RetailPage {
 		return Meito_MenuItem_YesBtn;
 	}
 		
-	@FindBy(xpath = "//span[contains(.,'Meito MenuItem')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Meito MenuItem')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Meito_MenuItem_NoBtn;
 	
 	@FindBy(xpath = "//button[contains(.,'Add Included Modifiers')]")
@@ -194,10 +194,10 @@ public class ProductItems_Menu_RetailPage {
 	@FindBy(xpath = "//button[contains(.,'Add Optional Modifier Group')]")
 	WebElement Add_Optional_Modifier_GroupBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Jump With Minimum Quantity')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Jump With Minimum Quantity')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Jump_With_Minimum_Quantity_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Jump With Minimum Quantity')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Jump With Minimum Quantity')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Jump_With_Minimum_Quantity_NoBtn;
 	
 	@FindBy(xpath = "//h3[contains(.,'Mandatory Modifier Groups')]/../../..//span[contains(.,'Set Tiered Price')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
@@ -212,10 +212,10 @@ public class ProductItems_Menu_RetailPage {
 	@FindBy(xpath = "//h3[contains(.,'Optional Modifier Groups')]/../../..//span[contains(.,'Set Tiered Price')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Set_Tiered_Price_OptionalModifier_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Alternate Modifier Group')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Alternate Modifier Group')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement Alternate_Modifier_Group_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Alternate Modifier Group')]/../../div[2]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Alternate Modifier Group')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement Alternate_Modifier_Group_NoBtn;
 	
 	public void Click_New_MenuItem()
@@ -1146,13 +1146,13 @@ public class ProductItems_Menu_RetailPage {
 		}
 		catch(Exception l)
 		{
-			if(driver.findElement(By.xpath("//span[contains(.,'Hide in Online Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")).isSelected())
+			if(driver.findElement(By.xpath("//app-toggle[contains(.,'Hide in Online Order')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")).isSelected())
 			{
 				
 			}
 			else
 			{
-				driver.findElement(By.xpath("//span[contains(.,'Hide in Online Order')]/../../div[2]/app-toggle/div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")).click();
+				driver.findElement(By.xpath("//app-toggle[contains(.,'Hide in Online Order')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")).click();
 			}
 		}
 	}

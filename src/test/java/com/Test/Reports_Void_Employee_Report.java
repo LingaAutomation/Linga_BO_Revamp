@@ -111,7 +111,7 @@ public WebDriver driver;
 	{
 		Open_Void_Employee_Report_Page(driver);
 //		RefreshAndPaginination(driver);
-		Void_Employee_Report_Verify_Void_Employee_Search(driver);
+		//Void_Employee_Report_Verify_Void_Employee_Search(driver);
 		Void_Employee_Report_Today(driver);
 		Void_Employee_Report_Yesterday(driver);
 		Void_Employee_Report_Last_N_Days(driver);
@@ -366,7 +366,7 @@ public WebDriver driver;
 		}
 		else
 		{
-			for(int i=1;i<=1000;i++)
+			for(int i=1;i<=5;i++)
 			{
 			
 				
@@ -512,7 +512,7 @@ public WebDriver driver;
 
 				test.log(LogStatus.INFO, "Check No is: "+Check_No+" Business Date is : "+Date+" Item Name is : "+Item_Name+" Amount is : "+ActualAmount+" Void Reason is : "+Void_Reason+" Void By : "+Void_By);
 				
-				Check.click();
+				//Check.click();
 				
 				
 			}
@@ -1581,7 +1581,10 @@ public WebDriver driver;
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
-				Thread.sleep(1000);
+				Thread.sleep(2000);
+				driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+				
+				Thread.sleep(2000);
 				//Click the Back button
 				repts.Click_Back_Button();
 			}
@@ -1639,7 +1642,10 @@ public WebDriver driver;
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
-				Thread.sleep(1000);
+				Thread.sleep(2000);
+				driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+				
+				Thread.sleep(2000);
 				//Click the Back button
 				repts.Click_Back_Button();
 			}

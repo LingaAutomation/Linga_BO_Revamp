@@ -113,7 +113,7 @@ public class Common_XPaths {
 	@FindBy(xpath = "//div[@class='drawer-component']/div/div/h3")
 	WebElement CreationScreenHeader;
 	
-	@FindBy(xpath = "//div[contains(@class,'row header')]/div/div/div/h3")
+	@FindBy(xpath = "//div[contains(@class,'row header')]//h3")
 	WebElement CreationScreenHeaderTwo;
 	
 	@FindBy(xpath = "//mat-button-toggle[.='Yes']")
