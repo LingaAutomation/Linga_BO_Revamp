@@ -639,7 +639,8 @@ public class Availability_RestrictionTimePage
 			
 			try
 			{
-			
+			if(AvailableDays_YesBtn.isDisplayed())
+			{
 //			if(AvailableDays_YesBtn.isEnabled())
 //			{
 //				
@@ -667,6 +668,7 @@ public class Availability_RestrictionTimePage
 				driver.findElement(By.xpath("//app-chip[@name='availableDays']/div/mat-chip-list/div/mat-chip["+j+"]")).click();
 			}
 			}
+			}
 			catch(Exception h) {}
 			
 			Thread.sleep(3000);
@@ -676,6 +678,10 @@ public class Availability_RestrictionTimePage
 //			}
 //			else
 //			{
+			try
+			{
+				if(RestrictionDays_YesBtn.isDisplayed())
+				{
 				RestrictionDays_YesBtn.click();
 //			}
 			try
@@ -695,7 +701,9 @@ public class Availability_RestrictionTimePage
 				Thread.sleep(1000);
 				driver.findElement(By.xpath("//app-chip[@name='restrictDays']/div/mat-chip-list/div/mat-chip["+j+"]")).click();
 			}
-			
+				}
+			}
+			catch(Exception lp) {}
 			Thread.sleep(1000);
 
 			 

@@ -63,7 +63,9 @@ public WebDriver driver;
 			
 			test.log(LogStatus.FAIL, test.addScreenCapture(s));
 	
-		
+			//Load the Department page
+			driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id1")+"departments");
+
 		}
 	}
 	

@@ -255,7 +255,7 @@ public WebDriver driver;
 		Thread.sleep(2000);
 	
 		//Verify the New Tax creation screen opened or not
-		cmp.VerifyCreationScreenPageHeader("New Tax");
+		cmp.VerifyCreationScreenPageHeader_Two("New Tax");
 		Thread.sleep(2000);
 		
 	
@@ -306,7 +306,7 @@ public WebDriver driver;
 		Thread.sleep(2000);
 	
 		//Verify the New Tax creation screen opened or not
-		cmp.VerifyCreationScreenPageHeader("New Tax");
+		cmp.VerifyCreationScreenPageHeader_Two("New Tax");
 		Thread.sleep(2000);
 		
 	
@@ -356,7 +356,7 @@ public WebDriver driver;
 		Thread.sleep(2000);
 	
 		//Verify the New Tax creation screen opened or not
-		cmp.VerifyCreationScreenPageHeader("New Tax");
+		cmp.VerifyCreationScreenPageHeader_Two("New Tax");
 		Thread.sleep(2000);
 		
 	
@@ -397,7 +397,7 @@ public WebDriver driver;
 		Thread.sleep(2000);
 	
 		//Verify the New Tax creation screen opened or not
-		cmp.VerifyCreationScreenPageHeader("New Tax");
+		cmp.VerifyCreationScreenPageHeader_Two("New Tax");
 		Thread.sleep(2000);
 		
 	

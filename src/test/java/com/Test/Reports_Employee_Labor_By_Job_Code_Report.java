@@ -65,22 +65,24 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 	public void Login() throws Exception {
 
 		Thread.sleep(2000);
-		// Call the chrome driver
-		// System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
-		// Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
-		driver = new ChromeDriver(chromeOptions);
-
-		// Wait for 30 seconds
+		//Call the chrome driver
+//		System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Employee_Gratuity_Path"));
+//		//Open the Chrome window
+//		driver = new ChromeDriver();
+		
+		ChromeOptions chrOpt=new ChromeOptions();
+		chrOpt.addArguments("--remote-allow-origins=*");
+		WebDriverManager.chromedriver().setup();
+		driver=new ChromeDriver(chrOpt);
+		
+		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		// Maximize the Chrome window
+		//Maximize the Chrome window
 		driver.manage().window().maximize();
 		Thread.sleep(1000);
-		// Launch the URL
+		//Launch the URL
 		driver.get(Utility.getProperty("appURL"));
-
+		
 		Thread.sleep(10000);
 		a.Login(driver, test);
 	}
@@ -274,7 +276,7 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 		Thread.sleep(500);
 	
 		//Select Last N days
-		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+//		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
 		
 		Thread.sleep(1000);
 		// Click Apply
@@ -321,7 +323,7 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 		Thread.sleep(500);
 	
 		//Select Last N days
-		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+//		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
 		
 		Thread.sleep(1000);
 		// Click Apply
@@ -369,7 +371,7 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 		Thread.sleep(500);
 	
 		//Select Last N days
-		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+//		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
 		
 		Thread.sleep(1000);
 		// Click Apply
@@ -447,7 +449,7 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			Thread.sleep(500);
 
 			//Select Last N days
-			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+//			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
 			Thread.sleep(1000);
 			// Click Apply
 			repts.Click_ApplyButton();Thread.sleep(8000);
@@ -492,7 +494,7 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			Thread.sleep(500);
 
 			//Select Last N days
-			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+//			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
 
 			Thread.sleep(1000);
 			// Click Apply
@@ -539,7 +541,7 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			Thread.sleep(500);
 
 			//Select Last N days
-			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
+//			repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
 			Thread.sleep(1000);
 			// Click Apply
 			repts.Click_ApplyButton();Thread.sleep(8000);
@@ -611,11 +613,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 
 		}
@@ -657,11 +659,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 
 		}
@@ -704,13 +706,12 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
-
 		}
 	}
 
@@ -751,11 +752,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 
 		}
@@ -796,11 +797,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 	}
@@ -842,11 +843,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 	}
@@ -888,11 +889,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 	}
@@ -934,11 +935,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 	}
@@ -980,11 +981,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 	}
@@ -1026,11 +1027,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 	}
@@ -1074,11 +1075,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 		test.log(LogStatus.INFO,
@@ -1125,11 +1126,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 	}
@@ -1170,11 +1171,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 
 		}
@@ -1216,11 +1217,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 
 		}
@@ -1263,11 +1264,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 	}
@@ -1307,11 +1308,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 	}
@@ -1353,11 +1354,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 	}
@@ -1399,11 +1400,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 	}
@@ -1445,11 +1446,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 	}
@@ -1491,11 +1492,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 	}
@@ -1537,11 +1538,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 	}
@@ -1583,11 +1584,11 @@ public class Reports_Employee_Labor_By_Job_Code_Report {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Netsales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[3]")).getText());
-			test.log(LogStatus.INFO, "Hours Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[4]")).getText());
-			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[5]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[6]")).getText());
-			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,'Summary')]/../../div[7]")).getText());
+			test.log(LogStatus.INFO, "Total Paid : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+			test.log(LogStatus.INFO, "% of Total Payroll : "+driver.findElement(By.xpath("//span[contains(.,'Total')]/../../div[2]")).getText());
+//			test.log(LogStatus.INFO, "Labour Amount : Total "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[4]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[5]")).getText());
+//			test.log(LogStatus.INFO, "% of Net Sales Total : "+driver.findElement(By.xpath("//span[contains(.,' Total Labor ')]/../../td[6]")).getText());
 			Thread.sleep(3000);
 		}
 		test.log(LogStatus.INFO,

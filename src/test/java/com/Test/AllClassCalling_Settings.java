@@ -47,13 +47,24 @@ public class AllClassCalling_Settings {
 			
 			test.log(LogStatus.FAIL, test.addScreenCapture(s));
 	
-		
+			try
+			{
+				if(new LoginPage(driver, test).LoginPageHeaderText().isDisplayed())
+				{
+					test.log(LogStatus.FAIL, "Application Logged Out");
+					Login();
+				}
+			}
+			catch(Exception lp) 
+			{
+				
+			}
 		}
 	}
 	
 	
 	@Test(priority=1)
-	public void login() throws Exception
+	public void Login() throws Exception
 	{
 		
 		Thread.sleep(2000);

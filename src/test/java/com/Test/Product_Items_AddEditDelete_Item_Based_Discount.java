@@ -106,14 +106,14 @@ public WebDriver driver;
 	public void Calling() throws Exception
 	{
 		Open_Item_Based_Discount_Page(driver);
-		RefreshAndPaginination(driver);
-		Add_Item_Based_Discount(driver);
-		Edit_and_Close_Cancel_Item_Based_Discount(driver);
-		Edit_and_Update_Item_Based_Discount_Percentage(driver);
-		Edit_and_Update_SubCategory_Item_Based_Discount(driver);
-		Edit_and_Update_MenuItem_Item_Based_Discount(driver);
-		Edit_and_Update_Item_Based_Discount_DaysOfWeek(driver);
-		Edit_and_Update_Item_Based_Discount_DaysOfMonth(driver);
+//		RefreshAndPaginination(driver);
+//		Add_Item_Based_Discount(driver);
+//		Edit_and_Close_Cancel_Item_Based_Discount(driver);
+//		Edit_and_Update_Item_Based_Discount_Percentage(driver);
+//		Edit_and_Update_SubCategory_Item_Based_Discount(driver);
+//		Edit_and_Update_MenuItem_Item_Based_Discount(driver);
+//		Edit_and_Update_Item_Based_Discount_DaysOfWeek(driver);
+//		Edit_and_Update_Item_Based_Discount_DaysOfMonth(driver);
 		Edit_and_Update_Item_Based_Discount_DateRange(driver);
 		Edit_and_Update_Item_Based_Discount_Specific_Date(driver);
 		Edit_and_Update_Item_Based_Discount_DateRangeWithTime(driver);

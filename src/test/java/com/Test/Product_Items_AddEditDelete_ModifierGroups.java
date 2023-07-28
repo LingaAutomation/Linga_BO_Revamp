@@ -120,12 +120,12 @@ public class Product_Items_AddEditDelete_ModifierGroups
 	public void Calling() throws Exception
 	{
 		Open_ModifierGroups_Page(driver);
-//		RefreshAndPaginination(driver);
-//		Add_ModifierGroups(driver);
-//		Edit_and_Close_Cancel_ModifierGroups(driver);
-//		Edit_and_Update_ModifierGroups(driver);
-//		Edit_and_Sorting_Update_ModifierGroups(driver);
-//		Delete_and_Active_Inactive_ModifierGroups(driver);
+		RefreshAndPaginination(driver);
+		Add_ModifierGroups(driver);
+		Edit_and_Close_Cancel_ModifierGroups(driver);
+		Edit_and_Update_ModifierGroups(driver);
+		Edit_and_Sorting_Update_ModifierGroups(driver);
+		Delete_and_Active_Inactive_ModifierGroups(driver);
 		Add_ModifierGroups_BasicDetails(driver);
 		Create_DuplicateModifierGroup(driver);
 	}

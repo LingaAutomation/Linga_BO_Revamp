@@ -389,7 +389,18 @@ public WebDriver driver;
 				//Check whether the New Tax Saved or not
 				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Updated and Published Successfully"))
 				{
-					test.log(LogStatus.FAIL, "Category Updated successfully for Item Tax (Amount) without Name");
+					test.log(LogStatus.FAIL, "Category Updated without Name");
+				
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
+					
+					Thread.sleep(5000);
+					//Search and Click Edit button
+					cmp.SearchAndClickEdit(Utility.getProperty("Category_Name"));
+					
+				}
+				else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Category Saved and Published Successfully"))
+				{
+					test.log(LogStatus.FAIL, "Category Updated without Name and Displays Wrong Confirmation");
 				
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					

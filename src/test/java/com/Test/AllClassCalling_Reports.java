@@ -58,7 +58,18 @@ public class AllClassCalling_Reports {
 				
 				test.log(LogStatus.FAIL, test.addScreenCapture(s));
 		
-			
+				try
+				{
+					if(new LoginPage(driver, test).LoginPageHeaderText().isDisplayed())
+					{
+						test.log(LogStatus.FAIL, "Application Logged Out");
+						Login();
+					}
+				}
+				catch(Exception lp) 
+				{
+					
+				}
 			}
 		}
 		

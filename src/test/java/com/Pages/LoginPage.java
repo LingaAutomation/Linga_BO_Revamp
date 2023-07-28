@@ -89,6 +89,11 @@ public class LoginPage {
 		LoginBtn.click();
 	}
 	
+	public WebElement LoginPageHeaderText()
+	{
+		return LoginPageHeaderText;
+	}
+	
 	public void VerifyLoginPageHeader()
 	{
 		
