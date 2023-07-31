@@ -73,10 +73,10 @@ public class ModifiersPage {
 	@FindBy(xpath = "//span[contains(.,'Show Modifier In Menu Print')]/../../div[2]//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement ShowModifierInMenuPrint_NoBtn;
 	
-	@FindBy(xpath = "//app-toggle[@name='setPrice']//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Set Price Here')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement SetPriceHere_YesBtn;
 	
-	@FindBy(xpath = "//app-toggle[@name='setPrice']//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Set Price Here')]/../..//div/mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement SetPriceHere_NoBtn;
 
 	@FindBy(xpath = "//mat-step-header[contains(.,'Proceed to Inventory Mapping')]")

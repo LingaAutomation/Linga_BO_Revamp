@@ -726,21 +726,21 @@ public class Common_XPaths {
 		Thread.sleep(2000);
 		try
 		{
-			Wait_ForElementVisibility(driver.findElement(By.xpath("//span[.=' "+SearchValue+" ']/../../td//div[1]/button")), 50);
-		driver.findElement(By.xpath("//span[.=' "+SearchValue+" ']/../../td//div[1]/button")).click();
-		
-//			Wait_ForElementVisibility(driver.findElement(By.xpath("//span[contains(.,'"+SearchValue+"')]/../../td//div[1]/button")), 50);
-//			driver.findElement(By.xpath("//span[contains(.,'"+SearchValue+"')]/../../td//div[1]/button")).click();
+//			Wait_ForElementVisibility(driver.findElement(By.xpath("//span[.=' "+SearchValue+" ']/../../td//div[1]/button")), 50);
+//		driver.findElement(By.xpath("//span[.=' "+SearchValue+" ']/../../td//div[1]/button")).click();
+//		
+			Wait_ForElementVisibility(driver.findElement(By.xpath("//span[contains(.,'"+SearchValue+"')]/../../td//div[1]/button")), 50);
+			driver.findElement(By.xpath("//span[contains(.,'"+SearchValue+"')]/../../td//div[1]/button")).click();
 			
 		}
 		catch(Exception g)
 		{
 			
-			Wait_ForElementVisibility(driver.findElement(By.xpath("//span[.='"+SearchValue+" ']/../../div//div[1]/button")), 40);
-			driver.findElement(By.xpath("//span[.='"+SearchValue+" ']/../../div//div[1]/button")).click();
-		
-//			Wait_ForElementVisibility(driver.findElement(By.xpath("//span[.='"+SearchValue+"')]/../../div//div[1]/button")), 40);
-//			driver.findElement(By.xpath("//span[contains(.,'"+SearchValue+"')]/../../div//div[1]/button")).click();
+//			Wait_ForElementVisibility(driver.findElement(By.xpath("//span[.='"+SearchValue+" ']/../../div//div[1]/button")), 40);
+//			driver.findElement(By.xpath("//span[.='"+SearchValue+" ']/../../div//div[1]/button")).click();
+//		
+			Wait_ForElementVisibility(driver.findElement(By.xpath("//span[.='"+SearchValue+"')]/../../div//div[1]/button")), 40);
+			driver.findElement(By.xpath("//span[contains(.,'"+SearchValue+"')]/../../div//div[1]/button")).click();
 		
 		}
 		

@@ -618,10 +618,10 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		
 //		tx.Click_ItemTax();
 		
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		cmp.Click_SaveButton();
 		
-		Thread.sleep(2000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Tax Saved Successfully"))
 		{
 			test.log(LogStatus.PASS, "Tax Saved Successfully");

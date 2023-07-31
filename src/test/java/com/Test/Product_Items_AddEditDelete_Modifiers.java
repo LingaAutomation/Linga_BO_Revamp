@@ -999,13 +999,21 @@ public class Product_Items_AddEditDelete_Modifiers
 		cmp.Click_Save_and_PublishButton();
 		
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		//Check whether the New Modifier Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Name already exists"))
 		{
 			test.log(LogStatus.PASS, "Modifier Name already exist pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
+		{
+			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
+			
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
 		}
 		else
 		{

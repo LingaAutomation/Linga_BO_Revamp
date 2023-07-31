@@ -426,14 +426,19 @@ List<WebElement> servingSizeList=driver.findElements(By.xpath("//app-selectbox/d
 			
 			int OpSizeSize=OpSizeList.size();
 			
-			
+			if(OpSizeSize>1&&OpSizeSize<=6)
+			{
 			int randomOpSize=ThreadLocalRandom.current().nextInt(1, OpSizeSize);
 			
-			Thread.sleep(5000);
-			try {
+			Thread.sleep(1000);
+		
 			driver.findElement(By.xpath("//div/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomOpSize+"]")).click();
 			}
-			catch (Exception e) {
+			else if(OpSizeSize>6)
+			{
+			
+				int randomOpSize=ThreadLocalRandom.current().nextInt(1, 6);
+
 				driver.findElement(By.xpath("//div/option-panel/div/div/cdk-virtual-scroll-viewport/div/div["+randomOpSize+"]")).click();
 			}
 			
@@ -475,4 +480,6 @@ List<WebElement> servingSizeList=driver.findElements(By.xpath("//app-selectbox/d
 	{
 		return Inventory_MenuItemHeader;
 	}
+	
+	
 }

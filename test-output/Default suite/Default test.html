@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>2/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Jul 28 19:34:53 IST 2023</td>
+<td>Started on:</td><td>Mon Jul 31 19:26:11 IST 2023</td>
 </tr>
-<tr><td>Total time:</td><td>468 seconds (468334 ms)</td>
+<tr><td>Total time:</td><td>417 seconds (417085 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,13 +75,14 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.Test.Product_Items_AddEditDelete_Item_Based_Discount.Calling()'><b>Calling</b><br>Test class: com.Test.Product_Items_AddEditDelete_Item_Based_Discount</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //div[contains(@class,&apos;message&apos;)]/span&apos; (tried for 40 second(s) with 500 milliseconds interval)
+<td title='com.Test.Product_Items_AddEditDelete_MenuItem.Calling()'><b>Calling</b><br>Test class: com.Test.Product_Items_AddEditDelete_MenuItem</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //input[@placeholder=&apos;Select SubCategory&apos;]&apos; (tried for 60 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-	at com.Pages.Common_XPaths.Wait_ForElementVisibility(Common_XPaths.java:946)
-	at com.Test.Product_Items_AddEditDelete_Item_Based_Discount.Edit_and_Update_Item_Based_Discount_DateRange(Product_Items_AddEditDelete_Item_Based_Discount.java:1202)
-	at com.Test.Product_Items_AddEditDelete_Item_Based_Discount.Calling(Product_Items_AddEditDelete_Item_Based_Discount.java:117)
+	at com.Pages.Common_XPaths.Click_Wait_ForElementClickable(Common_XPaths.java:940)
+	at com.Pages.ProductItems_Menu_RetailPage.Select_SubCategory_LevelType(ProductItems_Menu_RetailPage.java:364)
+	at com.Test.Product_Items_AddEditDelete_MenuItem.Edit_and_Update_ProductItem_MenuItem_DaysOfWeek_SubCategory_LevelType(Product_Items_AddEditDelete_MenuItem.java:608)
+	at com.Test.Product_Items_AddEditDelete_MenuItem.Calling(Product_Items_AddEditDelete_MenuItem.java:119)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -110,15 +111,15 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[contains(@class,&apos;message&apos;)]/span&quot;}
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@placeholder=&apos;Select SubCategory&apos;]&quot;}
   (Session info: chrome=115.0.5790.110)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.6&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c1c1d9a3c5ec3c994222ae4846581e56, findElement {using=xpath, value=//div[contains(@class,&apos;message&apos;)]/span}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.110, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:65226}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65226/devtoo..., se:cdpVersion: 115.0.5790.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c1c1d9a3c5ec3c994222ae4846581e56
+Command: [daa97aa41fe549fa30a3df2c232db431, findElement {using=xpath, value=//input[@placeholder=&apos;Select SubCategory&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.110, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:54307}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54307/devtoo..., se:cdpVersion: 115.0.5790.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: daa97aa41fe549fa30a3df2c232db431
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -142,17 +143,16 @@ Session ID: c1c1d9a3c5ec3c994222ae4846581e56
 	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:660)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
-	... 31 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace725931728", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace725931728'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //div[contains(@class,&apos;message&apos;)]/span&apos; (tried for 40 second(s) with 500 milliseconds interval)
+	... 32 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace785848103", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace785848103'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //input[@placeholder=&apos;Select SubCategory&apos;]&apos; (tried for 60 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-	at com.Pages.Common_XPaths.Wait_ForElementVisibility(Common_XPaths.java:946)
-	at com.Test.Product_Items_AddEditDelete_Item_Based_Discount.Edit_and_Update_Item_Based_Discount_DateRange(Product_Items_AddEditDelete_Item_Based_Discount.java:1202)
-	at com.Test.Product_Items_AddEditDelete_Item_Based_Discount.Calling(Product_Items_AddEditDelete_Item_Based_Discount.java:117)
+	at com.Pages.Common_XPaths.Click_Wait_ForElementClickable(Common_XPaths.java:940)
+	at com.Pages.ProductItems_Menu_RetailPage.Select_SubCategory_LevelType(ProductItems_Menu_RetailPage.java:364)
+	at com.Test.Product_Items_AddEditDelete_MenuItem.Edit_and_Update_ProductItem_MenuItem_DaysOfWeek_SubCategory_LevelType(Product_Items_AddEditDelete_MenuItem.java:608)
+	at com.Test.Product_Items_AddEditDelete_MenuItem.Calling(Product_Items_AddEditDelete_MenuItem.java:119)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -181,15 +181,15 @@ Session ID: c1c1d9a3c5ec3c994222ae4846581e56
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[contains(@class,&apos;message&apos;)]/span&quot;}
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@placeholder=&apos;Select SubCategory&apos;]&quot;}
   (Session info: chrome=115.0.5790.110)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.6&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c1c1d9a3c5ec3c994222ae4846581e56, findElement {using=xpath, value=//div[contains(@class,&apos;message&apos;)]/span}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.110, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:65226}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65226/devtoo..., se:cdpVersion: 115.0.5790.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c1c1d9a3c5ec3c994222ae4846581e56
+Command: [daa97aa41fe549fa30a3df2c232db431, findElement {using=xpath, value=//input[@placeholder=&apos;Select SubCategory&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.110, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:54307}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54307/devtoo..., se:cdpVersion: 115.0.5790.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: daa97aa41fe549fa30a3df2c232db431
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -213,13 +213,11 @@ Session ID: c1c1d9a3c5ec3c994222ae4846581e56
 	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:660)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
-	... 31 more
+	... 32 more
 </pre></div></td>
-<td>362</td>
-<td>com.Test.Product_Items_AddEditDelete_Item_Based_Discount@1f81aa00</td></tr>
+<td>281</td>
+<td>com.Test.Product_Items_AddEditDelete_MenuItem@3b79fd76</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -229,15 +227,15 @@ Session ID: c1c1d9a3c5ec3c994222ae4846581e56
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.Test.Product_Items_AddEditDelete_Item_Based_Discount.Login()'><b>Login</b><br>Test class: com.Test.Product_Items_AddEditDelete_Item_Based_Discount</td>
-<td></td>
-<td>94</td>
-<td>com.Test.Product_Items_AddEditDelete_Item_Based_Discount@1f81aa00</td></tr>
-<tr>
-<td title='com.Test.Product_Items_AddEditDelete_Item_Based_Discount.LogOut()'><b>LogOut</b><br>Test class: com.Test.Product_Items_AddEditDelete_Item_Based_Discount</td>
+<td title='com.Test.Product_Items_AddEditDelete_MenuItem.LogOut()'><b>LogOut</b><br>Test class: com.Test.Product_Items_AddEditDelete_MenuItem</td>
 <td></td>
 <td>8</td>
-<td>com.Test.Product_Items_AddEditDelete_Item_Based_Discount@1f81aa00</td></tr>
+<td>com.Test.Product_Items_AddEditDelete_MenuItem@3b79fd76</td></tr>
+<tr>
+<td title='com.Test.Product_Items_AddEditDelete_MenuItem.Login()'><b>Login</b><br>Test class: com.Test.Product_Items_AddEditDelete_MenuItem</td>
+<td></td>
+<td>124</td>
+<td>com.Test.Product_Items_AddEditDelete_MenuItem@3b79fd76</td></tr>
 </table><p>
 </body>
 </html>

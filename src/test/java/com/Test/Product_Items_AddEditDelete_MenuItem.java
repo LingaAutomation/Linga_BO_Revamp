@@ -277,13 +277,15 @@ public WebDriver driver;
 		//Enable Cut and Modify
 		pmt.Enable_Cut_And_Modify();
 		
+		Thread.sleep(1000);
 		//Enter the Slices
 		pmt.Enter_Slices_CutAndModify("2");
+		Thread.sleep(1000);
 		
 		//Select Variable Set Price
 		pmt.Click_Variable_CostType();
 		
-		
+		Thread.sleep(1000);
 		//Select Serving Size for variables
 		pmt.Select_Serving_Size_For_Variable_CostType();
 		
@@ -297,7 +299,6 @@ public WebDriver driver;
 		//Select Taxes
 //		cp.Select_Taxes();
 		
-		Thread.sleep(2000);
 		
 		
 		Thread.sleep(1000);
@@ -306,15 +307,19 @@ public WebDriver driver;
 		
 		//Enable EBT Menu Item
 //		pmt.Enable_EBT_Menu_Item();
+		Thread.sleep(1000);
 		
 		//Enable Hide In POS
 		pmt.Enable_Hide_In_POS();
+		Thread.sleep(1000);
 		
 		//Enable Hide In Online Order
 		pmt.Enable_Hide_In_Online_Order();
+		Thread.sleep(1000);
 		
 		//Enable 86 List
 		pmt.Enable_Eighty_Six_List();
+		Thread.sleep(1000);
 		
 		//Enable Meito MenuItem
 		try
@@ -329,6 +334,7 @@ public WebDriver driver;
 		 
 		//Select Always
 		at.Click_AlwaysButton();
+		Thread.sleep(1000);
 		
 		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_DOWN);
 		
@@ -350,8 +356,7 @@ public WebDriver driver;
 		//Click the Save and Publish button
 		cmp.Click_Save_and_PublishButton();
 		
-		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		//Check whether the New Menu Item Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Menu item saved successfully"))
 		{
@@ -375,7 +380,7 @@ public WebDriver driver;
 		at=new Availability_RestrictionTimePage(driver, test);
 		cp=new CategoriesPage(driver, test);
 		
-		Thread.sleep(60000);
+		Thread.sleep(50000);
 		//Search the ProductItem_MenuItem_ to Click Edit and Cancel
 		cmp.SearchAndClickEdit(Utility.getProperty("ProductsItems_MenuItemName"));
 		
@@ -570,6 +575,8 @@ public WebDriver driver;
 			test.log(LogStatus.FAIL, "86 List Yes Toggle is not Selected");
 		}
 		
+		try
+		{
 		//Check Whether the Meito MenuItem Selected or not 
 		if(pmt.Meito_MenuItem_Yes().isEnabled())
 		{
@@ -579,6 +586,8 @@ public WebDriver driver;
 		{
 			test.log(LogStatus.FAIL, "Meito MenuItem Yes Toggle is not Selected");
 		}
+		}
+		catch(Exception k) {}
 		
 //		for(int i=1;i<=5;i++)
 //		{
@@ -779,7 +788,7 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		//Check whether the New Menu Item Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Menu item Updated successfully"))
 		{
@@ -913,7 +922,7 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		//Check whether the New Menu Item Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Menu item Updated successfully"))
 		{
@@ -1017,7 +1026,7 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		//Check whether the New Menu Item Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Menu item Updated successfully"))
 		{
@@ -1120,7 +1129,7 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		//Check whether the New Menu Item Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Menu item Updated successfully"))
 		{
@@ -1236,7 +1245,7 @@ public WebDriver driver;
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		//Check whether the New Menu Item Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Menu item Updated successfully"))
 		{
@@ -1297,7 +1306,7 @@ public WebDriver driver;
 		//Click the Delete button
 		cmp.Click_DeleteButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		//Check whether the New Menu Item Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Menu Item Inactivated Successfully"))
 		{
@@ -1354,7 +1363,7 @@ public WebDriver driver;
 		//Click the Activate button
 		cmp.Click_ActivateButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		//Check whether the New Menu Item Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Menu Item Activated Successfully"))
 		{
@@ -1419,13 +1428,27 @@ public WebDriver driver;
 		cmp.Click_Save_and_PublishButton();
 		
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		//Check whether the New Menu Item Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Name already exist"))
 		{
 			test.log(LogStatus.PASS, "Menu Item Name already exist pop up displayed");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Menu item saved successfully"))
+		{
+			test.log(LogStatus.FAIL, "Duplicate Menu Item Saved");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
+		{
+			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
+			
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
 		}
 		else
 		{

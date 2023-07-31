@@ -51,7 +51,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\raja.s\AppData\Local\Temp\testng-eclipse-509077922\testng-customsuite.xml</span>
+                    <span>C:\Users\raja.s\AppData\Local\Temp\testng-eclipse--1922780880\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_AddEditDelete_Item_Based_Discount" class="method navigator-link" hash-for-method="Calling">Calling</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_AddEditDelete_MenuItem" class="method navigator-link" hash-for-method="Calling">Calling</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -118,12 +118,12 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_AddEditDelete_Item_Based_Discount" class="method navigator-link" hash-for-method="LogOut">LogOut</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_AddEditDelete_MenuItem" class="method navigator-link" hash-for-method="LogOut">LogOut</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_AddEditDelete_Item_Based_Discount" class="method navigator-link" hash-for-method="Login">Login</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.Test.Product_Items_AddEditDelete_MenuItem" class="method navigator-link" hash-for-method="Login">Login</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -141,7 +141,7 @@
           <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">com.Test.Product_Items_AddEditDelete_Item_Based_Discount</span>
+              <span class="class-name">com.Test.Product_Items_AddEditDelete_MenuItem</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -149,12 +149,13 @@
                   <a name="Calling">
                   </a> <!-- Calling -->
                   <span class="method-name">Calling</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator &apos;By.xpath: //div[contains(@class,&apos;message&apos;)]/span&apos; (tried for 40 second(s) with 500 milliseconds interval)
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.xpath: //input[@placeholder=&apos;Select SubCategory&apos;]&apos; (tried for 60 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-	at com.Pages.Common_XPaths.Wait_ForElementVisibility(Common_XPaths.java:946)
-	at com.Test.Product_Items_AddEditDelete_Item_Based_Discount.Edit_and_Update_Item_Based_Discount_DateRange(Product_Items_AddEditDelete_Item_Based_Discount.java:1202)
-	at com.Test.Product_Items_AddEditDelete_Item_Based_Discount.Calling(Product_Items_AddEditDelete_Item_Based_Discount.java:117)
+	at com.Pages.Common_XPaths.Click_Wait_ForElementClickable(Common_XPaths.java:940)
+	at com.Pages.ProductItems_Menu_RetailPage.Select_SubCategory_LevelType(ProductItems_Menu_RetailPage.java:364)
+	at com.Test.Product_Items_AddEditDelete_MenuItem.Edit_and_Update_ProductItem_MenuItem_DaysOfWeek_SubCategory_LevelType(Product_Items_AddEditDelete_MenuItem.java:608)
+	at com.Test.Product_Items_AddEditDelete_MenuItem.Calling(Product_Items_AddEditDelete_MenuItem.java:119)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -183,15 +184,15 @@
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[contains(@class,&apos;message&apos;)]/span&quot;}
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//input[@placeholder=&apos;Select SubCategory&apos;]&quot;}
   (Session info: chrome=115.0.5790.110)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
 System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.6&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c1c1d9a3c5ec3c994222ae4846581e56, findElement {using=xpath, value=//div[contains(@class,&apos;message&apos;)]/span}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.110, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:65226}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:65226/devtoo..., se:cdpVersion: 115.0.5790.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c1c1d9a3c5ec3c994222ae4846581e56
+Command: [daa97aa41fe549fa30a3df2c232db431, findElement {using=xpath, value=//input[@placeholder=&apos;Select SubCategory&apos;]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.110, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:54307}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54307/devtoo..., se:cdpVersion: 115.0.5790.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: daa97aa41fe549fa30a3df2c232db431
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -215,10 +216,8 @@ Session ID: c1c1d9a3c5ec3c994222ae4846581e56
 	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:40)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:660)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:656)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
-	... 31 more
+	... 32 more
 
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
@@ -228,7 +227,7 @@ Session ID: c1c1d9a3c5ec3c994222ae4846581e56
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.Test.Product_Items_AddEditDelete_Item_Based_Discount</span>
+              <span class="class-name">com.Test.Product_Items_AddEditDelete_MenuItem</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -250,7 +249,7 @@ Session ID: c1c1d9a3c5ec3c994222ae4846581e56
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\raja.s\AppData\Local\Temp\testng-eclipse-509077922\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\raja.s\AppData\Local\Temp\testng-eclipse--1922780880\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -259,7 +258,7 @@ Session ID: c1c1d9a3c5ec3c994222ae4846581e56
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.Test.Product_Items_AddEditDelete_Item_Based_Discount&quot;/&gt;
+      &lt;class name=&quot;com.Test.Product_Items_AddEditDelete_MenuItem&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -302,21 +301,21 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'Calling')
-data.setCell(0, 2, 'com.Test.Product_Items_AddEditDelete_Item_Based_Discount')
-data.setCell(0, 3, 362250);
+data.setCell(0, 2, 'com.Test.Product_Items_AddEditDelete_MenuItem')
+data.setCell(0, 3, 281381);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'Login')
-data.setCell(1, 2, 'com.Test.Product_Items_AddEditDelete_Item_Based_Discount')
-data.setCell(1, 3, 94638);
+data.setCell(1, 2, 'com.Test.Product_Items_AddEditDelete_MenuItem')
+data.setCell(1, 3, 124479);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'LogOut')
-data.setCell(2, 2, 'com.Test.Product_Items_AddEditDelete_Item_Based_Discount')
-data.setCell(2, 3, 8464);
+data.setCell(2, 2, 'com.Test.Product_Items_AddEditDelete_MenuItem')
+data.setCell(2, 3, 8451);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 7 minutes</span>
+              <span class="suite-total-time">Total running time: 6 minutes</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -331,37 +330,31 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">14 ignored methods</span>
+            <span class="header-content">11 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">com.Test.Product_Items_AddEditDelete_Item_Based_Discount</span>
+              <span class="ignored-class-name">com.Test.Product_Items_AddEditDelete_MenuItem</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">Edit_and_Update_Item_Based_Discount_DaysOfWeek</span>
+                <span class="ignored-method-name">Edit_and_Update_ProductItem_MenuItem_DaysOfWeek_SubCategory_LevelType</span>
                 <br/>
-                <span class="ignored-method-name">Edit_and_Update_Item_Based_Discount_DateRange</span>
+                <span class="ignored-method-name">Delete_and_Active_Inactive_ProductItem_MenuItem</span>
                 <br/>
-                <span class="ignored-method-name">Edit_and_Update_Item_Based_Discount_DateRangeWithTime</span>
+                <span class="ignored-method-name">Add_ProductItem_MenuItem_Always_MenuType_MenuItem</span>
                 <br/>
-                <span class="ignored-method-name">Open_Item_Based_Discount_Page</span>
+                <span class="ignored-method-name">Open_ProductItem_MenuItem_Page</span>
                 <br/>
-                <span class="ignored-method-name">Create_Duplicate_Item_Based_Discount</span>
+                <span class="ignored-method-name">Edit_and_Update_ProductItem_MenuItem_DateRangeWithTime_MenuType_ComboItem</span>
                 <br/>
-                <span class="ignored-method-name">Edit_and_Update_Item_Based_Discount_Specific_Date</span>
+                <span class="ignored-method-name">Create_Duplicate_MenuItem</span>
                 <br/>
-                <span class="ignored-method-name">Edit_and_Update_SubCategory_Item_Based_Discount</span>
+                <span class="ignored-method-name">Edit_and_Close_Cancel_ProductItem_MenuItem</span>
                 <br/>
-                <span class="ignored-method-name">Add_Item_Based_Discount</span>
+                <span class="ignored-method-name">Edit_and_Update_ProductItem_MenuItem_Specific_Date_MenuType_ScaleItem</span>
                 <br/>
-                <span class="ignored-method-name">Delete_and_Active_Inactive_Item_Based_Discount</span>
+                <span class="ignored-method-name">Edit_and_Update_ProductItem_MenuItem_DateRange_MenuType_OpenItem</span>
                 <br/>
-                <span class="ignored-method-name">Edit_and_Update_Item_Based_Discount_DaysOfMonth</span>
-                <br/>
-                <span class="ignored-method-name">Edit_and_Update_Item_Based_Discount_Percentage</span>
-                <br/>
-                <span class="ignored-method-name">Edit_and_Update_MenuItem_Item_Based_Discount</span>
-                <br/>
-                <span class="ignored-method-name">Edit_and_Close_Cancel_Item_Based_Discount</span>
+                <span class="ignored-method-name">Edit_and_Update_ProductItem_MenuItem_DaysOfMonth_MenuType_MenuItem_With_ServingSize</span>
                 <br/>
                 <span class="ignored-method-name">RefreshAndPaginination</span>
                 <br/>
@@ -375,36 +368,36 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.Test.Product_Items_AddEditDelete_Item_Based_Discount</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.Test.Product_Items_AddEditDelete_MenuItem</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">Login</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TestFail([TestResult name=Login status=SUCCESS method=Product_Items_AddEditDelete_Item_Based_Discount.Login()...)</span>
-                <span class="method-start">94643 ms</span>
+                <span class="method-name">TestFail([TestResult name=Login status=SUCCESS method=Product_Items_AddEditDelete_MenuItem.Login()[pri:1, ins...)</span>
+                <span class="method-start">124483 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">Calling</span>
-                <span class="method-start">94650 ms</span>
+                <span class="method-start">124490 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TestFail([TestResult name=Calling status=FAILURE method=Product_Items_AddEditDelete_Item_Based_Discount.Calli...)</span>
-                <span class="method-start">456908 ms</span>
+                <span class="method-name">TestFail([TestResult name=Calling status=FAILURE method=Product_Items_AddEditDelete_MenuItem.Calling()[pri:2,...)</span>
+                <span class="method-start">405879 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">LogOut</span>
-                <span class="method-start">457236 ms</span>
+                <span class="method-start">406045 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TestFail([TestResult name=LogOut status=SUCCESS method=Product_Items_AddEditDelete_Item_Based_Discount.LogOut...)</span>
-                <span class="method-start">465701 ms</span>
+                <span class="method-name">TestFail([TestResult name=LogOut status=SUCCESS method=Product_Items_AddEditDelete_MenuItem.LogOut()[pri:50, ...)</span>
+                <span class="method-start">414498 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">flushTest</span>
-                <span class="method-start">465703 ms</span>
+                <span class="method-start">414499 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

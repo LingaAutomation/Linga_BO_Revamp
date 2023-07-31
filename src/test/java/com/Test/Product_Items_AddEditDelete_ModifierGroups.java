@@ -401,7 +401,7 @@ public class Product_Items_AddEditDelete_ModifierGroups
 				//Click the Save and Proceed button
 				cmp.Click_Save_and_PublishButton();
 		 
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		//Check whether the New Modifier Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Modifier Group Saved Successfully"))
 		{
@@ -512,7 +512,8 @@ public class Product_Items_AddEditDelete_ModifierGroups
 		mgp.Enable_PizzaTopping();
 		
 		Thread.sleep(500);
-		try {
+		if(cmp.Update_and_PublishButton().isEnabled())
+		{
 		//Click the Update and Publish button
 		cmp.Click_Update_and_PublishButton();
 		
@@ -532,7 +533,7 @@ public class Product_Items_AddEditDelete_ModifierGroups
 		}
 		
 		}
-		catch (Exception e) {
+		else {
 			if(cmp.UpdateAndPublish_Btn_disable().isDisplayed())
 			   test.log(LogStatus.FAIL, "Update and publish button not enabling after editing");
 				ut.FailedCaptureScreenshotAsBASE64(driver, test);
@@ -640,13 +641,14 @@ public class Product_Items_AddEditDelete_ModifierGroups
 
 				//Custom Sorting
 				mgp.Verify_CustomSortforModifiers();
-				try {
-				
-				Thread.sleep(500);
+			
+				if(cmp.Update_and_PublishButton().isEnabled())
+				{
+				Thread.sleep(1500);
 				//Click the Update and Publish button
 				cmp.Click_Update_and_PublishButton();
 				
-				Thread.sleep(3000);
+				cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 				//Check whether the New Modifier Saved or not
 				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Modifier Group Updated Successfully"))
 				{
@@ -661,7 +663,7 @@ public class Product_Items_AddEditDelete_ModifierGroups
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}	
 				}
-				catch (Exception e) {
+				else {
 					if(cmp.UpdateAndPublish_Btn_disable().isDisplayed())
 					   test.log(LogStatus.FAIL, "Update and publish button not enabling after editing");
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
@@ -684,19 +686,23 @@ public class Product_Items_AddEditDelete_ModifierGroups
 		mgp=new ModifierGroupsPage(driver, test);
 		mp=new ModifiersPage(driver, test);
 
+		Thread.sleep(1000);
 		//Search and Click Delete button
 				cmp.SearchAndClickDelete(Utility.getProperty("Modifier_Group_Name"));
 				
-				Thread.sleep(500);
+				Thread.sleep(1500);
 				//Click the Delete button
 				cmp.Alert_PopupMsg("Are you sure you want to delete this item?");
 				
+				Thread.sleep(1000);
 				//Click the Cancel button
 				cmp.Click_CancelButtonInAlert();
 		
-				Thread.sleep(3000);
+				
 				try
 				{
+					cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
+
 				//Check whether the New Modifier Saved or not
 				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Modifier Group Inactivated Successfully"))
 				{
@@ -712,14 +718,15 @@ public class Product_Items_AddEditDelete_ModifierGroups
 					ut.PassedCaptureScreenshotAsBASE64(driver, test);
 				}
 				
+				Thread.sleep(1000);
 		//Search and Click Delete button
 		cmp.SearchAndClickDelete(Utility.getProperty("Modifier_Group_Name"));
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Delete button
 		cmp.Click_DeleteButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		//Check whether the New Modifier Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Modifier Group Inactivated Successfully"))
 		{
@@ -734,19 +741,23 @@ public class Product_Items_AddEditDelete_ModifierGroups
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
+		Thread.sleep(1000);
 		//Enable the Inactive Status
 		cmp.Click_ActivetoInactiveButton();
 		
+		Thread.sleep(1000);
 		//Check whether the Inactive screen opened or not
 		cmp.VerifyActive_InactiveStatus("Inactive");
 		
+		Thread.sleep(1000);
 		//Search and Activate the In activated item
 		cmp.SearchAndClickActivate(Utility.getProperty("Modifier_Group_Name"));
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Delete button
 		cmp.Alert_PopupMsg("Are you sure you want to activate this item?");
 		
+		Thread.sleep(1000);
 		//Click the Cancel button
 		cmp.Click_CancelButtonInAlert();
 
@@ -767,16 +778,17 @@ public class Product_Items_AddEditDelete_ModifierGroups
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
-
+		
+		Thread.sleep(2000);
 		//Search and Activate the In activated item
 				cmp.SearchAndClickActivate(Utility.getProperty("Modifier_Group_Name"));
 				
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Activate button
 		cmp.Click_ActivateButton();
 		
-		Thread.sleep(3000);
+		cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 		//Check whether the New Modifier Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Modifier Activated Successfully"))
 		{
@@ -791,11 +803,11 @@ public class Product_Items_AddEditDelete_ModifierGroups
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Enable Active Status
 		cmp.Click_InactivetoActiveButton();
 				
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Check whether verify whether the Active page opened or not
 		cmp.VerifyActive_InactiveStatus("Active");
 		
@@ -838,8 +850,8 @@ public class Product_Items_AddEditDelete_ModifierGroups
 		
 		//Click Save and Publish button
 				cmp.Click_Save_and_PublishButton();
-				try {
-				Thread.sleep(3000);
+			
+				cmp.Wait_ForElementVisibility(cmp.ConfirmationAlertMsg(), 50);
 				//Check whether the New Modifier Saved or not
 				if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Modifier Saved Successfully"))
 				{
@@ -853,9 +865,7 @@ public class Product_Items_AddEditDelete_ModifierGroups
 					
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
-				}catch (Exception e) {
-					cmp.Click_BackspaceButton();
-				}
+	
 	}
 	
 	@Test(priority = 6,enabled = false)
@@ -894,7 +904,7 @@ public class Product_Items_AddEditDelete_ModifierGroups
 		//Click the Save and Publish button
 		cmp.Click_Save_and_PublishButton();
 		
-		try {
+	
 		Thread.sleep(3000);
 		//Check whether the New Modifier Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Name already exist"))
@@ -906,16 +916,21 @@ public class Product_Items_AddEditDelete_ModifierGroups
 			//Click the Back button
 			cmp.Click_BackspaceButton();
 		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Validation Error(s)"))
+		{
+			test.log(LogStatus.PASS, "Validation Error(s) pop up displayed");
+			
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			
+			cmp.Click_BackspaceButton();
+		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Modifier Name already exist pop up not Displayed");
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
-		}
-		catch (Exception e) {
-			// TODO: handle exception
-		}
+	
 		Thread.sleep(4000);
 	}
 	
