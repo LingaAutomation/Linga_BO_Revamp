@@ -262,7 +262,7 @@ public WebDriver driver;
 		//Click the Item Tax as Percentage button
 		tp.Enter_ItemTax_Percentage(Utility.getProperty("Item_Tax_Name"));
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Enable Inclusive Tax
 		tp.Select_InclusiveTax();
 		
@@ -504,23 +504,25 @@ public WebDriver driver;
 //		cmp.SearchAndClickEdit(Utility.getProperty("Item_Tax_Name"));
 		
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Enter the Name
 		tp.Enter_TaxName(Utility.getProperty("Item_Tax_Name")+"1");
-
+		Thread.sleep(1500);
 		//Disable Quantity Tax
 				tp.DeSelect_QuantityBasedTax();
 		
+				Thread.sleep(1500);
 		//Disable Inclusive Tax
 		tp.DeSelect_InclusiveTax();
 		
+		Thread.sleep(1500);
 		//Disable Default Tax
 		tp.DeSelect_DefaultTax();
 		
 		
 		
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Update button
 		cmp.Click_Update_and_PublishButton();
 		
@@ -553,20 +555,21 @@ public WebDriver driver;
 		//Search and Click Edit button
 		cmp.SearchAndClickEdit(Utility.getProperty("Check_Tax_Name"));
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Enter the Name
 		tp.Enter_TaxName(Utility.getProperty("Check_Tax_Name")+"1");
 
 		//Edit the percentage
 	//	tp.Enter_Percentage("2000");
-		
+		Thread.sleep(1500);
 		//Change Charge amount
 		tp.Enter_AmountBox("20000");
 		
+		Thread.sleep(1500);
 		//Disable Apply on Subtotal
 		tp.Click_No_ApplyOnSubtotal();
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Update button
 		cmp.Click_Update_and_PublishButton();
 		
@@ -611,17 +614,17 @@ public WebDriver driver;
 		//Search and Click Edit button
 		cmp.SearchAndClickEdit(Utility.getProperty("Tax_On_Item_Tax_Name"));
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Enter the Name
 		tp.Enter_TaxName(Utility.getProperty("Tax_On_Item_Tax_Name")+"1");
 
 		//Edit the percentage
 	//	tp.Enter_Percentage("2000");
-		
+		Thread.sleep(1500);
 		//Change Charge amount
 		tp.Enter_Percentage("2000");
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Update button
 		cmp.Click_Update_and_PublishButton();
 		
@@ -653,17 +656,17 @@ public WebDriver driver;
 		//Search and Click Edit button
 		cmp.SearchAndClickEdit(Utility.getProperty("Tax_On_Check_Tax_Name"));
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Enter the Name
 		tp.Enter_TaxName(Utility.getProperty("Tax_On_Check_Tax_Name")+"1");
 
 		//Edit the percentage
 	//	tp.Enter_Percentage("2000");
-		
+		Thread.sleep(1000);
 		//Change Charge amount
 		tp.Enter_Percentage("2000");
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Update button
 		cmp.Click_Update_and_PublishButton();
 		
@@ -696,9 +699,10 @@ public WebDriver driver;
 		//Search and Click Delete button
 		cmp.SearchAndClickDelete(Utility.getProperty("Item_Tax_Name")+"1");
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Delete button
 		cmp.Alert_PopupMsg("Are you sure you want to delete this item?");
+		Thread.sleep(1000);
 		
 		//Click the Cancel button
 		cmp.Click_CancelButtonInAlert();
@@ -726,7 +730,7 @@ public WebDriver driver;
 		//Search and Click Delete button
 		cmp.SearchAndClickDelete(Utility.getProperty("Item_Tax_Name")+"1");
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Delete button
 		cmp.Click_DeleteButton();
 		
@@ -748,20 +752,23 @@ public WebDriver driver;
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
-		
+		Thread.sleep(1000);
 		//Enable the Inactive Status
 		cmp.Click_ActivetoInactiveButton();
 		
+		Thread.sleep(1000);
 		//Check whether the Inactive screen opened or not
 		cmp.VerifyActive_InactiveStatus("Inactive");
 		
+		Thread.sleep(1000);
 		//Search and Activate the In activated item
 		cmp.SearchAndClickActivate(Utility.getProperty("Item_Tax_Name")+"1");
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Delete button
 		cmp.Alert_PopupMsg("Are you sure you want to activate this item?");
 		
+		Thread.sleep(1000);
 		//Click the Cancel button
 		cmp.Click_CancelButtonInAlert();
 
@@ -787,7 +794,7 @@ public WebDriver driver;
 		//Search and Activate the In activated item
 		cmp.SearchAndClickActivate(Utility.getProperty("Item_Tax_Name")+"1");
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Activate button
 		cmp.Click_ActivateButton();
 		
@@ -810,11 +817,11 @@ public WebDriver driver;
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Enable Active Status
 		cmp.Click_InactivetoActiveButton();
 				
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Check whether verify whether the Active page opened or not
 		cmp.VerifyActive_InactiveStatus("Active");
 		
@@ -833,7 +840,7 @@ public WebDriver driver;
 		tp.Click_NewTaxButton();
 		Thread.sleep(2000);
 	
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Enter the existing Tax name
 		tp.Enter_ItemTax_Percentage(Utility.getProperty("Item_Tax_Name")+"1");
 		
@@ -898,7 +905,7 @@ public WebDriver driver;
 		tp.Click_NewTaxButton();
 		Thread.sleep(2000);
 	
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Enter the existing Tax name
 		cmp.EnterName(Utility.getProperty("Item_Tax_Name")+"SevType");
 		
@@ -937,23 +944,26 @@ public WebDriver driver;
 		//Search and Click Edit button
 		cmp.SearchAndClickEdit(Utility.getProperty("Item_Tax_Name")+"SevType");
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Enter the Name
 		tp.Enter_TaxName(Utility.getProperty("Item_Tax_Name")+"SevType");
-
+		Thread.sleep(1000);
 		//Disable Inclusive Tax
 		tp.DeSelect_InclusiveTax();
+		Thread.sleep(1000);
 		
 		//Disable Default Tax
 		tp.DeSelect_DefaultTax();
 		
+		Thread.sleep(1000);
 		//Disable Quantity Tax
 		tp.DeSelect_QuantityBasedTax();
 		
+		Thread.sleep(1000);
 		//Update Tax percentage for All Service Types
 		tp.Tax_Per_Service_Type("2000");
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Click the Update button
 		cmp.Click_Update_and_PublishButton();
 		

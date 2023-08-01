@@ -408,7 +408,7 @@ public class Product_Items_AddEditDelete_Modifiers
 		mp.Click_ProceedToInventoryMappingTab();
 				
 		
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 		//mp.Click_SaveAndProceed();
 		//Select and Add Item
 		mp.Add_ItemInventoryModiferFirst();

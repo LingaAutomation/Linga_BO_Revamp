@@ -648,9 +648,13 @@ public WebDriver driver;
 		//Disable 86 List
 		pmt.Disable_Eighty_Six_List();
 		
+		try
+		{
 		Thread.sleep(1000);
 		//Disable Meito MenuItem
 		pmt.Disable_Meito_MenuItem();
+		}
+		catch(Exception l) {}
 		
 		for(int i=1;i<=3;i++)
 		{
@@ -737,23 +741,30 @@ public WebDriver driver;
 		//Verify the Enter Display Order
 		pmt.Verify_Enter_Display_OrderErrorMessage();
 		
-		
+		Thread.sleep(1000);
 		//Enter Display Order in 
 		pmt.Enter_Display_Order_OptionalModifier("3");
 		
-		
+		Thread.sleep(1000);
 		//Enable Set Tiered Price in Optional Modifiers
 		pmt.Enable_Set_Tiered_Price_OptionalModifier();
 		
+		Thread.sleep(1000);
 		//Select Set Tiered
 		pmt.Select_Set_Tiered_Price_OptionalModifier();
 
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		
+		Thread.sleep(1000);
 		//Select Days of Week
 		at.Select_DaysOfWeek();
 		
+		Thread.sleep(1000);
 		//Select Restriction Time
 		at.Enter_RestrictionTime();
 		
+		Thread.sleep(1000);
 		//Select Available Time
 		at.Enter_AvailableTime();
 		

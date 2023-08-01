@@ -937,13 +937,13 @@ public class Common_XPaths {
 	public void Click_Wait_ForElementClickable(WebElement ele,int time)
 	{
 		wait=new WebDriverWait(driver, Duration.ofSeconds(time));
-		wait.until(ExpectedConditions.visibilityOf(ele)).click();
+		wait.until(ExpectedConditions.elementToBeClickable(ele)).click();
 	}
 	
 	public void Wait_ForElementVisibility(WebElement ele,int time)
 	{
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(time));
-		wait.until(ExpectedConditions.elementToBeClickable(ele));
+		wait.until(ExpectedConditions.visibilityOf(ele));
 	}
 	
 	@FindBy(xpath = "//div[.=' Enter valid amount ']")

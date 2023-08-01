@@ -79,7 +79,7 @@ public class ProductItems_Menu_RetailPage {
 	@FindBy(xpath = "//input[@placeholder='Select Category']")
 	WebElement Category_InputBx;
 	
-	@FindBy(xpath = "//input[@placeholder='Select SubCategory']")
+	@FindBy(xpath = "//input[@placeholder='Select Sub Category']")
 	WebElement SubCategory_InputBx;
 	
 	@FindBy(xpath = "//mat-label[.=' Category ']/../../../input")
@@ -361,7 +361,7 @@ public class ProductItems_Menu_RetailPage {
 //		cmp.Cursor_MoveToElement(SubCategory_InputBx);
 		Thread.sleep(1000);
 //		SubCategory_RadioBtn.click();
-		cmp.Click_Wait_ForElementClickable(SubCategory_InputBx, 60);
+//		cmp.Click_Wait_ForElementClickable(SubCategory_InputBx, 60);
 //		SubCategory_InputBx.click();
 	
 	
@@ -371,12 +371,29 @@ public class ProductItems_Menu_RetailPage {
 		wait.until(ExpectedConditions.elementToBeClickable(SubCategory_InputBx)).click();
 //		CoursingDropBtn.click();
 		
-		SubCategory_InputBx.click();
+//		SubCategory_InputBx.click();
 		
 		Thread.sleep(1000);
-		
+	
+		try
+		{
+			Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[@class='options with-height']//div/div[1]/select-option")).click();
-//		List<WebElement> SubCategoryList=driver.findElements(By.xpath("//div/select-option"));
+		}
+		
+		catch(Exception k)
+		{
+			if(driver.findElement(By.xpath("//select-option[contains(.,'No results match')]")).isDisplayed())
+			{
+				Category_RadioBtn.click();
+		test.log(LogStatus.INFO, "Sub Categories not available for Selected Categories");
+			Select_Category_LevelType();
+			}
+		}
+		
+		//		List<WebElement> SubCategoryList=driver.findElements(By.xpath("//div/select-option"));
+		
+		
 //		
 //		int SubCategorySize=SubCategoryList.size();
 //		

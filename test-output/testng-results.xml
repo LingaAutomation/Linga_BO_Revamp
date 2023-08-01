@@ -1,40 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="11" total="14" passed="2" failed="1" skipped="0">
+<testng-results ignored="10" total="13" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-07-31T19:26:11 IST" name="Default suite" finished-at="2023-07-31T19:33:08 IST" duration-ms="417085">
+  <suite started-at="2023-08-01T19:30:59 IST" name="Default suite" finished-at="2023-08-01T19:41:16 IST" duration-ms="616573">
     <groups>
     </groups>
-    <test started-at="2023-07-31T19:26:11 IST" name="Default test" finished-at="2023-07-31T19:33:08 IST" duration-ms="417085">
-      <class name="com.Test.Product_Items_AddEditDelete_MenuItem">
-        <test-method signature="Login()[pri:1, instance:com.Test.Product_Items_AddEditDelete_MenuItem@3b79fd76]" started-at="2023-07-31T19:26:11 IST" name="Login" finished-at="2023-07-31T19:28:16 IST" duration-ms="124479" status="PASS">
+    <test started-at="2023-08-01T19:30:59 IST" name="Default test" finished-at="2023-08-01T19:41:16 IST" duration-ms="616573">
+      <class name="com.Test.Product_Items_AddEditDelete_Modifiers">
+        <test-method signature="Login()[pri:1, instance:com.Test.Product_Items_AddEditDelete_Modifiers@7fc4780b]" started-at="2023-08-01T19:30:59 IST" name="Login" finished-at="2023-08-01T19:32:13 IST" duration-ms="73719" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_AddEditDelete_MenuItem@3b79fd76]" started-at="2023-07-31T19:28:16 IST" name="TestFail" finished-at="2023-07-31T19:28:16 IST" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_AddEditDelete_Modifiers@7fc4780b]" started-at="2023-08-01T19:32:13 IST" name="TestFail" finished-at="2023-08-01T19:32:13 IST" duration-ms="3" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login status=SUCCESS method=Product_Items_AddEditDelete_MenuItem.Login()[pri:1, instance:com.Test.Product_Items_AddEditDelete_MenuItem@3b79fd76] output={null}]]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=Product_Items_AddEditDelete_Modifiers.Login()[pri:1, instance:com.Test.Product_Items_AddEditDelete_Modifiers@7fc4780b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method signature="Calling()[pri:2, instance:com.Test.Product_Items_AddEditDelete_MenuItem@3b79fd76]" started-at="2023-07-31T19:28:16 IST" name="Calling" finished-at="2023-07-31T19:32:57 IST" duration-ms="281381" status="FAIL">
+        <test-method signature="Calling()[pri:2, instance:com.Test.Product_Items_AddEditDelete_Modifiers@7fc4780b]" started-at="2023-08-01T19:32:13 IST" name="Calling" finished-at="2023-08-01T19:41:05 IST" duration-ms="532184" status="FAIL">
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //input[@placeholder='Select SubCategory']' (tried for 60 second(s) with 500 milliseconds interval)]]>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(@class,'message')]/span' (tried for 60 second(s) with 500 milliseconds interval)]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //input[@placeholder='Select SubCategory']' (tried for 60 second(s) with 500 milliseconds interval)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //div[contains(@class,'message')]/span' (tried for 60 second(s) with 500 milliseconds interval)
 at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-at com.Pages.Common_XPaths.Click_Wait_ForElementClickable(Common_XPaths.java:940)
-at com.Pages.ProductItems_Menu_RetailPage.Select_SubCategory_LevelType(ProductItems_Menu_RetailPage.java:364)
-at com.Test.Product_Items_AddEditDelete_MenuItem.Edit_and_Update_ProductItem_MenuItem_DaysOfWeek_SubCategory_LevelType(Product_Items_AddEditDelete_MenuItem.java:608)
-at com.Test.Product_Items_AddEditDelete_MenuItem.Calling(Product_Items_AddEditDelete_MenuItem.java:119)
+at com.Pages.Common_XPaths.Wait_ForElementVisibility(Common_XPaths.java:946)
+at com.Test.Product_Items_AddEditDelete_Modifiers.Add_Modifiers(Product_Items_AddEditDelete_Modifiers.java:431)
+at com.Test.Product_Items_AddEditDelete_Modifiers.Calling(Product_Items_AddEditDelete_Modifiers.java:127)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -63,15 +62,15 @@ at org.testng.TestNG.run(TestNG.java:1031)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//input[@placeholder='Select SubCategory']"}
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[contains(@class,'message')]/span"}
   (Session info: chrome=115.0.5790.110)
 For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
 Build info: version: '4.10.0', revision: 'c14d967899'
 System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.6'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [daa97aa41fe549fa30a3df2c232db431, findElement {using=xpath, value=//input[@placeholder='Select SubCategory']}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.110, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:54307}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:54307/devtoo..., se:cdpVersion: 115.0.5790.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: daa97aa41fe549fa30a3df2c232db431
+Command: [2c42122e9334a0b3b757a374db05aa00, findElement {using=xpath, value=//div[contains(@class,'message')]/span}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 115.0.5790.110, chrome: {chromedriverVersion: 114.0.5735.90 (386bc09e8f4f..., userDataDir: C:\Users\raja.s\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:64522}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64522/devtoo..., se:cdpVersion: 115.0.5790.110, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2c42122e9334a0b3b757a374db05aa00
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -96,44 +95,44 @@ at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditio
 at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:293)
 at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:290)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:208)
-... 32 more
+... 31 more
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Calling -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_AddEditDelete_MenuItem@3b79fd76]" started-at="2023-07-31T19:32:57 IST" name="TestFail" finished-at="2023-07-31T19:32:57 IST" duration-ms="165" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_AddEditDelete_Modifiers@7fc4780b]" started-at="2023-08-01T19:41:05 IST" name="TestFail" finished-at="2023-08-01T19:41:05 IST" duration-ms="133" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Calling status=FAILURE method=Product_Items_AddEditDelete_MenuItem.Calling()[pri:2, instance:com.Test.Product_Items_AddEditDelete_MenuItem@3b79fd76] output={null}]]]>
+                <![CDATA[[TestResult name=Calling status=FAILURE method=Product_Items_AddEditDelete_Modifiers.Calling()[pri:2, instance:com.Test.Product_Items_AddEditDelete_Modifiers@7fc4780b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method signature="LogOut()[pri:50, instance:com.Test.Product_Items_AddEditDelete_MenuItem@3b79fd76]" started-at="2023-07-31T19:32:57 IST" name="LogOut" finished-at="2023-07-31T19:33:06 IST" duration-ms="8451" status="PASS">
+        <test-method signature="LogOut()[pri:50, instance:com.Test.Product_Items_AddEditDelete_Modifiers@7fc4780b]" started-at="2023-08-01T19:41:05 IST" name="LogOut" finished-at="2023-08-01T19:41:14 IST" duration-ms="8145" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogOut -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_AddEditDelete_MenuItem@3b79fd76]" started-at="2023-07-31T19:33:06 IST" name="TestFail" finished-at="2023-07-31T19:33:06 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="flushTest()[pri:0, instance:com.Test.Product_Items_AddEditDelete_Modifiers@7fc4780b]" started-at="2023-08-01T19:41:14 IST" name="flushTest" finished-at="2023-08-01T19:41:16 IST" duration-ms="2352" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushTest -->
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Product_Items_AddEditDelete_Modifiers@7fc4780b]" started-at="2023-08-01T19:41:14 IST" name="TestFail" finished-at="2023-08-01T19:41:14 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=LogOut status=SUCCESS method=Product_Items_AddEditDelete_MenuItem.LogOut()[pri:50, instance:com.Test.Product_Items_AddEditDelete_MenuItem@3b79fd76] output={null}]]]>
+                <![CDATA[[TestResult name=LogOut status=SUCCESS method=Product_Items_AddEditDelete_Modifiers.LogOut()[pri:50, instance:com.Test.Product_Items_AddEditDelete_Modifiers@7fc4780b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method is-config="true" signature="flushTest()[pri:0, instance:com.Test.Product_Items_AddEditDelete_MenuItem@3b79fd76]" started-at="2023-07-31T19:33:06 IST" name="flushTest" finished-at="2023-07-31T19:33:08 IST" duration-ms="2563" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- flushTest -->
-      </class> <!-- com.Test.Product_Items_AddEditDelete_MenuItem -->
+      </class> <!-- com.Test.Product_Items_AddEditDelete_Modifiers -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

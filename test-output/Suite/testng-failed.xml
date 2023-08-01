@@ -3,21 +3,25 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.Test.Product_Items_AddEditDelete_Departments">
+      <class name="com.Test.AllClassCalling_Product_and_Items">
         <methods>
-          <include name="Calling"/>
-          <include name="flushTest"/>
+          <include name="Product_Items_AddEditDelete_SubCategories"/>
+          <include name="Product_Items_AddEditDelete_Item_Based_Discount"/>
+          <include name="Login"/>
           <include name="TestFail"/>
-        </methods>
-      </class> <!-- com.Test.Product_Items_AddEditDelete_Departments -->
-      <class name="com.Test.Product_Items_AddEditDelete_Coursing">
-        <methods>
+          <include name="Product_Items_AddEditDelete_MenuItem"/>
+          <include name="Product_Items_AddEditDelete_Taxes"/>
+          <include name="flushTest"/>
+          <include name="Product_Items_AddEditDelete_ModifierGroups"/>
+          <include name="Product_Items_AddEditDelete_Modifiers"/>
+          <include name="Product_Items_AddEditDelete_RetailItem"/>
           <include name="LogOut"/>
-          <include name="flushTest"/>
-          <include name="Calling"/>
-          <include name="TestFail"/>
+          <include name="Product_Items_AddEditDelete_Check_Based_Discount"/>
+          <include name="Product_Items_AddEditDelete_DisplayGroups"/>
+          <include name="Product_Items_Meito"/>
+          <include name="Product_Items_AddEditDelete_Item_Service_Charge"/>
         </methods>
-      </class> <!-- com.Test.Product_Items_AddEditDelete_Coursing -->
+      </class> <!-- com.Test.AllClassCalling_Product_and_Items -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

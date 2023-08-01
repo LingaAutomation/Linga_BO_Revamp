@@ -80,13 +80,13 @@ public class TaxesPage {
 	@FindBy(xpath = "//app-toggle[contains(.,'Quantity Based')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement QuantityBased_YesBtn;
 	
-	@FindBy(xpath = "//app-toggle[contains(.,'Quantity Based')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Quantity Based')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement QuantityBased_NoBtn;
 	
 	@FindBy(xpath = "//app-toggle[contains(.,'Default Tax')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement DefaultTax_YesBtn;
 	
-	@FindBy(xpath = "//app-toggle[contains(.,'Default Tax')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//app-toggle[contains(.,'Default Tax')]//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement DefaultTax_NoBtn;
 	
 	@FindBy(xpath = "//div[@class='editable-data-grid']/div/div[1]/app-input/div/div/mat-form-field/div/div/div[4]/input")

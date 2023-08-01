@@ -476,7 +476,7 @@ public class Availability_RestrictionTimePage
 	public void Select_DaysOfWeek() throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		Click_DaysOfWeekButton();
 		
 		
