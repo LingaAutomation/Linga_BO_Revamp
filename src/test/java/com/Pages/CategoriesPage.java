@@ -42,7 +42,7 @@ public class CategoriesPage {
 	@FindBy(xpath = "//label[contains(.,'Coursing')]/../../input")
 	WebElement CoursingDropBtn;
 	
-	@FindBy(xpath = "//label[contains(.,'Serving Size Level')]/../../div/div/input")
+	@FindBy(xpath = "//label[contains(.,'Serving Size Level')]/../..//div/input")
 	WebElement ServingSizeLevelDropBtn;
 	
 	@FindBy(xpath = "//label[contains(.,'Tare Group')]/../../input")
@@ -99,7 +99,7 @@ public class CategoriesPage {
 	@FindBy(xpath="//div[contains(@id,'restrict-printers')]//app-chip/div/mat-chip-list/div/mat-chip[1]")
 	WebElement Taxes;
 	
-	@FindBy(xpath="//span[contains(.,'Inherit Default Tax Settings')]/../../div[2]/app-switch/div/section/mat-slide-toggle")
+	@FindBy(xpath="//mat-slide-toggle[contains(.,'Inherit Default Tax Settings')]")
 	WebElement DefaultTaxSetting_ToggleBtn;
 	
 	public void Click_NewCategory()
@@ -598,9 +598,19 @@ List<WebElement> courseList=driver.findElements(By.xpath("//div[contains(@id,'ki
 		}
 		
 		Thread.sleep(1000);
+		try
+		{
 		New_TaxNameInput.clear();
 		Thread.sleep(500);
 		New_TaxNameInput.sendKeys(str);
+		}
+		catch(Exception u)
+		{
+			driver.findElement(By.xpath("//h3[contains(.,'NEW TAX')]/../../..//label[contains(.,'Name')]/../../input")).clear();
+			Thread.sleep(500);
+			driver.findElement(By.xpath("//h3[contains(.,'NEW TAX')]/../../..//label[contains(.,'Name')]/../../input")).sendKeys(str);
+			
+		}
 	//Remove below all	
 		Thread.sleep(1000);
 //		tx.Select_TaxType_Percentage();

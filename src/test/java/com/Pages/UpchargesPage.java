@@ -44,13 +44,13 @@ public class UpchargesPage {
 	@FindBy(xpath = "//app-radio-box-button/div/div/div[.='Menu Item']")
 	WebElement MenuItemLevelTypeBtn;
 
-	@FindBy(xpath = "//label[contains(.,'Category')]/../../div/div/input")
+	@FindBy(xpath = "//label[contains(.,'Category')]/../..//div/input")
 	WebElement Category_InputBox;
 
-	@FindBy(xpath = "//label[contains(.,'Sub Category')]/../../div/div/input")
+	@FindBy(xpath = "//label[contains(.,'Sub Category')]/../..//div/input")
 	WebElement SubCategory_InputBox;
 
-	@FindBy(xpath = "//label[contains(.,'Menu Item')]/../../div/div/input")
+	@FindBy(xpath = "//label[contains(.,'Menu Item')]/../..//div/input")
 	WebElement MenuItem_InputBox;
 	
 	@FindBy(xpath = "//app-toggle[contains(.,'Restrict POS visibility by user role')]//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")

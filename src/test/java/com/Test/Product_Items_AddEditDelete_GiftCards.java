@@ -205,11 +205,11 @@ public WebDriver driver;
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
-		Thread.sleep(500);
+		Thread.sleep(2000);
 		//Enter the Gift Card Name
 		gcp.Enter_GiftCardNumber(Utility.getProperty("GiftCard_Number"));
 		
-		
+		Thread.sleep(1000);
 		gcp.Enter_GiftCardBalance("500");
 		Thread.sleep(2000);
 		//Click the Save button

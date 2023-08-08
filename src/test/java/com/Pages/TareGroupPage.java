@@ -38,10 +38,10 @@ public class TareGroupPage {
 	@FindBy(xpath = "//app-input-table/div/div[2]/div[1]/app-input/div/div/mat-form-field/div/div/div[4]/input")
 	WebElement Sequence_No_WeightsInput;
 	
-	@FindBy(xpath = "//app-input-table/div/div[2]/div[1]/app-input/div/div/div/button[1]")
+	@FindBy(xpath = "//app-input-table/div/div[2]/div[1]/app-input/div/div//button[1]")
 	WebElement Sequence_No_Weights_Up;
 	
-	@FindBy(xpath = "//app-input-table/div/div[2]/div[1]/app-input/div/div/div/button[2]")
+	@FindBy(xpath = "//app-input-table/div/div[2]/div[1]/app-input/div/div//button[2]")
 	WebElement Sequence_No_Weights_Down;
 	
 	@FindBy(xpath = "//app-input-table/div/div[2]/div[2]/app-input/div/div/mat-form-field/div/div/div[4]/input")

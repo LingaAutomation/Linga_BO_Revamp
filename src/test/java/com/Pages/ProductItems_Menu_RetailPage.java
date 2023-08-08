@@ -252,7 +252,7 @@ public class ProductItems_Menu_RetailPage {
 		Item_Preparation_TimeInputBx.sendKeys(str);
 		
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//app-input[@name='preparationTime']/div/div/div/button[2]")).click();
+		driver.findElement(By.xpath("//app-input[@name='preparationTime']/div/div//button[2]")).click();
 	}
 	
 	public void Enter_Kitchen_Printer_Name(String str) throws Exception

@@ -71,10 +71,10 @@ public class Availability_RestrictionTimePage
 	@FindBy(xpath = "//span[contains(.,'Available Months')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement AvailableMonths_NoBtn;
 	
-	@FindBy(xpath = "//span[contains(.,'Restriction Months')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
+	@FindBy(xpath = "//span[contains(.,'Restriction months')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")
 	WebElement RestrictionMonths_YesBtn;
 		
-	@FindBy(xpath = "//span[contains(.,'Restriction Months')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
+	@FindBy(xpath = "//span[contains(.,'Restriction months')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'No')]")
 	WebElement RestrictionMonths_NoBtn;
 	
 	@FindBy(xpath = "//span[contains(.,'Available Days')]/../..//app-toggle//mat-button-toggle-group/mat-button-toggle[contains(.,'Yes')]")

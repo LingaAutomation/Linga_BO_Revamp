@@ -53,16 +53,19 @@ public class CoursingPage {
 	
 	public void VerifyZeroPriorityAlertMsg()
 	{
+		try
+		{
 		if(PriorityZeroPopUp.isDisplayed())
 		{
 			test.log(LogStatus.PASS, "Enter Valid Priority Pop up dispayed when Enter Priority 0");
 		
 			
 		}
-		else
+		}
+		catch(Exception k)
 		{
-			test.log(LogStatus.PASS, "Enter Valid Priority Pop up not dispayed when Enter Priority 0");
-	
+			test.log(LogStatus.FAIL, "Enter Valid Priority Pop up not dispayed when Enter Priority 0");
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 	}
 	

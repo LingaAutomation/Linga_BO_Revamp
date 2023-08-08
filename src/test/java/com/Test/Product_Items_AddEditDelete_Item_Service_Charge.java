@@ -295,7 +295,7 @@ public WebDriver driver;
 		cmp=new Common_XPaths(driver, test);
 		isc=new ItemServiceChargePage(driver, test);
 		
-		Thread.sleep(10000);
+		cmp.Wait_ForElementVisibility(cmp.SearchBox(), 150);
 		//Search and Click Edit button
 		cmp.SearchAndClickEdit(Utility.getProperty("Item_Service_Charge_Name"));
 		
@@ -346,7 +346,7 @@ public WebDriver driver;
 		cmp=new Common_XPaths(driver, test);
 		isc=new ItemServiceChargePage(driver, test);
 		
-		Thread.sleep(8000);
+		cmp.Wait_ForElementVisibility(cmp.SearchBox(), 150);
 		//Search and Verify the Search box when Entering 3 Characters
 		cmp.SearchAndVerify_SearchBox();
 	
@@ -529,12 +529,12 @@ public WebDriver driver;
 	@Test(priority = 5,enabled = false)
 	public void Delete_and_Active_Inactive_Item_Service_Charge(WebDriver driver) throws Exception
 	{
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		
 		cmp=new Common_XPaths(driver, test);
 		isc=new ItemServiceChargePage(driver, test);
 		
-		Thread.sleep(8000);
+		cmp.Wait_ForElementVisibility(cmp.SearchBox(), 150);
 		//Search and Click Delete button
 		cmp.SearchAndClickDelete(Utility.getProperty("Item_Service_Charge_Name")+"1");
 		
