@@ -3,7 +3,10 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.Test.AllClassCalling_Product_and_Items"/>
+		<class name="com.Test.LoginTest"/>
+      <class name="com.Test.Product_Items_AddEditDelete_Departments"/>
+      <class name="com.Test.Product_Items_AddEditDelete_Coursing"/>
+      <!--class name="com.Test.LogOutTest"/-->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

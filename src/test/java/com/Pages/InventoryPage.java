@@ -30,10 +30,12 @@ public class InventoryPage extends BasePage
 	ReportsPage repts;
 	public InventoryPage(WebDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
+//		this.driver=driver;
+//		this.test=test;
+//		
+//		PageFactory.initElements(driver, this);
 		
-		PageFactory.initElements(driver, this);
+		super(driver, test);
 	}
 	
 	@FindBy(xpath = "//button[contains(.,'Apply')]")

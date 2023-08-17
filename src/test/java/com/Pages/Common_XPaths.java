@@ -23,7 +23,8 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class Common_XPaths {
+public class Common_XPaths 
+{
 
 	public WebDriver driver;
 	public ExtentTest test;
@@ -503,6 +504,11 @@ public class Common_XPaths {
 		}
 	}
 	
+	public void Navigate_To_Page(String StoreID,String PageAttribute) throws Exception
+	{
+		driver.get(Utility.getProperty("baseURL")+StoreID+PageAttribute);
+
+	}
 	
 	public void VerifyMainScreenPageHeader(String Str)
 	{

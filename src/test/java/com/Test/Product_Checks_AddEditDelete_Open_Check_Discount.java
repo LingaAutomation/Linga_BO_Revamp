@@ -65,7 +65,11 @@ public WebDriver driver;
 			
 			test.log(LogStatus.FAIL, test.addScreenCapture(s));
 	
-		
+			Thread.sleep(2000);
+			//Load the Upcharge page
+			driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id1")+"discounts");
+
+			Thread.sleep(5000);
 		}
 	}
 	
@@ -102,22 +106,22 @@ public WebDriver driver;
 	}
 	
 	
-	@Test(priority=2)
-	public void Calling() throws Exception
-	{
-		Open_Open_Check_Discount_Page(driver);
-		RefreshAndPaginination(driver);
-		//Add_Open_Check_DiscountType_Promo(driver);
-		Edit_and_Close_Cancel_Open_Check_Discount(driver);
-		Edit_and_Update_Open_Check_DiscountType_Comp(driver);
-		Edit_and_Update_Open_Check_DiscountType_Donation(driver);
-		Edit_and_Update_MenuCheck_Open_Check_Discount(driver);
-		Delete_and_Active_Inactive_Open_Check_Discount(driver);
-		
-	}
+//	@Test(priority=2)
+//	public void Calling() throws Exception
+//	{
+//		Open_Open_Check_Discount_Page(driver);
+//		RefreshAndPaginination(driver);
+//		//Add_Open_Check_DiscountType_Promo(driver);
+//		Edit_and_Close_Cancel_Open_Check_Discount(driver);
+//		Edit_and_Update_Open_Check_DiscountType_Comp(driver);
+//		Edit_and_Update_Open_Check_DiscountType_Donation(driver);
+//		Edit_and_Update_MenuCheck_Open_Check_Discount(driver);
+//		Delete_and_Active_Inactive_Open_Check_Discount(driver);
+//		
+//	}
 	
-	@Test(priority = 3,enabled = false)
-	public void Open_Open_Check_Discount_Page(WebDriver driver) throws Exception
+	@Test(priority = 3,enabled = true)
+	public void Open_Open_Check_Discount_Page() throws Exception
 	{
 		
 		dcp=new DiscountsPage(driver, test);
@@ -134,8 +138,8 @@ public WebDriver driver;
 	
 	}
 	
-	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	@Test(priority = 4,enabled = true)
+	public void RefreshAndPaginination() throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -144,8 +148,8 @@ public WebDriver driver;
 		
 	}
 	
-	@Test(priority = 4,enabled = false)
-	public void Add_Open_Check_DiscountType_Promo(WebDriver driver) throws Exception
+	@Test(priority = 5,enabled = true)
+	public void Add_Open_Check_DiscountType_Promo() throws Exception
 	{
 		dcp=new DiscountsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -437,8 +441,8 @@ public WebDriver driver;
 		}
 	}
 		
-	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_Open_Check_Discount(WebDriver driver) throws Exception
+	@Test(priority = 6,enabled = true)
+	public void Edit_and_Close_Cancel_Open_Check_Discount() throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		dcp=new DiscountsPage(driver, test);
@@ -474,8 +478,8 @@ public WebDriver driver;
 		
 	}
 	
-	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Open_Check_DiscountType_Comp(WebDriver driver) throws Exception
+	@Test(priority = 7,enabled = true)
+	public void Edit_and_Update_Open_Check_DiscountType_Comp() throws Exception
 	{		cmp=new Common_XPaths(driver, test);
 	dcp=new DiscountsPage(driver, test);
 	at=new Availability_RestrictionTimePage(driver, test);
@@ -875,8 +879,8 @@ public WebDriver driver;
 		}
 	}
 	
-	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Open_Check_DiscountType_Donation(WebDriver driver) throws Exception
+	@Test(priority = 8,enabled = true)
+	public void Edit_and_Update_Open_Check_DiscountType_Donation() throws Exception
 	{		cmp=new Common_XPaths(driver, test);
 	dcp=new DiscountsPage(driver, test);
 	at=new Availability_RestrictionTimePage(driver, test);
@@ -1053,8 +1057,8 @@ public WebDriver driver;
 	}
 	
 	
-	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_MenuCheck_Open_Check_Discount(WebDriver driver) throws Exception
+	@Test(priority = 9,enabled = true)
+	public void Edit_and_Update_MenuCheck_Open_Check_Discount() throws Exception
 	{		cmp=new Common_XPaths(driver, test);
 	dcp=new DiscountsPage(driver, test);
 	at=new Availability_RestrictionTimePage(driver, test);
@@ -1122,8 +1126,8 @@ public WebDriver driver;
 	}
 	
 	
-	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_Open_Check_Discount(WebDriver driver) throws Exception
+	@Test(priority = 10,enabled = true)
+	public void Delete_and_Active_Inactive_Open_Check_Discount() throws Exception
 	{		Thread.sleep(500);
 
 	cmp=new Common_XPaths(driver, test);

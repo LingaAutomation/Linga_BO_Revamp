@@ -14,19 +14,20 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class LoginPage {
+public class LoginPage extends BasePage
+{
 
-	WebDriver driver;
-	ExtentTest test;
+//	WebDriver driver;
+//	ExtentTest test;
 	Utility ut=new Utility();
 	
 	public LoginPage(WebDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
-		
-		
-		PageFactory.initElements(driver, this);
+//		this.driver=driver;
+//		this.test=test;
+//		
+//		PageFactory.initElements(driver, this);
+		super(driver, test);
 	}
 	
 	@FindBy(xpath = "//h4[contains(.,'Log In')]")
@@ -94,6 +95,9 @@ public class LoginPage {
 		return LoginPageHeaderText;
 	}
 	
+	
+
+	
 	public void VerifyLoginPageHeader()
 	{
 		
@@ -145,9 +149,9 @@ public class LoginPage {
 		driver.get(Utility.getProperty("Enterprise_Base_URL"));
 		
 		Thread.sleep(3000);
-		SearchBox_inStores.clear();
+		new Common_XPaths(driver, test).SearchBox.clear();
 		Thread.sleep(1000);
-		SearchBox_inStores.sendKeys(Utility.getProperty("Store1"));
+		new Common_XPaths(driver, test).SearchBox.sendKeys(Utility.getProperty("Store1"));
 		
 		Thread.sleep(2000);
 		First_StoreInStoresList.click();

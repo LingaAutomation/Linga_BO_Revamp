@@ -48,7 +48,7 @@ public class Inventory_Adjust_Inventory_Reasons
 	Common_XPaths cmp;
 	LoginTest a=new LoginTest();
 	InventoryPage air;
-	BasePage bp=new BasePage();
+	BasePage bp=new BasePage(driver, test);
 			
 	@AfterClass
 	public void flushTest() throws Exception
@@ -81,10 +81,15 @@ public class Inventory_Adjust_Inventory_Reasons
 		
 		Thread.sleep(2000);
 		//Call the chrome driver
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
+		//Open the Chrome window
+		driver = new ChromeDriver();
+		
+		
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

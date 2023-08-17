@@ -1552,5 +1552,204 @@ public class ReportsPage
 		return No_Records_FoundInfoMsg;
 	}
 	
+	/////////////////  Enterprise Report  /////////////////////////////
+	
+	@FindBy(xpath = "//input[@aria-label='Filter Stores By']")
+	WebElement Filter_Stores_ByInputBx;
+	
+	@FindBy(xpath = "//input[@aria-label='Selected Stores']")
+	WebElement Selected_StoresInputBx;
+	
+	@FindBy(xpath = "//input[@aria-label='Selected Groups']")
+	WebElement Selected_GroupsInputBx;
+	
+	@FindBy(xpath = "//input[@aria-label='Selected States']")
+	WebElement Selected_StatesInputBx;
+	
+	@FindBy(xpath = "//input[@aria-label='Selected Cities']")
+	WebElement Selected_CitiesInputBx;
+	
+	@FindBy(xpath = "//input[@aria-label='Selected Zip Codes']")
+	WebElement Selected_ZipCodesInputBx;
+	
+	@FindBy(xpath = "//select-option[contains(.,'Stores')]")
+	WebElement Stores_Option;
+	
+	@FindBy(xpath = "//select-option[contains(.,'Group')]")
+	WebElement Group_Option;
+	
+	@FindBy(xpath = "//select-option[contains(.,'State')]")
+	WebElement State_selection;
+	
+	@FindBy(xpath = "//select-option[contains(.,'City')]")
+	WebElement City_selection;
+	
+	@FindBy(xpath = "//select-option[contains(.,'ZipCode')]")
+	WebElement ZipCode_selection;
+	
+	@FindBy(xpath = "//button/span/mat-icon[contains(.,'close')]")
+	WebElement CloseAllStoreBtn;
+	
+	@FindBy(xpath = "//select-option/div/mat-checkbox/label/span")
+	WebElement Click_The_Enterprise_Store;
+	
+	@FindBy(xpath = "//mat-checkbox[contains(.,'Show Payments')]")
+	WebElement Show_Payments_CheckBx;
+	
+	public void Select_Stores_In_Enterprise_Report(String StoreName) throws Exception
+	{
+		Thread.sleep(1000);
+		Filter_Stores_ByInputBx.click();
+		
+		Thread.sleep(1000);
+		Stores_Option.click();
+		
+		Thread.sleep(3000);
+		//Click the Close button of All the selected Stores
+		CloseAllStoreBtn.click();
 
+		Thread.sleep(500);
+		//click the Apply button for cancel the select options for Stores
+		Apply_Btn.click();
+		
+		Thread.sleep(3000);
+		//Enter the required Store
+		Selected_StoresInputBx.sendKeys(StoreName);
+
+		Thread.sleep(3000);
+		//CLick the searched store
+		Click_The_Enterprise_Store.click();
+	
+	}
+	
+	
+	public void Select_Groups_In_Enterprise_Report(String GroupName) throws Exception
+	{
+		Thread.sleep(1000);
+		Filter_Stores_ByInputBx.click();
+		
+		Thread.sleep(1000);
+		Group_Option.click();
+		
+		Thread.sleep(3000);
+		//Click the Close button of All the selected Stores
+		CloseAllStoreBtn.click();
+
+		Thread.sleep(500);
+		//click the Apply button for cancel the select options for Stores
+		Apply_Btn.click();
+		
+		Thread.sleep(3000);
+		//Enter the required Store
+		Selected_GroupsInputBx.sendKeys(GroupName);
+
+		Thread.sleep(3000);
+		//CLick the searched store
+		Click_The_Enterprise_Store.click();
+	
+	}
+	
+	public void Select_States_In_Enterprise_Report(String StateName) throws Exception
+	{
+		Thread.sleep(1000);
+		Filter_Stores_ByInputBx.click();
+		
+		Thread.sleep(1000);
+		State_selection.click();
+		
+		Thread.sleep(3000);
+		//Click the Close button of All the selected Stores
+		CloseAllStoreBtn.click();
+
+		Thread.sleep(500);
+		//click the Apply button for cancel the select options for Stores
+		Apply_Btn.click();
+		
+		Thread.sleep(3000);
+		//Enter the required Store
+		Selected_GroupsInputBx.sendKeys(StateName);
+
+		Thread.sleep(3000);
+		//CLick the searched store
+		Click_The_Enterprise_Store.click();
+	
+	}
+	
+	public void Select_City_In_Enterprise_Report(String CityName) throws Exception
+	{
+		Thread.sleep(1000);
+		Filter_Stores_ByInputBx.click();
+		
+		Thread.sleep(1000);
+		City_selection.click();
+		
+		Thread.sleep(3000);
+		//Click the Close button of All the selected Stores
+		CloseAllStoreBtn.click();
+
+		Thread.sleep(500);
+		//click the Apply button for cancel the select options for Stores
+		Apply_Btn.click();
+		
+		Thread.sleep(3000);
+		//Enter the required Store
+		Selected_CitiesInputBx.sendKeys(CityName);
+
+		Thread.sleep(3000);
+		//CLick the searched store
+		Click_The_Enterprise_Store.click();
+	
+	}
+	
+	public void Select_ZipCode_In_Enterprise_Report(String ZipCode) throws Exception
+	{
+		Thread.sleep(1000);
+		Filter_Stores_ByInputBx.click();
+		
+		Thread.sleep(1000);
+		ZipCode_selection.click();
+		
+		Thread.sleep(3000);
+		//Click the Close button of All the selected Stores
+		CloseAllStoreBtn.click();
+
+		Thread.sleep(500);
+		//click the Apply button for cancel the select options for Stores
+		Apply_Btn.click();
+		
+		Thread.sleep(3000);
+		//Enter the required Store
+		Selected_ZipCodesInputBx.sendKeys(ZipCode);
+
+		Thread.sleep(3000);
+		//CLick the searched store
+		Click_The_Enterprise_Store.click();
+	
+	}
+	
+	public WebElement Sale_NetSales_Amount_SaleReport_Enterprise()
+	{
+		return driver.findElement(By.xpath("//tfoot/tr/td[2]/div"));
+	}
+	
+	public WebElement Quantity_SaleReport_Enterprise()
+	{
+		return driver.findElement(By.xpath("//tfoot/tr/td[3]/div"));
+	}
+	
+	public WebElement Tax_SaleReport_Enterprise()
+	{
+		return driver.findElement(By.xpath("//tfoot/tr/td[4]/div"));
+	}
+	
+	public WebElement Discount_SaleReport_Enterprise()
+	{
+		return driver.findElement(By.xpath("//tfoot/tr/td[5]/div"));
+	}
+	
+	public WebElement PercentageOfSale_SaleReport_Enterprise()
+	{
+		return driver.findElement(By.xpath("//tfoot/tr/td[6]/div"));
+	}
+	
 }

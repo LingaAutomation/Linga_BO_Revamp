@@ -31,7 +31,7 @@ import Utility.ExtentManager;
 import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Product_Items_AddEditDelete_Coursing {
+public class Product_Items_AddEditDelete_Coursing extends LoginTest{
 public WebDriver driver;
 	
 	
@@ -65,22 +65,28 @@ public WebDriver driver;
 			
 			test.log(LogStatus.FAIL, test.addScreenCapture(s));
 	
+			//Load the Department page
+			driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id1")+"coursing");
+
 		
 		}
 	}
 	
 	
-	@Test(priority = 1)
+	@Test(priority = 1,enabled = false)
 	public void Login() throws Exception
 	{
 		
 		
 		Thread.sleep(2000);
 		//Call the chrome driver
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
+		//Open the Chrome window
+		driver = new ChromeDriver();
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -94,10 +100,11 @@ public WebDriver driver;
 		a.Login(driver, test);
 	}
 	
-	@Test(priority = 50)
+	@Test(priority = 50,enabled = false)
 	public void LogOut() throws Exception
 	{
-		a.LogOut(driver, test);
+		LogOutTest a=new LogOutTest();
+		a.LogOut();
 	}
 	
 	
@@ -167,7 +174,7 @@ public WebDriver driver;
 		
 	}
 	
-	@Test(priority = 4,enabled = false)
+	@Test(priority = 5,enabled = false)
 	public void Add_Coursing(WebDriver driver) throws Exception
 	{
 		cp=new CoursingPage(driver, test);
@@ -305,7 +312,7 @@ public WebDriver driver;
 		}
 	}
 		
-	@Test(priority = 5,enabled = false)
+	@Test(priority = 6,enabled = false)
 	public void Edit_and_Close_Cancel_Coursing(WebDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
@@ -356,7 +363,7 @@ public WebDriver driver;
 		}
 		
 	}
-	@Test(priority = 5,enabled = false)
+	@Test(priority = 7,enabled = false)
 	public void Edit_and_Update_Coursing(WebDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
@@ -516,7 +523,7 @@ public WebDriver driver;
 		
 	}
 	
-	@Test(priority = 5,enabled = false)
+	@Test(priority = 8,enabled = false)
 	public void Delete_and_Active_Inactive_Coursing(WebDriver driver) throws Exception
 	{
 		Thread.sleep(500);
@@ -650,7 +657,7 @@ public WebDriver driver;
 		
 	}
 	
-	@Test(priority = 6,enabled = false)
+	@Test(priority = 9,enabled = false)
 	public void Create_DuplicateCourse(WebDriver driver) throws Exception
 	{
 		cp=new CoursingPage(driver, test);

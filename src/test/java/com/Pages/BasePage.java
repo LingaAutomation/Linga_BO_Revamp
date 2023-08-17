@@ -6,34 +6,40 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.relevantcodes.extentreports.ExtentTest;
 
 import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 public class BasePage {
 
-	public WebDriver driver;
-	public ExtentTest test;
+	Common_XPaths cmp;
+	 private static final int TIMEOUT = 5;
+	    private static final int POLLING = 100;
 
-	Common_XPaths cmp=new Common_XPaths(driver, test);
-	public BasePage()
-	{
-		if(driver==null)
-		{
-		this.driver=new ChromeDriverManager().getWebDriver();
-		PageFactory.initElements(driver, this);
-		}
-	}
-	
+	    public WebDriver driver;
+	    public ExtentTest test;
+	    public WebDriverWait wait;
+
+	    public BasePage(WebDriver driver,ExtentTest test) {
+	        this.driver = driver;
+	        this.test=test;
+//	        wait = new WebDriverWait(driver, Duration.ofMinutes(TIMEOUT), Duration.ofMinutes(POLLING));
+	        PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT), this);
+	    }
+	    
 	@FindBy(xpath = "//cdk-virtual-scroll-viewport//div/div[1]//select-option")
 	WebElement First_Option_inDropDwon;
 	
 	public void Click_Button(WebElement ele, String msg)
 	{
+		
 //		ele.click();
 		cmp.Click_Wait_ForElementClickable(ele, 30);
 		System.out.println(msg);

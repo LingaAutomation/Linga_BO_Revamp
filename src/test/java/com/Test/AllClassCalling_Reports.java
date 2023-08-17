@@ -84,6 +84,10 @@ public class AllClassCalling_Reports {
 //			System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 //			//Open the Chrome window
 //			driver = new ChromeDriver();
+			
+			System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
+			//Open the Chrome window
+			driver = new ChromeDriver();
 
 			ChromeOptions chrOpt=new ChromeOptions();
 			chrOpt.addArguments("--remote-allow-origins=*");

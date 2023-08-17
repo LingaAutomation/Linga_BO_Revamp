@@ -17,10 +17,12 @@ public class UserManagementPage extends BasePage
 	public UserManagementPage(WebDriver driver, ExtentTest test) {
 //		super(driver, test);
 //		// TODO Auto-generated constructor stub
-		this.driver=driver;
-		this.test=test;
+//		this.driver=driver;
+//		this.test=test;
+//		
+//		PageFactory.initElements(driver, this);
 		
-		PageFactory.initElements(driver, this);
+		super(driver, test);
 	}
 
 	@FindBy(xpath = "//button[contains(.,'NEW USER')]")

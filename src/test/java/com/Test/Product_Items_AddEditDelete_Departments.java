@@ -28,9 +28,11 @@ import com.relevantcodes.extentreports.LogStatus;
 import Utility.ExtentManager;
 import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
-
-public class Product_Items_AddEditDelete_Departments {
-public WebDriver driver;
+import org.openqa.selenium.JavascriptExecutor;
+public class Product_Items_AddEditDelete_Departments
+{
+	
+	public WebDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -43,6 +45,9 @@ public WebDriver driver;
 	Common_XPaths cmp;
 	LoginTest a=new LoginTest();
 	DepartmentPage dpg;
+	
+//	ChromeOptions chrOpt=new ChromeOptions();
+	
 	
 	@AfterClass
 	public void flushTest() throws Exception
@@ -70,18 +75,17 @@ public WebDriver driver;
 	}
 	
 	
-	@Test(priority = 1)
+	@Test(priority = 1,enabled = true)
 	public void Login() throws Exception
 	{
 		
 		
 		Thread.sleep(2000);
-		//Call the chrome driver
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
-		
+//		//Call the chrome driver
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -94,9 +98,10 @@ public WebDriver driver;
 		a.Login(driver, test);
 	}
 	
-	@Test(priority = 50)
+	@Test(priority = 50,enabled = true)
 	public void LogOut() throws Exception
 	{
+//		LogOutTest a=new LogOutTest();
 		a.LogOut(driver, test);
 	}
 	
@@ -117,17 +122,18 @@ public WebDriver driver;
 	@Test(priority = 3,enabled = false)
 	public void Open_Departments_Page(WebDriver driver) throws Exception
 	{
-		
+//		((JavascriptExecutor) driver).executeScript("window.focus();");
 		dpg=new DepartmentPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		
 		Thread.sleep(5000);
 		//Load the Department page
+//		a.Navigate_To_Page(Utility.getProperty("store_Id1"), "departments");
 		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id1")+"departments");
-
+		
 		Thread.sleep(5000);
-		//Verify the Departments page loeded or not
-		cmp.VerifyMainScreenPageHeader("Departments");	
+		//Verify the Departments page loaded or not
+		cmp.VerifyMainScreenPageHeader("Departments");
 	}
 	
 	@Test(priority = 4,enabled = false)
@@ -142,7 +148,7 @@ public WebDriver driver;
 		cmp.Filter_Columns();
 	}
 	
-	@Test(priority = 4,enabled = false)
+	@Test(priority = 5,enabled = false)
 	public void Add_Departments(WebDriver driver) throws Exception
 	{
 		dpg=new DepartmentPage(driver, test);
@@ -228,7 +234,7 @@ public WebDriver driver;
 		}
 	}
 		
-	@Test(priority = 5,enabled = false)
+	@Test(priority = 6,enabled = false)
 	public void Edit_and_Close_Cancel_Departments(WebDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
@@ -279,7 +285,7 @@ public WebDriver driver;
 		
 	}
 	
-	@Test(priority = 5,enabled = false)
+	@Test(priority = 7,enabled = false)
 	public void Edit_and_Update_Departments(WebDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
@@ -350,7 +356,7 @@ public WebDriver driver;
 		
 	}
 	
-	@Test(priority = 5,enabled = false)
+	@Test(priority = 8,enabled = false)
 	public void Delete_and_Active_Inactive_Departments(WebDriver driver) throws Exception
 	{
 		Thread.sleep(500);
@@ -479,7 +485,7 @@ public WebDriver driver;
 		
 	}
 	
-	@Test(priority = 6,enabled = false)
+	@Test(priority = 9,enabled = false)
 	public void Create_DuplicateDepartment(WebDriver driver) throws Exception
 	{
 		dpg=new DepartmentPage(driver, test);

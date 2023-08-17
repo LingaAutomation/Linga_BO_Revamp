@@ -48,7 +48,7 @@ public class Inventory_Sub_Recipe
 	Common_XPaths cmp;
 	LoginTest a=new LoginTest();
 	InventoryPage air;
-	BasePage bp=new BasePage();
+	BasePage bp=new BasePage(driver, test);
 	
 	@AfterClass
 	public void flushTest() throws Exception

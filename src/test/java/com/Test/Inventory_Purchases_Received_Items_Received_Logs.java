@@ -44,7 +44,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	Common_XPaths cmp;
 	LoginTest a=new LoginTest();
 	InventoryPage air;
-	BasePage bp=new BasePage();
+	BasePage bp=new BasePage(driver, test);
 	 String Inventory_Item_Name_inRecItm;
 	 String Inventory_Item_Name_inPurOrder;
 
