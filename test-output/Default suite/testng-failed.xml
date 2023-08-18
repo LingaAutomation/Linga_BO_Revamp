@@ -3,19 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Test.Product_Items_AddEditDelete_Departments">
+      <class name="com.Test.Enterprise_Reports">
         <methods>
-          <include name="Add_Departments"/>
-          <include name="RefreshAndPaginination"/>
-          <include name="Create_DuplicateDepartment"/>
-          <include name="Open_Departments_Page"/>
-          <include name="Edit_and_Close_Cancel_Departments"/>
-          <include name="Delete_and_Active_Inactive_Departments"/>
+          <include name="Calling"/>
           <include name="flushTest"/>
-          <include name="Edit_and_Update_Departments"/>
           <include name="TestFail"/>
         </methods>
-      </class> <!-- com.Test.Product_Items_AddEditDelete_Departments -->
+      </class> <!-- com.Test.Enterprise_Reports -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
