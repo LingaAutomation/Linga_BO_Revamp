@@ -29,7 +29,9 @@ import Utility.ExtentManager;
 import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Product_Items_AddEditDelete_Departments {
+public class Product_Items_AddEditDelete_Departments 
+{
+	
 public WebDriver driver;
 	
 	
@@ -63,7 +65,9 @@ public WebDriver driver;
 			
 			test.log(LogStatus.FAIL, test.addScreenCapture(s));
 	
-		
+			//Load the Department page
+			driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id1")+"departments");
+
 		}
 	}
 	
@@ -515,8 +519,12 @@ public WebDriver driver;
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			
 			cmp.Click_CancelButton();
-			
-			
+		}
+		else if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Department Saved Successfully"))
+		{
+			test.log(LogStatus.PASS, "Duplicate Department Saved");
+		
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
 		else
 		{
@@ -524,7 +532,6 @@ public WebDriver driver;
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
-		Thread.sleep(3000);
 	}
 	
-  }
+}

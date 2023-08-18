@@ -37,7 +37,7 @@ public class LoginPage {
 	@FindBy(xpath = "//input[@type='password']")
 	WebElement Password;
 	
-	@FindBy(xpath = "//button[contains(.,'LOG IN')]")
+	@FindBy(xpath = "//button[contains(.,'Log In')]")
 	WebElement LoginBtn;
 	
 	@FindBy(xpath = "//b[@class='text-primary cursor-pointer']")
@@ -52,7 +52,7 @@ public class LoginPage {
 	@FindBy(xpath = "//app-input[@placeholder='Search']/div/div/mat-form-field/div/div/div[4]/input")
 	WebElement SearchBox_inStores;
 	
-	@FindBy(xpath = "//app-stores/div/div[2]/div[2]/div[1]/div")
+	@FindBy(xpath = "//app-stores/div/div[3]/div/div/div[1]")
 	WebElement First_StoreInStoresList;
 	
 	@FindBy(xpath = "//div[@class='profile-name']")

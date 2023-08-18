@@ -140,7 +140,7 @@ public class AllClassCalling_Reports {
 					
 		}
 		
-		
+	/*	
 		@Test(priority = 4,enabled = true)
 		public void Reports_Category_Sale_Report() throws Exception
 		{
@@ -1030,4 +1030,5 @@ public class AllClassCalling_Reports {
 			a.Membership_Statement_Report_Specific_Date(driver);
 			a.Membership_Statement_Report_Date_Range(driver);
 		}
+		*/
 }

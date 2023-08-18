@@ -27,7 +27,6 @@
 	<classpathentry kind="lib" path="D:/Automation/Linga_BO_Revamp/AT Excel Report Jars/poi-ooxml-3.15.jar"/>
 	<classpathentry kind="lib" path="D:/Automation/Linga_BO_Revamp/AT Excel Report Jars/poi-ooxml-schemas-3.15.jar"/>
 	<classpathentry kind="lib" path="D:/Automation/Linga_BO_Revamp/AT Excel Report Jars/xmlbeans-2.6.0.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="lib" path="C:/Users/rajas/OneDrive/Desktop/Automation_Images/Extent Reports/bson-3.0.4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/rajas/OneDrive/Desktop/Automation_Images/Extent Reports/extentreports-2.41.2.jar"/>
@@ -41,5 +40,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
