@@ -8,6 +8,7 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_ThirdPartyIntegrat
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\CoursingPage.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Inventory_InventoryModifiers_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_CashTip_Employee_Report.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Fiscal.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Common_XPaths.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_Scales_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_InHouseUnits.java
@@ -39,6 +40,7 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Daily_Summary_Repor
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\ServingSizeLevelsPage.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_RevenueCenter_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Product_Items_Bulk_Update.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Account_License.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Product_Items_AddEditDelete_Item_Based_Discount.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Product_Items_Meito.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Tax_Report.java
@@ -64,6 +66,7 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Category_Sale_Repor
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Front_End_Receipt_Template.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Dashboard_Online_Ordering.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Scales.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_Delivary_Settings_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\LoginTest.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Employee_Role_Based_Payroll_Report_Formula.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_Till_Setting_Page.java
@@ -77,6 +80,7 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Logo_Sale.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_Reports_COGS_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\Utility\ExtentManager.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\AllClassCalling_Settings.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_Account_License_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_Batch_Settings_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_KDS_Configuration.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Daily_Tender_Report.java
@@ -96,6 +100,7 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Business_Hours.jav
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Availability_RestrictionTimePage.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Receipt_Printers.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_GiveX_Report.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_Fiscal_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Sale_Recap_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_WaitList.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Product_Items_AddEditDelete_RetailItem.java
@@ -119,9 +124,11 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Integrations_WebHo
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Front_End_Receipt_TemplatePage.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_Purchase_Template.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\InventoryReports_CountSheet_Page.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Inventory_Consumption_Log_report_page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_Reports_Count_Sheet.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\ReportsPage.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_KDS_Configuration_Page.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Enterprise_Reports.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Modifier_Sale_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Weekly_Summary_Sale_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_Storage_Locations.java
@@ -147,6 +154,7 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\BasePage.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Void_Transactions_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_HA_Statement.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Product_Items_AddEditDelete_Upcharges.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_POSCustomURL_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_Adjust_Inventory.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\PaymentMethodsPage.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Account_Balance_Report.java
@@ -157,6 +165,7 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\GratuitiesPage.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_ExpiredPurchaseItem.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\CustomersPage.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_Email_Receipt_Template_Page.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settgings_Till_Setting.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Notifications.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_ThirdPartyIntegrations_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_MenuItem_Sale_Report.java
@@ -165,9 +174,11 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Product_Items_AddEditDelete
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Inventory_Purchase_Template_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\User_Management_Users.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Customers_House_Accounts.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\LogOutTest.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_Web_Hooks_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Payroll_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\POSCustomURL_Page.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\SuperGetDriver.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_Vendors.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_Reports_Compare_Inventory_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_Category.java
@@ -178,6 +189,7 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_Reports_Consumpti
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Daily_Sale_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_Purchase_Orders.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Revenue_Center.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Delivery.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Employee_Role_Based_Payroll_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_StoreInventory.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\ReasonsPage.java
