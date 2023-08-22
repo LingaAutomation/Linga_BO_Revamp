@@ -86,6 +86,10 @@ public class Product_Items_AddEditDelete_Departments
 //		chrOpt.addArguments("--remote-allow-origins=*");
 //		WebDriverManager.chromedriver().setup();
 //		driver=new ChromeDriver(chrOpt);
+		
+		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
+//		//Open the Chrome window
+		driver = new ChromeDriver();
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window

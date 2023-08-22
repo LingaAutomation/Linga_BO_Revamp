@@ -1554,7 +1554,7 @@ public class ReportsPage
 	
 	/////////////////  Enterprise Report  /////////////////////////////
 	
-	@FindBy(xpath = "//input[@aria-label='Filter Stores By']")
+	@FindBy(xpath = "//label[contains(.,'Filter Stores By')]/../../input")
 	WebElement Filter_Stores_ByInputBx;
 	
 	@FindBy(xpath = "//input[@aria-label='Selected Stores']")
@@ -1726,30 +1726,49 @@ public class ReportsPage
 		Click_The_Enterprise_Store.click();
 	
 	}
-	
-	public WebElement Sale_NetSales_Amount_SaleReport_Enterprise()
+
+	public WebElement GrossSales_Amount_SaleReport_Enterprise_Report()
 	{
 		return driver.findElement(By.xpath("//tfoot/tr/td[2]/div"));
 	}
 	
-	public WebElement Quantity_SaleReport_Enterprise()
+	public WebElement Void_Amount_SaleReport_Enterprise_Report()
 	{
 		return driver.findElement(By.xpath("//tfoot/tr/td[3]/div"));
 	}
 	
-	public WebElement Tax_SaleReport_Enterprise()
+	public WebElement Discount_Amount_SaleReport_Enterprise_Report()
 	{
 		return driver.findElement(By.xpath("//tfoot/tr/td[4]/div"));
 	}
 	
-	public WebElement Discount_SaleReport_Enterprise()
+	public WebElement Discount_TaxAmount_SaleReport_Enterprise_Report()
 	{
 		return driver.findElement(By.xpath("//tfoot/tr/td[5]/div"));
 	}
 	
-	public WebElement PercentageOfSale_SaleReport_Enterprise()
+	public WebElement Tax_Amount_SaleReport_Enterprise_Report()
 	{
 		return driver.findElement(By.xpath("//tfoot/tr/td[6]/div"));
 	}
 	
+	public WebElement Net_SalesAmount_SaleReport_Enterprise_Report()
+	{
+		return driver.findElement(By.xpath("//tfoot/tr/td[7]/div"));
+	}
+	
+	public WebElement Gift_Card_SoldAmount_SaleReport_Enterprise_Report()
+	{
+		return driver.findElement(By.xpath("//tfoot/tr/td[8]/div"));
+	}
+	
+	public WebElement GiveX_SoldAmount_SaleReport_Enterprise_Report()
+	{
+		return driver.findElement(By.xpath("//tfoot/tr/td[9]/div"));
+	}
+	
+	public WebElement COGS_SaleReport_Enterprise_Report()
+	{
+		return driver.findElement(By.xpath("//tfoot/tr/td[10]/div"));
+	}
 }

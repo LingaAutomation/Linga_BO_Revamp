@@ -82,10 +82,15 @@ public WebDriver driver;
 //		System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		
+		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
+		//Open the Chrome window
+		driver = new ChromeDriver();
+		
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -160,6 +165,7 @@ public WebDriver driver;
 		cmp=new Common_XPaths(driver, test);
 		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		
+		ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
 		//Select Time Period in Sale Recap Report
 		repts.Select_Time_Period_Sale_Recap();
@@ -193,7 +199,16 @@ public WebDriver driver;
 			excel.setreportData("Today", 43, 1, st);
 			excel.setreportData("Today", 44, 1, st);
 			
+			excel1.setreportData("Today", 2, 1, st);
+			excel1.setreportData("Today", 3, 1, st);
+			excel1.setreportData("Today", 4, 1, st);
+			excel1.setreportData("Today", 5, 1, st);
+			excel1.setreportData("Today", 6, 1, st);
+			excel1.setreportData("Today", 7, 1, st);
+			
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
+
 		}
 		}
 		catch(Exception G)
@@ -214,7 +229,8 @@ public WebDriver driver;
 			//Export the Net Sales value to Excel
 			excel.setreportData("Today", 2, 1, NetSales);
 			excel.setreportData("Today", 39, 1, NetSales);
-		
+			excel1.setreportData("Today", 2, 1, NetSales);
+
 			
 			
 			//Get the Grand Sales
@@ -224,7 +240,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Today", 5, 1, GrandSale);
 			excel.setreportData("Today", 42, 1, GrandSale);
-			
+			excel1.setreportData("Today", 5, 1, GrandSale);
+
 			
 			
 			//Get the Gross Receipt
@@ -234,7 +251,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Today", 6, 1, GrandReceipt);
 			excel.setreportData("Today", 43, 1, GrandReceipt);
-			
+			excel1.setreportData("Today", 6, 1, GrandReceipt);
+
 			
 			
 			//Get the Gross Sales
@@ -244,7 +262,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Today", 7, 1, GrossSales);
 			excel.setreportData("Today", 44, 1, GrossSales);
-			
+			excel1.setreportData("Today", 7, 1, GrossSales);
+
 			
 			
 			//Get the Net Void
@@ -254,7 +273,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Today", 9, 1, NetVoid);
 			excel.setreportData("Today", 46, 1, NetVoid);
-			
+			excel1.setreportData("Today", 9, 1, NetVoid);
+
 			
 			
 			//Get the Gross Void
@@ -264,7 +284,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Today", 10, 1, GrossVoid);
 			excel.setreportData("Today", 47, 1, GrossVoid);
-			
+			excel1.setreportData("Today", 10, 1, GrossVoid);
+
 			}
 			else
 			{
@@ -285,7 +306,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Today", 3, 1, Tx);
 				excel.setreportData("Today", 40, 1, Tx);
-				
+				excel1.setreportData("Today", 3, 1, Tx);
+
 				try
 				{
 				if(repts.Tax_Exempt_SaleRecap().isDisplayed())
@@ -297,6 +319,8 @@ public WebDriver driver;
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Today", 8, 1, Tx_Exmpted);
 				excel.setreportData("Today", 45, 1, Tx_Exmpted);
+				excel1.setreportData("Today", 8, 1, Tx_Exmpted);
+
 				}
 				}
 				catch(Exception p)
@@ -306,6 +330,8 @@ public WebDriver driver;
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Today", 8, 1, st);
 					excel.setreportData("Today", 45, 1, st);
+					excel1.setreportData("Today", 8, 1, st);
+
 				}
 				
 				
@@ -316,6 +342,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Today", 12, 1, RoundOff);
 				excel.setreportData("Today", 49, 1, RoundOff);
+				excel1.setreportData("Today", 12, 1, RoundOff);
+
 			}
 			}
 			catch(Exception pp)
@@ -326,15 +354,18 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Today", 3, 1, "0.00");
 				excel.setreportData("Today", 40, 1, "0.00");
-				
+				excel1.setreportData("Today", 3, 1, "0.00");
+
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Today", 8, 1, st);
 				excel.setreportData("Today", 45, 1, st);
-				
+				excel1.setreportData("Today", 8, 1, st);
+
 				//Export Tax value to Excel
 				excel.setreportData("Today", 12, 1, st);
 				excel.setreportData("Today", 49, 1, st);
-				
+				excel1.setreportData("Today", 12, 1, st);
+
 			}
 			
 			try
@@ -350,7 +381,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Today", 4, 1, Discnt);
 				excel.setreportData("Today", 41, 1, Discnt);
-				
+				excel1.setreportData("Today", 4, 1, Discnt);
+
 				
 				//Get Discount Tax
 				String DiscntTx=repts.Discount_Tax_SaleRecap().getText().replace(",", "");
@@ -359,7 +391,8 @@ public WebDriver driver;
 				//Export Discount Tax value to Excel
 				excel.setreportData("Today", 13, 1, DiscntTx);
 				excel.setreportData("Today", 50, 1, DiscntTx);
-				
+				excel1.setreportData("Today", 13, 1, DiscntTx);
+
 			}
 			}
 			catch(Exception h)
@@ -370,13 +403,16 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Today", 4, 1, "0.00");
 				excel.setreportData("Today", 41, 1, "0.00");
-				
+				excel1.setreportData("Today", 4, 1, "0.00");
+
 				
 				
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("Today", 13, 1, st);
 				excel.setreportData("Today", 50, 1, st);
+				excel1.setreportData("Today", 13, 1, st);
+
 			}
 			
 			try
@@ -392,6 +428,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Today", 11, 1, Refund);
 				excel.setreportData("Today", 48, 1, Refund);
+				excel1.setreportData("Today", 11, 1, Refund);
+
 			}
 			}
 			catch(Exception l)
@@ -401,11 +439,14 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Today", 11, 1, st);
 				excel.setreportData("Today", 48, 1, st);
+				excel1.setreportData("Today", 11, 1, st);
+
 			}
 			
 			//To Write all the Data to Excel
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
+
 			
 			Thread.sleep(3000);
 
@@ -420,6 +461,8 @@ public WebDriver driver;
 		cmp=new Common_XPaths(driver, test);
 		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		
+		ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
+
 
 		//Select Time Period in Sale Recap Report
 		repts.Select_Time_Period_Sale_Recap();
@@ -454,7 +497,15 @@ public WebDriver driver;
 			excel.setreportData("Yesterday", 43, 1, st);
 			excel.setreportData("Yesterday", 44, 1, st);
 			
+			excel1.setreportData("Yesterday", 2, 1, st);
+			excel1.setreportData("Yesterday", 3, 1, st);
+			excel1.setreportData("Yesterday", 4, 1, st);
+			excel1.setreportData("Yesterday", 5, 1, st);
+			excel1.setreportData("Yesterday", 6, 1, st);
+			excel1.setreportData("Yesterday", 7, 1, st);
+			
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
@@ -475,7 +526,8 @@ public WebDriver driver;
 			//Export the Net Sales value to Excel
 			excel.setreportData("Yesterday", 2, 1, NetSales);
 			excel.setreportData("Yesterday", 39, 1, NetSales);
-		
+			excel1.setreportData("Yesterday", 2, 1, NetSales);
+
 			
 			
 			//Get the Grand Sales
@@ -485,7 +537,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Yesterday", 5, 1, GrandSale);
 			excel.setreportData("Yesterday", 42, 1, GrandSale);
-			
+			excel1.setreportData("Yesterday", 5, 1, GrandSale);
+
 			
 			
 			//Get the Gross Receipt
@@ -495,7 +548,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Yesterday", 6, 1, GrandReceipt);
 			excel.setreportData("Yesterday", 43, 1, GrandReceipt);
-			
+			excel1.setreportData("Yesterday", 6, 1, GrandReceipt);
+
 			
 			
 			//Get the Gross Sales
@@ -505,7 +559,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Yesterday", 7, 1, GrossSales);
 			excel.setreportData("Yesterday", 44, 1, GrossSales);
-			
+			excel1.setreportData("Yesterday", 7, 1, GrossSales);
+
 			
 			
 			//Get the Net Void
@@ -515,7 +570,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Yesterday", 9, 1, NetVoid);
 			excel.setreportData("Yesterday", 46, 1, NetVoid);
-			
+			excel1.setreportData("Yesterday", 9, 1, NetVoid);
+
 			
 			
 			//Get the Gross Void
@@ -525,7 +581,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Yesterday", 10, 1, GrossVoid);
 			excel.setreportData("Yesterday", 47, 1, GrossVoid);
-			
+			excel1.setreportData("Yesterday", 10, 1, GrossVoid);
+
 			}
 			else
 			{
@@ -546,7 +603,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Yesterday", 3, 1, Tx);
 				excel.setreportData("Yesterday", 40, 1, Tx);
-				
+				excel1.setreportData("Yesterday", 3, 1, Tx);
+
 				try
 				{
 				if(repts.Tax_Exempt_SaleRecap().isDisplayed())
@@ -558,6 +616,8 @@ public WebDriver driver;
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Yesterday", 8, 1, Tx_Exmpted);
 				excel.setreportData("Yesterday", 45, 1, Tx_Exmpted);
+				excel1.setreportData("Yesterday", 8, 1, Tx_Exmpted);
+
 				}
 				}
 				catch(Exception p)
@@ -567,6 +627,8 @@ public WebDriver driver;
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Yesterday", 8, 1, st);
 					excel.setreportData("Yesterday", 45, 1, st);
+					excel1.setreportData("Yesterday", 8, 1, st);
+
 				}
 				
 				
@@ -578,6 +640,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Yesterday", 12, 1, RoundOff);
 				excel.setreportData("Yesterday", 49, 1, RoundOff);
+				excel1.setreportData("Yesterday", 12, 1, RoundOff);
+
 			}
 			}
 			catch(Exception ll)
@@ -588,15 +652,20 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Yesterday", 3, 1, "0.00");
 				excel.setreportData("Yesterday", 40, 1, "0.00");
+				excel1.setreportData("Yesterday", 3, 1, "0.00");
+
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Yesterday", 8, 1, st);
 				excel.setreportData("Yesterday", 45, 1, st);
+				excel1.setreportData("Yesterday", 8, 1, st);
+
 				
 				//Export Tax value to Excel
 				excel.setreportData("Yesterday", 12, 1, st);
 				excel.setreportData("Yesterday", 49, 1, st);
-				
+				excel1.setreportData("Yesterday", 12, 1, st);
+
 			}
 			
 			try
@@ -612,7 +681,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Yesterday", 4, 1, Discnt);
 				excel.setreportData("Yesterday", 41, 1, Discnt);
-				
+				excel1.setreportData("Yesterday", 4, 1, Discnt);
+
 				
 				//Get Discount Tax
 				String DiscntTx=repts.Discount_Tax_SaleRecap().getText().replace(",", "");
@@ -621,7 +691,8 @@ public WebDriver driver;
 				//Export Discount Tax value to Excel
 				excel.setreportData("Yesterday", 13, 1, DiscntTx);
 				excel.setreportData("Yesterday", 50, 1, DiscntTx);
-				
+				excel1.setreportData("Yesterday", 13, 1, DiscntTx);
+
 			}
 			}
 			catch(Exception h)
@@ -632,13 +703,16 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Yesterday", 4, 1, "0.00");
 				excel.setreportData("Yesterday", 41, 1, "0.00");
-				
+				excel1.setreportData("Yesterday", 4, 1, "0.00");
+
 				
 				
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("Yesterday", 13, 1, st);
 				excel.setreportData("Yesterday", 50, 1, st);
+				excel1.setreportData("Yesterday", 13, 1, st);
+
 			}
 			
 			try
@@ -654,6 +728,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Yesterday", 11, 1, Refund);
 				excel.setreportData("Yesterday", 48, 1, Refund);
+				excel1.setreportData("Yesterday", 11, 1, Refund);
+
 			}
 			}
 			catch(Exception l)
@@ -663,12 +739,14 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Yesterday", 11, 1, st);
 				excel.setreportData("Yesterday", 48, 1, st);
+				excel1.setreportData("Yesterday", 11, 1, st);
+
 			}
 			
 			//To Write all the Data to Excel
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		
-			
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 			Thread.sleep(3000);
 
 		}
@@ -681,7 +759,7 @@ public WebDriver driver;
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+		ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 
 		//Select Time Period in Sale Recap Report
 		repts.Select_Time_Period_Sale_Recap();
@@ -717,7 +795,15 @@ public WebDriver driver;
 			excel.setreportData("Last N days", 43, 1, st);
 			excel.setreportData("Last N days", 44, 1, st);
 			
+			excel1.setreportData("Last N days", 2, 1, st);
+			excel1.setreportData("Last N days", 3, 1, st);
+			excel1.setreportData("Last N days", 4, 1, st);
+			excel1.setreportData("Last N days", 5, 1, st);
+			excel1.setreportData("Last N days", 6, 1, st);
+			excel1.setreportData("Last N days", 7, 1, st);
+			
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
@@ -738,7 +824,8 @@ public WebDriver driver;
 			//Export the Net Sales value to Excel
 			excel.setreportData("Last N days", 2, 1, NetSales);
 			excel.setreportData("Last N days", 39, 1, NetSales);
-		
+			excel1.setreportData("Last N days", 2, 1, NetSales);
+
 			
 			
 			//Get the Grand Sales
@@ -748,7 +835,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last N days", 5, 1, GrandSale);
 			excel.setreportData("Last N days", 42, 1, GrandSale);
-			
+			excel1.setreportData("Last N days", 5, 1, GrandSale);
+
 			
 			
 			//Get the Gross Receipt
@@ -758,7 +846,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last N days", 6, 1, GrandReceipt);
 			excel.setreportData("Last N days", 43, 1, GrandReceipt);
-			
+			excel1.setreportData("Last N days", 6, 1, GrandReceipt);
+
 			
 			
 			//Get the Gross Sales
@@ -768,7 +857,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last N days", 7, 1, GrossSales);
 			excel.setreportData("Last N days", 44, 1, GrossSales);
-			
+			excel1.setreportData("Last N days", 7, 1, GrossSales);
+
 			
 			
 			//Get the Net Void
@@ -778,7 +868,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last N days", 9, 1, NetVoid);
 			excel.setreportData("Last N days", 46, 1, NetVoid);
-			
+			excel1.setreportData("Last N days", 9, 1, NetVoid);
+
 			
 			
 			//Get the Gross Void
@@ -788,7 +879,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last N days", 10, 1, GrossVoid);
 			excel.setreportData("Last N days", 47, 1, GrossVoid);
-			
+			excel1.setreportData("Last N days", 10, 1, GrossVoid);
+
 			}
 			else
 			{
@@ -809,7 +901,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last N days", 3, 1, Tx);
 				excel.setreportData("Last N days", 40, 1, Tx);
-				
+				excel1.setreportData("Last N days", 3, 1, Tx);
+	
 				
 				try
 				{
@@ -822,6 +915,8 @@ public WebDriver driver;
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last N days", 8, 1, Tx_Exmpted);
 				excel.setreportData("Last N days", 45, 1, Tx_Exmpted);
+				excel1.setreportData("Last N days", 8, 1, Tx_Exmpted);
+
 				}
 				}
 				catch(Exception p)
@@ -831,6 +926,8 @@ public WebDriver driver;
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Last N days", 8, 1, st);
 					excel.setreportData("Last N days", 45, 1, st);
+					excel1.setreportData("Last N days", 8, 1, st);
+
 				}
 				
 				
@@ -842,6 +939,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last N days", 12, 1, RoundOff);
 				excel.setreportData("Last N days", 49, 1, RoundOff);
+				excel1.setreportData("Last N days", 12, 1, RoundOff);
+
 			}
 			}
 			catch(Exception ll)
@@ -852,15 +951,19 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last N days", 3, 1, "0.00");
 				excel.setreportData("Last N days", 40, 1, "0.00");
+				excel1.setreportData("Last N days", 3, 1, "0.00");
+
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last N days", 8, 1, st);
 				excel.setreportData("Last N days", 45, 1, st);
-				
+				excel1.setreportData("Last N days", 8, 1, st);
+
 				//Export Tax value to Excel
 				excel.setreportData("Last N days", 12, 1, st);
 				excel.setreportData("Last N days", 49, 1, st);
-				
+				excel1.setreportData("Last N days", 12, 1, st);
+	
 			}
 			
 			try
@@ -876,7 +979,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last N days", 4, 1, Discnt);
 				excel.setreportData("Last N days", 41, 1, Discnt);
-				
+				excel1.setreportData("Last N days", 4, 1, Discnt);
+	
 				
 				//Get Discount Tax
 				String DiscntTx=repts.Discount_Tax_SaleRecap().getText().replace(",", "");
@@ -885,7 +989,8 @@ public WebDriver driver;
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last N days", 13, 1, DiscntTx);
 				excel.setreportData("Last N days", 50, 1, DiscntTx);
-				
+				excel1.setreportData("Last N days", 13, 1, DiscntTx);
+	
 			}
 			}
 			catch(Exception h)
@@ -896,13 +1001,13 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last N days", 4, 1, "0.00");
 				excel.setreportData("Last N days", 41, 1, "0.00");
-				
-				
-				
-				
+				excel1.setreportData("Last N days", 4, 1, "0.00");
+
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last N days", 13, 1, st);
 				excel.setreportData("Last N days", 50, 1, st);
+				excel1.setreportData("Last N days", 13, 1, st);
+
 			}
 			
 			try
@@ -918,6 +1023,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last N days", 11, 1, Refund);
 				excel.setreportData("Last N days", 48, 1, Refund);
+				excel1.setreportData("Last N days", 11, 1, Refund);
+
 			}
 			}
 			catch(Exception l)
@@ -927,11 +1034,13 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last N days", 11, 1, st);
 				excel.setreportData("Last N days", 48, 1, st);
+				excel1.setreportData("Last N days", 11, 1, st);
+
 			}
 			
 			//To Write all the Data to Excel
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 			
 			Thread.sleep(3000);
 
@@ -946,7 +1055,8 @@ public WebDriver driver;
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+
+ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 
 		//Select Time Period in Sale Recap Report
 		repts.Select_Time_Period_Sale_Recap();
@@ -982,7 +1092,15 @@ public WebDriver driver;
 			excel.setreportData("This Week", 43, 1, st);
 			excel.setreportData("This Week", 44, 1, st);
 			
+			excel1.setreportData("This Week", 2, 1, st);
+			excel1.setreportData("This Week", 3, 1, st);
+			excel1.setreportData("This Week", 4, 1, st);
+			excel1.setreportData("This Week", 5, 1, st);
+			excel1.setreportData("This Week", 6, 1, st);
+			excel1.setreportData("This Week", 7, 1, st);
+			
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
@@ -1003,7 +1121,8 @@ public WebDriver driver;
 			//Export the Net Sales value to Excel
 			excel.setreportData("This Week", 2, 1, NetSales);
 			excel.setreportData("This Week", 39, 1, NetSales);
-		
+			excel1.setreportData("This Week", 2, 1, NetSales);
+
 			
 			
 			//Get the Grand Sales
@@ -1013,7 +1132,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This Week", 5, 1, GrandSale);
 			excel.setreportData("This Week", 42, 1, GrandSale);
-			
+			excel1.setreportData("This Week", 5, 1, GrandSale);
+
 			
 			
 			//Get the Gross Receipt
@@ -1023,7 +1143,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This Week", 6, 1, GrandReceipt);
 			excel.setreportData("This Week", 43, 1, GrandReceipt);
-			
+			excel1.setreportData("This Week", 6, 1, GrandReceipt);
+
 			
 			
 			//Get the Gross Sales
@@ -1033,7 +1154,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This Week", 7, 1, GrossSales);
 			excel.setreportData("This Week", 44, 1, GrossSales);
-			
+			excel1.setreportData("This Week", 7, 1, GrossSales);
+
 			
 			
 			//Get the Net Void
@@ -1043,7 +1165,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This Week", 9, 1, NetVoid);
 			excel.setreportData("This Week", 46, 1, NetVoid);
-			
+			excel1.setreportData("This Week", 9, 1, NetVoid);
+
 			
 			
 			//Get the Gross Void
@@ -1053,7 +1176,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This Week", 10, 1, GrossVoid);
 			excel.setreportData("This Week", 47, 1, GrossVoid);
-			
+			excel1.setreportData("This Week", 10, 1, GrossVoid);
+
 			}
 			else
 			{
@@ -1074,7 +1198,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("This Week", 3, 1, Tx);
 				excel.setreportData("This Week", 40, 1, Tx);
-				
+				excel1.setreportData("This Week", 3, 1, Tx);
+
 				
 				try
 				{
@@ -1087,6 +1212,8 @@ public WebDriver driver;
 				//Export Tax Exempted value to Excel
 				excel.setreportData("This Week", 8, 1, Tx_Exmpted);
 				excel.setreportData("This Week", 45, 1, Tx_Exmpted);
+				excel1.setreportData("This Week", 8, 1, Tx_Exmpted);
+
 				}
 				}
 				catch(Exception p)
@@ -1096,6 +1223,8 @@ public WebDriver driver;
 					//Export Tax Exempted value to Excel
 					excel.setreportData("This Week", 8, 1, st);
 					excel.setreportData("This Week", 45, 1, st);
+					excel1.setreportData("This Week", 8, 1, st);
+
 				}
 				
 				
@@ -1107,6 +1236,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("This Week", 12, 1, RoundOff);
 				excel.setreportData("This Week", 49, 1, RoundOff);
+				excel1.setreportData("This Week", 12, 1, RoundOff);
+
 			}
 			}
 			catch(Exception ll)
@@ -1117,15 +1248,18 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("This Week", 3, 1, "0.00");
 				excel.setreportData("This Week", 40, 1, "0.00");
-				
+				excel1.setreportData("This Week", 3, 1, "0.00");
+
 				//Export Tax Exempted value to Excel
 				excel.setreportData("This Week", 8, 1, st);
 				excel.setreportData("This Week", 45, 1, st);
-				
+				excel1.setreportData("This Week", 8, 1, st);
+
 				//Export Tax value to Excel
 				excel.setreportData("This Week", 12, 1, st);
 				excel.setreportData("This Week", 49, 1, st);
-				
+				excel1.setreportData("This Week", 12, 1, st);
+
 			}
 			
 			try
@@ -1141,7 +1275,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("This Week", 4, 1, Discnt);
 				excel.setreportData("This Week", 41, 1, Discnt);
-				
+				excel1.setreportData("This Week", 4, 1, Discnt);
+
 				
 				//Get Discount Tax
 				String DiscntTx=repts.Discount_Tax_SaleRecap().getText().replace(",", "");
@@ -1150,7 +1285,8 @@ public WebDriver driver;
 				//Export Discount Tax value to Excel
 				excel.setreportData("This Week", 13, 1, DiscntTx);
 				excel.setreportData("This Week", 50, 1, DiscntTx);
-				
+				excel1.setreportData("This Week", 13, 1, DiscntTx);
+
 			}
 			}
 			catch(Exception h)
@@ -1161,13 +1297,16 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("This Week", 4, 1, "0.00");
 				excel.setreportData("This Week", 41, 1, "0.00");
-				
+				excel1.setreportData("This Week", 4, 1, "0.00");
+
 				
 				
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("This Week", 13, 1, st);
 				excel.setreportData("This Week", 50, 1, st);
+				excel1.setreportData("This Week", 13, 1, st);
+
 			}
 			
 			try
@@ -1183,6 +1322,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("This Week", 11, 1, Refund);
 				excel.setreportData("This Week", 48, 1, Refund);
+				excel1.setreportData("This Week", 11, 1, Refund);
+
 			}
 			}
 			catch(Exception l)
@@ -1192,11 +1333,13 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("This Week", 11, 1, st);
 				excel.setreportData("This Week", 48, 1, st);
+				excel1.setreportData("This Week", 11, 1, st);
+
 			}
 						
 			//To Write all the Data to Excel
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 			
 			Thread.sleep(3000);
 
@@ -1209,7 +1352,7 @@ public WebDriver driver;
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+		ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 
 		//Select Time Period in Sale Recap Report
 		repts.Select_Time_Period_Sale_Recap();
@@ -1245,7 +1388,15 @@ public WebDriver driver;
 			excel.setreportData("Last Week", 43, 1, st);
 			excel.setreportData("Last Week", 44, 1, st);
 			
+			excel1.setreportData("Last Week", 2, 1, st);
+			excel1.setreportData("Last Week", 3, 1, st);
+			excel1.setreportData("Last Week", 4, 1, st);
+			excel1.setreportData("Last Week", 5, 1, st);
+			excel1.setreportData("Last Week", 6, 1, st);
+			excel1.setreportData("Last Week", 7, 1, st);
+			
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
@@ -1266,7 +1417,8 @@ public WebDriver driver;
 			//Export the Net Sales value to Excel
 			excel.setreportData("Last Week", 2, 1, NetSales);
 			excel.setreportData("Last Week", 39, 1, NetSales);
-		
+			excel1.setreportData("Last Week", 2, 1, NetSales);
+
 			
 			
 			//Get the Grand Sales
@@ -1276,7 +1428,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last Week", 5, 1, GrandSale);
 			excel.setreportData("Last Week", 42, 1, GrandSale);
-			
+			excel1.setreportData("Last Week", 5, 1, GrandSale);
+
 			
 			
 			//Get the Gross Receipt
@@ -1286,7 +1439,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last Week", 6, 1, GrandReceipt);
 			excel.setreportData("Last Week", 43, 1, GrandReceipt);
-			
+			excel1.setreportData("Last Week", 6, 1, GrandReceipt);
+
 			
 			
 			//Get the Gross Sales
@@ -1296,7 +1450,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last Week", 7, 1, GrossSales);
 			excel.setreportData("Last Week", 44, 1, GrossSales);
-			
+			excel1.setreportData("Last Week", 7, 1, GrossSales);
+
 			
 			
 			//Get the Net Void
@@ -1306,7 +1461,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last Week", 9, 1, NetVoid);
 			excel.setreportData("Last Week", 46, 1, NetVoid);
-			
+			excel1.setreportData("Last Week", 9, 1, NetVoid);
+
 			
 			
 			//Get the Gross Void
@@ -1316,7 +1472,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last Week", 10, 1, GrossVoid);
 			excel.setreportData("Last Week", 47, 1, GrossVoid);
-			
+			excel1.setreportData("Last Week", 10, 1, GrossVoid);
+
 			}
 			else
 			{
@@ -1337,7 +1494,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last Week", 3, 1, Tx);
 				excel.setreportData("Last Week", 40, 1, Tx);
-				
+				excel1.setreportData("Last Week", 3, 1, Tx);
+
 				
 				try
 				{
@@ -1350,6 +1508,8 @@ public WebDriver driver;
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last Week", 8, 1, Tx_Exmpted);
 				excel.setreportData("Last Week", 45, 1, Tx_Exmpted);
+				excel1.setreportData("Last Week", 8, 1, Tx_Exmpted);
+
 				}
 				}
 				catch(Exception p)
@@ -1359,6 +1519,8 @@ public WebDriver driver;
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Last Week", 8, 1, st);
 					excel.setreportData("Last Week", 45, 1, st);
+					excel1.setreportData("Last Week", 8, 1, st);
+
 				}
 				
 				
@@ -1370,6 +1532,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last Week", 12, 1, RoundOff);
 				excel.setreportData("Last Week", 49, 1, RoundOff);
+				excel1.setreportData("Last Week", 12, 1, RoundOff);
+
 			}
 			}
 			catch(Exception ll)
@@ -1380,15 +1544,18 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last Week", 3, 1, "0.00");
 				excel.setreportData("Last Week", 40, 1, "0.00");
-				
+				excel1.setreportData("Last Week", 3, 1, "0.00");
+
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last Week", 8, 1, st);
 				excel.setreportData("Last Week", 45, 1, st);
-				
+				excel1.setreportData("Last Week", 8, 1, st);
+
 				//Export Tax value to Excel
 				excel.setreportData("Last Week", 12, 1, st);
 				excel.setreportData("Last Week", 49, 1, st);
-				
+				excel1.setreportData("Last Week", 12, 1, st);
+
 			}
 			
 			try
@@ -1404,7 +1571,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last Week", 4, 1, Discnt);
 				excel.setreportData("Last Week", 41, 1, Discnt);
-				
+				excel1.setreportData("Last Week", 4, 1, Discnt);
+
 				
 				//Get Discount Tax
 				String DiscntTx=repts.Discount_Tax_SaleRecap().getText().replace(",", "");
@@ -1413,7 +1581,8 @@ public WebDriver driver;
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last Week", 13, 1, DiscntTx);
 				excel.setreportData("Last Week", 50, 1, DiscntTx);
-				
+				excel1.setreportData("Last Week", 13, 1, DiscntTx);
+
 			}
 			}
 			catch(Exception h)
@@ -1424,10 +1593,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last Week", 4, 1, "0.00");
 				excel.setreportData("Last Week", 41, 1, "0.00");
-				
-				
-				
-				
+				excel1.setreportData("Last Week", 4, 1, "0.00");
+
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last Week", 13, 1, st);
 				excel.setreportData("Last Week", 50, 1, st);
@@ -1446,6 +1613,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last Week", 11, 1, Refund);
 				excel.setreportData("Last Week", 48, 1, Refund);
+				excel1.setreportData("Last Week", 11, 1, Refund);
+
 			}
 			}
 			catch(Exception l)
@@ -1455,11 +1624,13 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last Week", 11, 1, st);
 				excel.setreportData("Last Week", 48, 1, st);
+				excel1.setreportData("Last Week", 11, 1, st);
+
 			}
 						
 			//To Write all the Data to Excel
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 			
 			Thread.sleep(3000);
 
@@ -1472,7 +1643,7 @@ public WebDriver driver;
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+		ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 
 		//Select Time Period in Sale Recap Report
 		repts.Select_Time_Period_Sale_Recap();
@@ -1507,7 +1678,15 @@ public WebDriver driver;
 			excel.setreportData("Last 7 days", 43, 1, st);
 			excel.setreportData("Last 7 days", 44, 1, st);
 			
+			excel1.setreportData("Last 7 days", 2, 1, st);
+			excel1.setreportData("Last 7 days", 3, 1, st);
+			excel1.setreportData("Last 7 days", 4, 1, st);
+			excel1.setreportData("Last 7 days", 5, 1, st);
+			excel1.setreportData("Last 7 days", 6, 1, st);
+			excel1.setreportData("Last 7 days", 7, 1, st);
+			
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
@@ -1528,9 +1707,8 @@ public WebDriver driver;
 			//Export the Net Sales value to Excel
 			excel.setreportData("Last 7 days", 2, 1, NetSales);
 			excel.setreportData("Last 7 days", 39, 1, NetSales);
-		
-			
-			
+			excel1.setreportData("Last 7 days", 2, 1, NetSales);
+
 			//Get the Grand Sales
 			String GrandSale=repts.Grand_Sales_SaleRecap().getText().replace(",", "");
 			double ActualGrand_Sales=Double.parseDouble(GrandSale);
@@ -1538,9 +1716,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 7 days", 5, 1, GrandSale);
 			excel.setreportData("Last 7 days", 42, 1, GrandSale);
-			
-			
-			
+			excel1.setreportData("Last 7 days", 5, 1, GrandSale);
+	
 			//Get the Gross Receipt
 			String GrandReceipt=repts.Gross_Receipt_SaleRecap().getText().replace(",", "");
 			double ActualGross_Receipt=Double.parseDouble(GrandReceipt);
@@ -1548,9 +1725,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 7 days", 6, 1, GrandReceipt);
 			excel.setreportData("Last 7 days", 43, 1, GrandReceipt);
-			
-			
-			
+			excel1.setreportData("Last 7 days", 6, 1, GrandReceipt);
+
 			//Get the Gross Sales
 			String GrossSales=repts.Gross_Sales_SaleRecap().getText().replace(",", "");
 			double ActualGross_Sales=Double.parseDouble(GrossSales);
@@ -1558,9 +1734,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 7 days", 7, 1, GrossSales);
 			excel.setreportData("Last 7 days", 44, 1, GrossSales);
-			
-			
-			
+			excel1.setreportData("Last 7 days", 7, 1, GrossSales);
+
 			//Get the Net Void
 			String NetVoid=repts.Net_Void_SaleRecap().getText().replace(",", "");
 			double ActualNet_Void=Double.parseDouble(NetVoid);
@@ -1568,7 +1743,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 7 days", 9, 1, NetVoid);
 			excel.setreportData("Last 7 days", 46, 1, NetVoid);
-			
+			excel1.setreportData("Last 7 days", 9, 1, NetVoid);
+
 			
 			
 			//Get the Gross Void
@@ -1578,7 +1754,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 7 days", 10, 1, GrossVoid);
 			excel.setreportData("Last 7 days", 47, 1, GrossVoid);
-			
+			excel1.setreportData("Last 7 days", 10, 1, GrossVoid);
+	
 			}
 			else
 			{
@@ -1599,7 +1776,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last 7 days", 3, 1, Tx);
 				excel.setreportData("Last 7 days", 40, 1, Tx);
-				
+				excel1.setreportData("Last 7 days", 3, 1, Tx);
+	
 				
 				try
 				{
@@ -1612,6 +1790,8 @@ public WebDriver driver;
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last 7 days", 8, 1, Tx_Exmpted);
 				excel.setreportData("Last 7 days", 45, 1, Tx_Exmpted);
+				excel1.setreportData("Last 7 days", 8, 1, Tx_Exmpted);
+
 				}
 				}
 				catch(Exception p)
@@ -1621,6 +1801,8 @@ public WebDriver driver;
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Last 7 days", 8, 1, st);
 					excel.setreportData("Last 7 days", 45, 1, st);
+					excel1.setreportData("Last 7 days", 8, 1, st);
+
 				}
 				
 				
@@ -1632,6 +1814,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last 7 days", 12, 1, RoundOff);
 				excel.setreportData("Last 7 days", 49, 1, RoundOff);
+				excel1.setreportData("Last 7 days", 12, 1, RoundOff);
+
 			}
 			}
 			catch(Exception ll)
@@ -1642,15 +1826,19 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last 7 days", 3, 1, "0.00");
 				excel.setreportData("Last 7 days", 40, 1, "0.00");
+				excel1.setreportData("Last 7 days", 3, 1, "0.00");
+
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last 7 days", 8, 1, st);
 				excel.setreportData("Last 7 days", 45, 1, st);
-				
+				excel1.setreportData("Last 7 days", 8, 1, st);
+
 				//Export Tax value to Excel
 				excel.setreportData("Last 7 days", 12, 1, st);
 				excel.setreportData("Last 7 days", 49, 1, st);
-				
+				excel1.setreportData("Last 7 days", 12, 1, st);
+
 			}
 			
 			try
@@ -1666,7 +1854,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last 7 days", 4, 1, Discnt);
 				excel.setreportData("Last 7 days", 41, 1, Discnt);
-				
+				excel1.setreportData("Last 7 days", 4, 1, Discnt);
+
 				
 				//Get Discount Tax
 				String DiscntTx=repts.Discount_Tax_SaleRecap().getText().replace(",", "");
@@ -1675,7 +1864,8 @@ public WebDriver driver;
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last 7 days", 13, 1, DiscntTx);
 				excel.setreportData("Last 7 days", 50, 1, DiscntTx);
-				
+				excel1.setreportData("Last 7 days", 13, 1, DiscntTx);
+
 			}
 			}
 			catch(Exception h)
@@ -1686,13 +1876,13 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last 7 days", 4, 1, "0.00");
 				excel.setreportData("Last 7 days", 41, 1, "0.00");
-				
-				
-				
-				
+				excel1.setreportData("Last 7 days", 4, 1, "0.00");
+
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last 7 days", 13, 1, st);
 				excel.setreportData("Last 7 days", 50, 1, st);
+				excel1.setreportData("Last 7 days", 13, 1, st);
+
 			}
 			
 			try
@@ -1708,6 +1898,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last 7 days", 11, 1, Refund);
 				excel.setreportData("Last 7 days", 48, 1, Refund);
+				excel1.setreportData("Last 7 days", 11, 1, Refund);
+
 			}
 			}
 			catch(Exception l)
@@ -1717,12 +1909,14 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last 7 days", 11, 1, st);
 				excel.setreportData("Last 7 days", 48, 1, st);
+				excel1.setreportData("Last 7 days", 11, 1, st);
+
 			}
 
 						
 			//To Write all the Data to Excel
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 			
 			Thread.sleep(3000);
 
@@ -1736,7 +1930,7 @@ public WebDriver driver;
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+		ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 
 		//Select Time Period in Sale Recap Report
 		repts.Select_Time_Period_Sale_Recap();
@@ -1772,7 +1966,15 @@ public WebDriver driver;
 			excel.setreportData("This month", 43, 1, st);
 			excel.setreportData("This month", 44, 1, st);
 			
+			excel1.setreportData("This month", 2, 1, st);
+			excel1.setreportData("This month", 3, 1, st);
+			excel1.setreportData("This month", 4, 1, st);
+			excel1.setreportData("This month", 5, 1, st);
+			excel1.setreportData("This month", 6, 1, st);
+			excel1.setreportData("This month", 7, 1, st);
+			
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
@@ -1793,9 +1995,8 @@ public WebDriver driver;
 			//Export the Net Sales value to Excel
 			excel.setreportData("This month", 2, 1, NetSales);
 			excel.setreportData("This month", 39, 1, NetSales);
-		
-			
-			
+			excel1.setreportData("This month", 2, 1, NetSales);
+
 			//Get the Grand Sales
 			String GrandSale=repts.Grand_Sales_SaleRecap().getText().replace(",", "");
 			double ActualGrand_Sales=Double.parseDouble(GrandSale);
@@ -1803,7 +2004,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This month", 5, 1, GrandSale);
 			excel.setreportData("This month", 42, 1, GrandSale);
-			
+			excel1.setreportData("This month", 5, 1, GrandSale);
+	
 			
 			
 			//Get the Gross Receipt
@@ -1813,7 +2015,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This month", 6, 1, GrandReceipt);
 			excel.setreportData("This month", 43, 1, GrandReceipt);
-			
+			excel1.setreportData("This month", 6, 1, GrandReceipt);
+
 			
 			
 			//Get the Gross Sales
@@ -1823,7 +2026,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This month", 7, 1, GrossSales);
 			excel.setreportData("This month", 44, 1, GrossSales);
-			
+			excel1.setreportData("This month", 7, 1, GrossSales);
+	
 			
 			
 			//Get the Net Void
@@ -1833,7 +2037,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This month", 9, 1, NetVoid);
 			excel.setreportData("This month", 46, 1, NetVoid);
-			
+			excel1.setreportData("This month", 9, 1, NetVoid);
+
 			
 			
 			//Get the Gross Void
@@ -1843,7 +2048,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This month", 10, 1, GrossVoid);
 			excel.setreportData("This month", 47, 1, GrossVoid);
-			
+			excel1.setreportData("This month", 10, 1, GrossVoid);
+	
 			}
 			else
 			{
@@ -1864,7 +2070,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("This month", 3, 1, Tx);
 				excel.setreportData("This month", 40, 1, Tx);
-				
+				excel1.setreportData("This month", 3, 1, Tx);
+	
 				
 				try
 				{
@@ -1877,6 +2084,8 @@ public WebDriver driver;
 				//Export Tax Exempted value to Excel
 				excel.setreportData("This month", 8, 1, Tx_Exmpted);
 				excel.setreportData("This month", 45, 1, Tx_Exmpted);
+				excel1.setreportData("This month", 8, 1, Tx_Exmpted);
+
 				}
 				}
 				catch(Exception p)
@@ -1886,6 +2095,8 @@ public WebDriver driver;
 					//Export Tax Exempted value to Excel
 					excel.setreportData("This month", 8, 1, st);
 					excel.setreportData("This month", 45, 1, st);
+					excel1.setreportData("This month", 8, 1, st);
+
 				}
 				
 				
@@ -1897,6 +2108,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("This month", 12, 1, RoundOff);
 				excel.setreportData("This month", 49, 1, RoundOff);
+				excel1.setreportData("This month", 12, 1, RoundOff);
+
 			}
 			}
 			catch(Exception ll)
@@ -1907,15 +2120,18 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("This month", 3, 1, "0.00");
 				excel.setreportData("This month", 40, 1, "0.00");
-				
+				excel1.setreportData("This month", 3, 1, "0.00");
+
 				//Export Tax Exempted value to Excel
 				excel.setreportData("This month", 8, 1, st);
 				excel.setreportData("This month", 45, 1, st);
-				
+				excel1.setreportData("This month", 8, 1, st);
+
 				//Export Tax value to Excel
 				excel.setreportData("This month", 12, 1, st);
 				excel.setreportData("This month", 49, 1, st);
-				
+				excel1.setreportData("This month", 12, 1, st);
+	
 			}
 			
 			try
@@ -1931,7 +2147,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("This month", 4, 1, Discnt);
 				excel.setreportData("This month", 41, 1, Discnt);
-				
+				excel1.setreportData("This month", 4, 1, Discnt);
+	
 				
 				//Get Discount Tax
 				String DiscntTx=repts.Discount_Tax_SaleRecap().getText().replace(",", "");
@@ -1940,7 +2157,8 @@ public WebDriver driver;
 				//Export Discount Tax value to Excel
 				excel.setreportData("This month", 13, 1, DiscntTx);
 				excel.setreportData("This month", 50, 1, DiscntTx);
-				
+				excel1.setreportData("This month", 13, 1, DiscntTx);
+	
 			}
 			}
 			catch(Exception h)
@@ -1951,13 +2169,13 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("This month", 4, 1, "0.00");
 				excel.setreportData("This month", 41, 1, "0.00");
-				
-				
-				
-				
+				excel1.setreportData("This month", 4, 1, "0.00");
+	
 				//Export Discount Tax value to Excel
 				excel.setreportData("This month", 13, 1, st);
 				excel.setreportData("This month", 50, 1, st);
+				excel1.setreportData("This month", 13, 1, st);
+
 			}
 			
 			try
@@ -1973,6 +2191,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("This month", 11, 1, Refund);
 				excel.setreportData("This month", 48, 1, Refund);
+				excel1.setreportData("This month", 11, 1, Refund);
+
 			}
 			}
 			catch(Exception l)
@@ -1982,12 +2202,14 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("This month", 11, 1, st);
 				excel.setreportData("This month", 48, 1, st);
+				excel1.setreportData("This month", 11, 1, st);
+
 			}
 						
 			//To Write all the Data to Excel
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		
-			
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 			Thread.sleep(3000);
 
 		}
@@ -2000,7 +2222,8 @@ public WebDriver driver;
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+
+ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 
 		//Select Time Period in Sale Recap Report
 		repts.Select_Time_Period_Sale_Recap();
@@ -2035,7 +2258,15 @@ public WebDriver driver;
 			excel.setreportData("Last month", 43, 1, st);
 			excel.setreportData("Last month", 44, 1, st);
 			
+			excel1.setreportData("Last month", 2, 1, st);
+			excel1.setreportData("Last month", 3, 1, st);
+			excel1.setreportData("Last month", 4, 1, st);
+			excel1.setreportData("Last month", 5, 1, st);
+			excel1.setreportData("Last month", 6, 1, st);
+			excel1.setreportData("Last month", 7, 1, st);
+			
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
@@ -2056,7 +2287,8 @@ public WebDriver driver;
 			//Export the Net Sales value to Excel
 			excel.setreportData("Last month", 2, 1, NetSales);
 			excel.setreportData("Last month", 39, 1, NetSales);
-		
+			excel1.setreportData("Last month", 2, 1, NetSales);
+
 			
 			
 			//Get the Grand Sales
@@ -2066,7 +2298,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last month", 5, 1, GrandSale);
 			excel.setreportData("Last month", 42, 1, GrandSale);
-			
+			excel1.setreportData("Last month", 5, 1, GrandSale);
+
 			
 			
 			//Get the Gross Receipt
@@ -2076,7 +2309,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last month", 6, 1, GrandReceipt);
 			excel.setreportData("Last month", 43, 1, GrandReceipt);
-			
+			excel1.setreportData("Last month", 6, 1, GrandReceipt);
+
 			
 			
 			//Get the Gross Sales
@@ -2086,7 +2320,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last month", 7, 1, GrossSales);
 			excel.setreportData("Last month", 44, 1, GrossSales);
-			
+			excel1.setreportData("Last month", 7, 1, GrossSales);
+
 			
 			
 			//Get the Net Void
@@ -2096,7 +2331,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last month", 9, 1, NetVoid);
 			excel.setreportData("Last month", 46, 1, NetVoid);
-			
+			excel1.setreportData("Last month", 9, 1, NetVoid);
+
 			
 			
 			//Get the Gross Void
@@ -2106,7 +2342,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last month", 10, 1, GrossVoid);
 			excel.setreportData("Last month", 47, 1, GrossVoid);
-			
+			excel1.setreportData("Last month", 10, 1, GrossVoid);
+
 			}
 			else
 			{
@@ -2127,7 +2364,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last month", 3, 1, Tx);
 				excel.setreportData("Last month", 40, 1, Tx);
-				
+				excel1.setreportData("Last month", 3, 1, Tx);
+
 				
 				try
 				{
@@ -2140,6 +2378,8 @@ public WebDriver driver;
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last month", 8, 1, Tx_Exmpted);
 				excel.setreportData("Last month", 45, 1, Tx_Exmpted);
+				excel1.setreportData("Last month", 8, 1, Tx_Exmpted);
+
 				}
 				}
 				catch(Exception p)
@@ -2149,6 +2389,8 @@ public WebDriver driver;
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Last month", 8, 1, st);
 					excel.setreportData("Last month", 45, 1, st);
+					excel1.setreportData("Last month", 8, 1, st);
+
 				}
 				
 				
@@ -2160,6 +2402,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last month", 12, 1, RoundOff);
 				excel.setreportData("Last month", 49, 1, RoundOff);
+				excel1.setreportData("Last month", 12, 1, RoundOff);
+
 			}
 			}
 			catch(Exception ll)
@@ -2170,15 +2414,18 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last month", 3, 1, "0.00");
 				excel.setreportData("Last month", 40, 1, "0.00");
-				
+				excel1.setreportData("Last month", 3, 1, "0.00");
+	
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last month", 8, 1, st);
 				excel.setreportData("Last month", 45, 1, st);
-				
+				excel1.setreportData("Last month", 8, 1, st);
+
 				//Export Tax value to Excel
 				excel.setreportData("Last month", 12, 1, st);
 				excel.setreportData("Last month", 49, 1, st);
-				
+				excel1.setreportData("Last month", 12, 1, st);
+	
 			}
 			
 			try
@@ -2194,7 +2441,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last month", 4, 1, Discnt);
 				excel.setreportData("Last month", 41, 1, Discnt);
-				
+				excel1.setreportData("Last month", 4, 1, Discnt);
+
 				
 				//Get Discount Tax
 				String DiscntTx=repts.Discount_Tax_SaleRecap().getText().replace(",", "");
@@ -2203,7 +2451,8 @@ public WebDriver driver;
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last month", 13, 1, DiscntTx);
 				excel.setreportData("Last month", 50, 1, DiscntTx);
-				
+				excel1.setreportData("Last month", 13, 1, DiscntTx);
+
 			}
 			}
 			catch(Exception h)
@@ -2214,13 +2463,13 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last month", 4, 1, "0.00");
 				excel.setreportData("Last month", 41, 1, "0.00");
-				
-				
-				
-				
+				excel1.setreportData("Last month", 4, 1, "0.00");
+
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last month", 13, 1, st);
 				excel.setreportData("Last month", 50, 1, st);
+				excel1.setreportData("Last month", 13, 1, st);
+
 			}
 			
 			try
@@ -2236,6 +2485,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last month", 11, 1, Refund);
 				excel.setreportData("Last month", 48, 1, Refund);
+				excel1.setreportData("Last month", 11, 1, Refund);
+
 			}
 			}
 			catch(Exception l)
@@ -2245,11 +2496,13 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last month", 11, 1, st);
 				excel.setreportData("Last month", 48, 1, st);
+				excel1.setreportData("Last month", 11, 1, st);
+
 			}
 						
 			//To Write all the Data to Excel
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 			
 			Thread.sleep(3000);
 
@@ -2264,7 +2517,8 @@ public WebDriver driver;
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+		ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
+
 
 		//Select Time Period in Sale Recap Report
 		repts.Select_Time_Period_Sale_Recap();
@@ -2300,7 +2554,15 @@ public WebDriver driver;
 			excel.setreportData("Last 30 days", 43, 1, st);
 			excel.setreportData("Last 30 days", 44, 1, st);
 			
+			excel1.setreportData("Last 30 days", 2, 1, st);
+			excel1.setreportData("Last 30 days", 3, 1, st);
+			excel1.setreportData("Last 30 days", 4, 1, st);
+			excel1.setreportData("Last 30 days", 5, 1, st);
+			excel1.setreportData("Last 30 days", 6, 1, st);
+			excel1.setreportData("Last 30 days", 7, 1, st);
+			
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
@@ -2321,7 +2583,8 @@ public WebDriver driver;
 			//Export the Net Sales value to Excel
 			excel.setreportData("Last 30 days", 2, 1, NetSales);
 			excel.setreportData("Last 30 days", 39, 1, NetSales);
-		
+			excel1.setreportData("Last 30 days", 2, 1, NetSales);
+
 			
 			
 			//Get the Grand Sales
@@ -2331,7 +2594,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 30 days", 5, 1, GrandSale);
 			excel.setreportData("Last 30 days", 42, 1, GrandSale);
-			
+			excel1.setreportData("Last 30 days", 5, 1, GrandSale);
+
 			
 			
 			//Get the Gross Receipt
@@ -2341,7 +2605,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 30 days", 6, 1, GrandReceipt);
 			excel.setreportData("Last 30 days", 43, 1, GrandReceipt);
-			
+			excel1.setreportData("Last 30 days", 6, 1, GrandReceipt);
+
 			
 			
 			//Get the Gross Sales
@@ -2351,7 +2616,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 30 days", 7, 1, GrossSales);
 			excel.setreportData("Last 30 days", 44, 1, GrossSales);
-			
+			excel1.setreportData("Last 30 days", 7, 1, GrossSales);
+	
 			
 			
 			//Get the Net Void
@@ -2361,7 +2627,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 30 days", 9, 1, NetVoid);
 			excel.setreportData("Last 30 days", 46, 1, NetVoid);
-			
+			excel1.setreportData("Last 30 days", 9, 1, NetVoid);
+
 			
 			
 			//Get the Gross Void
@@ -2371,7 +2638,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 30 days", 10, 1, GrossVoid);
 			excel.setreportData("Last 30 days", 47, 1, GrossVoid);
-			
+			excel1.setreportData("Last 30 days", 10, 1, GrossVoid);
+
 			}
 			else
 			{
@@ -2392,7 +2660,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last 30 days", 3, 1, Tx);
 				excel.setreportData("Last 30 days", 40, 1, Tx);
-				
+				excel1.setreportData("Last 30 days", 3, 1, Tx);
+
 				
 				try
 				{
@@ -2405,6 +2674,8 @@ public WebDriver driver;
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last 30 days", 8, 1, Tx_Exmpted);
 				excel.setreportData("Last 30 days", 45, 1, Tx_Exmpted);
+				excel1.setreportData("Last 30 days", 8, 1, Tx_Exmpted);
+
 				}
 				}
 				catch(Exception p)
@@ -2414,6 +2685,8 @@ public WebDriver driver;
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Last 30 days", 8, 1, st);
 					excel.setreportData("Last 30 days", 45, 1, st);
+					excel1.setreportData("Last 30 days", 8, 1, st);
+
 				}
 				
 				
@@ -2424,6 +2697,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last 30 days", 12, 1, RoundOff);
 				excel.setreportData("Last 30 days", 49, 1, RoundOff);
+				excel1.setreportData("Last 30 days", 12, 1, RoundOff);
+
 			}
 			}
 			catch(Exception ll)
@@ -2434,15 +2709,18 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Last 30 days", 3, 1, "0.00");
 				excel.setreportData("Last 30 days", 40, 1, "0.00");
-				
+				excel1.setreportData("Last 30 days", 3, 1, "0.00");
+
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last 30 days", 8, 1, st);
 				excel.setreportData("Last 30 days", 45, 1, st);
-				
+				excel1.setreportData("Last 30 days", 8, 1, st);
+		
 				//Export Tax value to Excel
 				excel.setreportData("Last 30 days", 12, 1, st);
 				excel.setreportData("Last 30 days", 49, 1, st);
-				
+				excel1.setreportData("Last 30 days", 12, 1, st);
+
 			}
 			
 			try
@@ -2458,7 +2736,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last 30 days", 4, 1, Discnt);
 				excel.setreportData("Last 30 days", 41, 1, Discnt);
-				
+				excel1.setreportData("Last 30 days", 4, 1, Discnt);
+	
 				
 				//Get Discount Tax
 				String DiscntTx=repts.Discount_Tax_SaleRecap().getText().replace(",", "");
@@ -2467,7 +2746,8 @@ public WebDriver driver;
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last 30 days", 13, 1, DiscntTx);
 				excel.setreportData("Last 30 days", 50, 1, DiscntTx);
-				
+				excel1.setreportData("Last 30 days", 13, 1, DiscntTx);
+
 			}
 			}
 			catch(Exception h)
@@ -2478,13 +2758,13 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last 30 days", 4, 1, "0.00");
 				excel.setreportData("Last 30 days", 41, 1, "0.00");
-				
-				
-				
-				
+				excel1.setreportData("Last 30 days", 4, 1, "0.00");
+
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last 30 days", 13, 1, st);
 				excel.setreportData("Last 30 days", 50, 1, st);
+				excel1.setreportData("Last 30 days", 13, 1, st);
+
 			}
 			
 			try
@@ -2500,6 +2780,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last 30 days", 11, 1, Refund);
 				excel.setreportData("Last 30 days", 48, 1, Refund);
+				excel1.setreportData("Last 30 days", 11, 1, Refund);
+
 			}
 			}
 			catch(Exception l)
@@ -2509,11 +2791,14 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Last 30 days", 11, 1, st);
 				excel.setreportData("Last 30 days", 48, 1, st);
+				excel1.setreportData("Last 30 days", 11, 1, st);
+
 			}
 						
 			//To Write all the Data to Excel
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 			
 			Thread.sleep(3000);
 
@@ -2528,7 +2813,7 @@ public WebDriver driver;
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+		ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 
 		//Select Time Period in Sale Recap Report
 		repts.Select_Time_Period_Sale_Recap();
@@ -2563,7 +2848,15 @@ public WebDriver driver;
 			excel.setreportData("Specific Date", 43, 1, st);
 			excel.setreportData("Specific Date", 44, 1, st);
 			
+			excel1.setreportData("Specific Date", 2, 1, st);
+			excel1.setreportData("Specific Date", 3, 1, st);
+			excel1.setreportData("Specific Date", 4, 1, st);
+			excel1.setreportData("Specific Date", 5, 1, st);
+			excel1.setreportData("Specific Date", 6, 1, st);
+			excel1.setreportData("Specific Date", 7, 1, st);
+			
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
@@ -2584,7 +2877,8 @@ public WebDriver driver;
 			//Export the Net Sales value to Excel
 			excel.setreportData("Specific Date", 2, 1, NetSales);
 			excel.setreportData("Specific Date", 39, 1, NetSales);
-		
+			excel1.setreportData("Specific Date", 2, 1, NetSales);
+
 			
 			
 			//Get the Grand Sales
@@ -2594,7 +2888,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Specific Date", 5, 1, GrandSale);
 			excel.setreportData("Specific Date", 42, 1, GrandSale);
-			
+			excel1.setreportData("Specific Date", 5, 1, GrandSale);
+
 			
 			
 			//Get the Gross Receipt
@@ -2604,7 +2899,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Specific Date", 6, 1, GrandReceipt);
 			excel.setreportData("Specific Date", 43, 1, GrandReceipt);
-			
+			excel1.setreportData("Specific Date", 6, 1, GrandReceipt);
+
 			
 			
 			//Get the Gross Sales
@@ -2614,7 +2910,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Specific Date", 7, 1, GrossSales);
 			excel.setreportData("Specific Date", 44, 1, GrossSales);
-			
+			excel1.setreportData("Specific Date", 7, 1, GrossSales);
+
 			
 			
 			//Get the Net Void
@@ -2624,7 +2921,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Specific Date", 9, 1, NetVoid);
 			excel.setreportData("Specific Date", 46, 1, NetVoid);
-			
+			excel1.setreportData("Specific Date", 9, 1, NetVoid);
+
 			
 			
 			//Get the Gross Void
@@ -2634,7 +2932,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Specific Date", 10, 1, GrossVoid);
 			excel.setreportData("Specific Date", 47, 1, GrossVoid);
-			
+			excel1.setreportData("Specific Date", 10, 1, GrossVoid);
+
 			}
 			else
 			{
@@ -2655,7 +2954,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Specific Date", 3, 1, Tx);
 				excel.setreportData("Specific Date", 40, 1, Tx);
-				
+				excel1.setreportData("Specific Date", 3, 1, Tx);
+
 				
 				try
 				{
@@ -2668,6 +2968,8 @@ public WebDriver driver;
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Specific Date", 8, 1, Tx_Exmpted);
 				excel.setreportData("Specific Date", 45, 1, Tx_Exmpted);
+				excel1.setreportData("Specific Date", 8, 1, Tx_Exmpted);
+
 				}
 				}
 				catch(Exception p)
@@ -2677,6 +2979,8 @@ public WebDriver driver;
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Specific Date", 8, 1, st);
 					excel.setreportData("Specific Date", 45, 1, st);
+					excel1.setreportData("Specific Date", 8, 1, st);
+
 				}
 				
 				
@@ -2688,6 +2992,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Specific Date", 12, 1, RoundOff);
 				excel.setreportData("Specific Date", 49, 1, RoundOff);
+				excel1.setreportData("Specific Date", 12, 1, RoundOff);
+
 			}
 			}
 			catch(Exception ll)
@@ -2698,15 +3004,18 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Specific Date", 3, 1, "0.00");
 				excel.setreportData("Specific Date", 40, 1, "0.00");
-				
+				excel1.setreportData("Specific Date", 3, 1, "0.00");
+
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Specific Date", 8, 1, st);
 				excel.setreportData("Specific Date", 45, 1, st);
-				
+				excel1.setreportData("Specific Date", 8, 1, st);
+	
 				//Export Tax value to Excel
 				excel.setreportData("Specific Date", 12, 1, st);
 				excel.setreportData("Specific Date", 49, 1, st);
-				
+				excel1.setreportData("Specific Date", 12, 1, st);
+
 			}
 			
 			try
@@ -2722,7 +3031,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Specific Date", 4, 1, Discnt);
 				excel.setreportData("Specific Date", 41, 1, Discnt);
-				
+				excel1.setreportData("Specific Date", 4, 1, Discnt);
+
 				
 				//Get Discount Tax
 				String DiscntTx=repts.Discount_Tax_SaleRecap().getText().replace(",", "");
@@ -2731,7 +3041,8 @@ public WebDriver driver;
 				//Export Discount Tax value to Excel
 				excel.setreportData("Specific Date", 13, 1, DiscntTx);
 				excel.setreportData("Specific Date", 50, 1, DiscntTx);
-				
+				excel1.setreportData("Specific Date", 13, 1, DiscntTx);
+
 			}
 			}
 			catch(Exception h)
@@ -2742,13 +3053,13 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Specific Date", 4, 1, "0.00");
 				excel.setreportData("Specific Date", 41, 1, "0.00");
-				
-				
-				
-				
+				excel1.setreportData("Specific Date", 4, 1, "0.00");
+
 				//Export Discount Tax value to Excel
 				excel.setreportData("Specific Date", 13, 1, st);
 				excel.setreportData("Specific Date", 50, 1, st);
+				excel1.setreportData("Specific Date", 13, 1, st);
+
 			}
 			
 			try
@@ -2764,6 +3075,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Specific Date", 11, 1, Refund);
 				excel.setreportData("Specific Date", 48, 1, Refund);
+				excel1.setreportData("Specific Date", 11, 1, Refund);
+
 			}
 			}
 			catch(Exception l)
@@ -2773,11 +3086,13 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Specific Date", 11, 1, st);
 				excel.setreportData("Specific Date", 48, 1, st);
+				excel1.setreportData("Specific Date", 11, 1, st);
+
 			}
 						
 			//To Write all the Data to Excel
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 			
 			Thread.sleep(3000);
 
@@ -2791,7 +3106,8 @@ public WebDriver driver;
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+		ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
+
 
 		//Select Time Period in Sale Recap Report
 		repts.Select_Time_Period_Sale_Recap();
@@ -2826,7 +3142,15 @@ public WebDriver driver;
 			excel.setreportData("Date Range", 43, 1, st);
 			excel.setreportData("Date Range", 44, 1, st);
 			
+			excel1.setreportData("Date Range", 2, 1, st);
+			excel1.setreportData("Date Range", 3, 1, st);
+			excel1.setreportData("Date Range", 4, 1, st);
+			excel1.setreportData("Date Range", 5, 1, st);
+			excel1.setreportData("Date Range", 6, 1, st);
+			excel1.setreportData("Date Range", 7, 1, st);
+			
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
@@ -2847,7 +3171,8 @@ public WebDriver driver;
 			//Export the Net Sales value to Excel
 			excel.setreportData("Date Range", 2, 1, NetSales);
 			excel.setreportData("Date Range", 39, 1, NetSales);
-		
+			excel1.setreportData("Date Range", 2, 1, NetSales);
+
 			
 			
 			//Get the Grand Sales
@@ -2857,7 +3182,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Date Range", 5, 1, GrandSale);
 			excel.setreportData("Date Range", 42, 1, GrandSale);
-			
+			excel1.setreportData("Date Range", 5, 1, GrandSale);
+
 			
 			
 			//Get the Gross Receipt
@@ -2867,7 +3193,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Date Range", 6, 1, GrandReceipt);
 			excel.setreportData("Date Range", 43, 1, GrandReceipt);
-			
+			excel1.setreportData("Date Range", 6, 1, GrandReceipt);
+
 			
 			
 			//Get the Gross Sales
@@ -2877,7 +3204,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Date Range", 7, 1, GrossSales);
 			excel.setreportData("Date Range", 44, 1, GrossSales);
-			
+			excel1.setreportData("Date Range", 7, 1, GrossSales);
+
 			
 			
 			//Get the Net Void
@@ -2887,7 +3215,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Date Range", 9, 1, NetVoid);
 			excel.setreportData("Date Range", 46, 1, NetVoid);
-			
+			excel1.setreportData("Date Range", 9, 1, NetVoid);
+
 			
 			
 			//Get the Gross Void
@@ -2897,7 +3226,8 @@ public WebDriver driver;
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Date Range", 10, 1, GrossVoid);
 			excel.setreportData("Date Range", 47, 1, GrossVoid);
-			
+			excel1.setreportData("Date Range", 10, 1, GrossVoid);
+
 			}
 			else
 			{
@@ -2918,7 +3248,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Date Range", 3, 1, Tx);
 				excel.setreportData("Date Range", 40, 1, Tx);
-				
+				excel1.setreportData("Date Range", 3, 1, Tx);
+
 				
 				try
 				{
@@ -2931,6 +3262,8 @@ public WebDriver driver;
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Date Range", 8, 1, Tx_Exmpted);
 				excel.setreportData("Date Range", 45, 1, Tx_Exmpted);
+				excel1.setreportData("Date Range", 8, 1, Tx_Exmpted);
+
 				}
 				}
 				catch(Exception p)
@@ -2940,6 +3273,8 @@ public WebDriver driver;
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Date Range", 8, 1, st);
 					excel.setreportData("Date Range", 45, 1, st);
+					excel1.setreportData("Date Range", 8, 1, st);
+
 				}
 				
 				
@@ -2950,6 +3285,8 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Date Range", 12, 1, RoundOff);
 				excel.setreportData("Date Range", 49, 1, RoundOff);
+				excel1.setreportData("Date Range", 12, 1, RoundOff);
+
 			}
 			}
 			catch(Exception ll)
@@ -2960,15 +3297,18 @@ public WebDriver driver;
 				//Export Tax value to Excel
 				excel.setreportData("Date Range", 3, 1, "0.00");
 				excel.setreportData("Date Range", 40, 1, "0.00");
-				
+				excel1.setreportData("Date Range", 3, 1, "0.00");
+
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Date Range", 8, 1, st);
 				excel.setreportData("Date Range", 45, 1, st);
-				
+				excel1.setreportData("Date Range", 8, 1, st);
+
 				//Export Tax value to Excel
 				excel.setreportData("Date Range", 12, 1, st);
 				excel.setreportData("Date Range", 49, 1, st);
-				
+				excel1.setreportData("Date Range", 12, 1, st);
+
 			}
 			
 			try
@@ -2984,7 +3324,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Date Range", 4, 1, Discnt);
 				excel.setreportData("Date Range", 41, 1, Discnt);
-				
+				excel1.setreportData("Date Range", 4, 1, Discnt);
+
 				
 				//Get Discount Tax
 				String DiscntTx=repts.Discount_Tax_SaleRecap().getText().replace(",", "");
@@ -2993,7 +3334,8 @@ public WebDriver driver;
 				//Export Discount Tax value to Excel
 				excel.setreportData("Date Range", 13, 1, DiscntTx);
 				excel.setreportData("Date Range", 50, 1, DiscntTx);
-				
+				excel1.setreportData("Date Range", 13, 1, DiscntTx);
+
 			}
 			}
 			catch(Exception h)
@@ -3004,13 +3346,13 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Date Range", 4, 1, "0.00");
 				excel.setreportData("Date Range", 41, 1, "0.00");
-				
-				
-				
-				
+				excel1.setreportData("Date Range", 4, 1, "0.00");
+
 				//Export Discount Tax value to Excel
 				excel.setreportData("Date Range", 13, 1, st);
 				excel.setreportData("Date Range", 50, 1, st);
+				excel1.setreportData("Date Range", 13, 1, st);
+
 			}
 			
 			try
@@ -3026,6 +3368,8 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Date Range", 11, 1, Refund);
 				excel.setreportData("Date Range", 48, 1, Refund);
+				excel1.setreportData("Date Range", 11, 1, Refund);
+
 			}
 			}
 			catch(Exception l)
@@ -3035,11 +3379,13 @@ public WebDriver driver;
 				//Export Discount value to Excel
 				excel.setreportData("Date Range", 11, 1, st);
 				excel.setreportData("Date Range", 48, 1, st);
+				excel1.setreportData("Date Range", 11, 1, st);
+
 			}
 						
 			//To Write all the Data to Excel
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
-		
+			excel1.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 			
 			Thread.sleep(3000);
 
