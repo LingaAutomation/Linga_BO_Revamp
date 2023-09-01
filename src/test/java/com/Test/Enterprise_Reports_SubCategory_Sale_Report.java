@@ -30,14 +30,14 @@ import Utility.ExtentManager;
 import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Reports_SubCategory_Sale_Report 
+public class Enterprise_Reports_SubCategory_Sale_Report 
 {
 
 public WebDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
-	ExtentTest test = rep.startTest("Reports - SubCategory Report");
+	ExtentTest test = rep.startTest("Enterprise Reports - SubCategory Report");
 	
 	LoginPage lgpg; 
 	public String st="NA";
@@ -84,11 +84,13 @@ public WebDriver driver;
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
 		
-		
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
+		//Open the Chrome window
+		driver = new ChromeDriver();
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		
 		
 		//Wait for 30 seconds
@@ -113,23 +115,23 @@ public WebDriver driver;
 	@Test(priority=2)
 	public void Calling() throws Exception
 	{
-		Open_SubCategory_Report_Page(driver);
+		Open_SubCategory_Enterprise_Report_Page(driver);
 		RefreshAndPaginination(driver);
-		SubCategory_Report_Today(driver);
-		SubCategory_Report_Yesterday(driver);
-		SubCategory_Report_Last_N_Days(driver);
-		SubCategory_Report_This_Week(driver);
-		SubCategory_Report_Last_Week(driver);
-		SubCategory_Report_Last_7_Days(driver);
-		SubCategory_Report_This_Month(driver);
-		SubCategory_Report_Last_Month(driver);
-		SubCategory_Report_Last_30_Days(driver);
-		SubCategory_Report_Specific_Date(driver);
-		SubCategory_Report_Date_Range(driver);
+		SubCategory_Enterprise_Report_Today(driver);
+		SubCategory_Enterprise_Report_Yesterday(driver);
+		SubCategory_Enterprise_Report_Last_N_Days(driver);
+		SubCategory_Enterprise_Report_This_Week(driver);
+		SubCategory_Enterprise_Report_Last_Week(driver);
+		SubCategory_Enterprise_Report_Last_7_Days(driver);
+		SubCategory_Enterprise_Report_This_Month(driver);
+		SubCategory_Enterprise_Report_Last_Month(driver);
+		SubCategory_Enterprise_Report_Last_30_Days(driver);
+		SubCategory_Enterprise_Report_Specific_Date(driver);
+		SubCategory_Enterprise_Report_Date_Range(driver);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_SubCategory_Report_Page(WebDriver driver) throws Exception
+	public void Open_SubCategory_Enterprise_Report_Page(WebDriver driver) throws Exception
 	{
 		
 		repts=new ReportsPage(driver, test);
@@ -137,12 +139,18 @@ public WebDriver driver;
 		
 		Thread.sleep(5000);
 		//Load the SubCategory page
-		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id3")+"salesReports/subCategory");
+		driver.get(Utility.getProperty("baseURL")+"enterprise/enterpriseReports/saleReports/subCategories");
 
 		Thread.sleep(5000);
-		//Verify the Categories page loeded or not
-		repts.Verify_ReportHomePage("SUB CATEGORY");
-		
+		try
+		{
+		//Verify the Categories page loaded or not
+		repts.Verify_ReportHomePage("SUB CATEGORIES");
+		}
+		catch(Exception k)
+		{
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}
 	}
 	
 	@Test(priority = 4,enabled = false)
@@ -158,13 +166,15 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void SubCategory_Report_Today(WebDriver driver) throws Exception
+	public void SubCategory_Enterprise_Report_Today(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
-		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
+		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
-		
+		//Filter the Store and Select Store
+		repts.Select_Stores_In_Enterprise_Report(Utility.getProperty("Store1"));
+
 		//Select Today
 		repts.Select_Today_TimePeriod();
 		
@@ -178,9 +188,9 @@ public WebDriver driver;
 		{
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			Thread.sleep(1000);
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_SaleFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.FAIL, "Sale Report for SubCategory Not Available for Today");
+			test.log(LogStatus.FAIL, "Enterprise Sale Report for SubCategory Not Available for Today");
 	
 			excel.setreportData("Today", 2, 6, st);
 			excel.setreportData("Today", 3, 6, st);
@@ -194,13 +204,13 @@ public WebDriver driver;
 			excel.setreportData("Today", 39, 4, st);
 			excel.setreportData("Today", 40, 4, st);
 			excel.setreportData("Today", 41, 4, st);
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "Sale Report for SubCategory Available for Today");
+			test.log(LogStatus.PASS, "Enterprise Sale Report for SubCategory Available for Today");
 			
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			
@@ -229,7 +239,7 @@ public WebDriver driver;
 			
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.Sale_NetSales_Amount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -267,7 +277,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expected_Tx);
 			
 			//Get the Tax
-			String Tx=repts.Tax_SaleReport().getText().replace(",", "");
+			String Tx=repts.Tax_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
@@ -302,7 +312,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
-			String Discnt=repts.Discount_SaleReport().getText().replace(",", "");
+			String Discnt=repts.Discount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 			
 			//Export Discount value to Excel
@@ -336,7 +346,7 @@ public WebDriver driver;
 			
 			
 			//To Write all the Data to Excel
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
 			
 			Thread.sleep(3000);
@@ -346,13 +356,15 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void SubCategory_Report_Yesterday(WebDriver driver) throws Exception
+	public void SubCategory_Enterprise_Report_Yesterday(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
-		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
+		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
-		
+		//Filter the Store and Select Store
+		repts.Select_Stores_In_Enterprise_Report(Utility.getProperty("Store1"));
+
 		//Select Today
 		repts.Select_Yesterday_TimePeriod();
 		
@@ -366,9 +378,9 @@ public WebDriver driver;
 		{
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			Thread.sleep(1000);
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_SaleFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.FAIL, "Sale Report for SubCategory Not Available for Yesterday");
+			test.log(LogStatus.FAIL, "Enterprise Sale Report for SubCategory Not Available for Yesterday");
 		
 			excel.setreportData("Yesterday", 2, 6, st);
 			excel.setreportData("Yesterday", 3, 6, st);
@@ -381,13 +393,13 @@ public WebDriver driver;
 			excel.setreportData("Yesterday", 39, 4, st);
 			excel.setreportData("Yesterday", 40, 4, st);
 			excel.setreportData("Yesterday", 41, 4, st);
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "Sale Report for SubCategory Available for Yesterday");
+			test.log(LogStatus.PASS, "Enterprise Sale Report for SubCategory Available for Yesterday");
 			
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			
@@ -418,7 +430,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "").replace(",", "");
+			String SaleAmount=repts.Sale_NetSales_Amount_EnterpriseSaleReport().getText().replace(",", "").replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -460,7 +472,7 @@ public WebDriver driver;
 			
 			
 			//Get the Tax
-			String Tx=repts.Tax_SaleReport().getText().replace(",", "");
+			String Tx=repts.Tax_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
@@ -495,7 +507,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
-			String Discnt=repts.Discount_SaleReport().getText().replace(",", "");
+			String Discnt=repts.Discount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 			
 			//Export Discount value to Excel
@@ -529,7 +541,7 @@ public WebDriver driver;
 			
 		
 			//To Write all the Data to Excel
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
 			
 			Thread.sleep(3000);
@@ -539,13 +551,15 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void SubCategory_Report_Last_N_Days(WebDriver driver) throws Exception
+	public void SubCategory_Enterprise_Report_Last_N_Days(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
-		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
+		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
-		
+		//Filter the Store and Select Store
+		repts.Select_Stores_In_Enterprise_Report(Utility.getProperty("Store1"));
+
 		//Select Today
 		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
 		
@@ -559,9 +573,9 @@ public WebDriver driver;
 		{
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			Thread.sleep(1000);
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_SaleFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.FAIL, "Sale Report for SubCategory Not Available for Last N days");
+			test.log(LogStatus.FAIL, "Enterprise Sale Report for SubCategory Not Available for Last N days");
 		
 			excel.setreportData("Last N days", 2, 6, st);
 			excel.setreportData("Last N days", 3, 6, st);
@@ -575,13 +589,13 @@ public WebDriver driver;
 			excel.setreportData("Last N days", 39, 4, st);
 			excel.setreportData("Last N days", 40, 4, st);
 			excel.setreportData("Last N days", 41, 4, st);
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "Sale Report for SubCategory Available for Last N days");
+			test.log(LogStatus.PASS, "Enterprise Sale Report for SubCategory Available for Last N days");
 			
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			
@@ -612,7 +626,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.Sale_NetSales_Amount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -653,7 +667,7 @@ public WebDriver driver;
 			
 			
 			//Get the Tax
-			String Tx=repts.Tax_SaleReport().getText().replace(",", "");
+			String Tx=repts.Tax_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
@@ -687,7 +701,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
-			String Discnt=repts.Discount_SaleReport().getText().replace(",", "");
+			String Discnt=repts.Discount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 			
 			//Export Discount value to Excel
@@ -717,7 +731,7 @@ public WebDriver driver;
 			
 			
 			//To Write all the Data to Excel
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
 			
 			Thread.sleep(3000);
@@ -728,13 +742,15 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void SubCategory_Report_This_Week(WebDriver driver) throws Exception
+	public void SubCategory_Enterprise_Report_This_Week(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
-		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
+		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
-		
+		//Filter the Store and Select Store
+		repts.Select_Stores_In_Enterprise_Report(Utility.getProperty("Store1"));
+
 		//Select Today
 		repts.Select_This_Week_TimePeriod();
 		
@@ -748,9 +764,9 @@ public WebDriver driver;
 		{
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			Thread.sleep(1000);
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_SaleFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.FAIL, "Sale Report for SubCategory Not Available for This Week");
+			test.log(LogStatus.FAIL, "Enterprise Sale Report for SubCategory Not Available for This Week");
 	
 		
 			excel.setreportData("This Week", 2, 6, st);
@@ -765,13 +781,13 @@ public WebDriver driver;
 			excel.setreportData("This Week", 39, 4, st);
 			excel.setreportData("This Week", 40, 4, st);
 			excel.setreportData("This Week", 41, 4, st);
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "Sale Report for SubCategory Available for This Week");
+			test.log(LogStatus.PASS, "Enterprise Sale Report for SubCategory Available for This Week");
 			
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			
@@ -802,7 +818,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.Sale_NetSales_Amount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -839,7 +855,7 @@ public WebDriver driver;
 			
 			
 			//Get the Tax
-			String Tx=repts.Tax_SaleReport().getText().replace(",", "");
+			String Tx=repts.Tax_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
@@ -871,7 +887,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
-			String Discnt=repts.Discount_SaleReport().getText().replace(",", "");
+			String Discnt=repts.Discount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 			
 			//Export Discount value to Excel
@@ -901,7 +917,7 @@ public WebDriver driver;
 		
 			
 			//To Write all the Data to Excel
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
 			
 			Thread.sleep(3000);
@@ -910,13 +926,15 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void SubCategory_Report_Last_Week(WebDriver driver) throws Exception
+	public void SubCategory_Enterprise_Report_Last_Week(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
-		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
+		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
-		
+		//Filter the Store and Select Store
+		repts.Select_Stores_In_Enterprise_Report(Utility.getProperty("Store1"));
+
 		//Select Today
 		repts.Select_Last_Week_TimePeriod();
 		
@@ -930,9 +948,9 @@ public WebDriver driver;
 		{
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			Thread.sleep(1000);
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_SaleFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.FAIL, "Sale Report for SubCategory Not Available for Last Week");
+			test.log(LogStatus.FAIL, "Enterprise Sale Report for SubCategory Not Available for Last Week");
 		
 			
 			excel.setreportData("Last Week", 2, 6, st);
@@ -947,13 +965,13 @@ public WebDriver driver;
 			excel.setreportData("Last Week", 39, 4, st);
 			excel.setreportData("Last Week", 40, 4, st);
 			excel.setreportData("Last Week", 41, 4, st);
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "Sale Report for SubCategory Available for Last Week");
+			test.log(LogStatus.PASS, "Enterprise Sale Report for SubCategory Available for Last Week");
 			
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			
@@ -984,7 +1002,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.Sale_NetSales_Amount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -1023,7 +1041,7 @@ public WebDriver driver;
 			
 			
 			//Get the Tax
-			String Tx=repts.Tax_SaleReport().getText().replace(",", "");
+			String Tx=repts.Tax_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
@@ -1057,7 +1075,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
-			String Discnt=repts.Discount_SaleReport().getText().replace(",", "");
+			String Discnt=repts.Discount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 			
 			//Export Discount value to Excel
@@ -1089,7 +1107,7 @@ public WebDriver driver;
 		
 			
 			//To Write all the Data to Excel
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
 			
 			Thread.sleep(3000);
@@ -1098,13 +1116,15 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void SubCategory_Report_Last_7_Days(WebDriver driver) throws Exception
+	public void SubCategory_Enterprise_Report_Last_7_Days(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
-		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
+		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
-		
+		//Filter the Store and Select Store
+		repts.Select_Stores_In_Enterprise_Report(Utility.getProperty("Store1"));
+
 		//Select Today
 		repts.Select_Last_7_Days_TimePeriod();
 		
@@ -1118,9 +1138,9 @@ public WebDriver driver;
 		{
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			Thread.sleep(1000);
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_SaleFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.FAIL, "Sale Report for SubCategory Not Available for Last 7 days");
+			test.log(LogStatus.FAIL, "Enterprise Sale Report for SubCategory Not Available for Last 7 days");
 	
 			excel.setreportData("Last 7 days", 2, 6, st);
 			excel.setreportData("Last 7 days", 3, 6, st);
@@ -1134,13 +1154,13 @@ public WebDriver driver;
 			excel.setreportData("Last 7 days", 39, 4, st);
 			excel.setreportData("Last 7 days", 40, 4, st);
 			excel.setreportData("Last 7 days", 41, 4, st);
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "Sale Report for SubCategory Available for Last 7 days");
+			test.log(LogStatus.PASS, "Enterprise Sale Report for SubCategory Available for Last 7 days");
 			
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			
@@ -1171,7 +1191,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.Sale_NetSales_Amount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -1209,7 +1229,7 @@ public WebDriver driver;
 			
 			
 			//Get the Tax
-			String Tx=repts.Tax_SaleReport().getText().replace(",", "");
+			String Tx=repts.Tax_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
@@ -1243,7 +1263,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
-			String Discnt=repts.Discount_SaleReport().getText().replace(",", "");
+			String Discnt=repts.Discount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 			
 			//Export Discount value to Excel
@@ -1276,7 +1296,7 @@ public WebDriver driver;
 		
 			
 			//To Write all the Data to Excel
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
 			
 			Thread.sleep(3000);
@@ -1286,13 +1306,15 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void SubCategory_Report_This_Month(WebDriver driver) throws Exception
+	public void SubCategory_Enterprise_Report_This_Month(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
-		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
+		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
-		
+		//Filter the Store and Select Store
+		repts.Select_Stores_In_Enterprise_Report(Utility.getProperty("Store1"));
+
 		//Select Today
 		repts.Select_This_Month_TimePeriod();
 		
@@ -1306,9 +1328,9 @@ public WebDriver driver;
 		{
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			Thread.sleep(1000);
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_SaleFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.FAIL, "Sale Report for SubCategory Not Available for This month");
+			test.log(LogStatus.FAIL, "Enterprise Sale Report for SubCategory Not Available for This month");
 		
 		
 			excel.setreportData("This month", 2, 6, st);
@@ -1323,13 +1345,13 @@ public WebDriver driver;
 			excel.setreportData("This month", 39, 4, st);
 			excel.setreportData("This month", 40, 4, st);
 			excel.setreportData("This month", 41, 4, st);
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "Sale Report for SubCategory Available for This month");
+			test.log(LogStatus.PASS, "Enterprise Sale Report for SubCategory Available for This month");
 			
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			
@@ -1360,7 +1382,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.Sale_NetSales_Amount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -1398,7 +1420,7 @@ public WebDriver driver;
 			
 			
 			//Get the Tax
-			String Tx=repts.Tax_SaleReport().getText().replace(",", "");
+			String Tx=repts.Tax_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
@@ -1432,7 +1454,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
-			String Discnt=repts.Discount_SaleReport().getText().replace(",", "");
+			String Discnt=repts.Discount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 			
 			//Export Discount value to Excel
@@ -1463,7 +1485,7 @@ public WebDriver driver;
 		
 			
 			//To Write all the Data to Excel
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
 			
 			Thread.sleep(3000);
@@ -1473,13 +1495,15 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void SubCategory_Report_Last_Month(WebDriver driver) throws Exception
+	public void SubCategory_Enterprise_Report_Last_Month(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
-		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
+		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
-		
+		//Filter the Store and Select Store
+		repts.Select_Stores_In_Enterprise_Report(Utility.getProperty("Store1"));
+
 		//Select Today
 		repts.Select_Last_Month_TimePeriod();
 		
@@ -1493,9 +1517,9 @@ public WebDriver driver;
 		{
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			Thread.sleep(1000);
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_SaleFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.FAIL, "Sale Report for SubCategory Not Available for Last month");
+			test.log(LogStatus.FAIL, "Enterprise Sale Report for SubCategory Not Available for Last month");
 	
 			excel.setreportData("Last month", 2, 6, st);
 			excel.setreportData("Last month", 3, 6, st);
@@ -1509,13 +1533,13 @@ public WebDriver driver;
 			excel.setreportData("Last month", 39, 4, st);
 			excel.setreportData("Last month", 40, 4, st);
 			excel.setreportData("Last month", 41, 4, st);
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "Sale Report for SubCategory Available for Last month");
+			test.log(LogStatus.PASS, "Enterprise Sale Report for SubCategory Available for Last month");
 			
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			
@@ -1546,7 +1570,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.Sale_NetSales_Amount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -1582,7 +1606,7 @@ public WebDriver driver;
 			
 			
 			//Get the Tax
-			String Tx=repts.Tax_SaleReport().getText().replace(",", "");
+			String Tx=repts.Tax_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
@@ -1616,7 +1640,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
-			String Discnt=repts.Discount_SaleReport().getText().replace(",", "");
+			String Discnt=repts.Discount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 			
 			//Export Discount value to Excel
@@ -1647,7 +1671,7 @@ public WebDriver driver;
 			
 			
 			//To Write all the Data to Excel
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
 			
 			Thread.sleep(3000);
@@ -1658,13 +1682,15 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void SubCategory_Report_Last_30_Days(WebDriver driver) throws Exception
+	public void SubCategory_Enterprise_Report_Last_30_Days(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
-		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
+		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
-		
+		//Filter the Store and Select Store
+		repts.Select_Stores_In_Enterprise_Report(Utility.getProperty("Store1"));
+
 		//Select Today
 		repts.Select_Last_30_Days_TimePeriod();
 		
@@ -1678,9 +1704,9 @@ public WebDriver driver;
 		{
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			Thread.sleep(1000);
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_SaleFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.FAIL, "Sale Report for SubCategory Not Available for Last 30 days");
+			test.log(LogStatus.FAIL, "Enterprise Sale Report for SubCategory Not Available for Last 30 days");
 		
 		
 			excel.setreportData("Last 30 days", 2, 6, st);
@@ -1695,13 +1721,13 @@ public WebDriver driver;
 			excel.setreportData("Last 30 days", 39, 4, st);
 			excel.setreportData("Last 30 days", 40, 4, st);
 			excel.setreportData("Last 30 days", 41, 4, st);
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "Sale Report for SubCategory Available for Last 30 days");
+			test.log(LogStatus.PASS, "Enterprise Sale Report for SubCategory Available for Last 30 days");
 			
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			
@@ -1732,7 +1758,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.Sale_NetSales_Amount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -1769,7 +1795,7 @@ public WebDriver driver;
 			
 			
 			//Get the Tax
-			String Tx=repts.Tax_SaleReport().getText().replace(",", "");
+			String Tx=repts.Tax_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
@@ -1803,7 +1829,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
-			String Discnt=repts.Discount_SaleReport().getText().replace(",", "");
+			String Discnt=repts.Discount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 			
 			//Export Discount value to Excel
@@ -1835,7 +1861,7 @@ public WebDriver driver;
 			
 			
 			//To Write all the Data to Excel
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
 			
 			Thread.sleep(3000);
@@ -1846,13 +1872,15 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void SubCategory_Report_Specific_Date(WebDriver driver) throws Exception
+	public void SubCategory_Enterprise_Report_Specific_Date(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
-		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
+		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
-		
+		//Filter the Store and Select Store
+		repts.Select_Stores_In_Enterprise_Report(Utility.getProperty("Store1"));
+
 		//Select Today
 		repts.Select_Specific_Date_TimePeriod(Utility.getProperty("Report_Specific_Date"));
 		
@@ -1866,9 +1894,9 @@ public WebDriver driver;
 		{
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			Thread.sleep(1000);
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_SaleFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.FAIL, "Sale Report for SubCategory Not Available for Specific Date");
+			test.log(LogStatus.FAIL, "Enterprise Sale Report for SubCategory Not Available for Specific Date");
 		
 			excel.setreportData("Specific Date", 2, 6, st);
 			excel.setreportData("Specific Date", 3, 6, st);
@@ -1882,13 +1910,13 @@ public WebDriver driver;
 			excel.setreportData("Specific Date", 39, 4, st);
 			excel.setreportData("Specific Date", 40, 4, st);
 			excel.setreportData("Specific Date", 41, 4, st);
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "Sale Report for SubCategory Available for Specific Date");
+			test.log(LogStatus.PASS, "Enterprise Sale Report for SubCategory Available for Specific Date");
 			
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			
@@ -1919,7 +1947,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.Sale_NetSales_Amount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -1955,7 +1983,7 @@ public WebDriver driver;
 			
 			
 			//Get the Tax
-			String Tx=repts.Tax_SaleReport().getText().replace(",", "");
+			String Tx=repts.Tax_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
@@ -1987,7 +2015,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
-			String Discnt=repts.Discount_SaleReport().getText().replace(",", "");
+			String Discnt=repts.Discount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 			
 			//Export Discount value to Excel
@@ -2017,7 +2045,7 @@ public WebDriver driver;
 		
 			
 			//To Write all the Data to Excel
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
 			
 			Thread.sleep(3000);
@@ -2027,13 +2055,15 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void SubCategory_Report_Date_Range(WebDriver driver) throws Exception
+	public void SubCategory_Enterprise_Report_Date_Range(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
-		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
+		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
-		
+		//Filter the Store and Select Store
+		repts.Select_Stores_In_Enterprise_Report(Utility.getProperty("Store1"));
+
 		//Select Today
 		repts.Select_Date_Range_TimePeriod(Utility.getProperty("Report_Start_Date"), Utility.getProperty("Report_End_Date"));
 		
@@ -2047,9 +2077,9 @@ public WebDriver driver;
 		{
 			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			Thread.sleep(1000);
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_SaleFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.FAIL, "Sale Report for SubCategory Not Available for Date Range");
+			test.log(LogStatus.FAIL, "Enterprise Sale Report for SubCategory Not Available for Date Range");
 		
 			excel.setreportData("Date Range", 2, 6, st);
 			excel.setreportData("Date Range", 3, 6, st);
@@ -2064,13 +2094,13 @@ public WebDriver driver;
 			excel.setreportData("Date Range", 39, 4, st);
 			excel.setreportData("Date Range", 40, 4, st);
 			excel.setreportData("Date Range", 41, 4, st);
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		}
 		}
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "Sale Report for SubCategory Available for Date Range");
+			test.log(LogStatus.PASS, "Enterprise Sale Report for SubCategory Available for Date Range");
 			
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			
@@ -2101,7 +2131,7 @@ public WebDriver driver;
 
 			Thread.sleep(3000);
 			//Get Sale Amount
-			String SaleAmount=repts.Sale_NetSales_Amount_SaleReport().getText().replace(",", "");
+			String SaleAmount=repts.Sale_NetSales_Amount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Export the Sale Amount value to Excel
@@ -2138,7 +2168,7 @@ public WebDriver driver;
 			
 			
 			//Get the Tax
-			String Tx=repts.Tax_SaleReport().getText().replace(",", "");
+			String Tx=repts.Tax_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
@@ -2170,7 +2200,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expected_Discnt);
 			
 			//Get the Discount
-			String Discnt=repts.Discount_SaleReport().getText().replace(",", "");
+			String Discnt=repts.Discount_EnterpriseSaleReport().getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 			
 			//Export Discount value to Excel
@@ -2201,7 +2231,7 @@ public WebDriver driver;
 		
 			
 			//To Write all the Data to Excel
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports"));
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Enterprise_Report"));
 		
 			
 			Thread.sleep(3000);

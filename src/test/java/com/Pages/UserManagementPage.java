@@ -519,6 +519,12 @@ public class UserManagementPage extends BasePage
 	@FindBy(xpath = "//mat-panel-title[contains(.,' BACK OFFICE ')]/..//mat-icon[.='keyboard_arrow_down']")
 	WebElement BackOffice_DownArrow;
 	
+	@FindBy(xpath = "//mat-panel-title[contains(.,' POS OPERATIONS ')]/..//mat-icon[.='keyboard_arrow_right']")
+	WebElement POS_Operations_RightArrow;
+	
+	@FindBy(xpath = "//mat-panel-title[contains(.,' POS OPERATIONS ')]/..//mat-icon[.='keyboard_arrow_down']")
+	WebElement POS_Operations_DownArrow;
+	
 	@FindBy(xpath = "//mat-checkbox[contains(.,'Select All')]")
 	WebElement Select_All_Checkbx;
 	
@@ -546,6 +552,54 @@ public class UserManagementPage extends BasePage
 			if(BackOffice_DownArrow.isDisplayed())
 			{
 				BackOffice_DownArrow.click();
+			}
+		}
+		catch(Exception k) {}
+	}
+	
+	public void Open_POS_Screen()
+	{
+		try
+		{
+			if(BackOffice_RightArrow.isDisplayed())
+			{
+				BackOffice_RightArrow.click();
+			}
+		}
+		catch(Exception k) {}
+	}
+	
+	public void Close_POS_Screen()
+	{
+		try
+		{
+			if(BackOffice_DownArrow.isDisplayed())
+			{
+				BackOffice_DownArrow.click();
+			}
+		}
+		catch(Exception k) {}
+	}
+	
+	public void Open_POS_Operations_Screen()
+	{
+		try
+		{
+			if(POS_Operations_RightArrow.isDisplayed())
+			{
+				POS_Operations_RightArrow.click();
+			}
+		}
+		catch(Exception k) {}
+	}
+	
+	public void Close_POS_Operations_Screen()
+	{
+		try
+		{
+			if(POS_Operations_DownArrow.isDisplayed())
+			{
+				POS_Operations_DownArrow.click();
 			}
 		}
 		catch(Exception k) {}

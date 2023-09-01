@@ -3,8 +3,10 @@ package com.Pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -233,7 +235,13 @@ public class ReportsPage
 	{
 		Thread.sleep(1000); 
 		Time_PeriodInputBx.click();
-		Thread.sleep(1000);
+		
+		WebElement Sel=driver.findElement(By.xpath("//div[@class='option-list']/div/cdk-virtual-scroll-viewport/div[1]/div[9]"));
+		JavascriptExecutor je = (JavascriptExecutor) driver;
+       
+        je.executeScript("arguments[0].scrollIntoView(true);",Sel);
+        
+		Thread.sleep(2000);
 		Specific_Date_TimePeriodBtn.click();
 		
 		Thread.sleep(1000);
@@ -359,7 +367,13 @@ public class ReportsPage
 	{
 		Thread.sleep(1000);
 		Time_PeriodInputBx.click();
-		Thread.sleep(1000);
+		
+		WebElement Sel=driver.findElement(By.xpath("//div[@class='option-list']/div/cdk-virtual-scroll-viewport/div[1]/div[9]"));
+		JavascriptExecutor je = (JavascriptExecutor) driver;
+       
+        je.executeScript("arguments[0].scrollIntoView(true);",Sel);
+		
+		Thread.sleep(2000);
 		Date_Range_TimePeriodBtn.click();
 		
 //		Thread.sleep(1000);
@@ -529,38 +543,39 @@ public class ReportsPage
 	
 	public WebElement NetSales_Amount_DailySaleReport()
 	{
-		List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-		
-		return driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[2]/span"));
+//		List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
+//		
+//		return driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[2]/span"));
+		return driver.findElement(By.xpath("//tfoot/tr/td[2]"));
+	
 	}
 	
 	
 	public WebElement Tax_DailySaleReport()
 	{
-		List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-		
-		return driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[3]/span"));
-	
-		//p[contains(.,'TOTAL')]/../../div[3]/span
-	}
+//		List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
+//		
+//		return driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[3]/span"));
+//	
+		return driver.findElement(By.xpath("//tfoot/tr/td[3]"));	}
 	
 	
 	public WebElement Discount_DailySaleReport()
 	{
-		List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-		
-		return driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[4]/span"));
+//		List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
+//		
+//		return driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[4]/span"));
 
-		//p[contains(.,'TOTAL')]/../../div[4]/span
-	
+		return driver.findElement(By.xpath("//tfoot/tr/td[4]"));	
 	}
 	
 	public WebElement GrandSales_DailySaleReport()
 	{
-		List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-		
-		return driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span"));
+//		List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
+//		
+//		return driver.findElement(By.xpath("//data-grid/div/div/div["+rowList.size()+"]/div[@class='content-container']/data-grid-row/div/div[5]/span"));
 	
+		return driver.findElement(By.xpath("//tfoot/tr/td[5]"));
 		//p[contains(.,'TOTAL')]/../../div[5]/span
 	}
 	
@@ -1770,5 +1785,95 @@ public class ReportsPage
 	public WebElement COGS_SaleReport_Enterprise_Report()
 	{
 		return driver.findElement(By.xpath("//tfoot/tr/td[10]/div"));
+	}
+	
+	@FindBy(xpath = "//label[contains(.,'Enter Email Address')]/../../textarea")
+	WebElement Enter_Email_AddressInputBx;
+	
+	@FindBy(xpath = "//p[contains(.,'Please Enter Valid Email')]")
+	WebElement Enter_Valid_Email_PopUp;
+	
+	@FindBy(xpath = "//button[contains(.,'EXPORT TO EMAIL')]")
+	WebElement Export_To_EmailBtn;
+	
+	public void Enter_Email_Address(String Email) throws Exception
+	{
+		Enter_Email_AddressInputBx.clear();
+		Thread.sleep(1000);
+		Enter_Email_AddressInputBx.sendKeys(Email);
+		
+	}
+	
+	public void Click_Export_To_EmailButton()
+	{
+		Export_To_EmailBtn.click();
+	}
+	
+	public void Verify_Valid_Email()
+	{
+		try
+		{
+			if(Enter_Valid_Email_PopUp.isDisplayed())
+			{
+				test.log(LogStatus.PASS, "Please Enter Valid Email is Displayed");
+				
+//				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			}
+		}
+		catch(Exception k)
+		{
+			test.log(LogStatus.FAIL, "Please Enter Valid Email is not Displayed");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}
+		
+	}
+	
+	public WebElement Sale_NetSales_Amount_EnterpriseSaleReport()
+	{
+//		List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+		
+		return driver.findElement(By.xpath("//tfoot/tr/td[2]"));
+	}
+	
+	
+	
+	
+	public WebElement Quantity_EnterpriseSaleReport()
+	{
+//		List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+		
+		return driver.findElement(By.xpath("//tfoot/tr/td[3]"));
+	}
+	
+	
+	public WebElement Tax_EnterpriseSaleReport()
+	{
+//		List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+		
+		return driver.findElement(By.xpath("//tfoot/tr/td[4]"));
+	}
+	
+	public WebElement Discount_EnterpriseSaleReport()
+	{
+//		List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+		
+		return driver.findElement(By.xpath("//tfoot/tr/td[5]"));
+	}
+	
+	
+	public WebElement PercentageOfSale_EnterpriseSaleReport()
+	{
+//		List<WebElement> rowList=driver.findElements(By.xpath("//tbody/tr"));
+		
+		return driver.findElement(By.xpath("//tfoot/tr/td[6]"));
+	}
+	
+	@FindBy(xpath = "//td[contains(.,'No sale for selected time period')]")
+	WebElement No_SaleFound_InfoMsg;
+	
+	public WebElement No_SaleFound_InfoMessage()
+	{
+		return No_SaleFound_InfoMsg;
 	}
 }

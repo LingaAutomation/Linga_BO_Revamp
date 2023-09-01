@@ -192,6 +192,13 @@ public WebDriver driver;
 			excel.setreportData("Today", 6, 1, st);
 			excel.setreportData("Today", 7, 1, st);
 			
+			excel.setreportData("Today", 2, 26, st);
+			excel.setreportData("Today", 3, 26, st);
+			excel.setreportData("Today", 4, 26, st);
+			excel.setreportData("Today", 5, 26, st);
+			excel.setreportData("Today", 6, 26, st);
+			excel.setreportData("Today", 7, 26, st);
+			
 			excel.setreportData("Today", 39, 1, st);
 			excel.setreportData("Today", 40, 1, st);
 			excel.setreportData("Today", 41, 1, st);
@@ -228,6 +235,7 @@ public WebDriver driver;
 			
 			//Export the Net Sales value to Excel
 			excel.setreportData("Today", 2, 1, NetSales);
+			excel.setreportData("Today", 2, 26, NetSales);
 			excel.setreportData("Today", 39, 1, NetSales);
 			excel1.setreportData("Today", 2, 1, NetSales);
 
@@ -239,6 +247,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Today", 5, 1, GrandSale);
+			excel.setreportData("Today", 5, 26, GrandSale);
 			excel.setreportData("Today", 42, 1, GrandSale);
 			excel1.setreportData("Today", 5, 1, GrandSale);
 
@@ -250,6 +259,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Today", 6, 1, GrandReceipt);
+			excel.setreportData("Today", 6, 26, GrandReceipt);
 			excel.setreportData("Today", 43, 1, GrandReceipt);
 			excel1.setreportData("Today", 6, 1, GrandReceipt);
 
@@ -261,6 +271,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Today", 7, 1, GrossSales);
+			excel.setreportData("Today", 7, 26, GrossSales);
 			excel.setreportData("Today", 44, 1, GrossSales);
 			excel1.setreportData("Today", 7, 1, GrossSales);
 
@@ -272,6 +283,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Today", 9, 1, NetVoid);
+			excel.setreportData("Today", 9, 26, NetVoid);
 			excel.setreportData("Today", 46, 1, NetVoid);
 			excel1.setreportData("Today", 9, 1, NetVoid);
 
@@ -283,6 +295,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Today", 10, 1, GrossVoid);
+			excel.setreportData("Today", 10, 26, GrossVoid);
 			excel.setreportData("Today", 47, 1, GrossVoid);
 			excel1.setreportData("Today", 10, 1, GrossVoid);
 
@@ -305,6 +318,7 @@ public WebDriver driver;
 				
 				//Export Tax value to Excel
 				excel.setreportData("Today", 3, 1, Tx);
+				excel.setreportData("Today", 3, 26, Tx);
 				excel.setreportData("Today", 40, 1, Tx);
 				excel1.setreportData("Today", 3, 1, Tx);
 
@@ -318,6 +332,7 @@ public WebDriver driver;
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Today", 8, 1, Tx_Exmpted);
+				excel.setreportData("Today", 8, 26, Tx_Exmpted);
 				excel.setreportData("Today", 45, 1, Tx_Exmpted);
 				excel1.setreportData("Today", 8, 1, Tx_Exmpted);
 
@@ -329,6 +344,7 @@ public WebDriver driver;
 					
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Today", 8, 1, st);
+					excel.setreportData("Today", 8, 26, st);
 					excel.setreportData("Today", 45, 1, st);
 					excel1.setreportData("Today", 8, 1, st);
 
@@ -341,6 +357,7 @@ public WebDriver driver;
 				
 				//Export Tax value to Excel
 				excel.setreportData("Today", 12, 1, RoundOff);
+				excel.setreportData("Today", 12, 26, RoundOff);
 				excel.setreportData("Today", 49, 1, RoundOff);
 				excel1.setreportData("Today", 12, 1, RoundOff);
 
@@ -353,16 +370,19 @@ public WebDriver driver;
 				
 				//Export Tax value to Excel
 				excel.setreportData("Today", 3, 1, "0.00");
+				excel.setreportData("Today", 3, 26, "0.00");
 				excel.setreportData("Today", 40, 1, "0.00");
 				excel1.setreportData("Today", 3, 1, "0.00");
 
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Today", 8, 1, st);
+				excel.setreportData("Today", 8, 26, st);
 				excel.setreportData("Today", 45, 1, st);
 				excel1.setreportData("Today", 8, 1, st);
 
 				//Export Tax value to Excel
 				excel.setreportData("Today", 12, 1, st);
+				excel.setreportData("Today", 12, 26, st);
 				excel.setreportData("Today", 49, 1, st);
 				excel1.setreportData("Today", 12, 1, st);
 
@@ -380,6 +400,7 @@ public WebDriver driver;
 				
 				//Export Discount value to Excel
 				excel.setreportData("Today", 4, 1, Discnt);
+				excel.setreportData("Today", 4, 26, Discnt);
 				excel.setreportData("Today", 41, 1, Discnt);
 				excel1.setreportData("Today", 4, 1, Discnt);
 
@@ -390,6 +411,7 @@ public WebDriver driver;
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("Today", 13, 1, DiscntTx);
+				excel.setreportData("Today", 13, 26, DiscntTx);
 				excel.setreportData("Today", 50, 1, DiscntTx);
 				excel1.setreportData("Today", 13, 1, DiscntTx);
 
@@ -402,6 +424,7 @@ public WebDriver driver;
 				
 				//Export Discount value to Excel
 				excel.setreportData("Today", 4, 1, "0.00");
+				excel.setreportData("Today", 4, 26, "0.00");
 				excel.setreportData("Today", 41, 1, "0.00");
 				excel1.setreportData("Today", 4, 1, "0.00");
 
@@ -410,6 +433,7 @@ public WebDriver driver;
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("Today", 13, 1, st);
+				excel.setreportData("Today", 13, 26, st);
 				excel.setreportData("Today", 50, 1, st);
 				excel1.setreportData("Today", 13, 1, st);
 
@@ -427,6 +451,7 @@ public WebDriver driver;
 				
 				//Export Discount value to Excel
 				excel.setreportData("Today", 11, 1, Refund);
+				excel.setreportData("Today", 11, 26, Refund);
 				excel.setreportData("Today", 48, 1, Refund);
 				excel1.setreportData("Today", 11, 1, Refund);
 
@@ -438,6 +463,7 @@ public WebDriver driver;
 
 				//Export Discount value to Excel
 				excel.setreportData("Today", 11, 1, st);
+				excel.setreportData("Today", 11, 26, st);
 				excel.setreportData("Today", 48, 1, st);
 				excel1.setreportData("Today", 11, 1, st);
 
@@ -490,6 +516,13 @@ public WebDriver driver;
 			excel.setreportData("Yesterday", 6, 1, st);
 			excel.setreportData("Yesterday", 7, 1, st);
 			
+			excel.setreportData("Yesterday", 2, 26, st);
+			excel.setreportData("Yesterday", 3, 26, st);
+			excel.setreportData("Yesterday", 4, 26, st);
+			excel.setreportData("Yesterday", 5, 26, st);
+			excel.setreportData("Yesterday", 6, 26, st);
+			excel.setreportData("Yesterday", 7, 26, st);
+			
 			excel.setreportData("Yesterday", 39, 1, st);
 			excel.setreportData("Yesterday", 40, 1, st);
 			excel.setreportData("Yesterday", 41, 1, st);
@@ -525,6 +558,7 @@ public WebDriver driver;
 			
 			//Export the Net Sales value to Excel
 			excel.setreportData("Yesterday", 2, 1, NetSales);
+			excel.setreportData("Yesterday", 2, 26, NetSales);
 			excel.setreportData("Yesterday", 39, 1, NetSales);
 			excel1.setreportData("Yesterday", 2, 1, NetSales);
 
@@ -536,6 +570,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Yesterday", 5, 1, GrandSale);
+			excel.setreportData("Yesterday", 5, 26, GrandSale);
 			excel.setreportData("Yesterday", 42, 1, GrandSale);
 			excel1.setreportData("Yesterday", 5, 1, GrandSale);
 
@@ -547,6 +582,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Yesterday", 6, 1, GrandReceipt);
+			excel.setreportData("Yesterday", 6, 26, GrandReceipt);
 			excel.setreportData("Yesterday", 43, 1, GrandReceipt);
 			excel1.setreportData("Yesterday", 6, 1, GrandReceipt);
 
@@ -558,6 +594,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Yesterday", 7, 1, GrossSales);
+			excel.setreportData("Yesterday", 7, 26, GrossSales);
 			excel.setreportData("Yesterday", 44, 1, GrossSales);
 			excel1.setreportData("Yesterday", 7, 1, GrossSales);
 
@@ -569,6 +606,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Yesterday", 9, 1, NetVoid);
+			excel.setreportData("Yesterday", 9, 26, NetVoid);
 			excel.setreportData("Yesterday", 46, 1, NetVoid);
 			excel1.setreportData("Yesterday", 9, 1, NetVoid);
 
@@ -580,6 +618,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Yesterday", 10, 1, GrossVoid);
+			excel.setreportData("Yesterday", 10, 26, GrossVoid);
 			excel.setreportData("Yesterday", 47, 1, GrossVoid);
 			excel1.setreportData("Yesterday", 10, 1, GrossVoid);
 
@@ -602,6 +641,7 @@ public WebDriver driver;
 				
 				//Export Tax value to Excel
 				excel.setreportData("Yesterday", 3, 1, Tx);
+				excel.setreportData("Yesterday", 3, 26, Tx);
 				excel.setreportData("Yesterday", 40, 1, Tx);
 				excel1.setreportData("Yesterday", 3, 1, Tx);
 
@@ -615,6 +655,7 @@ public WebDriver driver;
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Yesterday", 8, 1, Tx_Exmpted);
+				excel.setreportData("Yesterday", 8, 26, Tx_Exmpted);
 				excel.setreportData("Yesterday", 45, 1, Tx_Exmpted);
 				excel1.setreportData("Yesterday", 8, 1, Tx_Exmpted);
 
@@ -626,6 +667,7 @@ public WebDriver driver;
 					
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Yesterday", 8, 1, st);
+					excel.setreportData("Yesterday", 8, 26, st);
 					excel.setreportData("Yesterday", 45, 1, st);
 					excel1.setreportData("Yesterday", 8, 1, st);
 
@@ -639,6 +681,7 @@ public WebDriver driver;
 				
 				//Export Tax value to Excel
 				excel.setreportData("Yesterday", 12, 1, RoundOff);
+				excel.setreportData("Yesterday", 12, 26, RoundOff);
 				excel.setreportData("Yesterday", 49, 1, RoundOff);
 				excel1.setreportData("Yesterday", 12, 1, RoundOff);
 
@@ -651,18 +694,21 @@ public WebDriver driver;
 				
 				//Export Tax value to Excel
 				excel.setreportData("Yesterday", 3, 1, "0.00");
+				excel.setreportData("Yesterday", 3, 26, "0.00");
 				excel.setreportData("Yesterday", 40, 1, "0.00");
 				excel1.setreportData("Yesterday", 3, 1, "0.00");
 
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Yesterday", 8, 1, st);
+				excel.setreportData("Yesterday", 8, 26, st);
 				excel.setreportData("Yesterday", 45, 1, st);
 				excel1.setreportData("Yesterday", 8, 1, st);
 
 				
 				//Export Tax value to Excel
 				excel.setreportData("Yesterday", 12, 1, st);
+				excel.setreportData("Yesterday", 12, 26, st);
 				excel.setreportData("Yesterday", 49, 1, st);
 				excel1.setreportData("Yesterday", 12, 1, st);
 
@@ -680,6 +726,7 @@ public WebDriver driver;
 				
 				//Export Discount value to Excel
 				excel.setreportData("Yesterday", 4, 1, Discnt);
+				excel.setreportData("Yesterday", 4, 26, Discnt);
 				excel.setreportData("Yesterday", 41, 1, Discnt);
 				excel1.setreportData("Yesterday", 4, 1, Discnt);
 
@@ -690,6 +737,7 @@ public WebDriver driver;
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("Yesterday", 13, 1, DiscntTx);
+				excel.setreportData("Yesterday", 13, 26, DiscntTx);
 				excel.setreportData("Yesterday", 50, 1, DiscntTx);
 				excel1.setreportData("Yesterday", 13, 1, DiscntTx);
 
@@ -702,6 +750,7 @@ public WebDriver driver;
 				
 				//Export Discount value to Excel
 				excel.setreportData("Yesterday", 4, 1, "0.00");
+				excel.setreportData("Yesterday", 4, 26, "0.00");
 				excel.setreportData("Yesterday", 41, 1, "0.00");
 				excel1.setreportData("Yesterday", 4, 1, "0.00");
 
@@ -710,6 +759,7 @@ public WebDriver driver;
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("Yesterday", 13, 1, st);
+				excel.setreportData("Yesterday", 13, 26, st);
 				excel.setreportData("Yesterday", 50, 1, st);
 				excel1.setreportData("Yesterday", 13, 1, st);
 
@@ -727,6 +777,7 @@ public WebDriver driver;
 				
 				//Export Discount value to Excel
 				excel.setreportData("Yesterday", 11, 1, Refund);
+				excel.setreportData("Yesterday", 11, 26, Refund);
 				excel.setreportData("Yesterday", 48, 1, Refund);
 				excel1.setreportData("Yesterday", 11, 1, Refund);
 
@@ -738,6 +789,7 @@ public WebDriver driver;
 
 				//Export Discount value to Excel
 				excel.setreportData("Yesterday", 11, 1, st);
+				excel.setreportData("Yesterday", 11, 26, st);
 				excel.setreportData("Yesterday", 48, 1, st);
 				excel1.setreportData("Yesterday", 11, 1, st);
 
@@ -788,6 +840,13 @@ public WebDriver driver;
 			excel.setreportData("Last N days", 6, 1, st);
 			excel.setreportData("Last N days", 7, 1, st);
 			
+			excel.setreportData("Last N days", 2, 26, st);
+			excel.setreportData("Last N days", 3, 26, st);
+			excel.setreportData("Last N days", 4, 26, st);
+			excel.setreportData("Last N days", 5, 26, st);
+			excel.setreportData("Last N days", 6, 26, st);
+			excel.setreportData("Last N days", 7, 26, st);
+			
 			excel.setreportData("Last N days", 39, 1, st);
 			excel.setreportData("Last N days", 40, 1, st);
 			excel.setreportData("Last N days", 41, 1, st);
@@ -823,6 +882,7 @@ public WebDriver driver;
 			
 			//Export the Net Sales value to Excel
 			excel.setreportData("Last N days", 2, 1, NetSales);
+			excel.setreportData("Last N days", 2, 26, NetSales);
 			excel.setreportData("Last N days", 39, 1, NetSales);
 			excel1.setreportData("Last N days", 2, 1, NetSales);
 
@@ -834,6 +894,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last N days", 5, 1, GrandSale);
+			excel.setreportData("Last N days", 5, 26, GrandSale);
 			excel.setreportData("Last N days", 42, 1, GrandSale);
 			excel1.setreportData("Last N days", 5, 1, GrandSale);
 
@@ -845,6 +906,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last N days", 6, 1, GrandReceipt);
+			excel.setreportData("Last N days", 6, 26, GrandReceipt);
 			excel.setreportData("Last N days", 43, 1, GrandReceipt);
 			excel1.setreportData("Last N days", 6, 1, GrandReceipt);
 
@@ -856,6 +918,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last N days", 7, 1, GrossSales);
+			excel.setreportData("Last N days", 7, 26, GrossSales);
 			excel.setreportData("Last N days", 44, 1, GrossSales);
 			excel1.setreportData("Last N days", 7, 1, GrossSales);
 
@@ -867,6 +930,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last N days", 9, 1, NetVoid);
+			excel.setreportData("Last N days", 9, 26, NetVoid);
 			excel.setreportData("Last N days", 46, 1, NetVoid);
 			excel1.setreportData("Last N days", 9, 1, NetVoid);
 
@@ -878,6 +942,7 @@ public WebDriver driver;
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last N days", 10, 1, GrossVoid);
+			excel.setreportData("Last N days", 10, 26, GrossVoid);
 			excel.setreportData("Last N days", 47, 1, GrossVoid);
 			excel1.setreportData("Last N days", 10, 1, GrossVoid);
 
@@ -900,6 +965,7 @@ public WebDriver driver;
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last N days", 3, 1, Tx);
+				excel.setreportData("Last N days", 3, 26, Tx);
 				excel.setreportData("Last N days", 40, 1, Tx);
 				excel1.setreportData("Last N days", 3, 1, Tx);
 	
@@ -914,6 +980,7 @@ public WebDriver driver;
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last N days", 8, 1, Tx_Exmpted);
+				excel.setreportData("Last N days", 8, 26, Tx_Exmpted);
 				excel.setreportData("Last N days", 45, 1, Tx_Exmpted);
 				excel1.setreportData("Last N days", 8, 1, Tx_Exmpted);
 
@@ -925,6 +992,7 @@ public WebDriver driver;
 					
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Last N days", 8, 1, st);
+					excel.setreportData("Last N days", 8, 26, st);
 					excel.setreportData("Last N days", 45, 1, st);
 					excel1.setreportData("Last N days", 8, 1, st);
 
@@ -938,6 +1006,7 @@ public WebDriver driver;
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last N days", 12, 1, RoundOff);
+				excel.setreportData("Last N days", 12, 26, RoundOff);
 				excel.setreportData("Last N days", 49, 1, RoundOff);
 				excel1.setreportData("Last N days", 12, 1, RoundOff);
 
@@ -950,17 +1019,20 @@ public WebDriver driver;
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last N days", 3, 1, "0.00");
+				excel.setreportData("Last N days", 3, 26, "0.00");
 				excel.setreportData("Last N days", 40, 1, "0.00");
 				excel1.setreportData("Last N days", 3, 1, "0.00");
 
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last N days", 8, 1, st);
+				excel.setreportData("Last N days", 8, 26, st);
 				excel.setreportData("Last N days", 45, 1, st);
 				excel1.setreportData("Last N days", 8, 1, st);
 
 				//Export Tax value to Excel
 				excel.setreportData("Last N days", 12, 1, st);
+				excel.setreportData("Last N days", 12, 26, st);
 				excel.setreportData("Last N days", 49, 1, st);
 				excel1.setreportData("Last N days", 12, 1, st);
 	
@@ -978,6 +1050,7 @@ public WebDriver driver;
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last N days", 4, 1, Discnt);
+				excel.setreportData("Last N days", 4, 26, Discnt);
 				excel.setreportData("Last N days", 41, 1, Discnt);
 				excel1.setreportData("Last N days", 4, 1, Discnt);
 	
@@ -988,6 +1061,7 @@ public WebDriver driver;
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last N days", 13, 1, DiscntTx);
+				excel.setreportData("Last N days", 13, 26, DiscntTx);
 				excel.setreportData("Last N days", 50, 1, DiscntTx);
 				excel1.setreportData("Last N days", 13, 1, DiscntTx);
 	
@@ -1000,11 +1074,13 @@ public WebDriver driver;
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last N days", 4, 1, "0.00");
+				excel.setreportData("Last N days", 4, 26, "0.00");
 				excel.setreportData("Last N days", 41, 1, "0.00");
 				excel1.setreportData("Last N days", 4, 1, "0.00");
 
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last N days", 13, 1, st);
+				excel.setreportData("Last N days", 13, 26, st);
 				excel.setreportData("Last N days", 50, 1, st);
 				excel1.setreportData("Last N days", 13, 1, st);
 
@@ -1022,6 +1098,7 @@ public WebDriver driver;
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last N days", 11, 1, Refund);
+				excel.setreportData("Last N days", 11, 26, Refund);
 				excel.setreportData("Last N days", 48, 1, Refund);
 				excel1.setreportData("Last N days", 11, 1, Refund);
 
@@ -1033,6 +1110,7 @@ public WebDriver driver;
 
 				//Export Discount value to Excel
 				excel.setreportData("Last N days", 11, 1, st);
+				excel.setreportData("Last N days", 11, 26, st);
 				excel.setreportData("Last N days", 48, 1, st);
 				excel1.setreportData("Last N days", 11, 1, st);
 
@@ -1085,6 +1163,13 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			excel.setreportData("This Week", 6, 1, st);
 			excel.setreportData("This Week", 7, 1, st);
 			
+			excel.setreportData("This Week", 2, 26, st);
+			excel.setreportData("This Week", 3, 26, st);
+			excel.setreportData("This Week", 4, 26, st);
+			excel.setreportData("This Week", 5, 26, st);
+			excel.setreportData("This Week", 6, 26, st);
+			excel.setreportData("This Week", 7, 26, st);
+			
 			excel.setreportData("This Week", 39, 1, st);
 			excel.setreportData("This Week", 40, 1, st);
 			excel.setreportData("This Week", 41, 1, st);
@@ -1120,6 +1205,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the Net Sales value to Excel
 			excel.setreportData("This Week", 2, 1, NetSales);
+			excel.setreportData("This Week", 2, 26, NetSales);
 			excel.setreportData("This Week", 39, 1, NetSales);
 			excel1.setreportData("This Week", 2, 1, NetSales);
 
@@ -1131,6 +1217,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This Week", 5, 1, GrandSale);
+			excel.setreportData("This Week", 5, 26, GrandSale);
 			excel.setreportData("This Week", 42, 1, GrandSale);
 			excel1.setreportData("This Week", 5, 1, GrandSale);
 
@@ -1142,6 +1229,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This Week", 6, 1, GrandReceipt);
+			excel.setreportData("This Week", 6, 26, GrandReceipt);
 			excel.setreportData("This Week", 43, 1, GrandReceipt);
 			excel1.setreportData("This Week", 6, 1, GrandReceipt);
 
@@ -1153,6 +1241,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This Week", 7, 1, GrossSales);
+			excel.setreportData("This Week", 7, 26, GrossSales);
 			excel.setreportData("This Week", 44, 1, GrossSales);
 			excel1.setreportData("This Week", 7, 1, GrossSales);
 
@@ -1164,6 +1253,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This Week", 9, 1, NetVoid);
+			excel.setreportData("This Week", 9, 26, NetVoid);
 			excel.setreportData("This Week", 46, 1, NetVoid);
 			excel1.setreportData("This Week", 9, 1, NetVoid);
 
@@ -1175,6 +1265,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This Week", 10, 1, GrossVoid);
+			excel.setreportData("This Week", 10, 26, GrossVoid);
 			excel.setreportData("This Week", 47, 1, GrossVoid);
 			excel1.setreportData("This Week", 10, 1, GrossVoid);
 
@@ -1197,6 +1288,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("This Week", 3, 1, Tx);
+				excel.setreportData("This Week", 3, 26, Tx);
 				excel.setreportData("This Week", 40, 1, Tx);
 				excel1.setreportData("This Week", 3, 1, Tx);
 
@@ -1211,6 +1303,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("This Week", 8, 1, Tx_Exmpted);
+				excel.setreportData("This Week", 8, 26, Tx_Exmpted);
 				excel.setreportData("This Week", 45, 1, Tx_Exmpted);
 				excel1.setreportData("This Week", 8, 1, Tx_Exmpted);
 
@@ -1222,6 +1315,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 					
 					//Export Tax Exempted value to Excel
 					excel.setreportData("This Week", 8, 1, st);
+					excel.setreportData("This Week", 8, 26, st);
 					excel.setreportData("This Week", 45, 1, st);
 					excel1.setreportData("This Week", 8, 1, st);
 
@@ -1235,6 +1329,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("This Week", 12, 1, RoundOff);
+				excel.setreportData("This Week", 12, 26, RoundOff);
 				excel.setreportData("This Week", 49, 1, RoundOff);
 				excel1.setreportData("This Week", 12, 1, RoundOff);
 
@@ -1247,16 +1342,19 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("This Week", 3, 1, "0.00");
+				excel.setreportData("This Week", 3, 26, "0.00");
 				excel.setreportData("This Week", 40, 1, "0.00");
 				excel1.setreportData("This Week", 3, 1, "0.00");
 
 				//Export Tax Exempted value to Excel
 				excel.setreportData("This Week", 8, 1, st);
+				excel.setreportData("This Week", 8, 26, st);
 				excel.setreportData("This Week", 45, 1, st);
 				excel1.setreportData("This Week", 8, 1, st);
 
 				//Export Tax value to Excel
 				excel.setreportData("This Week", 12, 1, st);
+				excel.setreportData("This Week", 12, 26, st);
 				excel.setreportData("This Week", 49, 1, st);
 				excel1.setreportData("This Week", 12, 1, st);
 
@@ -1274,6 +1372,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("This Week", 4, 1, Discnt);
+				excel.setreportData("This Week", 4, 26, Discnt);
 				excel.setreportData("This Week", 41, 1, Discnt);
 				excel1.setreportData("This Week", 4, 1, Discnt);
 
@@ -1284,6 +1383,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("This Week", 13, 1, DiscntTx);
+				excel.setreportData("This Week", 13, 26, DiscntTx);
 				excel.setreportData("This Week", 50, 1, DiscntTx);
 				excel1.setreportData("This Week", 13, 1, DiscntTx);
 
@@ -1296,6 +1396,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("This Week", 4, 1, "0.00");
+				excel.setreportData("This Week", 4, 26, "0.00");
 				excel.setreportData("This Week", 41, 1, "0.00");
 				excel1.setreportData("This Week", 4, 1, "0.00");
 
@@ -1304,6 +1405,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("This Week", 13, 1, st);
+				excel.setreportData("This Week", 13, 26, st);
 				excel.setreportData("This Week", 50, 1, st);
 				excel1.setreportData("This Week", 13, 1, st);
 
@@ -1321,6 +1423,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("This Week", 11, 1, Refund);
+				excel.setreportData("This Week", 11, 26, Refund);
 				excel.setreportData("This Week", 48, 1, Refund);
 				excel1.setreportData("This Week", 11, 1, Refund);
 
@@ -1332,6 +1435,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 
 				//Export Discount value to Excel
 				excel.setreportData("This Week", 11, 1, st);
+				excel.setreportData("This Week", 11, 26, st);
 				excel.setreportData("This Week", 48, 1, st);
 				excel1.setreportData("This Week", 11, 1, st);
 
@@ -1381,6 +1485,13 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			excel.setreportData("Last Week", 6, 1, st);
 			excel.setreportData("Last Week", 7, 1, st);
 			
+			excel.setreportData("Last Week", 2, 26, st);
+			excel.setreportData("Last Week", 3, 26, st);
+			excel.setreportData("Last Week", 4, 26, st);
+			excel.setreportData("Last Week", 5, 26, st);
+			excel.setreportData("Last Week", 6, 26, st);
+			excel.setreportData("Last Week", 7, 26, st);
+			
 			excel.setreportData("Last Week", 39, 1, st);
 			excel.setreportData("Last Week", 40, 1, st);
 			excel.setreportData("Last Week", 41, 1, st);
@@ -1416,6 +1527,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the Net Sales value to Excel
 			excel.setreportData("Last Week", 2, 1, NetSales);
+			excel.setreportData("Last Week", 2, 26, NetSales);
 			excel.setreportData("Last Week", 39, 1, NetSales);
 			excel1.setreportData("Last Week", 2, 1, NetSales);
 
@@ -1427,6 +1539,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last Week", 5, 1, GrandSale);
+			excel.setreportData("Last Week", 5, 26, GrandSale);
 			excel.setreportData("Last Week", 42, 1, GrandSale);
 			excel1.setreportData("Last Week", 5, 1, GrandSale);
 
@@ -1438,6 +1551,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last Week", 6, 1, GrandReceipt);
+			excel.setreportData("Last Week", 6, 26, GrandReceipt);
 			excel.setreportData("Last Week", 43, 1, GrandReceipt);
 			excel1.setreportData("Last Week", 6, 1, GrandReceipt);
 
@@ -1449,6 +1563,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last Week", 7, 1, GrossSales);
+			excel.setreportData("Last Week", 7, 26, GrossSales);
 			excel.setreportData("Last Week", 44, 1, GrossSales);
 			excel1.setreportData("Last Week", 7, 1, GrossSales);
 
@@ -1460,6 +1575,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last Week", 9, 1, NetVoid);
+			excel.setreportData("Last Week", 9, 26, NetVoid);
 			excel.setreportData("Last Week", 46, 1, NetVoid);
 			excel1.setreportData("Last Week", 9, 1, NetVoid);
 
@@ -1471,6 +1587,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last Week", 10, 1, GrossVoid);
+			excel.setreportData("Last Week", 10, 26, GrossVoid);
 			excel.setreportData("Last Week", 47, 1, GrossVoid);
 			excel1.setreportData("Last Week", 10, 1, GrossVoid);
 
@@ -1493,6 +1610,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last Week", 3, 1, Tx);
+				excel.setreportData("Last Week", 3, 26, Tx);
 				excel.setreportData("Last Week", 40, 1, Tx);
 				excel1.setreportData("Last Week", 3, 1, Tx);
 
@@ -1507,6 +1625,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last Week", 8, 1, Tx_Exmpted);
+				excel.setreportData("Last Week", 8, 26, Tx_Exmpted);
 				excel.setreportData("Last Week", 45, 1, Tx_Exmpted);
 				excel1.setreportData("Last Week", 8, 1, Tx_Exmpted);
 
@@ -1518,6 +1637,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 					
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Last Week", 8, 1, st);
+					excel.setreportData("Last Week", 8, 26, st);
 					excel.setreportData("Last Week", 45, 1, st);
 					excel1.setreportData("Last Week", 8, 1, st);
 
@@ -1531,6 +1651,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last Week", 12, 1, RoundOff);
+				excel.setreportData("Last Week", 12, 26, RoundOff);
 				excel.setreportData("Last Week", 49, 1, RoundOff);
 				excel1.setreportData("Last Week", 12, 1, RoundOff);
 
@@ -1543,16 +1664,19 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last Week", 3, 1, "0.00");
+				excel.setreportData("Last Week", 3, 26, "0.00");
 				excel.setreportData("Last Week", 40, 1, "0.00");
 				excel1.setreportData("Last Week", 3, 1, "0.00");
 
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last Week", 8, 1, st);
+				excel.setreportData("Last Week", 8, 26, st);
 				excel.setreportData("Last Week", 45, 1, st);
 				excel1.setreportData("Last Week", 8, 1, st);
 
 				//Export Tax value to Excel
 				excel.setreportData("Last Week", 12, 1, st);
+				excel.setreportData("Last Week", 12, 26, st);
 				excel.setreportData("Last Week", 49, 1, st);
 				excel1.setreportData("Last Week", 12, 1, st);
 
@@ -1570,6 +1694,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last Week", 4, 1, Discnt);
+				excel.setreportData("Last Week", 4, 26, Discnt);
 				excel.setreportData("Last Week", 41, 1, Discnt);
 				excel1.setreportData("Last Week", 4, 1, Discnt);
 
@@ -1580,6 +1705,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last Week", 13, 1, DiscntTx);
+				excel.setreportData("Last Week", 13, 26, DiscntTx);
 				excel.setreportData("Last Week", 50, 1, DiscntTx);
 				excel1.setreportData("Last Week", 13, 1, DiscntTx);
 
@@ -1592,12 +1718,15 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last Week", 4, 1, "0.00");
+				excel.setreportData("Last Week", 4, 26, "0.00");
 				excel.setreportData("Last Week", 41, 1, "0.00");
 				excel1.setreportData("Last Week", 4, 1, "0.00");
 
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last Week", 13, 1, st);
+				excel.setreportData("Last Week", 13, 26, st);
 				excel.setreportData("Last Week", 50, 1, st);
+				excel1.setreportData("Last Week", 13, 1, st);
 			}
 			
 			try
@@ -1612,6 +1741,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last Week", 11, 1, Refund);
+				excel.setreportData("Last Week", 11, 26, Refund);
 				excel.setreportData("Last Week", 48, 1, Refund);
 				excel1.setreportData("Last Week", 11, 1, Refund);
 
@@ -1623,6 +1753,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 
 				//Export Discount value to Excel
 				excel.setreportData("Last Week", 11, 1, st);
+				excel.setreportData("Last Week", 11, 26, st);
 				excel.setreportData("Last Week", 48, 1, st);
 				excel1.setreportData("Last Week", 11, 1, st);
 
@@ -1671,6 +1802,13 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			excel.setreportData("Last 7 days", 6, 1, st);
 			excel.setreportData("Last 7 days", 7, 1, st);
 			
+			excel.setreportData("Last 7 days", 2, 26, st);
+			excel.setreportData("Last 7 days", 3, 26, st);
+			excel.setreportData("Last 7 days", 4, 26, st);
+			excel.setreportData("Last 7 days", 5, 26, st);
+			excel.setreportData("Last 7 days", 6, 26, st);
+			excel.setreportData("Last 7 days", 7, 26, st);
+			
 			excel.setreportData("Last 7 days", 39, 1, st);
 			excel.setreportData("Last 7 days", 40, 1, st);
 			excel.setreportData("Last 7 days", 41, 1, st);
@@ -1706,6 +1844,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the Net Sales value to Excel
 			excel.setreportData("Last 7 days", 2, 1, NetSales);
+			excel.setreportData("Last 7 days", 2, 26, NetSales);
 			excel.setreportData("Last 7 days", 39, 1, NetSales);
 			excel1.setreportData("Last 7 days", 2, 1, NetSales);
 
@@ -1715,6 +1854,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 7 days", 5, 1, GrandSale);
+			excel.setreportData("Last 7 days", 5, 26, GrandSale);
 			excel.setreportData("Last 7 days", 42, 1, GrandSale);
 			excel1.setreportData("Last 7 days", 5, 1, GrandSale);
 	
@@ -1724,6 +1864,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 7 days", 6, 1, GrandReceipt);
+			excel.setreportData("Last 7 days", 6, 26, GrandReceipt);
 			excel.setreportData("Last 7 days", 43, 1, GrandReceipt);
 			excel1.setreportData("Last 7 days", 6, 1, GrandReceipt);
 
@@ -1733,6 +1874,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 7 days", 7, 1, GrossSales);
+			excel.setreportData("Last 7 days", 7, 26, GrossSales);
 			excel.setreportData("Last 7 days", 44, 1, GrossSales);
 			excel1.setreportData("Last 7 days", 7, 1, GrossSales);
 
@@ -1742,6 +1884,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 7 days", 9, 1, NetVoid);
+			excel.setreportData("Last 7 days", 9, 26, NetVoid);
 			excel.setreportData("Last 7 days", 46, 1, NetVoid);
 			excel1.setreportData("Last 7 days", 9, 1, NetVoid);
 
@@ -1753,6 +1896,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 7 days", 10, 1, GrossVoid);
+			excel.setreportData("Last 7 days", 10, 26, GrossVoid);
 			excel.setreportData("Last 7 days", 47, 1, GrossVoid);
 			excel1.setreportData("Last 7 days", 10, 1, GrossVoid);
 	
@@ -1775,6 +1919,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last 7 days", 3, 1, Tx);
+				excel.setreportData("Last 7 days", 3, 26, Tx);
 				excel.setreportData("Last 7 days", 40, 1, Tx);
 				excel1.setreportData("Last 7 days", 3, 1, Tx);
 	
@@ -1789,6 +1934,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last 7 days", 8, 1, Tx_Exmpted);
+				excel.setreportData("Last 7 days", 8, 26, Tx_Exmpted);
 				excel.setreportData("Last 7 days", 45, 1, Tx_Exmpted);
 				excel1.setreportData("Last 7 days", 8, 1, Tx_Exmpted);
 
@@ -1800,6 +1946,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 					
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Last 7 days", 8, 1, st);
+					excel.setreportData("Last 7 days", 8, 26, st);
 					excel.setreportData("Last 7 days", 45, 1, st);
 					excel1.setreportData("Last 7 days", 8, 1, st);
 
@@ -1813,6 +1960,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last 7 days", 12, 1, RoundOff);
+				excel.setreportData("Last 7 days", 12, 26, RoundOff);
 				excel.setreportData("Last 7 days", 49, 1, RoundOff);
 				excel1.setreportData("Last 7 days", 12, 1, RoundOff);
 
@@ -1825,17 +1973,20 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last 7 days", 3, 1, "0.00");
+				excel.setreportData("Last 7 days", 3, 26, "0.00");
 				excel.setreportData("Last 7 days", 40, 1, "0.00");
 				excel1.setreportData("Last 7 days", 3, 1, "0.00");
 
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last 7 days", 8, 1, st);
+				excel.setreportData("Last 7 days", 8, 26, st);
 				excel.setreportData("Last 7 days", 45, 1, st);
 				excel1.setreportData("Last 7 days", 8, 1, st);
 
 				//Export Tax value to Excel
 				excel.setreportData("Last 7 days", 12, 1, st);
+				excel.setreportData("Last 7 days", 12, 26, st);
 				excel.setreportData("Last 7 days", 49, 1, st);
 				excel1.setreportData("Last 7 days", 12, 1, st);
 
@@ -1853,6 +2004,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last 7 days", 4, 1, Discnt);
+				excel.setreportData("Last 7 days", 4, 26, Discnt);
 				excel.setreportData("Last 7 days", 41, 1, Discnt);
 				excel1.setreportData("Last 7 days", 4, 1, Discnt);
 
@@ -1863,6 +2015,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last 7 days", 13, 1, DiscntTx);
+				excel.setreportData("Last 7 days", 13, 26, DiscntTx);
 				excel.setreportData("Last 7 days", 50, 1, DiscntTx);
 				excel1.setreportData("Last 7 days", 13, 1, DiscntTx);
 
@@ -1875,11 +2028,13 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last 7 days", 4, 1, "0.00");
+				excel.setreportData("Last 7 days", 4, 26, "0.00");
 				excel.setreportData("Last 7 days", 41, 1, "0.00");
 				excel1.setreportData("Last 7 days", 4, 1, "0.00");
 
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last 7 days", 13, 1, st);
+				excel.setreportData("Last 7 days", 13, 26, st);
 				excel.setreportData("Last 7 days", 50, 1, st);
 				excel1.setreportData("Last 7 days", 13, 1, st);
 
@@ -1897,6 +2052,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last 7 days", 11, 1, Refund);
+				excel.setreportData("Last 7 days", 11, 26, Refund);
 				excel.setreportData("Last 7 days", 48, 1, Refund);
 				excel1.setreportData("Last 7 days", 11, 1, Refund);
 
@@ -1908,6 +2064,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 
 				//Export Discount value to Excel
 				excel.setreportData("Last 7 days", 11, 1, st);
+				excel.setreportData("Last 7 days", 11, 26, st);
 				excel.setreportData("Last 7 days", 48, 1, st);
 				excel1.setreportData("Last 7 days", 11, 1, st);
 
@@ -1959,6 +2116,13 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			excel.setreportData("This month", 6, 1, st);
 			excel.setreportData("This month", 7, 1, st);
 			
+			excel.setreportData("This month", 2, 26, st);
+			excel.setreportData("This month", 3, 26, st);
+			excel.setreportData("This month", 4, 26, st);
+			excel.setreportData("This month", 5, 26, st);
+			excel.setreportData("This month", 6, 26, st);
+			excel.setreportData("This month", 7, 26, st);
+			
 			excel.setreportData("This month", 39, 1, st);
 			excel.setreportData("This month", 40, 1, st);
 			excel.setreportData("This month", 41, 1, st);
@@ -1994,6 +2158,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the Net Sales value to Excel
 			excel.setreportData("This month", 2, 1, NetSales);
+			excel.setreportData("This month", 2, 26, NetSales);
 			excel.setreportData("This month", 39, 1, NetSales);
 			excel1.setreportData("This month", 2, 1, NetSales);
 
@@ -2003,6 +2168,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This month", 5, 1, GrandSale);
+			excel.setreportData("This month", 5, 26, GrandSale);
 			excel.setreportData("This month", 42, 1, GrandSale);
 			excel1.setreportData("This month", 5, 1, GrandSale);
 	
@@ -2014,6 +2180,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This month", 6, 1, GrandReceipt);
+			excel.setreportData("This month", 6, 26, GrandReceipt);
 			excel.setreportData("This month", 43, 1, GrandReceipt);
 			excel1.setreportData("This month", 6, 1, GrandReceipt);
 
@@ -2025,6 +2192,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This month", 7, 1, GrossSales);
+			excel.setreportData("This month", 7, 26, GrossSales);
 			excel.setreportData("This month", 44, 1, GrossSales);
 			excel1.setreportData("This month", 7, 1, GrossSales);
 	
@@ -2036,6 +2204,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This month", 9, 1, NetVoid);
+			excel.setreportData("This month", 9, 26, NetVoid);
 			excel.setreportData("This month", 46, 1, NetVoid);
 			excel1.setreportData("This month", 9, 1, NetVoid);
 
@@ -2047,6 +2216,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("This month", 10, 1, GrossVoid);
+			excel.setreportData("This month", 10, 26, GrossVoid);
 			excel.setreportData("This month", 47, 1, GrossVoid);
 			excel1.setreportData("This month", 10, 1, GrossVoid);
 	
@@ -2069,6 +2239,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("This month", 3, 1, Tx);
+				excel.setreportData("This month", 3, 26, Tx);
 				excel.setreportData("This month", 40, 1, Tx);
 				excel1.setreportData("This month", 3, 1, Tx);
 	
@@ -2083,6 +2254,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("This month", 8, 1, Tx_Exmpted);
+				excel.setreportData("This month", 8, 26, Tx_Exmpted);
 				excel.setreportData("This month", 45, 1, Tx_Exmpted);
 				excel1.setreportData("This month", 8, 1, Tx_Exmpted);
 
@@ -2094,6 +2266,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 					
 					//Export Tax Exempted value to Excel
 					excel.setreportData("This month", 8, 1, st);
+					excel.setreportData("This month", 8, 26, st);
 					excel.setreportData("This month", 45, 1, st);
 					excel1.setreportData("This month", 8, 1, st);
 
@@ -2107,6 +2280,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("This month", 12, 1, RoundOff);
+				excel.setreportData("This month", 12, 26, RoundOff);
 				excel.setreportData("This month", 49, 1, RoundOff);
 				excel1.setreportData("This month", 12, 1, RoundOff);
 
@@ -2119,16 +2293,19 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("This month", 3, 1, "0.00");
+				excel.setreportData("This month", 3, 26, "0.00");
 				excel.setreportData("This month", 40, 1, "0.00");
 				excel1.setreportData("This month", 3, 1, "0.00");
 
 				//Export Tax Exempted value to Excel
 				excel.setreportData("This month", 8, 1, st);
+				excel.setreportData("This month", 8, 26, st);
 				excel.setreportData("This month", 45, 1, st);
 				excel1.setreportData("This month", 8, 1, st);
 
 				//Export Tax value to Excel
 				excel.setreportData("This month", 12, 1, st);
+				excel.setreportData("This month", 12, 26, st);
 				excel.setreportData("This month", 49, 1, st);
 				excel1.setreportData("This month", 12, 1, st);
 	
@@ -2146,6 +2323,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("This month", 4, 1, Discnt);
+				excel.setreportData("This month", 4, 26, Discnt);
 				excel.setreportData("This month", 41, 1, Discnt);
 				excel1.setreportData("This month", 4, 1, Discnt);
 	
@@ -2156,6 +2334,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("This month", 13, 1, DiscntTx);
+				excel.setreportData("This month", 13, 26, DiscntTx);
 				excel.setreportData("This month", 50, 1, DiscntTx);
 				excel1.setreportData("This month", 13, 1, DiscntTx);
 	
@@ -2168,11 +2347,13 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("This month", 4, 1, "0.00");
+				excel.setreportData("This month", 4, 26, "0.00");
 				excel.setreportData("This month", 41, 1, "0.00");
 				excel1.setreportData("This month", 4, 1, "0.00");
 	
 				//Export Discount Tax value to Excel
 				excel.setreportData("This month", 13, 1, st);
+				excel.setreportData("This month", 13, 26, st);
 				excel.setreportData("This month", 50, 1, st);
 				excel1.setreportData("This month", 13, 1, st);
 
@@ -2190,6 +2371,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("This month", 11, 1, Refund);
+				excel.setreportData("This month", 11, 26, Refund);
 				excel.setreportData("This month", 48, 1, Refund);
 				excel1.setreportData("This month", 11, 1, Refund);
 
@@ -2201,6 +2383,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 
 				//Export Discount value to Excel
 				excel.setreportData("This month", 11, 1, st);
+				excel.setreportData("This month", 11, 26, st);
 				excel.setreportData("This month", 48, 1, st);
 				excel1.setreportData("This month", 11, 1, st);
 
@@ -2251,6 +2434,13 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			excel.setreportData("Last month", 6, 1, st);
 			excel.setreportData("Last month", 7, 1, st);
 			
+			excel.setreportData("Last month", 2, 26, st);
+			excel.setreportData("Last month", 3, 26, st);
+			excel.setreportData("Last month", 4, 26, st);
+			excel.setreportData("Last month", 5, 26, st);
+			excel.setreportData("Last month", 6, 26, st);
+			excel.setreportData("Last month", 7, 26, st);
+			
 			excel.setreportData("Last month", 39, 1, st);
 			excel.setreportData("Last month", 40, 1, st);
 			excel.setreportData("Last month", 41, 1, st);
@@ -2286,6 +2476,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the Net Sales value to Excel
 			excel.setreportData("Last month", 2, 1, NetSales);
+			excel.setreportData("Last month", 2, 26, NetSales);
 			excel.setreportData("Last month", 39, 1, NetSales);
 			excel1.setreportData("Last month", 2, 1, NetSales);
 
@@ -2297,6 +2488,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last month", 5, 1, GrandSale);
+			excel.setreportData("Last month", 5, 26, GrandSale);
 			excel.setreportData("Last month", 42, 1, GrandSale);
 			excel1.setreportData("Last month", 5, 1, GrandSale);
 
@@ -2308,6 +2500,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last month", 6, 1, GrandReceipt);
+			excel.setreportData("Last month", 6, 26, GrandReceipt);
 			excel.setreportData("Last month", 43, 1, GrandReceipt);
 			excel1.setreportData("Last month", 6, 1, GrandReceipt);
 
@@ -2319,6 +2512,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last month", 7, 1, GrossSales);
+			excel.setreportData("Last month", 7, 26, GrossSales);
 			excel.setreportData("Last month", 44, 1, GrossSales);
 			excel1.setreportData("Last month", 7, 1, GrossSales);
 
@@ -2330,6 +2524,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last month", 9, 1, NetVoid);
+			excel.setreportData("Last month", 9, 26, NetVoid);
 			excel.setreportData("Last month", 46, 1, NetVoid);
 			excel1.setreportData("Last month", 9, 1, NetVoid);
 
@@ -2341,6 +2536,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last month", 10, 1, GrossVoid);
+			excel.setreportData("Last month", 10, 26, GrossVoid);
 			excel.setreportData("Last month", 47, 1, GrossVoid);
 			excel1.setreportData("Last month", 10, 1, GrossVoid);
 
@@ -2363,6 +2559,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last month", 3, 1, Tx);
+				excel.setreportData("Last month", 3, 26, Tx);
 				excel.setreportData("Last month", 40, 1, Tx);
 				excel1.setreportData("Last month", 3, 1, Tx);
 
@@ -2377,6 +2574,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last month", 8, 1, Tx_Exmpted);
+				excel.setreportData("Last month", 8, 26, Tx_Exmpted);
 				excel.setreportData("Last month", 45, 1, Tx_Exmpted);
 				excel1.setreportData("Last month", 8, 1, Tx_Exmpted);
 
@@ -2388,6 +2586,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 					
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Last month", 8, 1, st);
+					excel.setreportData("Last month", 8, 26, st);
 					excel.setreportData("Last month", 45, 1, st);
 					excel1.setreportData("Last month", 8, 1, st);
 
@@ -2401,6 +2600,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last month", 12, 1, RoundOff);
+				excel.setreportData("Last month", 12, 26, RoundOff);
 				excel.setreportData("Last month", 49, 1, RoundOff);
 				excel1.setreportData("Last month", 12, 1, RoundOff);
 
@@ -2413,16 +2613,19 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last month", 3, 1, "0.00");
+				excel.setreportData("Last month", 3, 26, "0.00");
 				excel.setreportData("Last month", 40, 1, "0.00");
 				excel1.setreportData("Last month", 3, 1, "0.00");
 	
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last month", 8, 1, st);
+				excel.setreportData("Last month", 8, 26, st);
 				excel.setreportData("Last month", 45, 1, st);
 				excel1.setreportData("Last month", 8, 1, st);
 
 				//Export Tax value to Excel
 				excel.setreportData("Last month", 12, 1, st);
+				excel.setreportData("Last month", 12, 26, st);
 				excel.setreportData("Last month", 49, 1, st);
 				excel1.setreportData("Last month", 12, 1, st);
 	
@@ -2440,6 +2643,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last month", 4, 1, Discnt);
+				excel.setreportData("Last month", 4, 26, Discnt);
 				excel.setreportData("Last month", 41, 1, Discnt);
 				excel1.setreportData("Last month", 4, 1, Discnt);
 
@@ -2450,6 +2654,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last month", 13, 1, DiscntTx);
+				excel.setreportData("Last month", 13, 26, DiscntTx);
 				excel.setreportData("Last month", 50, 1, DiscntTx);
 				excel1.setreportData("Last month", 13, 1, DiscntTx);
 
@@ -2462,11 +2667,13 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last month", 4, 1, "0.00");
+				excel.setreportData("Last month", 4, 26, "0.00");
 				excel.setreportData("Last month", 41, 1, "0.00");
 				excel1.setreportData("Last month", 4, 1, "0.00");
 
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last month", 13, 1, st);
+				excel.setreportData("Last month", 13, 26, st);
 				excel.setreportData("Last month", 50, 1, st);
 				excel1.setreportData("Last month", 13, 1, st);
 
@@ -2484,6 +2691,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last month", 11, 1, Refund);
+				excel.setreportData("Last month", 11, 26, Refund);
 				excel.setreportData("Last month", 48, 1, Refund);
 				excel1.setreportData("Last month", 11, 1, Refund);
 
@@ -2495,6 +2703,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 
 				//Export Discount value to Excel
 				excel.setreportData("Last month", 11, 1, st);
+				excel.setreportData("Last month", 11, 26, st);
 				excel.setreportData("Last month", 48, 1, st);
 				excel1.setreportData("Last month", 11, 1, st);
 
@@ -2547,6 +2756,13 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			excel.setreportData("Last 30 days", 6, 1, st);
 			excel.setreportData("Last 30 days", 7, 1, st);
 			
+			excel.setreportData("Last 30 days", 2, 26, st);
+			excel.setreportData("Last 30 days", 3, 26, st);
+			excel.setreportData("Last 30 days", 4, 26, st);
+			excel.setreportData("Last 30 days", 5, 26, st);
+			excel.setreportData("Last 30 days", 6, 26, st);
+			excel.setreportData("Last 30 days", 7, 26, st);
+			
 			excel.setreportData("Last 30 days", 39, 1, st);
 			excel.setreportData("Last 30 days", 40, 1, st);
 			excel.setreportData("Last 30 days", 41, 1, st);
@@ -2582,6 +2798,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the Net Sales value to Excel
 			excel.setreportData("Last 30 days", 2, 1, NetSales);
+			excel.setreportData("Last 30 days", 2, 26, NetSales);
 			excel.setreportData("Last 30 days", 39, 1, NetSales);
 			excel1.setreportData("Last 30 days", 2, 1, NetSales);
 
@@ -2593,6 +2810,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 30 days", 5, 1, GrandSale);
+			excel.setreportData("Last 30 days", 5, 26, GrandSale);
 			excel.setreportData("Last 30 days", 42, 1, GrandSale);
 			excel1.setreportData("Last 30 days", 5, 1, GrandSale);
 
@@ -2604,6 +2822,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 30 days", 6, 1, GrandReceipt);
+			excel.setreportData("Last 30 days", 6, 26, GrandReceipt);
 			excel.setreportData("Last 30 days", 43, 1, GrandReceipt);
 			excel1.setreportData("Last 30 days", 6, 1, GrandReceipt);
 
@@ -2615,6 +2834,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 30 days", 7, 1, GrossSales);
+			excel.setreportData("Last 30 days", 7, 26, GrossSales);
 			excel.setreportData("Last 30 days", 44, 1, GrossSales);
 			excel1.setreportData("Last 30 days", 7, 1, GrossSales);
 	
@@ -2626,6 +2846,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 30 days", 9, 1, NetVoid);
+			excel.setreportData("Last 30 days", 9, 26, NetVoid);
 			excel.setreportData("Last 30 days", 46, 1, NetVoid);
 			excel1.setreportData("Last 30 days", 9, 1, NetVoid);
 
@@ -2637,6 +2858,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Last 30 days", 10, 1, GrossVoid);
+			excel.setreportData("Last 30 days", 10, 26, GrossVoid);
 			excel.setreportData("Last 30 days", 47, 1, GrossVoid);
 			excel1.setreportData("Last 30 days", 10, 1, GrossVoid);
 
@@ -2659,6 +2881,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last 30 days", 3, 1, Tx);
+				excel.setreportData("Last 30 days", 3, 26, Tx);
 				excel.setreportData("Last 30 days", 40, 1, Tx);
 				excel1.setreportData("Last 30 days", 3, 1, Tx);
 
@@ -2673,6 +2896,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last 30 days", 8, 1, Tx_Exmpted);
+				excel.setreportData("Last 30 days", 8, 26, Tx_Exmpted);
 				excel.setreportData("Last 30 days", 45, 1, Tx_Exmpted);
 				excel1.setreportData("Last 30 days", 8, 1, Tx_Exmpted);
 
@@ -2684,6 +2908,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 					
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Last 30 days", 8, 1, st);
+					excel.setreportData("Last 30 days", 8, 26, st);
 					excel.setreportData("Last 30 days", 45, 1, st);
 					excel1.setreportData("Last 30 days", 8, 1, st);
 
@@ -2696,6 +2921,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last 30 days", 12, 1, RoundOff);
+				excel.setreportData("Last 30 days", 12, 26, RoundOff);
 				excel.setreportData("Last 30 days", 49, 1, RoundOff);
 				excel1.setreportData("Last 30 days", 12, 1, RoundOff);
 
@@ -2708,16 +2934,19 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Last 30 days", 3, 1, "0.00");
+				excel.setreportData("Last 30 days", 3, 26, "0.00");
 				excel.setreportData("Last 30 days", 40, 1, "0.00");
 				excel1.setreportData("Last 30 days", 3, 1, "0.00");
 
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Last 30 days", 8, 1, st);
+				excel.setreportData("Last 30 days", 8, 26, st);
 				excel.setreportData("Last 30 days", 45, 1, st);
 				excel1.setreportData("Last 30 days", 8, 1, st);
 		
 				//Export Tax value to Excel
 				excel.setreportData("Last 30 days", 12, 1, st);
+				excel.setreportData("Last 30 days", 12, 26, st);
 				excel.setreportData("Last 30 days", 49, 1, st);
 				excel1.setreportData("Last 30 days", 12, 1, st);
 
@@ -2735,6 +2964,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last 30 days", 4, 1, Discnt);
+				excel.setreportData("Last 30 days", 4, 26, Discnt);
 				excel.setreportData("Last 30 days", 41, 1, Discnt);
 				excel1.setreportData("Last 30 days", 4, 1, Discnt);
 	
@@ -2745,6 +2975,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last 30 days", 13, 1, DiscntTx);
+				excel.setreportData("Last 30 days", 13, 26, DiscntTx);
 				excel.setreportData("Last 30 days", 50, 1, DiscntTx);
 				excel1.setreportData("Last 30 days", 13, 1, DiscntTx);
 
@@ -2757,11 +2988,13 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last 30 days", 4, 1, "0.00");
+				excel.setreportData("Last 30 days", 4, 26, "0.00");
 				excel.setreportData("Last 30 days", 41, 1, "0.00");
 				excel1.setreportData("Last 30 days", 4, 1, "0.00");
 
 				//Export Discount Tax value to Excel
 				excel.setreportData("Last 30 days", 13, 1, st);
+				excel.setreportData("Last 30 days", 13, 26, st);
 				excel.setreportData("Last 30 days", 50, 1, st);
 				excel1.setreportData("Last 30 days", 13, 1, st);
 
@@ -2779,6 +3012,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Last 30 days", 11, 1, Refund);
+				excel.setreportData("Last 30 days", 11, 26, Refund);
 				excel.setreportData("Last 30 days", 48, 1, Refund);
 				excel1.setreportData("Last 30 days", 11, 1, Refund);
 
@@ -2790,6 +3024,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 
 				//Export Discount value to Excel
 				excel.setreportData("Last 30 days", 11, 1, st);
+				excel.setreportData("Last 30 days", 11, 26, st);
 				excel.setreportData("Last 30 days", 48, 1, st);
 				excel1.setreportData("Last 30 days", 11, 1, st);
 
@@ -2841,6 +3076,13 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			excel.setreportData("Specific Date", 6, 1, st);
 			excel.setreportData("Specific Date", 7, 1, st);
 			
+			excel.setreportData("Specific Date", 2, 26, st);
+			excel.setreportData("Specific Date", 3, 26, st);
+			excel.setreportData("Specific Date", 4, 26, st);
+			excel.setreportData("Specific Date", 5, 26, st);
+			excel.setreportData("Specific Date", 6, 26, st);
+			excel.setreportData("Specific Date", 7, 26, st);
+			
 			excel.setreportData("Specific Date", 39, 1, st);
 			excel.setreportData("Specific Date", 40, 1, st);
 			excel.setreportData("Specific Date", 41, 1, st);
@@ -2876,6 +3118,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the Net Sales value to Excel
 			excel.setreportData("Specific Date", 2, 1, NetSales);
+			excel.setreportData("Specific Date", 2, 26, NetSales);
 			excel.setreportData("Specific Date", 39, 1, NetSales);
 			excel1.setreportData("Specific Date", 2, 1, NetSales);
 
@@ -2887,6 +3130,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Specific Date", 5, 1, GrandSale);
+			excel.setreportData("Specific Date", 5, 26, GrandSale);
 			excel.setreportData("Specific Date", 42, 1, GrandSale);
 			excel1.setreportData("Specific Date", 5, 1, GrandSale);
 
@@ -2898,6 +3142,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Specific Date", 6, 1, GrandReceipt);
+			excel.setreportData("Specific Date", 6, 26, GrandReceipt);
 			excel.setreportData("Specific Date", 43, 1, GrandReceipt);
 			excel1.setreportData("Specific Date", 6, 1, GrandReceipt);
 
@@ -2909,6 +3154,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Specific Date", 7, 1, GrossSales);
+			excel.setreportData("Specific Date", 7, 26, GrossSales);
 			excel.setreportData("Specific Date", 44, 1, GrossSales);
 			excel1.setreportData("Specific Date", 7, 1, GrossSales);
 
@@ -2920,6 +3166,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Specific Date", 9, 1, NetVoid);
+			excel.setreportData("Specific Date", 9, 26, NetVoid);
 			excel.setreportData("Specific Date", 46, 1, NetVoid);
 			excel1.setreportData("Specific Date", 9, 1, NetVoid);
 
@@ -2931,6 +3178,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Specific Date", 10, 1, GrossVoid);
+			excel.setreportData("Specific Date", 10, 26, GrossVoid);
 			excel.setreportData("Specific Date", 47, 1, GrossVoid);
 			excel1.setreportData("Specific Date", 10, 1, GrossVoid);
 
@@ -2953,6 +3201,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Specific Date", 3, 1, Tx);
+				excel.setreportData("Specific Date", 3, 26, Tx);
 				excel.setreportData("Specific Date", 40, 1, Tx);
 				excel1.setreportData("Specific Date", 3, 1, Tx);
 
@@ -2967,6 +3216,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Specific Date", 8, 1, Tx_Exmpted);
+				excel.setreportData("Specific Date", 8, 26, Tx_Exmpted);
 				excel.setreportData("Specific Date", 45, 1, Tx_Exmpted);
 				excel1.setreportData("Specific Date", 8, 1, Tx_Exmpted);
 
@@ -2978,6 +3228,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 					
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Specific Date", 8, 1, st);
+					excel.setreportData("Specific Date", 8, 26, st);
 					excel.setreportData("Specific Date", 45, 1, st);
 					excel1.setreportData("Specific Date", 8, 1, st);
 
@@ -2991,6 +3242,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Specific Date", 12, 1, RoundOff);
+				excel.setreportData("Specific Date", 12, 26, RoundOff);
 				excel.setreportData("Specific Date", 49, 1, RoundOff);
 				excel1.setreportData("Specific Date", 12, 1, RoundOff);
 
@@ -3003,16 +3255,19 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Specific Date", 3, 1, "0.00");
+				excel.setreportData("Specific Date", 3, 26, "0.00");
 				excel.setreportData("Specific Date", 40, 1, "0.00");
 				excel1.setreportData("Specific Date", 3, 1, "0.00");
 
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Specific Date", 8, 1, st);
+				excel.setreportData("Specific Date", 8, 26, st);
 				excel.setreportData("Specific Date", 45, 1, st);
 				excel1.setreportData("Specific Date", 8, 1, st);
 	
 				//Export Tax value to Excel
 				excel.setreportData("Specific Date", 12, 1, st);
+				excel.setreportData("Specific Date", 12, 26, st);
 				excel.setreportData("Specific Date", 49, 1, st);
 				excel1.setreportData("Specific Date", 12, 1, st);
 
@@ -3030,6 +3285,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Specific Date", 4, 1, Discnt);
+				excel.setreportData("Specific Date", 4, 26, Discnt);
 				excel.setreportData("Specific Date", 41, 1, Discnt);
 				excel1.setreportData("Specific Date", 4, 1, Discnt);
 
@@ -3040,6 +3296,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("Specific Date", 13, 1, DiscntTx);
+				excel.setreportData("Specific Date", 13, 26, DiscntTx);
 				excel.setreportData("Specific Date", 50, 1, DiscntTx);
 				excel1.setreportData("Specific Date", 13, 1, DiscntTx);
 
@@ -3052,11 +3309,13 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Specific Date", 4, 1, "0.00");
+				excel.setreportData("Specific Date", 4, 26, "0.00");
 				excel.setreportData("Specific Date", 41, 1, "0.00");
 				excel1.setreportData("Specific Date", 4, 1, "0.00");
 
 				//Export Discount Tax value to Excel
 				excel.setreportData("Specific Date", 13, 1, st);
+				excel.setreportData("Specific Date", 13, 26, st);
 				excel.setreportData("Specific Date", 50, 1, st);
 				excel1.setreportData("Specific Date", 13, 1, st);
 
@@ -3074,6 +3333,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Specific Date", 11, 1, Refund);
+				excel.setreportData("Specific Date", 11, 26, Refund);
 				excel.setreportData("Specific Date", 48, 1, Refund);
 				excel1.setreportData("Specific Date", 11, 1, Refund);
 
@@ -3085,6 +3345,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 
 				//Export Discount value to Excel
 				excel.setreportData("Specific Date", 11, 1, st);
+				excel.setreportData("Specific Date", 11, 26, st);
 				excel.setreportData("Specific Date", 48, 1, st);
 				excel1.setreportData("Specific Date", 11, 1, st);
 
@@ -3135,6 +3396,13 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			excel.setreportData("Date Range", 6, 1, st);
 			excel.setreportData("Date Range", 7, 1, st);
 			
+			excel.setreportData("Date Range", 2, 26, st);
+			excel.setreportData("Date Range", 3, 26, st);
+			excel.setreportData("Date Range", 4, 26, st);
+			excel.setreportData("Date Range", 5, 26, st);
+			excel.setreportData("Date Range", 6, 26, st);
+			excel.setreportData("Date Range", 7, 26, st);
+			
 			excel.setreportData("Date Range", 39, 1, st);
 			excel.setreportData("Date Range", 40, 1, st);
 			excel.setreportData("Date Range", 41, 1, st);
@@ -3170,6 +3438,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the Net Sales value to Excel
 			excel.setreportData("Date Range", 2, 1, NetSales);
+			excel.setreportData("Date Range", 2, 26, NetSales);
 			excel.setreportData("Date Range", 39, 1, NetSales);
 			excel1.setreportData("Date Range", 2, 1, NetSales);
 
@@ -3181,6 +3450,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Date Range", 5, 1, GrandSale);
+			excel.setreportData("Date Range", 5, 26, GrandSale);
 			excel.setreportData("Date Range", 42, 1, GrandSale);
 			excel1.setreportData("Date Range", 5, 1, GrandSale);
 
@@ -3192,6 +3462,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Date Range", 6, 1, GrandReceipt);
+			excel.setreportData("Date Range", 6, 26, GrandReceipt);
 			excel.setreportData("Date Range", 43, 1, GrandReceipt);
 			excel1.setreportData("Date Range", 6, 1, GrandReceipt);
 
@@ -3203,6 +3474,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Date Range", 7, 1, GrossSales);
+			excel.setreportData("Date Range", 7, 26, GrossSales);
 			excel.setreportData("Date Range", 44, 1, GrossSales);
 			excel1.setreportData("Date Range", 7, 1, GrossSales);
 
@@ -3214,6 +3486,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Date Range", 9, 1, NetVoid);
+			excel.setreportData("Date Range", 9, 26, NetVoid);
 			excel.setreportData("Date Range", 46, 1, NetVoid);
 			excel1.setreportData("Date Range", 9, 1, NetVoid);
 
@@ -3225,6 +3498,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 			
 			//Export the % Grand Sales value to Excel
 			excel.setreportData("Date Range", 10, 1, GrossVoid);
+			excel.setreportData("Date Range", 10, 26, GrossVoid);
 			excel.setreportData("Date Range", 47, 1, GrossVoid);
 			excel1.setreportData("Date Range", 10, 1, GrossVoid);
 
@@ -3247,6 +3521,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Date Range", 3, 1, Tx);
+				excel.setreportData("Date Range", 3, 26, Tx);
 				excel.setreportData("Date Range", 40, 1, Tx);
 				excel1.setreportData("Date Range", 3, 1, Tx);
 
@@ -3261,6 +3536,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Date Range", 8, 1, Tx_Exmpted);
+				excel.setreportData("Date Range", 8, 26, Tx_Exmpted);
 				excel.setreportData("Date Range", 45, 1, Tx_Exmpted);
 				excel1.setreportData("Date Range", 8, 1, Tx_Exmpted);
 
@@ -3272,6 +3548,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 					
 					//Export Tax Exempted value to Excel
 					excel.setreportData("Date Range", 8, 1, st);
+					excel.setreportData("Date Range", 8, 26, st);
 					excel.setreportData("Date Range", 45, 1, st);
 					excel1.setreportData("Date Range", 8, 1, st);
 
@@ -3284,6 +3561,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Date Range", 12, 1, RoundOff);
+				excel.setreportData("Date Range", 12, 26, RoundOff);
 				excel.setreportData("Date Range", 49, 1, RoundOff);
 				excel1.setreportData("Date Range", 12, 1, RoundOff);
 
@@ -3296,16 +3574,19 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Tax value to Excel
 				excel.setreportData("Date Range", 3, 1, "0.00");
+				excel.setreportData("Date Range", 3, 26, "0.00");
 				excel.setreportData("Date Range", 40, 1, "0.00");
 				excel1.setreportData("Date Range", 3, 1, "0.00");
 
 				//Export Tax Exempted value to Excel
 				excel.setreportData("Date Range", 8, 1, st);
+				excel.setreportData("Date Range", 8, 26, st);
 				excel.setreportData("Date Range", 45, 1, st);
 				excel1.setreportData("Date Range", 8, 1, st);
 
 				//Export Tax value to Excel
 				excel.setreportData("Date Range", 12, 1, st);
+				excel.setreportData("Date Range", 12, 26, st);
 				excel.setreportData("Date Range", 49, 1, st);
 				excel1.setreportData("Date Range", 12, 1, st);
 
@@ -3323,6 +3604,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Date Range", 4, 1, Discnt);
+				excel.setreportData("Date Range", 4, 26, Discnt);
 				excel.setreportData("Date Range", 41, 1, Discnt);
 				excel1.setreportData("Date Range", 4, 1, Discnt);
 
@@ -3333,6 +3615,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount Tax value to Excel
 				excel.setreportData("Date Range", 13, 1, DiscntTx);
+				excel.setreportData("Date Range", 13, 26, DiscntTx);
 				excel.setreportData("Date Range", 50, 1, DiscntTx);
 				excel1.setreportData("Date Range", 13, 1, DiscntTx);
 
@@ -3345,11 +3628,13 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Date Range", 4, 1, "0.00");
+				excel.setreportData("Date Range", 4, 26, "0.00");
 				excel.setreportData("Date Range", 41, 1, "0.00");
 				excel1.setreportData("Date Range", 4, 1, "0.00");
 
 				//Export Discount Tax value to Excel
 				excel.setreportData("Date Range", 13, 1, st);
+				excel.setreportData("Date Range", 13, 26, st);
 				excel.setreportData("Date Range", 50, 1, st);
 				excel1.setreportData("Date Range", 13, 1, st);
 
@@ -3367,6 +3652,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 				
 				//Export Discount value to Excel
 				excel.setreportData("Date Range", 11, 1, Refund);
+				excel.setreportData("Date Range", 11, 26, Refund);
 				excel.setreportData("Date Range", 48, 1, Refund);
 				excel1.setreportData("Date Range", 11, 1, Refund);
 
@@ -3378,6 +3664,7 @@ ExcelDataConfig excel1=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path
 
 				//Export Discount value to Excel
 				excel.setreportData("Date Range", 11, 1, st);
+				excel.setreportData("Date Range", 11, 26, st);
 				excel.setreportData("Date Range", 48, 1, st);
 				excel1.setreportData("Date Range", 11, 1, st);
 
