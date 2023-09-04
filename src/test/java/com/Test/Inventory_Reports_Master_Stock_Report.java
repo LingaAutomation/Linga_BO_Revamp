@@ -31,7 +31,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Inventory_Reports_Master_Stock_Report 
 {
 
-public WebDriver driver;
+	public WebDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();

@@ -111,36 +111,43 @@ public WebDriver driver;
 	@Test(priority=2)
 	public void Calling() throws Exception
 	{
-		Open_HA_Activity_Report_Page(driver);
+		Open_Enterprise_Reports_HA_Activity_Report_Page(driver);
 //		RefreshAndPaginination(driver);
-		HA_Activity_Report_Verify_Card_Search(driver);
-		HA_Activity_Report_Today(driver);
-		HA_Activity_Report_Yesterday(driver);
-		HA_Activity_Report_Last_N_Days(driver);
-		HA_Activity_Report_This_Week(driver);
-		HA_Activity_Report_Last_Week(driver);
-		HA_Activity_Report_Last_7_Days(driver);
-		HA_Activity_Report_This_Month(driver);
-		HA_Activity_Report_Last_Month(driver);
-		HA_Activity_Report_Last_30_Days(driver);
-		HA_Activity_Report_Specific_Date(driver);
-		HA_Activity_Report_Date_Range(driver);
+		Enterprise_Reports_HA_Activity_Report_Verify_Card_Search(driver);
+		Enterprise_Reports_HA_Activity_Report_Today(driver);
+		Enterprise_Reports_HA_Activity_Report_Yesterday(driver);
+		Enterprise_Reports_HA_Activity_Report_Last_N_Days(driver);
+		Enterprise_Reports_HA_Activity_Report_This_Week(driver);
+		Enterprise_Reports_HA_Activity_Report_Last_Week(driver);
+		Enterprise_Reports_HA_Activity_Report_Last_7_Days(driver);
+		Enterprise_Reports_HA_Activity_Report_This_Month(driver);
+		Enterprise_Reports_HA_Activity_Report_Last_Month(driver);
+		Enterprise_Reports_HA_Activity_Report_Last_30_Days(driver);
+		Enterprise_Reports_HA_Activity_Report_Specific_Date(driver);
+		Enterprise_Reports_HA_Activity_Report_Date_Range(driver);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_HA_Activity_Report_Page(WebDriver driver) throws Exception
+	public void Open_Enterprise_Reports_HA_Activity_Report_Page(WebDriver driver) throws Exception
 	{
 		
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		
 		Thread.sleep(5000);
-		//Load the Daily page
-		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id3")+"houseAccount/haActivity");
+		//Load the HA Activity page
+				driver.get(Utility.getProperty("baseURL")+"enterprise/enterpriseReports/houseAccount/haActivity");
 
-		Thread.sleep(5000);
-		//Verify the Categories page loeded or not
-		repts.Verify_ReportHomePage("HA ACTIVITY");
+				Thread.sleep(5000);
+				try
+				{
+				//Verify the HA Activity page loaded or not
+				repts.Verify_ReportHomePage("HA ACTIVITY");
+				}
+				catch(Exception k)
+				{
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
+				}
 		
 	}
 	
@@ -160,7 +167,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void HA_Activity_Report_Verify_Card_Search(WebDriver driver) throws Exception
+	public void Enterprise_Reports_HA_Activity_Report_Verify_Card_Search(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -226,7 +233,7 @@ public WebDriver driver;
 				{
 				if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 				{
-					test.log(LogStatus.INFO, "HA Activity Reports Not Available for Selected Time Period");
+					test.log(LogStatus.INFO, "HA Activity - Enterprise Reports Not Available for Selected Time Period");
 					
 					ut.FailedCaptureScreenshotAsBASE64(driver, test);
 				}
@@ -234,7 +241,7 @@ public WebDriver driver;
 				catch(Exception G)
 				{
 					
-					test.log(LogStatus.PASS, "HA Activity Reports Available for Selected Time Period");
+					test.log(LogStatus.PASS, "HA Activity - Enterprise Reports Available for Selected Time Period");
 					
 					ut.PassedCaptureScreenshotAsBASE64(driver, test);
 				
@@ -262,14 +269,14 @@ public WebDriver driver;
 					{
 					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[1]")).getText().equalsIgnoreCase(GiftCard_Number))
 					{
-						test.log(LogStatus.PASS, "HA Activity Reports is Available for Searched Card Number");
+						test.log(LogStatus.PASS, "HA Activity - Enterprise Reports is Available for Searched Card Number");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "HA Activity Reports is Not Available for Searched Card Number");
+						test.log(LogStatus.FAIL, "HA Activity - Enterprise Reports is Not Available for Searched Card Number");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
@@ -302,14 +309,14 @@ public WebDriver driver;
 					{
 					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[5]")).getText().equalsIgnoreCase(Employee_Name))
 					{
-						test.log(LogStatus.PASS, "HA Activity Reports is Available for Searched Employee");
+						test.log(LogStatus.PASS, "HA Activity - Enterprise Reports is Available for Searched Employee");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "HA Activity Reports is Not Available for Searched Employee");
+						test.log(LogStatus.FAIL, "HA Activity - Enterprise Reports is Not Available for Searched Employee");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
@@ -337,14 +344,14 @@ public WebDriver driver;
 					{
 					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[6]")).getText().equalsIgnoreCase("Issued"))
 					{
-						test.log(LogStatus.PASS, "HA Activity Reports is Available for Searched Activity Type - Issued");
+						test.log(LogStatus.PASS, "HA Activity - Enterprise Reports is Available for Searched Activity Type - Issued");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "HA Activity Reports is Not Available for Searched Activity type - Issued");
+						test.log(LogStatus.FAIL, "HA Activity - Enterprise Reports is Not Available for Searched Activity type - Issued");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
@@ -372,14 +379,14 @@ public WebDriver driver;
 					{
 					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[6]")).getText().equalsIgnoreCase("Redeemed"))
 					{
-						test.log(LogStatus.PASS, "HA Activity Reports is Available for Searched Activity Type - Redeemed");
+						test.log(LogStatus.PASS, "HA Activity - Enterprise Reports is Available for Searched Activity Type - Redeemed");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "HA Activity Reports is Not Available for Searched Activity type - Redeemed");
+						test.log(LogStatus.FAIL, "HA Activity - Enterprise Reports is Not Available for Searched Activity type - Redeemed");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
@@ -405,14 +412,14 @@ public WebDriver driver;
 					{
 					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[6]")).getText().equalsIgnoreCase("Void"))
 					{
-						test.log(LogStatus.PASS, "HA Activity Reports is Available for Searched Activity Type - Void");
+						test.log(LogStatus.PASS, "HA Activity - Enterprise Reports is Available for Searched Activity Type - Void");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "HA Activity Reports is Not Available for Searched Activity type - Void");
+						test.log(LogStatus.FAIL, "HA Activity - Enterprise Reports is Not Available for Searched Activity type - Void");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
@@ -438,14 +445,14 @@ public WebDriver driver;
 					{
 					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[6]")).getText().equalsIgnoreCase("Recharges"))
 					{
-						test.log(LogStatus.PASS, "HA Activity Reports is Available for Searched Activity Type - Recharges");
+						test.log(LogStatus.PASS, "HA Activity - Enterprise Reports is Available for Searched Activity Type - Recharges");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "HA Activity Reports is Not Available for Searched Activity type - Recharges");
+						test.log(LogStatus.FAIL, "HA Activity - Enterprise Reports is Not Available for Searched Activity type - Recharges");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
@@ -471,14 +478,14 @@ public WebDriver driver;
 					{
 					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[6]")).getText().equalsIgnoreCase("Refund"))
 					{
-						test.log(LogStatus.PASS, "HA Activity Reports is Available for Searched Activity Type - Refund");
+						test.log(LogStatus.PASS, "HA Activity - Enterprise Reports is Available for Searched Activity Type - Refund");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "HA Activity Reports is Not Available for Searched Activity type - Refund");
+						test.log(LogStatus.FAIL, "HA Activity - Enterprise Reports is Not Available for Searched Activity type - Refund");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
@@ -505,14 +512,14 @@ public WebDriver driver;
 					{
 					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[6]")).getText().equalsIgnoreCase("Adjustment"))
 					{
-						test.log(LogStatus.PASS, "HA Activity Reports is Available for Searched Activity Type - Adjustment");
+						test.log(LogStatus.PASS, "HA Activity - Enterprise Reports is Available for Searched Activity Type - Adjustment");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "HA Activity Reports is Not Available for Searched Activity type - Adjustment");
+						test.log(LogStatus.FAIL, "HA Activity - Enterprise Reports is Not Available for Searched Activity type - Adjustment");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
@@ -521,7 +528,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void HA_Activity_Report_Today(WebDriver driver) throws Exception
+	public void Enterprise_Reports_HA_Activity_Report_Today(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -550,7 +557,7 @@ public WebDriver driver;
 		{
 		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.INFO, "HA Activity Reports Not Available for Today");
+			test.log(LogStatus.INFO, "HA Activity - Enterprise Reports Not Available for Today");
 	
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -558,7 +565,7 @@ public WebDriver driver;
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "HA Activity Reports Available for Today");
+			test.log(LogStatus.PASS, "HA Activity - Enterprise Reports Available for Today");
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -570,7 +577,7 @@ public WebDriver driver;
 //			repts.Do_Pagination();
 			
 			
-			List<WebElement> rowList=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/div/data-grid-row"));
+			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 		
 			int rowSize=rowList.size();
 			
@@ -580,20 +587,20 @@ public WebDriver driver;
 			for(int i=1;i<=rowSize;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -604,20 +611,20 @@ public WebDriver driver;
 			for(int i=1;i<=5;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -633,7 +640,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void HA_Activity_Report_Yesterday(WebDriver driver) throws Exception
+	public void Enterprise_Reports_HA_Activity_Report_Yesterday(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -663,7 +670,7 @@ public WebDriver driver;
 		{
 		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.INFO, "HA Activity Reports Not Available for Yesterday");
+			test.log(LogStatus.INFO, "HA Activity - Enterprise Reports Not Available for Yesterday");
 	
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -671,7 +678,7 @@ public WebDriver driver;
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "HA Activity Reports Available for Yesterday");
+			test.log(LogStatus.PASS, "HA Activity - Enterprise Reports Available for Yesterday");
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -683,7 +690,7 @@ public WebDriver driver;
 			repts.Do_Pagination();
 			
 			
-			List<WebElement> rowList=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/div/data-grid-row"));
+			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 		
 			int rowSize=rowList.size();
 			
@@ -693,20 +700,20 @@ public WebDriver driver;
 			for(int i=1;i<=rowSize;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -717,20 +724,20 @@ public WebDriver driver;
 			for(int i=1;i<=5;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -747,7 +754,7 @@ public WebDriver driver;
 
 	
 	@Test(priority = 4,enabled = false)
-	public void HA_Activity_Report_Last_N_Days(WebDriver driver) throws Exception
+	public void Enterprise_Reports_HA_Activity_Report_Last_N_Days(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -777,7 +784,7 @@ public WebDriver driver;
 		{
 		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.INFO, "HA Activity Reports Not Available for Last 'N' days");
+			test.log(LogStatus.INFO, "HA Activity - Enterprise Reports Not Available for Last 'N' days");
 	
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -785,7 +792,7 @@ public WebDriver driver;
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "HA Activity Reports Available for Last 'N' days");
+			test.log(LogStatus.PASS, "HA Activity - Enterprise Reports Available for Last 'N' days");
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -797,7 +804,7 @@ public WebDriver driver;
 			repts.Do_Pagination();
 			
 			
-			List<WebElement> rowList=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/div/data-grid-row"));
+			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 		
 			int rowSize=rowList.size();
 			
@@ -807,20 +814,20 @@ public WebDriver driver;
 			for(int i=1;i<=rowSize;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -831,20 +838,20 @@ public WebDriver driver;
 			for(int i=1;i<=5;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -861,7 +868,7 @@ public WebDriver driver;
 
 	
 	@Test(priority = 4,enabled = false)
-	public void HA_Activity_Report_This_Week(WebDriver driver) throws Exception
+	public void Enterprise_Reports_HA_Activity_Report_This_Week(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -891,7 +898,7 @@ public WebDriver driver;
 		{
 		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.INFO, "HA Activity Reports Not Available for This Week");
+			test.log(LogStatus.INFO, "HA Activity - Enterprise Reports Not Available for This Week");
 	
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -899,7 +906,7 @@ public WebDriver driver;
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "HA Activity Reports Available for This Week");
+			test.log(LogStatus.PASS, "HA Activity - Enterprise Reports Available for This Week");
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -911,7 +918,7 @@ public WebDriver driver;
 			repts.Do_Pagination();
 			
 			
-			List<WebElement> rowList=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/div/data-grid-row"));
+			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 		
 			int rowSize=rowList.size();
 			
@@ -921,20 +928,20 @@ public WebDriver driver;
 			for(int i=1;i<=rowSize;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -945,20 +952,20 @@ public WebDriver driver;
 			for(int i=1;i<=5;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -974,7 +981,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void HA_Activity_Report_Last_Week(WebDriver driver) throws Exception
+	public void Enterprise_Reports_HA_Activity_Report_Last_Week(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1004,7 +1011,7 @@ public WebDriver driver;
 		{
 		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.INFO, "HA Activity Reports Not Available for Last Week");
+			test.log(LogStatus.INFO, "HA Activity - Enterprise Reports Not Available for Last Week");
 	
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -1012,7 +1019,7 @@ public WebDriver driver;
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "HA Activity Reports Available for Last Week");
+			test.log(LogStatus.PASS, "HA Activity - Enterprise Reports Available for Last Week");
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -1024,7 +1031,7 @@ public WebDriver driver;
 			repts.Do_Pagination();
 			
 			
-			List<WebElement> rowList=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/div/data-grid-row"));
+			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 		
 			int rowSize=rowList.size();
 			
@@ -1034,20 +1041,20 @@ public WebDriver driver;
 			for(int i=1;i<=rowSize;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -1058,20 +1065,20 @@ public WebDriver driver;
 			for(int i=1;i<=5;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -1083,7 +1090,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void HA_Activity_Report_Last_7_Days(WebDriver driver) throws Exception
+	public void Enterprise_Reports_HA_Activity_Report_Last_7_Days(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1113,7 +1120,7 @@ public WebDriver driver;
 		{
 		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.INFO, "HA Activity Reports Not Available for Last 7 Days");
+			test.log(LogStatus.INFO, "HA Activity - Enterprise Reports Not Available for Last 7 Days");
 	
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -1121,7 +1128,7 @@ public WebDriver driver;
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "HA Activity Reports Available for Last 7 Days");
+			test.log(LogStatus.PASS, "HA Activity - Enterprise Reports Available for Last 7 Days");
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -1133,7 +1140,7 @@ public WebDriver driver;
 			repts.Do_Pagination();
 			
 			
-			List<WebElement> rowList=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/div/data-grid-row"));
+			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 		
 			int rowSize=rowList.size();
 			
@@ -1143,20 +1150,20 @@ public WebDriver driver;
 			for(int i=1;i<=rowSize;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -1167,20 +1174,20 @@ public WebDriver driver;
 			for(int i=1;i<=5;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -1191,7 +1198,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void HA_Activity_Report_This_Month(WebDriver driver) throws Exception
+	public void Enterprise_Reports_HA_Activity_Report_This_Month(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1221,7 +1228,7 @@ public WebDriver driver;
 		{
 		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.INFO, "HA Activity Reports Not Available for This Month");
+			test.log(LogStatus.INFO, "HA Activity - Enterprise Reports Not Available for This Month");
 	
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -1229,7 +1236,7 @@ public WebDriver driver;
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "HA Activity Reports Available for This Month");
+			test.log(LogStatus.PASS, "HA Activity - Enterprise Reports Available for This Month");
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -1241,7 +1248,7 @@ public WebDriver driver;
 			repts.Do_Pagination();
 			
 			
-			List<WebElement> rowList=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/div/data-grid-row"));
+			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 		
 			int rowSize=rowList.size();
 			
@@ -1251,20 +1258,20 @@ public WebDriver driver;
 			for(int i=1;i<=rowSize;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -1275,20 +1282,20 @@ public WebDriver driver;
 			for(int i=1;i<=5;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -1299,7 +1306,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void HA_Activity_Report_Last_Month(WebDriver driver) throws Exception
+	public void Enterprise_Reports_HA_Activity_Report_Last_Month(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1329,7 +1336,7 @@ public WebDriver driver;
 		{
 		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.INFO, "HA Activity Reports Not Available for Last Month");
+			test.log(LogStatus.INFO, "HA Activity - Enterprise Reports Not Available for Last Month");
 	
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -1337,7 +1344,7 @@ public WebDriver driver;
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "HA Activity Reports Available for Last Month");
+			test.log(LogStatus.PASS, "HA Activity - Enterprise Reports Available for Last Month");
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -1349,7 +1356,7 @@ public WebDriver driver;
 			repts.Do_Pagination();
 			
 			
-			List<WebElement> rowList=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/div/data-grid-row"));
+			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 		
 			int rowSize=rowList.size();
 			
@@ -1359,20 +1366,20 @@ public WebDriver driver;
 			for(int i=1;i<=rowSize;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -1383,20 +1390,20 @@ public WebDriver driver;
 			for(int i=1;i<=5;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -1407,7 +1414,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void HA_Activity_Report_Last_30_Days(WebDriver driver) throws Exception
+	public void Enterprise_Reports_HA_Activity_Report_Last_30_Days(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1437,7 +1444,7 @@ public WebDriver driver;
 		{
 		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.INFO, "HA Activity Reports Not Available for Last 30 Days");
+			test.log(LogStatus.INFO, "HA Activity - Enterprise Reports Not Available for Last 30 Days");
 	
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -1445,7 +1452,7 @@ public WebDriver driver;
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "HA Activity Reports Available for Last 30 Days");
+			test.log(LogStatus.PASS, "HA Activity - Enterprise Reports Available for Last 30 Days");
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -1457,7 +1464,7 @@ public WebDriver driver;
 			repts.Do_Pagination();
 			
 			
-			List<WebElement> rowList=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/div/data-grid-row"));
+			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 		
 			int rowSize=rowList.size();
 			
@@ -1467,20 +1474,20 @@ public WebDriver driver;
 			for(int i=1;i<=rowSize;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -1491,20 +1498,20 @@ public WebDriver driver;
 			for(int i=1;i<=5;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -1515,7 +1522,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void HA_Activity_Report_Specific_Date(WebDriver driver) throws Exception
+	public void Enterprise_Reports_HA_Activity_Report_Specific_Date(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1545,7 +1552,7 @@ public WebDriver driver;
 		{
 		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.INFO, "HA Activity Reports Not Available for Specific Date");
+			test.log(LogStatus.INFO, "HA Activity - Enterprise Reports Not Available for Specific Date");
 	
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -1553,7 +1560,7 @@ public WebDriver driver;
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "HA Activity Reports Available for Specific Date");
+			test.log(LogStatus.PASS, "HA Activity - Enterprise Reports Available for Specific Date");
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -1565,7 +1572,7 @@ public WebDriver driver;
 			repts.Do_Pagination();
 			
 			
-			List<WebElement> rowList=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/div/data-grid-row"));
+			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 		
 			int rowSize=rowList.size();
 			
@@ -1575,20 +1582,20 @@ public WebDriver driver;
 			for(int i=1;i<=rowSize;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -1599,20 +1606,20 @@ public WebDriver driver;
 			for(int i=1;i<=5;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -1623,7 +1630,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void HA_Activity_Report_Date_Range(WebDriver driver) throws Exception
+	public void Enterprise_Reports_HA_Activity_Report_Date_Range(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1653,7 +1660,7 @@ public WebDriver driver;
 		{
 		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.INFO, "HA Activity Reports Not Available for Date Range");
+			test.log(LogStatus.INFO, "HA Activity - Enterprise Reports Not Available for Date Range");
 	
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -1661,7 +1668,7 @@ public WebDriver driver;
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.PASS, "HA Activity Reports Available for Date Range");
+			test.log(LogStatus.PASS, "HA Activity - Enterprise Reports Available for Date Range");
 			
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -1673,7 +1680,7 @@ public WebDriver driver;
 			repts.Do_Pagination();
 			
 			
-			List<WebElement> rowList=driver.findElements(By.xpath("//div[@class='data-grid']/div[3]/div/div/data-grid-row"));
+			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 		
 			int rowSize=rowList.size();
 			
@@ -1683,20 +1690,20 @@ public WebDriver driver;
 			for(int i=1;i<=rowSize;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 //				
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
@@ -1707,21 +1714,21 @@ public WebDriver driver;
 			for(int i=1;i<=5;i++)
 			{
 			
-				String Date=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[1]")).getText();
+				String Date=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText();
 				
-				String Card_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[3]")).getText();
+				String Card_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText();
 				
-				String 	Check_No=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[4]")).getText();
+				String 	Check_No=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText();
 
 				
-				String Activity_Type=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[6]")).getText();
+				String Activity_Type=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[6]")).getText();
 				
 
 				
-				String Amount=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[7]")).getText();
+				String Amount=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[7]")).getText();
 				
 				
-				String Balance=driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div["+i+"]/div/data-grid-row/div/div[8]")).getText();
+				String Balance=driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[8]")).getText();
 				
 				test.log(LogStatus.INFO, "Card No is : "+Card_No+" Date is : "+Date+" Check No is : "+Check_No+" Activity Type is : "+Activity_Type+" Amount is : "+Amount+" Balance is : "+Balance);
 				
