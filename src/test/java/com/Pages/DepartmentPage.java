@@ -11,7 +11,8 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class DepartmentPage extends BasePage {
+public class DepartmentPage //extends BasePage 
+{
 
 	WebDriver driver;
 	ExtentTest test;
@@ -20,11 +21,11 @@ public class DepartmentPage extends BasePage {
 	
 	public DepartmentPage(WebDriver driver,ExtentTest test)
 	{
-//		this.driver=driver;
-//		this.test=test;
-//		PageFactory.initElements(driver, this);
+		this.driver=driver;
+		this.test=test;
+		PageFactory.initElements(driver, this);
 		
-		super(driver, test);
+//		super(driver, test);
 	}
 	
 	@FindBy(xpath = "//h3[@class='title']")

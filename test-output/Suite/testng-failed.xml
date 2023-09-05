@@ -3,31 +3,35 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.Test.Product_Items_AddEditDelete_Departments">
+      <class name="com.Test.AllClassCalling_Product_and_Items">
         <methods>
-          <include name="Add_Departments"/>
-          <include name="RefreshAndPaginination"/>
-          <include name="Create_DuplicateDepartment"/>
-          <include name="Open_Departments_Page"/>
-          <include name="Edit_and_Close_Cancel_Departments"/>
-          <include name="Delete_and_Active_Inactive_Departments"/>
+          <include name="Product_Items_AddEditDelete_Gratuities"/>
+          <include name="Login"/>
+          <include name="Product_Items_AddEditDelete_Departments"/>
+          <include name="Product_Items_AddEditDelete_MenuItem"/>
           <include name="flushTest"/>
-          <include name="Edit_and_Update_Departments"/>
+          <include name="Product_Items_AddEditDelete_Upcharges"/>
+          <include name="Product_Items_AddEditDelete_Categories"/>
+          <include name="Product_Items_AddEditDelete_Open_Check_Discount"/>
+          <include name="Product_Items_AddEditDelete_RetailItem"/>
+          <include name="LogOut"/>
+          <include name="Product_Items_AddEditDelete_Coursing"/>
+          <include name="Product_Items_Bulk_Update"/>
+          <include name="Product_Items_AddEditDelete_SubCategories"/>
+          <include name="Product_Items_AddEditDelete_Item_Based_Discount"/>
+          <include name="Product_Items_AddEditDelete_Open_Item_Discount"/>
           <include name="TestFail"/>
+          <include name="Product_Items_AddEditDelete_GiftCards"/>
+          <include name="Product_Items_AddEditDelete_Taxes"/>
+          <include name="Product_Items_AddEditDelete_ModifierGroups"/>
+          <include name="Product_Items_AddEditDelete_Modifiers"/>
+          <include name="Product_Items_AddEditDelete_MixAndMatch_Discount"/>
+          <include name="Product_Items_AddEditDelete_Check_Based_Discount"/>
+          <include name="Product_Items_AddEditDelete_DisplayGroups"/>
+          <include name="Product_Items_Meito"/>
+          <include name="Product_Items_AddEditDelete_Item_Service_Charge"/>
         </methods>
-      </class> <!-- com.Test.Product_Items_AddEditDelete_Departments -->
-      <class name="com.Test.Product_Items_AddEditDelete_Coursing">
-        <methods>
-          <include name="Edit_and_Update_Coursing"/>
-          <include name="Edit_and_Close_Cancel_Coursing"/>
-          <include name="Create_DuplicateCourse"/>
-          <include name="flushTest"/>
-          <include name="Add_Coursing"/>
-          <include name="Delete_and_Active_Inactive_Coursing"/>
-          <include name="Open_Coursing_Page"/>
-          <include name="TestFail"/>
-        </methods>
-      </class> <!-- com.Test.Product_Items_AddEditDelete_Coursing -->
+      </class> <!-- com.Test.AllClassCalling_Product_and_Items -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -15,7 +15,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class CoursingPage extends BasePage
+public class CoursingPage //extends BasePage
 {
 	public WebDriver driver;
 	public ExtentTest test;
@@ -24,11 +24,11 @@ public class CoursingPage extends BasePage
 	
 	public CoursingPage(WebDriver driver,ExtentTest test)
 	{
-//		this.driver=driver;
-//		this.test=test;
-//		
-//		PageFactory.initElements(driver, this);
-		super(driver, test);
+		this.driver=driver;
+		this.test=test;
+		
+		PageFactory.initElements(driver, this);
+//		super(driver, test);
 	}
 	
 	@FindBy(xpath = "//button[contains(.,'NEW COURSING')]")
