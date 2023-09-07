@@ -1614,10 +1614,23 @@ public class ReportsPage
 	public void Select_Stores_In_Enterprise_Report(String StoreName) throws Exception
 	{
 		Thread.sleep(1000);
-		Filter_Stores_ByInputBx.click();
+		try
+		{
+			Filter_Stores_ByInputBx.click();
+
+			Thread.sleep(1000);
+			Stores_Option.click();
+			
+		}
+		catch(Exception k)
+		{
+			
 		
-		Thread.sleep(1000);
-		Stores_Option.click();
+				Thread.sleep(1000);
+				Stores_InputBx.click();
+			
+		}
+		
 		
 		Thread.sleep(3000);
 		//Click the Close button of All the selected Stores
@@ -1638,6 +1651,7 @@ public class ReportsPage
 	}
 	
 	
+
 	public void Select_Groups_In_Enterprise_Report(String GroupName) throws Exception
 	{
 		Thread.sleep(1000);
@@ -1741,6 +1755,28 @@ public class ReportsPage
 		Click_The_Enterprise_Store.click();
 	
 	}
+	
+	@FindBy(xpath = "//label[contains(.,'Stores')]/../../input")
+	WebElement Stores_InputBx;
+	
+	public void Store_Selection_in_DropDown_EnterpriseReport(String StoreName) throws Exception
+	{
+		Thread.sleep(1000);
+		Stores_InputBx.click();
+		
+		try
+		{	
+			Thread.sleep(1000);
+			new Common_XPaths(driver, test).SearchBox.clear();
+			Thread.sleep(1000);
+			new Common_XPaths(driver, test).SearchBox.sendKeys(StoreName);
+		}
+		catch(Exception l) {}
+		
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//select-option[contains(.,'"+StoreName+"')]")).click();
+	}
+	
 
 	public WebElement GrossSales_Amount_SaleReport_Enterprise_Report()
 	{
