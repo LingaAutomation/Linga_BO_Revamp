@@ -1,5 +1,7 @@
 package com.Test;
 
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
@@ -16,6 +18,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.WheelInput;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -24,6 +28,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.ReportsPage;
+import com.google.inject.Key;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -32,13 +37,13 @@ import Utility.ExtentManager;
 import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Reports_Employee_Role_Based_Payroll_Report 
+public class Enterprise_Reports_Employee_Role_Based_Payroll_Report 
 {
 
 	public WebDriver driver;
 
 	ExtentReports rep = ExtentManager.getInstance();
-	ExtentTest test = rep.startTest("Reports - Employee - Role Based Payroll Report");
+	ExtentTest test = rep.startTest("Enterprise Reports - Employee - Role Based Payroll Report");
 	
 	LoginPage lgpg;
 	public String st="NA";
@@ -79,14 +84,16 @@ test.log(LogStatus.FAIL, test.addScreenCapture(s));
 	
 
 @Test(priority=1)
-public void login() throws Exception
+public void Login() throws Exception
 {
-	Thread.sleep(2000);
-	ChromeOptions chrOpt=new ChromeOptions();
-	chrOpt.addArguments("--remote-allow-origins=*");
-	WebDriverManager.chromedriver().setup();
-	driver=new ChromeDriver(chrOpt);
-	
+//	Thread.sleep(2000);
+//	ChromeOptions chrOpt=new ChromeOptions();
+//	chrOpt.addArguments("--remote-allow-origins=*");
+//	WebDriverManager.chromedriver().setup();
+//	driver=new ChromeDriver(chrOpt);
+	System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
+	//Open the Chrome window
+	driver = new ChromeDriver();
 	//Wait for 30 seconds
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	//Maximize the Chrome window
@@ -100,7 +107,7 @@ public void login() throws Exception
 }
 	
 @Test(priority=500)
-public void logout() throws Exception
+public void Logout() throws Exception
 {	
 	a.LogOut(driver, test);
 }
@@ -111,8 +118,8 @@ public void Calling() throws Exception
 	Thread.sleep(1000);
 	try
 	{
-Thread.sleep(1000);System.out.println("Minimize Chat Icon");
-driver.findElement(By.id("zsiq_minimize")).click();
+		Thread.sleep(1000);System.out.println("Minimize Chat Icon");
+	driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	catch(Exception e)
 	{
@@ -120,40 +127,40 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	//ViewDashBoardReports a = new ViewDashBoardReports(); 
 	Thread.sleep(1000);
-	Employee_Role_Based_Payroll_Report_Method_Page_Open(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_Page_Open(driver);
 //	RefreshAndPaginination(driver);
-	Employee_Role_Based_Payroll_Report_Verify_Role_Based_Payroll_Search(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Today(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Today(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Yesterday(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Yesterday(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_N_Days(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_N_Days(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_This_Week(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_This_Week(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_Week(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_Week(driver); 
-	Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_7_days(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_7_days(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_This_Month(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_This_Month(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_Month(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_Month(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_30_days(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_30_days(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Specific_Date(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Specific_Date(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Hours_Date_Range(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range(driver);
-	Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Hours_Date_Range(driver);
+//	Enterprise_Employee_Role_Based_Payroll_Report_Verify_Role_Based_Payroll_Search(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Today(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Today(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Yesterday(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Yesterday(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_N_Days(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_N_Days(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_This_Week(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_This_Week(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_Week(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_Week(driver); 
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_7_days(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_7_days(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_This_Month(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_This_Month(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_Month(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_Month(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_30_days(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_30_days(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Specific_Date(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Specific_Date(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Hours_Date_Range(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range(driver);
+	Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Hours_Date_Range(driver);
 	
 	
 	Thread.sleep(1500);
 }
 
 @Test(priority=50,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_Page_Open(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_Page_Open(WebDriver driver) throws Exception
 {
 	
 	 	
@@ -162,11 +169,22 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	Thread.sleep(5000);
 	//Load the Employee Attendance Report Page
-	driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id3")+"employee/roleBasedPayroll");
+	//Load the Menu Item sales report page
+			driver.get(Utility.getProperty("baseURL")+"enterprise/enterpriseReports/employee/payrollReport");
 
-	Thread.sleep(5000);
-	//Verify the Employee Attendance Report Page loaded or not
-	repts.Verify_ReportHomePage("ROLE BASED PAYROLL");
+			Thread.sleep(5000);
+			//Verify the Loyalty report page loaded or not
+//			cmp.VerifyMainScreenPageHeader("Gift Card");
+			
+			try
+			{
+				//Verify the Menu Item sales report page loaded or not
+				repts.Verify_ReportHomePage("ENTERPRISE PAYROLL REPORT");
+			}
+			catch(Exception k)
+			{
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			}
 
 }
 
@@ -186,13 +204,18 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 
 	@Test(priority=5,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Verify_Role_Based_Payroll_Search(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Verify_Role_Based_Payroll_Search(WebDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		
 		driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
-		Thread.sleep(30000);
+		Thread.sleep(3000);
+		Thread.sleep(1000);
+		//Select stores
+		repts.Select_Store_inEmployeeRoleBased_EnterpriseReport("Select All");
+		
+		
 		//Select Employee
 		repts.Select_Employee("All");
 		
@@ -205,11 +228,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 		//Select Status
 		repts.Select_Status("All");
-		
-		//Sort By
-		repts.Select_Sort_By("A-Z FirstName");
-		
-		
+	
 		Thread.sleep(1000);
 		//Select Today
 		repts.Select_Today_TimePeriod();
@@ -219,12 +238,12 @@ driver.findElement(By.id("zsiq_minimize")).click();
 		repts.Click_ApplyButton(); 
 		
 		
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		try
 		{
-		if(repts.No_Revenue_CenterFound_InfoMsg().isDisplayed())
+		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 		{
-			test.log(LogStatus.PASS, "No Employee Role Based Payroll Report available for Selected Time Period is Displayed");
+			test.log(LogStatus.PASS, "No Enterprise Employee Role Based Payroll Report available for Selected Time Period is Displayed");
 	
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
@@ -232,7 +251,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.INFO, "Employee Role Based Payroll Report for selected time period is Available");
+			test.log(LogStatus.INFO, "Enterprise Employee Role Based Payroll Report for selected time period is Available");
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -255,26 +274,20 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 		//Select Status
 		repts.Select_Status("All");
-		
-		//Sort By
-		repts.Select_Sort_By("A-Z FirstName");
-		
-		
-				
-				
+	
 				Thread.sleep(1000);
 				//Select Today
-				repts.Select_Last_N_Days_TimePeriod("500");
+				repts.Select_Last_N_Days_TimePeriod("10");
 				
 				Thread.sleep(1000);
 				//Click Apply
 				repts.Click_ApplyButton(); 
 				
 				
-				Thread.sleep(5000);
+				Thread.sleep(10000);
 				try
 				{
-				if(repts.No_Revenue_CenterFound_InfoMsg().isDisplayed())
+				if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 				{
 					test.log(LogStatus.INFO, "Employee - Role Based Payroll Report Not Available for Selected Time Period");
 					
@@ -289,52 +302,54 @@ driver.findElement(By.id("zsiq_minimize")).click();
 					ut.PassedCaptureScreenshotAsBASE64(driver, test);
 				
 					driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
-
+					Thread.sleep(15000);
+					//Select stores
+					repts.Select_Store_inEmployeeRoleBased_EnterpriseReport("Select All");
+					
+					
 					Thread.sleep(1000);
 					//Select Employee
 					repts.Select_Employee("All");
 					
 					Thread.sleep(1000);
 					//Select the Process
-					repts.Select_Process("Daily/Weekly");
+					repts.Select_Process("Daily");
 
 					//Select Format
-					repts.Select_FormatType("In Hours");
+					repts.Select_FormatType("In Time");
 
 					//Select Status
-					repts.Select_Status("All");
-					
-					//Sort By
-					repts.Select_Sort_By("A-Z FirstName");
-					
-					
-					
+					repts.Select_Status("Active");
+				
 					Thread.sleep(1000);
 					//Select Today
-					repts.Select_Last_N_Days_TimePeriod("500");
+					repts.Select_Last_N_Days_TimePeriod("10");
 					
 					Thread.sleep(1000);
 					//Click Apply
 					repts.Click_ApplyButton(); 
 				
-					Thread.sleep(3000);
+					Thread.sleep(15000);
 					try
 					{
-					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[1]")).isDisplayed())
+					if(driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).isDisplayed())
 					{
-						test.log(LogStatus.PASS, "Employee - Role Based Payroll Report is Available for Searched Format - In Hours");
+						test.log(LogStatus.PASS, "Employee - Role Based Payroll Report is Available for Searched Format -In Time & Status - Active (Daily)");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "Employee - Role Based Payroll is Not Available for Searched Format - In Hours");
+						test.log(LogStatus.FAIL, "Employee - Role Based Payroll Report is Not Available for Searched Format -In Time & Status - Active (Daily)");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
 					
 					driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+					Thread.sleep(1000);
+					//Select stores
+					repts.Select_Store_inEmployeeRoleBased_EnterpriseReport("Select All");
 					
 					
 					Thread.sleep(1000);
@@ -343,7 +358,53 @@ driver.findElement(By.id("zsiq_minimize")).click();
 					
 					Thread.sleep(1000);
 					//Select the Process
-					repts.Select_Process("Daily/Weekly");
+					repts.Select_Process("Daily");
+
+					//Select Format
+					repts.Select_FormatType("In Time");
+
+					//Select Status
+					repts.Select_Status("Inactive");
+				
+					Thread.sleep(1000);
+					//Select Today
+					repts.Select_Last_N_Days_TimePeriod("10");
+					
+					Thread.sleep(1000);
+					//Click Apply
+					repts.Click_ApplyButton(); 
+				
+					Thread.sleep(10000);
+					try
+					{
+					if(driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).isDisplayed())
+					{
+						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Format -In Time & Status - Inactive (Daily)");
+						
+						ut.PassedCaptureScreenshotAsBASE64(driver, test);
+					}
+					}
+					catch(Exception l)
+					{
+						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Format -In Time & Status - Inactive (Daily)");
+						
+						ut.FailedCaptureScreenshotAsBASE64(driver, test);
+					}
+					
+					driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+					Thread.sleep(1000);
+					//Select stores
+					repts.Select_Store_inEmployeeRoleBased_EnterpriseReport("Select All");
+					
+					
+					
+					Thread.sleep(1000);
+					//Select Employee
+					repts.Select_Employee("All");
+					
+					Thread.sleep(1000);
+					//Select the Process
+					repts.Select_Process("Daily");
 
 					//Select Format
 					repts.Select_FormatType("In Hours");
@@ -351,44 +412,44 @@ driver.findElement(By.id("zsiq_minimize")).click();
 					//Select Status
 					repts.Select_Status("Active");
 					
-					//Sort By
-					repts.Select_Sort_By("A-Z FirstName");
-					
-					
 					Thread.sleep(1000);
 					//Select Today
-					repts.Select_Last_N_Days_TimePeriod("500");
+					repts.Select_Last_N_Days_TimePeriod("10");
 					
 					Thread.sleep(1000);
 					//Click Apply
 					repts.Click_ApplyButton(); 
 				
-					Thread.sleep(3000);
+					Thread.sleep(10000);
 					try
 					{
-					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[1]")).isDisplayed())
+					if(driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).isDisplayed())
 					{
-						test.log(LogStatus.PASS, "Employee - Role Based Payroll Report is Available for Searched Format -In Hours & Status - Active");
+						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Format -In Hours & Status - Active (Daily)");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "Employee - Role Based Payroll Report is Not Available for Searched Format -In Hours & Status - Active");
+						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Format -In Hours & Status - Active (Daily)");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
 					
 					driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
-
+					Thread.sleep(1000);
+					//Select stores
+					repts.Select_Store_inEmployeeRoleBased_EnterpriseReport("Select All");
+					
+					
 					Thread.sleep(1000);
 					//Select Employee
 					repts.Select_Employee("All");
 					
 					Thread.sleep(1000);
 					//Select the Process
-					repts.Select_Process("Daily/Weekly");
+					repts.Select_Process("Daily");
 
 					//Select Format
 					repts.Select_FormatType("In Hours");
@@ -396,37 +457,38 @@ driver.findElement(By.id("zsiq_minimize")).click();
 					//Select Status
 					repts.Select_Status("Inactive");
 					
-					//Sort By
-					repts.Select_Sort_By("A-Z FirstName");
-					
-					
 					Thread.sleep(1000);
 					//Select Today
-					repts.Select_Last_N_Days_TimePeriod("500");
+					repts.Select_Last_N_Days_TimePeriod("10");
 					
 					Thread.sleep(1000);
 					//Click Apply
 					repts.Click_ApplyButton(); 
 				
-					Thread.sleep(3000);
+					Thread.sleep(10000);
 					try
 					{
-					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[1]")).isDisplayed())
+					if(driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).isDisplayed())
 					{
-						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Format -In Hours & Status - Inactive");
+						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Format -In Hours & Status - InActive (Daily)");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Format -In Hours & Status - Inactive");
+						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Format -In Hours & Status - InActive (Daily)");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
 					
+				
 					driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 
+					Thread.sleep(1000);
+					//Select stores
+					repts.Select_Store_inEmployeeRoleBased_EnterpriseReport("Select All");
+					
 					
 					Thread.sleep(1000);
 					//Select Employee
@@ -434,90 +496,90 @@ driver.findElement(By.id("zsiq_minimize")).click();
 					
 					Thread.sleep(1000);
 					//Select the Process
-					repts.Select_Process("Daily/Weekly");
+					repts.Select_Process("Weekly");
 
 					//Select Format
 					repts.Select_FormatType("In Time");
 
 					//Select Status
 					repts.Select_Status("Active");
-					
-					//Sort By
-					repts.Select_Sort_By("A-Z FirstName");
-					
-					
+				
 					Thread.sleep(1000);
 					//Select Today
-					repts.Select_Last_N_Days_TimePeriod("500");
+					repts.Select_Last_N_Days_TimePeriod("10");
 					
 					Thread.sleep(1000);
 					//Click Apply
 					repts.Click_ApplyButton(); 
 				
-					Thread.sleep(3000);
+					Thread.sleep(10000);
 					try
 					{
-					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[1]")).isDisplayed())
+					if(driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).isDisplayed())
 					{
-						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Format -In Time & Status - Active");
+						test.log(LogStatus.PASS, "Employee - Role Based Payroll Report is Available for Searched Format -In Time & Status - Active (Weekly)");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Format -In Time & Status - Active");
+						test.log(LogStatus.FAIL, "Employee - Role Based Payroll Report is Not Available for Searched Format -In Time & Status - Active (Weekly)");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
 					
 					driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
-
+					Thread.sleep(1000);
+					//Select stores
+					repts.Select_Store_inEmployeeRoleBased_EnterpriseReport("Select All");
+					
+					
 					Thread.sleep(1000);
 					//Select Employee
 					repts.Select_Employee("All");
 					
 					Thread.sleep(1000);
 					//Select the Process
-					repts.Select_Process("Daily/Weekly");
+					repts.Select_Process("Weekly");
 
 					//Select Format
 					repts.Select_FormatType("In Time");
 
 					//Select Status
 					repts.Select_Status("Inactive");
-					
-					//Sort By
-					repts.Select_Sort_By("A-Z FirstName");
-					
-					
+				
 					Thread.sleep(1000);
 					//Select Today
-					repts.Select_Last_N_Days_TimePeriod("500");
+					repts.Select_Last_N_Days_TimePeriod("10");
 					
 					Thread.sleep(1000);
 					//Click Apply
 					repts.Click_ApplyButton(); 
 				
-					Thread.sleep(3000);
+					Thread.sleep(10000);
 					try
 					{
-					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[1]")).isDisplayed())
+					if(driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).isDisplayed())
 					{
-						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Format -In Time & Status - Active");
+						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Format -In Time & Status - Inactive (Weekly)");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Format -In Time & Status - Active");
+						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Format -In Time & Status - Inactive (Weekly)");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
 					
 					driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
-
+					Thread.sleep(1000);
+					//Select stores
+					repts.Select_Store_inEmployeeRoleBased_EnterpriseReport("Select All");
+					
+					
 					
 					Thread.sleep(1000);
 					//Select Employee
@@ -525,97 +587,98 @@ driver.findElement(By.id("zsiq_minimize")).click();
 					
 					Thread.sleep(1000);
 					//Select the Process
-					repts.Select_Process("Daily/Weekly");
+					repts.Select_Process("Weekly");
 
 					//Select Format
-					repts.Select_FormatType("In Time");
+					repts.Select_FormatType("In Hours");
 
 					//Select Status
-					repts.Select_Status("All");
-					
-					//Sort By
-					repts.Select_Sort_By("A-Z LastName");
-					
+					repts.Select_Status("Active");
 					
 					Thread.sleep(1000);
 					//Select Today
-					repts.Select_Last_N_Days_TimePeriod("500");
+					repts.Select_Last_N_Days_TimePeriod("10");
 					
 					Thread.sleep(1000);
 					//Click Apply
 					repts.Click_ApplyButton(); 
 				
-					Thread.sleep(3000);
+					Thread.sleep(10000);
 					try
 					{
-					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[1]")).isDisplayed())
+					if(driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).isDisplayed())
 					{
-						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Sort By - A-Z LastName");
+						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Format -In Hours & Status - Active (Weekly)");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Sort By - A-Z LastName");
+						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Format -In Hours & Status - Active (Weekly)");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
 					
 					driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
-
+					Thread.sleep(1000);
+					//Select stores
+					repts.Select_Store_inEmployeeRoleBased_EnterpriseReport("Select All");
+					
+					
 					Thread.sleep(1000);
 					//Select Employee
 					repts.Select_Employee("All");
 					
 					Thread.sleep(1000);
 					//Select the Process
-					repts.Select_Process("Daily/Weekly");
+					repts.Select_Process("Weekly");
 
 					//Select Format
-					repts.Select_FormatType("In Time");
+					repts.Select_FormatType("In Hours");
 
 					//Select Status
-					repts.Select_Status("All");
-					
-					//Sort By
-					repts.Select_Sort_By("Z-A FirstName");
-					
+					repts.Select_Status("Inactive");
 					
 					Thread.sleep(1000);
 					//Select Today
-					repts.Select_Last_N_Days_TimePeriod("500");
+					repts.Select_Last_N_Days_TimePeriod("10");
 					
 					Thread.sleep(1000);
 					//Click Apply
 					repts.Click_ApplyButton(); 
 				
-					Thread.sleep(3000);
+					Thread.sleep(10000);
 					try
 					{
-					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[1]")).isDisplayed())
+					if(driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).isDisplayed())
 					{
-						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Sort By - Z-A FirstName");
+						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Format -In Hours & Status - InActive (Weekly)");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Sort By - Z-A FirstName");
+						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Format -In Hours & Status - InActive (Weekly)");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
 					
+					Thread.sleep(1000);
 					driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
-
+					Thread.sleep(1000);
+					//Select stores
+					repts.Select_Store_inEmployeeRoleBased_EnterpriseReport("Select All");
+					
+					
 					Thread.sleep(1000);
 					//Select Employee
 					repts.Select_Employee("All");
 					
 					Thread.sleep(1000);
 					//Select the Process
-					repts.Select_Process("Daily/Weekly");
+					repts.Select_Process("Daily");
 
 					//Select Format
 					repts.Select_FormatType("In Time");
@@ -623,44 +686,48 @@ driver.findElement(By.id("zsiq_minimize")).click();
 					//Select Status
 					repts.Select_Status("All");
 					
-					//Sort By
-					repts.Select_Sort_By("Z-A LastName");
-					
+					//Select Role
+					repts.Select_Role("Manager");
 					
 					Thread.sleep(1000);
 					//Select Today
-					repts.Select_Last_N_Days_TimePeriod("500");
+					repts.Select_Last_N_Days_TimePeriod("10");
 					
 					Thread.sleep(1000);
 					//Click Apply
 					repts.Click_ApplyButton(); 
 				
-					Thread.sleep(3000);
+					Thread.sleep(10000);
 					try
 					{
-					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[1]")).isDisplayed())
+					if(driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).isDisplayed())
 					{
-						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Sort By - Z-A LastName");
+						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Role  (Daily)");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Sort By - Z-A LastName");
+						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Role (Daily)");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
 					
+					Thread.sleep(1000);
 					driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
-
+					Thread.sleep(1000);
+					//Select stores
+					repts.Select_Store_inEmployeeRoleBased_EnterpriseReport("Select All");
+					
+					
 					Thread.sleep(1000);
 					//Select Employee
 					repts.Select_Employee("All");
 					
 					Thread.sleep(1000);
 					//Select the Process
-					repts.Select_Process("Daily/Weekly");
+					repts.Select_Process("Weekly");
 
 					//Select Format
 					repts.Select_FormatType("In Time");
@@ -668,50 +735,53 @@ driver.findElement(By.id("zsiq_minimize")).click();
 					//Select Status
 					repts.Select_Status("All");
 					
-					//Sort By
-					repts.Select_Sort_By("A-Z FirstName");
-					
+					//Select Role
+					repts.Select_Role("Manager");
 					
 					Thread.sleep(1000);
 					//Select Today
-					repts.Select_Last_N_Days_TimePeriod("500");
+					repts.Select_Last_N_Days_TimePeriod("10");
 					
 					Thread.sleep(1000);
 					//Click Apply
 					repts.Click_ApplyButton(); 
 				
-					Thread.sleep(3000);
+					Thread.sleep(10000);
 					try
 					{
-					if(driver.findElement(By.xpath("//div[@class='data-grid']/div[3]/div[1]/div/data-grid-row/div/div[1]")).isDisplayed())
+					if(driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).isDisplayed())
 					{
-						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Sort By - A-Z FirstName");
+						test.log(LogStatus.PASS, "Role Based Payroll Report is Available for Searched Role  (Weekly)");
 						
 						ut.PassedCaptureScreenshotAsBASE64(driver, test);
 					}
 					}
 					catch(Exception l)
 					{
-						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Sort By - A-Z FirstName");
+						test.log(LogStatus.FAIL, "Role Based Payroll Report is Not Available for Searched Role (Weekly)");
 						
 						ut.FailedCaptureScreenshotAsBASE64(driver, test);
 					}
-					
-					driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 				}
 	}
 	
 	
 	@Test(priority=52,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Today(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Today(WebDriver driver) throws Exception
 	{
 		double CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip,OverAll_Tip;
 
 	 	
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
+
+		Thread.sleep(2000);
+	//Select stores
+	repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
 	
-	Thread.sleep(1000);
+
+				
+	Thread.sleep(2000);
 	//Select the Employee option
 	repts.Select_Employee("All");
 	Thread.sleep(1000);
@@ -730,10 +800,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Select the Format
 	repts.Select_Status("All");
 
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
-
 	//Select the Role
 	repts.Select_Role("All");
 
@@ -746,7 +812,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 //Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date (Daily -Today)");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date (Daily -Today)");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -756,7 +822,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date (Daily -Today)");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date (Daily -Today)");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily - Today) *******");
 	
@@ -771,7 +837,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Reg Pay
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -782,7 +848,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -791,7 +857,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -800,7 +866,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	CC_Tip=Double.parseDouble(ccTip);
@@ -809,7 +875,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	Tip_Charge=Double.parseDouble(Tipcharge);
@@ -818,21 +884,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	Gratuity_Pay=Double.parseDouble(gratuity);
 	this.Gratuity_Pay=Gratuity_Pay;
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	Emp_CCTip=Double.parseDouble(Emp_cc_tip);
 	this.Emp_CCTip=Emp_CCTip;
 
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	Other_Tip=Double.parseDouble(otherTips);
@@ -840,7 +906,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	Declared_CashTip=Double.parseDouble(declaredCashTip);
@@ -855,14 +921,14 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	this.Total_Tip=Total_Tip;
 
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	Net_Sales=Double.parseDouble(netSales);
 	this.Net_Sales=Net_Sales;
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	Expected_Tip=Double.parseDouble(expectedTip);
@@ -870,7 +936,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Over All Tip
-	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip Tip is : "+overTip);
 	OverAll_Tip=Double.parseDouble(overTip);
@@ -881,19 +947,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	@Test(priority=53,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Today(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Today(WebDriver driver) throws Exception
 	{
 
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
 	
-	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+		
 	Thread.sleep(1000);
 	//Select the Employee option
 	repts.Select_Employee("All");
 	
 	Thread.sleep(1000);
-	//Select the Process as Daily
+	//Select the Process as Weekly
 	repts.Select_Process("Weekly");   
 	
 	//Select the Date Range
@@ -904,10 +972,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	//Select the Format
 	repts.Select_Status("All");
-	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
+
 
 	//Select the Role
 	repts.Select_Role("All");
@@ -919,7 +984,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date (Weekly -Today)");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date (Weekly -Today)");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -929,7 +994,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date (Weekly -Today)");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date (Weekly -Today)");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time((Weekly -Today)) *******");
 	
@@ -947,7 +1012,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Get Reg Pay
 	System.out.println("Reg Pay values from Daily Today : "+Reg_Pay);
 
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -968,7 +1033,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -991,7 +1056,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -1013,7 +1078,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	double CCTip=Double.parseDouble(ccTip);
@@ -1034,7 +1099,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	double TipCharge=Double.parseDouble(Tipcharge);
@@ -1056,7 +1121,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	double GratuityPay=Double.parseDouble(gratuity);
@@ -1078,7 +1143,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	double EmpCCTip=Double.parseDouble(Emp_cc_tip);
@@ -1099,7 +1164,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	double OtherTip=Double.parseDouble(otherTips);
@@ -1122,7 +1187,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	double DeclaredCashTip=Double.parseDouble(declaredCashTip);
@@ -1165,7 +1230,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	double NetSales=Double.parseDouble(netSales);
@@ -1187,7 +1252,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	double ExpectedTip=Double.parseDouble(expectedTip);
@@ -1209,7 +1274,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Over All Tip
-	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overAllTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip is : "+overAllTip);
 	double OverAllTip=Double.parseDouble(overAllTip);
@@ -1237,13 +1302,16 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	@Test(priority=54,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Yesterday(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Yesterday(WebDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
 	 	
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
+	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
 	
 	Thread.sleep(1000);
 	//Select the Employee option
@@ -1261,10 +1329,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	//Select the Format
 	repts.Select_Status("All");
-	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
 
 	//Select the Role
 	repts.Select_Role("All");
@@ -1279,7 +1343,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date (Daily -Yesterday)");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date (Daily -Yesterday)");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -1288,7 +1352,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date (Daily -Yesterday)");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date (Daily -Yesterday)");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time((Daily -Yesterday)) *******");
 	
@@ -1303,7 +1367,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Reg Pay
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -1314,7 +1378,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -1323,7 +1387,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -1332,7 +1396,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	CC_Tip=Double.parseDouble(ccTip);
@@ -1341,7 +1405,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	Tip_Charge=Double.parseDouble(Tipcharge);
@@ -1350,21 +1414,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	Gratuity_Pay=Double.parseDouble(gratuity);
 	this.Gratuity_Pay=Gratuity_Pay;
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	Emp_CCTip=Double.parseDouble(Emp_cc_tip);
 	this.Emp_CCTip=Emp_CCTip;
 
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	Other_Tip=Double.parseDouble(otherTips);
@@ -1372,7 +1436,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	Declared_CashTip=Double.parseDouble(declaredCashTip);
@@ -1387,21 +1451,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	this.Total_Tip=Total_Tip;
 
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	Net_Sales=Double.parseDouble(netSales);
 	this.Net_Sales=Net_Sales;
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	Expected_Tip=Double.parseDouble(expectedTip);
 	this.Expected_Tip=Expected_Tip;
 	
 	//Get Over All Tip
-	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip Tip is : "+overTip);
 	OverAll_Tip=Double.parseDouble(overTip);
@@ -1412,19 +1476,22 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	@Test(priority=55,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Yesterday(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Yesterday(WebDriver driver) throws Exception
 	{
 
 
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
 	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+	
 	Thread.sleep(1000);
 	//Select the Employee option
 	repts.Select_Employee("All");
 
 	Thread.sleep(1000);
-	//Select the Process as Daily	
+	//Select the Process as Weekly	
 	repts.Select_Process("Weekly");   
 
 	//Select Yesterday
@@ -1435,10 +1502,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	//Select the Format
 	repts.Select_Status("All");
-	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
 
 	//Select the Role
 	repts.Select_Role("All");
@@ -1452,7 +1515,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -1462,7 +1525,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -1478,7 +1541,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Get Reg Pay
 	System.out.println("Reg Pay values from Daily Yesterday : "+Reg_Pay);
 
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -1499,7 +1562,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -1522,7 +1585,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -1544,7 +1607,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	double CCTip=Double.parseDouble(ccTip);
@@ -1565,7 +1628,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	double TipCharge=Double.parseDouble(Tipcharge);
@@ -1587,7 +1650,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	double GratuityPay=Double.parseDouble(gratuity);
@@ -1609,7 +1672,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	double EmpCCTip=Double.parseDouble(Emp_cc_tip);
@@ -1630,7 +1693,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	double OtherTip=Double.parseDouble(otherTips);
@@ -1653,7 +1716,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	double DeclaredCashTip=Double.parseDouble(declaredCashTip);
@@ -1696,7 +1759,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	double NetSales=Double.parseDouble(netSales);
@@ -1718,7 +1781,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	double ExpectedTip=Double.parseDouble(expectedTip);
@@ -1740,7 +1803,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Over All Tip
-	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overAllTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip is : "+overAllTip);
 	double OverAllTip=Double.parseDouble(overAllTip);
@@ -1769,13 +1832,16 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	@Test(priority=56,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_N_Days(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_N_Days(WebDriver driver) throws Exception
 	{
-	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
+		double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
 	 	
-	repts=new ReportsPage(driver, test);
-	cmp=new Common_XPaths(driver, test);
+		repts=new ReportsPage(driver, test);
+		cmp=new Common_XPaths(driver, test);
+	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
 	
 	Thread.sleep(1000);
 	//Select the Employee option
@@ -1793,11 +1859,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	//Select the Format
 	repts.Select_Status("All");
-	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
-	
+
 	//Select the Role
 	repts.Select_Role("All");
 	
@@ -1810,7 +1872,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -1820,7 +1882,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -1834,7 +1896,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Reg Pay
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -1845,7 +1907,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -1854,7 +1916,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -1863,7 +1925,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	CC_Tip=Double.parseDouble(ccTip);
@@ -1872,7 +1934,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	Tip_Charge=Double.parseDouble(Tipcharge);
@@ -1881,21 +1943,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	Gratuity_Pay=Double.parseDouble(gratuity);
 	this.Gratuity_Pay=Gratuity_Pay;
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	Emp_CCTip=Double.parseDouble(Emp_cc_tip);
 	this.Emp_CCTip=Emp_CCTip;
 
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	Other_Tip=Double.parseDouble(otherTips);
@@ -1903,7 +1965,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	Declared_CashTip=Double.parseDouble(declaredCashTip);
@@ -1918,21 +1980,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	this.Total_Tip=Total_Tip;*/
 
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	Net_Sales=Double.parseDouble(netSales);
 	this.Net_Sales=Net_Sales;
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	Expected_Tip=Double.parseDouble(expectedTip);
 	this.Expected_Tip=Expected_Tip;
 	
 	//Get Over All Tip
-	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip Tip is : "+overTip);
 	OverAll_Tip=Double.parseDouble(overTip);
@@ -1943,18 +2005,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	@Test(priority=57,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_N_Days(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_N_Days(WebDriver driver) throws Exception
 	{
 
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
-
+	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+	
 	Thread.sleep(1000);
 	//Select the Employee option
 	repts.Select_Employee("All");
 
 	Thread.sleep(1000);
-	//Select the Process as Daily
+	//Select the Process as Weekly
 	repts.Select_Process("Weekly");   
 	
  	//Select the Last N Days
@@ -1965,10 +2030,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	//Select the Format
 	repts.Select_Status("All");
-	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
 	
 	//Select the Role
 	repts.Select_Role("All");
@@ -1982,7 +2043,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -1992,7 +2053,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -2008,7 +2069,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Get Reg Pay
 	System.out.println("Reg Pay values from Daily Last N days : "+Reg_Pay);
 
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -2029,7 +2090,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	 
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -2052,7 +2113,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -2074,7 +2135,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	double CCTip=Double.parseDouble(ccTip);
@@ -2095,7 +2156,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	double TipCharge=Double.parseDouble(Tipcharge);
@@ -2117,7 +2178,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	double GratuityPay=Double.parseDouble(gratuity);
@@ -2139,7 +2200,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	double EmpCCTip=Double.parseDouble(Emp_cc_tip);
@@ -2160,7 +2221,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	double OtherTip=Double.parseDouble(otherTips);
@@ -2183,7 +2244,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	double DeclaredCashTip=Double.parseDouble(declaredCashTip);
@@ -2226,7 +2287,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}*/
 	
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	double NetSales=Double.parseDouble(netSales);
@@ -2248,7 +2309,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	double ExpectedTip=Double.parseDouble(expectedTip);
@@ -2270,7 +2331,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Over All Tip
-	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overAllTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip is : "+overAllTip);
 	double OverAllTip=Double.parseDouble(overAllTip);
@@ -2298,7 +2359,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	@Test(priority=58,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_This_Week(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_This_Week(WebDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
@@ -2306,6 +2367,9 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
+	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
 	
 	Thread.sleep(1000);
 	//Select the Employee option
@@ -2324,10 +2388,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Select the Format
 	repts.Select_Status("All");
 
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
-
 	//Select the Role
 	repts.Select_Role("All");
 	
@@ -2340,7 +2400,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -2350,7 +2410,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -2364,7 +2424,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Reg Pay
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -2375,7 +2435,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -2384,7 +2444,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -2393,7 +2453,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	CC_Tip=Double.parseDouble(ccTip);
@@ -2402,7 +2462,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	Tip_Charge=Double.parseDouble(Tipcharge);
@@ -2411,21 +2471,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	Gratuity_Pay=Double.parseDouble(gratuity);
 	this.Gratuity_Pay=Gratuity_Pay;
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	Emp_CCTip=Double.parseDouble(Emp_cc_tip);
 	this.Emp_CCTip=Emp_CCTip;
 
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	Other_Tip=Double.parseDouble(otherTips);
@@ -2433,7 +2493,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	Declared_CashTip=Double.parseDouble(declaredCashTip);
@@ -2448,21 +2508,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	this.Total_Tip=Total_Tip;*/
 
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	Net_Sales=Double.parseDouble(netSales);
 	this.Net_Sales=Net_Sales;
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	Expected_Tip=Double.parseDouble(expectedTip);
 	this.Expected_Tip=Expected_Tip;
 	
 	//Get Over All Tip
-	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip Tip is : "+overTip);
 	OverAll_Tip=Double.parseDouble(overTip);
@@ -2474,19 +2534,22 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	@Test(priority=59,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_This_Week(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_This_Week(WebDriver driver) throws Exception
 	{
 
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 	
-	
+		
+		//Select stores
+		//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+		
 	Thread.sleep(1000);
 	//Select the Employee option
 	repts.Select_Employee("All");
 	
 	Thread.sleep(1000);
-	//Select the Process as Daily
+	//Select the Process as Weekly
 	repts.Select_Process("Weekly");   
 	
   	//Select the Date Range
@@ -2498,10 +2561,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Select the Format
 	repts.Select_Status("All");
 	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
-
 	//Select the Role
 	repts.Select_Role("All");
 	
@@ -2513,7 +2572,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -2523,7 +2582,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -2536,7 +2595,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Get Reg Pay
 	System.out.println("Reg Pay values from Daily This Week : "+Reg_Pay);
 
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -2557,7 +2616,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -2580,7 +2639,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -2602,7 +2661,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	double CCTip=Double.parseDouble(ccTip);
@@ -2623,7 +2682,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	double TipCharge=Double.parseDouble(Tipcharge);
@@ -2645,7 +2704,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	double GratuityPay=Double.parseDouble(gratuity);
@@ -2667,7 +2726,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	double EmpCCTip=Double.parseDouble(Emp_cc_tip);
@@ -2688,7 +2747,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	double OtherTip=Double.parseDouble(otherTips);
@@ -2711,7 +2770,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	double DeclaredCashTip=Double.parseDouble(declaredCashTip);
@@ -2754,7 +2813,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}*/
 	
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	double NetSales=Double.parseDouble(netSales);
@@ -2776,7 +2835,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	double ExpectedTip=Double.parseDouble(expectedTip);
@@ -2798,7 +2857,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Over All Tip
-	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overAllTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip is : "+overAllTip);
 	double OverAllTip=Double.parseDouble(overAllTip);
@@ -2824,13 +2883,16 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 
 	@Test(priority=60,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_Week(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_Week(WebDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
 	 	
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
+	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
 	
 	Thread.sleep(1000);
 	//Select the Employee option
@@ -2849,10 +2911,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Select the Format
 	repts.Select_Status("All");
 
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
-
 	//Select the Role
 	repts.Select_Role("All");
 	
@@ -2864,7 +2922,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -2874,7 +2932,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -2888,7 +2946,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Reg Pay
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -2899,7 +2957,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -2908,7 +2966,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -2917,7 +2975,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	CC_Tip=Double.parseDouble(ccTip);
@@ -2926,7 +2984,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	Tip_Charge=Double.parseDouble(Tipcharge);
@@ -2935,21 +2993,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	Gratuity_Pay=Double.parseDouble(gratuity);
 	this.Gratuity_Pay=Gratuity_Pay;
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	Emp_CCTip=Double.parseDouble(Emp_cc_tip);
 	this.Emp_CCTip=Emp_CCTip;
 
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	Other_Tip=Double.parseDouble(otherTips);
@@ -2957,7 +3015,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	Declared_CashTip=Double.parseDouble(declaredCashTip);
@@ -2972,21 +3030,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	this.Total_Tip=Total_Tip;*/
 
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	Net_Sales=Double.parseDouble(netSales);
 	this.Net_Sales=Net_Sales;
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	Expected_Tip=Double.parseDouble(expectedTip);
 	this.Expected_Tip=Expected_Tip;
 	
 	//Get Over All Tip
-	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip Tip is : "+overTip);
 	OverAll_Tip=Double.parseDouble(overTip);
@@ -2997,20 +3055,23 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	@Test(priority=61,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_Week(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_Week(WebDriver driver) throws Exception
 	{
 
 
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
 	
-
+	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+	
 	Thread.sleep(1000);
 	//Select the Employee option
 	repts.Select_Employee("All");
 	
 	Thread.sleep(1000);
-	//Select the Process as Daily	
+	//Select the Process as Weekly	
 	repts.Select_Process("Weekly");   
 	
  	//Select the Date Range
@@ -3021,10 +3082,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	//Select the Format
 	repts.Select_Status("All");
-
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
 
 	//Select the Role
 	repts.Select_Role("All");
@@ -3037,7 +3094,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -3047,7 +3104,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -3063,7 +3120,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Get Reg Pay
 	System.out.println("Reg Pay values from Daily Last Week : "+Reg_Pay);
 
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -3084,7 +3141,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -3107,7 +3164,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -3129,7 +3186,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	double CCTip=Double.parseDouble(ccTip);
@@ -3150,7 +3207,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	double TipCharge=Double.parseDouble(Tipcharge);
@@ -3172,7 +3229,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	double GratuityPay=Double.parseDouble(gratuity);
@@ -3194,7 +3251,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	double EmpCCTip=Double.parseDouble(Emp_cc_tip);
@@ -3215,7 +3272,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	double OtherTip=Double.parseDouble(otherTips);
@@ -3238,7 +3295,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	double DeclaredCashTip=Double.parseDouble(declaredCashTip);
@@ -3281,7 +3338,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}*/
 	
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	double NetSales=Double.parseDouble(netSales);
@@ -3303,7 +3360,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	double ExpectedTip=Double.parseDouble(expectedTip);
@@ -3325,7 +3382,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Over All Tip
-	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overAllTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip is : "+overAllTip);
 	double OverAllTip=Double.parseDouble(overAllTip);
@@ -3350,14 +3407,17 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 
 	@Test(priority=62,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_7_days(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_7_days(WebDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
 	 	
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
-
+	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+	
 	Thread.sleep(1000);
 	//Select the Employee option
 	repts.Select_Employee("All");
@@ -3375,10 +3435,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Select the Format
 	repts.Select_Status("All");
 	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
-
 	//Select the Role
 	repts.Select_Role("All");
 	
@@ -3392,7 +3448,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -3402,7 +3458,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -3416,7 +3472,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Reg Pay
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -3427,7 +3483,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -3436,7 +3492,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -3445,7 +3501,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	CC_Tip=Double.parseDouble(ccTip);
@@ -3454,7 +3510,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	Tip_Charge=Double.parseDouble(Tipcharge);
@@ -3463,21 +3519,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	Gratuity_Pay=Double.parseDouble(gratuity);
 	this.Gratuity_Pay=Gratuity_Pay;
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	Emp_CCTip=Double.parseDouble(Emp_cc_tip);
 	this.Emp_CCTip=Emp_CCTip;
 
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	Other_Tip=Double.parseDouble(otherTips);
@@ -3485,7 +3541,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	Declared_CashTip=Double.parseDouble(declaredCashTip);
@@ -3500,14 +3556,14 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	this.Total_Tip=Total_Tip;*/
 
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	Net_Sales=Double.parseDouble(netSales);
 	this.Net_Sales=Net_Sales;
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	Expected_Tip=Double.parseDouble(expectedTip);
@@ -3515,7 +3571,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Over All Tip
-	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip Tip is : "+overTip);
 	OverAll_Tip=Double.parseDouble(overTip);
@@ -3526,19 +3582,22 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	@Test(priority=63,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_7_days(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_7_days(WebDriver driver) throws Exception
 	{
 
 
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
 	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+	
 	Thread.sleep(1000);
 	//Select the Employee option
 	repts.Select_Employee("All");
 	
 	Thread.sleep(1000);
-	//Select the Process as Daily	
+	//Select the Process as Weekly	
 	repts.Select_Process("Weekly");   
 	
 	//Select the Last 7days
@@ -3550,10 +3609,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Select the Format
 	repts.Select_Status("All");
 	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
-
 	//Select the Role
 	repts.Select_Role("All");
 	
@@ -3565,7 +3620,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 //Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -3575,7 +3630,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -3591,7 +3646,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Get Reg Pay
 	System.out.println("Reg Pay values from Daily Last 7 days : "+Reg_Pay);
 
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -3612,7 +3667,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -3635,7 +3690,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -3657,7 +3712,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	double CCTip=Double.parseDouble(ccTip);
@@ -3678,7 +3733,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	double TipCharge=Double.parseDouble(Tipcharge);
@@ -3700,7 +3755,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	double GratuityPay=Double.parseDouble(gratuity);
@@ -3722,7 +3777,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	double EmpCCTip=Double.parseDouble(Emp_cc_tip);
@@ -3743,7 +3798,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	double OtherTip=Double.parseDouble(otherTips);
@@ -3766,7 +3821,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	double DeclaredCashTip=Double.parseDouble(declaredCashTip);
@@ -3809,7 +3864,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}*/
 	
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	double NetSales=Double.parseDouble(netSales);
@@ -3831,7 +3886,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	double ExpectedTip=Double.parseDouble(expectedTip);
@@ -3853,7 +3908,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Over All Tip
-	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overAllTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip is : "+overAllTip);
 	double OverAllTip=Double.parseDouble(overAllTip);
@@ -3881,13 +3936,16 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	@Test(priority=64,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_This_Month(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_This_Month(WebDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 	
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
-
+	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+	
 
 	Thread.sleep(1000);
 	//Select the Employee option
@@ -3906,10 +3964,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Select the Format
 	repts.Select_Status("All");
 	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
-
 	//Select the Role
 	repts.Select_Role("All");
 	
@@ -3921,7 +3975,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -3931,7 +3985,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -3945,7 +3999,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Reg Pay
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -3956,7 +4010,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -3965,7 +4019,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -3974,7 +4028,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	CC_Tip=Double.parseDouble(ccTip);
@@ -3983,7 +4037,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	Tip_Charge=Double.parseDouble(Tipcharge);
@@ -3992,21 +4046,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	Gratuity_Pay=Double.parseDouble(gratuity);
 	this.Gratuity_Pay=Gratuity_Pay;
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	Emp_CCTip=Double.parseDouble(Emp_cc_tip);
 	this.Emp_CCTip=Emp_CCTip;
 
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	Other_Tip=Double.parseDouble(otherTips);
@@ -4014,7 +4068,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	Declared_CashTip=Double.parseDouble(declaredCashTip);
@@ -4029,21 +4083,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	this.Total_Tip=Total_Tip;*/
 
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	Net_Sales=Double.parseDouble(netSales);
 	this.Net_Sales=Net_Sales;
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	Expected_Tip=Double.parseDouble(expectedTip);
 	this.Expected_Tip=Expected_Tip;
 	
 	//Get Over All Tip
-	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip Tip is : "+overTip);
 	OverAll_Tip=Double.parseDouble(overTip);
@@ -4054,19 +4108,22 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	@Test(priority=65,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_This_Month(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_This_Month(WebDriver driver) throws Exception
 	{
 
 
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
-
+	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+	
 	Thread.sleep(1000);
 	//Select the Employee option
 	repts.Select_Employee("All");
 	
 	Thread.sleep(1000);
-	//Select the Process as Daily	
+	//Select the Process as Weekly	
 	repts.Select_Process("Weekly");   
 	
   	//Select the This Month
@@ -4078,10 +4135,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Select the Format
 	repts.Select_Status("All");
 	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
-
 	//Select the Role
 	repts.Select_Role("All");
 	
@@ -4093,7 +4146,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -4103,7 +4156,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -4119,7 +4172,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Get Reg Pay
 	System.out.println("Reg Pay values from Daily This Month : "+Reg_Pay);
 
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -4140,7 +4193,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -4163,7 +4216,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -4185,7 +4238,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	double CCTip=Double.parseDouble(ccTip);
@@ -4206,7 +4259,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	double TipCharge=Double.parseDouble(Tipcharge);
@@ -4228,7 +4281,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	double GratuityPay=Double.parseDouble(gratuity);
@@ -4250,7 +4303,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	double EmpCCTip=Double.parseDouble(Emp_cc_tip);
@@ -4271,7 +4324,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	double OtherTip=Double.parseDouble(otherTips);
@@ -4294,7 +4347,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	double DeclaredCashTip=Double.parseDouble(declaredCashTip);
@@ -4337,7 +4390,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}*/
 	
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	double NetSales=Double.parseDouble(netSales);
@@ -4359,7 +4412,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	double ExpectedTip=Double.parseDouble(expectedTip);
@@ -4381,7 +4434,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Over All Tip
-	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overAllTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip is : "+overAllTip);
 	double OverAllTip=Double.parseDouble(overAllTip);
@@ -4408,13 +4461,16 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 
 	@Test(priority=66,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_Month(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_Month(WebDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
 	 	
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
+	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
 	
 	Thread.sleep(1000);
 	//Select the Employee option
@@ -4433,10 +4489,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Select the Format
 	repts.Select_Status("All");
 	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
-
 	//Select the Role
 	repts.Select_Role("All");
 	
@@ -4449,7 +4501,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 //Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -4459,7 +4511,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -4473,7 +4525,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Reg Pay
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -4484,7 +4536,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -4493,7 +4545,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -4502,7 +4554,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	CC_Tip=Double.parseDouble(ccTip);
@@ -4511,7 +4563,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	Tip_Charge=Double.parseDouble(Tipcharge);
@@ -4520,21 +4572,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	Gratuity_Pay=Double.parseDouble(gratuity);
 	this.Gratuity_Pay=Gratuity_Pay;
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	Emp_CCTip=Double.parseDouble(Emp_cc_tip);
 	this.Emp_CCTip=Emp_CCTip;
 
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	Other_Tip=Double.parseDouble(otherTips);
@@ -4542,7 +4594,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	Declared_CashTip=Double.parseDouble(declaredCashTip);
@@ -4557,21 +4609,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	this.Total_Tip=Total_Tip;*/
 
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	Net_Sales=Double.parseDouble(netSales);
 	this.Net_Sales=Net_Sales;
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	Expected_Tip=Double.parseDouble(expectedTip);
 	this.Expected_Tip=Expected_Tip;
 	
 	//Get Over All Tip
-	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip Tip is : "+overTip);
 	OverAll_Tip=Double.parseDouble(overTip);
@@ -4582,19 +4634,22 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	@Test(priority=67,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_Month(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_Month(WebDriver driver) throws Exception
 	{
 
 
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
 	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+	
 	Thread.sleep(1000);
 	//Select the Employee option
 	repts.Select_Employee("All");
 	
 	Thread.sleep(1000);
-	//Select the Process as Daily	
+	//Select the Process as Weekly
 	repts.Select_Process("Weekly");   
 	
 	//Select the Last Month
@@ -4606,10 +4661,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Select the Format
 	repts.Select_Status("All");
 	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
-
 	//Select the Role
 	repts.Select_Role("All");
 	
@@ -4621,7 +4672,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 //Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -4631,7 +4682,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -4647,7 +4698,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Get Reg Pay
 	System.out.println("Reg Pay values from Daily Last Month : "+Reg_Pay);
 
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -4668,7 +4719,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -4691,7 +4742,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -4713,7 +4764,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	double CCTip=Double.parseDouble(ccTip);
@@ -4734,7 +4785,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	double TipCharge=Double.parseDouble(Tipcharge);
@@ -4756,7 +4807,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	double GratuityPay=Double.parseDouble(gratuity);
@@ -4778,7 +4829,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	double EmpCCTip=Double.parseDouble(Emp_cc_tip);
@@ -4799,7 +4850,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	double OtherTip=Double.parseDouble(otherTips);
@@ -4822,7 +4873,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	double DeclaredCashTip=Double.parseDouble(declaredCashTip);
@@ -4865,7 +4916,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}*/
 	
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	double NetSales=Double.parseDouble(netSales);
@@ -4887,7 +4938,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	double ExpectedTip=Double.parseDouble(expectedTip);
@@ -4909,7 +4960,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Over All Tip
-	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overAllTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip is : "+overAllTip);
 	double OverAllTip=Double.parseDouble(overAllTip);
@@ -4937,7 +4988,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	@Test(priority=68,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_30_days(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_30_days(WebDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
@@ -4946,7 +4997,10 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
 	
-	  	
+	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+	
 	Thread.sleep(1000);
 	//Select the Employee option
 	repts.Select_Employee("All");
@@ -4964,10 +5018,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Select the Format
 	repts.Select_Status("All");
 	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
-
 	//Select the Role
 	repts.Select_Role("All");
 	
@@ -4981,7 +5031,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -4991,7 +5041,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -5003,7 +5053,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get Reg Pay
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -5014,7 +5064,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -5023,7 +5073,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -5032,7 +5082,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	CC_Tip=Double.parseDouble(ccTip);
@@ -5041,7 +5091,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	Tip_Charge=Double.parseDouble(Tipcharge);
@@ -5050,21 +5100,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	Gratuity_Pay=Double.parseDouble(gratuity);
 	this.Gratuity_Pay=Gratuity_Pay;
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	Emp_CCTip=Double.parseDouble(Emp_cc_tip);
 	this.Emp_CCTip=Emp_CCTip;
 
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	Other_Tip=Double.parseDouble(otherTips);
@@ -5072,7 +5122,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	Declared_CashTip=Double.parseDouble(declaredCashTip);
@@ -5087,21 +5137,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	this.Total_Tip=Total_Tip;*/
 
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	Net_Sales=Double.parseDouble(netSales);
 	this.Net_Sales=Net_Sales;
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	Expected_Tip=Double.parseDouble(expectedTip);
 	this.Expected_Tip=Expected_Tip;
 	
 	//Get Over All Tip
-	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip Tip is : "+overTip);
 	OverAll_Tip=Double.parseDouble(overTip);
@@ -5112,7 +5162,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	@Test(priority=69,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_30_days(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_30_days(WebDriver driver) throws Exception
 	{
 
 
@@ -5122,13 +5172,16 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 
-	  	
+	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+	
 	Thread.sleep(1000);
 	//Select the Employee option
 	repts.Select_Employee("All");
 	
 	Thread.sleep(1000);
-	//Select the Process as Daily
+	//Select the Process as Weekly
 	repts.Select_Process("Weekly");   
 	
  	//Select the Date Range
@@ -5139,10 +5192,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	//Select the Format
 	repts.Select_Status("All");
-	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
 
 	//Select the Role
 	repts.Select_Role("All");
@@ -5154,7 +5203,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -5164,7 +5213,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -5180,7 +5229,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Get Reg Pay
 	System.out.println("Reg Pay values from Daily Last 30 days : "+Reg_Pay);
 
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -5201,7 +5250,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -5224,7 +5273,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -5246,7 +5295,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	double CCTip=Double.parseDouble(ccTip);
@@ -5267,7 +5316,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	double TipCharge=Double.parseDouble(Tipcharge);
@@ -5289,7 +5338,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	double GratuityPay=Double.parseDouble(gratuity);
@@ -5311,7 +5360,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	double EmpCCTip=Double.parseDouble(Emp_cc_tip);
@@ -5332,7 +5381,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	double OtherTip=Double.parseDouble(otherTips);
@@ -5355,7 +5404,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	double DeclaredCashTip=Double.parseDouble(declaredCashTip);
@@ -5398,7 +5447,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}*/
 	
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	double NetSales=Double.parseDouble(netSales);
@@ -5420,7 +5469,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	double ExpectedTip=Double.parseDouble(expectedTip);
@@ -5442,7 +5491,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Over All Tip
-	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overAllTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip is : "+overAllTip);
 	double OverAllTip=Double.parseDouble(overAllTip);
@@ -5471,12 +5520,15 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	@Test(priority=70,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Specific_Date(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Specific_Date(WebDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
+	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
 	
 	Thread.sleep(1000);
 	//Select the Employee option
@@ -5495,10 +5547,6 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Select the Format
 	repts.Select_Status("All");
 	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
-
 	//Select the Role
 	repts.Select_Role("All");
 	
@@ -5510,7 +5558,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -5520,7 +5568,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -5536,7 +5584,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Reg Pay
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -5547,7 +5595,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -5556,7 +5604,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -5565,7 +5613,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	CC_Tip=Double.parseDouble(ccTip);
@@ -5574,7 +5622,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	Tip_Charge=Double.parseDouble(Tipcharge);
@@ -5583,21 +5631,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	Gratuity_Pay=Double.parseDouble(gratuity);
 	this.Gratuity_Pay=Gratuity_Pay;
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	Emp_CCTip=Double.parseDouble(Emp_cc_tip);
 	this.Emp_CCTip=Emp_CCTip;
 
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	Other_Tip=Double.parseDouble(otherTips);
@@ -5605,7 +5653,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	Declared_CashTip=Double.parseDouble(declaredCashTip);
@@ -5620,21 +5668,21 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	this.Total_Tip=Total_Tip;*/
 
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	Net_Sales=Double.parseDouble(netSales);
 	this.Net_Sales=Net_Sales;
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	Expected_Tip=Double.parseDouble(expectedTip);
 	this.Expected_Tip=Expected_Tip;
 	
 	//Get Over All Tip
-	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip Tip is : "+overTip);
 	OverAll_Tip=Double.parseDouble(overTip);
@@ -5688,12 +5736,15 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	}
 	
 	@Test(priority=71,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Specific_Date(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Specific_Date(WebDriver driver) throws Exception
 	{
 
 
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
+	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
 	
 	
 	Thread.sleep(2000);
@@ -5701,10 +5752,10 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	repts.Select_Employee("All");
 	
 	Thread.sleep(1000);
-	//Select the Process as Daily
+	//Select the Process as Weekly
 	repts.Select_Process("Weekly");   
 	
-  //Select the Specific date
+    //Select the Specific date
 	repts.Select_Specific_Date_TimePeriod(Utility.getProperty("Report_Specific_Date"));
 
 	//Select the Format
@@ -5713,10 +5764,6 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	//Select the Format
 	repts.Select_Status("All");
 	
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z FirstName");
-
 	//Select the Role
 	repts.Select_Role("All");
 	
@@ -5727,7 +5774,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -5737,7 +5784,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -5753,7 +5800,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	//Get Reg Pay
 	System.out.println("Reg Pay values from Daily - Specific Date : "+Reg_Pay);
 
-	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPay);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 	String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -5774,7 +5821,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	}
 	
 	//Get OT Pay
-	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPay);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 	String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -5797,7 +5844,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	
 
 	//Get TTL Pay
-	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPay);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 	String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -5819,7 +5866,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	}
 	
 	//Get CC Tip
-	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTip);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 	double CCTip=Double.parseDouble(ccTip);
@@ -5840,7 +5887,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	}
 	
 	//Get Tip Charge Tip
-	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+Tipcharge);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 	double TipCharge=Double.parseDouble(Tipcharge);
@@ -5862,7 +5909,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	}
 
 	//Get Gratuity
-	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuity);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 	double GratuityPay=Double.parseDouble(gratuity);
@@ -5884,7 +5931,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	}
 	
 	//Get Emp CC Tip
-	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 	double EmpCCTip=Double.parseDouble(Emp_cc_tip);
@@ -5905,7 +5952,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	}
 	
 	//Get Other Tip
-	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTips);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 	double OtherTip=Double.parseDouble(otherTips);
@@ -5928,7 +5975,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	}
 	
 	//Get Declared Cash Tip
-	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 	double DeclaredCashTip=Double.parseDouble(declaredCashTip);
@@ -5971,7 +6018,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	}*/
 	
 	//Get Net Sales
-	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSales);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 	double NetSales=Double.parseDouble(netSales);
@@ -5993,7 +6040,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	}
 	
 	//Get Expected Tip
-	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTip);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 	double ExpectedTip=Double.parseDouble(expectedTip);
@@ -6015,7 +6062,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	
 	
 	//Get Over All Tip
-	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String overAllTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+overAllTip);	
 	test.log(LogStatus.INFO, "Total Over All Tip is : "+overAllTip);
 	double OverAllTip=Double.parseDouble(overAllTip);
@@ -6080,7 +6127,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	
 	
 	@Test(priority=72,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range(WebDriver driver) throws Exception
 	{
 
 	double OverAll_Tip_Dly,Over_All_Pay_Dly,Tip_Shared_Dly,Expected_Tip_Dly;
@@ -6089,20 +6136,16 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
 	
-	
-	
-	
-	
-	
-	
-	
-	test.log(LogStatus.INFO, "Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range Starts");
+
+	test.log(LogStatus.INFO, "Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range Starts");
 	
 	driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
-
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+	
 	Thread.sleep(2000);
 	//Select the Employee option
-	repts.Select_Employee("Am Bar Am Bartender");
+	repts.Select_Employee("QA Test");
 	
 	Thread.sleep(1000);
 	//Select the Process as Daily
@@ -6110,49 +6153,16 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	
   	
 	//Select the Date Range
-	
-	
 	repts.Select_Date_Range_TimePeriod(Utility.getProperty("Payroll_Date_Range_From"), Utility.getProperty("Payroll_Date_Range_To"));
-	
-	
-	
-	Thread.sleep(1000);
-	
-	
-	
-	
-	
-	Thread.sleep(1000);
-	
-	
-	
-	
-	  
-	
 	
 	//Select the Format
 	repts.Select_FormatType("In Time");
 	
-	
-	  
-	
-	
 	//Select the Format
 	repts.Select_Status("All");
-	
-	
-	
-	Thread.sleep(1000);
-	//Select the Process as Daily
 
-repts.Select_Sort_By("A-Z FirstName");
-
-	
-	
 	//Select the Role
 	repts.Select_Role("All");
-	
-	
 	
 	//Click Apply
 	repts.Click_ApplyButton(); 
@@ -6162,7 +6172,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -6173,7 +6183,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Time(Daily) *******");
 	
@@ -6210,7 +6220,7 @@ repts.Select_Sort_By("A-Z FirstName");
 
 	
 	//Get Total Hours
-	/*String hours = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	/*String hours = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	
 	System.out.println("Total Hours is : "+hours);
 	
@@ -6223,7 +6233,7 @@ System.out.println("Total OT Hours is : "+otHours);
 
 test.log(LogStatus.INFO, "Total OT Hours is : "+otHours);*/
 	//Get Total Hours
-	/*String hours = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	/*String hours = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	
 	System.out.println("Total Hours is : "+hours);
 	
@@ -6235,7 +6245,7 @@ test.log(LogStatus.INFO, "Total OT Hours is : "+otHours);*/
 	
 	Thread.sleep(1000);
 	//Get Reg Pay
-	String regPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPayDt);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPayDt);
 	String TotalRegPayDt=regPayDt.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -6244,7 +6254,7 @@ test.log(LogStatus.INFO, "Total OT Hours is : "+otHours);*/
 	 
 	
 	//Get OT Pay
-	String otPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPayDt);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPayDt);	
 	String TotalOTPayDt=otPayDt.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -6256,7 +6266,7 @@ test.log(LogStatus.INFO, "Total OT Hours is : "+otHours);*/
 	
 
 	//Get TTL Pay
-	String ttlPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPayDt);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPayDt);
 	String TotalPayDt=ttlPayDt.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -6277,14 +6287,14 @@ test.log(LogStatus.INFO, "Total OT Hours is : "+otHours);*/
 	}
 	
 	//Get CC Tip
-	String ccTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTipDt);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTipDt);
 	double CC_TipDt=Double.parseDouble(ccTipDt);
 	 
 	
 	//Get Tip Charge Tip
-	String TipchargeDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String TipchargeDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+TipchargeDt);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+TipchargeDt);
 	double Tip_ChargeDt=Double.parseDouble(TipchargeDt);
@@ -6294,7 +6304,7 @@ test.log(LogStatus.INFO, "Total OT Hours is : "+otHours);*/
 	
 	
 	//Get Gratuity
-	String gratuityDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuityDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuityDt);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuityDt);
 	double GratuityDt=Double.parseDouble(gratuityDt);
@@ -6314,7 +6324,7 @@ test.log(LogStatus.INFO, "Total OT Hours is : "+otHours);*/
 	
 	
 	//Get Emp CC Tip
-	String Emp_cc_tipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tipDt);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tipDt);
 	double Actual_Emp_CC_TipDt=Double.parseDouble(Emp_cc_tipDt);
@@ -6331,7 +6341,7 @@ test.log(LogStatus.INFO, "Total OT Hours is : "+otHours);*/
 	}
 	
 	//Get Other Tip
-	String otherTipsDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTipsDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Other Tip is : "+otherTipsDt);	
 	test.log(LogStatus.INFO, "Other Tip is : "+otherTipsDt);
 	double Other_TipsDt=Double.parseDouble(otherTipsDt);
@@ -6339,7 +6349,7 @@ test.log(LogStatus.INFO, "Total OT Hours is : "+otHours);*/
 	
 	
 	//Get Declared Cash Tip
-	String declaredCashTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTipDt);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTipDt);	
 	double DeclaredCashTipDt=Double.parseDouble(declaredCashTipDt);
@@ -6368,13 +6378,13 @@ test.log(LogStatus.INFO, "Total OT Hours is : "+otHours);*/
 	}*/
 	
 	//Get Net Sales
-	String netSalesDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSalesDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSalesDt);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSalesDt);	
 	double NetSalesDt=Double.parseDouble(netSalesDt);
 	
 	//Get Expected Tip
-	String expectedTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTipDt);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTipDt);
 	double Actual_ExpectedTipDt=Double.parseDouble(expectedTipDt);
@@ -6454,7 +6464,7 @@ test.log(LogStatus.FAIL, "Expected Tip Value Incorrect (Cash Tip % is 0.00). The
 //	Expected_Tip_Out_ContDt=dd3.doubleValue();
 //	
 	//To Get Actual Tip Out Contribution from Report
-	String Actual_TipOutConDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[17]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String Actual_TipOutConDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[17]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 //	System.out.println("Total Tip Out Cont is : "+Actual_TipOutConDt);	
 	test.log(LogStatus.INFO, "Total Tip Out Cont is : "+Actual_TipOutConDt);
 	double Actual_Tip_Out_ContDt=Double.parseDouble(Actual_TipOutConDt);
@@ -6474,7 +6484,7 @@ test.log(LogStatus.FAIL, "Expected Tip Value Incorrect (Cash Tip % is 0.00). The
 //	
 	
 	//To Get Actual Tip Out Share from the Report
-	String Actual_Tip_Out_ShareDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[27]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String Actual_Tip_Out_ShareDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[27]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Tip Out Shared Tip is : "+Actual_Tip_Out_ShareDt);	
 	test.log(LogStatus.INFO, "Total Tip Out Shared Tip is : "+Actual_Tip_Out_ShareDt);
 	double Actual_Tip_Out_SharedDt=Double.parseDouble(Actual_Tip_Out_ShareDt);
@@ -6508,7 +6518,7 @@ test.log(LogStatus.FAIL, "Expected Tip Value Incorrect (Cash Tip % is 0.00). The
 	
 	
 	//To Get Actual Tip Shared from the Report
-	String Actual_Tip_ShareDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[25]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String Actual_Tip_ShareDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[25]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Tip Shared Tip is : "+Actual_Tip_ShareDt);	
 	test.log(LogStatus.INFO, "Total Tip Shared Tip is : "+Actual_Tip_ShareDt);
 	double Actual_Tip_SharedDt=Double.parseDouble(Actual_Tip_ShareDt);
@@ -6539,7 +6549,7 @@ test.log(LogStatus.FAIL, "Expected Tip Value Incorrect (Cash Tip % is 0.00). The
 	
 	
 	//To Get Over All Tip from the Report
-	String Actual_OverAllTip_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String Actual_OverAllTip_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+Actual_OverAllTip_Dt);	
 	test.log(LogStatus.INFO, "Total Over All Tip is : "+Actual_OverAllTip_Dt);
 	OverAll_Tip_Dly=Double.parseDouble(Actual_OverAllTip_Dt);
@@ -6562,7 +6572,7 @@ test.log(LogStatus.FAIL, "Expected Tip Value Incorrect (Cash Tip % is 0.00). The
 	double Expected_OverPay=Actual_TTLPayDt+OverAll_Tip_Dly;
 	
 	//To Get Actual Ovar All Pay
-	String Actual_OverAllPay_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[36]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String Actual_OverAllPay_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[36]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Pay is : "+Actual_OverAllPay_Dt);	
 	test.log(LogStatus.INFO, "Total Over All Pay is : "+Actual_OverAllPay_Dt);
 	Over_All_Pay_Dly=Double.parseDouble(Actual_OverAllPay_Dt);
@@ -6614,93 +6624,48 @@ test.log(LogStatus.FAIL, "Name sort is not working  for A-Z First Name");
 Thread.sleep(1000);
 driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 
-test.log(LogStatus.INFO, "Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range End");
+test.log(LogStatus.INFO, "Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range End");
 Thread.sleep(1000);
 
 
 	}
 	@Test(priority=73,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Hours_Date_Range(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Hours_Date_Range(WebDriver driver) throws Exception
 	{
 
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
-	
-	 	
-	
-	
-	
-	
-	
-	
-	
 
-	test.log(LogStatus.INFO, "Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Hours_Date_Range Starts");
+	test.log(LogStatus.INFO, "Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Hours_Date_Range Starts");
 	Thread.sleep(3000);
 /*	JavascriptExecutor js=(JavascriptExecutor)driver;
 	WebElement ele1=driver.findElement(By.xpath(excel.getData(3, 2413, 1)));
 
 	js.executeScript("arguments[0].scrollIntoView(true);", ele1);*/
 	driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
-
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+	
 Thread.sleep(2000);
 //Select the Employee option
-	
-	
-	repts.Select_Employee("Am Bar Am Bartender");
-	
-	
+	repts.Select_Employee("QA Test");
 	
 	Thread.sleep(1000);
 	//Select the Process as Daily
-
-repts.Select_Process("Daily");   
+	repts.Select_Process("Daily");   
 	
 	  	
 	//Select the Date Range
-	
-	
 	repts.Select_Date_Range_TimePeriod(Utility.getProperty("Payroll_Date_Range_From"), Utility.getProperty("Payroll_Date_Range_To"));
 	
-	
-	
-	Thread.sleep(1000);
-	
-	
-	
-	
-	
-	Thread.sleep(1000);
-	
-	
-	
-	
-  
-
-
 //Select the Format
 repts.Select_FormatType("In Hours");
-
-
-  
-
 
 //Select the Format
 repts.Select_Status("All");
 
-
-	
-Thread.sleep(1000);
-//Select the Process as Daily
-	
-	repts.Select_Sort_By("Z-A FirstName");   
-
-
-
 //Select the Role
 repts.Select_Role("All");
-
-
 
 //Click Apply
 repts.Click_ApplyButton(); 
@@ -6709,7 +6674,7 @@ Thread.sleep(30000);
 	//Check weather the report is available for the selected time period
 	if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 	{
-test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 	
 String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 String s="data:image/png;base64,"+scnShot;
@@ -6718,7 +6683,7 @@ test.log(LogStatus.INFO,test.addScreenCapture(s));
 	else
 	{
 	
-	test.log(LogStatus.PASS, "Employee Payroll Report(In Hours and Daily) is available for Specific Date");
+	test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Hours and Daily) is available for Specific Date");
 	
 	System.out.println("******* The Below is Employee Payroll Report for In Hours(Daily) *******");
 	
@@ -6750,7 +6715,7 @@ test.log(LogStatus.INFO,test.addScreenCapture(s));
 	test.log(LogStatus.INFO, "Total Reg Hours is : "+regHours);
 	*/	
 	//Get Reg Pay
-	String regPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+	String regPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 	System.out.println("Total Reg Pay is : "+regPayDt);
 	test.log(LogStatus.INFO, "Total Reg Pay is : "+regPayDt);
 	String TotalRegPayDt=regPayDt.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -6758,7 +6723,7 @@ test.log(LogStatus.INFO,test.addScreenCapture(s));
 
 	
 	//Get OT Pay
-	String otPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+	String otPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 	System.out.println("Total OT Pay is : "+otPayDt);	
 	test.log(LogStatus.INFO, "Total OT Pay is : "+otPayDt);	
 	String TotalOTPayDt=otPayDt.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -6770,7 +6735,7 @@ test.log(LogStatus.INFO,test.addScreenCapture(s));
 	
 
 	//Get TTL Pay
-	String ttlPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+	String ttlPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 	System.out.println("Total TTL Pay is : "+ttlPayDt);
 	test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPayDt);
 	String TotalPayDt=ttlPayDt.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -6791,14 +6756,14 @@ System.out.println("Actual and Expected Total pay is diffrent.(Weekly - In Hours
 	}
 	
 	//Get CC Tip
-	String ccTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String ccTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total CC Tip is : "+ccTipDt);
 	test.log(LogStatus.INFO, "Total CC Tip is : "+ccTipDt);
 	double CC_TipDt=Double.parseDouble(ccTipDt);
 	 
 	
 	//Get Tip Charge Tip
-	String TipchargeDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String TipchargeDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Tip Charge is : "+TipchargeDt);	
 	test.log(LogStatus.INFO, "Total Tip Charge is : "+TipchargeDt);
 	double Tip_ChargeDt=Double.parseDouble(TipchargeDt);
@@ -6808,13 +6773,13 @@ System.out.println("Actual and Expected Total pay is diffrent.(Weekly - In Hours
 	
 	
 	//Get Gratuity
-	String gratuityDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String gratuityDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Gratuity is : "+gratuityDt);	
 	test.log(LogStatus.INFO, "Total Gratuity is : "+gratuityDt);
 	double GratuityDt=Double.parseDouble(gratuityDt);
 	
 	//Get Emp CC Tip
-	String Emp_cc_tipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+	String Emp_cc_tipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 	System.out.println("Total Emp CC Tips is : "+Emp_cc_tipDt);
 	test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tipDt);
 	double Actual_Emp_CC_TipDt=Double.parseDouble(Emp_cc_tipDt);
@@ -6831,7 +6796,7 @@ test.log(LogStatus.FAIL, "Employee CC Tip Calculated Wrongly. The Value diffrenc
 	}
 	
 	//Get Other Tip
-	String otherTipsDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String otherTipsDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Other Tip is : "+otherTipsDt);	
 	test.log(LogStatus.INFO, "Total Other Tip is : "+otherTipsDt);
 	double Other_TipsDt=Double.parseDouble(otherTipsDt);
@@ -6839,7 +6804,7 @@ test.log(LogStatus.FAIL, "Employee CC Tip Calculated Wrongly. The Value diffrenc
 	
 	
 	//Get Declared Cash Tip
-	String declaredCashTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String declaredCashTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Declared Cash Tip is : "+declaredCashTipDt);	
 	test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTipDt);	
 	double DeclaredCashTipDt=Double.parseDouble(declaredCashTipDt);
@@ -6867,13 +6832,13 @@ test.log(LogStatus.FAIL, "Expected and Actual Total Tip value is InCorrect. The 
 	}*/
 	
 	//Get Net Sales
-	String netSalesDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+	String netSalesDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 	System.out.println("Total Net Sales is : "+netSalesDt);	
 	test.log(LogStatus.INFO, "Total Net Sales is : "+netSalesDt);	
 	double NetSalesDt=Double.parseDouble(netSalesDt);
 	
 	//Get Expected Tip
-	String expectedTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String expectedTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+expectedTipDt);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTipDt);
 	double Actual_ExpectedTipDt=Double.parseDouble(expectedTipDt);
@@ -6929,7 +6894,7 @@ test.log(LogStatus.FAIL, "Expected Tip Value Incorrect. The Value Diffrence is :
 //	Expected_Tip_Out_ContDt=dd3.doubleValue();
 //	
 	//To Get Actual Tip Out Contribution from Report
-	String Actual_Tip_Out_ConDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[17]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String Actual_Tip_Out_ConDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[17]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Out Cont is : "+Actual_Tip_Out_ConDt);	
 	test.log(LogStatus.INFO, "Total Out Cont is : "+Actual_Tip_Out_ConDt);
 	double Actual_Tip_Out_ContDt=Double.parseDouble(Actual_Tip_Out_ConDt);
@@ -6948,13 +6913,13 @@ test.log(LogStatus.FAIL, "Expected Tip Value Incorrect. The Value Diffrence is :
 //	
 	
 	//To Get Actual Tip Out Share from the Report
-	String Actual_Tip_Out_ShareDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[27]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String Actual_Tip_Out_ShareDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[27]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Expected Tip is : "+Actual_Tip_Out_ShareDt);	
 	test.log(LogStatus.INFO, "Total Expected Tip is : "+Actual_Tip_Out_ShareDt);
 	double Actual_Tip_Out_SharedDt=Double.parseDouble(Actual_Tip_Out_ShareDt);
 	
 	//To Get Actual Tip Shared from the Report
-	String Actual_Tip_ShareDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[25]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String Actual_Tip_ShareDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[25]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Tip Shared Tip is : "+Actual_Tip_ShareDt);	
 	test.log(LogStatus.INFO, "Total Tip Shared Tip is : "+Actual_Tip_ShareDt);
 	double Actual_Tip_SharedDt=Double.parseDouble(Actual_Tip_ShareDt);
@@ -6974,7 +6939,7 @@ test.log(LogStatus.FAIL, "Tip Shared is InCorrect for both In Time to In Hours (
 	
 	
 	//To Get Over All Tip from the Report
-	String Actual_OverAllTip_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String Actual_OverAllTip_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Tip is : "+Actual_OverAllTip_Dt);	
 	test.log(LogStatus.INFO, "Total Over All Tip is : "+Actual_OverAllTip_Dt);
 	double Actual_OverAll_Tip=Double.parseDouble(Actual_OverAllTip_Dt);
@@ -6991,7 +6956,7 @@ test.log(LogStatus.FAIL, "Over All Tip Calculated Incorrectly for In Time to In 
 	
 	
 	//To Get Actual Ovar All Pay
-	String Actual_OverAllPay_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[36]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+	String Actual_OverAllPay_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[36]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 	System.out.println("Total Over All Pay is : "+Actual_OverAllPay_Dt);	
 	test.log(LogStatus.INFO, "Total Over All Pay is : "+Actual_OverAllPay_Dt);
 	double Actual_Over_All_Pay=Double.parseDouble(Actual_OverAllPay_Dt);
@@ -7055,13 +7020,13 @@ if(sortedList.equals(obtainedList))
 	driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 	Thread.sleep(1000); 
 	
-	test.log(LogStatus.INFO, "Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Hours_Date_Range End");
+	test.log(LogStatus.INFO, "Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Hours_Date_Range End");
 
 	}
 	
 	
 	@Test(priority=74,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range(WebDriver driver) throws Exception
 	{
 	double OverAll_Tip_Wly,Over_All_Pay_Wly,Tip_Shared_Wly,Expected_Tip_Wly;
 	
@@ -7071,16 +7036,18 @@ if(sortedList.equals(obtainedList))
 	
 	Thread.sleep(2000);
 	
-	test.log(LogStatus.INFO, "Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range Starts");
+	test.log(LogStatus.INFO, "Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range Starts");
 	//Top of the page
 	driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 	
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
 	
 	Thread.sleep(5000);
 	//Select the Employee option
-	repts.Select_Employee("Am Bar Am Bartender");
+	repts.Select_Employee("QA Test");
 	
-	//Select the Process as Daily
+	//Select the Process as Weekly
 	repts.Select_Process("Weekly");
 
  	//Select the Date Range
@@ -7091,10 +7058,6 @@ if(sortedList.equals(obtainedList))
 	
 	//Select the Format
 	repts.Select_Status("All");
-
-	Thread.sleep(1000);
-	//Select the Process as Daily
-	repts.Select_Sort_By("A-Z LastName");
 	
 	//Select the Role
 	repts.Select_Role("All");
@@ -7113,7 +7076,7 @@ if(sortedList.equals(obtainedList))
 //Check weather the report is available for the selected time period
 if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 {
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -7122,7 +7085,7 @@ if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 else
 {
 
-test.log(LogStatus.PASS, "Employee Payroll Report(In Hours and Weekly) is available for Specific Date");
+test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Hours and Weekly) is available for Specific Date");
 
 System.out.println("******* The Below is Employee Payroll Report for In Hours(Weekly) *******");
 
@@ -7160,7 +7123,7 @@ System.out.println("Total Reg Hours is : "+regHours);
 test.log(LogStatus.INFO, "Total Reg Hours is : "+regHours);
 */
 //Get Reg Pay
-String regPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+String regPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 System.out.println("Total Reg Pay is : "+regPayDt);
 test.log(LogStatus.INFO, "Total Reg Pay is : "+regPayDt);
 String TotalRegPayDt=regPayDt.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -7168,7 +7131,7 @@ double RegPayDt=Double.parseDouble(TotalRegPayDt);
 	
 
 //Get OT Pay
-String otPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+String otPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 System.out.println("Total OT Pay is : "+otPayDt);	
 test.log(LogStatus.INFO, "Total OT Pay is : "+otPayDt);	
 String TotalOTPayDt=otPayDt.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -7180,7 +7143,7 @@ double Expected_TTTLPayDt=RegPayDt+OTPayDt;
 
 
 //Get TTL Pay
-String ttlPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+String ttlPayDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 System.out.println("Total TTL Pay is : "+ttlPayDt);
 test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPayDt);
 String TotalPayDt=ttlPayDt.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -7201,14 +7164,14 @@ else
 }
 
 //Get CC Tip
-String ccTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+String ccTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 System.out.println("Total CC Tip is : "+ccTipDt);
 test.log(LogStatus.INFO, "Total CC Tip is : "+ccTipDt);
 double CC_TipDt=Double.parseDouble(ccTipDt);
  
 
 //Get Tip Charge Tip
-String TipchargeDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+String TipchargeDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 System.out.println("Total Tip Charge is : "+TipchargeDt);	
 test.log(LogStatus.INFO, "Total Tip Charge is : "+TipchargeDt);
 double Tip_ChargeDt=Double.parseDouble(TipchargeDt);
@@ -7218,13 +7181,13 @@ double Expected_Emp_CC_TipDt=CC_TipDt-Tip_ChargeDt;
 
 
 //Get Gratuity
-String gratuityDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+String gratuityDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 System.out.println("Total Gratuity is : "+gratuityDt);	
 test.log(LogStatus.INFO, "Total Gratuity is : "+gratuityDt);
 double GratuityDt=Double.parseDouble(gratuityDt);
 
 //Get Emp CC Tip
-String Emp_cc_tipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+String Emp_cc_tipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 System.out.println("Total Emp CC Tips is : "+Emp_cc_tipDt);
 test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tipDt);
 double Actual_Emp_CC_TipDt=Double.parseDouble(Emp_cc_tipDt);
@@ -7241,7 +7204,7 @@ else
 }
 
 //Get Other Tip
-String otherTipsDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+String otherTipsDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 System.out.println("Other Tip is : "+otherTipsDt);	
 test.log(LogStatus.INFO, "Other Tip is : "+otherTipsDt);
 double Other_TipsDt=Double.parseDouble(otherTipsDt);
@@ -7249,7 +7212,7 @@ double Other_TipsDt=Double.parseDouble(otherTipsDt);
 
 
 //Get Declared Cash Tip
-String declaredCashTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+String declaredCashTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 System.out.println("Total Declared Cash Tip is : "+declaredCashTipDt);	
 test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTipDt);	
 double DeclaredCashTipDt=Double.parseDouble(declaredCashTipDt);
@@ -7277,13 +7240,13 @@ else
 }*/
 
 //Get Net Sales
-String netSalesDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+String netSalesDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 System.out.println("Total Net Sales is : "+netSalesDt);	
 test.log(LogStatus.INFO, "Total Net Sales is : "+netSalesDt);	
 double NetSalesDt=Double.parseDouble(netSalesDt);
  
 //Get Expected Tip
-String expectedTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+String expectedTipDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 System.out.println("Total Expected Tip is : "+expectedTipDt);	
 test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTipDt);
 double Actual_ExpectedTipDt=Double.parseDouble(expectedTipDt);
@@ -7360,7 +7323,7 @@ else
 //Expected_Tip_Out_ContDt=dd3.doubleValue();
 //
 //To Get Actual Tip Out Contribution from Report
-String Actual_Tip_Out_ConDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[17]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+String Actual_Tip_Out_ConDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[17]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 System.out.println("Total Out Cont is : "+Actual_Tip_Out_ConDt);	
 test.log(LogStatus.INFO, "Total Out Cont is : "+Actual_Tip_Out_ConDt);
 double Actual_Tip_Out_ContDt=Double.parseDouble(Actual_Tip_Out_ConDt);
@@ -7379,7 +7342,7 @@ double Actual_Tip_Out_ContDt=Double.parseDouble(Actual_Tip_Out_ConDt);
 //
 
 //To Get Actual Tip Out Share from the Report
-String Actual_Tip_Out_ShareDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[27]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+String Actual_Tip_Out_ShareDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[27]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 System.out.println("Total Expected Tip is : "+Actual_Tip_Out_ShareDt);	
 test.log(LogStatus.INFO, "Total Expected Tip is : "+Actual_Tip_Out_ShareDt);
 double Actual_Tip_Out_SharedDt=Double.parseDouble(Actual_Tip_Out_ShareDt);
@@ -7397,7 +7360,7 @@ else
 }*/
 
 //To Get Actual Tip Shared from the Report
-String Actual_Tip_ShareDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[25]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+String Actual_Tip_ShareDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[25]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 System.out.println("Total Tip Shared Tip is : "+Actual_Tip_ShareDt);	
 test.log(LogStatus.INFO, "Total Tip Shared Tip is : "+Actual_Tip_ShareDt);
 double Actual_Tip_SharedDt=Double.parseDouble(Actual_Tip_ShareDt);
@@ -7440,7 +7403,7 @@ double Expected_Over_All_Tip=Expected_Tip_Shared+Actual_Tip_Out_SharedDt;//+Actu
 
 
 //To Get Over All Tip from the Report
-String Actual_OverAllTip_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+String Actual_OverAllTip_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 System.out.println("Total Over All Tip is : "+Actual_OverAllTip_Dt);	
 test.log(LogStatus.INFO, "Total Over All Tip is : "+Actual_OverAllTip_Dt);
 OverAll_Tip_Wly=Double.parseDouble(Actual_OverAllTip_Dt);
@@ -7463,7 +7426,7 @@ else
 double Expected_OverPay=Actual_TTLPayDt+OverAll_Tip_Wly;
 
 //To Get Actual Ovar All Pay
-String Actual_OverAllPay_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[36]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+String Actual_OverAllPay_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[36]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 System.out.println("Total Over All Pay is : "+Actual_OverAllPay_Dt);	
 test.log(LogStatus.INFO, "Total Over All Pay is : "+Actual_OverAllPay_Dt);
 Over_All_Pay_Wly=Double.parseDouble(Actual_OverAllPay_Dt);
@@ -7517,99 +7480,55 @@ for(int i = 0; i < elementList.size(); i++)
 	Thread.sleep(1000);
 	driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 	Thread.sleep(1000);	
-	test.log(LogStatus.INFO, "Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range End");
+	test.log(LogStatus.INFO, "Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range End");
 	
 
 	}
 	@Test(priority=75,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Hours_Date_Range(WebDriver driver) throws Exception
+	public void Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Hours_Date_Range(WebDriver driver) throws Exception
 	{
 	   
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
 	
-
-
-
-
-
-
-
-	
 	Thread.sleep(5000);
-	test.log(LogStatus.INFO, "Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Hours_Date_Range Starts");
+	test.log(LogStatus.INFO, "Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Hours_Date_Range Starts");
 	//Top of the page
 	driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 	/*	WebElement ele1=driver.findElement(By.xpath(excel.getData(3, 2413, 1)));
 	JavascriptExecutor js=(JavascriptExecutor)driver;
 	js.executeScript("arguments[0].scrollIntoView(true);", ele1);*/
 	Thread.sleep(1000);
+	//Select stores
+	//repts.Select_Store_inEmployeeRoleBased_EnterpriseReport(Utility.getProperty("Store1"));
+	
 	//Select the Employee option
+	repts.Select_Employee("QA Test");
 	
-	
-	repts.Select_Employee("Am Bar Am Bartender");
-	
-	
-	  
-	//Select the Process as Daily
-	
+	//Select the Process as Weekly
 	repts.Select_Process("Weekly");
  
 	for(int i = 1; i <= 4; i++)
 	{
-Thread.sleep(2000);
-driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
-Thread.sleep(3000);
+		Thread.sleep(2000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+		Thread.sleep(3000);
 	}
 	
 	Thread.sleep(1000);
   	
 	//Select the Date Range
-	
-	
 	repts.Select_Date_Range_TimePeriod(Utility.getProperty("Payroll_Date_Range_From"), Utility.getProperty("Payroll_Date_Range_To"));
-	
-	
-	
-	Thread.sleep(1000);
-	
-	
-	
-	
-	
-	Thread.sleep(1000);
-	
-	
-	
-	
-	Thread.sleep(1000);
-	
-	
 	
 	//Select the Format
 	repts.Select_FormatType("In Hours");
 	
-	
-	
-	
-	
 	//Select the Format
 	repts.Select_Status("All");
 	
-	
-	
-	Thread.sleep(1000);
-	//Select the Sort By
-	
-	repts.Select_Sort_By("Z-A LastName");
-	
-	
-	
 	//Select the Role
 	repts.Select_Role("All");
-	
-	
-	
+
 	Thread.sleep(1000);
 	 //Click Apply
 	repts.Click_ApplyButton(); 
@@ -7618,7 +7537,7 @@ Thread.sleep(3000);
 	   	//Check weather the report is available for the selected time period
 if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 {
-	test.log(LogStatus.FAIL, "Employee Payroll Report is not available for Specific Date");
+	test.log(LogStatus.FAIL, "Enterprise Reports - Employee Payroll Report is not available for Specific Date");
 
 	String scnShot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
 	String s="data:image/png;base64,"+scnShot;
@@ -7627,7 +7546,7 @@ if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 else
 {
 
-test.log(LogStatus.PASS, "Employee Payroll Report(In Time and Weekly) is available for Specific Date");
+test.log(LogStatus.PASS, "Enterprise Reports - Employee Payroll Report(In Time and Weekly) is available for Specific Date");
 
 System.out.println("******* The Below is Employee Payroll Report for In Time(Weekly) *******");
 
@@ -7667,7 +7586,7 @@ JavascriptExecutor js1=(JavascriptExecutor)driver;
 js1.executeScript("arguments[0].scrollIntoView(true);", ele);
 
 //Get Reg Pay
-String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]/div")).getText();
+String regPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[9]")).getText();
 System.out.println("Total Reg Pay is : "+regPay);
 test.log(LogStatus.INFO, "Total Reg Pay is : "+regPay);
 String TotalRegPay=regPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -7675,7 +7594,7 @@ double RegPay=Double.parseDouble(TotalRegPay);
 	
 
 //Get OT Pay
-String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]/div")).getText();
+String otPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[11]")).getText();
 System.out.println("Total OT Pay is : "+otPay);	
 test.log(LogStatus.INFO, "Total OT Pay is : "+otPay);	
 String TotalOTPay=otPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -7687,7 +7606,7 @@ double Expected_TTTLPay=RegPay+OTPay;
 
 
 //Get TTL Pay
-String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]/div")).getText();	
+String ttlPay = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[13]")).getText();	
 System.out.println("Total TTL Pay is : "+ttlPay);
 test.log(LogStatus.INFO, "Total TTL Pay is : "+ttlPay);
 String TotalPay=ttlPay.replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
@@ -7708,14 +7627,14 @@ else
 }
 
 //Get CC Tip
-String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+String ccTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[14]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 System.out.println("Total CC Tip is : "+ccTip);
 test.log(LogStatus.INFO, "Total CC Tip is : "+ccTip);
 double CC_Tip=Double.parseDouble(ccTip);
  
 
 //Get Tip Charge Tip
-String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+String Tipcharge = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[15]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 System.out.println("Total Tip Charge is : "+Tipcharge);	
 test.log(LogStatus.INFO, "Total Tip Charge is : "+Tipcharge);
 double Tip_Charge=Double.parseDouble(Tipcharge);
@@ -7725,13 +7644,13 @@ double Expected_Emp_CC_Tip=CC_Tip-Tip_Charge;
 
 
 //Get Gratuity
-String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+String gratuity = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[18]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 System.out.println("Total Gratuity is : "+gratuity);	
 test.log(LogStatus.INFO, "Total Gratuity is : "+gratuity);
 double Gratuity=Double.parseDouble(gratuity);
 
 //Get Emp CC Tip
-String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
+String Emp_cc_tip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[16]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();
 System.out.println("Total Emp CC Tips is : "+Emp_cc_tip);
 test.log(LogStatus.INFO, "Total Emp CC Tips is : "+Emp_cc_tip);
 double Actual_Emp_CC_Tip=Double.parseDouble(Emp_cc_tip);
@@ -7748,7 +7667,7 @@ else
 }
 
 //Get Other Tip
-String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+String otherTips = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[19]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 System.out.println("Other Tip is : "+otherTips);	
 test.log(LogStatus.INFO, "Other Tip is : "+otherTips);
 double Other_Tips=Double.parseDouble(otherTips);
@@ -7756,7 +7675,7 @@ double Other_Tips=Double.parseDouble(otherTips);
 
 
 //Get Declared Cash Tip
-String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+String declaredCashTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[22]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 System.out.println("Total Declared Cash Tip is : "+declaredCashTip);	
 test.log(LogStatus.INFO, "Total Declared Cash Tip is : "+declaredCashTip);	
 double DeclaredCashTip=Double.parseDouble(declaredCashTip);
@@ -7785,13 +7704,13 @@ else
 }*/
 
 //Get Net Sales
-String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
+String netSales = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[23]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();	
 System.out.println("Total Net Sales is : "+netSales);	
 test.log(LogStatus.INFO, "Total Net Sales is : "+netSales);	
 double NetSales=Double.parseDouble(netSales);
 
 //Get Expected Tip
-String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+String expectedTip = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[24]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 System.out.println("Total Expected Tip is : "+expectedTip);	
 test.log(LogStatus.INFO, "Total Expected Tip is : "+expectedTip);
 double Actual_ExpectedTip=Double.parseDouble(expectedTip);
@@ -7847,7 +7766,7 @@ BigDecimal dd3=new BigDecimal(Expected_Tip_Out_Cont).setScale(2, RoundingMode.CE
 Expected_Tip_Out_Cont=dd3.doubleValue();
 
 //To Get Actual Tip Out Contribution from Report
-String Actual_Tip_Out_Con = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[17]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+String Actual_Tip_Out_Con = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[17]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 System.out.println("Total Expected Tip Out Contribution is : "+Actual_Tip_Out_Con);	
 test.log(LogStatus.INFO, "Total Expected Tip Out Contribution is : "+Actual_Tip_Out_Con);
 double Actual_Tip_Out_Cont=Double.parseDouble(Actual_Tip_Out_Con);
@@ -7866,7 +7785,7 @@ else
 
 
 //To Get Actual Tip Out Share from the Report
-String Actual_Tip_Out_Share = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[27]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+String Actual_Tip_Out_Share = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[27]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 System.out.println("Total Expected Tip Out Share is : "+Actual_Tip_Out_Share);	
 test.log(LogStatus.INFO, "Total Expected Tip Out Share is : "+Actual_Tip_Out_Share);
 double Actual_Tip_Out_Shared=Double.parseDouble(Actual_Tip_Out_Share);
@@ -7885,7 +7804,7 @@ else
 
 
 //To Get Actual Tip Shared from the Report
-String Actual_Tip_ShareDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[25]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+String Actual_Tip_ShareDt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[25]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 System.out.println("Total Tip Shared Tip is : "+Actual_Tip_ShareDt);	
 test.log(LogStatus.INFO, "Total Tip Shared Tip is : "+Actual_Tip_ShareDt);
 double Actual_Tip_SharedDt=Double.parseDouble(Actual_Tip_ShareDt);
@@ -7902,7 +7821,7 @@ else
 }
 
 //To Get Over All Tip from the Report
-String Actual_OverAllTip_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+String Actual_OverAllTip_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[35]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 System.out.println("Total Over All Tip is : "+Actual_OverAllTip_Dt);	
 test.log(LogStatus.INFO, "Total Over All Tip is : "+Actual_OverAllTip_Dt);
 double Actual_OverAll_Tip=Double.parseDouble(Actual_OverAllTip_Dt);
@@ -7918,7 +7837,7 @@ else
 }
 
 //To Get Actual Ovar All Pay
-String Actual_OverAllPay_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[36]/div")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
+String Actual_OverAllPay_Dt = driver.findElement(By.xpath("//tr["+rows.size()+"]/td[36]")).getText().replaceAll("[a-zA-Z $ ₹ £ , :]", "");//.substring(1).toString();;	
 System.out.println("Total Over All Pay is : "+Actual_OverAllPay_Dt);	
 test.log(LogStatus.INFO, "Total Over All Pay is : "+Actual_OverAllPay_Dt);
 double Actual_Over_All_Pay=Double.parseDouble(Actual_OverAllPay_Dt);
@@ -7966,7 +7885,7 @@ for(int i = 0; i < elementList.size(); i++)
 	}
 }
 	}
-test.log(LogStatus.INFO, "Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Hours_Date_Range End");
+test.log(LogStatus.INFO, "Enterprise_Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Hours_Date_Range End");
 }
 	
 }

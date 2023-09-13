@@ -112,15 +112,15 @@ public class Enterprise_Reports_Gift_Card_Redemption
 	{
 		Open_Enterprise_Gift_Card_Redemption_Report_Page(driver);
 //		RefreshAndPaginination(driver);
-//		Verify_Enterprise_Gift_Card_Redemption_Report_Search_by_GiftCardNumber(driver);
-//		Enterprise_Gift_Card_Redemption_Report_Today(driver);
-//		Enterprise_Gift_Card_Redemption_Report_Yesterday(driver);
-//		Enterprise_Gift_Card_Redemption_Report_Last_N_Days(driver);
-//		Enterprise_Gift_Card_Redemption_Report_This_Week(driver);
-//		Enterprise_Gift_Card_Redemption_Report_Last_Week(driver);
-//		Enterprise_Gift_Card_Redemption_Report_Last_7_Days(driver);
-//		Enterprise_Gift_Card_Redemption_Report_This_Month(driver);
-//		Enterprise_Gift_Card_Redemption_Report_Last_Month(driver);
+		Verify_Enterprise_Gift_Card_Redemption_Report_Search_by_GiftCardNumber(driver);
+		Enterprise_Gift_Card_Redemption_Report_Today(driver);
+		Enterprise_Gift_Card_Redemption_Report_Yesterday(driver);
+		Enterprise_Gift_Card_Redemption_Report_Last_N_Days(driver);
+		Enterprise_Gift_Card_Redemption_Report_This_Week(driver);
+		Enterprise_Gift_Card_Redemption_Report_Last_Week(driver);
+		Enterprise_Gift_Card_Redemption_Report_Last_7_Days(driver);
+		Enterprise_Gift_Card_Redemption_Report_This_Month(driver);
+		Enterprise_Gift_Card_Redemption_Report_Last_Month(driver);
 		Enterprise_Gift_Card_Redemption_Report_Last_30_Days(driver);
 		Enterprise_Gift_Card_Redemption_Report_Specific_Date(driver);
 		Enterprise_Gift_Card_Redemption_Report_Date_Range(driver);

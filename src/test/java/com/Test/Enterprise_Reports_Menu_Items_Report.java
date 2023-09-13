@@ -28,7 +28,7 @@ import Utility.ExtentManager;
 import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Enterprise_Reports_Menu_Items 
+public class Enterprise_Reports_Menu_Items_Report 
 {
 
 public WebDriver driver;
