@@ -5,8 +5,10 @@
     <classes>
       <class name="com.Test.Product_Items_AddEditDelete_Departments">
         <methods>
+          <include name="LogOut"/>
           <include name="Calling"/>
           <include name="flushTest"/>
+          <include name="Login"/>
           <include name="TestFail"/>
         </methods>
       </class> <!-- com.Test.Product_Items_AddEditDelete_Departments -->
