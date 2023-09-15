@@ -98,10 +98,8 @@ public class ReportsPage
 	@FindBy(xpath = "//select-option[contains(.,'Bars')]")
 	WebElement Bars_ChartOption;
 	
-	
 	@FindBy(xpath = "//select-option[contains(.,'Donut')]")
 	WebElement Donut_ChartOption;
-	
 	
 	@FindBy(xpath = "//app-combo-line-chart")
 	WebElement Bars_ChartScreen;
@@ -853,6 +851,10 @@ public class ReportsPage
 	@FindBy(xpath = "//label[contains(.,'Employee')]/../../input")
 	WebElement Employee_InputBx;
 	
+	@FindBy(xpath = "//label[contains(.,'Driver')]/../../input")
+	WebElement Driver_InputBx;
+	
+	
 	@FindBy(xpath = "//label[contains(.,'Sold In')]/../../input")
 	WebElement Sold_In_GiftCardInputBx;
 	
@@ -897,6 +899,21 @@ public class ReportsPage
 		catch(Exception l) {}
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//select-option[contains(.,'"+EmployeeName+"')]")).click();
+	}
+	
+	public void Select_Driver(String DriverName) throws Exception
+	{
+		Driver_InputBx.click();
+		
+		try
+		{
+			new Common_XPaths(driver, test).SearchBox_DropDown.clear();
+			Thread.sleep(1000);
+			new Common_XPaths(driver, test).SearchBox_DropDown.sendKeys(DriverName);
+		}
+		catch(Exception l) {}
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//select-option[contains(.,'"+DriverName+"')]")).click();
 	}
 	
 	public void Select_Sold_In(String SoldIn)
@@ -1192,6 +1209,9 @@ public class ReportsPage
 	@FindBy(xpath = "//div[contains(.,'Rounding Off')]/../div[4]/span")
 	WebElement Rounding_Off_TaxReport;
 	
+	@FindBy(xpath = "//td[contains(.,'Tax details not found')]")
+	WebElement No_Tax_FoundInfoMsg;
+	
 	public WebElement Tax_Total_TaxReport()
 	{
 		return Tax_Total_TaxReport;
@@ -1207,7 +1227,10 @@ public class ReportsPage
 		return Rounding_Off_TaxReport;
 	}
 
-	
+	public WebElement No_Tax_FoundInfoMessage()
+	{
+		return No_Tax_FoundInfoMsg;
+	}
 
 	public void Enable_Tax_Per_ServiceType()
 	{

@@ -218,7 +218,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(driver.findElement(By.xpath("//span[contains(.,'No sale summary for selected time period')]")).isDisplayed())
+		if(driver.findElement(By.xpath("//td[contains(.,'No sale summary for selected time period')]")).isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report Not Available for Today");
 			excel.setreportData("Today", 2, 20, st);
@@ -254,28 +254,28 @@ public WebDriver driver;
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			//Get the NEt Sales from Sale Recap Report
 			String Expeccted_SaleAmt=excel.getData("Today", 2, 1).toString().replace(",", "");
-			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
+			double Expected_NetSale=Double.parseDouble(Expeccted_SaleAmt);
 			
 			Thread.sleep(3000);
 			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
-			double ActualSale_Amount=Double.parseDouble(SaleAmount);
+			String NetSale=driver.findElement(By.xpath("//tfoot/tr/td[4]")).getText().replace(",", "");
+			double ActualNet_Sale=Double.parseDouble(NetSale);
 			
 			//Export the Net Sales value to Excel
-			excel.setreportData("Today", 2, 20, SaleAmount);
+			excel.setreportData("Today", 2, 20, NetSale);
 
 			
 			//Check whether the Net Sales value is Equal or not
-			if(Expected_SaleAmount==ActualSale_Amount)
+			if(Expected_NetSale==ActualNet_Sale)
 			{
 				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Today");
 				excel.setreport_PassedData("Today", 2, 21, "0.00");
-				excel.setreport_PassedData("Today", 39, 10, SaleAmount+"`");
+				excel.setreport_PassedData("Today", 39, 10, NetSale+"`");
 			}
 			else
 			{
-				double diff=Expected_SaleAmount-ActualSale_Amount;
+				double diff=Expected_NetSale-ActualNet_Sale;
 				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Today.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
 				 //Export the Net Sales value to Excel
@@ -288,7 +288,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 			
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[7])[2]")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tfoot/tr/td[5]")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 			
 			//Export Tax value to Excel
@@ -316,7 +316,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 			
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[10])[2]")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tfoot/tr/td[8]")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 			
 			//Export Discount value to Excel
@@ -345,7 +345,7 @@ public WebDriver driver;
 		
 			
 			//Get the Gross Receipt
-			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			String GrossReceipt=driver.findElement(By.xpath("//tfoot/tr/td[9]")).getText().replace(",", "");
 			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 			
 			//Export the % Percentage of Sale value to Excel
@@ -399,7 +399,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(driver.findElement(By.xpath("//span[contains(.,'No sale summary for selected time period')]")).isDisplayed())
+		if(driver.findElement(By.xpath("//td[contains(.,'No sale summary for selected time period')]")).isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report Not Available for Yesterday");
 			excel.setreportData("Yesterday", 2, 20, st);
@@ -435,28 +435,28 @@ public WebDriver driver;
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			//Get the NEt Sales from Sale Recap Report
 			String Expeccted_SaleAmt=excel.getData("Yesterday", 2, 1).toString().replace(",", "");
-			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
+			double Expected_NetSale=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
 			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
-			double ActualSale_Amount=Double.parseDouble(SaleAmount);
+			String NetSale=driver.findElement(By.xpath("//tfoot/tr/td[4]")).getText().replace(",", "");
+			double ActualNet_Sale=Double.parseDouble(NetSale);
 
 			//Export the Net Sales value to Excel
-			excel.setreportData("Yesterday", 2, 20, SaleAmount);
+			excel.setreportData("Yesterday", 2, 20, NetSale);
 
 
 			//Check whether the Net Sales value is Equal or not
-			if(Expected_SaleAmount==ActualSale_Amount)
+			if(Expected_NetSale==ActualNet_Sale)
 			{
 				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Yesterday");
 				excel.setreport_PassedData("Yesterday", 2, 21, "0.00");
-				excel.setreport_PassedData("Yesterday", 39, 10, SaleAmount+"`");
+				excel.setreport_PassedData("Yesterday", 39, 10, NetSale+"`");
 			}
 			else
 			{
-				double diff=Expected_SaleAmount-ActualSale_Amount;
+				double diff=Expected_NetSale-ActualNet_Sale;
 				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Yesterday.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
 				 //Export the Net Sales value to Excel
@@ -469,7 +469,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[7])[2]")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tfoot/tr/td[5]")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -497,7 +497,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[10])[2]")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tfoot/tr/td[8]")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -526,7 +526,7 @@ public WebDriver driver;
 
 
 			//Get the Gross Receipt
-			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			String GrossReceipt=driver.findElement(By.xpath("//tfoot/tr/td[9]")).getText().replace(",", "");
 			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
@@ -580,7 +580,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(driver.findElement(By.xpath("//span[contains(.,'No sale summary for selected time period')]")).isDisplayed())
+		if(driver.findElement(By.xpath("//td[contains(.,'No sale summary for selected time period')]")).isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report Not Available for Last N days");
 			excel.setreportData("Last N days", 2, 20, st);
@@ -616,28 +616,28 @@ public WebDriver driver;
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			//Get the NEt Sales from Sale Recap Report
 			String Expeccted_SaleAmt=excel.getData("Last N days", 2, 1).toString().replace(",", "");
-			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
+			double Expected_NetSale=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
 			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
-			double ActualSale_Amount=Double.parseDouble(SaleAmount);
+			String NetSale=driver.findElement(By.xpath("//tfoot/tr/td[4]")).getText().replace(",", "");
+			double ActualNet_Sale=Double.parseDouble(NetSale);
 
 			//Export the Net Sales value to Excel
-			excel.setreportData("Last N days", 2, 20, SaleAmount);
+			excel.setreportData("Last N days", 2, 20, NetSale);
 
 
 			//Check whether the Net Sales value is Equal or not
-			if(Expected_SaleAmount==ActualSale_Amount)
+			if(Expected_NetSale==ActualNet_Sale)
 			{
 				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Last N days");
 				excel.setreport_PassedData("Last N days", 2, 21, "0.00");
-				excel.setreport_PassedData("Last N days", 39, 10, SaleAmount+"`");
+				excel.setreport_PassedData("Last N days", 39, 10, NetSale+"`");
 			}
 			else
 			{
-				double diff=Expected_SaleAmount-ActualSale_Amount;
+				double diff=Expected_NetSale-ActualNet_Sale;
 				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Last N days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
 				 //Export the Net Sales value to Excel
@@ -650,7 +650,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[7])[2]")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tfoot/tr/td[5]")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -678,7 +678,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[10])[2]")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tfoot/tr/td[8]")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -707,7 +707,7 @@ public WebDriver driver;
 
 
 			//Get the Gross Receipt
-			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			String GrossReceipt=driver.findElement(By.xpath("//tfoot/tr/td[9]")).getText().replace(",", "");
 			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
@@ -760,7 +760,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(driver.findElement(By.xpath("//span[contains(.,'No sale summary for selected time period')]")).isDisplayed())
+		if(driver.findElement(By.xpath("//td[contains(.,'No sale summary for selected time period')]")).isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report Not Available for This Week");
 			excel.setreportData("This Week", 2, 20, st);
@@ -796,28 +796,28 @@ public WebDriver driver;
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			//Get the NEt Sales from Sale Recap Report
 			String Expeccted_SaleAmt=excel.getData("This Week", 2, 1).toString().replace(",", "");
-			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
+			double Expected_NetSale=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
 			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
-			double ActualSale_Amount=Double.parseDouble(SaleAmount);
+			String NetSale=driver.findElement(By.xpath("//tfoot/tr/td[4]")).getText().replace(",", "");
+			double ActualNet_Sale=Double.parseDouble(NetSale);
 
 			//Export the Net Sales value to Excel
-			excel.setreportData("This Week", 2, 20, SaleAmount);
+			excel.setreportData("This Week", 2, 20, NetSale);
 
 
 			//Check whether the Net Sales value is Equal or not
-			if(Expected_SaleAmount==ActualSale_Amount)
+			if(Expected_NetSale==ActualNet_Sale)
 			{
 				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for This Week");
 				excel.setreport_PassedData("This Week", 2, 21, "0.00");
-				excel.setreport_PassedData("This Week", 39, 10, SaleAmount+"`");
+				excel.setreport_PassedData("This Week", 39, 10, NetSale+"`");
 			}
 			else
 			{
-				double diff=Expected_SaleAmount-ActualSale_Amount;
+				double diff=Expected_NetSale-ActualNet_Sale;
 				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for This Week.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
 				 //Export the Net Sales value to Excel
@@ -830,7 +830,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[7])[2]")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tfoot/tr/td[5]")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -858,7 +858,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[10])[2]")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tfoot/tr/td[8]")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -887,7 +887,7 @@ public WebDriver driver;
 
 
 			//Get the Gross Receipt
-			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			String GrossReceipt=driver.findElement(By.xpath("//tfoot/tr/td[9]")).getText().replace(",", "");
 			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
@@ -940,7 +940,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(driver.findElement(By.xpath("//span[contains(.,'No sale summary for selected time period')]")).isDisplayed())
+		if(driver.findElement(By.xpath("//td[contains(.,'No sale summary for selected time period')]")).isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report Not Available for Last Week");
 			excel.setreportData("Last Week", 2, 20, st);
@@ -976,28 +976,28 @@ public WebDriver driver;
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			//Get the NEt Sales from Sale Recap Report
 			String Expeccted_SaleAmt=excel.getData("Last Week", 2, 1).toString().replace(",", "");
-			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
+			double Expected_NetSale=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
 			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
-			double ActualSale_Amount=Double.parseDouble(SaleAmount);
+			String NetSale=driver.findElement(By.xpath("//tfoot/tr/td[4]")).getText().replace(",", "");
+			double ActualNet_Sale=Double.parseDouble(NetSale);
 
 			//Export the Net Sales value to Excel
-			excel.setreportData("Last Week", 2, 20, SaleAmount);
+			excel.setreportData("Last Week", 2, 20, NetSale);
 
 
 			//Check whether the Net Sales value is Equal or not
-			if(Expected_SaleAmount==ActualSale_Amount)
+			if(Expected_NetSale==ActualNet_Sale)
 			{
 				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Last Week");
 				excel.setreport_PassedData("Last Week", 2, 21, "0.00");
-				excel.setreport_PassedData("Last Week", 39, 10, SaleAmount+"`");
+				excel.setreport_PassedData("Last Week", 39, 10, NetSale+"`");
 			}
 			else
 			{
-				double diff=Expected_SaleAmount-ActualSale_Amount;
+				double diff=Expected_NetSale-ActualNet_Sale;
 				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Last Week.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
 				 //Export the Net Sales value to Excel
@@ -1010,7 +1010,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[7])[2]")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tfoot/tr/td[5]")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1038,7 +1038,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[10])[2]")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tfoot/tr/td[8]")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -1067,7 +1067,7 @@ public WebDriver driver;
 
 
 			//Get the Gross Receipt
-			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			String GrossReceipt=driver.findElement(By.xpath("//tfoot/tr/td[9]")).getText().replace(",", "");
 			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
@@ -1120,7 +1120,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(driver.findElement(By.xpath("//span[contains(.,'No sale summary for selected time period')]")).isDisplayed())
+		if(driver.findElement(By.xpath("//td[contains(.,'No sale summary for selected time period')]")).isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report Not Available for Last 7 days");
 			excel.setreportData("Last 7 days", 2, 20, st);
@@ -1156,28 +1156,28 @@ public WebDriver driver;
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			//Get the NEt Sales from Sale Recap Report
 			String Expeccted_SaleAmt=excel.getData("Last 7 days", 2, 1).toString().replace(",", "");
-			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
+			double Expected_NetSale=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
 			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
-			double ActualSale_Amount=Double.parseDouble(SaleAmount);
+			String NetSale=driver.findElement(By.xpath("//tfoot/tr/td[4]")).getText().replace(",", "");
+			double ActualNet_Sale=Double.parseDouble(NetSale);
 
 			//Export the Net Sales value to Excel
-			excel.setreportData("Last 7 days", 2, 20, SaleAmount);
+			excel.setreportData("Last 7 days", 2, 20, NetSale);
 
 
 			//Check whether the Net Sales value is Equal or not
-			if(Expected_SaleAmount==ActualSale_Amount)
+			if(Expected_NetSale==ActualNet_Sale)
 			{
 				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Last 7 days");
 				excel.setreport_PassedData("Last 7 days", 2, 21, "0.00");
-				excel.setreport_PassedData("Last 7 days", 39, 10, SaleAmount+"`");
+				excel.setreport_PassedData("Last 7 days", 39, 10, NetSale+"`");
 			}
 			else
 			{
-				double diff=Expected_SaleAmount-ActualSale_Amount;
+				double diff=Expected_NetSale-ActualNet_Sale;
 				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Last 7 days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
 				 //Export the Net Sales value to Excel
@@ -1190,7 +1190,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[7])[2]")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tfoot/tr/td[5]")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1218,7 +1218,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[10])[2]")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tfoot/tr/td[8]")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -1247,7 +1247,7 @@ public WebDriver driver;
 
 
 			//Get the Gross Receipt
-			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			String GrossReceipt=driver.findElement(By.xpath("//tfoot/tr/td[9]")).getText().replace(",", "");
 			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
@@ -1301,7 +1301,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(driver.findElement(By.xpath("//span[contains(.,'No sale summary for selected time period')]")).isDisplayed())
+		if(driver.findElement(By.xpath("//td[contains(.,'No sale summary for selected time period')]")).isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report Not Available for This month");
 			excel.setreportData("This month", 2, 20, st);
@@ -1337,28 +1337,28 @@ public WebDriver driver;
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			//Get the NEt Sales from Sale Recap Report
 			String Expeccted_SaleAmt=excel.getData("This month", 2, 1).toString().replace(",", "");
-			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
+			double Expected_NetSale=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
 			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
-			double ActualSale_Amount=Double.parseDouble(SaleAmount);
+			String NetSale=driver.findElement(By.xpath("//tfoot/tr/td[4]")).getText().replace(",", "");
+			double ActualNet_Sale=Double.parseDouble(NetSale);
 
 			//Export the Net Sales value to Excel
-			excel.setreportData("This month", 2, 20, SaleAmount);
+			excel.setreportData("This month", 2, 20, NetSale);
 
 
 			//Check whether the Net Sales value is Equal or not
-			if(Expected_SaleAmount==ActualSale_Amount)
+			if(Expected_NetSale==ActualNet_Sale)
 			{
 				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for This month");
 				excel.setreport_PassedData("This month", 2, 21, "0.00");
-				excel.setreport_PassedData("This month", 39, 10, SaleAmount+"`");
+				excel.setreport_PassedData("This month", 39, 10, NetSale+"`");
 			}
 			else
 			{
-				double diff=Expected_SaleAmount-ActualSale_Amount;
+				double diff=Expected_NetSale-ActualNet_Sale;
 				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for This month.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
 				 //Export the Net Sales value to Excel
@@ -1371,7 +1371,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[7])[2]")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tfoot/tr/td[5]")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1399,7 +1399,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[10])[2]")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tfoot/tr/td[8]")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -1428,7 +1428,7 @@ public WebDriver driver;
 
 
 			//Get the Gross Receipt
-			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			String GrossReceipt=driver.findElement(By.xpath("//tfoot/tr/td[9]")).getText().replace(",", "");
 			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
@@ -1482,7 +1482,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(driver.findElement(By.xpath("//span[contains(.,'No sale summary for selected time period')]")).isDisplayed())
+		if(driver.findElement(By.xpath("//td[contains(.,'No sale summary for selected time period')]")).isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report Not Available for Last month");
 			excel.setreportData("Last month", 2, 20, st);
@@ -1518,28 +1518,28 @@ public WebDriver driver;
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			//Get the NEt Sales from Sale Recap Report
 			String Expeccted_SaleAmt=excel.getData("Last month", 2, 1).toString().replace(",", "");
-			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
+			double Expected_NetSale=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
 			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
-			double ActualSale_Amount=Double.parseDouble(SaleAmount);
+			String NetSale=driver.findElement(By.xpath("//tfoot/tr/td[4]")).getText().replace(",", "");
+			double ActualNet_Sale=Double.parseDouble(NetSale);
 
 			//Export the Net Sales value to Excel
-			excel.setreportData("Last month", 2, 20, SaleAmount);
+			excel.setreportData("Last month", 2, 20, NetSale);
 
 
 			//Check whether the Net Sales value is Equal or not
-			if(Expected_SaleAmount==ActualSale_Amount)
+			if(Expected_NetSale==ActualNet_Sale)
 			{
 				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Last month");
 				excel.setreport_PassedData("Last month", 2, 21, "0.00");
-				excel.setreport_PassedData("Last month", 39, 10, SaleAmount+"`");
+				excel.setreport_PassedData("Last month", 39, 10, NetSale+"`");
 			}
 			else
 			{
-				double diff=Expected_SaleAmount-ActualSale_Amount;
+				double diff=Expected_NetSale-ActualNet_Sale;
 				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Last month.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
 				 //Export the Net Sales value to Excel
@@ -1552,7 +1552,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[7])[2]")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tfoot/tr/td[5]")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1580,7 +1580,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[10])[2]")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tfoot/tr/td[8]")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -1609,7 +1609,7 @@ public WebDriver driver;
 
 
 			//Get the Gross Receipt
-			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			String GrossReceipt=driver.findElement(By.xpath("//tfoot/tr/td[9]")).getText().replace(",", "");
 			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
@@ -1662,7 +1662,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(driver.findElement(By.xpath("//span[contains(.,'No sale summary for selected time period')]")).isDisplayed())
+		if(driver.findElement(By.xpath("//td[contains(.,'No sale summary for selected time period')]")).isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report Not Available for Last 30 days");
 			excel.setreportData("Last 30 days", 2, 20, st);
@@ -1698,28 +1698,28 @@ public WebDriver driver;
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			//Get the NEt Sales from Sale Recap Report
 			String Expeccted_SaleAmt=excel.getData("Last 30 days", 2, 1).toString().replace(",", "");
-			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
+			double Expected_NetSale=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
 			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
-			double ActualSale_Amount=Double.parseDouble(SaleAmount);
+			String NetSale=driver.findElement(By.xpath("//tfoot/tr/td[4]")).getText().replace(",", "");
+			double ActualNet_Sale=Double.parseDouble(NetSale);
 
 			//Export the Net Sales value to Excel
-			excel.setreportData("Last 30 days", 2, 20, SaleAmount);
+			excel.setreportData("Last 30 days", 2, 20, NetSale);
 
 
 			//Check whether the Net Sales value is Equal or not
-			if(Expected_SaleAmount==ActualSale_Amount)
+			if(Expected_NetSale==ActualNet_Sale)
 			{
 				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Last 30 days");
 				excel.setreport_PassedData("Last 30 days", 2, 21, "0.00");
-				excel.setreport_PassedData("Last 30 days", 39, 10, SaleAmount+"`");
+				excel.setreport_PassedData("Last 30 days", 39, 10, NetSale+"`");
 			}
 			else
 			{
-				double diff=Expected_SaleAmount-ActualSale_Amount;
+				double diff=Expected_NetSale-ActualNet_Sale;
 				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Last 30 days.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
 				 //Export the Net Sales value to Excel
@@ -1732,7 +1732,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[7])[2]")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tfoot/tr/td[5]")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1760,7 +1760,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[10])[2]")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tfoot/tr/td[8]")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -1789,7 +1789,7 @@ public WebDriver driver;
 
 
 			//Get the Gross Receipt
-			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			String GrossReceipt=driver.findElement(By.xpath("//tfoot/tr/td[9]")).getText().replace(",", "");
 			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
@@ -1842,7 +1842,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(driver.findElement(By.xpath("//span[contains(.,'No sale summary for selected time period')]")).isDisplayed())
+		if(driver.findElement(By.xpath("//td[contains(.,'No sale summary for selected time period')]")).isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report Not Available for Specific Date");
 			excel.setreportData("Specific Date", 2, 20, st);
@@ -1878,28 +1878,28 @@ public WebDriver driver;
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			//Get the NEt Sales from Sale Recap Report
 			String Expeccted_SaleAmt=excel.getData("Specific Date", 2, 1).toString().replace(",", "");
-			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
+			double Expected_NetSale=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
 			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
-			double ActualSale_Amount=Double.parseDouble(SaleAmount);
+			String NetSale=driver.findElement(By.xpath("//tfoot/tr/td[4]")).getText().replace(",", "");
+			double ActualNet_Sale=Double.parseDouble(NetSale);
 
 			//Export the Net Sales value to Excel
-			excel.setreportData("Specific Date", 2, 20, SaleAmount);
+			excel.setreportData("Specific Date", 2, 20, NetSale);
 
 
 			//Check whether the Net Sales value is Equal or not
-			if(Expected_SaleAmount==ActualSale_Amount)
+			if(Expected_NetSale==ActualNet_Sale)
 			{
 				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Specific Date");
 				excel.setreport_PassedData("Specific Date", 2, 21, "0.00");
-				excel.setreport_PassedData("Specific Date", 39, 10, SaleAmount+"`");
+				excel.setreport_PassedData("Specific Date", 39, 10, NetSale+"`");
 			}
 			else
 			{
-				double diff=Expected_SaleAmount-ActualSale_Amount;
+				double diff=Expected_NetSale-ActualNet_Sale;
 				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Specific Date.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
 				 //Export the Net Sales value to Excel
@@ -1912,7 +1912,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[7])[2]")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tfoot/tr/td[5]")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -1940,7 +1940,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[10])[2]")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tfoot/tr/td[8]")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -1969,7 +1969,7 @@ public WebDriver driver;
 
 
 			//Get the Gross Receipt
-			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			String GrossReceipt=driver.findElement(By.xpath("//tfoot/tr/td[9]")).getText().replace(",", "");
 			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel
@@ -2022,7 +2022,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(driver.findElement(By.xpath("//span[contains(.,'No sale summary for selected time period')]")).isDisplayed())
+		if(driver.findElement(By.xpath("//td[contains(.,'No sale summary for selected time period')]")).isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report Not Available for Date Range");
 			excel.setreportData("Date Range", 2, 20, st);
@@ -2058,28 +2058,28 @@ public WebDriver driver;
 //			driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
 			//Get the NEt Sales from Sale Recap Report
 			String Expeccted_SaleAmt=excel.getData("Date Range", 2, 1).toString().replace(",", "");
-			double Expected_SaleAmount=Double.parseDouble(Expeccted_SaleAmt);
+			double Expected_NetSale=Double.parseDouble(Expeccted_SaleAmt);
 
 			Thread.sleep(3000);
 			//Get Net Sales
 			//List<WebElement> rowList=driver.findElements(By.xpath("//data-grid/div/div/div/div[@class='content-container']/data-grid-row"));
-			String SaleAmount=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[6])[2]")).getText().replace(",", "");
-			double ActualSale_Amount=Double.parseDouble(SaleAmount);
+			String NetSale=driver.findElement(By.xpath("//tfoot/tr/td[4]")).getText().replace(",", "");
+			double ActualNet_Sale=Double.parseDouble(NetSale);
 
 			//Export the Net Sales value to Excel
-			excel.setreportData("Date Range", 2, 20, SaleAmount);
+			excel.setreportData("Date Range", 2, 20, NetSale);
 
 
 			//Check whether the Net Sales value is Equal or not
-			if(Expected_SaleAmount==ActualSale_Amount)
+			if(Expected_NetSale==ActualNet_Sale)
 			{
 				test.log(LogStatus.PASS, "Net Sales for Sale Summary Report is equal to Sale Recap Report for Date Range");
 				excel.setreport_PassedData("Date Range", 2, 21, "0.00");
-				excel.setreport_PassedData("Date Range", 39, 10, SaleAmount+"`");
+				excel.setreport_PassedData("Date Range", 39, 10, NetSale+"`");
 			}
 			else
 			{
-				double diff=Expected_SaleAmount-ActualSale_Amount;
+				double diff=Expected_NetSale-ActualNet_Sale;
 				test.log(LogStatus.FAIL, "Net Sales for Sale Summary Report is not equal to Sale Recap Report for Date Range.The value diff is : "+diff);
 				 String diff_value=String.valueOf(diff);
 				 //Export the Net Sales value to Excel
@@ -2092,7 +2092,7 @@ public WebDriver driver;
 			double Expected_Tax=Double.parseDouble(Expeccted_Tx);
 
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[7])[2]")).getText().replace(",", "");
+			String Tx=driver.findElement(By.xpath("//tfoot/tr/td[5]")).getText().replace(",", "");
 			double ActualTax=Double.parseDouble(Tx);
 
 			//Export Tax value to Excel
@@ -2120,7 +2120,7 @@ public WebDriver driver;
 			double Expected_Discount=Double.parseDouble(Expeccted_Discnt);
 
 			//Get the Discount
-			String Discnt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[10])[2]")).getText().replace(",", "");
+			String Discnt=driver.findElement(By.xpath("//tfoot/tr/td[8]")).getText().replace(",", "");
 			double ActualDiscount=Double.parseDouble(Discnt);
 
 			//Export Discount value to Excel
@@ -2149,7 +2149,7 @@ public WebDriver driver;
 
 
 			//Get the Gross Receipt
-			String GrossReceipt=driver.findElement(By.xpath("(//div[contains(.,'Total')]/../div[11])[2]")).getText().replace(",", "");
+			String GrossReceipt=driver.findElement(By.xpath("//tfoot/tr/td[9]")).getText().replace(",", "");
 			double ActualGrossReceipt=Double.parseDouble(GrossReceipt);
 
 			//Export the % Percentage of Sale value to Excel

@@ -352,7 +352,6 @@ public WebDriver driver;
 		cmp=new Common_XPaths(driver, test);
 		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports"));
 		
-		
 		//Select Today
 		repts.Select_Yesterday_TimePeriod();
 		

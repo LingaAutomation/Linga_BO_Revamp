@@ -166,7 +166,7 @@ public WebDriver driver;
 
 	
 		//Select Employee 
-		repts.Select_Employee("All");
+		repts.Select_Driver("All");
 	
 		//Select Today
 		repts.Select_Today_TimePeriod();
@@ -200,7 +200,7 @@ public WebDriver driver;
 		Thread.sleep(2000);
 	
 				//Select Employee 
-				repts.Select_Employee("All");
+				repts.Select_Driver("All");
 			
 				//Select Today
 				repts.Select_Last_Month_TimePeriod();
@@ -235,7 +235,7 @@ public WebDriver driver;
 					repts.Employee_InputBox().click();
 					
 					//Select Employee 
-					repts.Select_Employee(Driver_Name);
+					repts.Select_Driver(Driver_Name);
 					
 					//Select Today
 					repts.Select_Last_Month_TimePeriod();
@@ -275,7 +275,7 @@ public WebDriver driver;
 		
 		
 		//Select Employee 
-		repts.Select_Employee("All");
+		repts.Select_Driver("All");
 		
 		//Select Today
 		repts.Select_Today_TimePeriod();
@@ -458,7 +458,7 @@ public WebDriver driver;
 		
 		
 		//Select Employee 
-		repts.Select_Employee("All");
+		repts.Select_Driver("All");
 		
 		//Select Today
 		repts.Select_Yesterday_TimePeriod();
@@ -626,7 +626,7 @@ public WebDriver driver;
 		
 		
 		//Select Employee 
-		repts.Select_Employee("All");
+		repts.Select_Driver("All");
 		
 		//Select Today
 		repts.Select_Last_N_Days_TimePeriod(Utility.getProperty("NumberOfDays"));
@@ -793,7 +793,7 @@ public WebDriver driver;
 		
 	
 		//Select Employee 
-		repts.Select_Employee("All");
+		repts.Select_Driver("All");
 		
 		//Select Today
 		repts.Select_This_Week_TimePeriod();
@@ -959,7 +959,7 @@ public WebDriver driver;
 		
 	
 		//Select Employee 
-		repts.Select_Employee("All");
+		repts.Select_Driver("All");
 		
 		//Select Today
 		repts.Select_Last_Week_TimePeriod();
@@ -1122,7 +1122,7 @@ public WebDriver driver;
 		
 	
 		//Select Employee 
-		repts.Select_Employee("All");
+		repts.Select_Driver("All");
 		
 		//Select Today
 		repts.Select_Last_7_Days_TimePeriod();
@@ -1283,7 +1283,7 @@ public WebDriver driver;
 		
 	
 		//Select Employee 
-		repts.Select_Employee("All");
+		repts.Select_Driver("All");
 		
 		//Select Today
 		repts.Select_This_Month_TimePeriod();
@@ -1445,7 +1445,7 @@ public WebDriver driver;
 		
 		
 		//Select Employee 
-		repts.Select_Employee("All");
+		repts.Select_Driver("All");
 	
 		//Select Today
 		repts.Select_Last_Month_TimePeriod();
@@ -1603,7 +1603,7 @@ public WebDriver driver;
 		
 	
 		//Select Employee 
-		repts.Select_Employee("All");
+		repts.Select_Driver("All");
 		
 		//Select Today
 		repts.Select_Last_30_Days_TimePeriod();
@@ -1763,7 +1763,7 @@ public WebDriver driver;
 		
 		
 		//Select Employee 
-		repts.Select_Employee("All");
+		repts.Select_Driver("All");
 		
 		//Select Today
 		repts.Select_Specific_Date_TimePeriod(Utility.getProperty("Report_Specific_Date"));
@@ -1926,7 +1926,7 @@ public WebDriver driver;
 		
 	
 		//Select Employee 
-		repts.Select_Employee("All");
+		repts.Select_Driver("All");
 		
 		//Select Today
 		repts.Select_Date_Range_TimePeriod(Utility.getProperty("Report_Start_Date"), Utility.getProperty("Report_End_Date"));

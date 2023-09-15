@@ -184,7 +184,7 @@ public WebDriver driver;
 		Thread.sleep(5000);
 		try
 		{
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_Tax_FoundInfoMessage().isDisplayed())
 		{
 			test.log(LogStatus.PASS, "No transaction for selected time period is Displayed");
 	
@@ -224,7 +224,7 @@ public WebDriver driver;
 				Thread.sleep(5000);
 				try
 				{
-				if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+				if(repts.No_Tax_FoundInfoMessage().isDisplayed())
 				{
 					test.log(LogStatus.INFO, "Tax Reports Not Available for Selected Time Period when Tax Per Service Type Enabled");
 					
@@ -312,7 +312,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_Tax_FoundInfoMessage().isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report for Tax Not Available for Today");
 	
@@ -442,7 +442,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_Tax_FoundInfoMessage().isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report for Tax Not Available for Yesterday");
 		
@@ -570,7 +570,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_Tax_FoundInfoMessage().isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report for Tax Not Available for Last N days");
 		
@@ -701,7 +701,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_Tax_FoundInfoMessage().isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report for Tax Not Available for This Week");
 	
@@ -828,7 +828,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_Tax_FoundInfoMessage().isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report for Tax Not Available for Last Week");
 		
@@ -954,7 +954,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_Tax_FoundInfoMessage().isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report for Tax Not Available for Last 7 days");
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
@@ -1081,7 +1081,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_Tax_FoundInfoMessage().isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report for Tax Not Available for This month");
 		
@@ -1208,7 +1208,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_Tax_FoundInfoMessage().isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report for Tax Not Available for Last month");
 	
@@ -1332,7 +1332,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_Tax_FoundInfoMessage().isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report for Tax Not Available for Last 30 days");
 		
@@ -1457,7 +1457,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_Tax_FoundInfoMessage().isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report for Tax Not Available for Specific Date");
 		
@@ -1582,7 +1582,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-		if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+		if(repts.No_Tax_FoundInfoMessage().isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report for Tax Not Available for Date Range");
 		

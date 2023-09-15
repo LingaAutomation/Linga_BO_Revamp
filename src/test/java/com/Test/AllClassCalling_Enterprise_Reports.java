@@ -30,7 +30,7 @@ public WebDriver driver;
 	
 
 	ExtentReports rep = ExtentManager.getInstance();
-	ExtentTest test = rep.startTest("Retesting Suite for Sale Reports");
+	ExtentTest test = rep.startTest("Retesting Suite for Enterprise Reports");
 
 	LoginPage lgpg; 
 
@@ -85,14 +85,14 @@ public WebDriver driver;
 //			//Open the Chrome window
 //			driver = new ChromeDriver();
 			
-//			System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
-//			//Open the Chrome window
-//			driver = new ChromeDriver();
+			System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
+			//Open the Chrome window
+			driver = new ChromeDriver();
 
-			ChromeOptions chrOpt=new ChromeOptions();
-			chrOpt.addArguments("--remote-allow-origins=*");
-			WebDriverManager.chromedriver().setup();
-			driver=new ChromeDriver(chrOpt);
+//			ChromeOptions chrOpt=new ChromeOptions();
+//			chrOpt.addArguments("--remote-allow-origins=*");
+//			WebDriverManager.chromedriver().setup();
+//			driver=new ChromeDriver(chrOpt);
 			
 			//Wait for 30 seconds
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -524,6 +524,20 @@ public WebDriver driver;
 		@Test(priority = 22,enabled = true)
 		public void Enterprise_Reports_Loyalty_Report() throws Exception
 		{
-			
+			Enterprise_Reports_Loyalty_Report a=new Enterprise_Reports_Loyalty_Report();
+			a.Open_Enterprise_Loyalty_Report_Page(driver);
+//			a.RefreshAndPaginination(driver);
+//			a.Verify_Enterprise_Loyalty_Report_Search_by_CustomerName(driver);
+			a.Enterprise_Loyalty_Report_Today(driver);
+			a.Enterprise_Loyalty_Report_Yesterday(driver);
+			a.Enterprise_Loyalty_Report_Last_N_Days(driver);
+			a.Enterprise_Loyalty_Report_This_Week(driver);
+			a.Enterprise_Loyalty_Report_Last_Week(driver);
+			a.Enterprise_Loyalty_Report_Last_7_Days(driver);
+			a.Enterprise_Loyalty_Report_This_Month(driver);
+			a.Enterprise_Loyalty_Report_Last_Month(driver);
+			a.Enterprise_Loyalty_Report_Last_30_Days(driver);
+			a.Enterprise_Loyalty_Report_Specific_Date(driver);
+			a.Enterprise_Loyalty_Report_Date_Range(driver);
 		}
 }

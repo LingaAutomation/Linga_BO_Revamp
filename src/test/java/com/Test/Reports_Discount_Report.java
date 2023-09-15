@@ -203,7 +203,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-			if(driver.findElement(By.xpath("//span[contains(.,'No transaction for selected time period')]")).isDisplayed())
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 			{
 				test.log(LogStatus.INFO, "Discount Report Not Available for Today");
 			}
@@ -251,7 +251,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-			if(driver.findElement(By.xpath("//span[contains(.,'No transaction for selected time period')]")).isDisplayed())
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 			{
 				test.log(LogStatus.INFO, "Discount Report Not Available for Yesterday");
 			}
@@ -298,7 +298,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-			if(driver.findElement(By.xpath("//span[contains(.,'No transaction for selected time period')]")).isDisplayed())
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 			{
 				test.log(LogStatus.INFO, "Discount Report Not Available for Last N days");
 			}
@@ -344,7 +344,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-			if(driver.findElement(By.xpath("//span[contains(.,'No transaction for selected time period')]")).isDisplayed())
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 			{
 				test.log(LogStatus.INFO, "Discount Report Not Available for This Week");
 			}
@@ -390,7 +390,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-			if(driver.findElement(By.xpath("//span[contains(.,'No transaction for selected time period')]")).isDisplayed())
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 			{
 				test.log(LogStatus.INFO, "Discount Report Not Available for Last Week");
 			}
@@ -436,7 +436,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-			if(driver.findElement(By.xpath("//span[contains(.,'No transaction for selected time period')]")).isDisplayed())
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 			{
 				test.log(LogStatus.INFO, "Discount Report Not Available for Last 7 days");
 			}
@@ -483,7 +483,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-			if(driver.findElement(By.xpath("//span[contains(.,'No transaction for selected time period')]")).isDisplayed())
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 			{
 				test.log(LogStatus.INFO, "Discount Report Not Available for This month");
 			}
@@ -530,7 +530,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-			if(driver.findElement(By.xpath("//span[contains(.,'No transaction for selected time period')]")).isDisplayed())
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 			{
 				test.log(LogStatus.INFO, "Discount Report Not Available for Last month");
 			}
@@ -576,7 +576,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-			if(driver.findElement(By.xpath("//span[contains(.,'No transaction for selected time period')]")).isDisplayed())
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 			{
 				test.log(LogStatus.INFO, "Discount Report Not Available for Last 30 days");
 			}
@@ -622,7 +622,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-			if(driver.findElement(By.xpath("//span[contains(.,'No transaction for selected time period')]")).isDisplayed())
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 			{
 				test.log(LogStatus.INFO, "Discount Report Not Available for Specific Date");
 			}
@@ -668,7 +668,7 @@ public WebDriver driver;
 		Thread.sleep(8000);
 		try
 		{
-			if(driver.findElement(By.xpath("//span[contains(.,'No transaction for selected time period')]")).isDisplayed())
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
 			{
 				test.log(LogStatus.INFO, "Discount Report Not Available for Date Range");
 			}

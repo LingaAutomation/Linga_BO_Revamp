@@ -234,7 +234,7 @@ public class Reports_Audit_Log {
 		
 		Thread.sleep(40000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Today");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -244,13 +244,13 @@ public class Reports_Audit_Log {
 
 			Thread.sleep(2000);
 			
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 			
-			//div[1]/div/data-grid-row/div/div[2]/span
+			//table/tbody/tr[1]/td[2]
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
 
@@ -283,7 +283,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Yesterday");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -291,11 +291,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Yesterday");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
@@ -330,7 +330,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Last N Days");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -338,11 +338,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Last N days");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
@@ -377,7 +377,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for This Week");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -385,11 +385,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for This Week");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -423,7 +423,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Last Week");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -431,11 +431,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Last Week");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -468,7 +468,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Last 7 days");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -476,11 +476,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Last 7 days");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -514,7 +514,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for This month");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -522,11 +522,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for This month");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -560,7 +560,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Last month");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -568,11 +568,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Last month");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -604,7 +604,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Last 30 days");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -612,11 +612,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Last 30 days");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -641,7 +641,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Specific Date");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -649,11 +649,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Specific Date");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -679,7 +679,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Date Range");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -687,11 +687,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Date Range");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -729,7 +729,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Today");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -741,11 +741,11 @@ public class Reports_Audit_Log {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -779,7 +779,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Yesterday");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -787,11 +787,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Yesterday");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -825,7 +825,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Last N Days");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -833,11 +833,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Last N days");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -870,7 +870,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for This Week");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -878,11 +878,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for This Week");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -914,7 +914,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Last Week");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -922,11 +922,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Last Week");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -959,7 +959,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Last 7 days");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -967,11 +967,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Last 7 days");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -1004,7 +1004,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for This month");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -1012,11 +1012,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for This month");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -1049,7 +1049,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Last month");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -1057,11 +1057,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Last month");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -1094,7 +1094,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Last 30 days");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -1102,11 +1102,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Last 30 days");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -1132,7 +1132,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Specific Date");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -1140,11 +1140,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Specific Date");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);
@@ -1170,7 +1170,7 @@ public class Reports_Audit_Log {
 
 		Thread.sleep(8000);
 		try {
-			if (driver.findElement(By.xpath("//span[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
+			if (driver.findElement(By.xpath("//td[contains(.,'No audit log for selected time period')]")).getText().equals("No audit log for selected time period")) {
 				test.log(LogStatus.INFO, "Audit Log Not Available for Date Range");
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			}
@@ -1178,11 +1178,11 @@ public class Reports_Audit_Log {
 			test.log(LogStatus.PASS, "Audit Log Available for Date Range");
 
 			Thread.sleep(2000);
-			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[1]/span")).getText());
-			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[2]/span")).getText());
-			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[3]/span")).getText());
-			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[4]/span")).getText());
-			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//div[1]/div/data-grid-row/div/div[5]/div/a")).getText());
+			test.log(LogStatus.INFO, "Action is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[1]")).getText());
+			test.log(LogStatus.INFO, "Event date & time is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[2]")).getText());
+			test.log(LogStatus.INFO, "Employee is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[3]")).getText());
+			test.log(LogStatus.INFO, "Device Type is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[4]")).getText());
+			test.log(LogStatus.INFO, "Log is : "+driver.findElement(By.xpath("//table/tbody/tr[1]/td[5]//a")).getText());
 
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 			Thread.sleep(3000);

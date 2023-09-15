@@ -185,7 +185,7 @@ public WebDriver driver;
 		
 		Thread.sleep(500);
 		//Click the serving size label
-		driver.findElement(By.xpath("//span[contains(.,'Serving Size')]/../input")).click();
+		driver.findElement(By.xpath("//span[contains(.,'Serving Level')]/../input")).click();
 		Thread.sleep(500);
 		//Select the All option
 		driver.findElement(By.xpath("//select-option[contains(.,'All')]")).click();

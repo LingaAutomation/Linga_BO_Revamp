@@ -168,7 +168,7 @@ public WebDriver driver;
 				
 		Thread.sleep(1000);	
 		//Click the time period label
-		driver.findElement(By.xpath("//span[contains(.,'Time Period')]/../input")).click();
+		driver.findElement(By.xpath("//label[contains(.,'Time Period')]/../../input")).click();
 		Thread.sleep(500);
 		
 		List<WebElement> timeList=driver.findElements(By.xpath("//div[@class='cdk-virtual-scroll-content-wrapper']/div/select-option"));

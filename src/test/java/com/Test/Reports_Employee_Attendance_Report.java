@@ -376,11 +376,7 @@ public WebDriver driver;
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
-		
-
-		
-		
-		
+	
 		//Select Employee 
 		repts.Select_Employee("All");
 		

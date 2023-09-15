@@ -201,7 +201,7 @@ public class Enterprise_Reports_Loyalty_Report
 			//repts.Do_Pagination();
 			
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Rows
 			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 
 			int CusListSize=rowList.size();
@@ -290,7 +290,7 @@ public class Enterprise_Reports_Loyalty_Report
 			//repts.Do_Pagination();
 			
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Rows
 			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 
 int rowSize=rowList.size();
@@ -373,7 +373,7 @@ int rowSize=rowList.size();
 
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Rows
 			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 
 int rowSize=rowList.size();
@@ -456,7 +456,7 @@ int rowSize=rowList.size();
 			//repts.Do_Pagination();
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Rows
 			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 
 int rowSize=rowList.size();
@@ -541,7 +541,7 @@ int rowSize=rowList.size();
 
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Rows
 			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 
 int rowSize=rowList.size();
@@ -622,7 +622,7 @@ int rowSize=rowList.size();
 			//Do pagination to Last
 			//repts.Do_Pagination();
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Rows
 			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 
 int rowSize=rowList.size();
@@ -705,7 +705,7 @@ int rowSize=rowList.size();
 
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Rows
 			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 
 int rowSize=rowList.size();
@@ -787,7 +787,7 @@ int rowSize=rowList.size();
 
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Rows
 			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 
 int rowSize=rowList.size();
@@ -870,7 +870,7 @@ int rowSize=rowList.size();
 			//repts.Do_Pagination();
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Rows
 			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 
 int rowSize=rowList.size();
@@ -951,7 +951,7 @@ int rowSize=rowList.size();
 			//repts.Do_Pagination();
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Rows
 			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 
 			
@@ -1035,7 +1035,7 @@ int rowSize=rowList.size();
 			//repts.Do_Pagination();
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Rows
 			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 
 			
@@ -1118,7 +1118,7 @@ int rowSize=rowList.size();
 			//repts.Do_Pagination();
 
 			Thread.sleep(3000);
-			//Get Sale Amount
+			//Get Rows
 			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
 
 			int rowSize=rowList.size();
