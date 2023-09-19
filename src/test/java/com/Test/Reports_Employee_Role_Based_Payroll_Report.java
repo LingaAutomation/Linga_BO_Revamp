@@ -232,7 +232,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.INFO, "Employee Role Based Payroll Report for selected time period is Available");
+			test.log(LogStatus.INFO, "Revenue Center Report for selected time period is Available");
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 			

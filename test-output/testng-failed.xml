@@ -3,6 +3,7 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
+<<<<<<< HEAD
       <class name="com.Test.AllClassCalling_Reports">
         <methods>
           <include name="Reports_Cash_Transaction_Report"/>
@@ -34,6 +35,15 @@
           <include name="LogOut"/>
         </methods>
       </class> <!-- com.Test.AllClassCalling_Reports -->
+=======
+      <class name="com.Test.Enterprise_Reports_Gift_Card_Redemption">
+        <methods>
+          <include name="Calling"/>
+          <include name="flushTest"/>
+          <include name="TestFail"/>
+        </methods>
+      </class> <!-- com.Test.Enterprise_Reports_Gift_Card_Redemption -->
+>>>>>>> parent of b4ed799 (Last Updated on 13/090/2023)
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

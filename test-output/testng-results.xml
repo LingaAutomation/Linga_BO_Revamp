@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
@@ -20,12 +21,123 @@
             <param index="0">
               <value>
                 <![CDATA[[TestResult name=Reports_Sale_Recap_Report status=SUCCESS method=AllClassCalling_Reports.Reports_Sale_Recap_Report()[pri:2, instance:com.Test.AllClassCalling_Reports@742ff096] output={null}]]]>
+=======
+<testng-results ignored="14" total="17" passed="2" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-09-07T18:29:48 IST" name="Default suite" finished-at="2023-09-07T18:33:01 IST" duration-ms="193530">
+    <groups>
+    </groups>
+    <test started-at="2023-09-07T18:29:48 IST" name="Default test" finished-at="2023-09-07T18:33:01 IST" duration-ms="193530">
+      <class name="com.Test.Enterprise_Reports_Gift_Card_Redemption">
+        <test-method signature="Login()[pri:1, instance:com.Test.Enterprise_Reports_Gift_Card_Redemption@47faa49c]" started-at="2023-09-07T18:29:48 IST" name="Login" finished-at="2023-09-07T18:30:38 IST" duration-ms="50303" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Enterprise_Reports_Gift_Card_Redemption@47faa49c]" started-at="2023-09-07T18:30:38 IST" name="TestFail" finished-at="2023-09-07T18:30:38 IST" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=Enterprise_Reports_Gift_Card_Redemption.Login()[pri:1, instance:com.Test.Enterprise_Reports_Gift_Card_Redemption@47faa49c] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
+        <test-method signature="Calling()[pri:2, instance:com.Test.Enterprise_Reports_Gift_Card_Redemption@47faa49c]" started-at="2023-09-07T18:30:38 IST" name="Calling" finished-at="2023-09-07T18:32:51 IST" duration-ms="133223" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <select-option _ngcontent-ock-c289="" _nghost-ock-c288="">...</select-option> is not clickable at point (855, 133). Other element would receive the click: <div _ngcontent-ock-c402="" class="col-12">...</div>
+  (Session info: chrome=116.0.5845.142)
+Build info: version: '4.10.0', revision: 'c14d967899'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [77147a358a378faebd7a9ba6a3c4394b, clickElement {id=92E5EB173D01F9720DAAA95481424F02_element_314}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.142, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\raja.s\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63658}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63658/devtoo..., se:cdpVersion: 116.0.5845.142, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (77147a358a378faebd7a9ba6a3c4394b)] -> xpath: //select-option[contains(.,'Specific date')]]
+Session ID: 77147a358a378faebd7a9ba6a3c4394b]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <select-option _ngcontent-ock-c289="" _nghost-ock-c288="">...</select-option> is not clickable at point (855, 133). Other element would receive the click: <div _ngcontent-ock-c402="" class="col-12">...</div>
+  (Session info: chrome=116.0.5845.142)
+Build info: version: '4.10.0', revision: 'c14d967899'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.8'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [77147a358a378faebd7a9ba6a3c4394b, clickElement {id=92E5EB173D01F9720DAAA95481424F02_element_314}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 116.0.5845.142, chrome: {chromedriverVersion: 116.0.5845.96 (1a3918166880..., userDataDir: C:\Users\raja.s\AppData\Loc...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63658}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63658/devtoo..., se:cdpVersion: 116.0.5845.142, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (77147a358a378faebd7a9ba6a3c4394b)] -> xpath: //select-option[contains(.,'Specific date')]]
+Session ID: 77147a358a378faebd7a9ba6a3c4394b
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:199)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:132)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:242)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:77)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+at jdk.proxy2/jdk.proxy2.$Proxy17.click(Unknown Source)
+at com.Pages.ReportsPage.Select_Specific_Date_TimePeriod(ReportsPage.java:245)
+at com.Test.Enterprise_Reports_Gift_Card_Redemption.Enterprise_Gift_Card_Redemption_Report_Specific_Date(Enterprise_Reports_Gift_Card_Redemption.java:1229)
+at com.Test.Enterprise_Reports_Gift_Card_Redemption.Calling(Enterprise_Reports_Gift_Card_Redemption.java:125)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Calling -->
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Enterprise_Reports_Gift_Card_Redemption@47faa49c]" started-at="2023-09-07T18:32:51 IST" name="TestFail" finished-at="2023-09-07T18:32:51 IST" duration-ms="275" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Calling status=FAILURE method=Enterprise_Reports_Gift_Card_Redemption.Calling()[pri:2, instance:com.Test.Enterprise_Reports_Gift_Card_Redemption@47faa49c] output={null}]]]>
+>>>>>>> parent of b4ed799 (Last Updated on 13/090/2023)
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestFail -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="flushTest()[pri:0, instance:com.Test.AllClassCalling_Reports@742ff096]" started-at="2023-09-19T12:30:02 IST" name="flushTest" finished-at="2023-09-19T12:30:04 IST" duration-ms="2276" status="PASS">
           <reporter-output>
           </reporter-output>
@@ -35,6 +147,28 @@
           </reporter-output>
         </test-method> <!-- LogOut -->
       </class> <!-- com.Test.AllClassCalling_Reports -->
+=======
+        <test-method signature="LogOut()[pri:50, instance:com.Test.Enterprise_Reports_Gift_Card_Redemption@47faa49c]" started-at="2023-09-07T18:32:51 IST" name="LogOut" finished-at="2023-09-07T18:32:59 IST" duration-ms="7268" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LogOut -->
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Enterprise_Reports_Gift_Card_Redemption@47faa49c]" started-at="2023-09-07T18:32:59 IST" name="TestFail" finished-at="2023-09-07T18:32:59 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=LogOut status=SUCCESS method=Enterprise_Reports_Gift_Card_Redemption.LogOut()[pri:50, instance:com.Test.Enterprise_Reports_Gift_Card_Redemption@47faa49c] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestFail -->
+        <test-method is-config="true" signature="flushTest()[pri:0, instance:com.Test.Enterprise_Reports_Gift_Card_Redemption@47faa49c]" started-at="2023-09-07T18:32:59 IST" name="flushTest" finished-at="2023-09-07T18:33:01 IST" duration-ms="2404" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushTest -->
+      </class> <!-- com.Test.Enterprise_Reports_Gift_Card_Redemption -->
+>>>>>>> parent of b4ed799 (Last Updated on 13/090/2023)
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
