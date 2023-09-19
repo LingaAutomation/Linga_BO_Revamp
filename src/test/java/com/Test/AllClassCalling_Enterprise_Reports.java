@@ -87,8 +87,8 @@ public WebDriver driver;
 			
 			System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
 			//Open the Chrome window
-			driver = new ChromeDriver();
-
+			driver = new ChromeDriver(); 
+//Code changes
 //			ChromeOptions chrOpt=new ChromeOptions();
 //			chrOpt.addArguments("--remote-allow-origins=*");
 //			WebDriverManager.chromedriver().setup();
