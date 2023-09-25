@@ -30,7 +30,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Reports_Account_Balance_Report 
 {
 	
-public WebDriver driver;
+	public WebDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();

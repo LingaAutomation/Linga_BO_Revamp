@@ -79,13 +79,18 @@ test.log(LogStatus.FAIL, test.addScreenCapture(s));
 	
 
 @Test(priority=1)
-public void login() throws Exception
+public void Login() throws Exception
 {
 	Thread.sleep(2000);
-	ChromeOptions chrOpt=new ChromeOptions();
-	chrOpt.addArguments("--remote-allow-origins=*");
-	WebDriverManager.chromedriver().setup();
-	driver=new ChromeDriver(chrOpt);
+//	ChromeOptions chrOpt=new ChromeOptions();
+//	chrOpt.addArguments("--remote-allow-origins=*");
+//	WebDriverManager.chromedriver().setup();
+//	driver=new ChromeDriver(chrOpt);
+	
+	//Call the chrome driver
+			System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
+			//Open the Chrome window
+			driver = new ChromeDriver();
 	
 	//Wait for 30 seconds
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -100,7 +105,7 @@ public void login() throws Exception
 }
 	
 @Test(priority=500)
-public void logout() throws Exception
+public void Logout() throws Exception
 {	
 	a.LogOut(driver, test);
 }
@@ -147,8 +152,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Hours_Date_Range(driver);
 	Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range(driver);
 	Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Hours_Date_Range(driver);
-	
-	
+
 	Thread.sleep(1500);
 }
 
@@ -232,7 +236,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 		catch(Exception G)
 		{
 			
-			test.log(LogStatus.INFO, "Revenue Center Report for selected time period is Available");
+			test.log(LogStatus.INFO, "Employee Role Based Payroll Report for selected time period is Available");
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 			
@@ -7086,6 +7090,7 @@ if(sortedList.equals(obtainedList))
  	//Select the Date Range
 	repts.Select_Date_Range_TimePeriod(Utility.getProperty("Payroll_Date_Range_From"), Utility.getProperty("Payroll_Date_Range_To"));
 	
+	driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 	//Select the Format
 	repts.Select_FormatType("In Time");
 	

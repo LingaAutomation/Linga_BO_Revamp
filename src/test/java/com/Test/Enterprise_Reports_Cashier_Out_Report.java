@@ -242,7 +242,7 @@ public WebDriver driver;
 			//Check whether the Net Sales value is Equal or not
 			if(Expected_NetSale==ActualNet_Sales)
 			{
-				test.log(LogStatus.PASS, "Net Sales for Cashier Report Report is equal to Sale Recap Report for Today");
+				test.log(LogStatus.PASS, "Net Sales for Cashier Report is equal to Sale Recap Report for Today");
 	
 			excel.setreport_PassedData("Today", 2, 17, "0.00");
 			
@@ -255,7 +255,7 @@ public WebDriver driver;
 				double diff=Expected_NetSale-ActualNet_Sales;
 				String diff_value=String.valueOf(diff);
 				
-				test.log(LogStatus.FAIL, "Net Sales for Cashier Report Report is not equal to Sale Recap Report for Today.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Cashier Report is not equal to Sale Recap Report for Today.The value diff is : "+diff);
 				
 
 				excel.setreport_FailedData("Today", 2, 17,diff_value);
@@ -278,7 +278,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Grand_Sales==ActualGrand_Sales)
 			{
-				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report Report is equal to Sale Recap Report for Today");
+				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report is equal to Sale Recap Report for Today");
 		
 			
 				excel.setreport_PassedData("Today", 5, 17, "0.00");
@@ -288,7 +288,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Grand_Sales-ActualGrand_Sales;
-				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report Report is not equal to Sale Recap Report for Today.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report is not equal to Sale Recap Report for Today.The value diff is : "+diff);
 			
 				String diff_value=String.valueOf(diff);
 
@@ -316,7 +316,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Receipt==ActualGross_Receipt)
 			{
-				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report Report is equal to Sale Recap Report for Today");
+				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report is equal to Sale Recap Report for Today");
 		
 				excel.setreport_PassedData("Today", 6, 17, "0.00");
 
@@ -325,7 +325,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Receipt-ActualGross_Receipt;
-				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report Report is not equal to Sale Recap Report  for Today.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report is not equal to Sale Recap Report  for Today.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -354,7 +354,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Sales==ActualGross_Sales)
 			{
-				test.log(LogStatus.PASS, "Gross Sales for Cashier Report Report is equal to Sale Recap Report for Today");
+				test.log(LogStatus.PASS, "Gross Sales for Cashier Report is equal to Sale Recap Report for Today");
 		
 				excel.setreport_PassedData("Today", 7, 17, "0.00");
 
@@ -363,7 +363,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Sales-ActualGross_Sales;
-				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report Report is not equal to Sale Recap Report  for Today.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report is not equal to Sale Recap Report  for Today.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -424,7 +424,7 @@ public WebDriver driver;
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
-				test.log(LogStatus.PASS, "Tax for Cashier Report Report is equal to Sale Recap Report for Today");
+				test.log(LogStatus.PASS, "Tax for Cashier Report is equal to Sale Recap Report for Today");
 		
 				excel.setreport_PassedData("Today", 3, 17, "0");
 
@@ -433,7 +433,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
-				test.log(LogStatus.FAIL, "Tax for Cashier Report Report is not equal to Sale Recap Report for Today.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Tax for Cashier Report is not equal to Sale Recap Report for Today.The value diff is : "+diff);
 				String diff_value=String.valueOf(diff);
 
 				//Export the Net Sales value to Excel
@@ -517,7 +517,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
-				test.log(LogStatus.PASS, "Discount for Cashier Report Report is equal to Sale Recap Report for Today");
+				test.log(LogStatus.PASS, "Discount for Cashier Report is equal to Sale Recap Report for Today");
 		
 				excel.setreport_PassedData("Today", 4, 17, "0.00");
 
@@ -526,7 +526,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
-				test.log(LogStatus.FAIL, "Discount for Cashier Report Report is not equal to Sale Recap Report for Today.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Discount for Cashier Report is not equal to Sale Recap Report for Today.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -681,7 +681,7 @@ public WebDriver driver;
 			//Check whether the Net Sales value is Equal or not
 			if(Expected_NetSale==ActualNet_Sales)
 			{
-				test.log(LogStatus.PASS, "Net Sales for Cashier Report Report is equal to Sale Recap Report for Yesterday");
+				test.log(LogStatus.PASS, "Net Sales for Cashier Report is equal to Sale Recap Report for Yesterday");
 	
 			excel.setreport_PassedData("Yesterday", 2, 17, "0.00");
 			
@@ -694,7 +694,7 @@ public WebDriver driver;
 				double diff=Expected_NetSale-ActualNet_Sales;
 				String diff_value=String.valueOf(diff);
 				
-				test.log(LogStatus.FAIL, "Net Sales for Cashier Report Report is not equal to Sale Recap Report for Yesterday.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Cashier Report is not equal to Sale Recap Report for Yesterday.The value diff is : "+diff);
 				
 
 				excel.setreport_FailedData("Yesterday", 2, 17,diff_value);
@@ -717,7 +717,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Grand_Sales==ActualGrand_Sales)
 			{
-				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report Report is equal to Sale Recap Report for Yesterday");
+				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report is equal to Sale Recap Report for Yesterday");
 		
 			
 				excel.setreport_PassedData("Yesterday", 5, 17, "0.00");
@@ -727,7 +727,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Grand_Sales-ActualGrand_Sales;
-				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report Report is not equal to Sale Recap Report for Yesterday.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report is not equal to Sale Recap Report for Yesterday.The value diff is : "+diff);
 			
 				String diff_value=String.valueOf(diff);
 
@@ -755,7 +755,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Receipt==ActualGross_Receipt)
 			{
-				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report Report is equal to Sale Recap Report for Yesterday");
+				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report is equal to Sale Recap Report for Yesterday");
 		
 				excel.setreport_PassedData("Yesterday", 6, 17, "0.00");
 
@@ -764,7 +764,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Receipt-ActualGross_Receipt;
-				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report Report is not equal to Sale Recap Report  for Yesterday.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report is not equal to Sale Recap Report  for Yesterday.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -793,7 +793,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Sales==ActualGross_Sales)
 			{
-				test.log(LogStatus.PASS, "Gross Sales for Cashier Report Report is equal to Sale Recap Report for Yesterday");
+				test.log(LogStatus.PASS, "Gross Sales for Cashier Report is equal to Sale Recap Report for Yesterday");
 		
 				excel.setreport_PassedData("Yesterday", 7, 17, "0.00");
 
@@ -802,7 +802,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Sales-ActualGross_Sales;
-				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report Report is not equal to Sale Recap Report  for Yesterday.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report is not equal to Sale Recap Report  for Yesterday.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -862,7 +862,7 @@ public WebDriver driver;
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
-				test.log(LogStatus.PASS, "Tax for Cashier Report Report is equal to Sale Recap Report for Yesterday");
+				test.log(LogStatus.PASS, "Tax for Cashier Report is equal to Sale Recap Report for Yesterday");
 		
 				excel.setreport_PassedData("Yesterday", 3, 17, "0");
 
@@ -871,7 +871,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
-				test.log(LogStatus.FAIL, "Tax for Cashier Report Report is not equal to Sale Recap Report for Yesterday.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Tax for Cashier Report is not equal to Sale Recap Report for Yesterday.The value diff is : "+diff);
 				String diff_value=String.valueOf(diff);
 
 				//Export the Net Sales value to Excel
@@ -955,7 +955,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
-				test.log(LogStatus.PASS, "Discount for Cashier Report Report is equal to Sale Recap Report for Yesterday");
+				test.log(LogStatus.PASS, "Discount for Cashier Report is equal to Sale Recap Report for Yesterday");
 		
 				excel.setreport_PassedData("Yesterday", 4, 17, "0.00");
 
@@ -964,7 +964,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
-				test.log(LogStatus.FAIL, "Discount for Cashier Report Report is not equal to Sale Recap Report for Yesterday.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Discount for Cashier Report is not equal to Sale Recap Report for Yesterday.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -1117,7 +1117,7 @@ public WebDriver driver;
 			//Check whether the Net Sales value is Equal or not
 			if(Expected_NetSale==ActualNet_Sales)
 			{
-				test.log(LogStatus.PASS, "Net Sales for Cashier Report Report is equal to Sale Recap Report for Last N days");
+				test.log(LogStatus.PASS, "Net Sales for Cashier Report is equal to Sale Recap Report for Last N days");
 	
 			excel.setreport_PassedData("Last N days", 2, 17, "0.00");
 			
@@ -1130,7 +1130,7 @@ public WebDriver driver;
 				double diff=Expected_NetSale-ActualNet_Sales;
 				String diff_value=String.valueOf(diff);
 				
-				test.log(LogStatus.FAIL, "Net Sales for Cashier Report Report is not equal to Sale Recap Report for Last N days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Cashier Report is not equal to Sale Recap Report for Last N days.The value diff is : "+diff);
 				
 
 				excel.setreport_FailedData("Last N days", 2, 17,diff_value);
@@ -1153,7 +1153,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Grand_Sales==ActualGrand_Sales)
 			{
-				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report Report is equal to Sale Recap Report for Last N days");
+				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report is equal to Sale Recap Report for Last N days");
 		
 			
 				excel.setreport_PassedData("Last N days", 5, 17, "0.00");
@@ -1163,7 +1163,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Grand_Sales-ActualGrand_Sales;
-				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report Report is not equal to Sale Recap Report for Last N days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report is not equal to Sale Recap Report for Last N days.The value diff is : "+diff);
 			
 				String diff_value=String.valueOf(diff);
 
@@ -1191,7 +1191,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Receipt==ActualGross_Receipt)
 			{
-				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report Report is equal to Sale Recap Report for Last N days");
+				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report is equal to Sale Recap Report for Last N days");
 		
 				excel.setreport_PassedData("Last N days", 6, 17, "0.00");
 
@@ -1200,7 +1200,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Receipt-ActualGross_Receipt;
-				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report Report is not equal to Sale Recap Report  for Last N days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report is not equal to Sale Recap Report  for Last N days.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -1229,7 +1229,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Sales==ActualGross_Sales)
 			{
-				test.log(LogStatus.PASS, "Gross Sales for Cashier Report Report is equal to Sale Recap Report for Last N days");
+				test.log(LogStatus.PASS, "Gross Sales for Cashier Report is equal to Sale Recap Report for Last N days");
 		
 				excel.setreport_PassedData("Last N days", 7, 17, "0.00");
 
@@ -1238,7 +1238,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Sales-ActualGross_Sales;
-				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report Report is not equal to Sale Recap Report  for Last N days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report is not equal to Sale Recap Report  for Last N days.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -1298,7 +1298,7 @@ public WebDriver driver;
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
-				test.log(LogStatus.PASS, "Tax for Cashier Report Report is equal to Sale Recap Report for Last N days");
+				test.log(LogStatus.PASS, "Tax for Cashier Report is equal to Sale Recap Report for Last N days");
 		
 				excel.setreport_PassedData("Last N days", 3, 17, "0");
 
@@ -1307,7 +1307,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
-				test.log(LogStatus.FAIL, "Tax for Cashier Report Report is not equal to Sale Recap Report for Last N days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Tax for Cashier Report is not equal to Sale Recap Report for Last N days.The value diff is : "+diff);
 				String diff_value=String.valueOf(diff);
 
 				//Export the Net Sales value to Excel
@@ -1392,7 +1392,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
-				test.log(LogStatus.PASS, "Discount for Cashier Report Report is equal to Sale Recap Report for Last N days");
+				test.log(LogStatus.PASS, "Discount for Cashier Report is equal to Sale Recap Report for Last N days");
 		
 				excel.setreport_PassedData("Last N days", 4, 17, "0.00");
 
@@ -1401,7 +1401,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
-				test.log(LogStatus.FAIL, "Discount for Cashier Report Report is not equal to Sale Recap Report for Last N days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Discount for Cashier Report is not equal to Sale Recap Report for Last N days.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -1556,7 +1556,7 @@ public WebDriver driver;
 			//Check whether the Net Sales value is Equal or not
 			if(Expected_NetSale==ActualNet_Sales)
 			{
-				test.log(LogStatus.PASS, "Net Sales for Cashier Report Report is equal to Sale Recap Report for This Week");
+				test.log(LogStatus.PASS, "Net Sales for Cashier Report is equal to Sale Recap Report for This Week");
 	
 			excel.setreport_PassedData("This Week", 2, 17, "0.00");
 			
@@ -1569,7 +1569,7 @@ public WebDriver driver;
 				double diff=Expected_NetSale-ActualNet_Sales;
 				String diff_value=String.valueOf(diff);
 				
-				test.log(LogStatus.FAIL, "Net Sales for Cashier Report Report is not equal to Sale Recap Report for This Week.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Cashier Report is not equal to Sale Recap Report for This Week.The value diff is : "+diff);
 				
 
 				excel.setreport_FailedData("This Week", 2, 17,diff_value);
@@ -1592,7 +1592,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Grand_Sales==ActualGrand_Sales)
 			{
-				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report Report is equal to Sale Recap Report for This Week");
+				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report is equal to Sale Recap Report for This Week");
 		
 			
 				excel.setreport_PassedData("This Week", 5, 17, "0.00");
@@ -1602,7 +1602,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Grand_Sales-ActualGrand_Sales;
-				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report Report is not equal to Sale Recap Report for This Week.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report is not equal to Sale Recap Report for This Week.The value diff is : "+diff);
 			
 				String diff_value=String.valueOf(diff);
 
@@ -1630,7 +1630,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Receipt==ActualGross_Receipt)
 			{
-				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report Report is equal to Sale Recap Report for This Week");
+				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report is equal to Sale Recap Report for This Week");
 		
 				excel.setreport_PassedData("This Week", 6, 17, "0.00");
 
@@ -1639,7 +1639,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Receipt-ActualGross_Receipt;
-				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report Report is not equal to Sale Recap Report  for This Week.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report is not equal to Sale Recap Report  for This Week.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -1668,7 +1668,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Sales==ActualGross_Sales)
 			{
-				test.log(LogStatus.PASS, "Gross Sales for Cashier Report Report is equal to Sale Recap Report for This Week");
+				test.log(LogStatus.PASS, "Gross Sales for Cashier Report is equal to Sale Recap Report for This Week");
 		
 				excel.setreport_PassedData("This Week", 7, 17, "0.00");
 
@@ -1677,7 +1677,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Sales-ActualGross_Sales;
-				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report Report is not equal to Sale Recap Report  for This Week.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report is not equal to Sale Recap Report  for This Week.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -1737,7 +1737,7 @@ public WebDriver driver;
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
-				test.log(LogStatus.PASS, "Tax for Cashier Report Report is equal to Sale Recap Report for This Week");
+				test.log(LogStatus.PASS, "Tax for Cashier Report is equal to Sale Recap Report for This Week");
 		
 				excel.setreport_PassedData("This Week", 3, 17, "0");
 
@@ -1746,7 +1746,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
-				test.log(LogStatus.FAIL, "Tax for Cashier Report Report is not equal to Sale Recap Report for This Week.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Tax for Cashier Report is not equal to Sale Recap Report for This Week.The value diff is : "+diff);
 				String diff_value=String.valueOf(diff);
 
 				//Export the Net Sales value to Excel
@@ -1831,7 +1831,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
-				test.log(LogStatus.PASS, "Discount for Cashier Report Report is equal to Sale Recap Report for This Week");
+				test.log(LogStatus.PASS, "Discount for Cashier Report is equal to Sale Recap Report for This Week");
 		
 				excel.setreport_PassedData("This Week", 4, 17, "0.00");
 
@@ -1840,7 +1840,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
-				test.log(LogStatus.FAIL, "Discount for Cashier Report Report is not equal to Sale Recap Report for This Week.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Discount for Cashier Report is not equal to Sale Recap Report for This Week.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -1993,7 +1993,7 @@ public WebDriver driver;
 			//Check whether the Net Sales value is Equal or not
 			if(Expected_NetSale==ActualNet_Sales)
 			{
-				test.log(LogStatus.PASS, "Net Sales for Cashier Report Report is equal to Sale Recap Report for Last Week");
+				test.log(LogStatus.PASS, "Net Sales for Cashier Report is equal to Sale Recap Report for Last Week");
 	
 			excel.setreport_PassedData("Last Week", 2, 17, "0.00");
 			
@@ -2006,7 +2006,7 @@ public WebDriver driver;
 				double diff=Expected_NetSale-ActualNet_Sales;
 				String diff_value=String.valueOf(diff);
 				
-				test.log(LogStatus.FAIL, "Net Sales for Cashier Report Report is not equal to Sale Recap Report for Last Week.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Cashier Report is not equal to Sale Recap Report for Last Week.The value diff is : "+diff);
 				
 
 				excel.setreport_FailedData("Last Week", 2, 17,diff_value);
@@ -2029,7 +2029,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Grand_Sales==ActualGrand_Sales)
 			{
-				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report Report is equal to Sale Recap Report for Last Week");
+				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report is equal to Sale Recap Report for Last Week");
 		
 			
 				excel.setreport_PassedData("Last Week", 5, 17, "0.00");
@@ -2039,7 +2039,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Grand_Sales-ActualGrand_Sales;
-				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report Report is not equal to Sale Recap Report for Last Week.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report is not equal to Sale Recap Report for Last Week.The value diff is : "+diff);
 			
 				String diff_value=String.valueOf(diff);
 
@@ -2067,7 +2067,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Receipt==ActualGross_Receipt)
 			{
-				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report Report is equal to Sale Recap Report for Last Week");
+				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report is equal to Sale Recap Report for Last Week");
 		
 				excel.setreport_PassedData("Last Week", 6, 17, "0.00");
 
@@ -2076,7 +2076,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Receipt-ActualGross_Receipt;
-				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report Report is not equal to Sale Recap Report  for Last Week.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report is not equal to Sale Recap Report  for Last Week.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -2105,7 +2105,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Sales==ActualGross_Sales)
 			{
-				test.log(LogStatus.PASS, "Gross Sales for Cashier Report Report is equal to Sale Recap Report for Last Week");
+				test.log(LogStatus.PASS, "Gross Sales for Cashier Report is equal to Sale Recap Report for Last Week");
 		
 				excel.setreport_PassedData("Last Week", 7, 17, "0.00");
 
@@ -2114,7 +2114,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Sales-ActualGross_Sales;
-				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report Report is not equal to Sale Recap Report  for Last Week.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report is not equal to Sale Recap Report  for Last Week.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -2174,7 +2174,7 @@ public WebDriver driver;
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
-				test.log(LogStatus.PASS, "Tax for Cashier Report Report is equal to Sale Recap Report for Last Week");
+				test.log(LogStatus.PASS, "Tax for Cashier Report is equal to Sale Recap Report for Last Week");
 		
 				excel.setreport_PassedData("Last Week", 3, 17, "0");
 
@@ -2183,7 +2183,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
-				test.log(LogStatus.FAIL, "Tax for Cashier Report Report is not equal to Sale Recap Report for Last Week.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Tax for Cashier Report is not equal to Sale Recap Report for Last Week.The value diff is : "+diff);
 				String diff_value=String.valueOf(diff);
 
 				//Export the Net Sales value to Excel
@@ -2268,7 +2268,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
-				test.log(LogStatus.PASS, "Discount for Cashier Report Report is equal to Sale Recap Report for Last Week");
+				test.log(LogStatus.PASS, "Discount for Cashier Report is equal to Sale Recap Report for Last Week");
 		
 				excel.setreport_PassedData("Last Week", 4, 17, "0.00");
 
@@ -2277,7 +2277,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
-				test.log(LogStatus.FAIL, "Discount for Cashier Report Report is not equal to Sale Recap Report for Last Week.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Discount for Cashier Report is not equal to Sale Recap Report for Last Week.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -2429,7 +2429,7 @@ public WebDriver driver;
 		//Check whether the Net Sales value is Equal or not
 		if(Expected_NetSale==ActualNet_Sales)
 		{
-			test.log(LogStatus.PASS, "Net Sales for Cashier Report Report is equal to Sale Recap Report for Last 7 days");
+			test.log(LogStatus.PASS, "Net Sales for Cashier Report is equal to Sale Recap Report for Last 7 days");
 
 		excel.setreport_PassedData("Last 7 days", 2, 17, "0.00");
 		
@@ -2442,7 +2442,7 @@ public WebDriver driver;
 			double diff=Expected_NetSale-ActualNet_Sales;
 			String diff_value=String.valueOf(diff);
 			
-			test.log(LogStatus.FAIL, "Net Sales for Cashier Report Report is not equal to Sale Recap Report for Last 7 days.The value diff is : "+diff);
+			test.log(LogStatus.FAIL, "Net Sales for Cashier Report is not equal to Sale Recap Report for Last 7 days.The value diff is : "+diff);
 			
 
 			excel.setreport_FailedData("Last 7 days", 2, 17,diff_value);
@@ -2465,7 +2465,7 @@ public WebDriver driver;
 		//Check whether the Discount value is Equal or not
 		if(Expected_Grand_Sales==ActualGrand_Sales)
 		{
-			test.log(LogStatus.PASS, "Grand_Sales for Cashier Report Report is equal to Sale Recap Report for Last 7 days");
+			test.log(LogStatus.PASS, "Grand_Sales for Cashier Report is equal to Sale Recap Report for Last 7 days");
 	
 		
 			excel.setreport_PassedData("Last 7 days", 5, 17, "0.00");
@@ -2475,7 +2475,7 @@ public WebDriver driver;
 		else
 		{
 			double diff=Expected_Grand_Sales-ActualGrand_Sales;
-			test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report Report is not equal to Sale Recap Report for Last 7 days.The value diff is : "+diff);
+			test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report is not equal to Sale Recap Report for Last 7 days.The value diff is : "+diff);
 		
 			String diff_value=String.valueOf(diff);
 
@@ -2503,7 +2503,7 @@ public WebDriver driver;
 		//Check whether the Gross Receipt value is Equal or not
 		if(Expected_Gross_Receipt==ActualGross_Receipt)
 		{
-			test.log(LogStatus.PASS, "Gross Receipt for Cashier Report Report is equal to Sale Recap Report for Last 7 days");
+			test.log(LogStatus.PASS, "Gross Receipt for Cashier Report is equal to Sale Recap Report for Last 7 days");
 	
 			excel.setreport_PassedData("Last 7 days", 6, 17, "0.00");
 
@@ -2512,7 +2512,7 @@ public WebDriver driver;
 		else
 		{
 			double diff=Expected_Gross_Receipt-ActualGross_Receipt;
-			test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report Report is not equal to Sale Recap Report  for Last 7 days.The value diff is : "+diff);
+			test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report is not equal to Sale Recap Report  for Last 7 days.The value diff is : "+diff);
 	
 			String diff_value=String.valueOf(diff);
 
@@ -2541,7 +2541,7 @@ public WebDriver driver;
 		//Check whether the Gross Receipt value is Equal or not
 		if(Expected_Gross_Sales==ActualGross_Sales)
 		{
-			test.log(LogStatus.PASS, "Gross Sales for Cashier Report Report is equal to Sale Recap Report for Last 7 days");
+			test.log(LogStatus.PASS, "Gross Sales for Cashier Report is equal to Sale Recap Report for Last 7 days");
 	
 			excel.setreport_PassedData("Last 7 days", 7, 17, "0.00");
 
@@ -2550,7 +2550,7 @@ public WebDriver driver;
 		else
 		{
 			double diff=Expected_Gross_Sales-ActualGross_Sales;
-			test.log(LogStatus.FAIL, "Gross Sales for Cashier Report Report is not equal to Sale Recap Report  for Last 7 days.The value diff is : "+diff);
+			test.log(LogStatus.FAIL, "Gross Sales for Cashier Report is not equal to Sale Recap Report  for Last 7 days.The value diff is : "+diff);
 	
 			String diff_value=String.valueOf(diff);
 
@@ -2610,7 +2610,7 @@ public WebDriver driver;
 		//Check whether the Tax value is Equal or not
 		if(Expected_Tax==ActualTax)
 		{
-			test.log(LogStatus.PASS, "Tax for Cashier Report Report is equal to Sale Recap Report for Last 7 days");
+			test.log(LogStatus.PASS, "Tax for Cashier Report is equal to Sale Recap Report for Last 7 days");
 	
 			excel.setreport_PassedData("Last 7 days", 3, 17, "0");
 
@@ -2619,7 +2619,7 @@ public WebDriver driver;
 		else
 		{
 			double diff=Expected_Tax-ActualTax;
-			test.log(LogStatus.FAIL, "Tax for Cashier Report Report is not equal to Sale Recap Report for Last 7 days.The value diff is : "+diff);
+			test.log(LogStatus.FAIL, "Tax for Cashier Report is not equal to Sale Recap Report for Last 7 days.The value diff is : "+diff);
 			String diff_value=String.valueOf(diff);
 
 			//Export the Net Sales value to Excel
@@ -2704,7 +2704,7 @@ public WebDriver driver;
 		//Check whether the Discount value is Equal or not
 		if(Expected_Discount==ActualDiscount)
 		{
-			test.log(LogStatus.PASS, "Discount for Cashier Report Report is equal to Sale Recap Report for Last 7 days");
+			test.log(LogStatus.PASS, "Discount for Cashier Report is equal to Sale Recap Report for Last 7 days");
 	
 			excel.setreport_PassedData("Last 7 days", 4, 17, "0.00");
 
@@ -2713,7 +2713,7 @@ public WebDriver driver;
 		else
 		{
 			double diff=Expected_Discount-ActualDiscount;
-			test.log(LogStatus.FAIL, "Discount for Cashier Report Report is not equal to Sale Recap Report for Last 7 days.The value diff is : "+diff);
+			test.log(LogStatus.FAIL, "Discount for Cashier Report is not equal to Sale Recap Report for Last 7 days.The value diff is : "+diff);
 	
 			String diff_value=String.valueOf(diff);
 
@@ -2867,7 +2867,7 @@ public WebDriver driver;
 			//Check whether the Net Sales value is Equal or not
 			if(Expected_NetSale==ActualNet_Sales)
 			{
-				test.log(LogStatus.PASS, "Net Sales for Cashier Report Report is equal to Sale Recap Report for This month");
+				test.log(LogStatus.PASS, "Net Sales for Cashier Report is equal to Sale Recap Report for This month");
 	
 			excel.setreport_PassedData("This month", 2, 17, "0.00");
 			
@@ -2880,7 +2880,7 @@ public WebDriver driver;
 				double diff=Expected_NetSale-ActualNet_Sales;
 				String diff_value=String.valueOf(diff);
 				
-				test.log(LogStatus.FAIL, "Net Sales for Cashier Report Report is not equal to Sale Recap Report for This month.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Cashier Report is not equal to Sale Recap Report for This month.The value diff is : "+diff);
 				
 
 				excel.setreport_FailedData("This month", 2, 17,diff_value);
@@ -2903,7 +2903,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Grand_Sales==ActualGrand_Sales)
 			{
-				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report Report is equal to Sale Recap Report for This month");
+				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report is equal to Sale Recap Report for This month");
 		
 			
 				excel.setreport_PassedData("This month", 5, 17, "0.00");
@@ -2913,7 +2913,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Grand_Sales-ActualGrand_Sales;
-				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report Report is not equal to Sale Recap Report for This month.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report is not equal to Sale Recap Report for This month.The value diff is : "+diff);
 			
 				String diff_value=String.valueOf(diff);
 
@@ -2941,7 +2941,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Receipt==ActualGross_Receipt)
 			{
-				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report Report is equal to Sale Recap Report for This month");
+				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report is equal to Sale Recap Report for This month");
 		
 				excel.setreport_PassedData("This month", 6, 17, "0.00");
 
@@ -2950,7 +2950,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Receipt-ActualGross_Receipt;
-				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report Report is not equal to Sale Recap Report  for This month.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report is not equal to Sale Recap Report  for This month.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -2979,7 +2979,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Sales==ActualGross_Sales)
 			{
-				test.log(LogStatus.PASS, "Gross Sales for Cashier Report Report is equal to Sale Recap Report for This month");
+				test.log(LogStatus.PASS, "Gross Sales for Cashier Report is equal to Sale Recap Report for This month");
 		
 				excel.setreport_PassedData("This month", 7, 17, "0.00");
 
@@ -2988,7 +2988,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Sales-ActualGross_Sales;
-				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report Report is not equal to Sale Recap Report  for This month.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report is not equal to Sale Recap Report  for This month.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -3048,7 +3048,7 @@ public WebDriver driver;
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
-				test.log(LogStatus.PASS, "Tax for Cashier Report Report is equal to Sale Recap Report for This month");
+				test.log(LogStatus.PASS, "Tax for Cashier Report is equal to Sale Recap Report for This month");
 		
 				excel.setreport_PassedData("This month", 3, 17, "0");
 
@@ -3057,7 +3057,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
-				test.log(LogStatus.FAIL, "Tax for Cashier Report Report is not equal to Sale Recap Report for This month.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Tax for Cashier Report is not equal to Sale Recap Report for This month.The value diff is : "+diff);
 				String diff_value=String.valueOf(diff);
 
 				//Export the Net Sales value to Excel
@@ -3142,7 +3142,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
-				test.log(LogStatus.PASS, "Discount for Cashier Report Report is equal to Sale Recap Report for This month");
+				test.log(LogStatus.PASS, "Discount for Cashier Report is equal to Sale Recap Report for This month");
 		
 				excel.setreport_PassedData("This month", 4, 17, "0.00");
 
@@ -3151,7 +3151,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
-				test.log(LogStatus.FAIL, "Discount for Cashier Report Report is not equal to Sale Recap Report for This month.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Discount for Cashier Report is not equal to Sale Recap Report for This month.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -3304,7 +3304,7 @@ public WebDriver driver;
 			//Check whether the Net Sales value is Equal or not
 			if(Expected_NetSale==ActualNet_Sales)
 			{
-				test.log(LogStatus.PASS, "Net Sales for Cashier Report Report is equal to Sale Recap Report for Last month");
+				test.log(LogStatus.PASS, "Net Sales for Cashier Report is equal to Sale Recap Report for Last month");
 	
 			excel.setreport_PassedData("Last month", 2, 17, "0.00");
 			
@@ -3317,7 +3317,7 @@ public WebDriver driver;
 				double diff=Expected_NetSale-ActualNet_Sales;
 				String diff_value=String.valueOf(diff);
 				
-				test.log(LogStatus.FAIL, "Net Sales for Cashier Report Report is not equal to Sale Recap Report for Last month.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Cashier Report is not equal to Sale Recap Report for Last month.The value diff is : "+diff);
 				
 
 				excel.setreport_FailedData("Last month", 2, 17,diff_value);
@@ -3340,7 +3340,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Grand_Sales==ActualGrand_Sales)
 			{
-				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report Report is equal to Sale Recap Report for Last month");
+				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report is equal to Sale Recap Report for Last month");
 		
 			
 				excel.setreport_PassedData("Last month", 5, 17, "0.00");
@@ -3350,7 +3350,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Grand_Sales-ActualGrand_Sales;
-				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report Report is not equal to Sale Recap Report for Last month.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report is not equal to Sale Recap Report for Last month.The value diff is : "+diff);
 			
 				String diff_value=String.valueOf(diff);
 
@@ -3378,7 +3378,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Receipt==ActualGross_Receipt)
 			{
-				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report Report is equal to Sale Recap Report for Last month");
+				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report is equal to Sale Recap Report for Last month");
 		
 				excel.setreport_PassedData("Last month", 6, 17, "0.00");
 
@@ -3387,7 +3387,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Receipt-ActualGross_Receipt;
-				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report Report is not equal to Sale Recap Report  for Last month.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report is not equal to Sale Recap Report  for Last month.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -3416,7 +3416,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Sales==ActualGross_Sales)
 			{
-				test.log(LogStatus.PASS, "Gross Sales for Cashier Report Report is equal to Sale Recap Report for Last month");
+				test.log(LogStatus.PASS, "Gross Sales for Cashier Report is equal to Sale Recap Report for Last month");
 		
 				excel.setreport_PassedData("Last month", 7, 17, "0.00");
 
@@ -3425,7 +3425,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Sales-ActualGross_Sales;
-				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report Report is not equal to Sale Recap Report  for Last month.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report is not equal to Sale Recap Report  for Last month.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -3485,7 +3485,7 @@ public WebDriver driver;
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
-				test.log(LogStatus.PASS, "Tax for Cashier Report Report is equal to Sale Recap Report for Last month");
+				test.log(LogStatus.PASS, "Tax for Cashier Report is equal to Sale Recap Report for Last month");
 		
 				excel.setreport_PassedData("Last month", 3, 17, "0");
 
@@ -3494,7 +3494,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
-				test.log(LogStatus.FAIL, "Tax for Cashier Report Report is not equal to Sale Recap Report for Last month.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Tax for Cashier Report is not equal to Sale Recap Report for Last month.The value diff is : "+diff);
 				String diff_value=String.valueOf(diff);
 
 				//Export the Net Sales value to Excel
@@ -3579,7 +3579,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
-				test.log(LogStatus.PASS, "Discount for Cashier Report Report is equal to Sale Recap Report for Last month");
+				test.log(LogStatus.PASS, "Discount for Cashier Report is equal to Sale Recap Report for Last month");
 		
 				excel.setreport_PassedData("Last month", 4, 17, "0.00");
 
@@ -3588,7 +3588,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
-				test.log(LogStatus.FAIL, "Discount for Cashier Report Report is not equal to Sale Recap Report for Last month.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Discount for Cashier Report is not equal to Sale Recap Report for Last month.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -3744,7 +3744,7 @@ public WebDriver driver;
 			//Check whether the Net Sales value is Equal or not
 			if(Expected_NetSale==ActualNet_Sales)
 			{
-				test.log(LogStatus.PASS, "Net Sales for Cashier Report Report is equal to Sale Recap Report for Last 30 days");
+				test.log(LogStatus.PASS, "Net Sales for Cashier Report is equal to Sale Recap Report for Last 30 days");
 	
 			excel.setreport_PassedData("Last 30 days", 2, 17, "0.00");
 			
@@ -3757,7 +3757,7 @@ public WebDriver driver;
 				double diff=Expected_NetSale-ActualNet_Sales;
 				String diff_value=String.valueOf(diff);
 				
-				test.log(LogStatus.FAIL, "Net Sales for Cashier Report Report is not equal to Sale Recap Report for Last 30 days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Cashier Report is not equal to Sale Recap Report for Last 30 days.The value diff is : "+diff);
 				
 
 				excel.setreport_FailedData("Last 30 days", 2, 17,diff_value);
@@ -3780,7 +3780,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Grand_Sales==ActualGrand_Sales)
 			{
-				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report Report is equal to Sale Recap Report for Last 30 days");
+				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report is equal to Sale Recap Report for Last 30 days");
 		
 			
 				excel.setreport_PassedData("Last 30 days", 5, 17, "0.00");
@@ -3790,7 +3790,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Grand_Sales-ActualGrand_Sales;
-				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report Report is not equal to Sale Recap Report for Last 30 days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report is not equal to Sale Recap Report for Last 30 days.The value diff is : "+diff);
 			
 				String diff_value=String.valueOf(diff);
 
@@ -3818,7 +3818,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Receipt==ActualGross_Receipt)
 			{
-				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report Report is equal to Sale Recap Report for Last 30 days");
+				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report is equal to Sale Recap Report for Last 30 days");
 		
 				excel.setreport_PassedData("Last 30 days", 6, 17, "0.00");
 
@@ -3827,7 +3827,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Receipt-ActualGross_Receipt;
-				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report Report is not equal to Sale Recap Report  for Last 30 days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report is not equal to Sale Recap Report  for Last 30 days.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -3856,7 +3856,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Sales==ActualGross_Sales)
 			{
-				test.log(LogStatus.PASS, "Gross Sales for Cashier Report Report is equal to Sale Recap Report for Last 30 days");
+				test.log(LogStatus.PASS, "Gross Sales for Cashier Report is equal to Sale Recap Report for Last 30 days");
 		
 				excel.setreport_PassedData("Last 30 days", 7, 17, "0.00");
 
@@ -3865,7 +3865,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Sales-ActualGross_Sales;
-				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report Report is not equal to Sale Recap Report  for Last 30 days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report is not equal to Sale Recap Report  for Last 30 days.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -3925,7 +3925,7 @@ public WebDriver driver;
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
-				test.log(LogStatus.PASS, "Tax for Cashier Report Report is equal to Sale Recap Report for Last 30 days");
+				test.log(LogStatus.PASS, "Tax for Cashier Report is equal to Sale Recap Report for Last 30 days");
 		
 				excel.setreport_PassedData("Last 30 days", 3, 17, "0");
 
@@ -3934,7 +3934,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
-				test.log(LogStatus.FAIL, "Tax for Cashier Report Report is not equal to Sale Recap Report for Last 30 days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Tax for Cashier Report is not equal to Sale Recap Report for Last 30 days.The value diff is : "+diff);
 				String diff_value=String.valueOf(diff);
 
 				//Export the Net Sales value to Excel
@@ -4019,7 +4019,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
-				test.log(LogStatus.PASS, "Discount for Cashier Report Report is equal to Sale Recap Report for Last 30 days");
+				test.log(LogStatus.PASS, "Discount for Cashier Report is equal to Sale Recap Report for Last 30 days");
 		
 				excel.setreport_PassedData("Last 30 days", 4, 17, "0.00");
 
@@ -4028,7 +4028,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
-				test.log(LogStatus.FAIL, "Discount for Cashier Report Report is not equal to Sale Recap Report for Last 30 days.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Discount for Cashier Report is not equal to Sale Recap Report for Last 30 days.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -4182,7 +4182,7 @@ public WebDriver driver;
 			//Check whether the Net Sales value is Equal or not
 			if(Expected_NetSale==ActualNet_Sales)
 			{
-				test.log(LogStatus.PASS, "Net Sales for Cashier Report Report is equal to Sale Recap Report for Specific Date");
+				test.log(LogStatus.PASS, "Net Sales for Cashier Report is equal to Sale Recap Report for Specific Date");
 	
 			excel.setreport_PassedData("Specific Date", 2, 17, "0.00");
 			
@@ -4195,7 +4195,7 @@ public WebDriver driver;
 				double diff=Expected_NetSale-ActualNet_Sales;
 				String diff_value=String.valueOf(diff);
 				
-				test.log(LogStatus.FAIL, "Net Sales for Cashier Report Report is not equal to Sale Recap Report for Specific Date.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Cashier Report is not equal to Sale Recap Report for Specific Date.The value diff is : "+diff);
 				
 
 				excel.setreport_FailedData("Specific Date", 2, 17,diff_value);
@@ -4218,7 +4218,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Grand_Sales==ActualGrand_Sales)
 			{
-				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report Report is equal to Sale Recap Report for Specific Date");
+				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report is equal to Sale Recap Report for Specific Date");
 		
 			
 				excel.setreport_PassedData("Specific Date", 5, 17, "0.00");
@@ -4228,7 +4228,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Grand_Sales-ActualGrand_Sales;
-				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report Report is not equal to Sale Recap Report for Specific Date.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report is not equal to Sale Recap Report for Specific Date.The value diff is : "+diff);
 			
 				String diff_value=String.valueOf(diff);
 
@@ -4256,7 +4256,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Receipt==ActualGross_Receipt)
 			{
-				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report Report is equal to Sale Recap Report for Specific Date");
+				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report is equal to Sale Recap Report for Specific Date");
 		
 				excel.setreport_PassedData("Specific Date", 6, 17, "0.00");
 
@@ -4265,7 +4265,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Receipt-ActualGross_Receipt;
-				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report Report is not equal to Sale Recap Report  for Specific Date.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report is not equal to Sale Recap Report  for Specific Date.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -4294,7 +4294,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Sales==ActualGross_Sales)
 			{
-				test.log(LogStatus.PASS, "Gross Sales for Cashier Report Report is equal to Sale Recap Report for Specific Date");
+				test.log(LogStatus.PASS, "Gross Sales for Cashier Report is equal to Sale Recap Report for Specific Date");
 		
 				excel.setreport_PassedData("Specific Date", 7, 17, "0.00");
 
@@ -4303,7 +4303,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Sales-ActualGross_Sales;
-				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report Report is not equal to Sale Recap Report  for Specific Date.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report is not equal to Sale Recap Report  for Specific Date.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -4363,7 +4363,7 @@ public WebDriver driver;
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
-				test.log(LogStatus.PASS, "Tax for Cashier Report Report is equal to Sale Recap Report for Specific Date");
+				test.log(LogStatus.PASS, "Tax for Cashier Report is equal to Sale Recap Report for Specific Date");
 		
 				excel.setreport_PassedData("Specific Date", 3, 17, "0");
 
@@ -4372,7 +4372,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
-				test.log(LogStatus.FAIL, "Tax for Cashier Report Report is not equal to Sale Recap Report for Specific Date.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Tax for Cashier Report is not equal to Sale Recap Report for Specific Date.The value diff is : "+diff);
 				String diff_value=String.valueOf(diff);
 
 				//Export the Net Sales value to Excel
@@ -4457,7 +4457,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
-				test.log(LogStatus.PASS, "Discount for Cashier Report Report is equal to Sale Recap Report for Specific Date");
+				test.log(LogStatus.PASS, "Discount for Cashier Report is equal to Sale Recap Report for Specific Date");
 		
 				excel.setreport_PassedData("Specific Date", 4, 17, "0.00");
 
@@ -4466,7 +4466,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
-				test.log(LogStatus.FAIL, "Discount for Cashier Report Report is not equal to Sale Recap Report for Specific Date.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Discount for Cashier Report is not equal to Sale Recap Report for Specific Date.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -4621,7 +4621,7 @@ public WebDriver driver;
 			//Check whether the Net Sales value is Equal or not
 			if(Expected_NetSale==ActualNet_Sales)
 			{
-				test.log(LogStatus.PASS, "Net Sales for Cashier Report Report is equal to Sale Recap Report for Date Range");
+				test.log(LogStatus.PASS, "Net Sales for Cashier Report is equal to Sale Recap Report for Date Range");
 	
 			excel.setreport_PassedData("Date Range", 2, 17, "0.00");
 			
@@ -4634,7 +4634,7 @@ public WebDriver driver;
 				double diff=Expected_NetSale-ActualNet_Sales;
 				String diff_value=String.valueOf(diff);
 				
-				test.log(LogStatus.FAIL, "Net Sales for Cashier Report Report is not equal to Sale Recap Report for Date Range.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Net Sales for Cashier Report is not equal to Sale Recap Report for Date Range.The value diff is : "+diff);
 				
 
 				excel.setreport_FailedData("Date Range", 2, 17,diff_value);
@@ -4657,7 +4657,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Grand_Sales==ActualGrand_Sales)
 			{
-				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report Report is equal to Sale Recap Report for Date Range");
+				test.log(LogStatus.PASS, "Grand_Sales for Cashier Report is equal to Sale Recap Report for Date Range");
 		
 			
 				excel.setreport_PassedData("Date Range", 5, 17, "0.00");
@@ -4667,7 +4667,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Grand_Sales-ActualGrand_Sales;
-				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report Report is not equal to Sale Recap Report for Date Range.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Grand_Sales for Cashier Report is not equal to Sale Recap Report for Date Range.The value diff is : "+diff);
 			
 				String diff_value=String.valueOf(diff);
 
@@ -4695,7 +4695,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Receipt==ActualGross_Receipt)
 			{
-				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report Report is equal to Sale Recap Report for Date Range");
+				test.log(LogStatus.PASS, "Gross Receipt for Cashier Report is equal to Sale Recap Report for Date Range");
 		
 				excel.setreport_PassedData("Date Range", 6, 17, "0.00");
 
@@ -4704,7 +4704,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Receipt-ActualGross_Receipt;
-				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report Report is not equal to Sale Recap Report  for Date Range.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Receipt for Cashier Report is not equal to Sale Recap Report  for Date Range.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -4733,7 +4733,7 @@ public WebDriver driver;
 			//Check whether the Gross Receipt value is Equal or not
 			if(Expected_Gross_Sales==ActualGross_Sales)
 			{
-				test.log(LogStatus.PASS, "Gross Sales for Cashier Report Report is equal to Sale Recap Report for Date Range");
+				test.log(LogStatus.PASS, "Gross Sales for Cashier Report is equal to Sale Recap Report for Date Range");
 		
 				excel.setreport_PassedData("Date Range", 7, 17, "0.00");
 
@@ -4742,7 +4742,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Gross_Sales-ActualGross_Sales;
-				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report Report is not equal to Sale Recap Report  for Date Range.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Gross Sales for Cashier Report is not equal to Sale Recap Report  for Date Range.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 
@@ -4802,7 +4802,7 @@ public WebDriver driver;
 			//Check whether the Tax value is Equal or not
 			if(Expected_Tax==ActualTax)
 			{
-				test.log(LogStatus.PASS, "Tax for Cashier Report Report is equal to Sale Recap Report for Date Range");
+				test.log(LogStatus.PASS, "Tax for Cashier Report is equal to Sale Recap Report for Date Range");
 		
 				excel.setreport_PassedData("Date Range", 3, 17, "0");
 
@@ -4811,7 +4811,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Tax-ActualTax;
-				test.log(LogStatus.FAIL, "Tax for Cashier Report Report is not equal to Sale Recap Report for Date Range.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Tax for Cashier Report is not equal to Sale Recap Report for Date Range.The value diff is : "+diff);
 				String diff_value=String.valueOf(diff);
 
 				//Export the Net Sales value to Excel
@@ -4896,7 +4896,7 @@ public WebDriver driver;
 			//Check whether the Discount value is Equal or not
 			if(Expected_Discount==ActualDiscount)
 			{
-				test.log(LogStatus.PASS, "Discount for Cashier Report Report is equal to Sale Recap Report for Date Range");
+				test.log(LogStatus.PASS, "Discount for Cashier Report is equal to Sale Recap Report for Date Range");
 		
 				excel.setreport_PassedData("Date Range", 4, 17, "0.00");
 
@@ -4905,7 +4905,7 @@ public WebDriver driver;
 			else
 			{
 				double diff=Expected_Discount-ActualDiscount;
-				test.log(LogStatus.FAIL, "Discount for Cashier Report Report is not equal to Sale Recap Report for Date Range.The value diff is : "+diff);
+				test.log(LogStatus.FAIL, "Discount for Cashier Report is not equal to Sale Recap Report for Date Range.The value diff is : "+diff);
 		
 				String diff_value=String.valueOf(diff);
 

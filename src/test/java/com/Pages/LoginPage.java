@@ -14,20 +14,20 @@ import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class LoginPage extends BasePage
+public class LoginPage //extends BasePage
 {
 
-//	WebDriver driver;
-//	ExtentTest test;
+	WebDriver driver;
+	ExtentTest test;
 	Utility ut=new Utility();
 	
 	public LoginPage(WebDriver driver,ExtentTest test)
 	{
-//		this.driver=driver;
-//		this.test=test;
-//		
-//		PageFactory.initElements(driver, this);
-		super(driver, test);
+		this.driver=driver;
+		this.test=test;
+		
+		PageFactory.initElements(driver, this);
+//		super(driver, test);
 	}
 	
 	@FindBy(xpath = "//h4[contains(.,'Log In')]")

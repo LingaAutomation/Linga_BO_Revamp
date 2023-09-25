@@ -15,7 +15,7 @@ import Utility.ExtentManager;
 import Utility.Utility;
 import Utility.ExcelDataConfig;
 
-public class Report_Comparison {
+public class Excel_Report_Comparison {
 	
 	public WebDriver driver;
 	

@@ -57,7 +57,8 @@ public WebDriver driver;
 				String s="data:image/png;base64,"+scnsht;
 				
 				test.log(LogStatus.FAIL, test.addScreenCapture(s));
-		
+				
+				Thread.sleep(1000);
 				try
 				{
 					if(new LoginPage(driver, test).LoginPageHeaderText().isDisplayed())
@@ -87,8 +88,8 @@ public WebDriver driver;
 			
 			System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
 			//Open the Chrome window
-			driver = new ChromeDriver(); 
-//Code changes
+			driver = new ChromeDriver();
+
 //			ChromeOptions chrOpt=new ChromeOptions();
 //			chrOpt.addArguments("--remote-allow-origins=*");
 //			WebDriverManager.chromedriver().setup();

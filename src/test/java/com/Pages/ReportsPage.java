@@ -1,9 +1,12 @@
 package com.Pages;
 
+import java.awt.Robot;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -239,6 +242,11 @@ public class ReportsPage
        
         je.executeScript("arguments[0].scrollIntoView(true);",Sel);
         
+        Thread.sleep(2000);
+        driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+		Thread.sleep(2000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+        
 		Thread.sleep(2000);
 		Specific_Date_TimePeriodBtn.click();
 		
@@ -370,6 +378,11 @@ public class ReportsPage
 		JavascriptExecutor je = (JavascriptExecutor) driver;
        
         je.executeScript("arguments[0].scrollIntoView(true);",Sel);
+        
+        Thread.sleep(2000);
+        driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+		Thread.sleep(2000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
 		
 		Thread.sleep(2000);
 		Date_Range_TimePeriodBtn.click();
@@ -702,7 +715,17 @@ public class ReportsPage
 	@FindBy(xpath = "//app-custom-dynamic-table//span[contains(.,'DISCOUNT')]" )
 	WebElement Discount_Table_inSaleRecap;
 	
+	@FindBy(xpath = "//app-custom-dynamic-table//span[contains(.,'Sales')]" )
+	WebElement Sales_Table_inEnterpriseSaleRecap;
 	
+	@FindBy(xpath = "//app-custom-dynamic-table//span[contains(.,'Taxes')]" )
+	WebElement Taxes_Table_inEnterpriseSaleRecap;
+	
+	@FindBy(xpath = "//app-custom-dynamic-table//span[contains(.,'Refund')]" )
+	WebElement Refund_Table_inEnterpriseSaleRecap;
+	
+	@FindBy(xpath = "//app-custom-dynamic-table//span[contains(.,'Discount')]" )
+	WebElement Discount_Table_inEnterpriseSaleRecap;
 	
 	public void Select_Time_Period_Sale_Recap() throws Exception
 	{
@@ -795,7 +818,25 @@ public class ReportsPage
 		return Discount_Table_inSaleRecap;
 	}
 	
+	public WebElement Sales_Table_inEnterpriseSaleRecap()
+	{
+		return Sales_Table_inEnterpriseSaleRecap;
+	}
 	
+	public WebElement Taxes_Table_inEnterpriseSaleRecap()
+	{
+		return Taxes_Table_inEnterpriseSaleRecap;
+	}
+	
+	public WebElement Refund_Table_inEnterpriseSaleRecap()
+	{
+		return Refund_Table_inEnterpriseSaleRecap;
+	}
+	
+	public WebElement Discount_Table_inEnterpriseSaleRecap()
+	{
+		return Discount_Table_inEnterpriseSaleRecap;
+	}
 	///////////////  Gift Card & Give X Report  /////////////////////////
 	
 	@FindBy(xpath = "//label[contains(.,'Card Number')]/../../input")
@@ -849,6 +890,13 @@ public class ReportsPage
 	{
 		Employee_InputBx.click();
 		
+		try
+		{
+			new Common_XPaths(driver, test).SearchBox_DropDown.clear();
+			Thread.sleep(1000);
+			new Common_XPaths(driver, test).SearchBox_DropDown.sendKeys(EmployeeName);
+		}
+		catch(Exception l) {}
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//select-option[contains(.,'"+EmployeeName+"')]")).click();
 	}
@@ -1784,7 +1832,7 @@ public class ReportsPage
 	
 	public void Store_Selection_in_DropDown_EnterpriseReport(String StoreName) throws Exception
 	{
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		Stores_InputBx.click();
 		
 		try
@@ -1793,11 +1841,30 @@ public class ReportsPage
 			new Common_XPaths(driver, test).SearchBox.clear();
 			Thread.sleep(1000);
 			new Common_XPaths(driver, test).SearchBox.sendKeys(StoreName);
+
 		}
 		catch(Exception l) {}
 		
+
+//			if(driver.findElement(By.xpath("//select-option[contains(.,'Select All')]")).isEnabled())
+//			{
+//				driver.findElement(By.xpath("//select-option[contains(.,'Select All')]")).click();
+//			}
+//			Thread.sleep(1000);
+//			Stores_InputBx.clear();
+//			Thread.sleep(1000);
+//			Stores_InputBx.sendKeys(StoreName);
+
+		
+	
+		
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//select-option[contains(.,'"+StoreName+"')]")).click();
+	}
+	
+	public WebElement Stores_InputBox_Enterprise_Reports()
+	{
+		return Stores_InputBx;
 	}
 	
 
@@ -1935,4 +2002,532 @@ public class ReportsPage
 	{
 		return No_SaleFound_InfoMsg;
 	}
+	
+	
+	public void Select_Store_inEmployeeRoleBased_EnterpriseReport(String StoreName) throws Exception
+	{
+		Thread.sleep(1000);
+	Stores_InputBox_Enterprise_Reports().click();
+		Thread.sleep(1000);
+		
+		if(driver.findElement(By.xpath("//select-option[contains(.,'Select All')]")).isEnabled())
+		{
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("//select-option[contains(.,'Select All')]")).click();
+		}
+		
+		for(int i=1;i<=20;i++)
+		{
+			Thread.sleep(2000);
+//			driver.findElement(By.tagName("cdk-virtual-scroll-viewport")).sendKeys(Keys.ARROW_DOWN);
+			Robot rd=new Robot();
+			
+			
+			
+//		WebElement Sel=driver.findElement(By.xpath("//div[@class='option-list']/div/cdk-virtual-scroll-viewport/div[1]/div[9]"));
+//		JavascriptExecutor je = (JavascriptExecutor) driver;
+	//   
+//	    je.executeScript("arguments[0].scrollIntoView(true);",Sel);
+	    
+	    
+	    driver.findElement(By.tagName("cdk-virtual-scroll-viewport")).sendKeys(Keys.PAGE_DOWN);
+//	    driver.findElement(By.tagName("cdk-virtual-scroll-viewport")).sendKeys(Keys.PAGE_DOWN);
+//	    driver.findElement(By.tagName("cdk-virtual-scroll-viewport")).sendKeys(Keys.PAGE_DOWN);
+//	    driver.findElement(By.tagName("cdk-virtual-scroll-viewport")).sendKeys(Keys.PAGE_DOWN);
+	//    
+//	    rd.mouseWheel(1000);
+//	    rd.mouseMove(0, 200);
+//		WheelInput.ScrollOrigin scrollOrg=WheelInput.ScrollOrigin.fromElement(Sel);
+//		new Actions(driver).scrollFromOrigin(scrollOrg, 0, 200).perform();
+	    
+		}
+		
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//select-option[contains(.,'"+StoreName+"')]")).click();
+		
+		Thread.sleep(3000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+		Thread.sleep(2000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		
+		
+	}
+	
+	public WebElement Sale_NetSales_Amount_SaleReport_Enterprise()
+	{
+
+		return driver.findElement(By.xpath("//tfoot/tr/td[2]/div"));
+
+	}
+
+	
+
+	public WebElement Quantity_SaleReport_Enterprise()
+	{
+
+		return driver.findElement(By.xpath("//tfoot/tr/td[3]/div"));
+
+	}
+
+	
+
+	public WebElement Tax_SaleReport_Enterprise()
+	{
+
+		return driver.findElement(By.xpath("//tfoot/tr/td[4]/div"));
+
+	}
+
+	
+
+	public WebElement Discount_SaleReport_Enterprise()
+	{
+
+		return driver.findElement(By.xpath("//tfoot/tr/td[5]/div"));
+
+	}
+
+	
+
+	public WebElement PercentageOfSale_SaleReport_Enterprise()
+	{
+
+		return driver.findElement(By.xpath("//tfoot/tr/td[6]/div"));
+
+	}
+	
+	@FindBy(xpath = "//label[contains(.,'Discounts')]/../../input")
+	WebElement Discounts_InputBx;
+	
+	public void Select_All_Store() throws Exception
+		{
+			Thread.sleep(2000);
+			Stores_InputBx.click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//option-panel//select-option[contains(.,'Select All')]/div/mat-checkbox/label/span[2]")).click();
+
+			Thread.sleep(2000);
+
+		//	driver.findElement(By.xpath("//option-panel//select-option[contains(.,'Select All')]/div/mat-checkbox/label/span[2]")).click();
+
+
+			Stores_InputBx.click();
+		}
+
+		public void Select_All_Discount() throws Exception
+		{
+			Thread.sleep(2000);
+			Discounts_InputBx.click();
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//option-panel//select-option[contains(.,'Select All')]/div/mat-checkbox/label/span[2]")).click();
+
+			Thread.sleep(2000);
+			//driver.findElement(By.xpath("//option-panel//select-option[contains(.,'Select All')]/div/mat-checkbox/label/span[2]")).click();
+
+			Discounts_InputBx.click();
+		}
+		
+		@FindBy(xpath = "//app-selectbox//label[contains(.,'Credit Entry Class')]/../../input")
+		WebElement Select_Credit_Entry_Class;
+
+		public void Select_Credit_Entry_Class(String Store) throws Exception
+		{
+			Thread.sleep(1000);
+			Select_Credit_Entry_Class.click();
+
+			Thread.sleep(8000);
+			driver.findElement(By.xpath("//select-option[contains(.,'"+Store+"')]")).click();
+			//new Common_XPaths(driver, test).Click_DropDown_withSearchText(Select_Store_InputBx, Store, "Store Selected");
+		}
+
+		@FindBy(xpath = "//app-selectbox//label[contains(.,'Credit/Debit')]/../../input")
+		WebElement Select_Credit_Debit;
+
+		public void Select_Credit_Debit(String Store) throws Exception
+		{
+			Thread.sleep(1000);
+			Select_Credit_Debit.click();
+
+			Thread.sleep(8000);
+			driver.findElement(By.xpath("//select-option[contains(.,'"+Store+"')]")).click();
+			//new Common_XPaths(driver, test).Click_DropDown_withSearchText(Select_Store_InputBx, Store, "Store Selected");
+		}
+
+		@FindBy(xpath = "//app-selectbox/..//label[contains(.,'Selected Discounts')]/../..//input")
+		WebElement Selected_Discounts_InputBx;
+
+	 
+
+		public void Selected_Discounts() throws InterruptedException 
+		{
+			Selected_Discounts_InputBx.click();
+
+		List<WebElement> menuList=driver.findElements(By.xpath("//div/select-option"));
+
+			int menuSize=menuList.size();
+
+
+			int randomMenu=ThreadLocalRandom.current().nextInt(2, menuSize);
+
+			String menu = driver.findElement(By.xpath("//div["+randomMenu+"]/select-option")).getText();
+
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//input[contains(@name,'search')]")).sendKeys(menu);
+
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//div[1]/select-option")).click();
+
+			Selected_Discounts_InputBx.click();
+
+		}
+		
+		public void Discount_Selection_in_DropDown_EnterpriseReport() throws Exception
+		{
+
+			Thread.sleep(1000);
+
+			Discounts_InputBx.click();
+			Thread.sleep(1000);
+
+
+			driver.findElement(By.xpath("//option-panel//select-option[contains(.,'Select All')]/div/mat-checkbox/label/span[2]")).click();
+
+			Thread.sleep(1000);
+
+			List<WebElement> optList=driver.findElements(By.xpath("//option-panel//select-option/div[1]"));
+
+			int optionSize=optList.size();
+
+			System.out.println("Options Size "+optionSize);
+
+
+				List<WebElement> optList1=driver.findElements(By.xpath("//option-panel//select-option/div[1]"));
+
+				int optionSize1=optList1.size();
+
+
+				int randomOpt=ThreadLocalRandom.current().nextInt(1, optionSize1);
+
+				Thread.sleep(1000);
+//				driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+"]//select-option")).click();
+//		Search(driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+"]//select-option")).getText());
+
+			driver.findElement(By.xpath("//div[@class='option-list']/div/cdk-virtual-scroll-viewport/div[1]/div[1]")).click();
+
+			Thread.sleep(1000);
+			Discounts_InputBx.click();
+			Thread.sleep(1000);
+
+		}
+		
+		public void Store_Selection_in_DropDown_EnterpriseReport() throws Exception
+		{
+
+			Thread.sleep(1000);
+
+			Stores_InputBx.click();
+			Thread.sleep(1000);
+
+
+			driver.findElement(By.xpath("//option-panel//select-option[contains(.,'Select All')]/div/mat-checkbox/label/span[2]")).click();
+
+			Thread.sleep(1000);
+
+			List<WebElement> optList=driver.findElements(By.xpath("//option-panel//select-option/div[1]"));
+
+			int optionSize=optList.size();
+
+			System.out.println("Options Size "+optionSize);
+
+
+				List<WebElement> optList1=driver.findElements(By.xpath("//option-panel//select-option/div[1]"));
+
+				int optionSize1=optList1.size();
+
+
+				int randomOpt=ThreadLocalRandom.current().nextInt(1, optionSize1);
+
+				Thread.sleep(1000);
+//				driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+"]//select-option")).click();
+//		Search(driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+"]//select-option")).getText());
+
+			driver.findElement(By.xpath("//div[@class='option-list']/div/cdk-virtual-scroll-viewport/div[1]/div[1]")).click();
+
+				Thread.sleep(1000);
+
+		Stores_InputBx.click();
+		Thread.sleep(1000);
+
+		}
+		
+		public void Select_All_Group_in_DropDown_EnterpriseReport() throws Exception
+		{
+
+	 
+
+			Thread.sleep(1000);
+
+	 
+
+			Selected_GroupsInputBx.click();
+			Thread.sleep(1000);
+
+
+			driver.findElement(By.xpath("//option-panel//select-option[contains(.,'Select All')]/div/mat-checkbox/label/span[2]")).click();
+		}
+
+		public void Select_All_State_in_DropDown_EnterpriseReport() throws Exception
+		{
+
+			Thread.sleep(1000);
+			Selected_StatesInputBx.click();
+			Thread.sleep(1000);
+
+
+			driver.findElement(By.xpath("//option-panel//select-option[contains(.,'Select All')]/div/mat-checkbox/label/span[2]")).click();
+		}
+
+
+		public void Select_All_City_in_DropDown_EnterpriseReport() throws Exception
+		{
+
+			Thread.sleep(1000);
+
+			Selected_CitiesInputBx.click();
+			Thread.sleep(1000);
+
+
+			driver.findElement(By.xpath("//option-panel//select-option[contains(.,'Select All')]/div/mat-checkbox/label/span[2]")).click();
+		}
+
+		public void Select_All_ZiP_Code_in_DropDown_EnterpriseReport() throws Exception
+		{
+
+			Thread.sleep(1000);
+
+			Selected_ZipCodesInputBx.click();
+			Thread.sleep(1000);
+
+
+			driver.findElement(By.xpath("//option-panel//select-option[contains(.,'Select All')]/div/mat-checkbox/label/span[2]")).click();
+		}
+		
+		public void Select_Store(String Store) throws Exception
+		{
+			Thread.sleep(1000);
+			Selected_StoresInputBx.click();
+
+			Thread.sleep(8000);
+			driver.findElement(By.xpath("//select-option[contains(.,'"+Store+"')]")).click();
+			//new Common_XPaths(driver, test).Click_DropDown_withSearchText(Select_Store_InputBx, Store, "Store Selected");
+		}
+		
+		
+		
+		///////////////// Reports - Comparison Report  //////////////////////
+		
+		@FindBy(xpath = "//button[contains(.,'COMPARE TIME')]")
+		WebElement Compare_TimeBtn;
+		
+		@FindBy(xpath = "//label[contains(.,'Compare Time 1')]/../../input")
+		WebElement CompareTime1_InputBx;
+		
+		@FindBy(xpath = "//label[contains(.,'Compare Time 2')]/../../input")
+		WebElement CompareTime2_InputBx;
+		
+		@FindBy(xpath = "//label[contains(.,'Compare Time 3')]/../../input")
+		WebElement CompareTime3_InputBx;
+		
+		@FindBy(xpath = "//label[contains(.,'Compare Time 4')]/../../input")
+		WebElement CompareTime4_InputBx;
+		
+		public void Click_Compare_Time()
+		{
+			Compare_TimeBtn.click();
+		}
+		
+		public void Select_CompareTime1() throws Exception
+		{
+			CompareTime1_InputBx.click();
+			
+		}
+		
+		public void Select_CompareTime2()
+		{
+			CompareTime2_InputBx.click();
+
+		}
+		
+		public void Select_CompareTime3()
+		{
+			CompareTime3_InputBx.click();
+
+		}
+		
+		public void Select_CompareTime4()
+		{
+			CompareTime4_InputBx.click();
+		}
+		
+		public void Select_Time_Period_asPerOption(String TimePeriod) throws Exception
+		{
+			Thread.sleep(1000);
+			if(TimePeriod.equalsIgnoreCase("Today"))
+			{
+				Thread.sleep(1000);
+				Today_TimePeriodBtn.click();
+			}
+			else if(TimePeriod.equalsIgnoreCase("Yesterday"))
+			{
+				Thread.sleep(1500);
+				Yesterday_TimePeriodBtn.click();
+			}
+			else if(TimePeriod.equalsIgnoreCase("Last N days"))
+			{
+				Thread.sleep(1000);
+				Last_N_days_TimePeriodBtn.click();
+				
+				Thread.sleep(1000);
+				Days_NdaysInputBx.clear();
+				Thread.sleep(500);
+				Days_NdaysInputBx.sendKeys(Utility.getProperty("NumberOfDays"));
+				
+				test.log(LogStatus.INFO, "The number days are(is) : "+Utility.getProperty("NumberOfDays"));
+			}
+			else if(TimePeriod.equalsIgnoreCase("This week"))
+			{
+				Thread.sleep(1000);
+				This_Week_TimePeriodBtn.click();
+			}
+			else if(TimePeriod.equalsIgnoreCase("Last Week"))
+			{
+				Thread.sleep(1000);
+				Last_Week_TimePeriodBtn.click();
+			}
+			else if(TimePeriod.equalsIgnoreCase("Last 7 days"))
+			{
+				Thread.sleep(1000);
+				Last_7_Days_TimePeriodBtn.click();
+			}
+			else if(TimePeriod.equalsIgnoreCase("This month"))
+			{
+				Thread.sleep(1000);
+				This_Month_TimePeriodBtn.click();
+			}
+			else if(TimePeriod.equalsIgnoreCase("Last month"))
+			{
+				Thread.sleep(1000);
+				Last_Month_TimePeriodBtn.click();
+			}
+			else if(TimePeriod.equalsIgnoreCase("Last 30 days"))
+			{
+				Thread.sleep(1000);
+				Last_30_Days_TimePeriodBtn.click();
+			}
+			else if(TimePeriod.equalsIgnoreCase("Specific Date"))
+			{
+				String SpecificDate=Utility.getProperty("Report_Specific_Date");
+				
+				WebElement Sel=driver.findElement(By.xpath("//div[@class='option-list']/div/cdk-virtual-scroll-viewport/div[1]/div[9]"));
+				JavascriptExecutor je = (JavascriptExecutor) driver;
+		       
+		        je.executeScript("arguments[0].scrollIntoView(true);",Sel);
+		        
+		        Thread.sleep(2000);
+		        driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+				Thread.sleep(2000);
+				driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		        
+				Thread.sleep(2000);
+				Specific_Date_TimePeriodBtn.click();
+				
+				Thread.sleep(1000);
+//				Date_inSpecificDateInputBx.clear();
+				Thread.sleep(500);
+//				Date_inSpecificDateInputBx.sendKeys(SpecificDate);
+				
+				Thread.sleep(1000);
+				Date_inSpecificDateInputBx.click();
+				Thread.sleep(500);
+				monthAndYear_Calender.click();
+				String year = SpecificDate.substring(6,10);
+				driver.findElement(By.xpath("//div[contains(.,'"+year+"') and contains(@class,'mat-calendar-body-today')]")).click();
+				String months = SpecificDate.substring(3,5);
+				String month = selectMonth(months);
+				driver.findElement(By.xpath("//div[contains(.,'"+month+"') and contains(@class,'mat-calendar-body')]")).click();
+				String days = SpecificDate.substring(0,2);
+				String day = selectDate(days);
+				driver.findElement(By.xpath("//div[contains(.,'"+day+"') and contains(@class,'mat-calendar-body')]")).click();
+				//Date_inSpecificDateInputBx.clear();
+				Thread.sleep(500);
+				//Date_inSpecificDateInputBx.sendKeys(SpecificDate);
+				
+				test.log(LogStatus.INFO, "The specific date is : "+Utility.getProperty("Report_Specific_Date"));
+			}
+			else if(TimePeriod.equalsIgnoreCase("Date Range"))
+			{
+				String FromDate=Utility.getProperty("Report_Start_Date");
+				String ToDate=Utility.getProperty("Report_End_Date");
+				
+				
+				WebElement Sel=driver.findElement(By.xpath("//div[@class='option-list']/div/cdk-virtual-scroll-viewport/div[1]/div[9]"));
+				JavascriptExecutor je = (JavascriptExecutor) driver;
+		       
+		        je.executeScript("arguments[0].scrollIntoView(true);",Sel);
+		        
+		        Thread.sleep(2000);
+		        driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+				Thread.sleep(2000);
+				driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+				
+				Thread.sleep(2000);
+				Date_Range_TimePeriodBtn.click();
+				
+//				Thread.sleep(1000);
+//				Start_DateInputBx.clear();
+//				Thread.sleep(500);
+//				Start_DateInputBx.sendKeys(FromDate);
+//				
+//				Thread.sleep(1000);
+//				End_DateInputBx.clear();
+//				Thread.sleep(500);
+//				End_DateInputBx.sendKeys(ToDate);
+				
+				
+				 Thread.sleep(1000);
+				 Start_DateInputBx.click();
+				 Thread.sleep(500);
+				 monthAndYear_Calender.click();
+				 String year = FromDate.substring(6,10);
+				 driver.findElement(By.xpath("//div[contains(.,'"+year+"') and contains(@class,'mat-calendar-body-today')]")).click();
+				 String months = FromDate.substring(3,5);
+				 String month = selectMonth(months);
+				 driver.findElement(By.xpath("//div[contains(.,'"+month+"') and contains(@class,'mat-calendar-body')]")).click();
+				 String days = FromDate.substring(0,2);
+				 String day = selectDate(days);
+				 driver.findElement(By.xpath("//div[contains(.,'"+day+"') and contains(@class,'mat-calendar-body')]")).click();
+				 //Date_inSpecificDateInputBx.clear();
+				 Thread.sleep(500);
+				 //Start_DateInputBx.sendKeys(FromDate);
+				 Thread.sleep(1000);
+				 End_DateInputBx.click();
+				 Thread.sleep(500);
+				 monthAndYear_Calender.click();
+				 String year1 = ToDate.substring(6,10);
+				 driver.findElement(By.xpath("//div[contains(.,'"+year1+"') and contains(@class,'mat-calendar-body-today')]")).click();
+				 String months1 = ToDate.substring(3,5);
+				 String month1 = selectMonth(months1);
+				 driver.findElement(By.xpath("//div[contains(.,'"+month1+"') and contains(@class,'mat-calendar-body')]")).click();
+				 String days1 = ToDate.substring(0,2);
+				 String day1 = selectDate(days1);
+				 driver.findElement(By.xpath("//div[contains(.,'"+day1+"') and contains(@class,'mat-calendar-body')]")).click();
+				 Thread.sleep(500);
+				 
+				 test.log(LogStatus.INFO, "The start date and end date are : "+Utility.getProperty("Report_Start_Date")+" and "+Utility.getProperty("Report_End_Date"));
+			
+			}
+		}
+		
+		
+		
 }

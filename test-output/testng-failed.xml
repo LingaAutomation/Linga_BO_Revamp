@@ -3,47 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-<<<<<<< HEAD
-      <class name="com.Test.AllClassCalling_Reports">
+      <class name="com.Test.Reports_Employee_Role_Based_Payroll_Report">
         <methods>
-          <include name="Reports_Cash_Transaction_Report"/>
-          <include name="Reports_GiveX_Report"/>
-          <include name="Reports_Membership_Summary_Report"/>
-          <include name="Reports_Daily_Sale_Report"/>
-          <include name="TestFail"/>
-          <include name="Reports_Employee_Role_Based_Payroll_Report"/>
-          <include name="Reports_MenuItem_Sale_Report"/>
-          <include name="Reports_Void_Node_Report"/>
-          <include name="Reports_HA_Activity_Report"/>
-          <include name="Reports_Tax_Report"/>
-          <include name="Reports_Employee_Labor_By_Job_Code_Report"/>
-          <include name="Reports_Account_Balance_Report"/>
-          <include name="Reports_Discount_Report"/>
-          <include name="Reports_Employee_Labor_Report"/>
-          <include name="Reports_Gift_Card_Report"/>
-          <include name="Reports_Weekly_Summary_Sale_Report"/>
-          <include name="Reports_Sale_Summary_Report"/>
-          <include name="Reports_Audit_Log"/>
-          <include name="Login"/>
-          <include name="Reports_SubCategory_Sale_Report"/>
           <include name="flushTest"/>
-          <include name="Reports_Driver_Report"/>
-          <include name="Reports_Transactions_Report"/>
-          <include name="Reports_Sale_Logo_Sale"/>
-          <include name="Reports_Paid_In_Paid_Out_Report"/>
-          <include name="Reports_Till_Report"/>
-          <include name="LogOut"/>
-        </methods>
-      </class> <!-- com.Test.AllClassCalling_Reports -->
-=======
-      <class name="com.Test.Enterprise_Reports_Gift_Card_Redemption">
-        <methods>
           <include name="Calling"/>
-          <include name="flushTest"/>
           <include name="TestFail"/>
         </methods>
-      </class> <!-- com.Test.Enterprise_Reports_Gift_Card_Redemption -->
->>>>>>> parent of b4ed799 (Last Updated on 13/090/2023)
+      </class> <!-- com.Test.Reports_Employee_Role_Based_Payroll_Report -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
