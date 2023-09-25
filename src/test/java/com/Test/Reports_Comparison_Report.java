@@ -84,10 +84,13 @@ public class Reports_Comparison_Report
 //		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
 //		driver = new ChromeDriver(chromeOptions);
 		
-		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
-		//Open the Chrome window
-		driver = new ChromeDriver();
-
+//		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
+//		//Open the Chrome window
+//		driver = new ChromeDriver();
+		ChromeOptions chrOpt=new ChromeOptions();
+		chrOpt.addArguments("--remote-allow-origins=*");
+		WebDriverManager.chromedriver().setup();
+		driver=new ChromeDriver(chrOpt);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window

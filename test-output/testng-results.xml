@@ -2,57 +2,57 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-09-25T16:48:26 IST" name="Default suite" finished-at="2023-09-25T16:57:58 IST" duration-ms="571964">
+  <suite started-at="2023-09-25T19:08:41 IST" name="Default suite" finished-at="2023-09-25T19:18:11 IST" duration-ms="569816">
     <groups>
     </groups>
-    <test started-at="2023-09-25T16:48:26 IST" name="Default test" finished-at="2023-09-25T16:57:58 IST" duration-ms="571964">
+    <test started-at="2023-09-25T19:08:41 IST" name="Default test" finished-at="2023-09-25T19:18:11 IST" duration-ms="569816">
       <class name="com.Test.Reports_Comparison_Report">
-        <test-method signature="Login()[pri:1, instance:com.Test.Reports_Comparison_Report@563f38c4]" started-at="2023-09-25T16:48:26 IST" name="Login" finished-at="2023-09-25T16:49:17 IST" duration-ms="51126" status="PASS">
+        <test-method signature="Login()[pri:1, instance:com.Test.Reports_Comparison_Report@54422e18]" started-at="2023-09-25T19:08:41 IST" name="Login" finished-at="2023-09-25T19:09:30 IST" duration-ms="49424" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Reports_Comparison_Report@563f38c4]" started-at="2023-09-25T16:49:17 IST" name="TestFail" finished-at="2023-09-25T16:49:17 IST" duration-ms="5" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Reports_Comparison_Report@54422e18]" started-at="2023-09-25T19:09:30 IST" name="TestFail" finished-at="2023-09-25T19:09:30 IST" duration-ms="5" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login status=SUCCESS method=Reports_Comparison_Report.Login()[pri:1, instance:com.Test.Reports_Comparison_Report@563f38c4] output={null}]]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=Reports_Comparison_Report.Login()[pri:1, instance:com.Test.Reports_Comparison_Report@54422e18] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method signature="Calling()[pri:2, instance:com.Test.Reports_Comparison_Report@563f38c4]" started-at="2023-09-25T16:49:17 IST" name="Calling" finished-at="2023-09-25T16:57:48 IST" duration-ms="511408" status="PASS">
+        <test-method signature="Calling()[pri:2, instance:com.Test.Reports_Comparison_Report@54422e18]" started-at="2023-09-25T19:09:30 IST" name="Calling" finished-at="2023-09-25T19:18:02 IST" duration-ms="511519" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Calling -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Reports_Comparison_Report@563f38c4]" started-at="2023-09-25T16:57:48 IST" name="TestFail" finished-at="2023-09-25T16:57:48 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Reports_Comparison_Report@54422e18]" started-at="2023-09-25T19:18:02 IST" name="TestFail" finished-at="2023-09-25T19:18:02 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Calling status=SUCCESS method=Reports_Comparison_Report.Calling()[pri:2, instance:com.Test.Reports_Comparison_Report@563f38c4] output={null}]]]>
+                <![CDATA[[TestResult name=Calling status=SUCCESS method=Reports_Comparison_Report.Calling()[pri:2, instance:com.Test.Reports_Comparison_Report@54422e18] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method signature="LogOut()[pri:50, instance:com.Test.Reports_Comparison_Report@563f38c4]" started-at="2023-09-25T16:57:48 IST" name="LogOut" finished-at="2023-09-25T16:57:55 IST" duration-ms="6907" status="PASS">
+        <test-method signature="LogOut()[pri:50, instance:com.Test.Reports_Comparison_Report@54422e18]" started-at="2023-09-25T19:18:02 IST" name="LogOut" finished-at="2023-09-25T19:18:08 IST" duration-ms="6518" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogOut -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Reports_Comparison_Report@563f38c4]" started-at="2023-09-25T16:57:55 IST" name="TestFail" finished-at="2023-09-25T16:57:55 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Reports_Comparison_Report@54422e18]" started-at="2023-09-25T19:18:08 IST" name="TestFail" finished-at="2023-09-25T19:18:08 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=LogOut status=SUCCESS method=Reports_Comparison_Report.LogOut()[pri:50, instance:com.Test.Reports_Comparison_Report@563f38c4] output={null}]]]>
+                <![CDATA[[TestResult name=LogOut status=SUCCESS method=Reports_Comparison_Report.LogOut()[pri:50, instance:com.Test.Reports_Comparison_Report@54422e18] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method is-config="true" signature="flushTest()[pri:0, instance:com.Test.Reports_Comparison_Report@563f38c4]" started-at="2023-09-25T16:57:55 IST" name="flushTest" finished-at="2023-09-25T16:57:58 IST" duration-ms="2463" status="PASS">
+        <test-method is-config="true" signature="flushTest()[pri:0, instance:com.Test.Reports_Comparison_Report@54422e18]" started-at="2023-09-25T19:18:08 IST" name="flushTest" finished-at="2023-09-25T19:18:11 IST" duration-ms="2296" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flushTest -->
