@@ -21,4 +21,9 @@
       <class name="com.Test.AllClassCalling_Inventory"/>
     </classes>
   </test> <!-- Test -->
+     <test thread-count="5" name="Enterprise Reports">
+    <classes>
+      <class name="com.Test.AllClassCalling_Enterprise_Reports"/>
+    </classes>
+  </test> <!-- Test -->
 </suite> <!-- Suite -->

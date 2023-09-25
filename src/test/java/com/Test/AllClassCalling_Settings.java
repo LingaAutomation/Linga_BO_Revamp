@@ -75,14 +75,14 @@ public class AllClassCalling_Settings {
 //		//Wait for 30 seconds
 //		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 //		Thread.sleep(20000);
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		
-//		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
-//		//Open the Chrome window
-//		driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
+		//Open the Chrome window
+		driver = new ChromeDriver();
 		
 		//Maximize the Chrome window
 		driver.manage().window().maximize();

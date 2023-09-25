@@ -21,13 +21,15 @@ public class LoginPage //extends BasePage
 	ExtentTest test;
 	Utility ut=new Utility();
 	
+
+	
 	public LoginPage(WebDriver driver,ExtentTest test)
 	{
 		this.driver=driver;
 		this.test=test;
 		
+		
 		PageFactory.initElements(driver, this);
-//		super(driver, test);
 	}
 	
 	@FindBy(xpath = "//h4[contains(.,'Log In')]")
