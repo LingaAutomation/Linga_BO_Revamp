@@ -133,7 +133,10 @@ public class ReportsPage
 		Apply_Btn.click();
 	}
 	
-	
+	public WebElement ApplyButton()
+	{
+		return Apply_Btn;
+	}
 	
 	
 	
@@ -2528,6 +2531,109 @@ public class ReportsPage
 			}
 		}
 		
+		public void Select_Specific_Date_withoutTimePeriod(String SpecificDate,int no) throws Exception
+		{
+			WebElement Sel=driver.findElement(By.xpath("//div[@class='option-list']/div/cdk-virtual-scroll-viewport/div[1]/div[9]"));
+			JavascriptExecutor je = (JavascriptExecutor) driver;
+	       
+	        je.executeScript("arguments[0].scrollIntoView(true);",Sel);
+	        
+	        Thread.sleep(2000);
+	        driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+			Thread.sleep(2000);
+			driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+	        
+			Thread.sleep(2000);
+			Specific_Date_TimePeriodBtn.click();
+			
+			Thread.sleep(1000);
+//			Date_inSpecificDateInputBx.clear();
+			Thread.sleep(500);
+//			Date_inSpecificDateInputBx.sendKeys(SpecificDate);
+			
+			Thread.sleep(1000);
+//			Date_inSpecificDateInputBx.click();
+			driver.findElement(By.xpath("(//label[contains(.,'Date')]/../../..//mat-datepicker-toggle/button)["+no+"]")).click();
+			Thread.sleep(500);
+			monthAndYear_Calender.click();
+			String year = SpecificDate.substring(6,10);
+			driver.findElement(By.xpath("//div[contains(.,'"+year+"') and contains(@class,'mat-calendar-body-today')]")).click();
+			String months = SpecificDate.substring(3,5);
+			String month = selectMonth(months);
+			driver.findElement(By.xpath("//div[contains(.,'"+month+"') and contains(@class,'mat-calendar-body')]")).click();
+			String days = SpecificDate.substring(0,2);
+			String day = selectDate(days);
+			driver.findElement(By.xpath("//div[contains(.,'"+day+"') and contains(@class,'mat-calendar-body')]")).click();
+			//Date_inSpecificDateInputBx.clear();
+			Thread.sleep(500);
+			//Date_inSpecificDateInputBx.sendKeys(SpecificDate);
+			
+			test.log(LogStatus.INFO, "The specific date is : "+SpecificDate);
+	
+		}
 		
+		public void Select_Date_Range_withoutTimePeriod(String FromDate,String ToDate, int no) throws Exception
+		{
+			
+			
+			WebElement Sel=driver.findElement(By.xpath("//div[@class='option-list']/div/cdk-virtual-scroll-viewport/div[1]/div[9]"));
+			JavascriptExecutor je = (JavascriptExecutor) driver;
+	       
+	        je.executeScript("arguments[0].scrollIntoView(true);",Sel);
+	        
+	        Thread.sleep(2000);
+	        driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+			Thread.sleep(2000);
+			driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+			
+			Thread.sleep(2000);
+			Date_Range_TimePeriodBtn.click();
+			
+//			Thread.sleep(1000);
+//			Start_DateInputBx.clear();
+//			Thread.sleep(500);
+//			Start_DateInputBx.sendKeys(FromDate);
+//			
+//			Thread.sleep(1000);
+//			End_DateInputBx.clear();
+//			Thread.sleep(500);
+//			End_DateInputBx.sendKeys(ToDate);
+			
+			
+			 Thread.sleep(1000);
+//			 Start_DateInputBx.click();
+			 driver.findElement(By.xpath("(//label[contains(.,'Start Date')]/../../..//mat-datepicker-toggle/button)["+no+"]")).click();
+			 Thread.sleep(500);
+			 monthAndYear_Calender.click();
+			 String year = FromDate.substring(6,10);
+			 driver.findElement(By.xpath("//div[contains(.,'"+year+"') and contains(@class,'mat-calendar-body-today')]")).click();
+			 String months = FromDate.substring(3,5);
+			 String month = selectMonth(months);
+			 driver.findElement(By.xpath("//div[contains(.,'"+month+"') and contains(@class,'mat-calendar-body')]")).click();
+			 String days = FromDate.substring(0,2);
+			 String day = selectDate(days);
+			 driver.findElement(By.xpath("//div[contains(.,'"+day+"') and contains(@class,'mat-calendar-body')]")).click();
+			 //Date_inSpecificDateInputBx.clear();
+			 Thread.sleep(500);
+			 //Start_DateInputBx.sendKeys(FromDate);
+			 Thread.sleep(1000);
+//			 End_DateInputBx.click();
+			 driver.findElement(By.xpath("(//label[contains(.,'End Date')]/../../..//mat-datepicker-toggle/button)["+no+"]")).click();
+			 
+			 Thread.sleep(500);
+			 monthAndYear_Calender.click();
+			 String year1 = ToDate.substring(6,10);
+			 driver.findElement(By.xpath("//div[contains(.,'"+year1+"') and contains(@class,'mat-calendar-body-today')]")).click();
+			 String months1 = ToDate.substring(3,5);
+			 String month1 = selectMonth(months1);
+			 driver.findElement(By.xpath("//div[contains(.,'"+month1+"') and contains(@class,'mat-calendar-body')]")).click();
+			 String days1 = ToDate.substring(0,2);
+			 String day1 = selectDate(days1);
+			 driver.findElement(By.xpath("//div[contains(.,'"+day1+"') and contains(@class,'mat-calendar-body')]")).click();
+			 Thread.sleep(500);
+			 
+			 test.log(LogStatus.INFO, "The start date and end date are : "+Utility.getProperty("Report_Start_Date")+" and "+Utility.getProperty("Report_End_Date"));
+		
+		}
 		
 }

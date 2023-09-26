@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -115,16 +116,23 @@ public class Reports_Comparison_Report
 	{
 		Open_Comparison_Report_Page(driver);
 //		RefreshAndPaginination(driver);
-		Comparison_Sale_Report_Comp1_Today_Comp2_Yesterday(driver);
-		Comparison_Sale_Report_Comp1_Today_Comp2_Last_N_Days(driver);
-		Comparison_Sale_Report_Comp1_Today_Comp2_This_Week(driver);
-		Comparison_Sale_Report_Comp1_Today_Comp2_Last_Week(driver);
-		Comparison_Sale_Report_Comp1_Today_Comp2_Last_7_Days(driver);
-		Comparison_Sale_Report_Comp1_Today_Comp2_This_Month(driver);
-		Comparison_Sale_Report_Comp1_Today_Comp2_Last_Month(driver);
-		Comparison_Sale_Report_Comp1_Today_Comp2_Last_30_days(driver);
-		Comparison_Sale_Report_Comp1_Today_Comp2_Specific_Date(driver);
-		Comparison_Sale_Report_Comp1_Today_Comp2_Date_Range(driver);
+//		Comparison_Sale_Report_Comp1_Today_Comp2_Yesterday(driver);
+//		Comparison_Sale_Report_Comp1_Today_Comp2_Last_N_Days(driver);
+//		Comparison_Sale_Report_Comp1_Today_Comp2_This_Week(driver);
+//		Comparison_Sale_Report_Comp1_Today_Comp2_Last_Week(driver);
+//		Comparison_Sale_Report_Comp1_Today_Comp2_Last_7_Days(driver);
+//		Comparison_Sale_Report_Comp1_Today_Comp2_This_Month(driver);
+//		Comparison_Sale_Report_Comp1_Today_Comp2_Last_Month(driver);
+//		Comparison_Sale_Report_Comp1_Today_Comp2_Last_30_days(driver);
+//		Comparison_Sale_Report_Comp1_Today_Comp2_Specific_Date(driver);
+//		Comparison_Sale_Report_Comp1_Today_Comp2_Date_Range(driver);
+//		Comparison_Sale_Report_Comp1_SpecificDate_Comp2_SpecificDate(driver);
+//		Comparison_Sale_Report_Comp1_DateRange_Comp2_DateRange(driver);
+		Comparison_Sale_Report_Comp1_SpecificDate_Comp2_SpecificDate_Comp3_SpecificDate(driver);
+		Comparison_Sale_Report_Comp1_DateRange_Comp2_DateRange_Comp3_DateRange(driver);
+		Comparison_Sale_Report_Comp1_SpecificDate_Comp2_SpecificDate_Comp3_SpecificDate_Comp4_SpecificDate(driver);
+		Comparison_Sale_Report_Comp1_DateRange_Comp2_DateRange_Comp3_DateRange_Comp4_DateRange(driver);
+		
 	}
 	
 	@Test(priority = 3,enabled = false)
@@ -176,7 +184,22 @@ public class Reports_Comparison_Report
 				
 		//Select Compare Time 2 Time Period as Today
 		repts.Select_Time_Period_asPerOption("Yesterday");
+		
+		//Click the Compare Time 
+		for(int i=1;i<=2;i++)
+		{
+			repts.Click_Compare_Time();
+		}
 				
+		Thread.sleep(1000);
+		//Click the Delete button
+		for(int i=1;i<=2;i++)
+		{
+			Thread.sleep(1000);
+			driver.findElement(By.xpath("(//div[@class='comparison-report-container']/div/div/div/div//button)[1]")).click();
+		}
+		
+		Thread.sleep(1000);
 		//Click the Apply button
 		repts.Click_ApplyButton();
 		
@@ -952,5 +975,587 @@ public class Reports_Comparison_Report
 	}
 	
 	
+	@Test(priority = 4,enabled = false)
+	public void Comparison_Sale_Report_Comp1_SpecificDate_Comp2_SpecificDate(WebDriver driver) throws Exception
+	{
+		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
+		Thread.sleep(1000);
+		repts=new ReportsPage(driver, test);
+		cmp=new Common_XPaths(driver, test);
+		
+		Thread.sleep(1000);
+		//Select Compare Time 1
+		repts.Select_CompareTime1();
+		
+		//Select Compare Time 1 Time Period as Today
+		repts.Select_Specific_Date_withoutTimePeriod(Utility.getProperty("Report_Specific_Date"),1);
+		
+		
+		//Select Compare Time 2
+		repts.Select_CompareTime2();
+				
+		//Select Compare Time 2 Time Period as Today
+		repts.Select_Specific_Date_withoutTimePeriod("25/09/2023",2);
+				
+		//Click the Apply button
+		repts.Click_ApplyButton();
+		
+		Thread.sleep(5000);
+		try
+		{
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+			{
+				test.log(LogStatus.INFO, "Comparison Report Not Available for Compare Time 1 (Specific Date) & Compare Time 2 (Specific Date)");
+		
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			}
+		}
+		catch(Exception G)
+		{
+
+			test.log(LogStatus.PASS, "Comparison Report Available for Compare Time 1 (Specific Date) & Compare Time 2 (Specific Date) ");
+
+			Thread.sleep(2000);
+//			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
+			
+			Thread.sleep(2000);
+		List<WebElement> rowList=driver.findElements(By.xpath("//table/tr"));
+		
+//		List<WebElement> headList=driver.findElements(By.xpath("//table/tr[1]/th"));
+		
+		//List<WebElement> colList=driver.findElements(By.xpath("//table/tr[2]/td"));
+		
+		test.log(LogStatus.INFO, "Compare Time 1 "+"     -vs-     "+" Compare Time 2");
+		
+			for(int i=1;i<=rowList.size();i++)
+			{
+			
+				if(i==1)
+				{
+//					for(int j=1;j<=colList.size();j++)
+//					{
+				
+						test.log(LogStatus.INFO, driver.findElement(By.xpath("//table/tr["+i+"]/th[1]")).getText()+" : "+driver.findElement(By.xpath("//table/tr["+i+"]/th[2]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/th[3]")).getText());
+//					}
+				}
+				else if(i>1)
+				{
+//					for(int j=1;j<=colList.size();j++)
+//					{
+					
+						test.log(LogStatus.INFO, driver.findElement(By.xpath("//table/tr["+i+"]/td[1]")).getText()+" : "+driver.findElement(By.xpath("//table/tr["+i+"]/td[2]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/td[3]")).getText());
+//					}
+				}
+			
+			
+				driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+			}
+		
+		
+		}
+		
+	}
 	
+	
+	@Test(priority = 4,enabled = false)
+	public void Comparison_Sale_Report_Comp1_DateRange_Comp2_DateRange(WebDriver driver) throws Exception
+	{
+		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
+		Thread.sleep(1000);
+		repts=new ReportsPage(driver, test);
+		cmp=new Common_XPaths(driver, test);
+		
+		Thread.sleep(1000);
+		//Select Compare Time 1
+		repts.Select_CompareTime1();
+		
+		//Select Compare Time 1 Time Period as Today
+		repts.Select_Date_Range_withoutTimePeriod(Utility.getProperty("Report_Start_Date"),Utility.getProperty("Report_End_Date"),1);
+		
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		Thread.sleep(1000);
+		//Select Compare Time 2
+		repts.Select_CompareTime2();
+				
+		//Select Compare Time 2 Time Period as Today
+		repts.Select_Date_Range_withoutTimePeriod("01/08/2023","30/08/2023",2);
+				
+		//Click the Apply button
+		repts.Click_ApplyButton();
+		
+		Thread.sleep(5000);
+		try
+		{
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+			{
+				test.log(LogStatus.INFO, "Comparison Report Not Available for Compare Time 1 (Date Range) & Compare Time 2 (Date Range)");
+		
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			}
+		}
+		catch(Exception G)
+		{
+
+			test.log(LogStatus.PASS, "Comparison Report Available for Compare Time 1 (Date Range) & Compare Time 2 (Date Range) ");
+
+			Thread.sleep(2000);
+//			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
+			
+			Thread.sleep(2000);
+		List<WebElement> rowList=driver.findElements(By.xpath("//table/tr"));
+		
+//		List<WebElement> headList=driver.findElements(By.xpath("//table/tr[1]/th"));
+		
+		//List<WebElement> colList=driver.findElements(By.xpath("//table/tr[2]/td"));
+		
+		test.log(LogStatus.INFO, "Compare Time 1 "+"     -vs-     "+" Compare Time 2");
+		
+			for(int i=1;i<=rowList.size();i++)
+			{
+			
+				if(i==1)
+				{
+//					for(int j=1;j<=colList.size();j++)
+//					{
+				
+						test.log(LogStatus.INFO, driver.findElement(By.xpath("//table/tr["+i+"]/th[1]")).getText()+" : "+driver.findElement(By.xpath("//table/tr["+i+"]/th[2]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/th[3]")).getText());
+//					}
+				}
+				else if(i>1)
+				{
+//					for(int j=1;j<=colList.size();j++)
+//					{
+					
+						test.log(LogStatus.INFO, driver.findElement(By.xpath("//table/tr["+i+"]/td[1]")).getText()+" : "+driver.findElement(By.xpath("//table/tr["+i+"]/td[2]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/td[3]")).getText());
+//					}
+				}
+			
+			
+				driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+			}
+		
+		
+		}
+		
+	}
+	
+	@Test(priority = 4,enabled = false)
+	public void Comparison_Sale_Report_Comp1_SpecificDate_Comp2_SpecificDate_Comp3_SpecificDate(WebDriver driver) throws Exception
+	{
+		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
+		Thread.sleep(1000);
+		repts=new ReportsPage(driver, test);
+		cmp=new Common_XPaths(driver, test);
+		
+		Thread.sleep(1000);
+		//Select Compare Time 1
+		repts.Select_CompareTime1();
+		
+		//Select Compare Time 1 Time Period as Today
+		repts.Select_Specific_Date_withoutTimePeriod("20/09/2023",1);
+		
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		Thread.sleep(1000);
+		//Select Compare Time 2
+		repts.Select_CompareTime2();
+				
+		//Select Compare Time 2 Time Period as Today
+		repts.Select_Specific_Date_withoutTimePeriod("23/09/2023",2);
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		Thread.sleep(1000);
+		
+		//Click the Compare Time button
+		repts.Click_Compare_Time();
+		
+		
+		//Select Compare Time 3
+		repts.Select_CompareTime3();
+						
+		//Select Compare Time 3 Time Period as Today
+		repts.Select_Specific_Date_withoutTimePeriod("25/09/2023",3);
+					
+				
+		//Click the Apply button
+		repts.Click_ApplyButton();
+		
+		Thread.sleep(5000);
+		try
+		{
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+			{
+				test.log(LogStatus.INFO, "Comparison Report Not Available for Compare Time 1 (Specific Date), Compare Time 2 (Specific Date) & Compare Time 3 (Specific Date)");
+		
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			}
+		}
+		catch(Exception G)
+		{
+
+			test.log(LogStatus.PASS, "Comparison Report Available for Compare Time 1 (Specific Date), Compare Time 2 (Specific Date) & Compare Time 3 (Specific Date)");
+
+			Thread.sleep(2000);
+//			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
+			
+			Thread.sleep(2000);
+		List<WebElement> rowList=driver.findElements(By.xpath("//table/tr"));
+		
+//		List<WebElement> headList=driver.findElements(By.xpath("//table/tr[1]/th"));
+		
+		//List<WebElement> colList=driver.findElements(By.xpath("//table/tr[2]/td"));
+		
+		test.log(LogStatus.INFO, "Compare Time 1 "+"     -vs-     "+" Compare Time 2");
+		
+			for(int i=1;i<=rowList.size();i++)
+			{
+			
+				if(i==1)
+				{
+//					for(int j=1;j<=colList.size();j++)
+//					{
+				
+						test.log(LogStatus.INFO, driver.findElement(By.xpath("//table/tr["+i+"]/th[1]")).getText()+" : "+driver.findElement(By.xpath("//table/tr["+i+"]/th[2]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/th[3]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/th[4]")).getText());
+//					}
+				}
+				else if(i>1)
+				{
+//					for(int j=1;j<=colList.size();j++)
+//					{
+					
+						test.log(LogStatus.INFO, driver.findElement(By.xpath("//table/tr["+i+"]/td[1]")).getText()+" : "+driver.findElement(By.xpath("//table/tr["+i+"]/td[2]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/td[3]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/td[4]")).getText());
+//					}
+				}
+			
+			
+				driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+			}
+		
+		
+		}
+		
+	}
+	
+	@Test(priority = 4,enabled = false)
+	public void Comparison_Sale_Report_Comp1_DateRange_Comp2_DateRange_Comp3_DateRange(WebDriver driver) throws Exception
+	{
+		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
+		Thread.sleep(1000);
+		repts=new ReportsPage(driver, test);
+		cmp=new Common_XPaths(driver, test);
+		
+		Thread.sleep(1000);
+		//Select Compare Time 1
+		repts.Select_CompareTime1();
+		
+		//Select Compare Time 1 Time Period as Today
+		repts.Select_Date_Range_withoutTimePeriod("01/06/2023","30/06/2023",1);
+		
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		Thread.sleep(1000);
+		
+		//Select Compare Time 2
+		repts.Select_CompareTime2();
+				
+		//Select Compare Time 2 Time Period as Today
+		repts.Select_Date_Range_withoutTimePeriod("01/07/2023","30/07/2023",2);
+		
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		Thread.sleep(1000);
+		
+		//Select Compare Time 3
+		repts.Select_CompareTime3();
+				
+		//Select Compare Time 3 Time Period as Today
+		repts.Select_Date_Range_withoutTimePeriod("01/08/2023","30/08/2023",3);
+		
+		JavascriptExecutor je = (JavascriptExecutor) driver;
+	       
+//        je.executeScript("arguments[0].scrollIntoView(true);",repts.ApplyButton());
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).click();
+		for(int i=1;i<=5;i++)
+		{
+			
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_UP);
+		Thread.sleep(1000);
+		}
+		Thread.sleep(1000);
+		//Click the Apply button
+		repts.Click_ApplyButton();
+		
+		Thread.sleep(5000);
+		try
+		{
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+			{
+				test.log(LogStatus.INFO, "Comparison Report Not Available for Compare Time 1 (Date Range), Compare Time 2 (Date Range) & Compare Time 3 (Date Range)");
+		
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			}
+		}
+		catch(Exception G)
+		{
+
+			test.log(LogStatus.PASS, "Comparison Report Available for Compare Time 1 (Date Range), Compare Time 2 (Date Range) & Compare Time 3 (Date Range) ");
+
+			Thread.sleep(2000);
+//			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
+			
+			Thread.sleep(2000);
+		List<WebElement> rowList=driver.findElements(By.xpath("//table/tr"));
+		
+//		List<WebElement> headList=driver.findElements(By.xpath("//table/tr[1]/th"));
+		
+		//List<WebElement> colList=driver.findElements(By.xpath("//table/tr[2]/td"));
+		
+		test.log(LogStatus.INFO, "Compare Time 1 "+"     -vs-     "+" Compare Time 2");
+		
+			for(int i=1;i<=rowList.size();i++)
+			{
+			
+				if(i==1)
+				{
+//					for(int j=1;j<=colList.size();j++)
+//					{
+				
+						test.log(LogStatus.INFO, driver.findElement(By.xpath("//table/tr["+i+"]/th[1]")).getText()+" : "+driver.findElement(By.xpath("//table/tr["+i+"]/th[2]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/th[3]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/th[4]")).getText());
+//					}
+				}
+				else if(i>1)
+				{
+//					for(int j=1;j<=colList.size();j++)
+//					{
+					
+						test.log(LogStatus.INFO, driver.findElement(By.xpath("//table/tr["+i+"]/td[1]")).getText()+" : "+driver.findElement(By.xpath("//table/tr["+i+"]/td[2]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/td[3]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/td[4]")).getText());
+//					}
+				}
+			
+			
+				driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+			}
+		
+		
+		}
+		
+	}
+	
+	
+	@Test(priority = 4,enabled = false)
+	public void Comparison_Sale_Report_Comp1_SpecificDate_Comp2_SpecificDate_Comp3_SpecificDate_Comp4_SpecificDate(WebDriver driver) throws Exception
+	{
+		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
+		Thread.sleep(1000);
+		repts=new ReportsPage(driver, test);
+		cmp=new Common_XPaths(driver, test);
+		
+		Thread.sleep(1000);
+		//Select Compare Time 1
+		repts.Select_CompareTime1();
+		
+		//Select Compare Time 1 Time Period as Today
+		repts.Select_Specific_Date_withoutTimePeriod("20/09/2023",1);
+		
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		Thread.sleep(1000);
+		//Select Compare Time 2
+		repts.Select_CompareTime2();
+				
+		//Select Compare Time 2 Time Period as Today
+		repts.Select_Specific_Date_withoutTimePeriod("23/09/2023",2);
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		Thread.sleep(1000);
+		//Click the Compare Time button
+		repts.Click_Compare_Time();
+		
+		//Select Compare Time 3
+		repts.Select_CompareTime3();
+						
+		//Select Compare Time 3 Time Period as Today
+		repts.Select_Specific_Date_withoutTimePeriod("25/09/2023",3);
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		Thread.sleep(1000);
+		//Select Compare Time 4
+		repts.Select_CompareTime4();
+						
+		//Select Compare Time 3 Time Period as Today
+		repts.Select_Specific_Date_withoutTimePeriod("26/09/2023",4);
+					
+					
+		//Click the Apply button
+		repts.Click_ApplyButton();
+		
+		Thread.sleep(5000);
+		try
+		{
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+			{
+				test.log(LogStatus.INFO, "Comparison Report Not Available for Compare Time 1 (Specific Date), Compare Time 2 (Specific Date), Compare Time 3 (Specific Date) & Compare Time 4 (Specific Date)");
+		
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			}
+		}
+		catch(Exception G)
+		{
+
+			test.log(LogStatus.PASS, "Comparison Report Available for Compare Time 1 (Specific Date), Compare Time 2 (Specific Date), Compare Time 3 (Specific Date) & Compare Time 4 (Specific Date)");
+
+			Thread.sleep(2000);
+//			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
+			
+			Thread.sleep(2000);
+		List<WebElement> rowList=driver.findElements(By.xpath("//table/tr"));
+		
+//		List<WebElement> headList=driver.findElements(By.xpath("//table/tr[1]/th"));
+		
+		//List<WebElement> colList=driver.findElements(By.xpath("//table/tr[2]/td"));
+		
+		test.log(LogStatus.INFO, "Compare Time 1 "+"     -vs-     "+" Compare Time 2");
+		
+			for(int i=1;i<=rowList.size();i++)
+			{
+			
+				if(i==1)
+				{
+//					for(int j=1;j<=colList.size();j++)
+//					{
+				
+						test.log(LogStatus.INFO, driver.findElement(By.xpath("//table/tr["+i+"]/th[1]")).getText()+" : "+driver.findElement(By.xpath("//table/tr["+i+"]/th[2]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/th[3]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/th[4]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/th[5]")).getText());
+//					}
+				}
+				else if(i>1)
+				{
+//					for(int j=1;j<=colList.size();j++)
+//					{
+					
+						test.log(LogStatus.INFO, driver.findElement(By.xpath("//table/tr["+i+"]/td[1]")).getText()+" : "+driver.findElement(By.xpath("//table/tr["+i+"]/td[2]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/td[3]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/td[4]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/td[5]")).getText());
+//					}
+				}
+			
+			
+				driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+			}
+		
+		
+		}
+		
+	}
+	
+	@Test(priority = 4,enabled = false)
+	public void Comparison_Sale_Report_Comp1_DateRange_Comp2_DateRange_Comp3_DateRange_Comp4_DateRange(WebDriver driver) throws Exception
+	{
+		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
+		Thread.sleep(1000);
+		repts=new ReportsPage(driver, test);
+		cmp=new Common_XPaths(driver, test);
+		
+		Thread.sleep(1000);
+		//Select Compare Time 1
+		repts.Select_CompareTime1();
+		
+		//Select Compare Time 1 Time Period as Today
+		repts.Select_Date_Range_withoutTimePeriod("01/05/2023","30/05/2023",1);
+		
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		Thread.sleep(1000);
+		//Select Compare Time 2
+		repts.Select_CompareTime2();
+				
+		//Select Compare Time 2 Time Period as Today
+		repts.Select_Date_Range_withoutTimePeriod("01/06/2023","30/06/2023",2);
+		
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		Thread.sleep(1000);
+		//Select Compare Time 3
+		repts.Select_CompareTime3();
+				
+		//Select Compare Time 3 Time Period as Today
+		repts.Select_Date_Range_withoutTimePeriod("01/07/2023","30/07/2023",3);
+		
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		Thread.sleep(1000);
+		//Select Compare Time 4
+		repts.Select_CompareTime4();
+				
+		//Select Compare Time 4 Time Period as Today
+		repts.Select_Date_Range_withoutTimePeriod("01/08/2023","30/08/2023",4);
+	
+				
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+		Thread.sleep(1000);
+		Thread.sleep(1000);
+		driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+		Thread.sleep(1000);
+		
+		//Click the Apply button
+		repts.Click_ApplyButton();
+		
+		Thread.sleep(5000);
+		try
+		{
+			if(repts.No_TransactionFound_InfoMessage().isDisplayed())
+			{
+				test.log(LogStatus.INFO, "Comparison Report Not Available for Compare Time 1 (Date Range), Compare Time 2 (Date Range), Compare Time 3 (Date Range) & Compare Time 4 (Date Range)");
+		
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			}
+		}
+		catch(Exception G)
+		{
+
+			test.log(LogStatus.PASS, "Comparison Report Available for Compare Time 1 (Date Range), Compare Time 2 (Date Range), Compare Time 3 (Date Range) & Compare Time 4 (Date Range) ");
+
+			Thread.sleep(2000);
+//			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
+			
+			Thread.sleep(2000);
+		List<WebElement> rowList=driver.findElements(By.xpath("//table/tr"));
+		
+//		List<WebElement> headList=driver.findElements(By.xpath("//table/tr[1]/th"));
+		
+		//List<WebElement> colList=driver.findElements(By.xpath("//table/tr[2]/td"));
+		
+		test.log(LogStatus.INFO, "Compare Time 1 "+"     -vs-     "+" Compare Time 2");
+		
+			for(int i=1;i<=rowList.size();i++)
+			{
+			
+				if(i==1)
+				{
+//					for(int j=1;j<=colList.size();j++)
+//					{
+				
+						test.log(LogStatus.INFO, driver.findElement(By.xpath("//table/tr["+i+"]/th[1]")).getText()+" : "+driver.findElement(By.xpath("//table/tr["+i+"]/th[2]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/th[3]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/th[4]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/th[5]")).getText());
+//					}
+				}
+				else if(i>1)
+				{
+//					for(int j=1;j<=colList.size();j++)
+//					{
+					
+						test.log(LogStatus.INFO, driver.findElement(By.xpath("//table/tr["+i+"]/td[1]")).getText()+" : "+driver.findElement(By.xpath("//table/tr["+i+"]/td[2]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/td[3]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/td[4]")).getText()+"     -vs-     "+ driver.findElement(By.xpath("//table/tr["+i+"]/td[5]")).getText());
+//					}
+				}
+			
+			
+				driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+			}
+		
+		
+		}
+		
+	}
 }

@@ -113,7 +113,7 @@ public WebDriver driver;
 		Edit_and_Close_Cancel_Gratuity(driver);
 		Edit_and_Update_Gratuity(driver);
 		Delete_and_Active_Inactive_Gratuity(driver);
-		Create_DuplicateTareGroup(driver);
+		Create_Duplicate_Gratuity(driver);
 		
 	}
 	
@@ -686,7 +686,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_DuplicateTareGroup(WebDriver driver) throws Exception
+	public void Create_Duplicate_Gratuity(WebDriver driver) throws Exception
 	{
 		gp=new GratuitiesPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

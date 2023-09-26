@@ -479,7 +479,7 @@ LoginTest a=new LoginTest();
 		a.Edit_and_Close_Cancel_Gratuity(driver); 
 		a.Edit_and_Update_Gratuity(driver);
 		a.Delete_and_Active_Inactive_Gratuity(driver);
-		a.Create_DuplicateTareGroup(driver);
+		a.Create_Duplicate_Gratuity(driver);
 			
 	}
 	
@@ -495,7 +495,6 @@ LoginTest a=new LoginTest();
 		a.Recharge_GiftCards(driver);
 		a.Delete_and_Active_Inactive_GiftCards(driver);
 		a.Create_DuplicateGiftCard(driver);
-			
 	}
 	
 	@Test(priority = 25,enabled = true)
@@ -504,8 +503,7 @@ LoginTest a=new LoginTest();
 		Product_Items_Cut_And_Modify a=new Product_Items_Cut_And_Modify();
 		a.Open_Cut_And_Modify_Page(driver);
 		a.Clear_CutAndModify(driver);
-		a.Edit_CutAndModify(driver);
-			
+		a.Edit_CutAndModify(driver);	
 	}
 	
 	@Test(priority = 26,enabled = true)
