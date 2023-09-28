@@ -24,7 +24,8 @@ import Utility.ExtentManager;
 import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class AllClassCalling_Reports {
+public class AllClassCalling_Reports 
+{
 
 	public WebDriver driver;
 	
