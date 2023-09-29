@@ -19,8 +19,12 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.Pages.Common_XPaths;
+import com.Pages.DepartmentPage;
 import com.Pages.Enterprise_CentralIventoryPage;
 import com.Pages.LoginPage;
+import com.Pages.ReportsPage;
+import com.Pages.Settings_StoreInformation_Page;
+import com.Pages.UserManagementPage;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -29,7 +33,7 @@ import Utility.ExtentManager;
 import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
-public class Enterprise_Central_Warehouse
+public class Enterprise_Add_Edit_Central_Warehouse
 {
 	
 	public WebDriver driver;
@@ -217,6 +221,89 @@ public class Enterprise_Central_Warehouse
 		//Enter the Central Warehouse Name
 		cmp.EnterName(Utility.getProperty("New_Central_WareHouse"));
 		
+		//Enter the Description
+		new DepartmentPage(driver, test).Enter_Description("This Central Inventory is : "+Utility.getProperty("New_Central_WareHouse"));
+		
+		//Enter the Email ID
+		new UserManagementPage(driver, test).Enter_EmailID(Utility.getProperty("Central_emailId"));
+		
+		//Enter the Apartments and street
+		new Settings_StoreInformation_Page(driver, test).Enter_Apartment(Utility.getProperty("Settings_Store_Information_Address1"));
+		
+		//Enter the Phone number
+		new Settings_StoreInformation_Page(driver, test).Enter_Phone_Number(Utility.getProperty("Central_phoneNumber"));
+		
+		//Enter the City
+		new Settings_StoreInformation_Page(driver, test).Enter_City(Utility.getProperty("Settings_Store_Information_City"));
+		
+		//Enter State 
+		new Settings_StoreInformation_Page(driver, test).Enter_State(Utility.getProperty("Settings_Store_Information_State"));
+		
+		//Enter the Zip code
+		new Settings_StoreInformation_Page(driver, test).Enter_ZipCode(Utility.getProperty("Settings_Store_Information_Zipcode"));
+		
+		//Verify whether the Save button Enabled or not without selecting Time Zone 
+		if(cmp.Save_Button().isEnabled())
+		{
+			//Click the Save button
+			cmp.Click_SaveButton();
+		
+			Thread.sleep(3000);
+			//Check whether the New Central Warehouse Saved or not
+			if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Select Time Zone"))
+			{
+				test.log(LogStatus.PASS, "Please Select Time Zone Alert Displayed");
+		
+				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Please Select Time Zone Alert not Displayed");
+			
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+			}
+		}
+		else
+		{
+			test.log(LogStatus.PASS, "Save button not Enabled without Selecting Time Zone");
+		}
+	
+		//Select Time Zone
+		new Settings_StoreInformation_Page(driver, test).Select_TimeZone("Chennai");
+		
+		
+		//Enable the Copy from Existing store
+				civ.Enable_Copy_Menu_ExistingStore_Toggle();
+				
+				
+				Thread.sleep(1000);
+				if(cmp.Save_Button().isEnabled())
+				{
+					Thread.sleep(500);
+					//Click the Update button
+					cmp.Click_UpdateButton();
+					
+					Thread.sleep(3000);
+					//Check whether the New Central Warehouse Saved or not
+					if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Central Warehouse Updated Successfully"))
+					{
+						test.log(LogStatus.FAIL, "Save button is Enabled without Selecting Store");
+					
+						ut.PassedCaptureScreenshotAsBASE64(driver, test);
+					}
+				
+				}
+				else
+				{
+					test.log(LogStatus.PASS, "Save button is not Enabled without Selecting Store");
+					
+					ut.PassedCaptureScreenshotAsBASE64(driver, test);
+				}
+				
+		Thread.sleep(1000);	
+		//Disable Copy from Existing store
+		civ.Disable_Copy_Menu_ExistingStore_Toggle();
+		
 		Thread.sleep(2000);
 		//Click the Save button
 		cmp.Click_SaveButton();
@@ -307,7 +394,7 @@ public class Enterprise_Central_Warehouse
 		//Enter the Name
 		cmp.EnterName("");
 	
-		
+		Thread.sleep(1000);
 		if(cmp.Update_Button().isEnabled())
 		{
 			Thread.sleep(500);
@@ -335,9 +422,41 @@ public class Enterprise_Central_Warehouse
 		Thread.sleep(500);
 		//Enter the Name
 		cmp.EnterName(Utility.getProperty("New_Central_WareHouse"));
-
 		
-		Thread.sleep(500);
+		
+		//Enable the Copy from Existing store
+		civ.Enable_Copy_Menu_ExistingStore_Toggle();
+		
+		
+		Thread.sleep(1000);
+		if(cmp.Update_Button().isEnabled())
+		{
+			Thread.sleep(500);
+			//Click the Update button
+			cmp.Click_UpdateButton();
+			
+			Thread.sleep(3000);
+			//Check whether the New Central Warehouse Saved or not
+			if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Central Warehouse Updated Successfully"))
+			{
+				test.log(LogStatus.FAIL, "Update button is Enabled without Selecting Store");
+			
+				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+			}
+		
+		}
+		else
+		{
+			test.log(LogStatus.PASS, "Update button is not Enabled without Selecting Store");
+			
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
+		
+		//Select the Store
+		civ.Select_Store();
+	
+		
+		Thread.sleep(1000);
 		//Click the Update button
 		cmp.Click_UpdateButton();
 		
@@ -345,13 +464,13 @@ public class Enterprise_Central_Warehouse
 		//Check whether the New Central Warehouse Saved or not
 		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Central Warehouse Updated Successfully"))
 		{
-			test.log(LogStatus.PASS, "Central Warehouse Updated Successfully");
+			test.log(LogStatus.PASS, "Central Warehouse Updated Successfully Enabled with Copy from Existing Store");
 		
 			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
 		else
 		{
-			test.log(LogStatus.FAIL, "Central Warehouse Updated Failed");
+			test.log(LogStatus.FAIL, "Central Warehouse Updated Failed Enabled with Copy from Existing Store");
 			
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}

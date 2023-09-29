@@ -133,4 +133,14 @@ public class DepartmentPage //extends BasePage
 			test.log(LogStatus.FAIL, "Department page failed to load");
 		}
 	}
+	
+	public void Enter_Description(String Description) throws Exception
+	{
+		Thread.sleep(1000);
+		//Clear the Description
+		DescriptionInputBox.clear();
+		//Enter the Description
+		DescriptionInputBox.sendKeys(Description);
+				
+	}
 }

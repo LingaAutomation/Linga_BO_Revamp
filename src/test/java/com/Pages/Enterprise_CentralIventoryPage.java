@@ -37,6 +37,9 @@ public class Enterprise_CentralIventoryPage
 	@FindBy(xpath = "//app-toggle[contains(.,'Copy Menu From Existing Store')]//button[.='No']")
 	WebElement Copy_Menu_ExistingStore_NoToggle;
 	
+	@FindBy(xpath = "//button[contains(.,'Select Store')]")
+	WebElement Select_StoreInputBx;
+	
 	public void Click_Add_Central_Warehouse()
 	{
 		Central_WarehouseBtn.click();
@@ -52,5 +55,10 @@ public class Enterprise_CentralIventoryPage
 		new Common_XPaths(driver, test).Disable_Toggle(Copy_Menu_ExistingStore_YesToggle, Copy_Menu_ExistingStore_NoToggle, "Copy Menu from Existing Store Toggle Disabled");
 	}
 	
+	public void Select_Store() throws Exception
+	{
+		Thread.sleep(1000);
+		new Common_XPaths(driver, test).Click_DropDown_withSearch(Select_StoreInputBx, "Store Selected");
+	}
 	
 }

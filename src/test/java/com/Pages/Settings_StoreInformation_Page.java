@@ -1241,4 +1241,10 @@ public class Settings_StoreInformation_Page {
 		{
 			new Common_XPaths(driver, test).Enter_Text(State_input, State, "State Entered");
 		}
+		
+		public void Select_TimeZone(String AreaName) throws Exception
+		{
+			Thread.sleep(1000);
+			new Common_XPaths(driver, test).Click_DropDown_withSearchText(TimeZone_input, AreaName, AreaName+" Time Zone Selected");
+		}
 }
