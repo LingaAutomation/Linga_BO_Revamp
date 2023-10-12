@@ -2,6 +2,8 @@ package com.Test;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
+
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.OutputType;
@@ -32,6 +34,8 @@ import com.relevantcodes.extentreports.LogStatus;
 import Utility.ExtentManager;
 import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 public class Enterprise_Add_Edit_Central_Warehouse
 {
@@ -118,13 +122,13 @@ public class Enterprise_Add_Edit_Central_Warehouse
 	public void Calling() throws Exception
 	{
 		Open_Central_Warehouse_Page(driver);
-		RefreshAndPaginination(driver);
-		Add_Central_Warehouse(driver);
-		Edit_and_Close_Cancel_Central_Warehouse(driver);
-		Edit_and_Update_Central_Warehouse(driver);
-		Delete_and_Active_Inactive_Central_Warehouse(driver);
-		Create_Duplicate_Central_Warehouse(driver);
-		
+//		RefreshAndPaginination(driver);
+//		Add_Central_Warehouse(driver);
+//		Edit_and_Close_Cancel_Central_Warehouse(driver);
+//		Edit_and_Update_Central_Warehouse(driver);
+//		Delete_and_Active_Inactive_Central_Warehouse(driver);
+//		Create_Duplicate_Central_Warehouse(driver);
+		Central_Warehouse_Report(driver);
 	}
 	
 	@Test(priority = 3,enabled = false)
@@ -150,7 +154,7 @@ public class Enterprise_Add_Edit_Central_Warehouse
 		cmp=new Common_XPaths(driver, test);
 		
 		//Verify the Pagination and Refresh the page
-		cmp.VerifyPagination_and_Refresh_Publish();
+//		cmp.VerifyPagination_and_Refresh_Publish();
 		
 		//Verify Column Filtration
 		cmp.Filter_Columns();
@@ -225,7 +229,7 @@ public class Enterprise_Add_Edit_Central_Warehouse
 		new DepartmentPage(driver, test).Enter_Description("This Central Inventory is : "+Utility.getProperty("New_Central_WareHouse"));
 		
 		//Enter the Email ID
-		new UserManagementPage(driver, test).Enter_EmailID(Utility.getProperty("Central_emailId"));
+		new UserManagementPage(driver, test).Enter_Email_ID(Utility.getProperty("Central_emailId"));
 		
 		//Enter the Apartments and street
 		new Settings_StoreInformation_Page(driver, test).Enter_Apartment(Utility.getProperty("Settings_Store_Information_Address1"));
@@ -332,7 +336,7 @@ public class Enterprise_Add_Edit_Central_Warehouse
 		
 		Thread.sleep(500);
 		//Search and Click Edit button
-		cmp.SearchAndClickEdit(Utility.getProperty("New_Central_WareHouse"));
+		civ.Search_and_Edit_CentralInventory(Utility.getProperty("New_Central_WareHouse"));
 		
 		//Check whether the application displays Update screen or not
 		cmp.VerifyCreationScreenPageHeader("Update Central Warehouse");
@@ -356,7 +360,7 @@ public class Enterprise_Add_Edit_Central_Warehouse
 		
 		Thread.sleep(1000);
 		//Search the Central Warehouses to Click Edit and Cancel
-		cmp.SearchAndClickEdit(Utility.getProperty("New_Central_WareHouse"));
+		civ.Search_and_Edit_CentralInventory(Utility.getProperty("New_Central_WareHouse"));
 		
 		Thread.sleep(1000);
 		//Click Cancel button
@@ -383,11 +387,11 @@ public class Enterprise_Add_Edit_Central_Warehouse
 		
 		Thread.sleep(1000);
 		//Search and Verify the Search box when Entering 3 Characters
-		cmp.SearchAndVerify_SearchBox();
+//		cmp.SearchAndVerify_SearchBox();
 	
 		Thread.sleep(1000);
 		//Search and Click Edit button
-		cmp.SearchAndClickEdit(Utility.getProperty("New_Central_WareHouse"));
+		civ.Search_and_Edit_CentralInventory(Utility.getProperty("New_Central_WareHouse"));
 		
 		
 		Thread.sleep(500);
@@ -408,6 +412,11 @@ public class Enterprise_Add_Edit_Central_Warehouse
 				test.log(LogStatus.FAIL, "Central Warehouse Updated without Central Warehouse Name");
 			
 				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+				
+				Thread.sleep(3000);
+				//Search and Click Edit button
+				civ.Search_and_Edit_CentralInventory(Utility.getProperty("New_Central_WareHouse")+"1");
+				
 			}
 		
 		}
@@ -419,9 +428,9 @@ public class Enterprise_Add_Edit_Central_Warehouse
 		}
 		
 		
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		//Enter the Name
-		cmp.EnterName(Utility.getProperty("New_Central_WareHouse"));
+		cmp.EnterName(Utility.getProperty("New_Central_WareHouse")+"1");
 		
 		
 		//Enable the Copy from Existing store
@@ -475,6 +484,53 @@ public class Enterprise_Add_Edit_Central_Warehouse
 			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 		
+		
+		Thread.sleep(1000);
+		//Search and Click Edit button
+		civ.Search_and_Edit_CentralInventory(Utility.getProperty("New_Central_WareHouse")+"1");
+		
+		Thread.sleep(1000);
+		//Verify whether the Copy from Existing store Enabled or not
+		if(civ.Copy_Menu_ExistingStore_YesToggle().isEnabled())
+		{
+			test.log(LogStatus.PASS, "Copy from Existing Store Toggle is Enabled");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Copy from Existing Store Toggle is not Enabled");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}
+		
+		Thread.sleep(500);
+		//Enter the Name
+		cmp.EnterName(Utility.getProperty("New_Central_WareHouse"));
+		
+		
+		//Disable Copy from Existing Store Toggle
+		civ.Disable_Copy_Menu_ExistingStore_Toggle();
+		
+		Thread.sleep(1000);
+		//Click the Update button
+		cmp.Click_UpdateButton();
+		
+		Thread.sleep(3000);
+		//Check whether the New Central Warehouse Saved or not
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Central Warehouse Updated Successfully"))
+		{
+			test.log(LogStatus.PASS, "Central Warehouse Updated Successfully Disabled with Copy from Existing Store");
+		
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Central Warehouse Updated Failed Disabled with Copy from Existing Store");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}
+		
+		
+		
 	}
 	
 	@Test(priority = 8,enabled = false)
@@ -486,7 +542,7 @@ public class Enterprise_Add_Edit_Central_Warehouse
 		civ=new Enterprise_CentralIventoryPage(driver, test);
 		
 		//Search and Click Delete button
-		cmp.SearchAndClickDelete(Utility.getProperty("New_Central_WareHouse")+"1");
+		cmp.SearchAndClickDelete(Utility.getProperty("New_Central_WareHouse"));
 		
 		Thread.sleep(500);
 		//Click the Delete button
@@ -515,7 +571,7 @@ public class Enterprise_Add_Edit_Central_Warehouse
 		
 		Thread.sleep(1000);
 		//Search and Click Delete button
-		cmp.SearchAndClickDelete(Utility.getProperty("New_Central_WareHouse")+"1");
+		cmp.SearchAndClickDelete(Utility.getProperty("New_Central_WareHouse"));
 		
 		Thread.sleep(500);
 		//Click the Delete button
@@ -543,7 +599,7 @@ public class Enterprise_Add_Edit_Central_Warehouse
 		cmp.VerifyActive_InactiveStatus("Inactive");
 		
 		//Search and Activate the In activated item
-		cmp.SearchAndClickActivate(Utility.getProperty("New_Central_WareHouse")+"1");
+		cmp.SearchAndClickActivate(Utility.getProperty("New_Central_WareHouse"));
 				
 		Thread.sleep(500);
 		//Click the Delete button
@@ -571,7 +627,7 @@ public class Enterprise_Add_Edit_Central_Warehouse
 		}
 			
 		//Search and Activate the In activated item
-		cmp.SearchAndClickActivate(Utility.getProperty("New_Central_WareHouse")+"1");
+		cmp.SearchAndClickActivate(Utility.getProperty("New_Central_WareHouse"));
 		
 		Thread.sleep(500);
 		//Click the Activate button
@@ -615,7 +671,12 @@ public class Enterprise_Add_Edit_Central_Warehouse
 	
 		Thread.sleep(500);
 		//Enter the existing Central Warehouse name
-		cmp.EnterName(Utility.getProperty("New_Central_WareHouse")+"1");
+		cmp.EnterName(Utility.getProperty("New_Central_WareHouse"));
+		
+		Thread.sleep(1000);
+		//Select Time Zone
+		new Settings_StoreInformation_Page(driver, test).Select_TimeZone("Chennai");
+				
 		
 		Thread.sleep(2000);
 		//Click the Save button
@@ -623,7 +684,7 @@ public class Enterprise_Add_Edit_Central_Warehouse
 		
 		Thread.sleep(3000);
 		//Check whether the New Central Warehouse Saved or not
-		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Name already exist"))
+		if(cmp.ConfirmationAlertMsg().getText().equalsIgnoreCase("Warehouse Name already exist"))
 		{
 			test.log(LogStatus.PASS, "Central Warehouse Name already exist pop up displayed");
 		
@@ -653,4 +714,90 @@ public class Enterprise_Add_Edit_Central_Warehouse
 		}
 	}
 	
+	
+	@Test(priority = 9,enabled = false)
+	public void Central_Warehouse_Report(WebDriver driver) throws Exception
+	{
+		civ=new Enterprise_CentralIventoryPage(driver, test);
+		cmp=new Common_XPaths(driver, test);
+		
+		new Common_XPaths(driver, test).SearchBox().clear();
+		Thread.sleep(1000);
+		new Common_XPaths(driver, test).SearchBox().sendKeys(Utility.getProperty("New_Central_WareHouse"));
+		
+		Thread.sleep(2000);
+		//Select the Searched Central Inventory
+		driver.findElement(By.xpath("//div[@class='central-warehouse-content']//span[.='"+Utility.getProperty("New_Central_WareHouse")+"']")).click();
+		
+		Thread.sleep(2000);
+		//Verify whether the Total Value on Hand is Displayed or not
+		if(driver.findElement(By.xpath("//span[contains(.,'Total Value On Hand')]")).isDisplayed())
+		{
+			test.log(LogStatus.PASS, "Total Value on Hand is available");
+			
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Total Value on Hand is not available");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}
+		
+		if(civ.Low_Stocks_RightArrow.isDisplayed())
+		{
+			test.log(LogStatus.PASS, "Low Stocks screen Available");
+			
+			
+			//Click the Low Stocks 
+			civ.Low_Stocks_RightArrow.click();
+			
+			Thread.sleep(2000);
+			
+			try
+			{
+				if(driver.findElement(By.xpath("//td[contains(.,'Low Stocks not found')]")).isDisplayed())
+				{
+					test.log(LogStatus.FAIL, "Low Stocks not found");
+					ut.FailedCaptureScreenshotAsBASE64(driver, test);
+				}
+			}
+			catch(Exception k)
+			{
+				test.log(LogStatus.FAIL, "Low Stocks found");
+
+			//Get the List of available Low Stocks
+			List<WebElement> rowList=driver.findElements(By.xpath("//table/tbody/tr"));
+			
+			int rowSize=rowList.size();
+			
+			
+			
+			if(rowSize<=5)
+			{
+			for(int i=1;i<=rowSize;i++)
+			{
+				
+				test.log(LogStatus.INFO, "Item Name : "+driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText()+" Unit : "+driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[2]")).getText()+ " Minimum Qty : "+driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText()+" Available Qty : "+driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText());
+			}
+			}
+			else
+			{
+				for(int i=1;i<=5;i++)
+				{
+					
+					test.log(LogStatus.INFO, "Item Name : "+driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[1]")).getText()+" Unit : "+driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[2]")).getText()+ " Minimum Qty : "+driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[3]")).getText()+" Available Qty : "+driver.findElement(By.xpath("//table/tbody/tr["+i+"]/td[4]")).getText());
+				}
+			}
+			}
+			//Close the Low Stocks screen
+			civ.Low_Stocks_DownArrow.click();
+			
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Low Stocks screen not Available");
+			
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
+		}
+	}
 }

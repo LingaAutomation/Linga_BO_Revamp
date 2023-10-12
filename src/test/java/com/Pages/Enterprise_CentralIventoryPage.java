@@ -1,5 +1,6 @@
 package com.Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -60,5 +61,30 @@ public class Enterprise_CentralIventoryPage
 		Thread.sleep(1000);
 		new Common_XPaths(driver, test).Click_DropDown_withSearch(Select_StoreInputBx, "Store Selected");
 	}
+	
+	public WebElement Copy_Menu_ExistingStore_YesToggle()
+	{
+		return Copy_Menu_ExistingStore_YesToggle;
+	}
+	
+	public void Search_and_Edit_CentralInventory(String Name) throws Exception
+	{
+		Thread.sleep(1000);
+		new Common_XPaths(driver, test).SearchBox.clear();
+		Thread.sleep(1000);
+		new Common_XPaths(driver, test).SearchBox.sendKeys(Name);
+		
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("(//app-central-warehouse-item//button)[1]")).click();
+		
+	}
+	
+	@FindBy(xpath = "//mat-panel-title[contains(.,'Low Stocks')]/..//mat-icon[.='keyboard_arrow_right']")
+	public WebElement Low_Stocks_RightArrow;
+	
+	@FindBy(xpath = "//mat-panel-title[contains(.,'Low Stocks')]/..//mat-icon[.='keyboard_arrow_down']")
+	public WebElement Low_Stocks_DownArrow;
+	
+	
 	
 }
