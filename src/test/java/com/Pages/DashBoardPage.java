@@ -267,6 +267,7 @@ public class DashBoardPage {
 	}
 	
 	
+	
 	public void Verify_Active_Checks_inDashboard_Sales() throws Exception
 	{
 		driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);

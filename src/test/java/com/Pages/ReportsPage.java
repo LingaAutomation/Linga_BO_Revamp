@@ -371,6 +371,102 @@ public class ReportsPage
 		
 		
 	}
+		
+		public String selectDate_Old_BO(String day) 
+		{
+			if(day.equals("01")) 
+			{
+			day = "01";
+			}
+			else if(day.equals("02")) 
+			{
+			day = "02";
+			}
+			else if(day.equals("03")) 
+			{
+			day = "03";
+			}
+			else if(day.equals("04")) 
+			{
+			day = "04";
+			}
+			else if(day.equals("05")) 
+			{
+			day = "05";
+			}
+			else if(day.equals("06")) 
+			{
+			day = "06";
+			}
+			else if(day.equals("07")) 
+			{
+			day = "07";
+			}
+			else if(day.equals("08")) 
+			{
+			day = "08";
+			}
+			else if(day.equals("09")) 
+			{
+			day = "09";
+			}
+			return day;
+		}
+		
+		public String selectMonth_Old_BO(String month) 
+		{
+		if(month.equals("01")) 
+		{
+		month = "January";
+		}
+		else if(month.equals("02")) 
+		{
+		month = "February";
+		}
+		else if(month.equals("03")) 
+		{
+		month = "March";
+		}
+		else if(month.equals("04")) 
+		{
+		month = "April";
+		}
+		else if(month.equals("05")) 
+		{
+		month = "May";
+		}
+		else if(month.equals("06")) 
+		{
+		month = "June";
+		}
+		else if(month.equals("07")) 
+		{
+		month = "July";
+		}
+		else if(month.equals("08")) 
+		{
+		month = "August";
+		}
+		else if(month.equals("09")) 
+		{
+		month = "September";
+		}
+		else if(month.equals("10")) 
+		{
+		month = "October";
+		}
+		else if(month.equals("11")) 
+		{
+		month = "November";
+		}
+		else if(month.equals("12")) 
+		{
+		month = "December";
+		}
+		return month;
+		
+		
+	}
 	
 	public void Select_Date_Range_TimePeriod(String FromDate, String ToDate) throws Exception
 	{
@@ -428,6 +524,168 @@ public class ReportsPage
 		 String days1 = ToDate.substring(0,2);
 		 String day1 = selectDate(days1);
 		 driver.findElement(By.xpath("//div[contains(.,'"+day1+"') and contains(@class,'mat-calendar-body')]")).click();
+		 Thread.sleep(500);
+		 
+		 test.log(LogStatus.INFO, "The start date and end date are : "+Utility.getProperty("Report_Start_Date")+" and "+Utility.getProperty("Report_End_Date"));
+		 
+	}
+	
+	public void Select_Date_Range_TimePeriod_Old_BO(String FromDate, String ToDate) throws Exception
+	{
+		Thread.sleep(2000);
+		//Click the Time Period 
+		driver.findElement(By.xpath("//label[contains(.,'Time Period')]/../div/a")).click();
+		
+		Thread.sleep(1000);
+		//Select the Date Range
+		driver.findElement(By.xpath("//ul/li[contains(.,'Date Range')]")).click();
+		
+//		Thread.sleep(1000);
+//		//Clear the From Date 
+//		driver.findElement(By.xpath("//input[@ng-model='query.fromDate']")).clear();
+//		//Enter the From Date
+//		driver.findElement(By.xpath("//input[@ng-model='query.fromDate']")).sendKeys(FromDate);
+//		//Enter the From Date
+//		driver.findElement(By.xpath("//input[@ng-model='query.fromDate']")).sendKeys(Keys.ENTER);
+//		
+//		Thread.sleep(1000);
+//		//Clear the To Date 
+//		driver.findElement(By.xpath("//input[@ng-model='query.toDate']")).clear();
+//		//Enter the To Date
+//		driver.findElement(By.xpath("//input[@ng-model='query.toDate']")).sendKeys(ToDate);
+//		//Enter the From Date
+//		driver.findElement(By.xpath("//input[@ng-model='query.toDate']")).sendKeys(Keys.ENTER);
+		
+		
+		 Thread.sleep(1000);
+//		 Start_DateInputBx.click();
+		 driver.findElement(By.xpath("(//input[@ng-model='query.fromDate']/../a)[1]")).click();
+		 
+		 
+		 Thread.sleep(500);
+//		 monthAndYear_Calender.click();
+		 driver.findElement(By.xpath("//button[contains(@class,'uib-title')]")).click();
+		 
+		 Thread.sleep(500);
+//		 monthAndYear_Calender.click();
+		 driver.findElement(By.xpath("//button[contains(@class,'uib-title')]")).click();
+		 
+		 String year = FromDate.substring(6,10);
+		 driver.findElement(By.xpath("//button[contains(.,'"+year+"') and contains(@class,'btn-default')]")).click();
+		 String months = FromDate.substring(3,5);
+		 String month = selectMonth_Old_BO(months);
+		 driver.findElement(By.xpath("//button[contains(.,'"+month+"') and contains(@class,'btn-default')]")).click();
+		 String days = FromDate.substring(0,2);
+		 String day = selectDate(days);
+		 driver.findElement(By.xpath("//button[contains(.,'"+days+"') and contains(@class,'btn-default')]")).click();
+		 //Date_inSpecificDateInputBx.clear();
+		 Thread.sleep(1500);
+		 //Start_DateInputBx.sendKeys(FromDate);
+		 
+		 driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+		 
+		 Thread.sleep(1000);
+//		 End_DateInputBx.click();
+		 driver.findElement(By.xpath("(//input[@ng-model='query.fromDate']/../a)[2]")).click();
+		 
+		 Thread.sleep(1500);
+//		 monthAndYear_Calender.click();
+		 driver.findElement(By.xpath("//button[contains(@class,'uib-title')]")).click();
+		 
+		 Thread.sleep(500);
+//		 monthAndYear_Calender.click();
+		 driver.findElement(By.xpath("//button[contains(@class,'uib-title')]")).click();
+		 
+		 String year1 = ToDate.substring(6,10);
+		 driver.findElement(By.xpath("//button[contains(.,'"+year1+"') and contains(@class,'btn-default')]")).click();
+		 String months1 = ToDate.substring(3,5);
+		 String month1 = selectMonth_Old_BO(months1);
+		 driver.findElement(By.xpath("//button[contains(.,'"+month1+"') and contains(@class,'btn-default')]")).click();
+		 String days1 = ToDate.substring(0,2);
+		 String day1 = selectDate(days1);
+		 driver.findElement(By.xpath("//button[contains(.,'"+days1+"') and contains(@class,'btn-default')]")).click();
+		 Thread.sleep(500);
+		 
+		 test.log(LogStatus.INFO, "The start date and end date are : "+Utility.getProperty("Report_Start_Date")+" and "+Utility.getProperty("Report_End_Date"));
+		 
+	}
+	
+	public void Select_Date_Range_TimePeriod_Old_BO_Dashboard(String FromDate, String ToDate) throws Exception
+	{
+		Thread.sleep(1000);
+//		Time_PeriodInputBx.click();
+		
+//		WebElement Sel=driver.findElement(By.xpath("//div[@class='option-list']/div/cdk-virtual-scroll-viewport/div[1]/div[9]"));
+//		JavascriptExecutor je = (JavascriptExecutor) driver;
+//       
+//        je.executeScript("arguments[0].scrollIntoView(true);",Sel);
+//        
+//        Thread.sleep(2000);
+//        driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
+//		Thread.sleep(2000);
+//		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_UP);
+//		
+//		Thread.sleep(2000);
+//		Date_Range_TimePeriodBtn.click();
+//		
+//		Thread.sleep(1000);
+//		Start_DateInputBx.clear();
+//		Thread.sleep(500);
+//		Start_DateInputBx.sendKeys(FromDate);
+//		
+//		Thread.sleep(1000);
+//		End_DateInputBx.clear();
+//		Thread.sleep(500);
+//		End_DateInputBx.sendKeys(ToDate);
+		
+		
+		 Thread.sleep(1000);
+//		 Start_DateInputBx.click();
+		 driver.findElement(By.xpath("(//input[@ng-model='query.fromDate']/../a)[1]")).click();
+		 
+		 
+		 Thread.sleep(500);
+//		 monthAndYear_Calender.click();
+		 driver.findElement(By.xpath("//button[contains(@class,'uib-title')]")).click();
+		 
+		 Thread.sleep(500);
+//		 monthAndYear_Calender.click();
+		 driver.findElement(By.xpath("//button[contains(@class,'uib-title')]")).click();
+		 
+		 String year = FromDate.substring(6,10);
+		 driver.findElement(By.xpath("//button[contains(.,'"+year+"') and contains(@class,'btn-default')]")).click();
+		 String months = FromDate.substring(3,5);
+		 String month = selectMonth_Old_BO(months);
+		 driver.findElement(By.xpath("//button[contains(.,'"+month+"') and contains(@class,'btn-default')]")).click();
+		 String days = FromDate.substring(0,2);
+		 String day = selectDate(days);
+		 driver.findElement(By.xpath("//button[contains(.,'"+days+"') and contains(@class,'btn-default')]")).click();
+		 //Date_inSpecificDateInputBx.clear();
+		 Thread.sleep(1500);
+		 //Start_DateInputBx.sendKeys(FromDate);
+		 
+		 driver.findElement(By.tagName("html")).sendKeys(Keys.ARROW_DOWN);
+		 
+		 Thread.sleep(1000);
+//		 End_DateInputBx.click();
+		 driver.findElement(By.xpath("(//input[@ng-model='query.fromDate']/../a)[2]")).click();
+		 
+		 Thread.sleep(1500);
+//		 monthAndYear_Calender.click();
+		 driver.findElement(By.xpath("//button[contains(@class,'uib-title')]")).click();
+		 
+		 Thread.sleep(500);
+//		 monthAndYear_Calender.click();
+		 driver.findElement(By.xpath("//button[contains(@class,'uib-title')]")).click();
+		 
+		 String year1 = ToDate.substring(6,10);
+		 driver.findElement(By.xpath("//button[contains(.,'"+year1+"') and contains(@class,'btn-default')]")).click();
+		 String months1 = ToDate.substring(3,5);
+		 String month1 = selectMonth_Old_BO(months1);
+		 driver.findElement(By.xpath("//button[contains(.,'"+month1+"') and contains(@class,'btn-default')]")).click();
+		 String days1 = ToDate.substring(0,2);
+		 String day1 = selectDate(days1);
+		 driver.findElement(By.xpath("//button[contains(.,'"+days1+"') and contains(@class,'btn-default')]")).click();
 		 Thread.sleep(500);
 		 
 		 test.log(LogStatus.INFO, "The start date and end date are : "+Utility.getProperty("Report_Start_Date")+" and "+Utility.getProperty("Report_End_Date"));
