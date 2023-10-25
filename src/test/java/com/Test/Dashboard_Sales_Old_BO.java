@@ -95,7 +95,7 @@ public class Dashboard_Sales_Old_BO
 		//Launch the URL
 		driver.get(Utility.getProperty("appURL_Old_BO"));
 		
-		Thread.sleep(8000);
+		Thread.sleep(6000);
 		a.Login_with_Old_BO(driver, test);
 	}
 	
@@ -130,11 +130,11 @@ public class Dashboard_Sales_Old_BO
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		//Load the Daily page
 		driver.get(Utility.getProperty("baseURL_Old_BO")+Utility.getProperty("store_Id")+"saleDashboard");
 
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		//Click the Refresh button      
 		driver.findElement(By.xpath("//form[@name='dashboardForm']/div/div/button[3]")).click();
 
@@ -174,7 +174,7 @@ public class Dashboard_Sales_Old_BO
 		driver.findElement(By.xpath("//button[contains(.,'Apply')]")).click();
 		
 		
-		Thread.sleep(10000);
+		Thread.sleep(50000);
 		test.log(LogStatus.PASS, "Dashboard : Sales Report is Displayed for Date Range");
 		ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		
@@ -223,6 +223,7 @@ public class Dashboard_Sales_Old_BO
 		test.log(LogStatus.INFO, "Customers Tile : "+CustomersTile);
 		test.log(LogStatus.INFO, "Discounts Tile : "+Discounts_Tile);
 		test.log(LogStatus.INFO, "Refunds Tile : "+Refunds_Tile);
+		test.log(LogStatus.INFO, "Labor Tile : "+LaborTile);
 		test.log(LogStatus.INFO, "COGS Tile : "+COGS_Tile);
 		
 		
@@ -235,7 +236,8 @@ public class Dashboard_Sales_Old_BO
 		excel.setreportData("Both_BO_Value", 27, 1, CustomersTile);
 		excel.setreportData("Both_BO_Value", 28, 1, Discounts_Tile);
 		excel.setreportData("Both_BO_Value", 29, 1, Refunds_Tile);
-		excel.setreportData("Both_BO_Value", 30, 1, COGS_Tile);
+		excel.setreportData("Both_BO_Value", 30, 1, LaborTile);
+		excel.setreportData("Both_BO_Value", 31, 1, COGS_Tile);
 
 		
 		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_DOWN);
@@ -254,6 +256,7 @@ public class Dashboard_Sales_Old_BO
 		//Click the Net Sales Tile
 		driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'Net sale')]/..")).click();
 		
+		Thread.sleep(10000);
 		try
 		{
 			if(driver.findElement(By.xpath("//td[contains(.,'No records found')]")).isDisplayed())
@@ -267,9 +270,9 @@ public class Dashboard_Sales_Old_BO
 		{
 			
 			//Get the List of Rows
-			List<WebElement> rows=driver.findElements(By.xpath("//table/thead/../tbody/tr"));
+//			List<WebElement> rows=driver.findElements(By.xpath("//table/thead/../tbody/tr"));
 			
-			int rowSize=rows.size();
+//			int rowSize=rows.size();
 			
 			//Get the Net Sales
 			String NetSales_inNetSales=driver.findElement(By.xpath("//td[contains(.,'TOTAL')]/../td[2]")).getText();
@@ -302,6 +305,7 @@ public class Dashboard_Sales_Old_BO
 		//Click the Tax Tile
 		driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'Tax')]/..")).click();
 		
+		Thread.sleep(10000);
 		try
 		{
 			if(driver.findElement(By.xpath("//td[contains(.,'No records found')]")).isDisplayed())
@@ -335,6 +339,7 @@ public class Dashboard_Sales_Old_BO
 		//Click the Net Sales Tile
 		driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'Transactions')]/..")).click();
 		
+		Thread.sleep(10000);
 		try
 		{
 			if(driver.findElement(By.xpath("//td[contains(.,'No records found')]")).isDisplayed())
@@ -348,21 +353,21 @@ public class Dashboard_Sales_Old_BO
 		{
 			
 			//Get the List of Rows
-			List<WebElement> rows=driver.findElements(By.xpath("//table/thead/../tbody/tr"));
+//			List<WebElement> rows=driver.findElements(By.xpath("//table/thead/../tbody/tr"));
 			
-			int rowSize=rows.size();
+//			int rowSize=rows.size();
 			
 			//Get the CC Tip Charge
-			String CCTipCharge_inTransactions=driver.findElement(By.xpath("//table/thead/../tbody/tr["+rowSize+"]/td[8]")).getText();
+			String CCTipCharge_inTransactions=driver.findElement(By.xpath("//td[contains(.,'Total')]/../td[8]")).getText();
 			
 			//Get the Tax
-			String ServiceCharge_inTransactions=driver.findElement(By.xpath("//table/thead/../tbody/tr["+rowSize+"]/td[9]")).getText();
+			String ServiceCharge_inTransactions=driver.findElement(By.xpath("//td[contains(.,'Total')]/../td[9]")).getText();
 	
 			//Get the Discounts
-			String Amount_inTransactions=driver.findElement(By.xpath("//table/thead/../tbody/tr["+rowSize+"]/td[10]")).getText();
+			String Amount_inTransactions=driver.findElement(By.xpath("//td[contains(.,'Total')]/../td[10]")).getText();
 
 			//Get the Grand Sales
-			String Tip_inTransactions=driver.findElement(By.xpath("//table/thead/../tbody/tr["+rowSize+"]/td[11]")).getText();
+			String Tip_inTransactions=driver.findElement(By.xpath("//td[contains(.,'Total')]/../td[11]")).getText();
 
 			//Export the Data to Excel
 			excel.setreportData("Inside_Values", 7, 3, CCTipCharge_inTransactions);
@@ -382,6 +387,7 @@ public class Dashboard_Sales_Old_BO
 		//Click the Net Sales Tile
 		driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'Discount')]/..")).click();
 		
+		Thread.sleep(10000);
 		try
 		{
 			if(driver.findElement(By.xpath("//td[contains(.,'No records found')]")).isDisplayed())
@@ -395,9 +401,9 @@ public class Dashboard_Sales_Old_BO
 		{
 			
 			//Get the List of Rows
-			List<WebElement> rows=driver.findElements(By.xpath("//table/thead/../tbody/tr"));
+			List<WebElement> rows=driver.findElements(By.xpath("//div[@ng-if='showDiscount']/table/tbody/tr"));
 			
-			int rowSize=rows.size()+1;
+			int rowSize=rows.size();
 			
 			//Get the Total Discounts
 			String TotalDiscounts_inDoscountTile=driver.findElement(By.xpath("//td[contains(.,'Total Discounts')]/../td[2]")).getText();
@@ -409,19 +415,19 @@ public class Dashboard_Sales_Old_BO
 			String Average_inDoscountTile=driver.findElement(By.xpath("//td[contains(.,'Total Discounts')]/../td[5]")).getText();
 		
 			//Get the Total Checks
-			String TotalChecks_inDiscountTile=driver.findElement(By.xpath("//table/thead/../tbody/tr["+rowSize+"]/td[1]")).getText();
+			String TotalChecks_inDiscountTile=driver.findElement(By.xpath("//div[@ng-if='showDiscount']/table/tbody/tr["+rowSize+"]/td[1]")).getText();
 			
 			//Get the % Checks Discounted
-			String PerChecksDiscounted_inDiscountTile=driver.findElement(By.xpath("//table/thead/../tbody/tr["+rowSize+"]/td[2]")).getText();
+			String PerChecksDiscounted_inDiscountTile=driver.findElement(By.xpath("//div[@ng-if='showDiscount']/table/tbody/tr["+rowSize+"]/td[2]")).getText();
 			
 			//Get the Gross Sales
-			String GrossSales_inDiscountTile=driver.findElement(By.xpath("//table/thead/../tbody/tr["+rowSize+"]/td[3]")).getText();
+			String GrossSales_inDiscountTile=driver.findElement(By.xpath("//div[@ng-if='showDiscount']/table/tbody/tr["+rowSize+"]/td[3]")).getText();
 			
 			//Get the % Discount of Gross Sales
-			String PercDiscountGrossSales_inDiscountTile=driver.findElement(By.xpath("//table/thead/../tbody/tr["+rowSize+"]/td[5]")).getText();
+			String PercDiscountGrossSales_inDiscountTile=driver.findElement(By.xpath("//div[@ng-if='showDiscount']/table/tbody/tr["+rowSize+"]/td[5]")).getText();
 			
 			//Get the Checks Discounted
-			String ChecksDiscounted_inDiscountTile=driver.findElement(By.xpath("//table/thead/../tbody/tr["+rowSize+"]/td[6]")).getText();
+			String ChecksDiscounted_inDiscountTile=driver.findElement(By.xpath("//div[@ng-if='showDiscount']/table/tbody/tr["+rowSize+"]/td[6]")).getText();
 			
 			
 			//Export the Data to Excel
@@ -442,6 +448,7 @@ public class Dashboard_Sales_Old_BO
 		//Click the Net Sales Tile
 		driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'Refunds')]/..")).click();
 		
+		Thread.sleep(10000);
 		try
 		{
 			if(driver.findElement(By.xpath("//td[contains(.,'No records found')]")).isDisplayed())
@@ -472,6 +479,7 @@ public class Dashboard_Sales_Old_BO
 		//Click the Net Sales Tile
 		driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'COGS')]/..")).click();
 		
+		Thread.sleep(10000);
 		try
 		{
 			if(driver.findElement(By.xpath("//td[contains(.,'No records found')]")).isDisplayed())
@@ -485,17 +493,19 @@ public class Dashboard_Sales_Old_BO
 		{
 			
 			//Get the List of Rows
-			List<WebElement> rows=driver.findElements(By.xpath("//table/thead/../tbody/tr"));
+//			List<WebElement> rows=driver.findElements(By.xpath("//table/thead/../tbody/tr"));
 			
-			int rowSize=rows.size();
+//			int rowSize=rows.size();
 			
 			//Get the CC Tip Charge
-			String Cost_inCOGSTile=driver.findElement(By.xpath("//td[contains(.,'Total')]/../td[2]")).getText();
+			String Cost_inCOGSTile=driver.findElement(By.xpath("(//td[contains(.,'Total')]/../td[2])[2]")).getText().replace("$", "").trim();
 		
 			excel.setreportData("Inside_Values", 20, 3, Cost_inCOGSTile);
 
 		}
 		
+		Thread.sleep(2000);
+		//To Write the values in Excel sheet
 		excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports_Comparison"));
 		
 

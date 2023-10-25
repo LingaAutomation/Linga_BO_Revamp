@@ -3,6 +3,7 @@ package com.Test;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.util.SystemOutLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
@@ -153,8 +154,7 @@ public WebDriver driver;
 		
 		
 		Thread.sleep(8000);
-//		try
-//		{
+
 		if(driver.findElement(By.xpath("//h3[contains(.,'No sale for selected time period')]")).isDisplayed())
 		{
 			test.log(LogStatus.INFO, "Sale Report for Modifier Sale Not Available for Date Range");
@@ -167,38 +167,33 @@ public WebDriver driver;
 
 			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports_Comparison"));
 		}
-//		}
-//		catch(Exception G)
 		else
 		{
 			
 			test.log(LogStatus.PASS, "Sale Report for Modifer Sale Available for Date Range");
 			
-//			driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_DOWN);
+			driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_DOWN);
 			
 			Thread.sleep(2000);
-			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
+//			driver.findElement(By.tagName("html")).sendKeys(Keys.END);
 			
 			Thread.sleep(2000);
-			//List of rows
-//			List<WebElement> rows=driver.findElements(By.xpath(""));
-			
-
-			Thread.sleep(3000);
+	
+			Thread.sleep(5000);
 			//Get Sale Amount
-			String SaleAmount=driver.findElement(By.xpath("(//td[contains(.,'Total')]/../td[3])[1]")).getText().trim();
+			String SaleAmount=driver.findElement(By.xpath("(//td[contains(.,'Total')]/../td[3])[1]/span")).getAttribute("textContent");
 //			double ActualSale_Amount=Double.parseDouble(SaleAmount);
 			
 			//Get the Quantity
-			String Qty=driver.findElement(By.xpath("(//td[contains(.,'Total')]/../td[4])[1]")).getText().trim();
+			String Qty=driver.findElement(By.xpath("(//td[contains(.,'Total')]/../td[4])[1]/span")).getAttribute("textContent");
 //			double ActualQuantity=Double.parseDouble(Qty);
 			
 			//Get the Tax
-			String Tx=driver.findElement(By.xpath("(//td[contains(.,'Total')]/../td[5])[1]")).getText().trim();
+			String Tx=driver.findElement(By.xpath("(//td[contains(.,'Total')]/../td[5])[1]/span")).getAttribute("textContent");
 //			double ActualTax=Double.parseDouble(Tx);
-			
+			System.out.println("Sale"+SaleAmount+ " Qty "+Qty+" Tax "+Tx);
 		
-			
+			Thread.sleep(2000);
 			//Export the Sale Amount value to Excel
 			excel.setreportData("Sales_Report", 21, 3, SaleAmount);
 			excel.setreportData("Sales_Report", 22, 3, Qty);
@@ -206,10 +201,13 @@ public WebDriver driver;
 	
 
 			Thread.sleep(3000);
+			
+			Thread.sleep(2000);
+			//To Write the Data in Excel sheet
+			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports_Comparison"));
 		}
 		
-		//To Write the Data in Excel sheet
-		excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports_Comparison"));
+		
 		
 	}
 }
