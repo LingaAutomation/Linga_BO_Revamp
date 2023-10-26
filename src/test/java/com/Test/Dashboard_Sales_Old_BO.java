@@ -182,7 +182,7 @@ public class Dashboard_Sales_Old_BO
 		String Net_SalesTile=driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'Net sale')]/..//span")).getText();
 		
 		//Active Checks Tile Value
-		String Active_ChecksTile=driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'ACTIVE CHECK')]/..//span")).getText();
+		String Active_ChecksTile=driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'ACTIVE CHECK')]/..//span")).getText().replace("$", "");
 		
 		//Average Check Tile value
 		String Avg_CheckTile=driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'AVG CHECK')]/..//span")).getText();
@@ -203,7 +203,7 @@ public class Dashboard_Sales_Old_BO
 		String Discounts_Tile=driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'Discount')]/..//span")).getText();
 			
 		//Refunds Tile Value
-		String Refunds_Tile=driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'Refunds')]/..//span")).getText();
+		String Refunds_Tile=driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'Refunds')]/..//span")).getText().replace("$", "");
 		
 		//Labor Tile
 		String LaborTile=driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'Labor')]/..//span")).getText();
@@ -212,7 +212,7 @@ public class Dashboard_Sales_Old_BO
 		String COGS_Tile=driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'COGS')]/..//span")).getText();
 		
 		//SPLH Tile
-		String SPLH_Tile=driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'SPLH')]/..//span")).getText();
+		String SPLH_Tile=driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'SPLH')]/..//span")).getText().replace("$", "");
 				
 		test.log(LogStatus.INFO, "Net Sales Tile : "+Net_SalesTile);
 		test.log(LogStatus.INFO, "Active Checks Tile : "+Active_ChecksTile);

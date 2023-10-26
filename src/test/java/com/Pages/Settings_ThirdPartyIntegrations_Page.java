@@ -6,6 +6,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import org.apache.maven.surefire.shared.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -50,7 +52,7 @@ public class Settings_ThirdPartyIntegrations_Page {
 	@FindBy(xpath = "//span[.='Deliverect']")
 	WebElement Deliverect;
 	
-	@FindBy(xpath = "//span[.='Doordash']")
+	@FindBy(xpath = "//span[.='Door']")
 	WebElement Doordash;
 	
 	@FindBy(xpath = "//span[.='Uber Eats']")
@@ -61,6 +63,15 @@ public class Settings_ThirdPartyIntegrations_Page {
 	
 	@FindBy(xpath = "//span[.='PayPal']")
 	WebElement PayPal;
+	
+	
+	
+	@FindBy(xpath = "//span[.='Compeat']")
+	WebElement Compeat;
+	
+	@FindBy(xpath = "//span[.='Restaurant 365']")
+	WebElement Restaurant;
+	
 	
 	@FindBy(xpath = "//h3[.='Platform Price Level']")
 	WebElement PlatformPriceLevel_Head;
@@ -290,6 +301,13 @@ public class Settings_ThirdPartyIntegrations_Page {
 	@FindBy(xpath = "//h3[.='PayPal']")
 	WebElement PayPal_Head;
 	
+	@FindBy(xpath = "//h3[.='Compeat']")
+	WebElement Compeat_Head;
+	
+	@FindBy(xpath = "//h3[.='Restaurant 365']")
+	WebElement Restaurant_Head;
+	
+	
 	@FindBy(xpath = "//h4[.='NLA Merchant']")
 	WebElement NLAMerchant;
 	
@@ -386,6 +404,19 @@ public class Settings_ThirdPartyIntegrations_Page {
 	@FindBy(xpath = "//mat-icon[.='keyboard_backspace']/../..")
 	WebElement Back;
 	
+	
+	
+	@FindBy(xpath = "//span[contains(.,'Date')]/../..//button")
+	WebElement Date;
+	
+	
+	
+	@FindBy(xpath = "//span[contains(.,'PUSH DATA')]/../..//button")
+	WebElement PUSH_DATA;
+	
+	
+	@FindBy(xpath = "//span[contains(.,'EXPORT DATA')]/../..//button")
+	WebElement EXPORT_DATA;
 	
 	public void ThirdPartyIntegrationsPage() throws Exception {
 		Thread.sleep(2500);
@@ -2095,6 +2126,223 @@ public class Settings_ThirdPartyIntegrations_Page {
 		Back.click();
 		Thread.sleep(3000);
 	}
-}
+	
+	@FindBy(xpath = "//button[@aria-label='Choose month and year']")
+	WebElement monthAndYear_Calender;
+	
+	public String selectDate(String day) 
+	{
+		if(day.equals("01")) 
+		{
+		day = " 1 ";
+		}
+		else if(day.equals("02")) 
+		{
+		day = " 2 ";
+		}
+		else if(day.equals("03")) 
+		{
+		day = " 3 ";
+		}
+		else if(day.equals("04")) 
+		{
+		day = " 4 ";
+		}
+		else if(day.equals("05")) 
+		{
+		day = " 5 ";
+		}
+		else if(day.equals("06")) 
+		{
+		day = " 6 ";
+		}
+		else if(day.equals("07")) 
+		{
+		day = " 7 ";
+		}
+		else if(day.equals("08")) 
+		{
+		day = " 8 ";
+		}
+		else if(day.equals("09")) 
+		{
+		day = " 9 ";
+		}
+		return day;
+	}
+		public String selectMonth(String month) 
+		{
+		if(month.equals("01")) 
+		{
+		month = "JAN";
+		}
+		else if(month.equals("02")) 
+		{
+		month = "FEB";
+		}
+		else if(month.equals("03")) 
+		{
+		month = "MAR";
+		}
+		else if(month.equals("04")) 
+		{
+		month = "APR";
+		}
+		else if(month.equals("05")) 
+		{
+		month = "MAY";
+		}
+		else if(month.equals("06")) 
+		{
+		month = "JUN";
+		}
+		else if(month.equals("07")) 
+		{
+		month = "JUL";
+		}
+		else if(month.equals("08")) 
+		{
+		month = "AUG";
+		}
+		else if(month.equals("09")) 
+		{
+		month = "SEP";
+		}
+		else if(month.equals("10")) 
+		{
+		month = "OCT";
+		}
+		else if(month.equals("11")) 
+		{
+		month = "NOV";
+		}
+		else if(month.equals("12")) 
+		{
+		month = "DEC";
+		}
+		return month;
+		
+		
+	}
 
+	
+	public void Select_Date(String SpecificDate) throws Exception
+
+	{
+
+		
+
+
+		Date.click();
+
+		Thread.sleep(500);
+
+		monthAndYear_Calender.click();
+
+		String year = SpecificDate.substring(6,10);
+
+		driver.findElement(By.xpath("//div[contains(.,'"+year+"') and contains(@class,'mat-calendar-body-today')]")).click();
+
+		String months = SpecificDate.substring(3,5);
+
+		String month = selectMonth(months);
+
+		driver.findElement(By.xpath("//div[contains(.,'"+month+"') and contains(@class,'mat-calendar-body')]")).click();
+
+		String days = SpecificDate.substring(0,2);
+
+		String day = selectDate(days);
+
+		driver.findElement(By.xpath("//div[contains(.,'"+day+"') and contains(@class,'mat-calendar-body')]")).click();
+
+		//Date_inSpecificDateInputBx.clear();
+
+		Thread.sleep(500);
+
+		//Date_inSpecificDateInputBx.sendKeys(SpecificDate);
+
+		
+
+		test.log(LogStatus.INFO, "The specific date is : "+Utility.getProperty("Report_Specific_Date"));
+
+	}
+	
+//	Compeat
+	//Restaurant
+	public void Compeat_Page(String date) throws Exception {
+		Thread.sleep(2500);
+		Compeat.click();
+		Thread.sleep(1500);
+		
+		if(Compeat_Head.isDisplayed()) {
+			test.log(LogStatus.PASS, "Compeat heading displayed successfully In Compeat Page");
+		}
+		else {
+			test.log(LogStatus.FAIL, "Compeat heading is not displayed In Compeat Page");
+		}	
+		
+	
+		
+		Select_Date(date);
+		
+		PUSH_DATA.click();
+		
+	
+		
+		Thread.sleep(2500);
+		
+		String s7 = driver.findElement(By.xpath("//div[@class='message mx-2']/span")).getText();
+		
+		//Verify the success message
+		if(s7.equals("Data pushed successfully"))
+		{
+			test.log(LogStatus.PASS, "Store Updated Successfully message is displayed In Uber Eats Page");
+		}
+		else if(s7.equals("Internal Server Error"))
+		{
+			test.log(LogStatus.FAIL, "Store Updated Successfully message is not displayed In Uber Eats Page");
+		}
+		
+	Back.click();
+	
+}
+	
+	public void Restaurant_Page(String date) throws Exception {
+		Thread.sleep(2500);
+		Restaurant.click();
+		Thread.sleep(1500);
+		
+		if(Restaurant_Head.isDisplayed()) {
+			test.log(LogStatus.PASS, "Restaurant heading displayed successfully In Restaurant Page");
+		}
+		else {
+			test.log(LogStatus.FAIL, "Restaurant heading is not displayed In Restaurant Page");
+		}	
+		
+	
+		
+		Select_Date(date);
+		
+		EXPORT_DATA.click();
+		
+	
+		
+		Thread.sleep(2500);
+		
+		String s7 = driver.findElement(By.xpath("//div[@class='message mx-2']/span")).getText();
+		
+		//Verify the success message
+		if(s7.equals("Export successfully"))
+		{
+			test.log(LogStatus.PASS, "Export successfully message is displayed In Restaurant Page");
+		}
+		else if(s7.equals("Internal Server Error"))
+		{
+			test.log(LogStatus.FAIL, "Store Updated Successfully message is not displayed In Restaurant Page");
+		}
+		
+		Back.click();
+	
+}
+}
 	

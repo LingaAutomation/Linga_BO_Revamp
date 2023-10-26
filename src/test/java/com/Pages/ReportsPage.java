@@ -659,7 +659,7 @@ public class ReportsPage
 		 driver.findElement(By.xpath("//button[contains(.,'"+month+"') and contains(@class,'btn-default')]")).click();
 		 String days = FromDate.substring(0,2);
 		 String day = selectDate(days);
-		 driver.findElement(By.xpath("//button[contains(.,'"+days+"') and contains(@class,'btn-default')]")).click();
+		 driver.findElement(By.xpath("//button[contains(.,'"+days+"') and contains(@ng-click,'select(dt.date)')]/span[@class='ng-binding']")).click();
 		 //Date_inSpecificDateInputBx.clear();
 		 Thread.sleep(1500);
 		 //Start_DateInputBx.sendKeys(FromDate);

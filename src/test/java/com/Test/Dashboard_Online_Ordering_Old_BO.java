@@ -169,22 +169,22 @@ public class Dashboard_Online_Ordering_Old_BO
 		ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		
 		//Net Sales Tile Value
-		String Net_SalesTile=driver.findElement(By.xpath("(//div[contains(@class,'panel-heading')][contains(.,'Net sale')]/..//span)[1]")).getText();
+		String Net_SalesTile=driver.findElement(By.xpath("(//div[contains(@class,'panel-heading')][contains(.,'Net sale')]/..//span)[1]")).getText().replace("$", "");
 		
 		//Gross Sales Tile Value
-		String Gross_SalesTile=driver.findElement(By.xpath("(//div[contains(@class,'panel-heading')][contains(.,'Gross Sales')]/..//span)[1]")).getText();
+		String Gross_SalesTile=driver.findElement(By.xpath("(//div[contains(@class,'panel-heading')][contains(.,'Gross Sales')]/..//span)[1]")).getText().replace("$", "");
 		
 		//Tax Tile Value
-		String Tax_Tile=driver.findElement(By.xpath("(//div[contains(@class,'panel-heading')][contains(.,'Tax')]/..//span)[1]")).getText();
+		String Tax_Tile=driver.findElement(By.xpath("(//div[contains(@class,'panel-heading')][contains(.,'Tax')]/..//span)[1]")).getText().replace("$", "");
 		
 		//Transactions Tile Value
-		String Transactions_Tile=driver.findElement(By.xpath("(//div[contains(@class,'panel-heading')][contains(.,'Transactions')]/..//span)[1]")).getText();
+		String Transactions_Tile=driver.findElement(By.xpath("(//div[contains(@class,'panel-heading')][contains(.,'Transactions')]/..//span)[1]")).getText().replace("$", "");
 		
 		//Discounts Tile Value
-		String Discounts_Tile=driver.findElement(By.xpath("(//div[contains(@class,'panel-heading')][contains(.,'Discount')]/..//span)[1]")).getText();
+		String Discounts_Tile=driver.findElement(By.xpath("(//div[contains(@class,'panel-heading')][contains(.,'Discount')]/..//span)[1]")).getText().replace("$", "");
 			
 		//Refunds Tile Value
-		String Refunds_Tile=driver.findElement(By.xpath("(//div[contains(@class,'panel-heading')][contains(.,'Refunds')]/..//span)[1]")).getText();
+		String Refunds_Tile=driver.findElement(By.xpath("(//div[contains(@class,'panel-heading')][contains(.,'Refunds')]/..//span)[1]")).getText().replace("$", "");
 		
 		test.log(LogStatus.INFO, "Net Sales Tile : "+Net_SalesTile);
 		test.log(LogStatus.INFO, "Gross Sales Tile : "+Gross_SalesTile);
@@ -234,7 +234,7 @@ public class Dashboard_Online_Ordering_Old_BO
 			//Get the List of Rows
 			List<WebElement> rows=driver.findElements(By.xpath("//table/tbody/tr/td[1]/span"));
 			
-			int rowSize=rows.size()+1;
+			int rowSize=rows.size();
 			
 			//Get the Net Sales
 			String NetSales_inNetSales=driver.findElement(By.xpath("//table/tbody/tr["+rowSize+"]/td[2]/span")).getText();
@@ -281,7 +281,7 @@ public class Dashboard_Online_Ordering_Old_BO
 			//Get the List of Rows
 			List<WebElement> rows=driver.findElements(By.xpath("//table/tbody/tr/td[1]/span"));
 			
-			int rowSize=rows.size()+1;
+			int rowSize=rows.size();
 			
 			//Get the Net Sales
 			String NetSales_inNetSales=driver.findElement(By.xpath("//table/tbody/tr["+rowSize+"]/td[2]/span")).getText();
