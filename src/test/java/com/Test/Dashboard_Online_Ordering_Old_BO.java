@@ -215,10 +215,11 @@ public class Dashboard_Online_Ordering_Old_BO
 		Thread.sleep(2000);
 		driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		
+		Thread.sleep(2000);
 		//Click the Net Sales Tile
 		driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'Net sale')]/..")).click();
 		
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 		try
 		{
 			if(driver.findElement(By.xpath("//td[contains(.,'No records found')]")).isDisplayed())
@@ -237,16 +238,16 @@ public class Dashboard_Online_Ordering_Old_BO
 			int rowSize=rows.size();
 			
 			//Get the Net Sales
-			String NetSales_inNetSales=driver.findElement(By.xpath("//table/tbody/tr["+rowSize+"]/td[2]/span")).getText();
+			String NetSales_inNetSales=driver.findElement(By.xpath("//td[contains(.,'TOTAL')]/../td[2]")).getText();
 			
 			//Get the Tax
-			String Tax_inNetSales=driver.findElement(By.xpath("//table/tbody/tr["+rowSize+"]/td[3]/span")).getText();
+			String Tax_inNetSales=driver.findElement(By.xpath("//td[contains(.,'TOTAL')]/../td[3]")).getText();
 	
 			//Get the Discounts
-			String Discounts_inNetSales=driver.findElement(By.xpath("//table/tbody/tr["+rowSize+"]/td[4]/span")).getText();
+			String Discounts_inNetSales=driver.findElement(By.xpath("//td[contains(.,'TOTAL')]/../td[4]")).getText();
 
 			//Get the Grand Sales
-			String GrandSales_inNetSales=driver.findElement(By.xpath("//table/tbody/tr["+rowSize+"]/td[5]/span")).getText();
+			String GrandSales_inNetSales=driver.findElement(By.xpath("//td[contains(.,'TOTAL')]/../td[5]")).getText();
 
 			//Export the Data to Excel
 			excel.setreportData("Inside_Values", 23, 3, NetSales_inNetSales);
@@ -284,16 +285,16 @@ public class Dashboard_Online_Ordering_Old_BO
 			int rowSize=rows.size();
 			
 			//Get the Net Sales
-			String NetSales_inNetSales=driver.findElement(By.xpath("//table/tbody/tr["+rowSize+"]/td[2]/span")).getText();
+			String NetSales_inNetSales=driver.findElement(By.xpath("//td[contains(.,'TOTAL')]/../td[2]")).getText();
 			
 			//Get the Tax
-			String Tax_inNetSales=driver.findElement(By.xpath("//table/tbody/tr["+rowSize+"]/td[3]/span")).getText();
+			String Tax_inNetSales=driver.findElement(By.xpath("//td[contains(.,'TOTAL')]/../td[3]")).getText();
 	
 			//Get the Discounts
-			String Discounts_inNetSales=driver.findElement(By.xpath("//table/tbody/tr["+rowSize+"]/td[4]/span")).getText();
+			String Discounts_inNetSales=driver.findElement(By.xpath("//td[contains(.,'TOTAL')]/../td[4]")).getText();
 
 			//Get the Grand Sales
-			String GrandSales_inNetSales=driver.findElement(By.xpath("//table/tbody/tr["+rowSize+"]/td[5]/span")).getText();
+			String GrandSales_inNetSales=driver.findElement(By.xpath("//td[contains(.,'TOTAL')]/../td[5]")).getText();
 
 			//Export the Data to Excel
 			excel.setreportData("Inside_Values", 27, 3, NetSales_inNetSales);

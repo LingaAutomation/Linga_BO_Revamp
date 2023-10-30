@@ -180,14 +180,14 @@ public class Dashboard_Customers_Old_BO
 		//Redemption Points Tile
 		String Redemption_PointsTile=driver.findElement(By.xpath("(//div[contains(@class,'panel-heading')][contains(.,'Redemption Points')]/..//span)[2]")).getText();
 						
-		test.log(LogStatus.INFO, "Total Enrollments Tile : "+Total_EnrollmentsTile);
+		test.log(LogStatus.INFO, "Total Enrollments/New Customer Tile : "+Total_EnrollmentsTile);
 		test.log(LogStatus.INFO, "Reward Points Tile : "+Reward_PointsTile);
 		test.log(LogStatus.INFO, "Value Points Tile : "+Value_PointsTile);
 		test.log(LogStatus.INFO, "Accumulation Points Tile : "+Accumulation_PointsTile);
 		test.log(LogStatus.INFO, "Redemption Points Tile : "+Redemption_PointsTile);
 
 		
-		
+		excel.setreportData("Both_BO_Value", 21, 15, Total_EnrollmentsTile);
 		excel.setreportData("Both_BO_Value", 29, 15, Accumulation_PointsTile);
 		excel.setreportData("Both_BO_Value", 30, 15, Redemption_PointsTile);
 		

@@ -178,16 +178,16 @@ public class Dashboard_Employees_Old_BO
 		String Avg_Time_perCheckTile=driver.findElement(By.xpath("//div[contains(@class,'panel-heading')][contains(.,'Average Time Per Check')]/..//span")).getText();
 		
 						
-		test.log(LogStatus.INFO, "Net Sales Tile : "+Total_SalesTile);
-		test.log(LogStatus.INFO, "Active Checks Tile : "+Labor_CostTile);
-		test.log(LogStatus.INFO, "Average Checks Tile : "+Avg_amount_perCheckTile);
-		test.log(LogStatus.INFO, "Average Cover Tile : "+Avg_Time_perCheckTile);
+		test.log(LogStatus.INFO, "Total Sales Tile : "+Total_SalesTile);
+		test.log(LogStatus.INFO, "Labor Cost Tile : "+Labor_CostTile);
+		test.log(LogStatus.INFO, "Average Amount per Check Tile : "+Avg_amount_perCheckTile);
+		test.log(LogStatus.INFO, "Average Time per Check Tile : "+Avg_Time_perCheckTile);
 	
 		
 		
 		excel.setreportData("Both_BO_Value", 22, 5, Total_SalesTile);
 		excel.setreportData("Both_BO_Value", 23, 5, Labor_CostTile);
-//		excel.setreportData("Both_BO_Value", 23, 1, Avg_CheckTile);
+//		excel.setreportData("Both_BO_Value", 23, 1, Avg_amount_perCheckTile);
 		excel.setreportData("Both_BO_Value", 25, 5, Avg_Time_perCheckTile);
 		
 		

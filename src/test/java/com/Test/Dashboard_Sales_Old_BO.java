@@ -225,7 +225,8 @@ public class Dashboard_Sales_Old_BO
 		test.log(LogStatus.INFO, "Refunds Tile : "+Refunds_Tile);
 		test.log(LogStatus.INFO, "Labor Tile : "+LaborTile);
 		test.log(LogStatus.INFO, "COGS Tile : "+COGS_Tile);
-		
+		test.log(LogStatus.INFO, "SPLH Tile : "+COGS_Tile);
+	
 		
 		excel.setreportData("Both_BO_Value", 21, 1, Net_SalesTile);
 		excel.setreportData("Both_BO_Value", 22, 1, Active_ChecksTile);
@@ -238,6 +239,7 @@ public class Dashboard_Sales_Old_BO
 		excel.setreportData("Both_BO_Value", 29, 1, Refunds_Tile);
 		excel.setreportData("Both_BO_Value", 30, 1, LaborTile);
 		excel.setreportData("Both_BO_Value", 31, 1, COGS_Tile);
+		excel.setreportData("Both_BO_Value", 32, 1, SPLH_Tile);
 
 		
 		driver.findElement(By.tagName("html")).sendKeys(Keys.PAGE_DOWN);

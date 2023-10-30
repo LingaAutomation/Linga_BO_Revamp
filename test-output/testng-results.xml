@@ -2,57 +2,57 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-26T18:16:32 IST" name="Default suite" finished-at="2023-10-26T18:22:25 IST" duration-ms="352807">
+  <suite started-at="2023-10-30T18:58:00 IST" name="Default suite" finished-at="2023-10-30T19:05:14 IST" duration-ms="434032">
     <groups>
     </groups>
-    <test started-at="2023-10-26T18:16:32 IST" name="Default test" finished-at="2023-10-26T18:22:25 IST" duration-ms="352807">
+    <test started-at="2023-10-30T18:58:00 IST" name="Default test" finished-at="2023-10-30T19:05:14 IST" duration-ms="434032">
       <class name="com.Test.Dashboard_Online_Ordering_Old_BO">
-        <test-method signature="Login()[pri:1, instance:com.Test.Dashboard_Online_Ordering_Old_BO@8f2ef19]" started-at="2023-10-26T18:16:32 IST" name="Login" finished-at="2023-10-26T18:19:26 IST" duration-ms="173725" status="PASS">
+        <test-method signature="Login()[pri:1, instance:com.Test.Dashboard_Online_Ordering_Old_BO@24569dba]" started-at="2023-10-30T18:58:00 IST" name="Login" finished-at="2023-10-30T19:02:09 IST" duration-ms="249130" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Dashboard_Online_Ordering_Old_BO@8f2ef19]" started-at="2023-10-26T18:19:26 IST" name="TestFail" finished-at="2023-10-26T18:19:26 IST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Dashboard_Online_Ordering_Old_BO@24569dba]" started-at="2023-10-30T19:02:09 IST" name="TestFail" finished-at="2023-10-30T19:02:09 IST" duration-ms="6" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login status=SUCCESS method=Dashboard_Online_Ordering_Old_BO.Login()[pri:1, instance:com.Test.Dashboard_Online_Ordering_Old_BO@8f2ef19] output={null}]]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=Dashboard_Online_Ordering_Old_BO.Login()[pri:1, instance:com.Test.Dashboard_Online_Ordering_Old_BO@24569dba] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method signature="Calling()[pri:2, instance:com.Test.Dashboard_Online_Ordering_Old_BO@8f2ef19]" started-at="2023-10-26T18:19:26 IST" name="Calling" finished-at="2023-10-26T18:22:16 IST" duration-ms="170517" status="PASS">
+        <test-method signature="Calling()[pri:2, instance:com.Test.Dashboard_Online_Ordering_Old_BO@24569dba]" started-at="2023-10-30T19:02:09 IST" name="Calling" finished-at="2023-10-30T19:05:05 IST" duration-ms="175335" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Calling -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Dashboard_Online_Ordering_Old_BO@8f2ef19]" started-at="2023-10-26T18:22:16 IST" name="TestFail" finished-at="2023-10-26T18:22:16 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Dashboard_Online_Ordering_Old_BO@24569dba]" started-at="2023-10-30T19:05:05 IST" name="TestFail" finished-at="2023-10-30T19:05:05 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Calling status=SUCCESS method=Dashboard_Online_Ordering_Old_BO.Calling()[pri:2, instance:com.Test.Dashboard_Online_Ordering_Old_BO@8f2ef19] output={null}]]]>
+                <![CDATA[[TestResult name=Calling status=SUCCESS method=Dashboard_Online_Ordering_Old_BO.Calling()[pri:2, instance:com.Test.Dashboard_Online_Ordering_Old_BO@24569dba] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method signature="LogOut()[pri:50, instance:com.Test.Dashboard_Online_Ordering_Old_BO@8f2ef19]" started-at="2023-10-26T18:22:16 IST" name="LogOut" finished-at="2023-10-26T18:22:22 IST" duration-ms="6289" status="PASS">
+        <test-method signature="LogOut()[pri:50, instance:com.Test.Dashboard_Online_Ordering_Old_BO@24569dba]" started-at="2023-10-30T19:05:05 IST" name="LogOut" finished-at="2023-10-30T19:05:12 IST" duration-ms="6737" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogOut -->
-        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Dashboard_Online_Ordering_Old_BO@8f2ef19]" started-at="2023-10-26T18:22:22 IST" name="TestFail" finished-at="2023-10-26T18:22:22 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="TestFail(org.testng.ITestResult)[pri:0, instance:com.Test.Dashboard_Online_Ordering_Old_BO@24569dba]" started-at="2023-10-30T19:05:12 IST" name="TestFail" finished-at="2023-10-30T19:05:12 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=LogOut status=SUCCESS method=Dashboard_Online_Ordering_Old_BO.LogOut()[pri:50, instance:com.Test.Dashboard_Online_Ordering_Old_BO@8f2ef19] output={null}]]]>
+                <![CDATA[[TestResult name=LogOut status=SUCCESS method=Dashboard_Online_Ordering_Old_BO.LogOut()[pri:50, instance:com.Test.Dashboard_Online_Ordering_Old_BO@24569dba] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TestFail -->
-        <test-method is-config="true" signature="flushTest()[pri:0, instance:com.Test.Dashboard_Online_Ordering_Old_BO@8f2ef19]" started-at="2023-10-26T18:22:22 IST" name="flushTest" finished-at="2023-10-26T18:22:25 IST" duration-ms="2222" status="PASS">
+        <test-method is-config="true" signature="flushTest()[pri:0, instance:com.Test.Dashboard_Online_Ordering_Old_BO@24569dba]" started-at="2023-10-30T19:05:12 IST" name="flushTest" finished-at="2023-10-30T19:05:14 IST" duration-ms="2731" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- flushTest -->

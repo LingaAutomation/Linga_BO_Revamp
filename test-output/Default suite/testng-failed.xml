@@ -3,13 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Test.Old_BO_Reports_Modifier_Sale_Report">
+      <class name="com.Test.Dashboard_Online_Ordering_Old_BO">
         <methods>
+          <include name="flushTest"/>
+          <include name="LogOut"/>
+          <include name="Login"/>
           <include name="TestFail"/>
           <include name="Calling"/>
-          <include name="flushTest"/>
         </methods>
-      </class> <!-- com.Test.Old_BO_Reports_Modifier_Sale_Report -->
+      </class> <!-- com.Test.Dashboard_Online_Ordering_Old_BO -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
