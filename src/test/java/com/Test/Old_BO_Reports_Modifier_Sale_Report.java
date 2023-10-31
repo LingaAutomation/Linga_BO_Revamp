@@ -143,7 +143,7 @@ public WebDriver driver;
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
-		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports_Comparison"));
+		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("BO_Comparision"));
 		
 		//Select Date Range
 		repts.Select_Date_Range_TimePeriod_Old_BO(Utility.getProperty("Report_Start_Date"), Utility.getProperty("Report_End_Date"));
@@ -165,7 +165,7 @@ public WebDriver driver;
 	
 			
 
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports_Comparison"));
+			excel.toWrite(Utility.getProperty("BO_Comparision"));
 		}
 		else
 		{
@@ -204,7 +204,7 @@ public WebDriver driver;
 			
 			Thread.sleep(2000);
 			//To Write the Data in Excel sheet
-			excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports_Comparison"));
+			excel.toWrite(Utility.getProperty("BO_Comparision"));
 		}
 		
 		

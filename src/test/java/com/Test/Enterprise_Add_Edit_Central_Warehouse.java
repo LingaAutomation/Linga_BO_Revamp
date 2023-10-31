@@ -226,7 +226,7 @@ public class Enterprise_Add_Edit_Central_Warehouse
 		cmp.EnterName(Utility.getProperty("New_Central_WareHouse"));
 		
 		//Enter the Description
-		new DepartmentPage(driver, test).Enter_Description("This Central Inventory is : "+Utility.getProperty("New_Central_WareHouse"));
+		new DepartmentPage(driver, test).Enter_Description("This Central Inventory-Central Warehouse is : "+Utility.getProperty("New_Central_WareHouse"));
 		
 		//Enter the Email ID
 		new UserManagementPage(driver, test).Enter_Email_ID(Utility.getProperty("Central_emailId"));

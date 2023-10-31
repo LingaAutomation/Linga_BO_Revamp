@@ -451,7 +451,11 @@ public class Enterprise_CentralIventoryPage
 	
 	///////////////// Enterprise Central Inventory - Central Kitchen ///////////////////////
 	
-	@FindBy(xpath = "//button[contains(.,'Central Kitchen')]")
+	@FindBy(xpath = "//button[contains(.,'CENTRAL KITCHEN')]")
 	WebElement Add_Central_KitchenBtn;
 	
+	public void Click_Add_Central_Kitchen()
+	{
+		Add_Central_KitchenBtn.click();
+	}
 }

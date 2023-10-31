@@ -1247,4 +1247,12 @@ public class Settings_StoreInformation_Page {
 			Thread.sleep(1000);
 			new Common_XPaths(driver, test).Click_DropDown_withSearchText(TimeZone_input, AreaName, AreaName+" Time Zone Selected");
 		}
+		
+		public void Enter_Email_Input(String Email) throws Exception
+		{
+			Thread.sleep(500);
+			Email_input.clear();
+			Thread.sleep(1000);
+			Email_input.sendKeys(Email);
+		}
 }

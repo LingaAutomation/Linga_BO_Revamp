@@ -154,7 +154,7 @@ public class Dashboard_KDS_Old_BO {
 		cmp=new Common_XPaths(driver, test);
 		db=new DashBoardPage(driver, test);
 
-		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("Excel_Sheet_Path_Reports_Comparison"));
+		ExcelDataConfig excel=new ExcelDataConfig(Utility.getProperty("BO_Comparision"));
 		
 		//Click the Time Filter button to Select Time Period 
 		driver.findElement(By.xpath("(//button[contains(@class,'time-filter dropdown-toggle')])[2]")).click();
@@ -198,7 +198,7 @@ public class Dashboard_KDS_Old_BO {
 		excel.setreportData("Both_BO_Value", 24, 9, AvgTime_perItemTile);
 		
 		
-		excel.toWrite(Utility.getProperty("Excel_Sheet_Path_Reports_Comparison"));
+		excel.toWrite(Utility.getProperty("BO_Comparision"));
 		
 	}
 }
