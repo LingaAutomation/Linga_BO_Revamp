@@ -19,6 +19,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.InventoryReports_CountSheet_Page;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -30,7 +31,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Inventory_Reports_Count_Sheet 
 {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -61,7 +62,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -83,7 +84,7 @@ public WebDriver driver;
 		ChromeOptions chromeOptions = new ChromeOptions();
 		chromeOptions.addArguments("--remote-allow-origins=*");
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		driver = (SelfHealingDriver) new ChromeDriver(chromeOptions);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -126,7 +127,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority=3,enabled = false )
-   public void Open_CountSheet_ReportPage(WebDriver driver) throws Exception
+   public void Open_CountSheet_ReportPage(SelfHealingDriver driver) throws Exception
 	{
 		cmp = new Common_XPaths(driver, test);
 		
@@ -138,7 +139,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -157,7 +158,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Count_Sheet_Report_Select_Type_Storage_Location_All(WebDriver driver) throws Exception 
+	public void Count_Sheet_Report_Select_Type_Storage_Location_All(SelfHealingDriver driver) throws Exception 
 	{
 	   
 		cmp=new Common_XPaths(driver, test);
@@ -211,7 +212,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Count_Sheet_Report_Select_Type_All_Storage_Location(WebDriver driver) throws Exception
+	public void Count_Sheet_Report_Select_Type_All_Storage_Location(SelfHealingDriver driver) throws Exception
 	{
 
 		cmp=new Common_XPaths(driver, test);
@@ -265,7 +266,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 7,enabled = false)
-	public void Count_Sheet_Report_Type_Inventory_Item(WebDriver driver) throws Exception 
+	public void Count_Sheet_Report_Type_Inventory_Item(SelfHealingDriver driver) throws Exception 
 	{
 		
         cmp=new Common_XPaths(driver, test);
@@ -318,7 +319,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 8,enabled = false)
-	public void Count_Sheet_Report_Type_Inventory_Item_Category_Level_Category(WebDriver driver) throws Exception
+	public void Count_Sheet_Report_Type_Inventory_Item_Category_Level_Category(SelfHealingDriver driver) throws Exception
 	{
 
         cmp=new Common_XPaths(driver, test);
@@ -376,7 +377,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 9,enabled = false)
-	public void Count_Sheet_Report_Type_Inventory_Item_Category_Level_SubCategory(WebDriver driver) throws Exception
+	public void Count_Sheet_Report_Type_Inventory_Item_Category_Level_SubCategory(SelfHealingDriver driver) throws Exception
 	{
 		 cmp=new Common_XPaths(driver, test);
 			csp = new InventoryReports_CountSheet_Page(driver, test);
@@ -432,7 +433,7 @@ public WebDriver driver;
 		
 	}
 	
-	public void Count_Sheet_Report_Type_Inventory_Item_Select_Category_And_InventoryItem(WebDriver driver) throws Exception 
+	public void Count_Sheet_Report_Type_Inventory_Item_Select_Category_And_InventoryItem(SelfHealingDriver driver) throws Exception 
 	{
 		cmp=new Common_XPaths(driver, test);
 		csp = new InventoryReports_CountSheet_Page(driver, test);
@@ -502,7 +503,7 @@ public WebDriver driver;
 	
 	}
 	
-	public void Count_Sheet_Report_Type_Inventory_Item_Category_Level_SubCategory_Select_Category_SubCategory_InventoryItem(WebDriver driver) throws Exception
+	public void Count_Sheet_Report_Type_Inventory_Item_Category_Level_SubCategory_Select_Category_SubCategory_InventoryItem(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -580,7 +581,7 @@ public WebDriver driver;
 		}
 	}
 
-	public void Count_Sheet_Report_Type_Retail_Item(WebDriver driver) throws Exception 
+	public void Count_Sheet_Report_Type_Retail_Item(SelfHealingDriver driver) throws Exception 
 	{
 		cmp=new Common_XPaths(driver, test);
 		csp = new InventoryReports_CountSheet_Page(driver, test);
@@ -632,7 +633,7 @@ public WebDriver driver;
 		
 	}
 
-	public void Count_Sheet_Report_Type_Retail_Item_Category_Level_Category(WebDriver driver) throws Exception 
+	public void Count_Sheet_Report_Type_Retail_Item_Category_Level_Category(SelfHealingDriver driver) throws Exception 
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -688,7 +689,7 @@ public WebDriver driver;
 		}
 	}
 	
-	public void Count_Sheet_Report_Type_Retail_Item_Category_Level_SubCategory(WebDriver driver) throws Exception 
+	public void Count_Sheet_Report_Type_Retail_Item_Category_Level_SubCategory(SelfHealingDriver driver) throws Exception 
 	{
 		cmp=new Common_XPaths(driver, test);
 		csp = new InventoryReports_CountSheet_Page(driver, test);
@@ -744,7 +745,7 @@ public WebDriver driver;
 		
 	}
 	
-	public void Count_Sheet_Report_Type_Retail_Item_Select_Category_And_RetailItem(WebDriver driver) throws Exception
+	public void Count_Sheet_Report_Type_Retail_Item_Select_Category_And_RetailItem(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -814,7 +815,7 @@ public WebDriver driver;
 		}
 	}
 	
-	public void Count_Sheet_Report_Type_Retail_Item_Category_Level_SubCategory_Select_Category_SubCategory_RetailItem(WebDriver driver) throws Exception 
+	public void Count_Sheet_Report_Type_Retail_Item_Category_Level_SubCategory_Select_Category_SubCategory_RetailItem(SelfHealingDriver driver) throws Exception 
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -892,7 +893,7 @@ public WebDriver driver;
 		}
 	}
 	
-	public void Count_Sheet_Report_Type_Sub_Recipe(WebDriver driver) throws Exception
+	public void Count_Sheet_Report_Type_Sub_Recipe(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -954,7 +955,7 @@ public WebDriver driver;
 	}
 	
 	
-	public void Count_Sheet_Report_Type_MenuItem(WebDriver driver) throws Exception 
+	public void Count_Sheet_Report_Type_MenuItem(SelfHealingDriver driver) throws Exception 
 	{
 		cmp=new Common_XPaths(driver, test);
 		csp = new InventoryReports_CountSheet_Page(driver, test);

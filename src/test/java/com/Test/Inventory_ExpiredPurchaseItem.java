@@ -19,6 +19,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.InventoryPage;
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -29,7 +30,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Inventory_ExpiredPurchaseItem {
 	
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -57,7 +58,7 @@ public class Inventory_ExpiredPurchaseItem {
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -75,10 +76,20 @@ public class Inventory_ExpiredPurchaseItem {
 		
 		Thread.sleep(2000);
 		//Call the chrome driver
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
+
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -108,7 +119,7 @@ public class Inventory_ExpiredPurchaseItem {
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Sub_Recipe_Page(WebDriver driver) throws Exception
+	public void Open_Sub_Recipe_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		air=new InventoryPage(driver, test);
@@ -136,7 +147,7 @@ public class Inventory_ExpiredPurchaseItem {
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination_ColumnFilteration(WebDriver driver) throws Exception
+	public void RefreshAndPaginination_ColumnFilteration(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -155,7 +166,7 @@ public class Inventory_ExpiredPurchaseItem {
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Verify_Detected_Purchase(WebDriver driver) throws Exception
+	public void Verify_Detected_Purchase(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);

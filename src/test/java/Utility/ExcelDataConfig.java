@@ -87,7 +87,7 @@ public class ExcelDataConfig {
 //
 //		sheet1 = wb.getSheetAt(sheetNumber);
 //		
-//		String data = sheet1.getRow(row).getCell(column).getStringCellValue();
+//		String data = sheet1.getRow(row).getCell(column).getStringCellValue(); 
 //		
 //				
 //		return data;
@@ -120,7 +120,7 @@ public class ExcelDataConfig {
 				style.setAlignment(HorizontalAlignment.CENTER);
 				style.setFont(font);
 				cell.setCellStyle(style);
-				cell.setCellValue(ReportValue);
+				cell.setCellValue(ReportValue); 
 			
 //			sheet1.getRow(row).createCell(column).setCellValue(ReportValue);
 			

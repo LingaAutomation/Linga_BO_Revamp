@@ -26,6 +26,7 @@ import com.Pages.CoursingPage;
 import com.Pages.CustomersPage;
 import com.Pages.LoginPage;
 import com.Pages.UserManagementPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -36,7 +37,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Customers_House_Accounts 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -66,7 +67,7 @@ public class Customers_House_Accounts
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -84,11 +85,19 @@ public class Customers_House_Accounts
 		
 		Thread.sleep(2000);
 		//Call the chrome driver
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
 		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -124,7 +133,7 @@ public class Customers_House_Accounts
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_House_Account_Page(WebDriver driver) throws Exception
+	public void Open_House_Account_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cus=new CustomersPage(driver, test);
@@ -140,7 +149,7 @@ public class Customers_House_Accounts
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination_ColumnFilteration(WebDriver driver) throws Exception
+	public void RefreshAndPaginination_ColumnFilteration(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		cus=new CustomersPage(driver, test);
@@ -162,7 +171,7 @@ public class Customers_House_Accounts
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_New_House_Account(WebDriver driver) throws Exception
+	public void Add_New_House_Account(SelfHealingDriver driver) throws Exception
 	{
 		cus=new CustomersPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -336,7 +345,7 @@ public class Customers_House_Accounts
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_House_Account(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_House_Account(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		cus=new CustomersPage(driver, test);
@@ -387,7 +396,7 @@ public class Customers_House_Accounts
 		
 	}
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_House_Account_Weekly_Period(WebDriver driver) throws Exception
+	public void Edit_and_Update_House_Account_Weekly_Period(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		cus=new CustomersPage(driver, test);
@@ -464,7 +473,7 @@ public class Customers_House_Accounts
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_House_Account_Monthly_Period(WebDriver driver) throws Exception
+	public void Edit_and_Update_House_Account_Monthly_Period(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		cus=new CustomersPage(driver, test);
@@ -594,7 +603,7 @@ public class Customers_House_Accounts
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_House_Account_Daily_Period(WebDriver driver) throws Exception
+	public void Edit_and_Update_House_Account_Daily_Period(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		cus=new CustomersPage(driver, test);
@@ -687,7 +696,7 @@ public class Customers_House_Accounts
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_House_Account(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_House_Account(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -821,7 +830,7 @@ public class Customers_House_Accounts
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_Duplicate_House_Account(WebDriver driver) throws Exception
+	public void Create_Duplicate_House_Account(SelfHealingDriver driver) throws Exception
 	{
 		cus=new CustomersPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

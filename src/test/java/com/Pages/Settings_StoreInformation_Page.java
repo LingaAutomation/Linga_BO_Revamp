@@ -12,21 +12,24 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class Settings_StoreInformation_Page {
-	WebDriver driver;
-	ExtentTest test;
+public class Settings_StoreInformation_Page extends BasePage
+{
+//	SelfHealingDriver driver;
+//	ExtentTest test;
 	Common_XPaths cmp;
 	Utility ut=new Utility();
 	
-	public Settings_StoreInformation_Page(WebDriver driver,ExtentTest test)
+	public Settings_StoreInformation_Page(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
+//		this.driver=driver;
+//		this.test=test;
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -1214,6 +1217,16 @@ public class Settings_StoreInformation_Page {
 		else {
 			test.log(LogStatus.FAIL, "Required tooltip is not displayed for Time Zone field");
 		}
+	}
+	
+	public WebElement PhoneNumber_InputBox()
+	{
+		return PhoneNumber_input;
+	}
+	
+	public WebElement ZipCode_InputBox()
+	{
+		return ZipCode_input;
 	}
 	
 	// Newly Added 

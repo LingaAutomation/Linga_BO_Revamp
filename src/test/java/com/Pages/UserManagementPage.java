@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
@@ -17,7 +18,7 @@ import Utility.Utility;
 public class UserManagementPage extends BasePage
 {
 	
-	public UserManagementPage(WebDriver driver, ExtentTest test) {
+	public UserManagementPage(SelfHealingDriver driver, ExtentTest test) {
 //		super(driver, test);
 //		// TODO Auto-generated constructor stub
 //		this.driver=driver;

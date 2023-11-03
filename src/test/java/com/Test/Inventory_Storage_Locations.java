@@ -20,6 +20,7 @@ import com.Pages.LoginPage;
 import com.Pages.ModifierGroupsPage;
 import com.Pages.ModifiersPage;
 import com.Pages.ServingSizeLevelsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.InventoryPage;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -33,7 +34,7 @@ public class Inventory_Storage_Locations {
 
 	
 	
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -60,7 +61,7 @@ public class Inventory_Storage_Locations {
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -84,7 +85,7 @@ public class Inventory_Storage_Locations {
 		ChromeOptions chrOpt=new ChromeOptions();
 		chrOpt.addArguments("--remote-allow-origins=*");
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		driver=(SelfHealingDriver) new ChromeDriver(chrOpt);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -120,7 +121,7 @@ public class Inventory_Storage_Locations {
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Inventory_Storage_Locations_Page(WebDriver driver) throws Exception
+	public void Open_Inventory_Storage_Locations_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		air=new InventoryPage(driver, test);
@@ -136,7 +137,7 @@ public class Inventory_Storage_Locations {
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -151,7 +152,7 @@ public class Inventory_Storage_Locations {
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_Inventory_Storage_Location(WebDriver driver) throws Exception
+	public void Add_Inventory_Storage_Location(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -224,7 +225,7 @@ public class Inventory_Storage_Locations {
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_Storage_Location(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_Storage_Location(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -280,7 +281,7 @@ public class Inventory_Storage_Locations {
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Storage_Location(WebDriver driver) throws Exception
+	public void Edit_and_Update_Storage_Location(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -386,7 +387,7 @@ public class Inventory_Storage_Locations {
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_Storage_Location(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_Storage_Location(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -528,7 +529,7 @@ public class Inventory_Storage_Locations {
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_Duplicate_Storage_Location(WebDriver driver) throws Exception
+	public void Create_Duplicate_Storage_Location(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -582,7 +583,7 @@ public class Inventory_Storage_Locations {
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Verify_Added_Storage_Location_in_InvetoryItem_Integration(WebDriver driver) throws Exception
+	public void Verify_Added_Storage_Location_in_InvetoryItem_Integration(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -629,7 +630,7 @@ public class Inventory_Storage_Locations {
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Verify_Added_Storage_Location_in_SubRecipe_Integration(WebDriver driver) throws Exception
+	public void Verify_Added_Storage_Location_in_SubRecipe_Integration(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

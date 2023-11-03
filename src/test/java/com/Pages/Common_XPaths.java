@@ -18,23 +18,25 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class Common_XPaths 
+public class Common_XPaths extends BasePage
 {
 
-	public WebDriver driver;
-	public ExtentTest test;
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	
 	Utility ut=new Utility();
 	WebDriverWait wait;
-	public Common_XPaths(WebDriver driver,ExtentTest test)
+	public Common_XPaths(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
+//		this.driver=driver;
+//		this.test=test;
+		super(driver,test);
 		
 		PageFactory.initElements(driver, this);
 	}
@@ -990,6 +992,31 @@ public class Common_XPaths
 		else
 		{
 			test.log(LogStatus.FAIL, "Name should exceeded the size");
+		}
+	
+	}
+	
+	public void Verify_Enter_Excess_Limit_InputBox(WebElement Element, String Inputs, int Size)
+	{
+//		String NameExcess = "Entering Invalid Name to input"; 
+		int ActualSize= Inputs.length();
+		System.out.println(ActualSize);
+
+		//Enter the Modifier Name
+		Element.sendKeys(Inputs);
+		
+		//To get value
+		String ActualName=Element.getAttribute("value");
+		int EnteredSize= ActualName.length();
+		System.out.println(EnteredSize);
+
+		if(EnteredSize==Size)
+		{
+			test.log(LogStatus.PASS, "Name should not be Exceeded "+Size+" Characters");
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Name should exceeded the size of "+Size+"");
 		}
 	
 	}

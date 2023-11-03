@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Test.Enterprise_Add_Edit_Central_Kitchen">
+      <class name="com.Test.Dashboard_Sales_Old_BO">
         <methods>
+          <include name="TestFail"/>
           <include name="flushTest"/>
           <include name="Calling"/>
-          <include name="TestFail"/>
         </methods>
-      </class> <!-- com.Test.Enterprise_Add_Edit_Central_Kitchen -->
+      </class> <!-- com.Test.Dashboard_Sales_Old_BO -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

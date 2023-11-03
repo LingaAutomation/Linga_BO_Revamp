@@ -15,6 +15,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
@@ -23,25 +24,25 @@ public class Utility
 {
 	
 	
-	public void PassedCaptureScreenshotAsBASE64(WebDriver driver,ExtentTest test)
+	public void PassedCaptureScreenshotAsBASE64(SelfHealingDriver driver,ExtentTest test)
 	{
-		String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+		String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 		String s="data:image/png;base64,"+scnsht;
 		
 		test.log(LogStatus.PASS, test.addScreenCapture(s));
 	}
 	 
 	
-	public void FailedCaptureScreenshotAsBASE64(WebDriver driver,ExtentTest test)
+	public void FailedCaptureScreenshotAsBASE64(SelfHealingDriver driver,ExtentTest test)
 	{
-		String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+		String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 		String s="data:image/png;base64,"+scnsht;
 		
 		test.log(LogStatus.FAIL, test.addScreenCapture(s));
 	}
 	 
 	
-	public static String captureScreenshot(WebDriver driver,String screenshotName)
+	public static String captureScreenshot(SelfHealingDriver driver,String screenshotName)
 	{
 
 		try 
@@ -63,7 +64,7 @@ public class Utility
 		} 
 	}
 //	test.log(LogStatus.FAIL,test.addScreenCapture(capture(driver))+ "Test Failed");
-	public static String capture(WebDriver driver) throws IOException {
+	public static String capture(SelfHealingDriver driver) throws IOException {
 	File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 	File Dest = new File("src/../ErrImages/" + System.currentTimeMillis()
 	+ ".png");

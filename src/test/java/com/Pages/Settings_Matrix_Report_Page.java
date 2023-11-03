@@ -5,25 +5,26 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class Settings_Matrix_Report_Page 
+public class Settings_Matrix_Report_Page extends BasePage
 {
-	public WebDriver driver;
-	public ExtentTest test;
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	Common_XPaths cmp;
 	Utility ut=new Utility();
 	String sa = "0";
 	String sa3 = "0%";
 
-	public   Settings_Matrix_Report_Page(WebDriver driver, ExtentTest test) 
+	public   Settings_Matrix_Report_Page(SelfHealingDriver driver, ExtentTest test) 
 	{
-		this.driver=driver;
-		this.test=test;
-
+//		this.driver=driver;
+//		this.test=test;
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 	

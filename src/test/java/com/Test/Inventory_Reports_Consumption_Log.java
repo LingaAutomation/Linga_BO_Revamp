@@ -26,6 +26,7 @@ import com.Pages.InventoryPage;
 import com.Pages.InventoryReport_Consumption_LogPage;
 import com.Pages.InventoryReport_Consumption_LogPage;
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -36,7 +37,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Inventory_Reports_Consumption_Log {
 	
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	
@@ -67,7 +68,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -85,11 +86,21 @@ public WebDriver driver;
 		
 		Thread.sleep(2000);
 		//Call the chrome driver
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
-		driver=new ChromeDriver(chrOpt);
-	
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
+//		driver=new ChromeDriver(chrOpt);
+
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
+		
 		//Inizialize GoogleChrome driver path
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 			
@@ -154,7 +165,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_InventoryReport_Consumption_LogPage(WebDriver driver) throws Exception
+	public void Open_InventoryReport_Consumption_LogPage(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -169,7 +180,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination_ColumnFilteration(WebDriver driver) throws Exception
+	public void RefreshAndPaginination_ColumnFilteration(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -188,7 +199,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_System_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_System_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -312,7 +323,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_Manual_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_Manual_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -436,7 +447,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_Inventory_Consuption_Type_AS_ALL_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_Inventory_Consuption_Type_AS_ALL_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -561,7 +572,7 @@ public WebDriver driver;
 		}
 		
 		@Test(priority = 4,enabled = false)
-		public void ConsumptionLog_Type_As_Retail_Consuption_Type_AS_ALL_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+		public void ConsumptionLog_Type_As_Retail_Consuption_Type_AS_ALL_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 		{
 			cmp=new Common_XPaths(driver, test);
 			air=new InventoryPage(driver, test);
@@ -687,7 +698,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_Inventory_Consuption_Type_AS_Category_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_Inventory_Consuption_Type_AS_Category_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -818,7 +829,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_Retail_Consuption_Type_AS_Category_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_Retail_Consuption_Type_AS_Category_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -950,7 +961,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_Retail_Consuption_Type_AS_SubCategory_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_Retail_Consuption_Type_AS_SubCategory_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -1086,7 +1097,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_Inventory_Consuption_Type_AS_SubCategory_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_Inventory_Consuption_Type_AS_SubCategory_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -1221,7 +1232,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_SubRecipe_Consuption_Type_AS_AnySubRecipe_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_SubRecipe_Consuption_Type_AS_AnySubRecipe_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -1348,7 +1359,7 @@ public WebDriver driver;
 }
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_SubRecipe_Consuption_Type_AS_ALL_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_SubRecipe_Consuption_Type_AS_ALL_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -1474,7 +1485,7 @@ public WebDriver driver;
 }
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_SubRecipe_Consuption_Type_AS_ALL_Date_Range_System_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_SubRecipe_Consuption_Type_AS_ALL_Date_Range_System_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -1600,7 +1611,7 @@ public WebDriver driver;
 }
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_Today_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_Today_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -1724,7 +1735,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_Yesterday_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_Yesterday_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -1848,7 +1859,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_N_No_Days_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_N_No_Days_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -1971,7 +1982,7 @@ public WebDriver driver;
 		
 	}
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_ThisWeek_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_ThisWeek_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -2095,7 +2106,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_LastWeek_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_LastWeek_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -2219,7 +2230,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_Last7Days_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_Last7Days_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -2344,7 +2355,7 @@ public WebDriver driver;
 	
 
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_thisMonth_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_thisMonth_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -2488,7 +2499,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_LastMonth_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_LastMonth_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -2619,7 +2630,7 @@ public WebDriver driver;
 		
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_Last30Days_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_Last30Days_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -2750,7 +2761,7 @@ public WebDriver driver;
 		
 	
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_SpecificDate_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_SpecificDate_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -2881,7 +2892,7 @@ public WebDriver driver;
 		
 
 	@Test(priority = 4,enabled = false)
-	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_Today_EXPORT_Cancel_Clos(WebDriver driver) throws Exception
+	public void ConsumptionLog_Type_As_ALL_Consuption_Type_AS_All_Today_EXPORT_Cancel_Clos(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);

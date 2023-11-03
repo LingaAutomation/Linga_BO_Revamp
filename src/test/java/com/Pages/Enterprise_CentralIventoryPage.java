@@ -1,6 +1,8 @@
 package com.Pages;
 
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,23 +10,26 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class Enterprise_CentralIventoryPage 
+public class Enterprise_CentralIventoryPage extends BasePage
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	public ExtentTest test;
 	
 	Utility ut=new Utility();
 	Common_XPaths cmp;
 	
-	public Enterprise_CentralIventoryPage(WebDriver driver,ExtentTest test)
+	public Enterprise_CentralIventoryPage(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
+//		this.driver=driver;
+//		this.test=test;
+		
+		super(driver,test);
 		
 		PageFactory.initElements(driver, this);
 	}
@@ -41,7 +46,7 @@ public class Enterprise_CentralIventoryPage
 	@FindBy(xpath = "//app-toggle[contains(.,'Copy Menu From Existing Store')]//button[.='No']")
 	WebElement Copy_Menu_ExistingStore_NoToggle;
 	
-	@FindBy(xpath = "//button[contains(.,'Select Store')]")
+	@FindBy(xpath = "//label[contains(.,'Select Store')]/../../input")
 	WebElement Select_StoreInputBx;
 	
 	public void Click_Add_Central_Warehouse()
@@ -458,4 +463,363 @@ public class Enterprise_CentralIventoryPage
 	{
 		Add_Central_KitchenBtn.click();
 	}
+	
+	@FindBy(xpath = "//input[@aria-label='Sort By']")
+	WebElement Sort_ByInputBx;
+	
+	@FindBy(xpath = "//select-option[contains(.,'Ascending')]")
+	WebElement Ascending_Option;
+	
+	@FindBy(xpath = "//select-option[contains(.,'Descending')]")
+	WebElement Descending_Option;
+	
+	public void Verify_AscendingOrder_CentralInventory() throws Exception
+	{
+		Thread.sleep(2000);
+		Sort_ByInputBx.click();
+		
+		Thread.sleep(2000);
+		Ascending_Option.click();
+		
+		ArrayList<String> ArLst=new ArrayList<String>();
+	
+			List<WebElement> NameLst=driver.findElements(By.xpath("//div[@class='central-warehouse-content']/div/span"));
+			
+			for(WebElement ele:NameLst)
+			{ 
+				ArLst.add(ele.getText());
+			}
+			
+			ArrayList<String> sortedLst=new ArrayList<String>();
+			
+			for(String st:ArLst)
+			{
+				sortedLst.add(st);
+			}
+			
+			Collections.sort(sortedLst);
+			
+			if(sortedLst.equals(ArLst))
+			{
+				test.log(LogStatus.PASS, "Ascending Order Sorted Correctly");
+				
+				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+				
+				System.out.println(sortedLst);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Ascending Order Sorted Incorrect");
+				
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+				
+				System.out.println(sortedLst);
+			}
+		
+	}
+	
+	public void Verify_DescendingOrder_CentralInventory() throws Exception
+	{
+		Thread.sleep(2000);
+		Sort_ByInputBx.click();
+		
+		Thread.sleep(2000);
+		Descending_Option.click();
+		
+		ArrayList<String> ArLst=new ArrayList<String>();
+	
+			List<WebElement> NameLst=driver.findElements(By.xpath("//div[@class='central-warehouse-content']/div/span"));
+			
+			for(WebElement ele:NameLst)
+			{
+				ArLst.add(ele.getText());
+			}
+			
+			ArrayList<String> sortedLst=new ArrayList<String>();
+			
+			for(String st:ArLst)
+			{
+				sortedLst.add(st);
+			}
+			
+			Collections.sort(sortedLst);
+			Collections.reverse(sortedLst);
+			
+			if(sortedLst.equals(ArLst))
+			{
+				test.log(LogStatus.PASS, "Desending Order Sorted Correctly");
+				
+				ut.PassedCaptureScreenshotAsBASE64(driver, test);
+				
+				System.out.println(sortedLst);
+			}
+			else
+			{
+				test.log(LogStatus.FAIL, "Desending Order Sorted Incorrect");
+				
+				ut.FailedCaptureScreenshotAsBASE64(driver, test);
+				
+				System.out.println(sortedLst);
+			}
+		
+	}
+	
+	
+	//////////////// Central Inventory - Menu Configuration /////////////////////////////
+	
+	@FindBy(xpath = "//span[contains(.,' PULL MENU CONFIGURATION ')]/../../button[@disabled='true']")
+	WebElement PULL_MENU_CONFIGURATION_Button_disabled;
+	
+	
+	@FindBy(xpath = "//span[contains(.,' PULL MENU CONFIGURATION ')]/../../button")
+	WebElement PULL_MENU_CONFIGURATION_Button;
+	
+	
+	@FindBy(xpath = "(//h6[contains(.,'Pull Data From')]/..//label[contains(.,'Type')]/../../input)[1]")
+	WebElement PULL_Data_From_type_input;
+	
+	
+	@FindBy(xpath = "(//h6[contains(.,'Push Data To')]/..//label[contains(.,'Type')]/../../input)[2]")
+	WebElement PUSH_Data_TO_type_input;
+	
+	@FindBy(xpath = "(//h6[contains(.,'Pull Data From')]/..//label[contains(.,'Select Store ')]/../../input)[1]")
+	WebElement PULL_Data_From_Store_input;
+	
+	
+	@FindBy(xpath = "(//h6[contains(.,'Push Data To')]/..//label[contains(.,'Select Store ')]/../../input)[2]")
+	WebElement PUSH_Data_TO_Store_input;
+	
+	
+	@FindBy(xpath = "//cdk-virtual-scroll-viewport//div/div/select-option/div[contains(.,'Stores')]")
+	WebElement Select_Store;
+	@FindBy(xpath = "//cdk-virtual-scroll-viewport//div/div/select-option/div[contains(.,'Central WareHouse')]")
+	WebElement Select_Central_WareHouse;
+	@FindBy(xpath = "//cdk-virtual-scroll-viewport//div/div/select-option/div[contains(.,'Central Kitchen')]")
+	WebElement Select_Central_Kitchen;
+	
+//	@FindBy(xpath = "//div[@class='option-list']//input[@data-placeholder='Search']")
+//	WebElement SearchBox_DropDown;
+//	
+//	@FindBy(xpath = "//cdk-virtual-scroll-viewport//div/div[1]//select-option/div")
+//	WebElement First_Option_inDropDown;
+//	
+	
+	
+	@FindBy(xpath = "//span[contains(.,'Select different store')]")
+	WebElement Select_different_store;
+	
+	
+	
+	public WebElement PULL_Data_From_type_input() {
+		return PULL_Data_From_type_input;
+	}
+	public WebElement Select_different_store() {
+		return Select_different_store;
+	}
+	
+	
+	
+//	public WebElement First_Option_inDropDown() {
+//		return First_Option_inDropDown;
+//	}
+//	
+//	public WebElement SearchBox_DropDown() {
+//		return SearchBox_DropDown;
+//	}
+	
+	public WebElement PULL_MENU_CONFIGURATION_Button_disabled() {
+		return PULL_MENU_CONFIGURATION_Button_disabled;
+	}
+	
+	public WebElement PULL_MENU_CONFIGURATION_Button() {
+		return PULL_MENU_CONFIGURATION_Button;
+	}
+	
+	
+	
+	public WebElement PULL_Data_From_Store_input() {
+		return PULL_Data_From_Store_input;
+	}
+	public WebElement PUSH_Data_TO_Store_input() {
+		return PUSH_Data_TO_Store_input;
+	}
+	public void Select_Pull_type_store() { 
+		
+		PULL_Data_From_type_input.click();
+		
+		Select_Store.click();
+	
+	}
+	
+	
+public void Select_Pull_type_Central_WareHouse() { 
+		
+		PULL_Data_From_type_input.click();
+		
+		Select_Central_WareHouse.click();
+	
+	}
+
+public void Select_Pull_type_Central_Kitchen() { 
+	
+	PULL_Data_From_type_input.click();
+	
+	Select_Central_Kitchen.click();
+
+}
+	
+	
+public void Select_Push_type_store() { 
+		
+		PUSH_Data_TO_type_input.click();
+		
+		Select_Store.click();
+	
+	}
+
+public void Select_Push_type_Central_WareHouse() { 
+	
+	PUSH_Data_TO_type_input.click();
+	
+	Select_Central_WareHouse.click();
+
+}
+
+public void Select_Push_type_Central_Kitchen() { 
+	
+	PUSH_Data_TO_type_input.click();
+	
+	Select_Central_Kitchen.click();
+
+}
+	
+	
+	
+	
+//public void Select_Source_Store() throws InterruptedException {
+//	
+//	Thread.sleep(1000);
+//	PULL_Data_From_Store_input.click();
+//	Thread.sleep(1000);
+//
+//	List<WebElement> optList=driver.findElements(By.xpath("//cdk-virtual-scroll-viewport//div/div//select-option"));
+//
+//	int optionSize=optList.size();
+//	
+//	System.out.println("Options Size "+optionSize);
+//	if(optionSize==0)
+//	{
+//		
+//		List<WebElement> optList1=driver.findElements(By.xpath("//cdk-virtual-scroll-viewport//div/div//select-option"));
+//		
+//		int optionSize1=optList1.size();
+//		
+//		
+//		int randomOpt=ThreadLocalRandom.current().nextInt(1, optionSize1);
+//		Thread.sleep(1000);
+//		String opt=driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+"]//select-option")).getText();
+//		Thread.sleep(1000);
+//		SearchBox_DropDown.clear();
+//		Thread.sleep(1000);
+//		SearchBox_DropDown.sendKeys(opt);
+//		Thread.sleep(5000);
+//		First_Option_inDropDown.click();
+//		Thread.sleep(5000);
+//	
+//}
+//	else //if(optionSize<=10)
+//	{
+//		
+//		
+//List<WebElement> optList1=driver.findElements(By.xpath("//cdk-virtual-scroll-viewport//div/div//select-option"));
+//		
+//		int optionSize1=optList1.size();
+//		
+//	int randomOpt=ThreadLocalRandom.current().nextInt(1, optionSize1);
+//	
+//	Thread.sleep(1000);
+//	
+//	
+//	String opt=driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+"]//select-option")).getText();
+//	
+//	Thread.sleep(1000);
+//	SearchBox_DropDown.clear();
+//	Thread.sleep(1000);
+//	SearchBox_DropDown.sendKeys(opt);
+//	Thread.sleep(5000);
+//	First_Option_inDropDown.click();
+//	Thread.sleep(5000);
+//	
+//	}
+//
+//}
+
+//public void Select_Destination_Store() throws InterruptedException {
+//	
+//	Thread.sleep(1000);
+//	PUSH_Data_TO_Store_input.click();
+//	Thread.sleep(1000);
+//
+//	List<WebElement> optList=driver.findElements(By.xpath("//cdk-virtual-scroll-viewport//div/div//select-option"));
+//
+//	int optionSize=optList.size();
+//	
+//	System.out.println("Options Size "+optionSize);
+//	if(optionSize==0)
+//	{
+//		
+//		List<WebElement> optList1=driver.findElements(By.xpath("//cdk-virtual-scroll-viewport//div/div//select-option"));
+//		
+//		int optionSize1=optList1.size();
+//		
+//		
+//		int randomOpt=ThreadLocalRandom.current().nextInt(1, optionSize1);
+//		
+//		
+//		Thread.sleep(1000);
+//		
+//		
+//		String opt=driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+"]//select-option")).getText();
+//		
+//		Thread.sleep(1000);
+//		SearchBox_DropDown.clear();
+//		Thread.sleep(1000);
+//		SearchBox_DropDown.sendKeys(opt);
+//		Thread.sleep(5000);
+//		First_Option_inDropDown.click();
+//		Thread.sleep(5000);
+//	
+//	
+//}
+//	else //if(optionSize<=10)
+//	{
+//		
+//		
+//List<WebElement> optList1=driver.findElements(By.xpath("//cdk-virtual-scroll-viewport//div/div//select-option"));
+//		
+//		int optionSize1=optList1.size();
+//		
+//	int randomOpt=ThreadLocalRandom.current().nextInt(1, optionSize);
+//	
+//	Thread.sleep(1000);
+//	
+//	
+//    Thread.sleep(1000);
+//	
+//	
+//	String opt=driver.findElement(By.xpath("//cdk-virtual-scroll-viewport//div/div["+randomOpt+"]//select-option")).getText();
+//	
+//	Thread.sleep(1000);
+//	SearchBox_DropDown.clear();
+//	Thread.sleep(1000);
+//	SearchBox_DropDown.sendKeys(opt);
+//	Thread.sleep(5000);
+//	First_Option_inDropDown.click();
+//	Thread.sleep(5000);
+//	}
+//
+//}
+	
+	
+	
 }

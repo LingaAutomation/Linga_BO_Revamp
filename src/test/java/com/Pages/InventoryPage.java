@@ -14,6 +14,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
@@ -22,20 +23,21 @@ import Utility.Utility;
 public class InventoryPage extends BasePage
 {
 
-	public WebDriver driver;
-	public ExtentTest test;
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	
 	Utility ut=new Utility();
 	Common_XPaths cmp;
 	ReportsPage repts;
-	public InventoryPage(WebDriver driver,ExtentTest test)
+	public InventoryPage(SelfHealingDriver driver,ExtentTest test)
 	{
 //		this.driver=driver;
 //		this.test=test;
 //		
-//		PageFactory.initElements(driver, this);
-		
 		super(driver, test);
+		PageFactory.initElements(driver, this);
+		
+		
 	}
 	
 	@FindBy(xpath = "//button[contains(.,'Apply')]")

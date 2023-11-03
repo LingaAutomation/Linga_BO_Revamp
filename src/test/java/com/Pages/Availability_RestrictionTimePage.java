@@ -14,23 +14,25 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 
 import Utility.Utility;
 
-public class Availability_RestrictionTimePage 
+public class Availability_RestrictionTimePage extends BasePage
 {
 
-	public WebDriver driver;
-	public ExtentTest test;
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	
 	Utility ut=new Utility();
 	Common_XPaths cmp;
 	
-	public Availability_RestrictionTimePage(WebDriver driver,ExtentTest test)
+	public Availability_RestrictionTimePage(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
+//		this.driver=driver;
+//		this.test=test;
+		super(driver,test);
 		
 		PageFactory.initElements(driver, this);
 	}

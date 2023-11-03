@@ -27,6 +27,7 @@ import com.Pages.InventoryReport_COGS_Page;
 import com.Pages.InventoryReport_COGS_Page;
 import com.Pages.LoginPage;
 import com.Pages.ProductItems_Menu_RetailPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -37,7 +38,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Inventory_Reports_COGS_Report {
 	
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	
@@ -68,7 +69,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -86,11 +87,21 @@ public WebDriver driver;
 		
 		Thread.sleep(2000);
 		//Call the chrome driver
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
-		driver=new ChromeDriver(chrOpt);
-	
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
+//		driver=new ChromeDriver(chrOpt);
+
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
+		
 		//Inizialize GoogleChrome driver path
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 			
@@ -146,7 +157,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Inventory_Cogs_report_Page(WebDriver driver) throws Exception
+	public void Open_Inventory_Cogs_report_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -161,7 +172,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination_ColumnFilteration(WebDriver driver) throws Exception
+	public void RefreshAndPaginination_ColumnFilteration(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -181,7 +192,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 3,enabled = false)
-	public void Product_Item_MenuItem_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Product_Item_MenuItem_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 cmp=new Common_XPaths(driver, test);
@@ -296,7 +307,7 @@ cmp=new Common_XPaths(driver, test);
 			
 	
 	@Test(priority = 3,enabled = false)
-	public void Product_Item_RetailItem_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Product_Item_RetailItem_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 cmp=new Common_XPaths(driver, test);
@@ -408,7 +419,7 @@ cmp=new Common_XPaths(driver, test);
 	
 		
 	@Test(priority = 3,enabled = false)
-	public void Product_Item_Modifier_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Product_Item_Modifier_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
         cmp=new Common_XPaths(driver, test);
@@ -523,7 +534,7 @@ cmp=new Common_XPaths(driver, test);
 	
 	
 	@Test(priority = 3,enabled = false)
-	public void Product_Item_All_Apply(WebDriver driver) throws Exception
+	public void Product_Item_All_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -628,7 +639,7 @@ cmp=new Common_XPaths(driver, test);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Product_Item_All_Yesterday_Apply(WebDriver driver) throws Exception
+	public void Product_Item_All_Yesterday_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -736,7 +747,7 @@ cmp=new Common_XPaths(driver, test);
 		}
 	}
 	@Test(priority = 3,enabled = false)
-	public void Product_Item_All_N_No_of_Days_Apply(WebDriver driver) throws Exception
+	public void Product_Item_All_N_No_of_Days_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -847,7 +858,7 @@ cmp=new Common_XPaths(driver, test);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Product_Item_All_This_week_Apply(WebDriver driver) throws Exception
+	public void Product_Item_All_This_week_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -958,7 +969,7 @@ cmp=new Common_XPaths(driver, test);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Product_Item_All_Last_Week_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Product_Item_All_Last_Week_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -1069,7 +1080,7 @@ cmp=new Common_XPaths(driver, test);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Product_Item_All_Last_7_Days_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Product_Item_All_Last_7_Days_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -1180,7 +1191,7 @@ cmp=new Common_XPaths(driver, test);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Product_Item_All_This_Month_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Product_Item_All_This_Month_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -1291,7 +1302,7 @@ cmp=new Common_XPaths(driver, test);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Product_Item_All_Last_Month_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Product_Item_All_Last_Month_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -1401,7 +1412,7 @@ cmp=new Common_XPaths(driver, test);
 		}
 	}
 	@Test(priority = 3,enabled = false)
-	public void Product_Item_All_Last_30_Days_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Product_Item_All_Last_30_Days_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -1511,7 +1522,7 @@ cmp=new Common_XPaths(driver, test);
 		}
 	}
 	@Test(priority = 3,enabled = false)
-	public void Product_Item_All_Specific_Date_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Product_Item_All_Specific_Date_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -1621,7 +1632,7 @@ cmp=new Common_XPaths(driver, test);
 		}
 	}
 	@Test(priority = 3,enabled = false)
-	public void Product_Item_All_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Product_Item_All_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -1732,7 +1743,7 @@ cmp=new Common_XPaths(driver, test);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Inventory_Category_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Inventory_Category_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 cmp=new Common_XPaths(driver, test);
@@ -1907,7 +1918,7 @@ cmp=new Common_XPaths(driver, test);
 			
 	
 	@Test(priority = 3,enabled = false)
-	public void Inventory_SubCategory_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Inventory_SubCategory_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 cmp=new Common_XPaths(driver, test);
@@ -2021,7 +2032,7 @@ cmp=new Common_XPaths(driver, test);
 	
 	
 	@Test(priority = 3,enabled = false)
-	public void Inventory_All_Apply(WebDriver driver) throws Exception
+	public void Inventory_All_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -2189,7 +2200,7 @@ cmp=new Common_XPaths(driver, test);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Inventory_All_Yesterday_Apply(WebDriver driver) throws Exception
+	public void Inventory_All_Yesterday_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -2452,7 +2463,7 @@ cmp=new Common_XPaths(driver, test);
 
 	}
 	@Test(priority = 3,enabled = false)
-	public void Inventory_All_N_No_of_Days_Apply(WebDriver driver) throws Exception
+	public void Inventory_All_N_No_of_Days_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -2719,7 +2730,7 @@ cmp=new Common_XPaths(driver, test);
 	
 	
 	@Test(priority = 3,enabled = false)
-	public void Inventory_All_This_week_Apply(WebDriver driver) throws Exception
+	public void Inventory_All_This_week_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -2983,7 +2994,7 @@ cmp=new Common_XPaths(driver, test);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Inventory_All_Last_Week_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Inventory_All_Last_Week_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -3247,7 +3258,7 @@ cmp=new Common_XPaths(driver, test);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Inventory_All_Last_7_Days_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Inventory_All_Last_7_Days_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -3511,7 +3522,7 @@ cmp=new Common_XPaths(driver, test);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Inventory_All_This_Month_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Inventory_All_This_Month_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -3775,7 +3786,7 @@ cmp=new Common_XPaths(driver, test);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Inventory_All_Last_Month_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Inventory_All_Last_Month_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -4038,7 +4049,7 @@ cmp=new Common_XPaths(driver, test);
 
 	}
 	@Test(priority = 3,enabled = false)
-	public void Inventory_All_Specific_Date_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Inventory_All_Specific_Date_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -4301,7 +4312,7 @@ cmp=new Common_XPaths(driver, test);
 
 	}
 	@Test(priority = 3,enabled = false)
-	public void Inventory_All_Date_Range_TimePeriod_Apply(WebDriver driver) throws Exception
+	public void Inventory_All_Date_Range_TimePeriod_Apply(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);

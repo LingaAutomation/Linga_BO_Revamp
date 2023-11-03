@@ -9,14 +9,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class Inventory_Low_Stocks_Page {
-	WebDriver driver;
-	ExtentTest test;
+public class Inventory_Low_Stocks_Page extends BasePage
+{
+//	SelfHealingDriver driver;
+//	ExtentTest test;
 	Common_XPaths cmp;
 	ReportsPage rp;
 	
@@ -26,10 +28,12 @@ public class Inventory_Low_Stocks_Page {
 	
 	Utility ut=new Utility();
 	
-	public Inventory_Low_Stocks_Page(WebDriver driver,ExtentTest test)
+	public Inventory_Low_Stocks_Page(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
+//		this.driver=driver;
+//		this.test=test;
+		
+		super(driver,test);
 		PageFactory.initElements(driver, this);
 	}
 	

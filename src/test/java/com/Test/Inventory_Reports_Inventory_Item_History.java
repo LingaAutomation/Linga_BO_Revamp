@@ -18,6 +18,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -31,7 +32,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Inventory_Reports_Inventory_Item_History 
 {
 
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -60,7 +61,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -80,10 +81,20 @@ public WebDriver driver;
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
-		driver = new ChromeDriver(chromeOptions);
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
+//		driver = new ChromeDriver(chromeOptions);
+
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -134,7 +145,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Inventory_Item_History_Report_Page(WebDriver driver) throws Exception
+	public void Open_Inventory_Item_History_Report_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		repts=new ReportsPage(driver, test);
@@ -151,7 +162,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -189,7 +200,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void SelectTheType_InventoryItem(WebDriver driver) throws Exception
+	public void SelectTheType_InventoryItem(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(5000);	
 		//Click the Type
@@ -201,7 +212,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void SelectTheType_RetailItem(WebDriver driver) throws Exception
+	public void SelectTheType_RetailItem(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(5000);	
 		//Click the Type
@@ -212,7 +223,7 @@ public WebDriver driver;
 		Thread.sleep(500);
 	}
 	
-	public void Search(WebDriver driver) throws Exception
+	public void Search(SelfHealingDriver driver) throws Exception
 	{
 		//Clear the Search
 		driver.findElement(By.xpath("//input[@placeholder='Search']")).clear();
@@ -227,7 +238,7 @@ public WebDriver driver;
 	}
 			
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Today_InventoryItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Today_InventoryItem(SelfHealingDriver driver) throws Exception
 	{				test.log(LogStatus.INFO, "********************************************** Inventory Item History - Inventory Item(Starting) **********************************************");
 
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
@@ -268,7 +279,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Yesterday_InventoryItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Yesterday_InventoryItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -309,7 +320,7 @@ public WebDriver driver;
 
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Last_N_Days_InventoryItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Last_N_Days_InventoryItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -350,7 +361,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_This_Week_InventoryItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_This_Week_InventoryItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -389,7 +400,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Last_Week_InventoryItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Last_Week_InventoryItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -428,7 +439,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Last_7_Days_InventoryItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Last_7_Days_InventoryItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -467,7 +478,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_This_Month_InventoryItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_This_Month_InventoryItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -507,7 +518,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Last_Month_InventoryItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Last_Month_InventoryItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -545,7 +556,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Last_30_Days_InventoryItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Last_30_Days_InventoryItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -582,7 +593,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Specific_Date_InventoryItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Specific_Date_InventoryItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -620,7 +631,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Date_Range_InventoryItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Date_Range_InventoryItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -659,7 +670,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Today_RetailItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Today_RetailItem(SelfHealingDriver driver) throws Exception
 	{				test.log(LogStatus.INFO, "********************************************** Inventory Item History - Retail Item(Starting) **********************************************");
 
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
@@ -700,7 +711,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Yesterday_RetailItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Yesterday_RetailItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -741,7 +752,7 @@ public WebDriver driver;
 
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Last_N_Days_RetailItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Last_N_Days_RetailItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -782,7 +793,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_This_Week_RetailItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_This_Week_RetailItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -821,7 +832,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Last_Week_RetailItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Last_Week_RetailItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -860,7 +871,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Last_7_Days_RetailItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Last_7_Days_RetailItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -899,7 +910,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_This_Month_RetailItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_This_Month_RetailItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -939,7 +950,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Last_Month_RetailItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Last_Month_RetailItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -977,7 +988,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Last_30_Days_RetailItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Last_30_Days_RetailItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1014,7 +1025,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Specific_Date_RetailItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Specific_Date_RetailItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1052,7 +1063,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Item_History_Report_Date_Range_RetailItem(WebDriver driver) throws Exception
+	public void Inventory_Item_History_Report_Date_Range_RetailItem(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);

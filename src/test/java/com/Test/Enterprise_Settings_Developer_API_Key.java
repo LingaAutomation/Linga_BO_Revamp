@@ -18,6 +18,7 @@ import com.Pages.Enterprise_DeveloperAPI_Key_Page;
 import com.Pages.LoginPage;
 import com.Pages.ReportsPage;
 import com.Pages.Settings_TipOut_TipSharing_Page;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -28,7 +29,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Enterprise_Settings_Developer_API_Key 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 
 	ExtentReports rep = ExtentManager.getInstance();
@@ -56,7 +57,7 @@ public class Enterprise_Settings_Developer_API_Key
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s="data:image/png;base64,"+scnsht;
 
@@ -75,10 +76,21 @@ public class Enterprise_Settings_Developer_API_Key
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
+
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
+		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -109,7 +121,7 @@ public class Enterprise_Settings_Developer_API_Key
      
 
 	@Test(priority=3, enabled = false)
-	public void Open_DeveloperAPI_Page(WebDriver driver) throws Exception
+	public void Open_DeveloperAPI_Page(SelfHealingDriver driver) throws Exception
 	{
 		DA = new Enterprise_DeveloperAPI_Key_Page(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -124,7 +136,7 @@ public class Enterprise_Settings_Developer_API_Key
 		
 	}
 	@Test(priority=4, enabled = false)
-	public void Edit_Developer_API_Details(WebDriver driver) throws Exception
+	public void Edit_Developer_API_Details(SelfHealingDriver driver) throws Exception
 	{
 		DA = new Enterprise_DeveloperAPI_Key_Page(driver, test);
 		cmp = new Common_XPaths(driver, test);

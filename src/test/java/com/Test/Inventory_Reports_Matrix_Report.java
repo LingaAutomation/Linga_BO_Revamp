@@ -18,6 +18,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -31,7 +32,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Inventory_Reports_Matrix_Report 
 {
 
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -63,7 +64,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -83,10 +84,20 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
-		driver = new ChromeDriver(chromeOptions);
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
+//		driver = new ChromeDriver(chromeOptions);
+
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -127,7 +138,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Matrix_Report_Page(WebDriver driver) throws Exception
+	public void Open_Matrix_Report_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		repts=new ReportsPage(driver, test);
@@ -146,7 +157,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -185,7 +196,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void SelectTheType_ALL(WebDriver driver) throws Exception
+	public void SelectTheType_ALL(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(5000);	
 		//Click the Type
@@ -197,7 +208,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	}
 	
 
-	public void Search(WebDriver driver) throws Exception
+	public void Search(SelfHealingDriver driver) throws Exception
 	{
 		List<WebElement> menuList=driver.findElements(By.xpath("//div/div[contains(@class,'content-container')]"));
 		String s;
@@ -227,7 +238,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void verifyTheValues(WebDriver driver) throws Exception
+	public void verifyTheValues(SelfHealingDriver driver) throws Exception
 	{
 		//get the value of Cost Per Unit
 		String CPU = driver.findElement(By.xpath("//div[@class='content-container']/data-grid-row/div/div[5]/span")).getText().replaceAll("[a-zA-Z $ ₹ , :]", "");
@@ -269,7 +280,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 
 	
 	@Test(priority = 4,enabled = false)
-	public void Matrix_Report_Today(WebDriver driver) throws Exception
+	public void Matrix_Report_Today(SelfHealingDriver driver) throws Exception
 	{
 		test.log(LogStatus.INFO, "************************************************** COMPARE INVENTORY(Start) **************************************************");
 
@@ -313,7 +324,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Matrix_Report_Yesterday(WebDriver driver) throws Exception
+	public void Matrix_Report_Yesterday(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -355,7 +366,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 
 	
 	@Test(priority = 4,enabled = false)
-	public void Matrix_Report_Last_N_Days(WebDriver driver) throws Exception
+	public void Matrix_Report_Last_N_Days(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -397,7 +408,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Matrix_Report_This_Week(WebDriver driver) throws Exception
+	public void Matrix_Report_This_Week(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -437,7 +448,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Matrix_Report_Last_Week(WebDriver driver) throws Exception
+	public void Matrix_Report_Last_Week(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -478,7 +489,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Matrix_Report_Last_7_Days(WebDriver driver) throws Exception
+	public void Matrix_Report_Last_7_Days(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -519,7 +530,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	}
 		
 	@Test(priority = 4,enabled = false)
-	public void Matrix_Report_This_Month(WebDriver driver) throws Exception
+	public void Matrix_Report_This_Month(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -561,7 +572,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Matrix_Report_Last_Month(WebDriver driver) throws Exception
+	public void Matrix_Report_Last_Month(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -601,7 +612,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Matrix_Report_Last_30_Days(WebDriver driver) throws Exception
+	public void Matrix_Report_Last_30_Days(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -641,7 +652,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	}
 		
 	@Test(priority = 4,enabled = false)
-	public void Matrix_Report_Specific_Date(WebDriver driver) throws Exception
+	public void Matrix_Report_Specific_Date(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -681,7 +692,7 @@ ExtentTest test = rep.startTest("Inventory - Reports - Matrix Report");
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Matrix_Report_Date_Range(WebDriver driver) throws Exception
+	public void Matrix_Report_Date_Range(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);

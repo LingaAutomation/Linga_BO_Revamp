@@ -20,6 +20,7 @@ import com.Pages.Common_XPaths;
 import com.Pages.InventoryPage;
 import com.Pages.LoginPage;
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -31,7 +32,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Inventory_Purchases_Received_Items_Received_Logs 
 {
 
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -64,7 +65,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -82,10 +83,20 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 		
 		Thread.sleep(2000);
 		//Call the chrome driver
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
+
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -138,7 +149,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Received_Items_Page(WebDriver driver) throws Exception
+	public void Open_Received_Items_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		air=new InventoryPage(driver, test);
@@ -155,7 +166,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination_ColumnFilteration(WebDriver driver) throws Exception
+	public void RefreshAndPaginination_ColumnFilteration(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -173,7 +184,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Receive_New_Item(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Receive_New_Item(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -274,7 +285,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Receive_Inventory_Item_in_PurchaseOrder(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Receive_Inventory_Item_in_PurchaseOrder(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -351,7 +362,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Receive_SubRecipe_By_Prepare_SubRecipe(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Receive_SubRecipe_By_Prepare_SubRecipe(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -407,7 +418,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Verify_Receive_Inventory_Item_in_Received_Logs(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Verify_Receive_Inventory_Item_in_Received_Logs(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -536,7 +547,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_All_All(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_All_All(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -589,7 +600,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_All_NotStarted(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_All_NotStarted(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -643,7 +654,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 		
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_All_Progress(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_All_Progress(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -696,7 +707,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_All_Finished(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_All_Finished(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -749,7 +760,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_All_Not_Finished(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_All_Not_Finished(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -801,7 +812,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_InventoryItem_All(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_InventoryItem_All(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -854,7 +865,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_InventoryItem_Not_Started(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_InventoryItem_Not_Started(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -907,7 +918,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_InventoryItem_Progress(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_InventoryItem_Progress(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -960,7 +971,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_InventoryItem_Finished(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_InventoryItem_Finished(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1012,7 +1023,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_InventoryItem_Not_Finished(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_InventoryItem_Not_Finished(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1066,7 +1077,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_RetailItem_All(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_RetailItem_All(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1119,7 +1130,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_RetailItem_Not_Started(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_RetailItem_Not_Started(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1172,7 +1183,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_RetailItem_Progress(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_RetailItem_Progress(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1225,7 +1236,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_RetailItem_Finished(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_RetailItem_Finished(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1277,7 +1288,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_RetailItem_Not_Finished(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_RetailItem_Not_Finished(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1330,7 +1341,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_SubRecipe_All(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_SubRecipe_All(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1383,7 +1394,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_SubRecipe_Not_Started(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_SubRecipe_Not_Started(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1436,7 +1447,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_SubRecipe_Progress(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_SubRecipe_Progress(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1489,7 +1500,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_SubRecipe_Finished(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_SubRecipe_Finished(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1541,7 +1552,7 @@ public class Inventory_Purchases_Received_Items_Received_Logs
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Purchase_Received_Logs_verify_SubRecipe_Not_Finished(WebDriver driver) throws Exception
+	public void Inventory_Purchase_Received_Logs_verify_SubRecipe_Not_Finished(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

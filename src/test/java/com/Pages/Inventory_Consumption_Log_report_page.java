@@ -14,25 +14,28 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class Inventory_Consumption_Log_report_page {
+public class Inventory_Consumption_Log_report_page extends BasePage
+{
 	
-	public WebDriver driver;
-	public ExtentTest test;
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	Utility ut=new Utility();
 	WebDriverWait wait;
 	Common_XPaths cmp;
 	
 	TaxesPage tx;
-	public Inventory_Consumption_Log_report_page(WebDriver driver,ExtentTest test)
+	public Inventory_Consumption_Log_report_page(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
+//		this.driver=driver;
+//		this.test=test;
+		
+		super(driver,test);
 		
 		PageFactory.initElements(driver, this);
 	}

@@ -3,6 +3,7 @@ package com.Pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import java.time.Duration;
 import java.util.Collections;
@@ -24,17 +25,20 @@ import com.relevantcodes.extentreports.LogStatus;
 import Utility.ExcelDataConfig;
 import Utility.Utility;
 
-public class DashBoardPage {
-	public WebDriver driver;
-	public ExtentTest test;
+public class DashBoardPage extends BasePage
+{
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	
 	Utility ut=new Utility();
 	Common_XPaths cmp;
 	ReportsPage repts;
-	public DashBoardPage(WebDriver driver,ExtentTest test)
+	public DashBoardPage(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
+//		this.driver=driver;
+//		this.test=test;
+		
+		super(driver,test);
 		
 		PageFactory.initElements(driver, this);
 	}

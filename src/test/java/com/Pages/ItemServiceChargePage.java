@@ -9,21 +9,24 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import io.netty.util.internal.ThreadLocalRandom;
 
-public class ItemServiceChargePage {
+public class ItemServiceChargePage extends BasePage
+{
 
 	
-	public WebDriver driver;
-	public ExtentTest test;
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	
-	public ItemServiceChargePage(WebDriver driver,ExtentTest test)
+	public ItemServiceChargePage(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
+//		this.driver=driver;
+//		this.test=test;
+		super(driver,test);
 		
 		PageFactory.initElements(driver, this);
 	}

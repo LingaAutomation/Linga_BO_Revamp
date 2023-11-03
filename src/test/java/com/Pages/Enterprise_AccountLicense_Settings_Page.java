@@ -6,22 +6,25 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class Enterprise_AccountLicense_Settings_Page 
+public class Enterprise_AccountLicense_Settings_Page extends BasePage
 {
-	public WebDriver driver;
-	public ExtentTest test;
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	Utility ut=new Utility();
 	Common_XPaths cmp;
 
-	public Enterprise_AccountLicense_Settings_Page(WebDriver driver,ExtentTest test)
+	public Enterprise_AccountLicense_Settings_Page(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
+//		this.driver=driver;
+//		this.test=test;
+		
+		super(driver,test);
 
 		PageFactory.initElements(driver, this);
 	}

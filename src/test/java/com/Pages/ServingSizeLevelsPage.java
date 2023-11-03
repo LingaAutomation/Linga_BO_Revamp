@@ -5,17 +5,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 
-public class ServingSizeLevelsPage {
-	public WebDriver driver;
-	public ExtentTest test;
+public class ServingSizeLevelsPage extends BasePage
+{
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	
-	public ServingSizeLevelsPage(WebDriver driver,ExtentTest test)
+	public ServingSizeLevelsPage(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
-		
+//		this.driver=driver;
+//		this.test=test;
+		super(driver,test);
 		PageFactory.initElements(driver, this);
 	}
 	

@@ -25,6 +25,7 @@ import com.Pages.Common_XPaths;
 import com.Pages.InventoryPage;
 import com.Pages.LoginPage;
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -35,7 +36,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Inventory_Sub_Recipe 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -63,7 +64,7 @@ public class Inventory_Sub_Recipe
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -84,7 +85,7 @@ public class Inventory_Sub_Recipe
 		ChromeOptions chrOpt=new ChromeOptions();
 		chrOpt.addArguments("--remote-allow-origins=*");
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		driver=(SelfHealingDriver) new ChromeDriver(chrOpt);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -124,7 +125,7 @@ public class Inventory_Sub_Recipe
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Sub_Recipe_Page(WebDriver driver) throws Exception
+	public void Open_Sub_Recipe_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		air=new InventoryPage(driver, test);
@@ -140,7 +141,7 @@ public class Inventory_Sub_Recipe
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination_ColumnFilteration(WebDriver driver) throws Exception
+	public void RefreshAndPaginination_ColumnFilteration(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -159,7 +160,7 @@ public class Inventory_Sub_Recipe
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_Sub_Recipe_By_Inventory_Item(WebDriver driver) throws Exception
+	public void Add_Sub_Recipe_By_Inventory_Item(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -306,7 +307,7 @@ public class Inventory_Sub_Recipe
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_Sub_Recipe(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_Sub_Recipe(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -357,7 +358,7 @@ public class Inventory_Sub_Recipe
 		
 	}
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Sub_Recipe_by_Adding_SubRecipe(WebDriver driver) throws Exception
+	public void Edit_and_Update_Sub_Recipe_by_Adding_SubRecipe(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -466,7 +467,7 @@ public class Inventory_Sub_Recipe
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Sub_Recipe_by_Adding_Manual_Entry(WebDriver driver) throws Exception
+	public void Edit_and_Update_Sub_Recipe_by_Adding_Manual_Entry(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -526,7 +527,7 @@ public class Inventory_Sub_Recipe
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Sub_Recipe_by_Adding_Inventory_and_SubRecipe(WebDriver driver) throws Exception
+	public void Edit_and_Update_Sub_Recipe_by_Adding_Inventory_and_SubRecipe(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -592,7 +593,7 @@ public class Inventory_Sub_Recipe
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Sub_Recipe_by_Adding_Inventory_and_Manual_Entry(WebDriver driver) throws Exception
+	public void Edit_and_Update_Sub_Recipe_by_Adding_Inventory_and_Manual_Entry(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -649,7 +650,7 @@ public class Inventory_Sub_Recipe
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Sub_Recipe_by_Adding_SubRecipe_and_Manual_Entry(WebDriver driver) throws Exception
+	public void Edit_and_Update_Sub_Recipe_by_Adding_SubRecipe_and_Manual_Entry(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -704,7 +705,7 @@ public class Inventory_Sub_Recipe
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Sub_Recipe_by_Adding_InventoryItem_SubRecipe_and_Manual_Entry(WebDriver driver) throws Exception
+	public void Edit_and_Update_Sub_Recipe_by_Adding_InventoryItem_SubRecipe_and_Manual_Entry(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -769,7 +770,7 @@ public class Inventory_Sub_Recipe
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_Sub_Recipe(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_Sub_Recipe(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -903,7 +904,7 @@ public class Inventory_Sub_Recipe
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_Duplicate_Sub_Recipe(WebDriver driver) throws Exception
+	public void Create_Duplicate_Sub_Recipe(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -958,7 +959,7 @@ public class Inventory_Sub_Recipe
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Verify_Integration_Inv_SubRecipe_In_Adjust_Inventory_and_Adjust_Inventory_Report(WebDriver driver) throws Exception
+	public void Verify_Integration_Inv_SubRecipe_In_Adjust_Inventory_and_Adjust_Inventory_Report(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		

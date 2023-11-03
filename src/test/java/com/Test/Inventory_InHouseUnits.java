@@ -19,6 +19,7 @@ import com.Pages.Inventory_InHouseUnits_Page;
 import com.Pages.LoginPage;
 import com.Pages.TaxesPage;
 import com.Pages.UpchargesPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -29,7 +30,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Inventory_InHouseUnits
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 
 	ExtentReports rep = ExtentManager.getInstance();
@@ -56,7 +57,7 @@ public class Inventory_InHouseUnits
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s="data:image/png;base64,"+scnsht;
 
@@ -76,10 +77,21 @@ public class Inventory_InHouseUnits
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
+
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
+		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -115,7 +127,7 @@ public class Inventory_InHouseUnits
 	}
 
 	@Test(priority = 3, enabled = false)
-	public void Open_InHouseUnits_Page(WebDriver driver) throws Exception
+	public void Open_InHouseUnits_Page(SelfHealingDriver driver) throws Exception
 	{
 		cmp = new Common_XPaths(driver, test);
 		IHU = new Inventory_InHouseUnits_Page(driver, test);
@@ -132,7 +144,7 @@ public class Inventory_InHouseUnits
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination_Column_Filteration(WebDriver driver) throws Exception
+	public void RefreshAndPaginination_Column_Filteration(SelfHealingDriver driver) throws Exception
 	{
 		cmp = new Common_XPaths(driver, test);
 
@@ -144,7 +156,7 @@ public class Inventory_InHouseUnits
 	}
 
 	@Test(priority = 5,enabled = false)
-	public void Sorting_Name(WebDriver driver) throws Exception 
+	public void Sorting_Name(SelfHealingDriver driver) throws Exception 
 	{
 		IHU = new Inventory_InHouseUnits_Page(driver, test);
 
@@ -152,7 +164,7 @@ public class Inventory_InHouseUnits
 	}
 
 	@Test(priority = 6,enabled = false)
-	public void Add_New_InHouse_Unit(WebDriver driver) throws Exception
+	public void Add_New_InHouse_Unit(SelfHealingDriver driver) throws Exception
 	{
 		IHU = new Inventory_InHouseUnits_Page(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -201,7 +213,7 @@ public class Inventory_InHouseUnits
 
 	}
 	
-	public void Add_New_InHouse_Unit_SpecialChar(WebDriver driver) throws Exception 
+	public void Add_New_InHouse_Unit_SpecialChar(SelfHealingDriver driver) throws Exception 
 	{
 		IHU = new Inventory_InHouseUnits_Page(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -236,7 +248,7 @@ public class Inventory_InHouseUnits
 	}
 
 	@Test(priority = 7,enabled = false)
-	public void Edit_Cancel_Close_InHouseUnit(WebDriver driver) throws Exception 
+	public void Edit_Cancel_Close_InHouseUnit(SelfHealingDriver driver) throws Exception 
 	{
 		cmp = new Common_XPaths(driver, test);
 		IHU = new Inventory_InHouseUnits_Page(driver, test);
@@ -263,7 +275,7 @@ public class Inventory_InHouseUnits
 
 	@Test(priority = 8,enabled = false)
 
-	public void Edit_And_Update_InHouseUnit(WebDriver driver) throws Exception 
+	public void Edit_And_Update_InHouseUnit(SelfHealingDriver driver) throws Exception 
 	{
 		cmp = new Common_XPaths(driver, test);
 		IHU = new Inventory_InHouseUnits_Page(driver, test);
@@ -315,7 +327,7 @@ public class Inventory_InHouseUnits
 	}
 
 	@Test(priority = 9,enabled = false)
-	public void InActive_And_activate_InHouseUnit(WebDriver driver) throws Exception 
+	public void InActive_And_activate_InHouseUnit(SelfHealingDriver driver) throws Exception 
 	{
 
 		cmp = new Common_XPaths(driver, test);
@@ -377,7 +389,7 @@ public class Inventory_InHouseUnits
 	}
 
 	@Test(priority = 10,enabled = false)
-	public void Creating_Duplicate_InHouseUnit(WebDriver driver) throws Exception 
+	public void Creating_Duplicate_InHouseUnit(SelfHealingDriver driver) throws Exception 
 	{
 		IHU = new Inventory_InHouseUnits_Page(driver, test);
 		cmp = new Common_XPaths(driver, test);

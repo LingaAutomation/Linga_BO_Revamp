@@ -20,6 +20,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -30,7 +31,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 	ExtentReports rep = ExtentManager.getInstance();
 	ExtentTest test = rep.startTest("Enterprise Reports - Royalty/Franchise - Royalty Report");
@@ -54,7 +55,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	@AfterMethod
 	public void TestFail(ITestResult result) throws Exception {
 		if (result.getStatus() == ITestResult.FAILURE) {
-			String scnsht = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht = ((TakesScreenshot) driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s = "data:image/png;base64," + scnsht;
 
@@ -73,9 +74,20 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 //		WebDriverManager.chromedriver().driverVersion("110.0.5841").setup();
 //		driver=new ChromeDriver(chrOpt);
 
-		System.setProperty("webdriver.chrome.driver", "./Automation Driver/chromedriver.exe");
-		// Open the Chrome window
-		driver = new ChromeDriver();
+//		System.setProperty("webdriver.chrome.driver", "./Automation Driver/chromedriver.exe");
+//		// Open the Chrome window
+//		driver = new ChromeDriver();
+
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
+		
 		// Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		// Maximize the Chrome window
@@ -120,7 +132,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 
 	@Test(priority = 3, enabled = false)
-	public void Open_Enterprise_Settings_Royalty_Franchise_Report_Page(WebDriver driver) throws Exception {
+	public void Open_Enterprise_Settings_Royalty_Franchise_Report_Page(SelfHealingDriver driver) throws Exception {
 
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -141,7 +153,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception {
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception {
 		cmp = new Common_XPaths(driver, test);
 
 		// Verify the Pagination and Refresh the page
@@ -155,7 +167,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Store_Selected_Discount_N_Number_of_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Store_Selected_Discount_N_Number_of_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -288,7 +300,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Group_Selected_Discount_N_Number_of_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Group_Selected_Discount_N_Number_of_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -424,7 +436,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_State_Selected_Discount_N_Number_of_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_State_Selected_Discount_N_Number_of_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -559,7 +571,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_City_Selected_Discount_N_Number_of_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_City_Selected_Discount_N_Number_of_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -695,7 +707,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_ZipCode_Selected_Discount_N_Number_of_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_ZipCode_Selected_Discount_N_Number_of_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -831,7 +843,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Store_Selected_Discount_Today_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Store_Selected_Discount_Today_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -968,7 +980,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Store_Selected_Discount_Yesterday_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Store_Selected_Discount_Yesterday_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -1102,7 +1114,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Store_Selected_Discount_ThisWeek_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Store_Selected_Discount_ThisWeek_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -1235,7 +1247,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 		}
 	}
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Store_Selected_Discount_Last_Seaven_Days_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Store_Selected_Discount_Last_Seaven_Days_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -1371,7 +1383,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Store_Selected_Discount_LastWeek_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Store_Selected_Discount_LastWeek_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -1505,7 +1517,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Store_Selected_Discount_ThisMonth_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Store_Selected_Discount_ThisMonth_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -1640,7 +1652,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Store_Selected_Discount_LastMonth_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Store_Selected_Discount_LastMonth_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -1777,7 +1789,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Store_Selected_Discount_Last_thirtyDays_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Store_Selected_Discount_Last_thirtyDays_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -1914,7 +1926,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Store_Selected_Discount_SpecificDate_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Store_Selected_Discount_SpecificDate_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -2049,7 +2061,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 		}
 	}
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Store_Selected_Discount_Date_Ranage_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Store_Selected_Discount_Date_Ranage_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -2187,7 +2199,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Group_Selected_Discount_Today_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Group_Selected_Discount_Today_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -2324,7 +2336,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Group_Selected_Discount_Yesterday_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Group_Selected_Discount_Yesterday_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -2458,7 +2470,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Group_Selected_Discount_ThisWeek_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Group_Selected_Discount_ThisWeek_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -2591,7 +2603,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 		}
 	}
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Group_Selected_Discount_Last_Seaven_Days_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Group_Selected_Discount_Last_Seaven_Days_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -2727,7 +2739,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Group_Selected_Discount_LastWeek_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Group_Selected_Discount_LastWeek_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -2861,7 +2873,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Group_Selected_Discount_ThisMonth_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Group_Selected_Discount_ThisMonth_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -2996,7 +3008,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Group_Selected_Discount_LastMonth_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Group_Selected_Discount_LastMonth_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -3133,7 +3145,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Group_Selected_Discount_Last_thirtyDays_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Group_Selected_Discount_Last_thirtyDays_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -3270,7 +3282,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 	
 	
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Group_Selected_Discount_SpecificDate_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Group_Selected_Discount_SpecificDate_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -3405,7 +3417,7 @@ public class Enterprise_Reports_Royalty_Franchise_Royalty_Report {
 		}
 	}
 	@Test(priority = 4, enabled = false)
-	public void Royalty_report_Selected_Group_Selected_Discount_Date_Ranage_time_Period(WebDriver driver)
+	public void Royalty_report_Selected_Group_Selected_Discount_Date_Ranage_time_Period(SelfHealingDriver driver)
 			throws Exception {
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);

@@ -6,23 +6,25 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class DepartmentPage //extends BasePage 
+public class DepartmentPage extends BasePage 
 {
 
-	WebDriver driver;
-	ExtentTest test;
+//	SelfHealingDriver driver;
+//	ExtentTest test;
 	Common_XPaths cmp;
 	Utility ut=new Utility();
 	
-	public DepartmentPage(WebDriver driver,ExtentTest test)
+	public DepartmentPage(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
+//		this.driver=driver;
+//		this.test=test;
+		super(driver,test);
 		PageFactory.initElements(driver, this);
 		
 //		super(driver, test);

@@ -11,23 +11,24 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 
 import Utility.Utility;
 
-public class SaleRecapReport_SettingsPage 
+public class SaleRecapReport_SettingsPage extends BasePage
 {
 
-	public WebDriver driver;
-	public ExtentTest test;
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	Common_XPaths cmp;
 	Utility ut=new Utility();
 	
-	public SaleRecapReport_SettingsPage(WebDriver driver,ExtentTest test)
+	public SaleRecapReport_SettingsPage(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
-		
+//		this.driver=driver;
+//		this.test=test;
+		super(driver,test);
 		PageFactory.initElements(driver, this);
 	}
 	

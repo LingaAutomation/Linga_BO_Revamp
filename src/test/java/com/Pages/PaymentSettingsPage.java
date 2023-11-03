@@ -10,22 +10,24 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 
 import Utility.Utility;
 
-public class PaymentSettingsPage 
+public class PaymentSettingsPage extends BasePage
 {
 
-	public WebDriver driver;
-	public ExtentTest test;
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	
 	Utility ut=new Utility();
 	
-	public PaymentSettingsPage(WebDriver driver,ExtentTest test)
+	public PaymentSettingsPage(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
+//		this.driver=driver;
+//		this.test=test;
+		super(driver,test);
 		
 		PageFactory.initElements(driver, this);
 	}

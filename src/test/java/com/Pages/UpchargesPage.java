@@ -10,19 +10,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class UpchargesPage {
-	public WebDriver driver;
-	public ExtentTest test;
+public class UpchargesPage extends BasePage
+{
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	Common_XPaths cmp;
 	
-	public UpchargesPage(WebDriver driver,ExtentTest test)
+	public UpchargesPage(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
-		
+//		this.driver=driver;
+//		this.test=test;
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 	

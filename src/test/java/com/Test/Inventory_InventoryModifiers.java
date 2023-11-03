@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.Inventory_InventoryModifiers_Page;
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -26,7 +27,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Inventory_InventoryModifiers {
 
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 	ExtentReports rep = ExtentManager.getInstance();
 	ExtentTest test = rep.startTest("Inventory - Inventory Modifiers");
@@ -52,7 +53,7 @@ public class Inventory_InventoryModifiers {
 	@AfterMethod
 	public void TestFail(ITestResult result) throws Exception {
 		if (result.getStatus() == ITestResult.FAILURE) {
-			String scnsht = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht = ((TakesScreenshot) driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s = "data:image/png;base64," + scnsht;
 
@@ -68,11 +69,21 @@ public class Inventory_InventoryModifiers {
 		// Call the chrome driver
 		// System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		// Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
-		driver = new ChromeDriver(chromeOptions);
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
+//		driver = new ChromeDriver(chromeOptions);
 
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
+		
 		// Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		// Maximize the Chrome window
@@ -99,7 +110,7 @@ public class Inventory_InventoryModifiers {
 	}
 
 	@Test(priority = 3, enabled = false)
-	public void Open_PurchaseOrder_Page(WebDriver driver) throws Exception {
+	public void Open_PurchaseOrder_Page(SelfHealingDriver driver) throws Exception {
 
 		cmp = new Common_XPaths(driver, test);
 
@@ -120,7 +131,7 @@ public class Inventory_InventoryModifiers {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception {
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception {
 		cmp = new Common_XPaths(driver, test);
 
 		// Verify the Pagination and Refresh the page
@@ -131,7 +142,7 @@ public class Inventory_InventoryModifiers {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void VerifyTheLinkedItem(WebDriver driver) throws Exception {
+	public void VerifyTheLinkedItem(SelfHealingDriver driver) throws Exception {
 		imp = new Inventory_InventoryModifiers_Page(driver, test);
 
 		imp.Verify_InventoryModifier_Page();
@@ -142,7 +153,7 @@ public class Inventory_InventoryModifiers {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void LinkTheModifier(WebDriver driver) throws Exception {
+	public void LinkTheModifier(SelfHealingDriver driver) throws Exception {
 		imp = new Inventory_InventoryModifiers_Page(driver, test);
 
 		imp.LinkTheUnlinkedModifiers();

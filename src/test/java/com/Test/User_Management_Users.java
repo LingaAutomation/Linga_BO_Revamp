@@ -25,6 +25,7 @@ import com.Pages.Common_XPaths;
 import com.Pages.CoursingPage;
 import com.Pages.InventoryPage;
 import com.Pages.UserManagementPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.LoginPage;
 import com.Pages.Settings_StoreInformation_Page;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -36,7 +37,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class User_Management_Users {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -70,7 +71,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -91,7 +92,7 @@ public WebDriver driver;
 		ChromeOptions chrOpt=new ChromeOptions();
 		chrOpt.addArguments("--remote-allow-origins=*");
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		driver=(SelfHealingDriver) new ChromeDriver(chrOpt);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -130,7 +131,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_User_Management_Users_Page(WebDriver driver) throws Exception
+	public void Open_User_Management_Users_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		usm=new UserManagementPage(driver, test);
@@ -146,7 +147,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination_ColumnFilteration(WebDriver driver) throws Exception
+	public void RefreshAndPaginination_ColumnFilteration(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		usm=new UserManagementPage(driver, test);
@@ -169,7 +170,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_User_Management_Users(WebDriver driver) throws Exception
+	public void Add_User_Management_Users(SelfHealingDriver driver) throws Exception
 	{
 		usm=new UserManagementPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -449,7 +450,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_User_Management_Users(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_User_Management_Users(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		usm=new UserManagementPage(driver, test);
@@ -503,7 +504,7 @@ public WebDriver driver;
 		
 	}
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_User_Management_Users(WebDriver driver) throws Exception
+	public void Edit_and_Update_User_Management_Users(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		usm=new UserManagementPage(driver, test);
@@ -687,7 +688,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Enable_SignIn_User_Management_Users(WebDriver driver) throws Exception
+	public void Edit_and_Enable_SignIn_User_Management_Users(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		usm=new UserManagementPage(driver, test);
@@ -796,7 +797,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Add_Payroll_Hourly_User_Management_Users(WebDriver driver) throws Exception
+	public void Edit_and_Add_Payroll_Hourly_User_Management_Users(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		usm=new UserManagementPage(driver, test);
@@ -849,7 +850,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Add_Payroll_Monthly_User_Management_Users(WebDriver driver) throws Exception
+	public void Edit_and_Add_Payroll_Monthly_User_Management_Users(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		usm=new UserManagementPage(driver, test);
@@ -1010,7 +1011,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_User_Management_Users(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_User_Management_Users(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -1151,7 +1152,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_DuplicateCourse(WebDriver driver) throws Exception
+	public void Create_DuplicateCourse(SelfHealingDriver driver) throws Exception
 	{
 		usm=new UserManagementPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1210,7 +1211,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Verify_User_Login_and_User_Role_Integration(WebDriver driver) throws Exception
+	public void Verify_User_Login_and_User_Role_Integration(SelfHealingDriver driver) throws Exception
 	{
 		usm=new UserManagementPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -26,7 +27,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class AllClassCalling_Enterprise_Reports 
 {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 
 	ExtentReports rep = ExtentManager.getInstance();
@@ -52,7 +53,7 @@ public WebDriver driver;
 		{
 			if(result.getStatus()==ITestResult.FAILURE)
 			{
-				String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+				String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 				
 				String s="data:image/png;base64,"+scnsht;
 				
@@ -90,11 +91,20 @@ public WebDriver driver;
 //			//Open the Chrome window
 //			driver = new ChromeDriver();
 
-			ChromeOptions chrOpt=new ChromeOptions();
-			chrOpt.addArguments("--remote-allow-origins=*");
-			WebDriverManager.chromedriver().setup();
-			driver=new ChromeDriver(chrOpt);
+//			ChromeOptions chrOpt=new ChromeOptions();
+//			chrOpt.addArguments("--remote-allow-origins=*");
+//			WebDriverManager.chromedriver().setup();
+//			driver=new ChromeDriver(chrOpt);
 			
+			WebDriverManager.chromedriver().setup();
+			
+			ChromeOptions options=new ChromeOptions();
+			
+			options.setHeadless(false);
+			
+			WebDriver delegate=new ChromeDriver();
+			
+			driver=SelfHealingDriver.create(delegate);
 			//Wait for 30 seconds
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			//Maximize the Chrome window

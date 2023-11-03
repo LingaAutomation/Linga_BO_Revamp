@@ -20,6 +20,7 @@ import com.Pages.BasePage;
 import com.Pages.Common_XPaths;
 import com.Pages.InventoryPage;
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -30,7 +31,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Inventory_Menu_Items 
 {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -62,7 +63,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -80,10 +81,20 @@ public WebDriver driver;
 		
 		Thread.sleep(2000);
 		//Call the chrome driver
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
+
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -123,7 +134,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Inventory_Menu_Item_Page(WebDriver driver) throws Exception
+	public void Open_Inventory_Menu_Item_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		air=new InventoryPage(driver, test);
@@ -140,7 +151,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination_ColumnFilteration(WebDriver driver) throws Exception
+	public void RefreshAndPaginination_ColumnFilteration(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -161,7 +172,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Verify_Unlinked_Menu_To_Link(WebDriver driver) throws Exception
+	public void Verify_Unlinked_Menu_To_Link(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -250,7 +261,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Verify_Linked_Menu_To_UnLink(WebDriver driver) throws Exception
+	public void Verify_Linked_Menu_To_UnLink(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -367,7 +378,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Edit_Linked_Type_of_Menu_Item_Inv_Item(WebDriver driver) throws Exception
+	public void Edit_Linked_Type_of_Menu_Item_Inv_Item(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -451,7 +462,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Edit_Linked_Type_of_Menu_Item_SubRecipe(WebDriver driver) throws Exception
+	public void Edit_Linked_Type_of_Menu_Item_SubRecipe(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -499,7 +510,7 @@ public WebDriver driver;
 		
 	}
 	
-	public void Edit_Linked_Type_of_Menu_Item_ManualEntry(WebDriver driver) throws Exception
+	public void Edit_Linked_Type_of_Menu_Item_ManualEntry(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -544,7 +555,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Edit_Linked_Type_of_Menu_Item_InvItem_SubRecipe(WebDriver driver) throws Exception
+	public void Edit_Linked_Type_of_Menu_Item_InvItem_SubRecipe(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -594,7 +605,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Edit_Linked_Type_of_Menu_Item_InvItem_Manual_Entry(WebDriver driver) throws Exception
+	public void Edit_Linked_Type_of_Menu_Item_InvItem_Manual_Entry(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -638,7 +649,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Edit_Linked_Type_of_Menu_Item_SubRecipe_Manual_Entry(WebDriver driver) throws Exception
+	public void Edit_Linked_Type_of_Menu_Item_SubRecipe_Manual_Entry(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -682,7 +693,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Edit_Linked_Type_of_Menu_Item_InventoryItem_SubRecipe_Manual_Entry(WebDriver driver) throws Exception
+	public void Edit_Linked_Type_of_Menu_Item_InventoryItem_SubRecipe_Manual_Entry(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -872,7 +883,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Verify_Active_Inactive_Inentory_Menu_Item(WebDriver driver) throws Exception
+	public void Verify_Active_Inactive_Inentory_Menu_Item(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

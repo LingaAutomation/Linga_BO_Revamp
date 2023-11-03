@@ -15,6 +15,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -25,7 +26,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class LoginTest 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	ExtentReports rep = ExtentManager.getInstance();
 	ExtentTest test = rep.startTest("Login Page");
 	
@@ -41,7 +42,7 @@ public class LoginTest
 	}
 //		
 //	
-	public void Login(WebDriver driver,ExtentTest test) throws Exception
+	public void Login(SelfHealingDriver driver,ExtentTest test) throws Exception
 	{
 		Thread.sleep(2000);
 		//Call the chrome driver 
@@ -75,7 +76,7 @@ public class LoginTest
 		LogOut(driver, test);
 	}
 	
-	public void LogOut(WebDriver driver,ExtentTest test) throws Exception
+	public void LogOut(SelfHealingDriver driver,ExtentTest test) throws Exception
 	{
 		LoginPage a=new LoginPage(driver,test);
 		
@@ -101,7 +102,7 @@ public class LoginTest
 	}
 
 	
-	public void Login_with_Old_BO(WebDriver driver,ExtentTest test) throws Exception
+	public void Login_with_Old_BO(SelfHealingDriver driver,ExtentTest test) throws Exception
 	{
 		Thread.sleep(2000);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -188,7 +189,7 @@ public class LoginTest
 	}
 	
 	
-	public void LogOut_with_Old_BO(WebDriver driver,ExtentTest test) throws Exception
+	public void LogOut_with_Old_BO(SelfHealingDriver driver,ExtentTest test) throws Exception
 	{
 		LoginPage a=new LoginPage(driver,test);
 		

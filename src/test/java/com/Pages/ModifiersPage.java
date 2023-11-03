@@ -9,25 +9,26 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class ModifiersPage {
+public class ModifiersPage extends BasePage {
 
 	
-	public WebDriver driver;
-	public ExtentTest test;
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	
 	Common_XPaths cmp=new Common_XPaths(driver, test);
 	Utility ut=new Utility();
 	
-	public ModifiersPage(WebDriver driver,ExtentTest test)
+	public ModifiersPage(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
-		
+//		this.driver=driver;
+//		this.test=test;
+		super(driver,test);
 		PageFactory.initElements(driver, this);
 	}
 	

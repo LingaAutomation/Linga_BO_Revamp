@@ -4,11 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 
 public class LogOutTest {
 	
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	public ExtentTest test;
 	
 	@Test

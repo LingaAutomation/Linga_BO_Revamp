@@ -7,6 +7,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -16,17 +17,19 @@ import com.Pages.Common_XPaths;
 import com.Pages.Enterprse_Settings_Theme_Page;
 import com.Pages.LoginPage;
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.ExtentManager;
 import Utility.Utility;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Enterprise_Settings_Theme {
 	
 	
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 	ExtentReports rep = ExtentManager.getInstance();
 	ExtentTest test = rep.startTest("Enterprise Setting - Theme");
@@ -53,7 +56,7 @@ public class Enterprise_Settings_Theme {
 	@AfterMethod
 	public void TestFail(ITestResult result) throws Exception {
 		if (result.getStatus() == ITestResult.FAILURE) {
-			String scnsht = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht = ((TakesScreenshot) driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s = "data:image/png;base64," + scnsht;
 
@@ -76,9 +79,19 @@ public class Enterprise_Settings_Theme {
 		driver = new ChromeDriver(chromeOptions);
 		*/
 
-		System.setProperty("webdriver.chrome.driver", "./Automation Driver/chromedriver.exe");
-		// Open the Chrome window
-		driver = new ChromeDriver();
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
+		
+//		System.setProperty("webdriver.chrome.driver", "./Automation Driver/chromedriver.exe");
+//		// Open the Chrome window
+//		driver = new ChromeDriver();
 		// Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		// Maximize the Chrome window
@@ -103,7 +116,7 @@ public class Enterprise_Settings_Theme {
 	
 	
 	@Test(priority = 3, enabled = false)
-	public void Open_Theme_Page(WebDriver driver) throws Exception {
+	public void Open_Theme_Page(SelfHealingDriver driver) throws Exception {
 
 		cmp = new Common_XPaths(driver, test);
 		EST = new Enterprse_Settings_Theme_Page(driver, test);

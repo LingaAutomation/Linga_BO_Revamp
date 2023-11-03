@@ -6,29 +6,31 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class LoginPage //extends BasePage
+public class LoginPage extends BasePage
 {
 
-	WebDriver driver;
-	ExtentTest test;
+//	SelfHealingDriver driver;
+//	ExtentTest test;
 	Utility ut=new Utility();
 	
 
 	
-	public LoginPage(WebDriver driver,ExtentTest test)
+	public LoginPage(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
-		
-		
+//		this.driver=driver;
+//		this.test=test;
+		super(driver,test);
+	
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -107,19 +109,21 @@ public class LoginPage //extends BasePage
 		{
 			test.log(LogStatus.PASS, "Login Page Loaded Successfully");
 			
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
-			String s="data:image/png;base64,"+scnsht;
-			
-			test.log(LogStatus.PASS, test.addScreenCapture(s));
+//			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+//			String s="data:image/png;base64,"+scnsht;
+//			
+//			test.log(LogStatus.PASS, test.addScreenCapture(s));
+			ut.PassedCaptureScreenshotAsBASE64(driver, test);
 		}
 		else
 		{
 			test.log(LogStatus.FAIL, "Login page loading Failed");
 			
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
-			String s="data:image/png;base64,"+scnsht;
-			
-			test.log(LogStatus.FAIL, test.addScreenCapture(s));
+//			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+//			String s="data:image/png;base64,"+scnsht;
+//			
+//			test.log(LogStatus.FAIL, test.addScreenCapture(s));
+			ut.FailedCaptureScreenshotAsBASE64(driver, test);
 		}
 	}
 	

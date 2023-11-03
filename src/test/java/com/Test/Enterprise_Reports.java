@@ -18,6 +18,7 @@ import org.testng.annotations.Test;
 
 import com.Pages.Availability_RestrictionTimePage;
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.ReportsPage;
@@ -33,7 +34,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Enterprise_Reports 
 {
 
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -62,7 +63,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -88,9 +89,20 @@ public WebDriver driver;
 //		WebDriverManager.chromedriver().setup();
 //		driver=new ChromeDriver(chrOpt);
 		
-		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
-		//Open the Chrome window
-		driver = new ChromeDriver();
+//		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
+//		//Open the Chrome window
+//		driver = new ChromeDriver();
+
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
+		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -129,7 +141,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Enterprise_Report_Page(WebDriver driver) throws Exception
+	public void Open_Enterprise_Report_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		repts=new ReportsPage(driver, test);
@@ -153,7 +165,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -165,7 +177,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Enterprise_Report_Today(WebDriver driver) throws Exception
+	public void Enterprise_Report_Today(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -346,7 +358,7 @@ public WebDriver driver;
 
 
 	@Test(priority = 4,enabled = false)
-	public void Enterprise_Report_Yesterday(WebDriver driver) throws Exception
+	public void Enterprise_Report_Yesterday(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -531,7 +543,7 @@ public WebDriver driver;
 
 
 	@Test(priority = 4,enabled = false)
-	public void Enterprise_Report_Last_N_Days(WebDriver driver) throws Exception
+	public void Enterprise_Report_Last_N_Days(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -714,7 +726,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Enterprise_Report_This_Week(WebDriver driver) throws Exception
+	public void Enterprise_Report_This_Week(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -897,7 +909,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Enterprise_Report_Last_Week(WebDriver driver) throws Exception
+	public void Enterprise_Report_Last_Week(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1080,7 +1092,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Enterprise_Report_Last_7_Days(WebDriver driver) throws Exception
+	public void Enterprise_Report_Last_7_Days(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1264,7 +1276,7 @@ public WebDriver driver;
 
 
 	@Test(priority = 4,enabled = false)
-	public void Enterprise_Report_This_Month(WebDriver driver) throws Exception
+	public void Enterprise_Report_This_Month(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1448,7 +1460,7 @@ public WebDriver driver;
 
 
 	@Test(priority = 4,enabled = false)
-	public void Enterprise_Report_Last_Month(WebDriver driver) throws Exception
+	public void Enterprise_Report_Last_Month(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1631,7 +1643,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Enterprise_Report_Last_30_Days(WebDriver driver) throws Exception
+	public void Enterprise_Report_Last_30_Days(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1814,7 +1826,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Enterprise_Report_Specific_Date(WebDriver driver) throws Exception
+	public void Enterprise_Report_Specific_Date(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1997,7 +2009,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Enterprise_Report_Date_Range(WebDriver driver) throws Exception
+	public void Enterprise_Report_Date_Range(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);

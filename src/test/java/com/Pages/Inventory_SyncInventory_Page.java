@@ -9,13 +9,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class Inventory_SyncInventory_Page {
-	WebDriver driver;
+public class Inventory_SyncInventory_Page extends BasePage
+{
+	SelfHealingDriver driver;
 	ExtentTest test;
 	Common_XPaths cmp;
 	ReportsPage rp;
@@ -24,10 +26,11 @@ public class Inventory_SyncInventory_Page {
 	
 	Utility ut=new Utility();
 	
-	public Inventory_SyncInventory_Page(WebDriver driver,ExtentTest test)
+	public Inventory_SyncInventory_Page(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
+//		this.driver=driver;
+//		this.test=test;
+		super(driver,test);
 		PageFactory.initElements(driver, this);
 	}
 	

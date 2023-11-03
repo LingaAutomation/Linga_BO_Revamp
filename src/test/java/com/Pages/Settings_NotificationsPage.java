@@ -7,22 +7,23 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.Keys;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class Settings_NotificationsPage 
+public class Settings_NotificationsPage extends BasePage
 {
-	public WebDriver driver;
-	public ExtentTest test;
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	Utility ut=new Utility();
 
-	public Settings_NotificationsPage(WebDriver driver, ExtentTest test) 
+	public Settings_NotificationsPage(SelfHealingDriver driver, ExtentTest test) 
 	{
-		this.driver=driver;
-		this.test=test;
-
+//		this.driver=driver;
+//		this.test=test;
+		super(driver, test);
 		PageFactory.initElements(driver, this);
 	}
 	@FindBy(xpath = "//div[@class='settings']")

@@ -21,6 +21,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.DepartmentPage;
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -32,7 +33,7 @@ import org.openqa.selenium.JavascriptExecutor;
 public class Product_Items_AddEditDelete_Departments
 {
 	
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -62,14 +63,14 @@ public class Product_Items_AddEditDelete_Departments
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
 			test.log(LogStatus.FAIL, test.addScreenCapture(s));
 	
 			//Load the Department page
-			driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id1")+"departments");
+//			driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id1")+"departments");
 
 		}
 	}
@@ -87,9 +88,20 @@ public class Product_Items_AddEditDelete_Departments
 //		WebDriverManager.chromedriver().setup();
 //		driver=new ChromeDriver(chrOpt);
 		
-		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
-//		//Open the Chrome window
-		driver = new ChromeDriver();
+//		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
+////		//Open the Chrome window
+//		driver = new ChromeDriver();
+WebDriverManager.chromedriver().setup();
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
+		
+		driver.manage().window().maximize();
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -124,7 +136,7 @@ public class Product_Items_AddEditDelete_Departments
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Departments_Page(WebDriver driver) throws Exception
+	public void Open_Departments_Page(SelfHealingDriver driver) throws Exception
 	{
 //		((JavascriptExecutor) driver).executeScript("window.focus();");
 		dpg=new DepartmentPage(driver, test);
@@ -141,7 +153,7 @@ public class Product_Items_AddEditDelete_Departments
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -153,7 +165,7 @@ public class Product_Items_AddEditDelete_Departments
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Add_Departments(WebDriver driver) throws Exception
+	public void Add_Departments(SelfHealingDriver driver) throws Exception
 	{
 		dpg=new DepartmentPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -239,7 +251,7 @@ public class Product_Items_AddEditDelete_Departments
 	}
 		
 	@Test(priority = 6,enabled = false)
-	public void Edit_and_Close_Cancel_Departments(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_Departments(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		dpg=new DepartmentPage(driver, test);
@@ -290,7 +302,7 @@ public class Product_Items_AddEditDelete_Departments
 	}
 	
 	@Test(priority = 7,enabled = false)
-	public void Edit_and_Update_Departments(WebDriver driver) throws Exception
+	public void Edit_and_Update_Departments(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		dpg=new DepartmentPage(driver, test);
@@ -361,7 +373,7 @@ public class Product_Items_AddEditDelete_Departments
 	}
 	
 	@Test(priority = 8,enabled = false)
-	public void Delete_and_Active_Inactive_Departments(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_Departments(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -490,7 +502,7 @@ public class Product_Items_AddEditDelete_Departments
 	}
 	
 	@Test(priority = 9,enabled = false)
-	public void Create_DuplicateDepartment(WebDriver driver) throws Exception
+	public void Create_DuplicateDepartment(SelfHealingDriver driver) throws Exception
 	{
 		dpg=new DepartmentPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

@@ -18,6 +18,7 @@ import com.Pages.Common_XPaths;
 import com.Pages.InventoryPage;
 import com.Pages.LoginPage;
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -28,7 +29,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Inventory_Transfer 
 {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -56,7 +57,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -77,7 +78,7 @@ public WebDriver driver;
 		ChromeOptions chrOpt=new ChromeOptions();
 		chrOpt.addArguments("--remote-allow-origins=*");
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		driver=(SelfHealingDriver) new ChromeDriver(chrOpt);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -125,7 +126,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Transfer_Request_Page(WebDriver driver) throws Exception
+	public void Open_Transfer_Request_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		air=new InventoryPage(driver, test);
@@ -141,7 +142,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination_ColumnFilteration(WebDriver driver) throws Exception
+	public void RefreshAndPaginination_ColumnFilteration(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -160,7 +161,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Create_Transfer_Request(WebDriver driver) throws Exception
+	public void Create_Transfer_Request(SelfHealingDriver driver) throws Exception
 	{
 		air=new InventoryPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -299,7 +300,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Cancel_Transfer_Request(WebDriver driver) throws Exception
+	public void Cancel_Transfer_Request(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -331,7 +332,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Verify_Transfer_Request_Requested_Store(WebDriver driver) throws Exception
+	public void Verify_Transfer_Request_Requested_Store(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -374,7 +375,7 @@ public WebDriver driver;
 	}
 	
 	
-	public void Verify_Transferred_Items_in_Request_Status(WebDriver driver) throws Exception
+	public void Verify_Transferred_Items_in_Request_Status(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -424,7 +425,7 @@ public WebDriver driver;
 		}
 	}
 	
-	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Today(WebDriver driver) throws Exception
+	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Today(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -481,7 +482,7 @@ public WebDriver driver;
 	}
 	
 	
-	public void Verify_Transferred_Items_in_Ttansfer_Logs_Transferred_Today(WebDriver driver) throws Exception
+	public void Verify_Transferred_Items_in_Ttansfer_Logs_Transferred_Today(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -533,7 +534,7 @@ public WebDriver driver;
 		
 	}
 	
-	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Yesterday(WebDriver driver) throws Exception
+	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Yesterday(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -585,7 +586,7 @@ public WebDriver driver;
 		
 	}
 	
-	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_N_Days(WebDriver driver) throws Exception
+	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_N_Days(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -637,7 +638,7 @@ public WebDriver driver;
 		
 	}
 	
-	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_This_week(WebDriver driver) throws Exception
+	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_This_week(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -689,7 +690,7 @@ public WebDriver driver;
 		
 	}
 	
-	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_week(WebDriver driver) throws Exception
+	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_week(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -742,7 +743,7 @@ public WebDriver driver;
 	}
 	
 	
-	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_7_days(WebDriver driver) throws Exception
+	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_7_days(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -795,7 +796,7 @@ public WebDriver driver;
 	}
 	
 	
-	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_This_month(WebDriver driver) throws Exception
+	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_This_month(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -847,7 +848,7 @@ public WebDriver driver;
 		
 	}
 	
-	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_month(WebDriver driver) throws Exception
+	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_month(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -900,7 +901,7 @@ public WebDriver driver;
 	}
 	
 	
-	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_30_days(WebDriver driver) throws Exception
+	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Last_30_days(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -952,7 +953,7 @@ public WebDriver driver;
 		
 	}
 	
-	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Specific_Date(WebDriver driver) throws Exception
+	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Specific_Date(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -1004,7 +1005,7 @@ public WebDriver driver;
 		
 	}
 	
-	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Date_Range(WebDriver driver) throws Exception
+	public void Verify_Transferred_Items_in_Ttansfer_Logs_Received_Date_Range(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);

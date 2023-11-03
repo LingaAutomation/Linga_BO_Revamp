@@ -20,6 +20,7 @@ import com.Pages.Enterprise_AccountLicense_Settings_Page;
 import com.Pages.Enterprise_DeveloperAPI_Key_Page;
 import com.Pages.LoginPage;
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -30,7 +31,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Enterprise_Settings_Account_License_Settings 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 
 	ExtentReports rep = ExtentManager.getInstance();
@@ -58,7 +59,7 @@ public class Enterprise_Settings_Account_License_Settings
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s="data:image/png;base64,"+scnsht;
 
@@ -77,10 +78,21 @@ public class Enterprise_Settings_Account_License_Settings
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
+
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
+		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -116,7 +128,7 @@ public class Enterprise_Settings_Account_License_Settings
 	}
 
 	@Test(priority=3,enabled = false)
-	public void Open_Account_License_Settings_Page(WebDriver driver) throws Exception 
+	public void Open_Account_License_Settings_Page(SelfHealingDriver driver) throws Exception 
 	{
 		ASP = new Enterprise_AccountLicense_Settings_Page(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -130,7 +142,7 @@ public class Enterprise_Settings_Account_License_Settings
 		
 	}
 	
-	public void Enable_Call_Center_Toggle(WebDriver driver) 
+	public void Enable_Call_Center_Toggle(SelfHealingDriver driver) 
 	{
 		ASP = new Enterprise_AccountLicense_Settings_Page(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -150,7 +162,7 @@ public class Enterprise_Settings_Account_License_Settings
 		
 	}
 	
-	public void Enabling_WaitList_Toggle(WebDriver driver)
+	public void Enabling_WaitList_Toggle(SelfHealingDriver driver)
 	{
 		ASP = new Enterprise_AccountLicense_Settings_Page(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -170,7 +182,7 @@ public class Enterprise_Settings_Account_License_Settings
 			
 	  }
 	
-	public void Enabling_Customer_Display(WebDriver driver) throws Exception 
+	public void Enabling_Customer_Display(SelfHealingDriver driver) throws Exception 
 	{
 		ASP = new Enterprise_AccountLicense_Settings_Page(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -190,7 +202,7 @@ public class Enterprise_Settings_Account_License_Settings
 		
 	}
 	
-	public void Enabling_Texting_Toggle(WebDriver driver)
+	public void Enabling_Texting_Toggle(SelfHealingDriver driver)
 	{
 		ASP = new Enterprise_AccountLicense_Settings_Page(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -210,7 +222,7 @@ public class Enterprise_Settings_Account_License_Settings
 		
 	}
 	
-	public void Enabling_WebOrder_Toggles(WebDriver driver) throws Exception 
+	public void Enabling_WebOrder_Toggles(SelfHealingDriver driver) throws Exception 
 	{
 		
 		ASP = new Enterprise_AccountLicense_Settings_Page(driver, test);
@@ -232,7 +244,7 @@ public class Enterprise_Settings_Account_License_Settings
 		Thread.sleep(5000);
 	}
 	
-	public void Navigating_To_Upgrade(WebDriver driver) throws Exception 
+	public void Navigating_To_Upgrade(SelfHealingDriver driver) throws Exception 
 	{
 		ASP = new Enterprise_AccountLicense_Settings_Page(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -266,7 +278,7 @@ public class Enterprise_Settings_Account_License_Settings
 		
 	}
 	
-	public void Enabling_Virtual_Kiosk_Toggles(WebDriver driver) throws Exception 
+	public void Enabling_Virtual_Kiosk_Toggles(SelfHealingDriver driver) throws Exception 
 	{
 		
 		ASP = new Enterprise_AccountLicense_Settings_Page(driver, test);

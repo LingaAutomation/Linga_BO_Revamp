@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.Inventory_Purchase_Template_Page;
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -27,7 +28,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Inventory_Purchase_Template {
 
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 	ExtentReports rep = ExtentManager.getInstance();
 	ExtentTest test = rep.startTest("Inventory - Prchase Template");
@@ -53,7 +54,7 @@ public class Inventory_Purchase_Template {
 	@AfterMethod
 	public void TestFail(ITestResult result) throws Exception {
 		if (result.getStatus() == ITestResult.FAILURE) {
-			String scnsht = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht = ((TakesScreenshot) driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s = "data:image/png;base64," + scnsht;
 
@@ -69,11 +70,21 @@ public class Inventory_Purchase_Template {
 		// Call the chrome driver
 		// System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		// Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
-		driver = new ChromeDriver(chromeOptions);
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
+//		driver = new ChromeDriver(chromeOptions);
 
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
+		
 		// Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		// Maximize the Chrome window
@@ -104,7 +115,7 @@ public class Inventory_Purchase_Template {
 	}
 
 	@Test(priority = 3, enabled = false)
-	public void Open_PurchaseOrder_Page(WebDriver driver) throws Exception {
+	public void Open_PurchaseOrder_Page(SelfHealingDriver driver) throws Exception {
 
 		cmp = new Common_XPaths(driver, test);
 
@@ -125,7 +136,7 @@ public class Inventory_Purchase_Template {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception {
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception {
 		cmp = new Common_XPaths(driver, test);
 
 		// Verify the Pagination and Refresh the page
@@ -136,14 +147,14 @@ public class Inventory_Purchase_Template {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void VerifyThePurchaseTemplate(WebDriver driver) throws Exception {
+	public void VerifyThePurchaseTemplate(SelfHealingDriver driver) throws Exception {
 		imp = new Inventory_Purchase_Template_Page(driver, test);
 
 		imp.Verify_PurchaseTemplate_Page();		
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void CreateThePurchaseTemplate(WebDriver driver) throws Exception {
+	public void CreateThePurchaseTemplate(SelfHealingDriver driver) throws Exception {
 		imp = new Inventory_Purchase_Template_Page(driver, test);
 
 		//verify the new purchase template page
@@ -162,7 +173,7 @@ public class Inventory_Purchase_Template {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void editThePurchaseTemplate(WebDriver driver) throws Exception {
+	public void editThePurchaseTemplate(SelfHealingDriver driver) throws Exception {
 		imp = new Inventory_Purchase_Template_Page(driver, test);
 
 		//search the purchase template
@@ -176,7 +187,7 @@ public class Inventory_Purchase_Template {
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void deleteThePurchaseTemplate_CAncel(WebDriver driver) throws Exception {
+	public void deleteThePurchaseTemplate_CAncel(SelfHealingDriver driver) throws Exception {
 		imp = new Inventory_Purchase_Template_Page(driver, test);
 
 		//search the purchase template
@@ -187,7 +198,7 @@ public class Inventory_Purchase_Template {
 	}
 
 	@Test(priority = 5, enabled = false)
-	public void deleteThePurchaseTemplate(WebDriver driver) throws Exception {
+	public void deleteThePurchaseTemplate(SelfHealingDriver driver) throws Exception {
 		imp = new Inventory_Purchase_Template_Page(driver, test);
 		
 		//delete the purchase template
@@ -195,7 +206,7 @@ public class Inventory_Purchase_Template {
 	}
 	
 	@Test(priority = 5, enabled = false)
-	public void verifyTheActiveStatus(WebDriver driver) throws Exception {
+	public void verifyTheActiveStatus(SelfHealingDriver driver) throws Exception {
 		imp = new Inventory_Purchase_Template_Page(driver, test);
 
 		//Click the active button

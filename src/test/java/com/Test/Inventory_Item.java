@@ -24,6 +24,7 @@ import com.Pages.InventoryItem_page;
 import com.Pages.InventoryPage;
 import com.Pages.LoginPage;
 import com.Pages.ProductItems_Menu_RetailPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -34,7 +35,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Inventory_Item { 
 	
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	
@@ -68,7 +69,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -86,10 +87,20 @@ public WebDriver driver;
 		
 		Thread.sleep(2000);
 		//Call the chrome driver
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
+
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -132,7 +143,7 @@ public WebDriver driver;
      	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_InventoryItems_Page(WebDriver driver) throws Exception
+	public void Open_InventoryItems_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		air=new InventoryPage(driver, test);
@@ -151,7 +162,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination_ColumnFilteration(WebDriver driver) throws Exception
+	public void RefreshAndPaginination_ColumnFilteration(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -170,7 +181,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Add_New_InventoryItem_Category(WebDriver driver) throws Exception
+	public void Add_New_InventoryItem_Category(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -244,7 +255,7 @@ public WebDriver driver;
 
 	}
 	@Test(priority = 5,enabled = false)
-	public void Add_New_InventoryItem_SubCategory(WebDriver driver) throws Exception
+	public void Add_New_InventoryItem_SubCategory(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -319,7 +330,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_Newly_Created_Inventory_Create_newStorage(WebDriver driver) throws Exception
+	public void Edit_Newly_Created_Inventory_Create_newStorage(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -419,7 +430,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_Category(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_Category(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -554,7 +565,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Create_Duplicate_Category(WebDriver driver) throws Exception
+	public void Create_Duplicate_Category(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -630,7 +641,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void RetailItem(WebDriver driver) throws Exception
+	public void RetailItem(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -724,7 +735,7 @@ public WebDriver driver;
 		 
 	}
 	@Test(priority = 5,enabled = false)
-	public void Intergration_Category_Mapped_with_Product_Item(WebDriver driver) throws Exception
+	public void Intergration_Category_Mapped_with_Product_Item(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -1119,7 +1130,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Intergration_Category_Mapped_with_Subrecipe(WebDriver driver) throws Exception
+	public void Intergration_Category_Mapped_with_Subrecipe(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -1281,7 +1292,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Intergration_Category_Mapped_with_Purchase_Order(WebDriver driver) throws Exception
+	public void Intergration_Category_Mapped_with_Purchase_Order(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -1311,7 +1322,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Intergration_Category_Mapped_with_Recived(WebDriver driver) throws Exception
+	public void Intergration_Category_Mapped_with_Recived(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -1362,7 +1373,7 @@ public WebDriver driver;
 	
 	}
 	@Test(priority = 5,enabled = false)
-	public void Searching_Inventory_Item_Search_box(WebDriver driver) throws Exception
+	public void Searching_Inventory_Item_Search_box(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);
@@ -1434,7 +1445,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Intergration_InventoryItem_Mapped_with_CompareInventory(WebDriver driver) throws Exception
+	public void Intergration_InventoryItem_Mapped_with_CompareInventory(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		air=new InventoryPage(driver, test);

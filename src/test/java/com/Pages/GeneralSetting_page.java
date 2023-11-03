@@ -14,18 +14,21 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 
-public class GeneralSetting_page
+public class GeneralSetting_page extends BasePage
 {
-    public WebDriver driver;
-    public ExtentTest test;
+//    public SelfHealingDriver driver;
+//    public ExtentTest test;
    
     
-    public  GeneralSetting_page(WebDriver driver, ExtentTest test) 
+    public  GeneralSetting_page(SelfHealingDriver driver, ExtentTest test) 
     {
-    	this.driver=driver;
-    	this.test=test;
+//    	this.driver=driver;
+//    	this.test=test;
+    	
+    	super(driver,test);
     	
     	PageFactory.initElements(driver, this);
     }

@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -17,7 +18,7 @@ import Utility.ExcelDataConfig;
 
 public class Excel_Report_Comparison {
 	
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	ExtentReports rep = ExtentManager.getInstance();
 	ExtentTest test = rep.startTest("Report Comparison");

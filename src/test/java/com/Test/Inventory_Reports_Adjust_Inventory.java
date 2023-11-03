@@ -20,6 +20,7 @@ import com.Pages.Common_XPaths;
 import com.Pages.InventoryPage;
 import com.Pages.LoginPage;
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.fasterxml.jackson.annotation.JacksonInject.Value;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -32,7 +33,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Inventory_Reports_Adjust_Inventory
 {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -62,7 +63,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -83,10 +84,20 @@ public WebDriver driver;
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
 		
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=(SelfHealingDriver) new ChromeDriver(chrOpt);
+
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -133,7 +144,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Inventory_Reports_Adjust_Inventory_Page(WebDriver driver) throws Exception
+	public void Open_Inventory_Reports_Adjust_Inventory_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		repts=new ReportsPage(driver, test);
@@ -150,7 +161,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -165,7 +176,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_Verify_Adjust_Inventory_Search(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_Verify_Adjust_Inventory_Search(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -405,7 +416,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Verify_Adjust_Inventory_For_Inventory_Item(WebDriver driver) throws Exception
+	public void Inventory_Reports_Verify_Adjust_Inventory_For_Inventory_Item(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -510,7 +521,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Verify_Adjust_Inventory_For_Retail_Item(WebDriver driver) throws Exception
+	public void Inventory_Reports_Verify_Adjust_Inventory_For_Retail_Item(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -615,7 +626,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Verify_Adjust_Inventory_For_SubREcipe(WebDriver driver) throws Exception
+	public void Inventory_Reports_Verify_Adjust_Inventory_For_SubREcipe(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -715,7 +726,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_ReasonType_Adjsutment(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_ReasonType_Adjsutment(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -823,7 +834,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_ReasonType_Increase(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_ReasonType_Increase(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -931,7 +942,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_ReasonType_Decrease(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_ReasonType_Decrease(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1039,7 +1050,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_Today(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_Today(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1136,7 +1147,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_Yesterday(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_Yesterday(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1234,7 +1245,7 @@ public WebDriver driver;
 
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_Last_N_Days(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_Last_N_Days(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1331,7 +1342,7 @@ public WebDriver driver;
 
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_This_Week(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_This_Week(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1427,7 +1438,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_Last_Week(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_Last_Week(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1525,7 +1536,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_Last_7_Days(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_Last_7_Days(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1622,7 +1633,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_This_Month(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_This_Month(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1719,7 +1730,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_Last_Month(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_Last_Month(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1816,7 +1827,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_Last_30_Days(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_Last_30_Days(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -1916,7 +1927,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_Specific_Date(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_Specific_Date(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -2021,7 +2032,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Inventory_Reports_Adjust_Inventory_For_All_Date_Range(WebDriver driver) throws Exception
+	public void Inventory_Reports_Adjust_Inventory_For_All_Date_Range(SelfHealingDriver driver) throws Exception
 	{
 		repts=new ReportsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

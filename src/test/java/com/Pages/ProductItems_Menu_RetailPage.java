@@ -13,24 +13,26 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.Utility;
 
-public class ProductItems_Menu_RetailPage {
+public class ProductItems_Menu_RetailPage extends BasePage
+{
 
-	public WebDriver driver;
-	public ExtentTest test;
+//	public SelfHealingDriver driver;
+//	public ExtentTest test;
 	Common_XPaths cmp;
 	TaxesPage tx;
 	Utility ut=new Utility();
 	
-	public ProductItems_Menu_RetailPage(WebDriver driver,ExtentTest test)
+	public ProductItems_Menu_RetailPage(SelfHealingDriver driver,ExtentTest test)
 	{
-		this.driver=driver;
-		this.test=test;
-		
+//		this.driver=driver;
+//		this.test=test;
+		super(driver,test);
 		PageFactory.initElements(driver, this);
 	}
 	

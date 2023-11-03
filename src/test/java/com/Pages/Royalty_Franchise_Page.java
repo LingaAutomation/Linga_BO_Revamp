@@ -8,19 +8,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 
-public class Royalty_Franchise_Page //extends BasePage 
+public class Royalty_Franchise_Page extends BasePage 
 {
-	public WebDriver driver;
-	ExtentTest test;
+//	public SelfHealingDriver driver;
+//	ExtentTest test;
 	
-	public Royalty_Franchise_Page(WebDriver driver, ExtentTest test) {
+	public Royalty_Franchise_Page(SelfHealingDriver driver, ExtentTest test) {
 //		super(driver, test);
 //		// TODO Auto-generated constructor stub
-		this.driver=driver;
-		this.test=test;
-		
+//		this.driver=driver;
+//		this.test=test;
+		super(driver,test);
 		PageFactory.initElements(driver, this);
 	}
 

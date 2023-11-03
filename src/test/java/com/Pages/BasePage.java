@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentTest;
 
 import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
@@ -23,11 +24,12 @@ public class BasePage {
 	 private static final int TIMEOUT = 5;
 	    private static final int POLLING = 100;
 
-	    public WebDriver driver;
-	    public ExtentTest test;
+	    protected SelfHealingDriver driver;
+	    protected ExtentTest test;
 	    public WebDriverWait wait;
 
-	    public BasePage(WebDriver driver,ExtentTest test) {
+	    public BasePage(SelfHealingDriver driver,ExtentTest test) 
+	    {
 	        this.driver = driver;
 	        this.test=test;
 //	        wait = new WebDriverWait(driver, Duration.ofMinutes(TIMEOUT), Duration.ofMinutes(POLLING));
