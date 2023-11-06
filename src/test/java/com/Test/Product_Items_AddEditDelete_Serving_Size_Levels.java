@@ -20,6 +20,7 @@ import com.Pages.LoginPage;
 import com.Pages.ModifierGroupsPage;
 import com.Pages.ModifiersPage;
 import com.Pages.ServingSizeLevelsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -32,7 +33,7 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 
 	
 	
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -59,7 +60,7 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -80,11 +81,19 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 //		System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
 		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -118,7 +127,7 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Service_Size_Levels_Page(WebDriver driver) throws Exception
+	public void Open_Service_Size_Levels_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		ssl=new ServingSizeLevelsPage(driver, test);
@@ -134,7 +143,7 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -146,7 +155,7 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_Servinge_Size_Level(WebDriver driver) throws Exception
+	public void Add_Servinge_Size_Level(SelfHealingDriver driver) throws Exception
 	{
 		ssl=new ServingSizeLevelsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -237,7 +246,7 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_Serving_Size_Level(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_Serving_Size_Level(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		ssl=new ServingSizeLevelsPage(driver, test);
@@ -293,7 +302,7 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Serving_Size_Level(WebDriver driver) throws Exception
+	public void Edit_and_Update_Serving_Size_Level(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		ssl=new ServingSizeLevelsPage(driver, test);
@@ -401,7 +410,7 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_Serving_Size_Level(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_Serving_Size_Level(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -543,7 +552,7 @@ public class Product_Items_AddEditDelete_Serving_Size_Levels {
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_DuplicateServing_Size_Level(WebDriver driver) throws Exception
+	public void Create_DuplicateServing_Size_Level(SelfHealingDriver driver) throws Exception
 	{
 		ssl=new ServingSizeLevelsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

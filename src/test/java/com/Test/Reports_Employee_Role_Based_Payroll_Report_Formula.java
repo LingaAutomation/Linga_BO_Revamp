@@ -34,6 +34,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -46,7 +47,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Reports_Employee_Role_Based_Payroll_Report_Formula 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 	ExtentReports rep = ExtentManager.getInstance();
 	ExtentTest test = rep.startTest("Reports - Employee - Role Based Payroll Report (Formula) ");
@@ -78,7 +79,7 @@ public class Reports_Employee_Role_Based_Payroll_Report_Formula
 	{
 	if(result.getStatus()==ITestResult.FAILURE)
 	{
-String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 String s="data:image/png;base64,"+scnsht;
 
@@ -93,11 +94,19 @@ test.log(LogStatus.FAIL, test.addScreenCapture(s));
 public void login() throws Exception
 {
 	Thread.sleep(2000);
-	ChromeOptions chrOpt=new ChromeOptions();
-	chrOpt.addArguments("--remote-allow-origins=*");
+//	ChromeOptions chrOpt=new ChromeOptions();
+//	chrOpt.addArguments("--remote-allow-origins=*");
+//	WebDriverManager.chromedriver().setup();
+//	driver=new ChromeDriver(chrOpt);
 	WebDriverManager.chromedriver().setup();
-	driver=new ChromeDriver(chrOpt);
 	
+	ChromeOptions options=new ChromeOptions();
+	
+	options.setHeadless(false);
+	
+	WebDriver delegate=new ChromeDriver();
+	
+	driver=SelfHealingDriver.create(delegate);
 	//Wait for 30 seconds
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	//Maximize the Chrome window
@@ -193,7 +202,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 }
 
 @Test(priority=50,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_Page_Open(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_Page_Open(SelfHealingDriver driver) throws Exception
 {
 	
 	 	
@@ -211,7 +220,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 }
 
 //	@Test(priority = 51,enabled = false)
-//	public void Enable_and_Verify_All_button(WebDriver driver) throws Exception
+//	public void Enable_and_Verify_All_button(SelfHealingDriver driver) throws Exception
 //	{
 //	
 //	 	
@@ -1490,7 +1499,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 //	}
 
 	@Test(priority=52,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Today(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Today(SelfHealingDriver driver) throws Exception
 	{
 	double CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip,OverAll_Tip;
 
@@ -1665,7 +1674,7 @@ driver.findElement(By.id("zsiq_minimize")).click();
 	}
 	
 	@Test(priority=53,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Today(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Today(SelfHealingDriver driver) throws Exception
 	{
 
 	repts=new ReportsPage(driver, test);
@@ -2048,7 +2057,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	}
 	
 	@Test(priority=54,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Yesterday(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Yesterday(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
@@ -2220,7 +2229,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	}
 	
 	@Test(priority=55,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Yesterday(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Yesterday(SelfHealingDriver driver) throws Exception
 	{
 
 
@@ -2575,7 +2584,7 @@ repts.Select_Sort_By("A-Z FirstName");
 
 	
 	@Test(priority=56,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_N_Days(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_N_Days(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
@@ -2747,7 +2756,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	}
 	
 	@Test(priority=57,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_N_Days(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_N_Days(SelfHealingDriver driver) throws Exception
 	{
 
 	repts=new ReportsPage(driver, test);
@@ -3101,7 +3110,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	
 	
 	@Test(priority=58,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_This_Week(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_This_Week(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
@@ -3275,7 +3284,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	}
 	
 	@Test(priority=59,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_This_Week(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_This_Week(SelfHealingDriver driver) throws Exception
 	{
 
 		repts=new ReportsPage(driver, test);
@@ -3626,7 +3635,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	}
 
 	@Test(priority=60,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_Week(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_Week(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
@@ -3799,7 +3808,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	}
 	
 	@Test(priority=61,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_Week(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_Week(SelfHealingDriver driver) throws Exception
 	{
 
 
@@ -4150,7 +4159,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	}
 
 	@Test(priority=62,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_7_days(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_7_days(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
@@ -4326,7 +4335,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	}
 	
 	@Test(priority=63,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_7_days(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_7_days(SelfHealingDriver driver) throws Exception
 	{
 
 
@@ -4679,7 +4688,7 @@ repts.Select_Sort_By("A-Z FirstName");
 
 	
 	@Test(priority=64,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_This_Month(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_This_Month(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 	
@@ -4850,7 +4859,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	}
 	
 	@Test(priority=65,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_This_Month(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_This_Month(SelfHealingDriver driver) throws Exception
 	{
 
 
@@ -5202,7 +5211,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	}
 
 	@Test(priority=66,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_Month(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_Month(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
@@ -5374,7 +5383,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	}
 	
 	@Test(priority=67,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_Month(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_Month(SelfHealingDriver driver) throws Exception
 	{
 
 
@@ -5727,7 +5736,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	
 	
 	@Test(priority=68,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_30_days(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Last_30_days(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
@@ -5900,7 +5909,7 @@ repts.Select_Sort_By("A-Z FirstName");
 	}
 	
 	@Test(priority=69,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_30_days(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Last_30_days(SelfHealingDriver driver) throws Exception
 	{
 
 
@@ -6257,7 +6266,7 @@ repts.Select_Sort_By("A-Z FirstName");
 
 	
 	@Test(priority=70,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Specific_Date(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_Specific_Date(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip,CC_Tip,Reg_Pay,OT_Pay,TTL_Pay,Tip_Charge,Gratuity_Pay,Emp_CCTip,Other_Tip,Declared_CashTip,Total_Tip,Net_Sales,Expected_Tip;
 
@@ -6473,7 +6482,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	}
 	
 	@Test(priority=71,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Specific_Date(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_Specific_Date(SelfHealingDriver driver) throws Exception
 	{
 
 
@@ -6863,7 +6872,7 @@ test.log(LogStatus.FAIL, "Role Name not available");
 	
 	
 	@Test(priority=72,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range(SelfHealingDriver driver) throws Exception
 	{
 
 	double OverAll_Tip_Dly,Over_All_Pay_Dly,Tip_Shared_Dly,Expected_Tip_Dly;
@@ -7402,7 +7411,7 @@ Thread.sleep(1000);
 
 	}
 	@Test(priority=73,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Hours_Date_Range(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Hours_Date_Range(SelfHealingDriver driver) throws Exception
 	{
 
 	repts=new ReportsPage(driver, test);
@@ -7841,7 +7850,7 @@ if(sortedList.equals(obtainedList))
 	
 	
 	@Test(priority=74,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip_Wly,Over_All_Pay_Wly,Tip_Shared_Wly,Expected_Tip_Wly;
 	
@@ -8300,7 +8309,7 @@ for(int i = 0; i < elementList.size(); i++)
 
 	}
 	@Test(priority=75,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Hours_Date_Range(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Hours_Date_Range(SelfHealingDriver driver) throws Exception
 	{
 	   
 	repts=new ReportsPage(driver, test);
@@ -8747,7 +8756,7 @@ test.log(LogStatus.INFO, "Employee_Role_Based_Payroll_Report_Method_verifyWeekly
 	}
 	
 	@Test(priority=73,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_All_Disable(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_All_Disable(SelfHealingDriver driver) throws Exception
 	{
 
 	double OverAll_Tip_Dly,Over_All_Pay_Dly,Tip_Shared_Dly,Expected_Tip_Dly;
@@ -9379,7 +9388,7 @@ test.log(LogStatus.INFO, "Disabled All-> Online Pickup Tip, Declared Cash Tip, G
 
 
 @Test(priority=74,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_AllDisable(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_AllDisable(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip_Wly,Over_All_Pay_Wly,Tip_Shared_Wly,Expected_Tip_Wly;
 	
@@ -9840,7 +9849,7 @@ for(int i = 0; i < elementList.size(); i++)
 	
 	
 	@Test(priority=73,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_All_DisableAndEnable_Online_pickup_Tip (WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_All_DisableAndEnable_Online_pickup_Tip (SelfHealingDriver driver) throws Exception
 	{
 
 	double OverAll_Tip_Dly,Over_All_Pay_Dly,Tip_Shared_Dly,Expected_Tip_Dly;
@@ -10465,7 +10474,7 @@ test.log(LogStatus.INFO, "Disabled -> Declared Cash Tip, Gratuity, Driver Compen
 	}
 
 	@Test(priority=74,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_AllDisableAndEnable_Online_pickup_Tip(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_AllDisableAndEnable_Online_pickup_Tip(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip_Wly,Over_All_Pay_Wly,Tip_Shared_Wly,Expected_Tip_Wly;
 	
@@ -10976,7 +10985,7 @@ for(int i = 0; i < elementList.size(); i++)
 
 	
 	@Test(priority=73,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_All_DisableAndEnable_declared_cash_tip (WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_All_DisableAndEnable_declared_cash_tip (SelfHealingDriver driver) throws Exception
 	{
 
 	double OverAll_Tip_Dly,Over_All_Pay_Dly,Tip_Shared_Dly,Expected_Tip_Dly;
@@ -11604,7 +11613,7 @@ test.log(LogStatus.INFO, "Disabled -> Online Pickup Tip, Gratuity, Driver Compen
 	}
 
 	@Test(priority=74,enabled=false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_AllDisableAndEnable_declared_cash_tip(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_AllDisableAndEnable_declared_cash_tip(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip_Wly,Over_All_Pay_Wly,Tip_Shared_Wly,Expected_Tip_Wly;
 	
@@ -12112,7 +12121,7 @@ for(int i = 0; i < elementList.size(); i++)
 
 	
 @Test(priority=66,enabled=false)
-public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_All_Disable_Enable_Gratuity(WebDriver driver) throws Exception
+public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_All_Disable_Enable_Gratuity(SelfHealingDriver driver) throws Exception
 {
 
 	double OverAll_Tip_Dly,Over_All_Pay_Dly,Tip_Shared_Dly,Expected_Tip_Dly;
@@ -12738,7 +12747,7 @@ for(int i = 0; i < elementList.size(); i++)
 }
 
 @Test(priority=66,enabled=false)
-public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_All_Disable_Enable_Gratuity(WebDriver driver) throws Exception
+public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_All_Disable_Enable_Gratuity(SelfHealingDriver driver) throws Exception
 {
 
 	double OverAll_Tip_Dly,Over_All_Pay_Dly,Tip_Shared_Dly,Expected_Tip_Dly;
@@ -13303,7 +13312,7 @@ for(int i = 0; i < elementList.size(); i++)
 
 
 @Test(priority=77,enabled=false)
-public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_All_Disable_Enable_DrivComp(WebDriver driver) throws Exception
+public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_All_Disable_Enable_DrivComp(SelfHealingDriver driver) throws Exception
 {
 
 	double OverAll_Tip_Dly,Over_All_Pay_Dly,Tip_Shared_Dly,Expected_Tip_Dly;
@@ -13926,7 +13935,7 @@ for(int i = 0; i < elementList.size(); i++)
 }
 
 @Test(priority=77,enabled=false)
-public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_All_Disable_Enable_DrivComp(WebDriver driver) throws Exception
+public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_All_Disable_Enable_DrivComp(SelfHealingDriver driver) throws Exception
 {
 
 	double OverAll_Tip_Dly,Over_All_Pay_Dly,Tip_Shared_Dly,Expected_Tip_Dly;
@@ -14488,7 +14497,7 @@ for(int i = 0; i < elementList.size(); i++)
 
 
 @Test(priority=88,enabled=false)
-public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Gratuity_Disable_Drivercomp_Enable_OLOPickuptip_Enable_Declcashtip(WebDriver driver) throws Exception
+public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Gratuity_Disable_Drivercomp_Enable_OLOPickuptip_Enable_Declcashtip(SelfHealingDriver driver) throws Exception
 {
 
 	double OverAll_Tip_Dly,Over_All_Pay_Dly,Tip_Shared_Dly,Expected_Tip_Dly;
@@ -15111,7 +15120,7 @@ for(int i = 0; i < elementList.size(); i++)
 }
 
 @Test(priority=88,enabled=false)
-public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Gratuity_Disable_Drivercomp_Enable_OLOPickuptip_Enable_Declcashtip(WebDriver driver) throws Exception
+public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Gratuity_Disable_Drivercomp_Enable_OLOPickuptip_Enable_Declcashtip(SelfHealingDriver driver) throws Exception
 {
 
 	double OverAll_Tip_Dly,Over_All_Pay_Dly,Tip_Shared_Dly,Expected_Tip_Dly;
@@ -15672,7 +15681,7 @@ for(int i = 0; i < elementList.size(); i++)
 
 
 @Test(priority=99,enabled=false)
-public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Online_PckUp_Tip_Disable_Drivercomp_Enable_Decl_Cash_Tip_Enable_Gratuity(WebDriver driver) throws Exception
+public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Online_PckUp_Tip_Disable_Drivercomp_Enable_Decl_Cash_Tip_Enable_Gratuity(SelfHealingDriver driver) throws Exception
 {
 
 	double OverAll_Tip_Dly,Over_All_Pay_Dly,Tip_Shared_Dly,Expected_Tip_Dly;
@@ -16295,7 +16304,7 @@ for(int i = 0; i < elementList.size(); i++)
 	
 
 @Test(priority=99,enabled=false)
-public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Online_PckUp_Tip_Disable_Drivercomp_Enable_Decl_Cash_Tip_Enable_Gratuity(WebDriver driver) throws Exception
+public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Online_PckUp_Tip_Disable_Drivercomp_Enable_Decl_Cash_Tip_Enable_Gratuity(SelfHealingDriver driver) throws Exception
 {
 
 	double OverAll_Tip_Dly,Over_All_Pay_Dly,Tip_Shared_Dly,Expected_Tip_Dly;
@@ -16857,7 +16866,7 @@ for(int i = 0; i < elementList.size(); i++)
 	
 	
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Decl_Cash_Tip_And_Driver_Comp(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Decl_Cash_Tip_And_Driver_Comp(SelfHealingDriver driver) throws Exception
 	{
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
@@ -17566,7 +17575,7 @@ Thread.sleep(1000);
 	
 	
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Decl_Cash_Tip_And_Driver_Comp(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Decl_Cash_Tip_And_Driver_Comp(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip_Wly,Over_All_Pay_Wly,Tip_Shared_Wly,Expected_Tip_Wly;
 	
@@ -18074,7 +18083,7 @@ for(int i = 0; i < elementList.size(); i++)
 	
 	
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Decl_Cash_Tip_And_Gratuity(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Decl_Cash_Tip_And_Gratuity(SelfHealingDriver driver) throws Exception
 	{
 
 	repts=new ReportsPage(driver, test);
@@ -18726,7 +18735,7 @@ test.log(LogStatus.INFO, "Disabled-> Declared Cash Tip, Gratuity Scenario (Enabl
 	
 	
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Decl_Cash_Tip_And_Gratuity(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Decl_Cash_Tip_And_Gratuity(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip_Wly,Over_All_Pay_Wly,Tip_Shared_Wly,Expected_Tip_Wly;
 	
@@ -19234,7 +19243,7 @@ for(int i = 0; i < elementList.size(); i++)
 	}
 	
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Online_pckup_Tip(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Online_pckup_Tip(SelfHealingDriver driver) throws Exception
 	{
 
 	repts=new ReportsPage(driver, test);
@@ -19889,7 +19898,7 @@ test.log(LogStatus.INFO, "Disabled-> Online Pickup Tip Scenario (Enabled ->Decla
 	
 	
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Online_pckup_Tip(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Online_pckup_Tip(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip_Wly,Over_All_Pay_Wly,Tip_Shared_Wly,Expected_Tip_Wly;
 	
@@ -20398,7 +20407,7 @@ for(int i = 0; i < elementList.size(); i++)
 	
 	
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Decl_Cash_Tip(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Decl_Cash_Tip(SelfHealingDriver driver) throws Exception
 	{
 
 	repts=new ReportsPage(driver, test);
@@ -21053,7 +21062,7 @@ test.log(LogStatus.INFO, "Disabled-> Declared Cash Tip Scenario (Enabled ->Onlin
 	
 	
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Decl_Cash_Tip(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Decl_Cash_Tip(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip_Wly,Over_All_Pay_Wly,Tip_Shared_Wly,Expected_Tip_Wly;
 	
@@ -21561,7 +21570,7 @@ for(int i = 0; i < elementList.size(); i++)
 	
 
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Gratuity(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Gratuity(SelfHealingDriver driver) throws Exception
 	{
 
 	repts=new ReportsPage(driver, test);
@@ -22217,7 +22226,7 @@ test.log(LogStatus.INFO, "Disabled-> Gratuity Scenario (Enabled ->Online Pickup 
 	
 	
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Gratuity(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Gratuity(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip_Wly,Over_All_Pay_Wly,Tip_Shared_Wly,Expected_Tip_Wly;
 	
@@ -22725,7 +22734,7 @@ for(int i = 0; i < elementList.size(); i++)
 	
 
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Driver_Comp(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Driver_Comp(SelfHealingDriver driver) throws Exception
 	{
 
 	repts=new ReportsPage(driver, test);
@@ -23381,7 +23390,7 @@ test.log(LogStatus.INFO, "Disabled-> Driver Compensation Scenario (Enabled ->Onl
 	
 	
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Driver_Comp(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Driver_Comp(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip_Wly,Over_All_Pay_Wly,Tip_Shared_Wly,Expected_Tip_Wly;
 	
@@ -23889,7 +23898,7 @@ for(int i = 0; i < elementList.size(); i++)
 	}
 	
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Online_pckup_Tip_And_Gratuity(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Online_pckup_Tip_And_Gratuity(SelfHealingDriver driver) throws Exception
 	{
 
 	repts=new ReportsPage(driver, test);
@@ -24542,7 +24551,7 @@ test.log(LogStatus.INFO, "Disabled-> Online Pickup Tip, Gratuity Scenario (Enabl
 	
 	
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Online_pckup_Tip_And_Gratuity(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Online_pckup_Tip_And_Gratuity(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip_Wly,Over_All_Pay_Wly,Tip_Shared_Wly,Expected_Tip_Wly;
 	
@@ -25002,7 +25011,7 @@ for(int i = 0; i < elementList.size(); i++)
 	
 	
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Online_pckup_Tip_And_Decl_Cash_Tip(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyDailyReport_In_Time_Date_Range_Disable_Online_pckup_Tip_And_Decl_Cash_Tip(SelfHealingDriver driver) throws Exception
 	{
 	repts=new ReportsPage(driver, test);
 	cmp=new Common_XPaths(driver, test);
@@ -25597,7 +25606,7 @@ test.log(LogStatus.INFO, "Disabled-> Online Pickup Tip, Declared Cash Tip Scenar
 	
 	
 	@Test(enabled = false)
-	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Online_pckup_Tip_And_Decl_Cash_Tip(WebDriver driver) throws Exception
+	public void Employee_Role_Based_Payroll_Report_Method_verifyWeeklyReport_In_Time_Date_Range_Disable_Online_pckup_Tip_And_Decl_Cash_Tip(SelfHealingDriver driver) throws Exception
 	{
 	double OverAll_Tip_Wly,Over_All_Pay_Wly,Tip_Shared_Wly,Expected_Tip_Wly;
 	

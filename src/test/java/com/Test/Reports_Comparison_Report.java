@@ -20,6 +20,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -30,7 +31,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Reports_Comparison_Report 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -60,7 +61,7 @@ public class Reports_Comparison_Report
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -84,14 +85,22 @@ public class Reports_Comparison_Report
 //		chromeOptions.addArguments("--remote-allow-origins=*");
 //		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
 //		driver = new ChromeDriver(chromeOptions);
+		WebDriverManager.chromedriver().setup();
 		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 //		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -136,7 +145,7 @@ public class Reports_Comparison_Report
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Comparison_Report_Page(WebDriver driver) throws Exception
+	public void Open_Comparison_Report_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		repts=new ReportsPage(driver, test);
@@ -152,7 +161,7 @@ public class Reports_Comparison_Report
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -165,7 +174,7 @@ public class Reports_Comparison_Report
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_Today_Comp2_Yesterday(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_Today_Comp2_Yesterday(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -260,7 +269,7 @@ public class Reports_Comparison_Report
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_Today_Comp2_Last_N_Days(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_Today_Comp2_Last_N_Days(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -339,7 +348,7 @@ public class Reports_Comparison_Report
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_Today_Comp2_This_Week(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_Today_Comp2_This_Week(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -418,7 +427,7 @@ public class Reports_Comparison_Report
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_Today_Comp2_Last_Week(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_Today_Comp2_Last_Week(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -498,7 +507,7 @@ public class Reports_Comparison_Report
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_Today_Comp2_Last_7_Days(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_Today_Comp2_Last_7_Days(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -578,7 +587,7 @@ public class Reports_Comparison_Report
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_Today_Comp2_This_Month(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_Today_Comp2_This_Month(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -658,7 +667,7 @@ public class Reports_Comparison_Report
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_Today_Comp2_Last_Month(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_Today_Comp2_Last_Month(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -737,7 +746,7 @@ public class Reports_Comparison_Report
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_Today_Comp2_Last_30_days(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_Today_Comp2_Last_30_days(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -816,7 +825,7 @@ public class Reports_Comparison_Report
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_Today_Comp2_Specific_Date(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_Today_Comp2_Specific_Date(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -895,7 +904,7 @@ public class Reports_Comparison_Report
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_Today_Comp2_Date_Range(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_Today_Comp2_Date_Range(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -976,7 +985,7 @@ public class Reports_Comparison_Report
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_SpecificDate_Comp2_SpecificDate(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_SpecificDate_Comp2_SpecificDate(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1058,7 +1067,7 @@ public class Reports_Comparison_Report
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_DateRange_Comp2_DateRange(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_DateRange_Comp2_DateRange(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1141,7 +1150,7 @@ public class Reports_Comparison_Report
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_SpecificDate_Comp2_SpecificDate_Comp3_SpecificDate(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_SpecificDate_Comp2_SpecificDate_Comp3_SpecificDate(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1238,7 +1247,7 @@ public class Reports_Comparison_Report
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_DateRange_Comp2_DateRange_Comp3_DateRange(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_DateRange_Comp2_DateRange_Comp3_DateRange(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1348,7 +1357,7 @@ public class Reports_Comparison_Report
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_SpecificDate_Comp2_SpecificDate_Comp3_SpecificDate_Comp4_SpecificDate(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_SpecificDate_Comp2_SpecificDate_Comp3_SpecificDate_Comp4_SpecificDate(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1451,7 +1460,7 @@ public class Reports_Comparison_Report
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Comparison_Sale_Report_Comp1_DateRange_Comp2_DateRange_Comp3_DateRange_Comp4_DateRange(WebDriver driver) throws Exception
+	public void Comparison_Sale_Report_Comp1_DateRange_Comp2_DateRange_Comp3_DateRange_Comp4_DateRange(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);

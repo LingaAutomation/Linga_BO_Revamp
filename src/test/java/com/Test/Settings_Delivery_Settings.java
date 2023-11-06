@@ -24,6 +24,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.Delivary_SettingsPage;
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -33,7 +34,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_Delivery_Settings {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	ExtentReports rep = ExtentManager.getInstance();
 	ExtentTest test = rep.startTest("Settings - Delivery Settings");
 	
@@ -58,7 +59,7 @@ public class Settings_Delivery_Settings {
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -75,11 +76,19 @@ public class Settings_Delivery_Settings {
 		Thread.sleep(2000);
 		//Call the chrome driver
 
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
 		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -113,7 +122,7 @@ public class Settings_Delivery_Settings {
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Delivery_Page(WebDriver driver) throws Exception
+	public void Open_Delivery_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		ds=new Delivary_SettingsPage(driver, test);
@@ -143,7 +152,7 @@ public class Settings_Delivery_Settings {
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Delivery_setting_Page(WebDriver driver) throws Exception
+	public void Delivery_setting_Page(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(1000);
 		ds.Click_Setting_Delivery();
@@ -151,7 +160,7 @@ public class Settings_Delivery_Settings {
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Delivery_Zone_Page(WebDriver driver) throws Exception
+	public void Delivery_Zone_Page(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 //		ds.Click_zone_Delivery();
@@ -178,7 +187,7 @@ public class Settings_Delivery_Settings {
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Add_Delivery_Zone(WebDriver driver) throws Exception
+	public void Add_Delivery_Zone(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -367,7 +376,7 @@ public class Settings_Delivery_Settings {
 	
 	
 	@Test(priority = 3,enabled = false)
-	public void Edit_and_Update_Delivery_Zone(WebDriver driver) throws Exception
+	public void Edit_and_Update_Delivery_Zone(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -554,7 +563,7 @@ public class Settings_Delivery_Settings {
 	
 
 	@Test(priority = 3,enabled = false)
-	public void Delete_Delivery_Zone(WebDriver driver) throws Exception
+	public void Delete_Delivery_Zone(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		ds=new Delivary_SettingsPage(driver, test);
@@ -658,21 +667,21 @@ for(int i=1;i<=8;i++)
 	
 	
 	@Test(priority = 3,enabled = false)
-	public void Delivery_PUC_Page(WebDriver driver) throws Exception
+	public void Delivery_PUC_Page(SelfHealingDriver driver) throws Exception
 	{
 		ds.Click_puc_Delivery();
 		Thread.sleep(10000);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Delivery_Driver_Page(WebDriver driver) throws Exception
+	public void Delivery_Driver_Page(SelfHealingDriver driver) throws Exception
 	{
 		ds.Click_Driver_Delivery();
 		Thread.sleep(5000);
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Delivery_Save(WebDriver driver) throws Exception
+	public void Delivery_Save(SelfHealingDriver driver) throws Exception
 	{
 		ds.Click_Save();
 		Thread.sleep(5000);

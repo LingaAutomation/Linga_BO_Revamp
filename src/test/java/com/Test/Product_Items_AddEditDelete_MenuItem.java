@@ -28,6 +28,7 @@ import com.Pages.Availability_RestrictionTimePage;
 import com.Pages.CategoriesPage;
 import com.Pages.Common_XPaths;
 import com.Pages.ProductItems_Menu_RetailPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -38,7 +39,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Product_Items_AddEditDelete_MenuItem {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -66,7 +67,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -85,11 +86,19 @@ public WebDriver driver;
 		Thread.sleep(2000);
 		//Call the chrome driver
 
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
 		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -127,7 +136,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_ProductItem_MenuItem_Page(WebDriver driver) throws Exception
+	public void Open_ProductItem_MenuItem_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		pmt=new ProductItems_Menu_RetailPage(driver, test);
@@ -143,7 +152,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -155,7 +164,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_ProductItem_MenuItem_Always_MenuType_MenuItem(WebDriver driver) throws Exception
+	public void Add_ProductItem_MenuItem_Always_MenuType_MenuItem(SelfHealingDriver driver) throws Exception
 	{
 		pmt=new ProductItems_Menu_RetailPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -373,7 +382,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_ProductItem_MenuItem(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_ProductItem_MenuItem(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmt=new ProductItems_Menu_RetailPage(driver, test);
@@ -414,7 +423,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_ProductItem_MenuItem_DaysOfWeek_SubCategory_LevelType(WebDriver driver) throws Exception
+	public void Edit_and_Update_ProductItem_MenuItem_DaysOfWeek_SubCategory_LevelType(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmt=new ProductItems_Menu_RetailPage(driver, test);
@@ -817,7 +826,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_ProductItem_MenuItem_DaysOfMonth_MenuType_MenuItem_With_ServingSize(WebDriver driver) throws Exception
+	public void Edit_and_Update_ProductItem_MenuItem_DaysOfMonth_MenuType_MenuItem_With_ServingSize(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmt=new ProductItems_Menu_RetailPage(driver, test);
@@ -954,7 +963,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_ProductItem_MenuItem_DateRange_MenuType_OpenItem(WebDriver driver) throws Exception
+	public void Edit_and_Update_ProductItem_MenuItem_DateRange_MenuType_OpenItem(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmt=new ProductItems_Menu_RetailPage(driver, test);
@@ -1055,7 +1064,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_ProductItem_MenuItem_Specific_Date_MenuType_ScaleItem(WebDriver driver) throws Exception
+	public void Edit_and_Update_ProductItem_MenuItem_Specific_Date_MenuType_ScaleItem(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmt=new ProductItems_Menu_RetailPage(driver, test);
@@ -1158,7 +1167,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_ProductItem_MenuItem_DateRangeWithTime_MenuType_ComboItem(WebDriver driver) throws Exception
+	public void Edit_and_Update_ProductItem_MenuItem_DateRangeWithTime_MenuType_ComboItem(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmt=new ProductItems_Menu_RetailPage(driver, test);
@@ -1275,7 +1284,7 @@ public WebDriver driver;
 
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_ProductItem_MenuItem(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_ProductItem_MenuItem(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(1000);
 		
@@ -1402,7 +1411,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_Duplicate_MenuItem(WebDriver driver) throws Exception
+	public void Create_Duplicate_MenuItem(SelfHealingDriver driver) throws Exception
 	{
 		pmt=new ProductItems_Menu_RetailPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

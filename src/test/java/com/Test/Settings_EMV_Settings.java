@@ -17,6 +17,7 @@ import com.Pages.Availability_RestrictionTimePage;
 import com.Pages.CategoriesPage;
 import com.Pages.Common_XPaths;
 import com.Pages.Settings_EMV_Settings_Page;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -27,7 +28,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_EMV_Settings {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -54,7 +55,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -71,10 +72,19 @@ public WebDriver driver;
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -107,7 +117,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_EMVSettings_Page(WebDriver driver) throws Exception
+	public void Open_EMVSettings_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		emv=new Settings_EMV_Settings_Page(driver, test);
@@ -124,7 +134,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -137,7 +147,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Add_EMVSettings(WebDriver driver) throws Exception
+	public void Add_EMVSettings(SelfHealingDriver driver) throws Exception
 	{
 		emv=new Settings_EMV_Settings_Page(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -191,7 +201,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Edit_and_Update_EMV(WebDriver driver) throws Exception
+	public void Edit_and_Update_EMV(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		emv=new Settings_EMV_Settings_Page(driver, test);
@@ -253,14 +263,14 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Row_Select_EMV(WebDriver driver) throws InterruptedException
+	public void Row_Select_EMV(SelfHealingDriver driver) throws InterruptedException
 	{
 		emv.rows_per_page();
 		Thread.sleep(1000);
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Delete_EMVSettings(WebDriver driver) throws Exception
+	public void Delete_EMVSettings(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -309,7 +319,7 @@ public WebDriver driver;
 	}	
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_DuplicateEMV(WebDriver driver) throws Exception
+	public void Create_DuplicateEMV(SelfHealingDriver driver) throws Exception
 	{
 		emv=new Settings_EMV_Settings_Page(driver, test);
 		cmp=new Common_XPaths(driver, test);

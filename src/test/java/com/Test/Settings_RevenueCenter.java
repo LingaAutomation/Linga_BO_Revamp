@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.Settings_RevenueCenter_Page;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -24,7 +25,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_RevenueCenter 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 
 	ExtentReports rep = ExtentManager.getInstance();
@@ -50,7 +51,7 @@ public class Settings_RevenueCenter
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s="data:image/png;base64,"+scnsht;
 
@@ -67,11 +68,19 @@ public class Settings_RevenueCenter
 		Thread.sleep(2000);
 		//Call the chrome driver
 		
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
 		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -118,7 +127,7 @@ public class Settings_RevenueCenter
 	}
 
 	@Test(priority=3,enabled = false)
-	public void Navigating_RevenueCenter(WebDriver driver) throws Exception
+	public void Navigating_RevenueCenter(SelfHealingDriver driver) throws Exception
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -133,7 +142,7 @@ public class Settings_RevenueCenter
 		
 	}
 	@Test(priority=4,enabled = false)
-	public void Creating_NewRevenue(WebDriver driver) throws Exception
+	public void Creating_NewRevenue(SelfHealingDriver driver) throws Exception
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
 		Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -157,7 +166,7 @@ public class Settings_RevenueCenter
 	 		}	
 		}
 	@Test(priority=5,enabled = false)
-	public void New_Revenue_WithoutName(WebDriver driver) throws Exception 
+	public void New_Revenue_WithoutName(SelfHealingDriver driver) throws Exception 
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
 		Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -189,7 +198,7 @@ public class Settings_RevenueCenter
 		 cmp.Click_CloseButton();
 		}
 	@Test(priority=6,enabled = false)
-	public void New_Revenue_WithoutNode(WebDriver driver) throws Exception
+	public void New_Revenue_WithoutNode(SelfHealingDriver driver) throws Exception
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
 		Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -216,7 +225,7 @@ public class Settings_RevenueCenter
 		
 	}
 	@Test(priority=7,enabled = false)
-	public void Cancling_New_Revenue(WebDriver driver) throws Exception 
+	public void Cancling_New_Revenue(SelfHealingDriver driver) throws Exception 
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
 		Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -227,7 +236,7 @@ public class Settings_RevenueCenter
 		cmp.Click_CloseButton();
 	}
 	@Test(priority=8,enabled = false)
-	public void Entering_Name25(WebDriver driver) throws Exception 
+	public void Entering_Name25(SelfHealingDriver driver) throws Exception 
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
 		Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -253,7 +262,7 @@ public class Settings_RevenueCenter
 	}
 	
 	@Test(priority=9,enabled = false)
-	public void Entering_Duplicate_Name(WebDriver driver) throws Exception
+	public void Entering_Duplicate_Name(SelfHealingDriver driver) throws Exception
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
 		Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -279,7 +288,7 @@ public class Settings_RevenueCenter
 		 cmp.Click_CloseButton();
 		}
 	@Test(priority=10,enabled = false)
-	public void Entering_Specialchar_Name(WebDriver driver) throws Exception 
+	public void Entering_Specialchar_Name(SelfHealingDriver driver) throws Exception 
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
 		Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -304,7 +313,7 @@ public class Settings_RevenueCenter
 		
 	}
 	@Test(priority=11,enabled = false)
-	public void Search_And_Delete(WebDriver driver) throws Exception
+	public void Search_And_Delete(SelfHealingDriver driver) throws Exception
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -315,7 +324,7 @@ public class Settings_RevenueCenter
 	}
 	
 	@Test(priority=12,enabled = false)
-	public void Handling_pagination(WebDriver driver) throws Exception
+	public void Handling_pagination(SelfHealingDriver driver) throws Exception
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -324,7 +333,7 @@ public class Settings_RevenueCenter
 		
 	}
 	@Test(priority=13,enabled = false)
-	public void Search_And_Edit(WebDriver driver) throws Exception
+	public void Search_And_Edit(SelfHealingDriver driver) throws Exception
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
 		Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -348,7 +357,7 @@ public class Settings_RevenueCenter
 		 RC.Clear_search();
 		}
 	@Test(priority=14,enabled = false)
-	public void Sorting_Column(WebDriver driver) throws Exception
+	public void Sorting_Column(SelfHealingDriver driver) throws Exception
 	{
 		Settings_RevenueCenter_Page RC = new Settings_RevenueCenter_Page(driver, test);
 		//Common_XPaths cmp = new Common_XPaths(driver, test);

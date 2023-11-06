@@ -27,6 +27,7 @@ import com.Pages.Availability_RestrictionTimePage;
 import com.Pages.Common_XPaths;
 import com.Pages.Label_TemplatePage;
 import com.Test.LoginTest;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -39,7 +40,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Settings_Label_Template 
 {
 
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -66,7 +67,7 @@ public class Settings_Label_Template
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -85,11 +86,19 @@ public class Settings_Label_Template
 		Thread.sleep(2000);
 		//Call the chrome driver
 
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
-	
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -120,7 +129,7 @@ public class Settings_Label_Template
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Label_Printer_Page(WebDriver driver) throws Exception
+	public void Open_Label_Printer_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -148,7 +157,7 @@ public class Settings_Label_Template
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Save_Epson_Box_Label_Template_Settings(WebDriver driver) throws Exception
+	public void Save_Epson_Box_Label_Template_Settings(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		ltp=new Label_TemplatePage(driver, test);
@@ -530,7 +539,7 @@ public class Settings_Label_Template
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Save_Zebra_Label_Template_Settings(WebDriver driver) throws Exception
+	public void Save_Zebra_Label_Template_Settings(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 	
@@ -2232,7 +2241,7 @@ public class Settings_Label_Template
 	}
 
 	@Test(priority = 5,enabled = false)
-	public void Save_Kitchen_Label_Template_Settings(WebDriver driver) throws Exception
+	public void Save_Kitchen_Label_Template_Settings(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 

@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.Settings_NotificationsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -27,7 +28,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_Notifications
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 
 	ExtentReports rep = ExtentManager.getInstance();
@@ -53,7 +54,7 @@ public class Settings_Notifications
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s="data:image/png;base64,"+scnsht;
 
@@ -69,10 +70,19 @@ public class Settings_Notifications
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -159,7 +169,7 @@ public class Settings_Notifications
 	}
 
 	@Test(priority = 3,enabled = false)
-	public void Open_Notifications_Page(WebDriver driver) throws Exception
+	public void Open_Notifications_Page(SelfHealingDriver driver) throws Exception
 	{
 		cmp= new Common_XPaths(driver,test);
 
@@ -174,7 +184,7 @@ public class Settings_Notifications
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Clicking_No_Toggle(WebDriver driver) throws Exception
+	public void Clicking_No_Toggle(SelfHealingDriver driver) throws Exception
 	{
 		cmp= new Common_XPaths(driver,test);
 		np= new Settings_NotificationsPage(driver, test);
@@ -190,7 +200,7 @@ public class Settings_Notifications
 		Thread.sleep(3000);
 	}
 	@Test(priority = 4,enabled = false)
-	public void Clicking_Discount_Yes(WebDriver driver) throws Exception
+	public void Clicking_Discount_Yes(SelfHealingDriver driver) throws Exception
 	{
 		cmp= new Common_XPaths(driver,test);
 		np= new Settings_NotificationsPage(driver, test);
@@ -212,7 +222,7 @@ public class Settings_Notifications
 		Thread.sleep(3000);
     }
 	@Test(priority = 5,enabled = false)
-	public void Clikcing_Discount_Yes_Negative(WebDriver driver) throws Exception 
+	public void Clikcing_Discount_Yes_Negative(SelfHealingDriver driver) throws Exception 
 	{
 		np.Entering_Empty_number();
 		try {
@@ -387,7 +397,7 @@ public class Settings_Notifications
 		np.Save();
 	}
 	@Test(priority = 6,enabled = false)
-	public void Clciking_Discount_No(WebDriver driver) throws Exception 
+	public void Clciking_Discount_No(SelfHealingDriver driver) throws Exception 
 	{
 		Thread.sleep(2000);
 		np.Selecting_Discount_No();
@@ -396,7 +406,7 @@ public class Settings_Notifications
 
 	}
 	@Test(priority = 7,enabled = false)
-	public void Clicking_Void_Yes(WebDriver driver) throws Exception
+	public void Clicking_Void_Yes(SelfHealingDriver driver) throws Exception
 	{
 		cmp= new Common_XPaths(driver,test);
 		np= new Settings_NotificationsPage(driver, test);
@@ -422,7 +432,7 @@ public class Settings_Notifications
 		np.Save();
 		Thread.sleep(2000);
 	}
-	public void Clikcing_Void_Yes_Negative(WebDriver driver) throws Exception 
+	public void Clikcing_Void_Yes_Negative(SelfHealingDriver driver) throws Exception 
 	{
 		np.Entering_Void_Empty_number();
 		try {
@@ -595,7 +605,7 @@ public class Settings_Notifications
 		
 	}
 	@Test(priority = 8,enabled = false)
-	public void Clicking_Void_No(WebDriver driver) throws Exception 
+	public void Clicking_Void_No(SelfHealingDriver driver) throws Exception 
 	{
 		np.Selecting_Void_No();
 		Thread.sleep(1000);
@@ -603,7 +613,7 @@ public class Settings_Notifications
 		
 	}
 	@Test(priority = 9,enabled = false)
-	public void Clicking_CashDrawer_Yes(WebDriver driver) throws Exception 
+	public void Clicking_CashDrawer_Yes(SelfHealingDriver driver) throws Exception 
 	{
 		for(int i=1;i<=3;i++) 
 		{
@@ -628,7 +638,7 @@ public class Settings_Notifications
 		np.Save();
 		Thread.sleep(2000);
 	}
-	public void Clikcing_CashDrawer_Yes_Negative(WebDriver driver) throws Exception
+	public void Clikcing_CashDrawer_Yes_Negative(SelfHealingDriver driver) throws Exception
 	{
 		np.Entering_CashDrawer_Empty_number();
 		
@@ -773,7 +783,7 @@ public class Settings_Notifications
 		
 	}
 	@Test(priority = 10,enabled = false)
-	public void Clicking_CashDrawer_No(WebDriver driver) throws Exception 
+	public void Clicking_CashDrawer_No(SelfHealingDriver driver) throws Exception 
 	{
 		np.Clicking_CashDrawer_No();
 		Thread.sleep(1000);
@@ -781,7 +791,7 @@ public class Settings_Notifications
 		
 	}
 	@Test(priority = 11,enabled = false)
-	public void Clicking_TimeClock_Yes(WebDriver driver) throws Exception 
+	public void Clicking_TimeClock_Yes(SelfHealingDriver driver) throws Exception 
 	{
 		for(int i=1;i<=3;i++) 
 		{
@@ -804,7 +814,7 @@ public class Settings_Notifications
 		Thread.sleep(3000);
 		
 	}
-	public void Clikcing_TimeClock_Yes_Negative(WebDriver driver) throws Exception
+	public void Clikcing_TimeClock_Yes_Negative(SelfHealingDriver driver) throws Exception
 	{
 		np.Entering_TimeClock_Empty_number();
 		try {
@@ -862,14 +872,14 @@ public class Settings_Notifications
 		
 	}
 	@Test(priority = 12,enabled = false)
-	public void Clicking_TimeClock_No(WebDriver driver) throws Exception 
+	public void Clicking_TimeClock_No(SelfHealingDriver driver) throws Exception 
 	{
 		np.Clicking_Timeclock_No();
 		np.Save();
 		
 	}
 	@Test(priority = 13,enabled = false)
-	public void Clicking_KPI_Yes(WebDriver driver) throws Exception
+	public void Clicking_KPI_Yes(SelfHealingDriver driver) throws Exception
 	{
 		for(int i=1;i<=3;i++) 
 		{
@@ -891,7 +901,7 @@ public class Settings_Notifications
 		np.Save();
 		Thread.sleep(3000);
 	}
-	public void Clikcing_KPI_Yes_Negative(WebDriver driver) throws Exception 
+	public void Clikcing_KPI_Yes_Negative(SelfHealingDriver driver) throws Exception 
 	{
 		np.Entering_KPI_Empty_number();
 		Thread.sleep(2000);
@@ -1063,14 +1073,14 @@ public class Settings_Notifications
 		np.Save();
 	}
 	@Test(priority = 14,enabled = false)
-	public void Clicking_KPI_No(WebDriver driver) throws Exception 
+	public void Clicking_KPI_No(SelfHealingDriver driver) throws Exception 
 	{
 		np.Clicking_KPI_NO();
 		np.Save();
 		
 	}
 	@Test(priority = 15,enabled = false)
-	public void Clicking_EOD_Yes(WebDriver driver) throws Exception
+	public void Clicking_EOD_Yes(SelfHealingDriver driver) throws Exception
 	{
 		for(int i=1;i<=3;i++) 
 		{
@@ -1092,7 +1102,7 @@ public class Settings_Notifications
 		np.Save();
 		Thread.sleep(3000);
 	}
-	public void Clikcing_EOD_Yes_Negative(WebDriver driver) throws Exception 
+	public void Clikcing_EOD_Yes_Negative(SelfHealingDriver driver) throws Exception 
 	{
 		np.Entering_EOD_Empty_number();
 		try {
@@ -1266,13 +1276,13 @@ public class Settings_Notifications
 		
 	}
 	@Test(priority = 16,enabled = false)
-	public void Clicking_EOD_No(WebDriver driver) throws Exception
+	public void Clicking_EOD_No(SelfHealingDriver driver) throws Exception
 	{
 		np.Clicking_EOD_NO();
 		np.Save();
 	}
 	@Test(priority = 17,enabled = false)
-	public void Clicking_WaitList_Yes(WebDriver driver) throws Exception 
+	public void Clicking_WaitList_Yes(SelfHealingDriver driver) throws Exception 
 	{
 		for(int i=1;i<=3;i++) 
 		{
@@ -1290,7 +1300,7 @@ public class Settings_Notifications
 		np.Save();
 		Thread.sleep(3000);
 	}
-	public void Clikcing_WaitList_Negative(WebDriver driver) throws Exception 
+	public void Clikcing_WaitList_Negative(SelfHealingDriver driver) throws Exception 
 	{
 		np.Entering_WaitList_Empty_number();
 		try {
@@ -1363,13 +1373,13 @@ public class Settings_Notifications
 		
 	}
 	@Test(priority = 18,enabled = false)
-	public void Clicking_WaitList_No(WebDriver driver) throws Exception 
+	public void Clicking_WaitList_No(SelfHealingDriver driver) throws Exception 
 	{
 		np.Clicking_WaitList_No();
 		np.Save();
 	}
 	@Test(priority = 19,enabled = false)
-	public void Clicking_SRR_Yes(WebDriver driver) throws Exception 
+	public void Clicking_SRR_Yes(SelfHealingDriver driver) throws Exception 
 	{
 		for(int i=1;i<=3;i++) 
 		{
@@ -1385,7 +1395,7 @@ public class Settings_Notifications
 		np.Save();
 		Thread.sleep(3000);	
 	}
-	public void Clikcing_SRR_Negative(WebDriver driver) throws Exception 
+	public void Clikcing_SRR_Negative(SelfHealingDriver driver) throws Exception 
 	{
 		Thread.sleep(2000);
 		np.Entering_SRR_Invalid_Email();
@@ -1457,13 +1467,13 @@ public class Settings_Notifications
 		
 	}
 	@Test(priority = 20,enabled = false)
-	public void Clicking_SRR_No(WebDriver driver) throws Exception 
+	public void Clicking_SRR_No(SelfHealingDriver driver) throws Exception 
 	{
 		np.Clicking_SRR_No();
 		np.Save();
 	}
 	@Test(priority = 21,enabled = false)
-	public void Clicking_OPP_Yes(WebDriver driver) throws Exception
+	public void Clicking_OPP_Yes(SelfHealingDriver driver) throws Exception
 	{
 		for(int i=1;i<=3;i++) 
 		{
@@ -1480,7 +1490,7 @@ public class Settings_Notifications
 		Thread.sleep(3000);
 		
 	}
-	public void Clikcing_OPP_Negative(WebDriver driver) throws Exception 
+	public void Clikcing_OPP_Negative(SelfHealingDriver driver) throws Exception 
 	{
 		Thread.sleep(2000);
 		np.Entering_OPP_Invalid_Email();
@@ -1555,7 +1565,7 @@ public class Settings_Notifications
 		
 	}
 	@Test(priority = 22,enabled = false)
-	public void Clicking_OPP_No(WebDriver driver) throws Exception 
+	public void Clicking_OPP_No(SelfHealingDriver driver) throws Exception 
 	{
 		np.Clicking_OPP_No();
 		np.Save();

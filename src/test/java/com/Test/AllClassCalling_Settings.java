@@ -137,7 +137,7 @@ public class AllClassCalling_Settings {
 	{
 		test.log(LogStatus.INFO, "-------********************   Settings_Till_Setting(Starting)   ********************-------");
 
-		Settgings_Till_Setting als = new Settgings_Till_Setting();
+		Settings_Till_Settings als = new Settings_Till_Settings();
 		Thread.sleep(30000);
 		als.Open_TillSettings_Page(driver);
 		als.verifyAutomaticGlobalTill(driver);

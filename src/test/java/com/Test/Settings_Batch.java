@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 
 import com.Pages.Settings_Batch_Settings_Page;
 import com.Pages.Settings_NotificationsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -28,7 +29,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_Batch 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 
 	ExtentReports rep = ExtentManager.getInstance();
@@ -54,7 +55,7 @@ public class Settings_Batch
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s="data:image/png;base64,"+scnsht;
 
@@ -72,10 +73,19 @@ public class Settings_Batch
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -120,7 +130,7 @@ public class Settings_Batch
 	}
 
 	@Test(priority = 3,enabled = false)
-	public void Navigating_To_Settings_Batch_Settings_Page(WebDriver driver) throws Exception 
+	public void Navigating_To_Settings_Batch_Settings_Page(SelfHealingDriver driver) throws Exception 
 	{
     	cmp= new Common_XPaths(driver,test);
    	    bs= new Settings_Batch_Settings_Page(driver, test);
@@ -142,7 +152,7 @@ public class Settings_Batch
 			}
 	}
 	@Test(priority = 4,enabled = false)
-	public void Enable_Auto_Batch_YesToggle(WebDriver driver) throws Exception 
+	public void Enable_Auto_Batch_YesToggle(SelfHealingDriver driver) throws Exception 
 	{
 		for(int i=1;i<=3;i++)
 		{
@@ -170,7 +180,7 @@ public class Settings_Batch
 		Thread.sleep(5000);
 	}
 	@Test(priority = 5,enabled = false)
-	public void Enable_Auto_Batch_NoToggle(WebDriver driver) throws Exception 
+	public void Enable_Auto_Batch_NoToggle(SelfHealingDriver driver) throws Exception 
 	{
 		for(int i=1;i<=3;i++)
 		{
@@ -183,7 +193,7 @@ public class Settings_Batch
 		
 	}
 	@Test(priority = 6,enabled = false)
-	public void Selecting_Auto_Batch_Submit_Device(WebDriver driver) throws Exception
+	public void Selecting_Auto_Batch_Submit_Device(SelfHealingDriver driver) throws Exception
 	{
 		bs.Click_Batch_Submit_Device_DropDown();
 		Thread.sleep(2000);
@@ -206,7 +216,7 @@ public class Settings_Batch
 		Thread.sleep(3000);
 	 }
 	@Test(priority = 7,enabled = false)
-	public void Selecting_Batch_Payment_Device(WebDriver driver) throws Exception 
+	public void Selecting_Batch_Payment_Device(SelfHealingDriver driver) throws Exception 
 	{
 		bs.Click_Batch_Payment_Device();
 		Thread.sleep(2000);
@@ -224,7 +234,7 @@ public class Settings_Batch
 		Thread.sleep(5000);
 	}
 	@Test(priority = 8,enabled = false)
-	public void Selecting_Rows_Per_Page(WebDriver driver) throws Exception
+	public void Selecting_Rows_Per_Page(SelfHealingDriver driver) throws Exception
 	{
 		for(int i=1;i<=6;i++)
 		{
@@ -242,7 +252,7 @@ public class Settings_Batch
 		Thread.sleep(4000);
 	}
 	@Test(priority = 9,enabled = false)
-	public void Searching_delete_Node(WebDriver driver) throws Exception 
+	public void Searching_delete_Node(SelfHealingDriver driver) throws Exception 
 	{
 		for(int i=1;i<=3;i++)
 		{
@@ -253,7 +263,7 @@ public class Settings_Batch
 		
 	}
 	@Test(priority = 10,enabled = false)
-	public void Handiling_Pagination(WebDriver driver) throws Exception
+	public void Handiling_Pagination(SelfHealingDriver driver) throws Exception
 	{
 		bs.Pagination();
 		Thread.sleep(1000);
@@ -261,7 +271,7 @@ public class Settings_Batch
 		Thread.sleep(4000);
 	}
 	@Test(priority = 11,enabled = false)
-	public void Sorting_Columns(WebDriver driver) throws Exception
+	public void Sorting_Columns(SelfHealingDriver driver) throws Exception
 	{
 		for(int i=1;i<=6;i++)
 		{
@@ -276,7 +286,7 @@ public class Settings_Batch
 		
 	}
 	@Test(priority = 12,enabled = false)
-	public void Navigating_Back(WebDriver driver) throws Exception
+	public void Navigating_Back(SelfHealingDriver driver) throws Exception
 	{
 		bs.Navigate_Back();
 		Thread.sleep(3000);

@@ -17,6 +17,7 @@ import org.testng.ITestResult;
 import com.Pages.Common_XPaths;
 import com.Pages.KitchenPrinterTemplatePage;
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -28,7 +29,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Settings_Kitchen_Printer_Template 
 {
 
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -55,7 +56,7 @@ public class Settings_Kitchen_Printer_Template
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -74,11 +75,19 @@ public class Settings_Kitchen_Printer_Template
 		Thread.sleep(2000);
 		//Call the chrome driver
 
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
-	
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -109,7 +118,7 @@ public class Settings_Kitchen_Printer_Template
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Kitchen_Printer_Template_Page(WebDriver driver) throws Exception
+	public void Open_Kitchen_Printer_Template_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -137,7 +146,7 @@ public class Settings_Kitchen_Printer_Template
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Disable_All_Kitchen_Printer_Template_Settings(WebDriver driver) throws Exception
+	public void Disable_All_Kitchen_Printer_Template_Settings(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		kpt=new KitchenPrinterTemplatePage(driver, test);
@@ -611,7 +620,7 @@ public class Settings_Kitchen_Printer_Template
 				
 	}
 	@Test(priority = 4,enabled = false)
-	public void Enable_All_Kitchen_Printer_Template_Settings(WebDriver driver) throws Exception
+	public void Enable_All_Kitchen_Printer_Template_Settings(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		kpt=new KitchenPrinterTemplatePage(driver, test);

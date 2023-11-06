@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.Settings_WaitList_Page;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -27,7 +28,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_WaitList 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 
 	ExtentReports rep = ExtentManager.getInstance();
@@ -53,7 +54,7 @@ public class Settings_WaitList
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s="data:image/png;base64,"+scnsht;
 
@@ -71,10 +72,19 @@ public class Settings_WaitList
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -133,7 +143,7 @@ public class Settings_WaitList
 	}
 
 	@Test(priority=2, enabled = false)
-	public void Navigate_Settings_WaitList_Page(WebDriver driver) throws Exception
+	public void Navigate_Settings_WaitList_Page(SelfHealingDriver driver) throws Exception
 	{
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
@@ -147,7 +157,7 @@ public class Settings_WaitList
 		Thread.sleep(1000);
 		wl.Click_WaitList();
 	}
-	public void Creating_New_Wait_List(WebDriver driver) throws Exception
+	public void Creating_New_Wait_List(SelfHealingDriver driver) throws Exception
 	{
 		Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
@@ -175,7 +185,7 @@ public class Settings_WaitList
 		
 
 	}
-	public void without_Entering_Min_Max_Seat(WebDriver driver) throws Exception 
+	public void without_Entering_Min_Max_Seat(SelfHealingDriver driver) throws Exception 
 	{
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
@@ -213,7 +223,7 @@ public class Settings_WaitList
 		}
 		Thread.sleep(2000);
 	}
-	public void Entering_Invalid_Time(WebDriver driver) throws Exception 
+	public void Entering_Invalid_Time(SelfHealingDriver driver) throws Exception 
 	{
 		Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
@@ -237,7 +247,7 @@ public class Settings_WaitList
 		}
 		Thread.sleep(4000);
 	}
-	public void Entering_More__MinTime(WebDriver driver) throws Exception 
+	public void Entering_More__MinTime(SelfHealingDriver driver) throws Exception 
 	{
 		Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
@@ -263,7 +273,7 @@ public class Settings_WaitList
 		Thread.sleep(4000);
 
 	}
-	public void Entering_Existing_Seat(WebDriver driver) throws Exception
+	public void Entering_Existing_Seat(SelfHealingDriver driver) throws Exception
 	{
 		Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
@@ -289,7 +299,7 @@ public class Settings_WaitList
 		Thread.sleep(4000);
 
 	}
-	public void Cancling_New_WaitList(WebDriver driver) throws Exception
+	public void Cancling_New_WaitList(SelfHealingDriver driver) throws Exception
 	{
 		Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
@@ -300,7 +310,7 @@ public class Settings_WaitList
 		Thread.sleep(2000);
 
 	}
-	public void Searching_Wait_List(WebDriver driver) throws Exception 
+	public void Searching_Wait_List(SelfHealingDriver driver) throws Exception 
 	{
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
@@ -309,7 +319,7 @@ public class Settings_WaitList
 		Thread.sleep(2000);
 		
 	}
-	public void Deleting_Wait_List(WebDriver driver) throws Exception
+	public void Deleting_Wait_List(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(4000);
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -318,7 +328,7 @@ public class Settings_WaitList
 		Thread.sleep(4000);
 		
 	}
-	public void Handling_Rows_and_Pagination(WebDriver driver) throws Exception 
+	public void Handling_Rows_and_Pagination(SelfHealingDriver driver) throws Exception 
 	{
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
@@ -327,7 +337,7 @@ public class Settings_WaitList
 		Thread.sleep(2000);
 		
 	}
-	public void Sorting_Columns(WebDriver driver) throws Exception 
+	public void Sorting_Columns(SelfHealingDriver driver) throws Exception 
 	{
 		Common_XPaths cmp = new Common_XPaths(driver, test);
 //		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
@@ -341,7 +351,7 @@ public class Settings_WaitList
 	}
 	
 	//navigating Reasons page
-	public void Navigating_Reasons(WebDriver driver) throws Exception 
+	public void Navigating_Reasons(SelfHealingDriver driver) throws Exception 
 	{
 
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -350,7 +360,7 @@ public class Settings_WaitList
 		Thread.sleep(4000);
 		
 	}
-	public void Entering_Existing_Reason(WebDriver driver) throws Exception 
+	public void Entering_Existing_Reason(SelfHealingDriver driver) throws Exception 
 	{
 
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -360,7 +370,7 @@ public class Settings_WaitList
 		Thread.sleep(4000);
 		
 	}
-	public void Capturing_Reason_Error(WebDriver driver) throws Exception
+	public void Capturing_Reason_Error(SelfHealingDriver driver) throws Exception
 	{
 		Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
@@ -382,7 +392,7 @@ public class Settings_WaitList
 		 Thread.sleep(3000);
 		 cmp.Click_CloseButton();
 	}
-	public void Search_Delete_Reason(WebDriver driver) throws Exception 
+	public void Search_Delete_Reason(SelfHealingDriver driver) throws Exception 
 	{
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
@@ -391,7 +401,7 @@ public class Settings_WaitList
 		
 	}
 
-	public void Creating_New_Reason(WebDriver driver) throws Exception 
+	public void Creating_New_Reason(SelfHealingDriver driver) throws Exception 
 	{
 		Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);
@@ -434,7 +444,7 @@ public class Settings_WaitList
 		Thread.sleep(4000);
 		
 	}
-	public void Sorting_Reason_Column(WebDriver driver) throws Exception
+	public void Sorting_Reason_Column(SelfHealingDriver driver) throws Exception
 	{
 		Common_XPaths cmp = new Common_XPaths(driver, test);
 		//Settings_WaitList_Page wl = new Settings_WaitList_Page(driver, test);

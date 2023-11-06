@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.SortMenuConfigPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -25,7 +26,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Product_Items_Sort_Menu_Config 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 
 	ExtentReports rep = ExtentManager.getInstance();
@@ -51,7 +52,7 @@ public class Product_Items_Sort_Menu_Config
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s="data:image/png;base64,"+scnsht;
 
@@ -68,11 +69,19 @@ public class Product_Items_Sort_Menu_Config
 		Thread.sleep(2000);
 		//Call the chrome driver
 		
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
 		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -100,7 +109,7 @@ public class Product_Items_Sort_Menu_Config
 	}
 
 	@Test(priority =3,enabled = false)
-	public void Open_Sort_Menu_Config_Page(WebDriver driver) throws Exception
+	public void Open_Sort_Menu_Config_Page(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		smc= new SortMenuConfigPage(driver,test);
@@ -116,7 +125,7 @@ public class Product_Items_Sort_Menu_Config
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Sort_Categories (WebDriver driver) throws Exception {
+	public void Sort_Categories (SelfHealingDriver driver) throws Exception {
 		cmp=new Common_XPaths(driver, test);
 		smc= new SortMenuConfigPage(driver,test);
 
@@ -209,7 +218,7 @@ public class Product_Items_Sort_Menu_Config
 
 	}
 	@Test(priority = 4,enabled = false)
-	public void Category_Navigating(WebDriver driver) throws Exception
+	public void Category_Navigating(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		smc= new SortMenuConfigPage(driver,test);
@@ -224,7 +233,7 @@ public class Product_Items_Sort_Menu_Config
 
 	}
 	@Test(priority = 5,enabled = false)
-	public void Sort_MenuItem(WebDriver driver) throws Exception
+	public void Sort_MenuItem(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		smc= new SortMenuConfigPage(driver,test);

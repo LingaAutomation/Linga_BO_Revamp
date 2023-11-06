@@ -15,6 +15,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.Pages.Settings_CDS_Configuration_Page;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -26,7 +27,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_CDS_Configuration {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -62,7 +63,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -82,10 +83,19 @@ public WebDriver driver;
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -130,7 +140,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_CDS_Page(WebDriver driver) throws Exception
+	public void Open_CDS_Page(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 
@@ -148,7 +158,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void verifyTheThemeTaxt(WebDriver driver) throws Exception
+	public void verifyTheThemeTaxt(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		try {
@@ -203,35 +213,35 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void verifyShowAdvertisements_Yes(WebDriver driver) throws Exception
+	public void verifyShowAdvertisements_Yes(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		cds.clickYesBtnShowAd();
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void verifyShowAdvertisements_No(WebDriver driver) throws Exception
+	public void verifyShowAdvertisements_No(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		cds.clickNoBtnShowAd();
 	}
 	
 	@Test(priority = 7,enabled = false)
-	public void verifyCustomerProfile_Yes(WebDriver driver) throws Exception
+	public void verifyCustomerProfile_Yes(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		cds.clickYesBtnCustomerProfile();
 	}
 	
 	@Test(priority = 8,enabled = false)
-	public void verifyCustomerProfile_No(WebDriver driver) throws Exception
+	public void verifyCustomerProfile_No(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		cds.clickNoBtnCustomerProfile();
 	}
 	
 	@Test(priority = 9,enabled = false)
-	public void verifyDarkProfile(WebDriver driver) throws Exception
+	public void verifyDarkProfile(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		cds.selectDarkTheme();
@@ -257,7 +267,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 10,enabled = false)
-	public void verifyLightProfile(WebDriver driver) throws Exception
+	public void verifyLightProfile(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		cds.selectLightTheme();
@@ -283,7 +293,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 11,enabled = false)
-	public void verifyDiscountText_Valid(WebDriver driver) throws Exception
+	public void verifyDiscountText_Valid(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		cds.enterTheDiscountText(valid_Txt1);
@@ -309,7 +319,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 12,enabled = false)
-	public void verifyDiscountText_Valid1(WebDriver driver) throws Exception
+	public void verifyDiscountText_Valid1(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		cds.enterTheDiscountText(valid_Txt2);
@@ -335,7 +345,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 13,enabled = false)
-	public void verifyDiscountText_inValid(WebDriver driver) throws Exception
+	public void verifyDiscountText_inValid(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		try {
@@ -387,7 +397,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 14,enabled = false)
-	public void verifyGetNumberText_Valid(WebDriver driver) throws Exception
+	public void verifyGetNumberText_Valid(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		cds.enterTheGetNumberText(valid_Txt1);
@@ -413,7 +423,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 15,enabled = false)
-	public void verifyGetNumberText_Valid1(WebDriver driver) throws Exception
+	public void verifyGetNumberText_Valid1(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		cds.enterTheGetNumberText(valid_Txt2);
@@ -439,7 +449,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 16,enabled = false)
-	public void verifyGetNumberText_inValid(WebDriver driver) throws Exception
+	public void verifyGetNumberText_inValid(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		try {
@@ -491,7 +501,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 17,enabled = false)
-	public void verifyLoyaltyText_Valid(WebDriver driver) throws Exception
+	public void verifyLoyaltyText_Valid(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		cds.enterTheLoyaltyText(valid_Txt1);
@@ -517,7 +527,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 18,enabled = false)
-	public void verifyLoyaltyText_Valid1(WebDriver driver) throws Exception
+	public void verifyLoyaltyText_Valid1(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		cds.enterTheLoyaltyText(valid_Txt2);
@@ -543,7 +553,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 19,enabled = false)
-	public void verifyLoyaltyText_inValid(WebDriver driver) throws Exception
+	public void verifyLoyaltyText_inValid(SelfHealingDriver driver) throws Exception
 	{
 		cds=new Settings_CDS_Configuration_Page(driver, test);
 		try {

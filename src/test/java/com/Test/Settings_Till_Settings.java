@@ -18,6 +18,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.Settings_Till_Setting_Page;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -26,8 +27,9 @@ import Utility.ExtentManager;
 import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Settgings_Till_Setting {
-public WebDriver driver;
+public class Settings_Till_Settings 
+{
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -55,7 +57,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -75,10 +77,19 @@ public WebDriver driver;
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -114,7 +125,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false,description="Navigate the application to the Till Settings page")
-	public void Open_TillSettings_Page(WebDriver driver) throws Exception
+	public void Open_TillSettings_Page(SelfHealingDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
 		//Thread.sleep(5000);		
@@ -130,28 +141,28 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false,description="Verify the Automatic Global Till and its field in the Till Settings page")
-	public void verifyAutomaticGlobalTill(WebDriver driver) throws Exception
+	public void verifyAutomaticGlobalTill(SelfHealingDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
 		tsp.automaticGlobalTill();
 	}
 	
 	@Test(priority = 5,enabled = false,description="Verify the Force Cash Out at Clock Out toggle in the Till Settings page")
-	public void verifyForceCashOutAtClockOut(WebDriver driver) throws Exception
+	public void verifyForceCashOutAtClockOut(SelfHealingDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
 		tsp.forceCashOutatClockOut();
 	}
 	
 	@Test(priority = 6,enabled = false,description="Verify the Restrict Partial Payment toggle in the Till Settings page")
-	public void verifyRestrictPartialPayments(WebDriver driver) throws Exception
+	public void verifyRestrictPartialPayments(SelfHealingDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
 		tsp.restrictPartialPaymnets();
 	}
 	
 	@Test(priority = 7,enabled = false,description="Verify the Bank Deposite(With valid and invalid amount) in the Till Settings page")
-	public void verifyAddBankDeposit(WebDriver driver) throws Exception
+	public void verifyAddBankDeposit(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(15000);
 		tsp = new Settings_Till_Setting_Page(driver, test);
@@ -205,7 +216,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 8,enabled = false,description="Verify the Denomination in the Till Settings page")
-	public void verifyTheDenominationsUI(WebDriver driver) throws Exception
+	public void verifyTheDenominationsUI(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(8000);
 		tsp = new Settings_Till_Setting_Page(driver, test);
@@ -341,21 +352,21 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 9,enabled = false,description="Verify the Denomination search in the Till Settings page")
-	public void verifyTheDenominationsSearch(WebDriver driver) throws Exception
+	public void verifyTheDenominationsSearch(SelfHealingDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
 		tsp.denomination_Search();
 	}
 	
 	@Test(priority = 10,enabled = false,description="Verify the Denomination - Pagination in the Till Settings page")
-	public void verifyTheDenominationsPagination(WebDriver driver) throws Exception
+	public void verifyTheDenominationsPagination(SelfHealingDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
 		tsp.paginationValidations();
 	}
 	
 	@Test(priority = 11,enabled = false,description="Verify the Denomination deletion in the Till Settings page")
-	public void verifyTheDenominationsDeletion(WebDriver driver) throws Exception
+	public void verifyTheDenominationsDeletion(SelfHealingDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
 		tsp.clickTheDenominationsBtn();
@@ -365,7 +376,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 12,enabled = false,description="Verify the Close Till in the Till Settings page")
-	public void verifyTheCloseTill_UI(WebDriver driver) throws Exception
+	public void verifyTheCloseTill_UI(SelfHealingDriver driver) throws Exception
 	{
 		tsp = new Settings_Till_Setting_Page(driver, test);
 		tsp.closeTill();Thread.sleep(3000);

@@ -17,6 +17,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -29,7 +30,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Reports_Employee_Labor_Report {
 
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 	ExtentReports rep = ExtentManager.getInstance();
 	ExtentTest test = rep.startTest("Reports - Employee - Labor Report");
@@ -54,7 +55,7 @@ public class Reports_Employee_Labor_Report {
 	@AfterMethod
 	public void TestFail(ITestResult result) throws Exception {
 		if (result.getStatus() == ITestResult.FAILURE) {
-			String scnsht = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht = ((TakesScreenshot) driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s = "data:image/png;base64," + scnsht;
 
@@ -72,11 +73,19 @@ public class Reports_Employee_Labor_Report {
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
 		
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
 		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -126,7 +135,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 3, enabled = false)
-	public void Open_Labor_Report_Page(WebDriver driver) throws Exception {
+	public void Open_Labor_Report_Page(SelfHealingDriver driver) throws Exception {
 
 		repts = new ReportsPage(driver, test);
 		cmp = new Common_XPaths(driver, test);
@@ -143,7 +152,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception {
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception {
 		cmp = new Common_XPaths(driver, test);
 
 		// Verify the Pagination and Refresh the page
@@ -154,7 +163,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Select_Daily_As_Process(WebDriver driver) throws Exception {
+	public void Select_Daily_As_Process(SelfHealingDriver driver) throws Exception {
 		Thread.sleep(5000);
 		// Click the employee label
 		driver.findElement(By.xpath("(//span[contains(.,'Employee')]/../input)")).click();
@@ -194,7 +203,7 @@ public class Reports_Employee_Labor_Report {
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void Select_Weekly_As_Process(WebDriver driver) throws Exception {
+	public void Select_Weekly_As_Process(SelfHealingDriver driver) throws Exception {
 		Thread.sleep(5000);
 		// Click the employee label
 		driver.findElement(By.xpath("(//span[contains(.,'Employee')]/../input)")).click();
@@ -234,7 +243,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Process_As_Daily_Weekly_In_Hours(WebDriver driver) throws Exception {
+	public void Labor_Report_Process_As_Daily_Weekly_In_Hours(SelfHealingDriver driver) throws Exception {
 		test.log(LogStatus.INFO,
 				"************************************************** Process as Daily/Weekly - In Hours(Start) **************************************************");
 		
@@ -503,7 +512,7 @@ public class Reports_Employee_Labor_Report {
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Process_As_Daily_Weekly_In_Time(WebDriver driver) throws Exception {
+	public void Labor_Report_Process_As_Daily_Weekly_In_Time(SelfHealingDriver driver) throws Exception {
 			test.log(LogStatus.INFO,
 			"************************************************** Process as Daily/Weekly - In Time(Start) **************************************************");
 
@@ -772,7 +781,7 @@ public class Reports_Employee_Labor_Report {
 			}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Today_Process_As_Daily(WebDriver driver) throws Exception {
+	public void Labor_Report_Today_Process_As_Daily(SelfHealingDriver driver) throws Exception {
 		test.log(LogStatus.INFO,
 				"************************************************** Process as Daily(Start) **************************************************");
 
@@ -822,7 +831,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Yesterday_Process_As_Daily(WebDriver driver) throws Exception {
+	public void Labor_Report_Yesterday_Process_As_Daily(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -868,7 +877,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Last_N_Days_Process_As_Daily(WebDriver driver) throws Exception {
+	public void Labor_Report_Last_N_Days_Process_As_Daily(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -915,7 +924,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_This_Week_Process_As_Daily(WebDriver driver) throws Exception {
+	public void Labor_Report_This_Week_Process_As_Daily(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -962,7 +971,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Last_Week_Process_As_Daily(WebDriver driver) throws Exception {
+	public void Labor_Report_Last_Week_Process_As_Daily(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1006,7 +1015,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Last_7_Days_Process_As_Daily(WebDriver driver) throws Exception {
+	public void Labor_Report_Last_7_Days_Process_As_Daily(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1052,7 +1061,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_This_Month_Process_As_Daily(WebDriver driver) throws Exception {
+	public void Labor_Report_This_Month_Process_As_Daily(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1098,7 +1107,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Last_Month_Process_As_Daily(WebDriver driver) throws Exception {
+	public void Labor_Report_Last_Month_Process_As_Daily(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1144,7 +1153,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Last_30_Days_Process_As_Daily(WebDriver driver) throws Exception {
+	public void Labor_Report_Last_30_Days_Process_As_Daily(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1190,7 +1199,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Specific_Date_Process_As_Daily(WebDriver driver) throws Exception {
+	public void Labor_Report_Specific_Date_Process_As_Daily(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1236,7 +1245,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Date_Range_Process_As_Daily(WebDriver driver) throws Exception {
+	public void Labor_Report_Date_Range_Process_As_Daily(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1286,7 +1295,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Today_Process_As_Weekly(WebDriver driver) throws Exception {
+	public void Labor_Report_Today_Process_As_Weekly(SelfHealingDriver driver) throws Exception {
 		test.log(LogStatus.INFO,
 				"************************************************** Process as Weekly(Start) **************************************************");
 
@@ -1335,7 +1344,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Yesterday_Process_As_Weekly(WebDriver driver) throws Exception {
+	public void Labor_Report_Yesterday_Process_As_Weekly(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1381,7 +1390,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Last_N_Days_Process_As_Weekly(WebDriver driver) throws Exception {
+	public void Labor_Report_Last_N_Days_Process_As_Weekly(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1427,7 +1436,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_This_Week_Process_As_Weekly(WebDriver driver) throws Exception {
+	public void Labor_Report_This_Week_Process_As_Weekly(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1473,7 +1482,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Last_Week_Process_As_Weekly(WebDriver driver) throws Exception {
+	public void Labor_Report_Last_Week_Process_As_Weekly(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1517,7 +1526,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Last_7_Days_Process_As_Weekly(WebDriver driver) throws Exception {
+	public void Labor_Report_Last_7_Days_Process_As_Weekly(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1563,7 +1572,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_This_Month_Process_As_Weekly(WebDriver driver) throws Exception {
+	public void Labor_Report_This_Month_Process_As_Weekly(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1609,7 +1618,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Last_Month_Process_As_Weekly(WebDriver driver) throws Exception {
+	public void Labor_Report_Last_Month_Process_As_Weekly(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1655,7 +1664,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Last_30_Days_Process_As_Weekly(WebDriver driver) throws Exception {
+	public void Labor_Report_Last_30_Days_Process_As_Weekly(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1701,7 +1710,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Specific_Date_Process_As_Weekly(WebDriver driver) throws Exception {
+	public void Labor_Report_Specific_Date_Process_As_Weekly(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}
@@ -1747,7 +1756,7 @@ public class Reports_Employee_Labor_Report {
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void Labor_Report_Date_Range_Process_As_Weekly(WebDriver driver) throws Exception {
+	public void Labor_Report_Date_Range_Process_As_Weekly(SelfHealingDriver driver) throws Exception {
 		for (int i = 1; i <= 10; i++) {
 			driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);
 		}

@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.Front_End_Receipt_TemplatePage;
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -27,7 +28,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_Front_End_Receipt_Template {
 
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -54,7 +55,7 @@ public class Settings_Front_End_Receipt_Template {
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -73,11 +74,19 @@ public class Settings_Front_End_Receipt_Template {
 		Thread.sleep(2000);
 		//Call the chrome driver
 
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
-	
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -108,7 +117,7 @@ public class Settings_Front_End_Receipt_Template {
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Label_Printer_Page(WebDriver driver) throws Exception
+	public void Open_Label_Printer_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -136,7 +145,7 @@ public class Settings_Front_End_Receipt_Template {
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Disable_All_Front_End_Receipt_Template_Settings(WebDriver driver) throws Exception
+	public void Disable_All_Front_End_Receipt_Template_Settings(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		fert=new Front_End_Receipt_TemplatePage(driver, test);
@@ -1018,7 +1027,7 @@ public class Settings_Front_End_Receipt_Template {
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Verify_Disabled_and_Enable_All_Front_End_Receipt_Template_Settings(WebDriver driver) throws Exception
+	public void Verify_Disabled_and_Enable_All_Front_End_Receipt_Template_Settings(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		fert=new Front_End_Receipt_TemplatePage(driver, test);
@@ -2214,7 +2223,7 @@ public class Settings_Front_End_Receipt_Template {
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Verify_Enabled_All_Front_End_Receipt_Template_Settings(WebDriver driver) throws Exception
+	public void Verify_Enabled_All_Front_End_Receipt_Template_Settings(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		fert=new Front_End_Receipt_TemplatePage(driver, test);

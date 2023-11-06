@@ -31,6 +31,7 @@ import com.Pages.CategoriesPage;
 import com.Pages.Common_XPaths;
 import com.Pages.KitchenPrinterPage;
 import com.Pages.ModifiersPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.LoginPage;
 import com.Pages.ModifiersPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -45,7 +46,7 @@ public class Product_Items_AddEditDelete_Modifiers
 
 {
 
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -73,7 +74,7 @@ public class Product_Items_AddEditDelete_Modifiers
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -95,11 +96,19 @@ public class Product_Items_AddEditDelete_Modifiers
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
 		
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
 		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -136,7 +145,7 @@ public class Product_Items_AddEditDelete_Modifiers
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Modifiers_Page(WebDriver driver) throws Exception
+	public void Open_Modifiers_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		mp=new ModifiersPage(driver, test);
@@ -152,7 +161,7 @@ public class Product_Items_AddEditDelete_Modifiers
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -164,7 +173,7 @@ public class Product_Items_AddEditDelete_Modifiers
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_Modifiers(WebDriver driver) throws Exception
+	public void Add_Modifiers(SelfHealingDriver driver) throws Exception
 	{
 		mp=new ModifiersPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -445,7 +454,7 @@ public class Product_Items_AddEditDelete_Modifiers
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_Modifiers(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_Modifiers(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		mp=new ModifiersPage(driver, test);
@@ -478,7 +487,7 @@ public class Product_Items_AddEditDelete_Modifiers
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Remove_Prefix_Update_Modifiers(WebDriver driver) throws Exception
+	public void Edit_and_Remove_Prefix_Update_Modifiers(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		mp=new ModifiersPage(driver, test);
@@ -622,7 +631,7 @@ public class Product_Items_AddEditDelete_Modifiers
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Remove_ServingSizeLevels_Update_Modifiers(WebDriver driver) throws Exception
+	public void Edit_and_Remove_ServingSizeLevels_Update_Modifiers(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		mp=new ModifiersPage(driver, test);
@@ -745,7 +754,7 @@ public class Product_Items_AddEditDelete_Modifiers
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Modifiers(WebDriver driver) throws Exception
+	public void Edit_and_Update_Modifiers(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		mp=new ModifiersPage(driver, test);
@@ -806,7 +815,7 @@ public class Product_Items_AddEditDelete_Modifiers
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_Modifiers(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_Modifiers(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -876,7 +885,7 @@ public class Product_Items_AddEditDelete_Modifiers
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_Modifiers_BasicDetails(WebDriver driver) throws Exception
+	public void Add_Modifiers_BasicDetails(SelfHealingDriver driver) throws Exception
 	{
 		mp=new ModifiersPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -958,7 +967,7 @@ public class Product_Items_AddEditDelete_Modifiers
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_DuplicateModifier(WebDriver driver) throws Exception
+	public void Create_DuplicateModifier(SelfHealingDriver driver) throws Exception
 	{
 		mp=new ModifiersPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

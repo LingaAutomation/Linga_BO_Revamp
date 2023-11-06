@@ -27,6 +27,7 @@ import com.Pages.Availability_RestrictionTimePage;
 import com.Pages.Common_XPaths;
 import com.Pages.KitchenPrinterPage;
 import com.Test.LoginTest;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -39,7 +40,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Settings_Label_Printers 
 {
 
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -66,7 +67,7 @@ public class Settings_Label_Printers
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -85,11 +86,19 @@ public class Settings_Label_Printers
 		Thread.sleep(2000);
 		//Call the chrome driver
 		
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
 		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -125,7 +134,7 @@ public class Settings_Label_Printers
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Label_Printer_Page(WebDriver driver) throws Exception
+	public void Open_Label_Printer_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -140,7 +149,7 @@ public class Settings_Label_Printers
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -156,7 +165,7 @@ public class Settings_Label_Printers
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_Kitchen_Label_Label_Printer(WebDriver driver) throws Exception
+	public void Add_Kitchen_Label_Label_Printer(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		kppg=new KitchenPrinterPage(driver, test);
@@ -270,7 +279,7 @@ public class Settings_Label_Printers
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_Label_Printer(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_Label_Printer(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		kppg=new KitchenPrinterPage(driver, test);
@@ -303,7 +312,7 @@ public class Settings_Label_Printers
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Label_Printer(WebDriver driver) throws Exception
+	public void Edit_and_Update_Label_Printer(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		kppg=new KitchenPrinterPage(driver, test);
@@ -351,7 +360,7 @@ public class Settings_Label_Printers
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Box_Level_Update_Label_Printer(WebDriver driver) throws Exception
+	public void Edit_and_Box_Level_Update_Label_Printer(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		kppg=new KitchenPrinterPage(driver, test);
@@ -463,7 +472,7 @@ public class Settings_Label_Printers
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Reselect_Printer_Update_Label_Printer(WebDriver driver) throws Exception
+	public void Edit_and_Reselect_Printer_Update_Label_Printer(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		kppg=new KitchenPrinterPage(driver, test);
@@ -547,7 +556,7 @@ public class Settings_Label_Printers
 	}
 
 	@Test(priority = 6,enabled = false)
-	public void Create_Duplicate_Label_Printer(WebDriver driver) throws Exception
+	public void Create_Duplicate_Label_Printer(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		kppg=new KitchenPrinterPage(driver, test);
@@ -679,7 +688,7 @@ public class Settings_Label_Printers
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_Label_Printer(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_Label_Printer(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		

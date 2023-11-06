@@ -72,11 +72,19 @@ public class Inventory_Sub_Category {
 		// Call the chrome driver
 		// System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		// Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
-		driver = (SelfHealingDriver) new ChromeDriver(chromeOptions);
-
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
+//		driver = (SelfHealingDriver) new ChromeDriver(chromeOptions);
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		// Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		// Maximize the Chrome window

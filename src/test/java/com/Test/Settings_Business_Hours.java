@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 
 import com.Pages.Settings_Businesshours_Page;
 import com.Pages.Settings_NotificationsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -28,11 +29,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_Business_Hours 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 
 	ExtentReports rep = ExtentManager.getInstance();
-	ExtentTest test = rep.startTest("Business Hours");
+	ExtentTest test = rep.startTest("Settings - Business Hours");
 
 	LoginPage lgpg; 
 	Utility ut=new Utility();
@@ -54,7 +55,7 @@ public class Settings_Business_Hours
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s="data:image/png;base64,"+scnsht;
 
@@ -69,11 +70,19 @@ public class Settings_Business_Hours
 		Thread.sleep(2000);
 		//Call the chrome driver
 
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
-	
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -106,7 +115,7 @@ public class Settings_Business_Hours
 	}
      
 	@Test(priority=3,enabled = false)
-	public void Open_Business_Hours_Page(WebDriver driver) throws Exception 
+	public void Open_Business_Hours_Page(SelfHealingDriver driver) throws Exception 
 	{
     	 cmp= new Common_XPaths(driver,test);
     	 bh= new Settings_Businesshours_Page(driver, test);
@@ -124,7 +133,7 @@ public class Settings_Business_Hours
 			}
      }
 	@Test(priority = 4,enabled = false)
-	public void Changing_Store_Hours(WebDriver driver) throws Exception 
+	public void Changing_Store_Hours(SelfHealingDriver driver) throws Exception 
 	{Thread.sleep(5000);
          cmp= new Common_XPaths(driver,test);
    	     bh= new Settings_Businesshours_Page(driver, test);
@@ -513,7 +522,7 @@ public class Settings_Business_Hours
  		}	
 	}
 	@Test(priority = 5,enabled = false)
-	public void Update_Store_Hours(WebDriver driver) throws Exception 
+	public void Update_Store_Hours(SelfHealingDriver driver) throws Exception 
 	{
 		cmp= new Common_XPaths(driver,test);
   	     bh= new Settings_Businesshours_Page(driver, test);
@@ -538,7 +547,7 @@ public class Settings_Business_Hours
 		
 	}
 	@Test(priority = 6,enabled = false)
-	public void Changing_Shift_Hours(WebDriver driver) throws Exception 
+	public void Changing_Shift_Hours(SelfHealingDriver driver) throws Exception 
 	{
 		cmp= new Common_XPaths(driver,test);
   	     bh= new Settings_Businesshours_Page(driver, test);
@@ -550,7 +559,7 @@ public class Settings_Business_Hours
   	     
   	  }
 	@Test(priority = 7,enabled = false)
-	public void Adding_Deleting_Shift_Hours(WebDriver driver) throws Exception
+	public void Adding_Deleting_Shift_Hours(SelfHealingDriver driver) throws Exception
 	{
 		cmp= new Common_XPaths(driver,test);
  	     bh= new Settings_Businesshours_Page(driver, test);
@@ -574,7 +583,7 @@ public class Settings_Business_Hours
 	}
 	
 	@Test(priority = 8,enabled = false)
-	public void Update_Shift_Hours(WebDriver driver) throws Exception 
+	public void Update_Shift_Hours(SelfHealingDriver driver) throws Exception 
 	{
 		cmp= new Common_XPaths(driver,test);
   	     bh= new Settings_Businesshours_Page(driver, test);

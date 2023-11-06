@@ -24,6 +24,7 @@ import com.Pages.Availability_RestrictionTimePage;
 import com.Pages.Common_XPaths;
 import com.Pages.PaymentSettingsPage;
 import com.Test.LoginTest;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.LoginPage;
 import com.Pages.PaymentSettingsPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -38,7 +39,7 @@ import io.netty.handler.pcap.PcapWriteHandler;
 public class Settings_Payment_Settings_and_Service_Charge 
 {
 
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -65,7 +66,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -85,10 +86,19 @@ public class Settings_Payment_Settings_and_Service_Charge
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -126,7 +136,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Payment_Settings_Page(WebDriver driver) throws Exception
+	public void Open_Payment_Settings_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -153,7 +163,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -165,7 +175,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_Cash_Discount_Payment_Settings(WebDriver driver) throws Exception
+	public void Add_Cash_Discount_Payment_Settings(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pscpg=new PaymentSettingsPage(driver, test);
@@ -339,7 +349,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Change_Service_Charge_and_Add_VisaCard_Payment_Settings(WebDriver driver) throws Exception
+	public void Change_Service_Charge_and_Add_VisaCard_Payment_Settings(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pscpg=new PaymentSettingsPage(driver, test);
@@ -497,7 +507,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_Cancel_and_Update_ServiceCharge(WebDriver driver) throws Exception
+	public void Edit_Cancel_and_Update_ServiceCharge(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pscpg=new PaymentSettingsPage(driver, test);
@@ -610,7 +620,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Change_CardTypes(WebDriver driver) throws Exception
+	public void Edit_and_Change_CardTypes(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pscpg=new PaymentSettingsPage(driver, test);
@@ -1074,7 +1084,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Add_All_Cards_and_ServiceCharge(WebDriver driver) throws Exception
+	public void Add_All_Cards_and_ServiceCharge(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pscpg=new PaymentSettingsPage(driver, test);
@@ -1655,7 +1665,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 	}
 
 	@Test(priority = 5,enabled = false)
-	public void Change_and_Update_Instant_Cash_Reward_Payment_Settings(WebDriver driver) throws Exception
+	public void Change_and_Update_Instant_Cash_Reward_Payment_Settings(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -1808,7 +1818,7 @@ public class Settings_Payment_Settings_and_Service_Charge
 	
 		
 	@Test(priority = 5,enabled = false)
-	public void Delete_ServiceCharge_Payment_Settings(WebDriver driver) throws Exception
+	public void Delete_ServiceCharge_Payment_Settings(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		

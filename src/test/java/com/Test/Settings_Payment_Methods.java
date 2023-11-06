@@ -24,6 +24,7 @@ import com.Pages.Availability_RestrictionTimePage;
 import com.Pages.Common_XPaths;
 import com.Pages.PaymentMethodsPage;
 import com.Test.LoginTest;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.LoginPage;
 import com.Pages.PaymentMethodsPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -37,7 +38,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Settings_Payment_Methods 
 {
 
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -64,7 +65,7 @@ public class Settings_Payment_Methods
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -83,11 +84,19 @@ public class Settings_Payment_Methods
 		Thread.sleep(2000);
 		//Call the chrome driver
 
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
-	
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -137,7 +146,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Payment_Method_Page(WebDriver driver) throws Exception
+	public void Open_Payment_Method_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -152,7 +161,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -164,7 +173,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_Payment_Method(WebDriver driver) throws Exception
+	public void Add_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -265,7 +274,7 @@ public class Settings_Payment_Methods
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_Payment_Method(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -297,7 +306,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_CashWithMultiCurrency(WebDriver driver) throws Exception
+	public void Edit_and_Update_CashWithMultiCurrency(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -358,7 +367,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Changing_Payment_Types(WebDriver driver) throws Exception
+	public void Edit_and_Update_Changing_Payment_Types(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -1176,7 +1185,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_GiftCard_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_GiftCard_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -1222,7 +1231,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_CreditCard_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_CreditCard_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -1268,7 +1277,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_SideCC_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_SideCC_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -1323,7 +1332,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_BionetMealCard_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_BionetMealCard_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -1371,7 +1380,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_CastleAndGo_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_CastleAndGo_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -1417,7 +1426,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_SPPax_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_SPPax_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -1547,7 +1556,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_Others_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_Others_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -1593,7 +1602,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_GiveX_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_GiveX_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -1639,7 +1648,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_NMI_Tokenization_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_NMI_Tokenization_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -1685,7 +1694,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_Dejavoo_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_Dejavoo_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -1731,7 +1740,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_Optomany_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_Optomany_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -1780,7 +1789,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_MPPG_CreditCard_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_MPPG_CreditCard_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -1874,7 +1883,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_Ingenico_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_Ingenico_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -1921,7 +1930,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_MemberShip_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_MemberShip_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -2002,7 +2011,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_Evertec_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_Evertec_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -2095,7 +2104,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_PayPal_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_PayPal_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -2138,7 +2147,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_and_Venmo_Payment_Method(WebDriver driver) throws Exception
+	public void Add_and_Venmo_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);
@@ -2181,7 +2190,7 @@ public class Settings_Payment_Methods
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_Payment_Method(WebDriver driver) throws Exception
+	public void Delete_Payment_Method(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -2242,7 +2251,7 @@ public class Settings_Payment_Methods
 
 		
 	@Test(priority = 6,enabled = false)
-	public void Create_DuplicatePayment_MethodGroup(WebDriver driver) throws Exception
+	public void Create_DuplicatePayment_MethodGroup(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		pmpg=new PaymentMethodsPage(driver, test);

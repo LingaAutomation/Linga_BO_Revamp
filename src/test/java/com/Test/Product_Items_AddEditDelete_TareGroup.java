@@ -20,6 +20,7 @@ import org.testng.annotations.Test;
 
 import com.Pages.Common_XPaths;
 import com.Pages.TareGroupPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.LoginPage;
 import com.Pages.TareGroupPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -31,7 +32,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Product_Items_AddEditDelete_TareGroup {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -58,7 +59,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -80,10 +81,19 @@ public WebDriver driver;
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
 		
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -117,7 +127,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_TareGroups_Page(WebDriver driver) throws Exception
+	public void Open_TareGroups_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		tgp=new TareGroupPage(driver, test);
@@ -133,7 +143,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -145,7 +155,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_TareGroups(WebDriver driver) throws Exception
+	public void Add_TareGroups(SelfHealingDriver driver) throws Exception
 	{
 		tgp=new TareGroupPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -214,7 +224,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_TareGroups(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_TareGroups(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		tgp=new TareGroupPage(driver, test);
@@ -265,7 +275,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_TareGroups(WebDriver driver) throws Exception
+	public void Edit_and_Update_TareGroups(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		tgp=new TareGroupPage(driver, test);
@@ -349,7 +359,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_TareGroups(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_TareGroups(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -481,7 +491,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_DuplicateTareGroup(WebDriver driver) throws Exception
+	public void Create_DuplicateTareGroup(SelfHealingDriver driver) throws Exception
 	{
 		tgp=new TareGroupPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

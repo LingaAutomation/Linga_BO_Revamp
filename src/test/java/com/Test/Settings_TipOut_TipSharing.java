@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.Settings_TipOut_TipSharing_Page;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -24,7 +25,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_TipOut_TipSharing {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -52,7 +53,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -71,11 +72,19 @@ public WebDriver driver;
 		Thread.sleep(2000);
 		//Call the chrome driver
 
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
-	
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		//Maximize the Chrome window
@@ -107,7 +116,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_TipOutTipSharing_Page(WebDriver driver) throws Exception
+	public void Open_TipOutTipSharing_Page(SelfHealingDriver driver) throws Exception
 	{
 		PR = new Settings_TipOut_TipSharing_Page(driver, test);
 		//Thread.sleep(5000);
@@ -134,7 +143,7 @@ public WebDriver driver;
 	
 	/*
 	 * @Test(priority = 3,enabled = false) public void
-	 * VerifyTheField_Options(WebDriver driver) throws Exception { kds=new
+	 * VerifyTheField_Options(SelfHealingDriver driver) throws Exception { kds=new
 	 * Settings_KDS_Configuration_Page(driver, test);
 	 * 
 	 * Thread.sleep(1000); kds.verifyTheFieldOptions();
@@ -155,7 +164,7 @@ public WebDriver driver;
 	 * 
 	 * 
 	 * @Test(priority = 3,enabled = false) public void
-	 * VerifyTheStyleOptions(WebDriver driver) throws Exception { kds=new
+	 * VerifyTheStyleOptions(SelfHealingDriver driver) throws Exception { kds=new
 	 * Settings_KDS_Configuration_Page(driver, test);
 	 * 
 	 * Thread.sleep(1000); kds.verifyTheStyleOptions();
@@ -175,7 +184,7 @@ public WebDriver driver;
 	 * }
 	 * 
 	 * @Test(priority = 3,enabled = false) public void
-	 * VerifyThe_SMS_Order_Notifications(WebDriver driver) throws Exception {
+	 * VerifyThe_SMS_Order_Notifications(SelfHealingDriver driver) throws Exception {
 	 * kds=new Settings_KDS_Configuration_Page(driver, test);
 	 * 
 	 * Thread.sleep(1000); kds.verifyTheSMSOrderNotifications();

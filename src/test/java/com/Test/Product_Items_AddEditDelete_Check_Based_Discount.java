@@ -26,6 +26,7 @@ import com.Pages.DiscountsPage;
 import com.Pages.LoginPage;
 import com.Pages.TaxesPage;
 import com.Pages.UpchargesPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -35,7 +36,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Product_Items_AddEditDelete_Check_Based_Discount {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -65,7 +66,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -85,10 +86,19 @@ public WebDriver driver;
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -129,7 +139,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Check_Based_Discount_Page(WebDriver driver) throws Exception
+	public void Open_Check_Based_Discount_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		dcp=new DiscountsPage(driver, test);
@@ -147,7 +157,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		dcp=new DiscountsPage(driver, test);
@@ -165,7 +175,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_Check_Based_Discount(WebDriver driver) throws Exception
+	public void Add_Check_Based_Discount(SelfHealingDriver driver) throws Exception
 	{Thread.sleep(3000);
 		dcp=new DiscountsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -390,7 +400,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_Check_Based_Discount(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_Check_Based_Discount(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		dcp=new DiscountsPage(driver, test);
@@ -424,7 +434,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Check_Based_DiscountType_Comp(WebDriver driver) throws Exception
+	public void Edit_and_Update_Check_Based_DiscountType_Comp(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		dcp=new DiscountsPage(driver, test);
@@ -657,7 +667,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_SubCategory_Check_Based_Discount(WebDriver driver) throws Exception
+	public void Edit_and_Update_SubCategory_Check_Based_Discount(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		dcp=new DiscountsPage(driver, test);
@@ -826,7 +836,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_MenuItem_Check_Based_Discount(WebDriver driver) throws Exception
+	public void Edit_and_Update_MenuItem_Check_Based_Discount(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		dcp=new DiscountsPage(driver, test);
@@ -927,7 +937,7 @@ public WebDriver driver;
 		}
 	}
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Check_Based_Discount_DaysOfWeek(WebDriver driver) throws Exception
+	public void Edit_and_Update_Check_Based_Discount_DaysOfWeek(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		dcp=new DiscountsPage(driver, test);
@@ -1045,7 +1055,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Check_Based_Discount_DaysOfMonth(WebDriver driver) throws Exception
+	public void Edit_and_Update_Check_Based_Discount_DaysOfMonth(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		dcp=new DiscountsPage(driver, test);
@@ -1098,7 +1108,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Check_Based_Discount_DateRange(WebDriver driver) throws Exception
+	public void Edit_and_Update_Check_Based_Discount_DateRange(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		dcp=new DiscountsPage(driver, test);
@@ -1142,7 +1152,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Check_Based_Discount_Specific_Date(WebDriver driver) throws Exception
+	public void Edit_and_Update_Check_Based_Discount_Specific_Date(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		dcp=new DiscountsPage(driver, test);
@@ -1193,7 +1203,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Check_Based_Discount_DateRangeWithTime(WebDriver driver) throws Exception
+	public void Edit_and_Update_Check_Based_Discount_DateRangeWithTime(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		dcp=new DiscountsPage(driver, test);
@@ -1237,7 +1247,7 @@ public WebDriver driver;
 
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_Check_Based_Discount(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_Check_Based_Discount(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -1366,7 +1376,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_Duplicate_Check_Based_Discount(WebDriver driver) throws Exception
+	public void Create_Duplicate_Check_Based_Discount(SelfHealingDriver driver) throws Exception
 	{
 		dcp=new DiscountsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

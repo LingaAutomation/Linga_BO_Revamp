@@ -91,7 +91,7 @@ public class Product_Items_AddEditDelete_Departments
 //		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
 ////		//Open the Chrome window
 //		driver = new ChromeDriver();
-WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().setup();
 		
 		ChromeOptions options=new ChromeOptions();
 		

@@ -14,6 +14,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.Pages.Settings_Table_Layout_Page;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -25,7 +26,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_Table_Layout {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -53,7 +54,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -73,10 +74,19 @@ public WebDriver driver;
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -104,7 +114,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_TableLayout_Page(WebDriver driver) throws Exception
+	public void Open_TableLayout_Page(SelfHealingDriver driver) throws Exception
 	{
 		TL=new Settings_Table_Layout_Page(driver, test);
 		//Thread.sleep(5000);
@@ -129,7 +139,7 @@ public WebDriver driver;
 	
 	/*
 	 * @Test(priority = 3,enabled = false) public void
-	 * VerifyTheField_Options(WebDriver driver) throws Exception { kds=new
+	 * VerifyTheField_Options(SelfHealingDriver driver) throws Exception { kds=new
 	 * Settings_KDS_Configuration_Page(driver, test);
 	 * 
 	 * Thread.sleep(1000); kds.verifyTheFieldOptions();
@@ -150,7 +160,7 @@ public WebDriver driver;
 	 * 
 	 * 
 	 * @Test(priority = 3,enabled = false) public void
-	 * VerifyTheStyleOptions(WebDriver driver) throws Exception { kds=new
+	 * VerifyTheStyleOptions(SelfHealingDriver driver) throws Exception { kds=new
 	 * Settings_KDS_Configuration_Page(driver, test);
 	 * 
 	 * Thread.sleep(1000); kds.verifyTheStyleOptions();
@@ -170,7 +180,7 @@ public WebDriver driver;
 	 * }
 	 * 
 	 * @Test(priority = 3,enabled = false) public void
-	 * VerifyThe_SMS_Order_Notifications(WebDriver driver) throws Exception {
+	 * VerifyThe_SMS_Order_Notifications(SelfHealingDriver driver) throws Exception {
 	 * kds=new Settings_KDS_Configuration_Page(driver, test);
 	 * 
 	 * Thread.sleep(1000); kds.verifyTheSMSOrderNotifications();

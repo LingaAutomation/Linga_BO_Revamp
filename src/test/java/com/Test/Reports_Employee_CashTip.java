@@ -17,6 +17,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.Pages.ReportsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -30,7 +31,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Reports_Employee_CashTip 
 {
 
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -60,7 +61,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -82,11 +83,19 @@ public WebDriver driver;
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
 		
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
 		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -147,7 +156,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Employee_CashTip_Report_Page(WebDriver driver) throws Exception
+	public void Open_Employee_CashTip_Report_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		repts=new ReportsPage(driver, test);
@@ -164,7 +173,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -176,7 +185,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void SelectTheAllStatus(WebDriver driver) throws Exception
+	public void SelectTheAllStatus(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(5000);	
 		//Click the category label
@@ -195,7 +204,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void SelectTheActiveStatus(WebDriver driver) throws Exception
+	public void SelectTheActiveStatus(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(5000);	
 		//Click the category label
@@ -214,7 +223,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void SelectTheInactiveStatus(WebDriver driver) throws Exception
+	public void SelectTheInactiveStatus(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(5000);	
 		//Click the category label
@@ -235,7 +244,7 @@ public WebDriver driver;
 
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Today_All(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Today_All(SelfHealingDriver driver) throws Exception
 	{
 		test.log(LogStatus.INFO, "************************************************** Tender By Name(Start) **************************************************");
 
@@ -293,7 +302,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Yesterday_All(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Yesterday_All(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -358,7 +367,7 @@ public WebDriver driver;
 
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_N_Days_All(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_N_Days_All(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -423,7 +432,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_This_Week_All(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_This_Week_All(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -487,7 +496,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_Week_All(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_Week_All(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -549,7 +558,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_7_Days_All(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_7_Days_All(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -613,7 +622,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_This_Month_All(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_This_Month_All(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -678,7 +687,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_Month_All(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_Month_All(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -740,7 +749,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_30_Days_All(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_30_Days_All(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -802,7 +811,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Specific_Date_All(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Specific_Date_All(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -864,7 +873,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Date_Range_All(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Date_Range_All(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -926,7 +935,7 @@ public WebDriver driver;
 	}
 
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Today_Active(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Today_Active(SelfHealingDriver driver) throws Exception
 	{
 		test.log(LogStatus.INFO, "************************************************** Tender By Type(Start) **************************************************");
 
@@ -984,7 +993,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Yesterday_Active(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Yesterday_Active(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1049,7 +1058,7 @@ public WebDriver driver;
 
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_N_Days_Active(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_N_Days_Active(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1114,7 +1123,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_This_Week_Active(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_This_Week_Active(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1178,7 +1187,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_Week_Active(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_Week_Active(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1240,7 +1249,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_7_Days_Active(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_7_Days_Active(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1304,7 +1313,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_This_Month_Active(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_This_Month_Active(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1369,7 +1378,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_Month_Active(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_Month_Active(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1431,7 +1440,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_30_Days_Active(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_30_Days_Active(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1493,7 +1502,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Specific_Date_Active(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Specific_Date_Active(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1555,7 +1564,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Date_Range_Active(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Date_Range_Active(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1616,7 +1625,7 @@ public WebDriver driver;
 		}			test.log(LogStatus.INFO, "************************************************** Tender By Type(End) **************************************************");
 	}
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Today_Inactive(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Today_Inactive(SelfHealingDriver driver) throws Exception
 	{
 		test.log(LogStatus.INFO, "************************************************** Tender By Type(Start) **************************************************");
 
@@ -1674,7 +1683,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Yesterday_Inactive(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Yesterday_Inactive(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1739,7 +1748,7 @@ public WebDriver driver;
 
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_N_Days_Inactive(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_N_Days_Inactive(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1804,7 +1813,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_This_Week_Inactive(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_This_Week_Inactive(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1868,7 +1877,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_Week_Inactive(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_Week_Inactive(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1930,7 +1939,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_7_Days_Inactive(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_7_Days_Inactive(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -1994,7 +2003,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_This_Month_Inactive(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_This_Month_Inactive(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -2059,7 +2068,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_Month_Inactive(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_Month_Inactive(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -2121,7 +2130,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Last_30_Days_Inactive(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Last_30_Days_Inactive(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -2183,7 +2192,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Specific_Date_Inactive(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Specific_Date_Inactive(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);
@@ -2245,7 +2254,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Employee_CashTip_Report_Date_Range_Inactive(WebDriver driver) throws Exception
+	public void Employee_CashTip_Report_Date_Range_Inactive(SelfHealingDriver driver) throws Exception
 	{
 		for(int i = 1;i<=10;i++){driver.findElement(By.tagName("html")).sendKeys(Keys.HOME);}
 		Thread.sleep(1000);

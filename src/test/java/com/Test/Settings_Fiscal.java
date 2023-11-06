@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 
 import com.Pages.Common_XPaths;
 import com.Pages.Settings_Fiscal_Page;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -28,7 +29,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Settings_Fiscal
 {
 
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 	ExtentReports rep = ExtentManager.getInstance();
 	ExtentTest test = rep.startTest("Settings - Integration - Fiscal");
@@ -54,7 +55,7 @@ public class Settings_Fiscal
 	@AfterMethod
 	public void TestFail(ITestResult result) throws Exception {
 		if (result.getStatus() == ITestResult.FAILURE) {
-			String scnsht = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht = ((TakesScreenshot) driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s = "data:image/png;base64," + scnsht;
 
@@ -70,11 +71,19 @@ public class Settings_Fiscal
 		// Call the chrome driver
 		// System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		// Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
-		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
-		driver = new ChromeDriver(chromeOptions);
-
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().driverVersion("110.0.5481").setup();
+//		driver = new ChromeDriver(chromeOptions);
+		WebDriverManager.chromedriver().setup();
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		// Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		// Maximize the Chrome window
@@ -102,7 +111,7 @@ public class Settings_Fiscal
 	}
 
 	@Test(priority = 3, enabled = false)
-	public void Open_ForcedPunchInOut_Page(WebDriver driver) throws Exception {
+	public void Open_ForcedPunchInOut_Page(SelfHealingDriver driver) throws Exception {
 
 		cmp = new Common_XPaths(driver, test);
 
@@ -123,7 +132,7 @@ public class Settings_Fiscal
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception {
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception {
 		cmp = new Common_XPaths(driver, test);
 
 		// Verify the Pagination and Refresh the page
@@ -134,7 +143,7 @@ public class Settings_Fiscal
 	}
 
 	@Test(priority = 4, enabled = false)
-	public void VerifyTheAddFiscalSettings(WebDriver driver) throws Exception {
+	public void VerifyTheAddFiscalSettings(SelfHealingDriver driver) throws Exception {
 		sf = new Settings_Fiscal_Page(driver, test);
 
 		sf.verifyFiscalPage();
@@ -156,7 +165,7 @@ public class Settings_Fiscal
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void VerifyTheEditFiscalSettings(WebDriver driver) throws Exception {
+	public void VerifyTheEditFiscalSettings(SelfHealingDriver driver) throws Exception {
 		sf = new Settings_Fiscal_Page(driver, test);
 
 		for(int i = 1; i <=10; i++) {driver.findElement(By.xpath("//input[@placeholder='Search']")).sendKeys(Keys.BACK_SPACE);}Thread.sleep(2000);
@@ -179,7 +188,7 @@ public class Settings_Fiscal
 	}
 	
 	@Test(priority = 4, enabled = false)
-	public void VerifyTheDeleteFiscalSettings(WebDriver driver) throws Exception {
+	public void VerifyTheDeleteFiscalSettings(SelfHealingDriver driver) throws Exception {
 		sf = new Settings_Fiscal_Page(driver, test);
 		
 		//System.out.println(Cat);

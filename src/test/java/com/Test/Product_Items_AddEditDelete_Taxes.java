@@ -24,6 +24,7 @@ import org.testng.annotations.Test;
 
 import com.Pages.Common_XPaths;
 import com.Pages.TaxesPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -34,7 +35,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Product_Items_AddEditDelete_Taxes {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -61,7 +62,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -83,11 +84,19 @@ public WebDriver driver;
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
 		
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
 		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -130,7 +139,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Taxes_Page(WebDriver driver) throws Exception
+	public void Open_Taxes_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		tp=new TaxesPage(driver, test);
@@ -146,7 +155,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -158,7 +167,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_ItemTax_Amount(WebDriver driver) throws Exception
+	public void Add_ItemTax_Amount(SelfHealingDriver driver) throws Exception
 	{
 		tp=new TaxesPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -244,7 +253,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_ItemTax_Percentage(WebDriver driver) throws Exception
+	public void Add_ItemTax_Percentage(SelfHealingDriver driver) throws Exception
 	{
 		tp=new TaxesPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -295,7 +304,7 @@ public WebDriver driver;
 		
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_CheckTax(WebDriver driver) throws Exception
+	public void Add_CheckTax(SelfHealingDriver driver) throws Exception
 	{
 		tp=new TaxesPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -345,7 +354,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_TaxOnItemTax(WebDriver driver) throws Exception
+	public void Add_TaxOnItemTax(SelfHealingDriver driver) throws Exception
 	{
 		tp=new TaxesPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -386,7 +395,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_TaxOnCheckTax(WebDriver driver) throws Exception
+	public void Add_TaxOnCheckTax(SelfHealingDriver driver) throws Exception
 	{
 		tp=new TaxesPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -427,7 +436,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_Taxes(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_Taxes(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		tp=new TaxesPage(driver, test);
@@ -459,7 +468,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_ItemTax(WebDriver driver) throws Exception
+	public void Edit_and_Update_ItemTax(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		tp=new TaxesPage(driver, test);
@@ -544,7 +553,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_CheckTax(WebDriver driver) throws Exception
+	public void Edit_and_Update_CheckTax(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		tp=new TaxesPage(driver, test);
@@ -604,7 +613,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Tax_On_Item_Tax(WebDriver driver) throws Exception
+	public void Edit_and_Update_Tax_On_Item_Tax(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		tp=new TaxesPage(driver, test);
@@ -646,7 +655,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Tax_On_Check_Tax(WebDriver driver) throws Exception
+	public void Edit_and_Update_Tax_On_Check_Tax(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		tp=new TaxesPage(driver, test);
@@ -688,7 +697,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_Taxes(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_Taxes(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(10000);
 		
@@ -830,7 +839,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_Duplicate_Tax(WebDriver driver) throws Exception
+	public void Create_Duplicate_Tax(SelfHealingDriver driver) throws Exception
 	{
 		tp=new TaxesPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -890,7 +899,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 6,enabled = false)
-	public void Add_Tax_For_Tax_Per_ServiceType(WebDriver driver) throws Exception
+	public void Add_Tax_For_Tax_Per_ServiceType(SelfHealingDriver driver) throws Exception
 	{
 		tp=new TaxesPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -934,7 +943,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Tax_Per_ServiceType(WebDriver driver) throws Exception
+	public void Edit_and_Update_Tax_Per_ServiceType(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		tp=new TaxesPage(driver, test);

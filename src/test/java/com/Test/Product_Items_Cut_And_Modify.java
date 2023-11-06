@@ -16,6 +16,7 @@ import com.Pages.Common_XPaths;
 import com.Pages.CutAndModifyPage;
 import com.Pages.LoginPage;
 import com.Pages.ServingSizeLevelsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -26,7 +27,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Product_Items_Cut_And_Modify {
 	
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -53,7 +54,7 @@ public class Product_Items_Cut_And_Modify {
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -75,10 +76,19 @@ public class Product_Items_Cut_And_Modify {
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
 		
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -108,7 +118,7 @@ public class Product_Items_Cut_And_Modify {
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Cut_And_Modify_Page(WebDriver driver) throws Exception
+	public void Open_Cut_And_Modify_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -124,7 +134,7 @@ public class Product_Items_Cut_And_Modify {
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Clear_CutAndModify(WebDriver driver) throws Exception
+	public void Clear_CutAndModify(SelfHealingDriver driver) throws Exception
 	{
 		cm=new CutAndModifyPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -236,7 +246,7 @@ public class Product_Items_Cut_And_Modify {
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Edit_CutAndModify(WebDriver driver) throws Exception
+	public void Edit_CutAndModify(SelfHealingDriver driver) throws Exception
 	{
 		cm=new CutAndModifyPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

@@ -17,6 +17,7 @@ import com.Pages.BulkUpdate_Page;
 import com.Pages.Common_XPaths;
 import com.Pages.CutAndModifyPage;
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -27,7 +28,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Product_Items_Bulk_Update {
 	
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -54,7 +55,7 @@ public class Product_Items_Bulk_Update {
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -75,10 +76,19 @@ public class Product_Items_Bulk_Update {
 //		System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -108,7 +118,7 @@ public class Product_Items_Bulk_Update {
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Bulk_Update_Page(WebDriver driver) throws Exception
+	public void Open_Bulk_Update_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -124,7 +134,7 @@ public class Product_Items_Bulk_Update {
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Verify_single_MenuItem_Update_Page(WebDriver driver) throws Exception
+	public void Verify_single_MenuItem_Update_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -137,7 +147,7 @@ public class Product_Items_Bulk_Update {
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Verify_BulkUpdate_MenuItem_Update_Page(WebDriver driver) throws Exception
+	public void Verify_BulkUpdate_MenuItem_Update_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -156,7 +166,7 @@ public class Product_Items_Bulk_Update {
         bup.Increase_by_percentage();
 	}
 	@Test(priority = 4,enabled = false)
-	public void Verify_Coursing_columnoptionAndSetting_button (WebDriver driver) throws Exception
+	public void Verify_Coursing_columnoptionAndSetting_button (SelfHealingDriver driver) throws Exception
 	{
 		
 	
@@ -174,7 +184,7 @@ public class Product_Items_Bulk_Update {
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Verify_BulkUpdate_Page(WebDriver driver) throws Exception
+	public void Verify_BulkUpdate_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);

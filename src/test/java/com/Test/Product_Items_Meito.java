@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import com.Pages.Availability_RestrictionTimePage;
 import com.Pages.MeitoPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -27,7 +28,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Product_Items_Meito 
 {
 
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -54,7 +55,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -76,11 +77,19 @@ public WebDriver driver;
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
 		
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
 		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -110,7 +119,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Meito_Page(WebDriver driver) throws Exception
+	public void Open_Meito_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		mto=new MeitoPage(driver, test);
@@ -127,7 +136,7 @@ public WebDriver driver;
 	
 
 	@Test(priority = 4,enabled = false)
-	public void Update_Meito(WebDriver driver) throws Exception
+	public void Update_Meito(SelfHealingDriver driver) throws Exception
 	{
 		mto=new MeitoPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

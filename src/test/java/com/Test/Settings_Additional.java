@@ -14,6 +14,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.Pages.Settings_Additional_Settings_Page;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -26,7 +27,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_Additional 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 
 	ExtentReports rep = ExtentManager.getInstance();
@@ -52,7 +53,7 @@ public class Settings_Additional
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s="data:image/png;base64,"+scnsht;
 
@@ -70,10 +71,19 @@ public class Settings_Additional
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -106,7 +116,7 @@ public class Settings_Additional
 	}
 
 	@Test(priority=3,enabled = false)
-	public void Navigating_Additional_Settings(WebDriver driver) throws Exception 
+	public void Navigating_Additional_Settings(SelfHealingDriver driver) throws Exception 
 	{
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		//Settings_Additional_Settings_Page as = new Settings_Additional_Settings_Page(driver, test);
@@ -131,7 +141,7 @@ public class Settings_Additional
 		
 	}
 	@Test(priority=4,enabled = false)
-	public void Enable_And_Save_Additional_Settings(WebDriver driver) throws Exception 
+	public void Enable_And_Save_Additional_Settings(SelfHealingDriver driver) throws Exception 
 	{
 		Thread.sleep(8000);
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
@@ -154,7 +164,7 @@ public class Settings_Additional
 		
 	}
 	@Test(priority=5,enabled = false)
-	public void Disable_And_Save_Additional_Settings(WebDriver driver) throws Exception
+	public void Disable_And_Save_Additional_Settings(SelfHealingDriver driver) throws Exception
 	{
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_Additional_Settings_Page as = new Settings_Additional_Settings_Page(driver, test);
@@ -177,7 +187,7 @@ public class Settings_Additional
 	}
 	
 	@Test(priority=6,enabled = false)
-	public void Navigating_Back(WebDriver driver) throws Exception 
+	public void Navigating_Back(SelfHealingDriver driver) throws Exception 
 	{
 		//Common_XPaths cmp = new Common_XPaths(driver, test);
 		Settings_Additional_Settings_Page as = new Settings_Additional_Settings_Page(driver, test);

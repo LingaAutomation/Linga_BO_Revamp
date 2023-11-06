@@ -25,6 +25,7 @@ import com.Pages.Common_XPaths;
 import com.Pages.CategoriesPage;
 import com.Pages.LoginPage;
 import com.Pages.SubCategoriesPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -34,7 +35,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Product_Items_AddEditDelete_SubCategories {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -63,7 +64,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -85,11 +86,19 @@ public WebDriver driver;
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
 		
-		
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -128,7 +137,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_SubCategories_Page(WebDriver driver) throws Exception
+	public void Open_SubCategories_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		ctp=new CategoriesPage(driver, test);
@@ -144,7 +153,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -156,7 +165,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_SubCategories(WebDriver driver) throws Exception
+	public void Add_SubCategories(SelfHealingDriver driver) throws Exception
 	{
 		ctp=new CategoriesPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -313,7 +322,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_SubCategories(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_SubCategories(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		ctp=new CategoriesPage(driver, test);
@@ -347,7 +356,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_SubCategories_DaysOfWeek(WebDriver driver) throws Exception
+	public void Edit_and_Update_SubCategories_DaysOfWeek(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		ctp=new CategoriesPage(driver, test);
@@ -469,7 +478,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_SubCategories_DaysOfMonth(WebDriver driver) throws Exception
+	public void Edit_and_Update_SubCategories_DaysOfMonth(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		ctp=new CategoriesPage(driver, test);
@@ -538,7 +547,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_SubCategories_DateRange(WebDriver driver) throws Exception
+	public void Edit_and_Update_SubCategories_DateRange(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		ctp=new CategoriesPage(driver, test);
@@ -599,7 +608,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_SubCategories_Specific_Date(WebDriver driver) throws Exception
+	public void Edit_and_Update_SubCategories_Specific_Date(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		ctp=new CategoriesPage(driver, test);
@@ -649,7 +658,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_SubCategories_DateRangeWithTime(WebDriver driver) throws Exception
+	public void Edit_and_Update_SubCategories_DateRangeWithTime(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		ctp=new CategoriesPage(driver, test);
@@ -695,7 +704,7 @@ public WebDriver driver;
 
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_SubCategories(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_SubCategories(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(1000);
 		
@@ -823,7 +832,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_DuplicateSubCategory(WebDriver driver) throws Exception
+	public void Create_DuplicateSubCategory(SelfHealingDriver driver) throws Exception
 	{
 		ctp=new CategoriesPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

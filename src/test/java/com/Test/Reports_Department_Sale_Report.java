@@ -84,7 +84,7 @@ public SelfHealingDriver driver;
 //		System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
-WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().setup();
 		
 		ChromeOptions options=new ChromeOptions();
 		

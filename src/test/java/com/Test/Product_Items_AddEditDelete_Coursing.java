@@ -23,6 +23,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.CoursingPage;
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -32,7 +33,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Product_Items_AddEditDelete_Coursing extends LoginTest{
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -80,14 +81,22 @@ public WebDriver driver;
 		
 		Thread.sleep(2000);
 		//Call the chrome driver
-		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
-		//Open the Chrome window
-		driver = new ChromeDriver();
+//		System.setProperty("webdriver.chrome.driver","./Automation Driver/chromedriver.exe");
+//		//Open the Chrome window
+//		driver = new ChromeDriver();
 //		ChromeOptions chrOpt=new ChromeOptions();
 //		chrOpt.addArguments("--remote-allow-origins=*");
 //		WebDriverManager.chromedriver().setup();
 //		driver=new ChromeDriver(chrOpt);
+		WebDriverManager.chromedriver().setup();
 		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -122,7 +131,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Coursing_Page(WebDriver driver) throws Exception
+	public void Open_Coursing_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cp=new CoursingPage(driver, test);
@@ -138,7 +147,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination_ColumnFilteration(WebDriver driver) throws Exception
+	public void RefreshAndPaginination_ColumnFilteration(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		cp=new CoursingPage(driver, test);
@@ -175,7 +184,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Add_Coursing(WebDriver driver) throws Exception
+	public void Add_Coursing(SelfHealingDriver driver) throws Exception
 	{
 		cp=new CoursingPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -313,7 +322,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 6,enabled = false)
-	public void Edit_and_Close_Cancel_Coursing(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_Coursing(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		cp=new CoursingPage(driver, test);
@@ -364,7 +373,7 @@ public WebDriver driver;
 		
 	}
 	@Test(priority = 7,enabled = false)
-	public void Edit_and_Update_Coursing(WebDriver driver) throws Exception
+	public void Edit_and_Update_Coursing(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		cp=new CoursingPage(driver, test);
@@ -524,7 +533,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 8,enabled = false)
-	public void Delete_and_Active_Inactive_Coursing(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_Coursing(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -658,7 +667,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 9,enabled = false)
-	public void Create_DuplicateCourse(WebDriver driver) throws Exception
+	public void Create_DuplicateCourse(SelfHealingDriver driver) throws Exception
 	{
 		cp=new CoursingPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

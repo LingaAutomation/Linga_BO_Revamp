@@ -20,6 +20,7 @@ import org.testng.annotations.Test;
 
 import com.Pages.Common_XPaths;
 import com.Pages.ReasonsPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.LoginPage;
 import com.Pages.ReasonsPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -31,7 +32,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Product_Items_AddEditDelete_Reasons {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -58,7 +59,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -80,10 +81,19 @@ public WebDriver driver;
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
 		
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -117,7 +127,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Reasons_Page(WebDriver driver) throws Exception
+	public void Open_Reasons_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		rp=new ReasonsPage(driver, test);
@@ -133,7 +143,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -146,7 +156,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_Reasons(WebDriver driver) throws Exception
+	public void Add_Reasons(SelfHealingDriver driver) throws Exception
 	{
 		rp=new ReasonsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -372,7 +382,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_Reasons(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_Reasons(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		rp=new ReasonsPage(driver, test);
@@ -426,7 +436,7 @@ public WebDriver driver;
 		
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_Reasons(WebDriver driver) throws Exception
+	public void Edit_and_Update_Reasons(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		rp=new ReasonsPage(driver, test);
@@ -731,7 +741,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_Reasons(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_Reasons(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(1000);
 		
@@ -1091,7 +1101,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_DuplicateReason(WebDriver driver) throws Exception
+	public void Create_DuplicateReason(SelfHealingDriver driver) throws Exception
 	{
 		rp=new ReasonsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

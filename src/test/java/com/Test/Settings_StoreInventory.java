@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.Settings_StoreInventory_Page;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -24,7 +25,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_StoreInventory {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	ExtentReports rep = ExtentManager.getInstance();
 	ExtentTest test = rep.startTest("Store Inventory Settings");
 	
@@ -49,7 +50,7 @@ public class Settings_StoreInventory {
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -67,10 +68,19 @@ public class Settings_StoreInventory {
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -98,7 +108,7 @@ public class Settings_StoreInventory {
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_StoreInv_Page(WebDriver driver) throws Exception
+	public void Open_StoreInv_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		sti=new Settings_StoreInventory_Page(driver, test);
@@ -114,13 +124,13 @@ public class Settings_StoreInventory {
 		Thread.sleep(5000);
 	}
 	
-	public void Bussiness_Date(WebDriver driver) throws Exception
+	public void Bussiness_Date(SelfHealingDriver driver) throws Exception
 	{
 		sti.Dates();
 		Thread.sleep(5000);
 	}
 	
-	public void select_toggles(WebDriver driver) throws Exception
+	public void select_toggles(SelfHealingDriver driver) throws Exception
 	{
 		sti.All_toggle();
 		Thread.sleep(2000);

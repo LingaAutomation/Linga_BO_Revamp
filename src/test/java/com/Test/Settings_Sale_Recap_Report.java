@@ -25,6 +25,7 @@ import com.Pages.Common_XPaths;
 import com.Pages.SaleRecapReport_SettingsPage;
 import com.Pages.SaleRecapReport_SettingsPage;
 import com.Test.LoginTest;
+import com.epam.healenium.SelfHealingDriver;
 import com.Pages.LoginPage;
 import com.Pages.SaleRecapReport_SettingsPage;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -39,7 +40,7 @@ import io.netty.handler.pcap.PcapWriteHandler;
 public class Settings_Sale_Recap_Report 
 {
 
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -66,7 +67,7 @@ public class Settings_Sale_Recap_Report
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -85,11 +86,19 @@ public class Settings_Sale_Recap_Report
 		Thread.sleep(2000);
 		//Call the chrome driver
 
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
-	
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -120,7 +129,7 @@ public class Settings_Sale_Recap_Report
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Sales_Recap_Report_Page(WebDriver driver) throws Exception
+	public void Open_Sales_Recap_Report_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		cmp=new Common_XPaths(driver, test);
@@ -137,7 +146,7 @@ public class Settings_Sale_Recap_Report
 	
 	
 	@Test(priority = 4,enabled = false)
-	public void Disable_And_Update_Sales_Recap_Report(WebDriver driver) throws Exception
+	public void Disable_And_Update_Sales_Recap_Report(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		srrp=new SaleRecapReport_SettingsPage(driver, test);
@@ -285,7 +294,7 @@ public class Settings_Sale_Recap_Report
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Enable_And_Update_Category_LevelType_Sales_Recap_Report(WebDriver driver) throws Exception
+	public void Enable_And_Update_Category_LevelType_Sales_Recap_Report(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		srrp=new SaleRecapReport_SettingsPage(driver, test);
@@ -750,7 +759,7 @@ public class Settings_Sale_Recap_Report
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Enable_And_Update_SubCategory_LevelType_Sales_Recap_Report(WebDriver driver) throws Exception
+	public void Enable_And_Update_SubCategory_LevelType_Sales_Recap_Report(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		srrp=new SaleRecapReport_SettingsPage(driver, test);
@@ -1108,7 +1117,7 @@ public class Settings_Sale_Recap_Report
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Enable_And_Update_MenuItems_LevelType_Sales_Recap_Report(WebDriver driver) throws Exception
+	public void Enable_And_Update_MenuItems_LevelType_Sales_Recap_Report(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		srrp=new SaleRecapReport_SettingsPage(driver, test);

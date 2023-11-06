@@ -17,6 +17,7 @@ import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.Settings_NotificationsPage;
 import com.Pages.Settings_Web_Hooks_Page;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -27,7 +28,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_Integrations_WebHook
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 
 	ExtentReports rep = ExtentManager.getInstance();
@@ -53,7 +54,7 @@ public class Settings_Integrations_WebHook
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s="data:image/png;base64,"+scnsht;
 
@@ -68,11 +69,19 @@ public class Settings_Integrations_WebHook
 		Thread.sleep(2000);
 		//Call the chrome driver
 
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
-	
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -114,7 +123,7 @@ public class Settings_Integrations_WebHook
 	}
 
 	@Test(priority = 3,enabled = false)
-	public void Open_Settings_Web_Hooks_Page(WebDriver driver) throws Exception 
+	public void Open_Settings_Web_Hooks_Page(SelfHealingDriver driver) throws Exception 
 	{
 		cmp= new Common_XPaths(driver,test);
    	    wh= new Settings_Web_Hooks_Page(driver, test);
@@ -134,7 +143,7 @@ public class Settings_Integrations_WebHook
 		}
 	}
 	@Test(priority = 4,enabled = false)
-	 public void Adding_Request_Header(WebDriver driver) throws Exception
+	 public void Adding_Request_Header(SelfHealingDriver driver) throws Exception
 	{
 		wh.Entering_Key_value();
 		Thread.sleep(2000);
@@ -236,7 +245,7 @@ public class Settings_Integrations_WebHook
 		Thread.sleep(2000);
 	 }
 	@Test(priority = 5,enabled = false)
-	public void Adding_CloseOrder_Web_Hooks(WebDriver driver) throws Exception 
+	public void Adding_CloseOrder_Web_Hooks(SelfHealingDriver driver) throws Exception 
 	{
 		wh.Entering_Closeorder_URL();
 		Thread.sleep(2000);
@@ -325,7 +334,7 @@ public class Settings_Integrations_WebHook
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Clicking_Closeorder_WebHooks_Active(WebDriver driver) throws Exception 
+	public void Clicking_Closeorder_WebHooks_Active(SelfHealingDriver driver) throws Exception 
 	{
 		Thread.sleep(5000);
 		wh.Clikcing_Closeorder_WebHooks_Yes();
@@ -363,7 +372,7 @@ public class Settings_Integrations_WebHook
 	}
 	
 	@Test(priority = 7,enabled = false)
-	public void Adding_OpenOrder_Web_Hooks(WebDriver driver) throws Exception
+	public void Adding_OpenOrder_Web_Hooks(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(5000);
 		wh.Entering_Openorder_URL();
@@ -451,7 +460,7 @@ public class Settings_Integrations_WebHook
 	}
 	
 	@Test(priority = 8,enabled = false)
-	public void Clicking_OpenOrder_WebHooks_Active(WebDriver driver) throws Exception 
+	public void Clicking_OpenOrder_WebHooks_Active(SelfHealingDriver driver) throws Exception 
 	{
 		Thread.sleep(5000);
 		wh.Clikcing_Openorder_WebHooks_Yes();
@@ -489,7 +498,7 @@ public class Settings_Integrations_WebHook
 		
 	}
 	@Test(priority = 9,enabled = false)
-	public void Adding_Updateorder_Web_Hooks(WebDriver driver) throws Exception 
+	public void Adding_Updateorder_Web_Hooks(SelfHealingDriver driver) throws Exception 
 	{
 		wh.Entering_Updateorder_URL();
 		Thread.sleep(2000);
@@ -578,7 +587,7 @@ public class Settings_Integrations_WebHook
 		Thread.sleep(2000);
 	}
 	@Test(priority = 9,enabled = false)
-	public void Clicking_Updateorder_WebHooks_Active(WebDriver driver) throws Exception 
+	public void Clicking_Updateorder_WebHooks_Active(SelfHealingDriver driver) throws Exception 
 	{
 		Thread.sleep(5000);
 		wh.Clicking_Updateorder_WebHooks_Yes();
@@ -615,7 +624,7 @@ public class Settings_Integrations_WebHook
 		Thread.sleep(2000);
 	}
 	@Test(priority = 10,enabled = false)
-	public void Clicking_Thirdorder_WebHooks_Active(WebDriver driver) throws Exception 
+	public void Clicking_Thirdorder_WebHooks_Active(SelfHealingDriver driver) throws Exception 
 	{
 		Thread.sleep(5000);
 		wh.Clicking_Thirdorder_WebHooks_Yes();

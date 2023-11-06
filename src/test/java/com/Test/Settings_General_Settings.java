@@ -17,6 +17,7 @@ import com.Pages.Settings_GeneralSetting_page;
 import com.Pages.Settings_NotificationsPage;
 import com.Pages.LoginPage;
 import com.Pages.SortMenuConfigPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -27,7 +28,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_General_Settings 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 
 	ExtentReports rep = ExtentManager.getInstance();
@@ -53,7 +54,7 @@ public class Settings_General_Settings
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s="data:image/png;base64,"+scnsht;
 
@@ -69,10 +70,19 @@ public class Settings_General_Settings
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -99,7 +109,7 @@ public class Settings_General_Settings
 	}
 
 	@Test(priority =3,enabled = false)
-	public void open_general_settings_page(WebDriver driver) throws Exception 
+	public void open_general_settings_page(SelfHealingDriver driver) throws Exception 
 	{
 		cmp=new Common_XPaths(driver, test);
 		gs = new Settings_GeneralSetting_page (driver,test);
@@ -120,7 +130,7 @@ public class Settings_General_Settings
 	}
 	
 	@Test(priority = 4,enabled = false) 
-	public void modifying_settings(WebDriver driver) throws Exception
+	public void modifying_settings(SelfHealingDriver driver) throws Exception
 	{
 
 		cmp=new Common_XPaths(driver, test);
@@ -277,7 +287,7 @@ public class Settings_General_Settings
 		//gs.update();
 		Thread.sleep(1000);
 	}
-	public void updating_settings(WebDriver driver) throws Exception 
+	public void updating_settings(SelfHealingDriver driver) throws Exception 
 	{
 		//updating the data
 		gs.update();

@@ -21,6 +21,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.GiftCardsPage;
 import com.Pages.LoginPage;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -30,7 +31,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Product_Items_AddEditDelete_GiftCards {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -57,7 +58,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -78,10 +79,19 @@ public WebDriver driver;
 //		System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 //		//Open the Chrome window
 //		driver = new ChromeDriver();
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -116,7 +126,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_GiftCards_Page(WebDriver driver) throws Exception
+	public void Open_GiftCards_Page(SelfHealingDriver driver) throws Exception
 	{
 		
 		gcp=new GiftCardsPage(driver, test);
@@ -132,7 +142,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void RefreshAndPaginination(WebDriver driver) throws Exception
+	public void RefreshAndPaginination(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		
@@ -144,7 +154,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void Add_GiftCards(WebDriver driver) throws Exception
+	public void Add_GiftCards(SelfHealingDriver driver) throws Exception
 	{
 		gcp=new GiftCardsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
@@ -256,7 +266,7 @@ public WebDriver driver;
 	}
 		
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Close_Cancel_GiftCards(WebDriver driver) throws Exception
+	public void Edit_and_Close_Cancel_GiftCards(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		gcp=new GiftCardsPage(driver, test);
@@ -307,7 +317,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Edit_and_Update_GiftCards(WebDriver driver) throws Exception
+	public void Edit_and_Update_GiftCards(SelfHealingDriver driver) throws Exception
 	{
 		cmp=new Common_XPaths(driver, test);
 		gcp=new GiftCardsPage(driver, test);
@@ -406,7 +416,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void Recharge_GiftCards(WebDriver driver) throws Exception
+	public void Recharge_GiftCards(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -437,7 +447,7 @@ public WebDriver driver;
 	
 	
 	@Test(priority = 5,enabled = false)
-	public void Delete_and_Active_Inactive_GiftCards(WebDriver driver) throws Exception
+	public void Delete_and_Active_Inactive_GiftCards(SelfHealingDriver driver) throws Exception
 	{
 		Thread.sleep(500);
 		
@@ -567,7 +577,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 6,enabled = false)
-	public void Create_DuplicateGiftCard(WebDriver driver) throws Exception
+	public void Create_DuplicateGiftCard(SelfHealingDriver driver) throws Exception
 	{
 		gcp=new GiftCardsPage(driver, test);
 		cmp=new Common_XPaths(driver, test);

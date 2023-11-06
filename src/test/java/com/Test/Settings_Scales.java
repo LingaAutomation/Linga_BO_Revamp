@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.Settings_Scales_Page;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -25,7 +26,7 @@ import Utility.Utility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_Scales {
-public WebDriver driver;
+public SelfHealingDriver driver;
 	
 	
 	ExtentReports rep = ExtentManager.getInstance();
@@ -53,7 +54,7 @@ public WebDriver driver;
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 			
 			String s="data:image/png;base64,"+scnsht;
 			
@@ -73,10 +74,19 @@ public WebDriver driver;
 		//Call the chrome driver
 		//System.setProperty("webdriver.chrome.driver",Utility.getProperty("Chrome_Driver_Path"));
 		//Open the Chrome window
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chromeOptions = new ChromeOptions();
+//		chromeOptions.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver = new ChromeDriver(chromeOptions);
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		//Maximize the Chrome window
@@ -107,7 +117,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void Open_Scales_Page(WebDriver driver) throws Exception
+	public void Open_Scales_Page(SelfHealingDriver driver) throws Exception
 	{
 		scle=new Settings_Scales_Page(driver, test);
 		//Thread.sleep(5000);
@@ -129,7 +139,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 3,enabled = false)
-	public void verifyNewScaleBarCode(WebDriver driver) throws Exception
+	public void verifyNewScaleBarCode(SelfHealingDriver driver) throws Exception
 	{
 		scle=new Settings_Scales_Page(driver, test);
 		
@@ -179,7 +189,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 4,enabled = false)
-	public void verifyScale_Operatoins(WebDriver driver) throws Exception
+	public void verifyScale_Operatoins(SelfHealingDriver driver) throws Exception
 	{
 		scle=new Settings_Scales_Page(driver, test);
 		scle.Ascending_And_Descending_Order();
@@ -188,7 +198,7 @@ public WebDriver driver;
 	}
 	
 	@Test(priority = 5,enabled = false)
-	public void verifyScalesDeletingAndActivating(WebDriver driver) throws InterruptedException {
+	public void verifyScalesDeletingAndActivating(SelfHealingDriver driver) throws InterruptedException {
 		scle=new Settings_Scales_Page(driver, test);
 		Thread.sleep(2000);
 		//click the delete

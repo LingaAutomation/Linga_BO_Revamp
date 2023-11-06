@@ -109,11 +109,154 @@ public class All_Dashboard_Old_BO
 	
 
 	@Test(priority = 2,enabled = true)
-	public void Dashboard_Sales_Old_BO() throws Exception
+	public void Dashboard_Customers_Old_BO() throws Exception
+	{
+		Dashboard_Customers_Old_BO a=new Dashboard_Customers_Old_BO();
+		a.Open_Dashboard_Sales_Page(driver);
+		a.Dashboard_Customers_Date_Range(driver);
+			
+	}
+	
+	@Test(priority = 3,enabled = true)
+	public void Dashboard_Employees_Old_BO() throws Exception
+	{
+		Dashboard_Employees_Old_BO a=new Dashboard_Employees_Old_BO();
+		a.Open_Dashboard_Sales_Page(driver);
+		a.Dashboard_Employees_Date_Range(driver);
+	}
+	
+	
+	@Test(priority = 4,enabled = true)
+	public void Dashboard_Inventory_Old_BO() throws Exception
+	{
+		Dashboard_Inventory_Old_BO a=new Dashboard_Inventory_Old_BO();
+		a.Open_Dashboard_Sales_Page(driver);
+		a.Dashboard_Inventory_Date_Range(driver);
+	}
+
+	@Test(priority = 5,enabled = true)
+	public void Dashboard_KDS_Old_BO() throws Exception
+	{
+		Dashboard_KDS_Old_BO a=new Dashboard_KDS_Old_BO();
+		a.Open_Dashboard_Sales_Page(driver);
+		a.Dashboard_Sales_Date_Range(driver);
+	}
+	
+	@Test(priority = 6,enabled = true)
+	public void Dashboard_Online_Ordering_Old_BO() throws Exception
+	{
+		Dashboard_Online_Ordering_Old_BO a=new Dashboard_Online_Ordering_Old_BO();
+		a.Open_Dashboard_Sales_Page(driver);
+		a.Dashboard_Sales_Date_Range(driver);
+	}
+	
+	@Test(priority = 7,enabled = true)
+	public void Dashboard_Sales_Old_BO3() throws Exception
 	{
 		Dashboard_Sales_Old_BO a=new Dashboard_Sales_Old_BO();
 		a.Open_Dashboard_Sales_Page(driver);
 		a.Dashboard_Sales_Date_Range(driver);
+	}
+	
+	@Test(priority = 8,enabled = true)
+	public void Old_BO_Category_Report_Date_Range1() throws Exception
+	{
+		Old_BO_Reports_Category_Sale_Report a=new Old_BO_Reports_Category_Sale_Report();
+		a.Open_Category_Sales_Page(driver);
+		a.Old_BO_Category_Report_Date_Range(driver);
+	}
+	
+	
+	@Test(priority = 9,enabled = true)
+	public void Old_BO_Reports_Sale_Summary_Report() throws Exception
+	{
+		Old_BO_Reports_Sale_Summary_Report a=new Old_BO_Reports_Sale_Summary_Report();
+		a.Open_SaleSummary_Sales_Page(driver);
+		a.Old_BO_SaleSummary_Report_Date_Range(driver);
+	}
+	
+	@Test(priority = 10,enabled = true)
+	public void Old_BO_Reports_Online_Sales_Report() throws Exception
+	{
+		Old_BO_Reports_Online_Sales_Report a=new Old_BO_Reports_Online_Sales_Report();
+		a.Open_OnlineSales_Sales_Page(driver);
+		a.Old_BO_OnlineSales_Report_Date_Range(driver);
+	}
+	
+	@Test(priority = 11,enabled = true)
+	public void Old_BO_Reports_Modifier_Sale_Report() throws Exception
+	{
+		Old_BO_Reports_Modifier_Sale_Report a=new Old_BO_Reports_Modifier_Sale_Report();
+		a.Open_Modifier_Sales_Page(driver);
+		a.Old_BO_Modifier_Report_Date_Range(driver);
+	}
+	
+	@Test(priority = 12,enabled = true)
+	public void Old_BO_Reports_MenuItem_Sale_Report() throws Exception
+	{
+		Old_BO_Reports_MenuItem_Sale_Report a=new Old_BO_Reports_MenuItem_Sale_Report();
+		a.Open_MenuItem_Sales_Page(driver);
+		a.Old_BO_MenuItem_Report_Date_Range(driver);
+	}
+	
+	@Test(priority = 13,enabled = true)
+	public void Old_BO_Reports_Hourly_Sale_Report() throws Exception
+	{
+		Old_BO_Reports_Hourly_Sale_Report a=new Old_BO_Reports_Hourly_Sale_Report();
+		a.Open_Hourly_Sales_Page(driver);
+		a.Old_BO_Hourly_Report_Date_Range(driver);
+	}
+	
+	@Test(priority = 14,enabled = true)
+	public void Old_BO_Reports_Department_Sale_Report() throws Exception
+	{
+		Old_BO_Reports_Department_Sale_Report a=new Old_BO_Reports_Department_Sale_Report();
+		a.Open_Dashboard_Sales_Page(driver);
+		a.Old_BO_Department_Report_Date_Range(driver);
+	}
+	
+	@Test(priority = 15,enabled = true)
+	public void Old_BO_Reports_Daily_Sale_Report() throws Exception
+	{
+		Old_BO_Reports_Daily_Sale_Report a=new Old_BO_Reports_Daily_Sale_Report();
+		a.Open_Daily_Sales_Page(driver);
+		a.Old_BO_Daily_Report_Date_Range(driver);
+	}
+	
+	@Test(priority = 16,enabled = true)
+	public void Old_BO_Reports_Sales_CashierOut_Report() throws Exception
+	{
+		Old_BO_Reports_Sales_CashierOut_Report a=new Old_BO_Reports_Sales_CashierOut_Report();
+		a.Open_SaleRecap_Sales_Page(driver);
+		a.Old_BO_SaleRecap_Report_Date_Range(driver);
+	}
+	
+	
+	@Test(priority = 17,enabled = true)
+	public void Old_BO_Reports_Sales_SaleRecap_Report() throws Exception
+	{
+		Old_BO_Reports_Sales_SaleRecap_Report a=new Old_BO_Reports_Sales_SaleRecap_Report();
+		a.Open_SaleRecap_Sales_Page(driver);
+		a.Old_BO_SaleRecap_Report_Date_Range(driver);
+	}
+	
+	
+	
+	@Test(priority = 18,enabled = true)
+	public void Old_BO_Reports_Sales_Weekly_Summary_Report() throws Exception
+	{
+		Old_BO_Reports_Sales_Weekly_Summary_Report a=new Old_BO_Reports_Sales_Weekly_Summary_Report();
+		a.Open_WeeklySummary_Sales_Page(driver);
+		a.Old_BO_WeeklySummary_Report_Last_Week(driver);
+	}
+	
+	@Test(priority = 19,enabled = true)
+	public void Old_BO_Reports_SubCategory_Sale_Report() throws Exception
+	{
+		Old_BO_Reports_SubCategory_Sale_Report a=new Old_BO_Reports_SubCategory_Sale_Report();
+		a.Open_SubCategory_Sales_Page(driver);
+		a.Old_BO_SubCategory_Report_Date_Range(driver);
+		
 	}
 	
 }

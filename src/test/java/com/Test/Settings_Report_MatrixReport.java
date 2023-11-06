@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 import com.Pages.Common_XPaths;
 import com.Pages.LoginPage;
 import com.Pages.Settings_Matrix_Report_Page;
+import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -26,7 +27,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Settings_Report_MatrixReport 
 {
-	public WebDriver driver;
+	public SelfHealingDriver driver;
 
 
 	ExtentReports rep = ExtentManager.getInstance();
@@ -52,7 +53,7 @@ public class Settings_Report_MatrixReport
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			String scnsht=((TakesScreenshot)driver).getScreenshotAs(OutputType.BASE64);
+			String scnsht=((TakesScreenshot)driver.getDelegate()).getScreenshotAs(OutputType.BASE64);
 
 			String s="data:image/png;base64,"+scnsht;
 
@@ -67,11 +68,19 @@ public class Settings_Report_MatrixReport
 		Thread.sleep(2000);
 		//Call the chrome driver
 
-		ChromeOptions chrOpt=new ChromeOptions();
-		chrOpt.addArguments("--remote-allow-origins=*");
+//		ChromeOptions chrOpt=new ChromeOptions();
+//		chrOpt.addArguments("--remote-allow-origins=*");
+//		WebDriverManager.chromedriver().setup();
+//		driver=new ChromeDriver(chrOpt);
 		WebDriverManager.chromedriver().setup();
-		driver=new ChromeDriver(chrOpt);
-	
+		
+		ChromeOptions options=new ChromeOptions();
+		
+		options.setHeadless(false);
+		
+		WebDriver delegate=new ChromeDriver();
+		
+		driver=SelfHealingDriver.create(delegate);
 		//Wait for 30 seconds
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		//Maximize the Chrome window
@@ -122,7 +131,7 @@ public class Settings_Report_MatrixReport
 		Navigating_Back_Settings(driver);
 	}
 	@Test(priority = 3,enabled = false)
-	public void Open_Settings_Matrix_Report_Page(WebDriver driver) throws Exception
+	public void Open_Settings_Matrix_Report_Page(SelfHealingDriver driver) throws Exception
 	{
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
@@ -145,7 +154,7 @@ public class Settings_Report_MatrixReport
 		}
 	}
 	@Test(priority = 4,enabled = false)
-	public void Entering_Amount_Percentage(WebDriver driver) throws Exception 
+	public void Entering_Amount_Percentage(SelfHealingDriver driver) throws Exception 
 	{
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
@@ -156,7 +165,7 @@ public class Settings_Report_MatrixReport
 
 	}
 	@Test(priority = 5,enabled = false)
-	public void Entering_Invalid_Amount_alpha(WebDriver driver) throws Exception 
+	public void Entering_Invalid_Amount_alpha(SelfHealingDriver driver) throws Exception 
 	{
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
@@ -170,7 +179,7 @@ public class Settings_Report_MatrixReport
     }	
 	
 	@Test(priority = 6, enabled = false)
-	public void Entering_Invalid_Per_alpha(WebDriver driver) throws Exception 
+	public void Entering_Invalid_Per_alpha(SelfHealingDriver driver) throws Exception 
 	{
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
@@ -182,7 +191,7 @@ public class Settings_Report_MatrixReport
      }	
 	
 	@Test(priority = 7,enabled = false)
-	public void Entering_Invalid_Amount_Sym(WebDriver driver) throws Exception 
+	public void Entering_Invalid_Amount_Sym(SelfHealingDriver driver) throws Exception 
 	{
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
@@ -198,7 +207,7 @@ public class Settings_Report_MatrixReport
         mr.Check_Update_Button();
 	}
 	@Test(priority = 8,enabled = false)
-	public void Entering_Invalid_Per_Sym(WebDriver driver) throws Exception 
+	public void Entering_Invalid_Per_Sym(SelfHealingDriver driver) throws Exception 
 	{
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
@@ -211,7 +220,7 @@ public class Settings_Report_MatrixReport
 	}
 	
 	@Test(priority = 9,enabled = false)
-	public void Entering_Invalid_AmountPer_Alphabet(WebDriver driver) throws Exception 
+	public void Entering_Invalid_AmountPer_Alphabet(SelfHealingDriver driver) throws Exception 
 	{
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
@@ -221,7 +230,7 @@ public class Settings_Report_MatrixReport
 		mr.Check_Update_Button();
 	}
 	@Test(priority = 10,enabled = false)
-	public void Entering_Invalid_AmountPer_Symbol(WebDriver driver) throws Exception 
+	public void Entering_Invalid_AmountPer_Symbol(SelfHealingDriver driver) throws Exception 
 	{
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
@@ -235,7 +244,7 @@ public class Settings_Report_MatrixReport
 		
 	 }
 	@Test(priority = 11,enabled = false)
-	public void Entering_Invalid_AmountPer(WebDriver driver) throws Exception 
+	public void Entering_Invalid_AmountPer(SelfHealingDriver driver) throws Exception 
 	{
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
@@ -248,7 +257,7 @@ public class Settings_Report_MatrixReport
 		
 	}
 	@Test(priority = 12,enabled = false)
-	public void Entering_Invalid_AmountPercentage(WebDriver driver) throws Exception 
+	public void Entering_Invalid_AmountPercentage(SelfHealingDriver driver) throws Exception 
 	{
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
@@ -260,7 +269,7 @@ public class Settings_Report_MatrixReport
 		
 	}
 	@Test(priority = 13,enabled = false)
-	public void Entering_Invalid_PerNum(WebDriver driver) throws Exception 
+	public void Entering_Invalid_PerNum(SelfHealingDriver driver) throws Exception 
 	{
 		cmp= new Common_XPaths(driver,test);
 		mr= new Settings_Matrix_Report_Page(driver, test);
@@ -286,7 +295,7 @@ public class Settings_Report_MatrixReport
 	}
 
 	@Test(priority = 14,enabled = false)
-	public void Updating_Matrix_Report(WebDriver driver) throws Exception 
+	public void Updating_Matrix_Report(SelfHealingDriver driver) throws Exception 
 	{
 		//updating the data
 		mr.Update();
@@ -307,7 +316,7 @@ public class Settings_Report_MatrixReport
 
 	}
 	@Test(priority = 6,enabled = false)
-	public void Navigating_Back_Settings(WebDriver driver) throws Exception
+	public void Navigating_Back_Settings(SelfHealingDriver driver) throws Exception
 	{
 		mr.Navigating_Back();
 		Thread.sleep(1000);
