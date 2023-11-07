@@ -17,16 +17,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-import com.Pages.Availability_RestrictionTimePage;
-import com.Pages.CategoriesPage;
 import com.Pages.Common_XPaths;
-import com.Pages.InventoryCategoryPage;
-import com.Pages.InventoryItem_page;
 import com.Pages.InventoryPage;
 import com.Pages.InventoryReport_COGS_Page;
-import com.Pages.InventoryReport_COGS_Page;
 import com.Pages.LoginPage;
-import com.Pages.ProductItems_Menu_RetailPage;
 import com.epam.healenium.SelfHealingDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
