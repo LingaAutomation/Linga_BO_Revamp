@@ -11,10 +11,10 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Enterprise_Settings_Theme.j
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Enterprise_Reports_Royalty_Franchies_ACH_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_CashTip_Employee_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Fiscal.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Central_Inventory_Add_Edit_Central_Kitchen.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Common_XPaths.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_Scales_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_InHouseUnits.java
-C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Till_Setting.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Printer_Rerouting.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Gift_Card_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Product_Items_AddEditDelete_Categories.java
@@ -58,6 +58,7 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Tax_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_StoreInformation_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Batch_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Hourly_Sale_Report.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Healenium_On_Test.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_Reports_Wastage_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_GeneralSetting_page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\UserManagementPage.java
@@ -101,7 +102,6 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_ThirdParty_Integra
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\SubCategoriesPage.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Product_Items_AddEditDelete_Reasons.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Logo_Sale.java
-C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Enterprise_Add_Edit_Central_Warehouse.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_Reports_COGS_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\Utility\ExtentManager.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\AllClassCalling_Settings.java
@@ -189,6 +189,7 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\TaxesPage.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Dashboard_Inventory_Old_BO.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_Low_Stocks.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_StoreInventory_Page.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Centeral_Inventory_Menu_Configuration.java
 C:\Automation\Linga_BO_Revamp\src\test\java\Utility\Utility.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\BasePage.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Reports_Void_Transactions_Report.java
@@ -209,7 +210,6 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_ExpiredPurchaseIt
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\CustomersPage.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Old_BO_Reports_Department_Sale_Report.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_Email_Receipt_Template_Page.java
-C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settgings_Till_Setting.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Notifications.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_ThirdPartyIntegrations_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Enterprise_Reports_Hourly_Sale_Report.java
@@ -279,8 +279,10 @@ C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Dashboard_Customers_Old_BO.
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Product_Items_AddEditDelete_Check_Based_Discount.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Inventory_Item.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\GiftCardsPage.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Central_Inventory_Add_Edit_Central_Warehouse.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Email_Receipt_Template.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Product_Items_AddEditDelete_Departments.java
+C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_Till_Settings.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Test\Settings_CDS_Configuration.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\Settings_Businesshours_Page.java
 C:\Automation\Linga_BO_Revamp\src\test\java\com\Pages\MeitoPage.java
