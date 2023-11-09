@@ -2,6 +2,8 @@ package com.Test;
 
 import java.util.concurrent.TimeUnit;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -83,7 +85,7 @@ LoginTest a=new LoginTest();
 	}
 	
 	
-	@BeforeTest
+	@BeforeAll
 	public void Login() throws Exception
 	{
 		
@@ -123,7 +125,7 @@ LoginTest a=new LoginTest();
 		a.Login(driver, test);
 	}
 	
-	@AfterTest
+	@AfterAll
 	public void LogOut() throws Exception
 	{
 		a.LogOut(driver, test);

@@ -1,6 +1,9 @@
 package com.Test;
 
 import java.time.Duration;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -64,7 +67,7 @@ public class AllClassCalling_Settings {
 	}
 	
 	
-	@Test(priority=1)
+	@BeforeAll
 	public void Login() throws Exception
 	{
 		
@@ -105,7 +108,7 @@ public class AllClassCalling_Settings {
 		
 	}
 		
-	@Test(priority=500)
+	@AfterAll
 	public void Logout() throws Exception
 	{		
 		a.LogOut(driver, test);
