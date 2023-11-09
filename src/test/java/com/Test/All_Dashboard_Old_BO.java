@@ -2,7 +2,7 @@ package com.Test;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterAll;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -69,7 +69,7 @@ public class All_Dashboard_Old_BO
 	}
 	
 	
-	@BeforeAll
+	@Test(priority = 1)
 	public void Login() throws Exception
 	{
 
@@ -102,7 +102,7 @@ public class All_Dashboard_Old_BO
 		a.Login_with_Old_BO(driver, test);
 	}
 	
-	@BeforeAll
+	@AfterAll
 	public void LogOut() throws Exception
 	{
 		a.LogOut_with_Old_BO(driver, test);

@@ -1,0 +1,1418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="67.013" tests="328" errors="0" skipped="317" failures="10">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Automation\Linga_BO_Revamp\target\test-classes;C:\Automation\Linga_BO_Revamp\target\classes;C:\Users\raja.s\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\raja.s\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.1\junit-jupiter-5.10.1.jar;C:\Users\raja.s\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\raja.s\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\raja.s\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\raja.s\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\raja.s\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\raja.s\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\raja.s\.m2\repository\org\junit\vintage\junit-vintage-engine\5.10.1\junit-vintage-engine-5.10.1.jar;C:\Users\raja.s\.m2\repository\org\junit\platform\junit-platform-launcher\1.10.0\junit-platform-launcher-1.10.0.jar;C:\Users\raja.s\.m2\repository\org\junit\platform\junit-platform-runner\1.10.0\junit-platform-runner-1.10.0.jar;C:\Users\raja.s\.m2\repository\org\junit\platform\junit-platform-suite-api\1.10.0\junit-platform-suite-api-1.10.0.jar;C:\Users\raja.s\.m2\repository\org\junit\platform\junit-platform-suite-commons\1.10.0\junit-platform-suite-commons-1.10.0.jar;C:\Users\raja.s\.m2\repository\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-java\4.12.1\selenium-java-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.12.1\selenium-chrome-driver-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.12.1\selenium-chromium-driver-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.12.1\selenium-manager-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v114\4.12.1\selenium-devtools-v114-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v115\4.12.1\selenium-devtools-v115-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v116\4.12.1\selenium-devtools-v116-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.12.1\selenium-devtools-v85-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.12.1\selenium-edge-driver-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.12.1\selenium-firefox-driver-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-http\4.12.1\selenium-http-4.12.1.jar;C:\Users\raja.s\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.12.1\selenium-ie-driver-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.12.1\selenium-remote-driver-4.12.1.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-buffer\4.1.96.Final\netty-buffer-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-codec-http\4.1.96.Final\netty-codec-http-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-codec\4.1.96.Final\netty-codec-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-handler\4.1.96.Final\netty-handler-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-common\4.1.96.Final\netty-common-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport-classes-epoll\4.1.96.Final\netty-transport-classes-epoll-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport-classes-kqueue\4.1.96.Final\netty-transport-classes-kqueue-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport-native-epoll\4.1.96.Final\netty-transport-native-epoll-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport-native-kqueue\4.1.96.Final\netty-transport-native-kqueue-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport-native-unix-common\4.1.96.Final\netty-transport-native-unix-common-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport\4.1.96.Final\netty-transport-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-resolver\4.1.96.Final\netty-resolver-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-api\1.28.0\opentelemetry-api-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-context\1.28.0\opentelemetry-context-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.28.0\opentelemetry-exporter-logging-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.28.0\opentelemetry-sdk-metrics-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-extension-incubator\1.28.0-alpha\opentelemetry-extension-incubator-1.28.0-alpha.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.28.0\opentelemetry-sdk-logs-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.28.0\opentelemetry-sdk-common-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.28.0\opentelemetry-sdk-extension-autoconfigure-spi-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.28.0\opentelemetry-sdk-extension-autoconfigure-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-api-events\1.28.0-alpha\opentelemetry-api-events-1.28.0-alpha.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.28.0\opentelemetry-sdk-trace-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.28.0\opentelemetry-sdk-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-semconv\1.28.0-alpha\opentelemetry-semconv-1.28.0-alpha.jar;C:\Users\raja.s\.m2\repository\org\asynchttpclient\async-http-client\2.12.3\async-http-client-2.12.3.jar;C:\Users\raja.s\.m2\repository\org\asynchttpclient\async-http-client-netty-utils\2.12.3\async-http-client-netty-utils-2.12.3.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-codec-socks\4.1.60.Final\netty-codec-socks-4.1.60.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-handler-proxy\4.1.60.Final\netty-handler-proxy-4.1.60.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport-native-epoll\4.1.60.Final\netty-transport-native-epoll-4.1.60.Final-linux-x86_64.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport-native-kqueue\4.1.60.Final\netty-transport-native-kqueue-4.1.60.Final-osx-x86_64.jar;C:\Users\raja.s\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar;C:\Users\raja.s\.m2\repository\com\typesafe\netty\netty-reactive-streams\2.0.4\netty-reactive-streams-2.0.4.jar;C:\Users\raja.s\.m2\repository\com\sun\activation\jakarta.activation\1.2.2\jakarta.activation-1.2.2.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-os\4.12.1\selenium-os-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.12.1\selenium-safari-driver-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-api\4.12.1\selenium-api-4.12.1.jar;C:\Users\raja.s\.m2\repository\io\github\bonigarcia\webdrivermanager\5.5.3\webdrivermanager-5.5.3.jar;C:\Users\raja.s\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\raja.s\.m2\repository\com\github\docker-java\docker-java\3.3.3\docker-java-3.3.3.jar;C:\Users\raja.s\.m2\repository\com\github\docker-java\docker-java-core\3.3.3\docker-java-core-3.3.3.jar;C:\Users\raja.s\.m2\repository\com\github\docker-java\docker-java-api\3.3.3\docker-java-api-3.3.3.jar;C:\Users\raja.s\.m2\repository\org\bouncycastle\bcpkix-jdk18on\1.75\bcpkix-jdk18on-1.75.jar;C:\Users\raja.s\.m2\repository\org\bouncycastle\bcprov-jdk18on\1.75\bcprov-jdk18on-1.75.jar;C:\Users\raja.s\.m2\repository\org\bouncycastle\bcutil-jdk18on\1.75\bcutil-jdk18on-1.75.jar;C:\Users\raja.s\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.3.3\docker-java-transport-httpclient5-3.3.3.jar;C:\Users\raja.s\.m2\repository\com\github\docker-java\docker-java-transport\3.3.3\docker-java-transport-3.3.3.jar;C:\Users\raja.s\.m2\repository\net\java\dev\jna\jna\5.12.1\jna-5.12.1.jar;C:\Users\raja.s\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\raja.s\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\raja.s\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\raja.s\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-support\4.4.0\selenium-support-4.4.0.jar;C:\Users\raja.s\.m2\repository\com\google\auto\service\auto-service-annotations\1.0.1\auto-service-annotations-1.0.1.jar;C:\Users\raja.s\.m2\repository\com\google\auto\service\auto-service\1.0.1\auto-service-1.0.1.jar;C:\Users\raja.s\.m2\repository\com\google\auto\auto-common\1.2\auto-common-1.2.jar;C:\Users\raja.s\.m2\repository\com\google\guava\guava\31.1-jre\guava-31.1-jre.jar;C:\Users\raja.s\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\raja.s\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\raja.s\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\raja.s\.m2\repository\org\checkerframework\checker-qual\3.12.0\checker-qual-3.12.0.jar;C:\Users\raja.s\.m2\repository\com\google\errorprone\error_prone_annotations\2.11.0\error_prone_annotations-2.11.0.jar;C:\Users\raja.s\.m2\repository\com\google\j2objc\j2objc-annotations\1.3\j2objc-annotations-1.3.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-json\4.4.0\selenium-json-4.4.0.jar;C:\Users\raja.s\.m2\repository\org\apache\poi\poi\4.1.2\poi-4.1.2.jar;C:\Users\raja.s\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\raja.s\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\raja.s\.m2\repository\com\zaxxer\SparseBitSet\1.2\SparseBitSet-1.2.jar;C:\Users\raja.s\.m2\repository\org\apache\poi\poi-ooxml\4.1.2\poi-ooxml-4.1.2.jar;C:\Users\raja.s\.m2\repository\org\apache\commons\commons-compress\1.19\commons-compress-1.19.jar;C:\Users\raja.s\.m2\repository\com\github\virtuald\curvesapi\1.06\curvesapi-1.06.jar;C:\Users\raja.s\.m2\repository\org\apache\poi\poi-ooxml-schemas\4.1.2\poi-ooxml-schemas-4.1.2.jar;C:\Users\raja.s\.m2\repository\org\apache\xmlbeans\xmlbeans\3.1.0\xmlbeans-3.1.0.jar;C:\Users\raja.s\.m2\repository\org\testng\testng\7.8.0\testng-7.8.0.jar;C:\Users\raja.s\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\raja.s\.m2\repository\org\webjars\jquery\3.6.1\jquery-3.6.1.jar;C:\Users\raja.s\.m2\repository\com\relevantcodes\extentreports\2.41.2\extentreports-2.41.2.jar;C:\Users\raja.s\.m2\repository\org\mongodb\bson\4.11.0\bson-4.11.0.jar;C:\Users\raja.s\.m2\repository\org\freemarker\freemarker\2.3.23\freemarker-2.3.23.jar;C:\Users\raja.s\.m2\repository\org\mongodb\mongodb-driver\3.8.2\mongodb-driver-3.8.2.jar;C:\Users\raja.s\.m2\repository\org\mongodb\mongodb-driver-core\3.8.2\mongodb-driver-core-3.8.2.jar;C:\Users\raja.s\.m2\repository\org\xerial\sqlite-jdbc\3.42.0.0\sqlite-jdbc-3.42.0.0.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\plugins\maven-surefire-plugin\3.0.0-M5\maven-surefire-plugin-3.0.0-M5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\surefire\maven-surefire-common\3.0.0-M5\maven-surefire-common-3.0.0-M5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\surefire\surefire-api\3.0.0-M5\surefire-api-3.0.0-M5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\surefire\surefire-logger-api\3.0.0-M5\surefire-logger-api-3.0.0-M5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\surefire\surefire-extensions-api\3.0.0-M5\surefire-extensions-api-3.0.0-M5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\surefire\surefire-booter\3.0.0-M5\surefire-booter-3.0.0-M5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\surefire\surefire-extensions-spi\3.0.0-M5\surefire-extensions-spi-3.0.0-M5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\maven-toolchain\3.0-alpha-2\maven-toolchain-3.0-alpha-2.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\shared\maven-artifact-transfer\0.11.0\maven-artifact-transfer-0.11.0.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\shared\maven-common-artifact-filters\3.0.1\maven-common-artifact-filters-3.0.1.jar;C:\Users\raja.s\.m2\repository\org\sonatype\sisu\sisu-inject-plexus\1.4.2\sisu-inject-plexus-1.4.2.jar;C:\Users\raja.s\.m2\repository\org\sonatype\sisu\sisu-inject-bean\1.4.2\sisu-inject-bean-1.4.2.jar;C:\Users\raja.s\.m2\repository\org\sonatype\sisu\sisu-guice\2.1.7\sisu-guice-2.1.7-noaop.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\shared\maven-shared-utils\3.1.0\maven-shared-utils-3.1.0.jar;C:\Users\raja.s\.m2\repository\org\codehaus\plexus\plexus-java\1.0.5\plexus-java-1.0.5.jar;C:\Users\raja.s\.m2\repository\org\ow2\asm\asm\7.2\asm-7.2.jar;C:\Users\raja.s\.m2\repository\com\thoughtworks\qdox\qdox\2.0-M9\qdox-2.0-M9.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\surefire\surefire-shared-utils\3.0.0-M4\surefire-shared-utils-3.0.0-M4.jar;C:\Users\raja.s\.m2\repository\org\apache\poi\poi-scratchpad\4.1.2\poi-scratchpad-4.1.2.jar;C:\Users\raja.s\.m2\repository\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;C:\Users\raja.s\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;C:\Users\raja.s\.m2\repository\org\apache\logging\log4j\log4j-core\2.21.1\log4j-core-2.21.1.jar;C:\Users\raja.s\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\raja.s\.m2\repository\org\apache\logging\log4j\log4j-slf4j-impl\2.21.1\log4j-slf4j-impl-2.21.1.jar;C:\Users\raja.s\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar;C:\Users\raja.s\.m2\repository\org\slf4j\slf4j-simple\2.0.9\slf4j-simple-2.0.9.jar;C:\Users\raja.s\.m2\repository\ch\qos\reload4j\reload4j\1.2.22\reload4j-1.2.22.jar;C:\Users\raja.s\.m2\repository\org\slf4j\jcl-over-slf4j\2.0.9\jcl-over-slf4j-2.0.9.jar;C:\Users\raja.s\.m2\repository\org\slf4j\slf4j-jdk14\2.0.9\slf4j-jdk14-2.0.9.jar;C:\Users\raja.s\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;C:\Users\raja.s\.m2\repository\commons-codec\commons-codec\1.16.0\commons-codec-1.16.0.jar;C:\Users\raja.s\.m2\repository\com\epam\healenium\healenium-web\3.4.7\healenium-web-3.4.7.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\maven-artifact\3.9.5\maven-artifact-3.9.5.jar;C:\Users\raja.s\.m2\repository\org\codehaus\plexus\plexus-utils\3.5.1\plexus-utils-3.5.1.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\maven-plugin-api\3.9.5\maven-plugin-api-3.9.5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\maven-model\3.9.5\maven-model-3.9.5.jar;C:\Users\raja.s\.m2\repository\org\eclipse\sisu\org.eclipse.sisu.plexus\0.3.5\org.eclipse.sisu.plexus-0.3.5.jar;C:\Users\raja.s\.m2\repository\javax\annotation\javax.annotation-api\1.2\javax.annotation-api-1.2.jar;C:\Users\raja.s\.m2\repository\org\eclipse\sisu\org.eclipse.sisu.inject\0.3.5\org.eclipse.sisu.inject-0.3.5.jar;C:\Users\raja.s\.m2\repository\org\codehaus\plexus\plexus-component-annotations\1.5.5\plexus-component-annotations-1.5.5.jar;C:\Users\raja.s\.m2\repository\org\codehaus\plexus\plexus-classworlds\2.7.0\plexus-classworlds-2.7.0.jar;C:\Users\raja.s\.m2\repository\com\typesafe\config\1.4.2\config-1.4.2.jar;C:\Users\raja.s\.m2\repository\com\squareup\okhttp3\okhttp\4.9.3\okhttp-4.9.3.jar;C:\Users\raja.s\.m2\repository\com\squareup\okio\okio\2.8.0\okio-2.8.0.jar;C:\Users\raja.s\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.4.0\kotlin-stdlib-common-1.4.0.jar;C:\Users\raja.s\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.4.10\kotlin-stdlib-1.4.10.jar;C:\Users\raja.s\.m2\repository\com\squareup\okhttp3\logging-interceptor\4.10.0\logging-interceptor-4.10.0.jar;C:\Users\raja.s\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.6.10\kotlin-stdlib-jdk8-1.6.10.jar;C:\Users\raja.s\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.6.10\kotlin-stdlib-jdk7-1.6.10.jar;C:\Users\raja.s\.m2\repository\org\jetbrains\annotations\23.0.0\annotations-23.0.0.jar;C:\Users\raja.s\.m2\repository\org\mapstruct\mapstruct\1.4.2.Final\mapstruct-1.4.2.Final.jar;C:\Users\raja.s\.m2\repository\org\projectlombok\lombok\1.18.22\lombok-1.18.22.jar;C:\Users\raja.s\.m2\repository\one\util\streamex\0.8.1\streamex-0.8.1.jar;C:\Users\raja.s\.m2\repository\org\eclipse\jetty\jetty-server\11.0.15\jetty-server-11.0.15.jar;C:\Users\raja.s\.m2\repository\org\eclipse\jetty\toolchain\jetty-jakarta-servlet-api\5.0.2\jetty-jakarta-servlet-api-5.0.2.jar;C:\Users\raja.s\.m2\repository\org\eclipse\jetty\jetty-http\11.0.15\jetty-http-11.0.15.jar;C:\Users\raja.s\.m2\repository\org\eclipse\jetty\jetty-util\11.0.15\jetty-util-11.0.15.jar;C:\Users\raja.s\.m2\repository\org\eclipse\jetty\jetty-io\11.0.15\jetty-io-11.0.15.jar;C:\Users\raja.s\.m2\repository\org\testcontainers\junit-jupiter\1.16.3\junit-jupiter-1.16.3.jar;C:\Users\raja.s\.m2\repository\org\testcontainers\testcontainers\1.16.3\testcontainers-1.16.3.jar;C:\Users\raja.s\.m2\repository\org\rnorth\duct-tape\duct-tape\1.0.8\duct-tape-1.0.8.jar;C:\Users\raja.s\.m2\repository\com\github\docker-java\docker-java-transport-zerodep\3.2.12\docker-java-transport-zerodep-3.2.12.jar;C:\Users\raja.s\.m2\repository\com\epam\jdi\jdi-light\1.5.1\jdi-light-1.5.1.jar;C:\Users\raja.s\.m2\repository\com\epam\jdi\jdi-light-core\1.5.1\jdi-light-core-1.5.1.jar;C:\Users\raja.s\.m2\repository\com\jdiai\tools\jdi-light-saber\3.0.7\jdi-light-saber-3.0.7.jar;C:\Users\raja.s\.m2\repository\javax\xml\bind\jaxb-api\2.3.1\jaxb-api-2.3.1.jar;C:\Users\raja.s\.m2\repository\javax\activation\javax.activation-api\1.2.0\javax.activation-api-1.2.0.jar;C:\Users\raja.s\.m2\repository\com\sun\xml\bind\jaxb-core\3.0.2\jaxb-core-3.0.2.jar;C:\Users\raja.s\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\3.0.1\jakarta.xml.bind-api-3.0.1.jar;C:\Users\raja.s\.m2\repository\com\sun\xml\bind\jaxb-impl\3.0.2\jaxb-impl-3.0.2.jar;C:\Users\raja.s\.m2\repository\io\qameta\allure\allure-java-commons\2.23.0\allure-java-commons-2.23.0.jar;C:\Users\raja.s\.m2\repository\io\qameta\allure\allure-model\2.23.0\allure-model-2.23.0.jar;C:\Users\raja.s\.m2\repository\org\aspectj\aspectjrt\1.9.20\aspectjrt-1.9.20.jar;C:\Users\raja.s\.m2\repository\org\apache\logging\log4j\log4j-1.2-api\2.20.0\log4j-1.2-api-2.20.0.jar;C:\Users\raja.s\.m2\repository\org\jsoup\jsoup\1.16.1\jsoup-1.16.1.jar;C:\Users\raja.s\.m2\repository\org\hamcrest\hamcrest-core\2.2\hamcrest-core-2.2.jar;C:\Users\raja.s\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\raja.s\.m2\repository\com\epam\healenium\tree-comparing\0.4.12\tree-comparing-0.4.12.jar;C:\Users\raja.s\.m2\repository\org\apache\commons\commons-text\1.10.0\commons-text-1.10.0.jar;C:\Users\raja.s\.m2\repository\net\bytebuddy\byte-buddy\1.14.9\byte-buddy-1.14.9.jar;C:\Users\raja.s\.m2\repository\com\codeborne\selenide\7.0.2\selenide-7.0.2.jar;C:\Users\raja.s\.m2\repository\com\codeborne\selenide-core\7.0.2\selenide-core-7.0.2.jar;C:\Users\raja.s\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.2\jackson-databind-2.15.2.jar;C:\Users\raja.s\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.2\jackson-annotations-2.15.2.jar;C:\Users\raja.s\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.2\jackson-core-2.15.2.jar;C:\Users\raja.s\.m2\repository\org\mapstruct\mapstruct-processor\1.5.5.Final\mapstruct-processor-1.5.5.Final.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Asia/Calcutta"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk 17.0.4.1\bin"/>
+    <property name="sun.java.command" value="C:\Users\raja.s\AppData\Local\Temp\surefire9918205196058116573\surefirebooter-20231109171852401_3.jar C:\Users\raja.s\AppData\Local\Temp\surefire9918205196058116573 2023-11-09T17-18-52_170-jvmRun1 surefire-20231109171852401_1tmp surefire_0-20231109171852401_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Automation\Linga_BO_Revamp\target\test-classes;C:\Automation\Linga_BO_Revamp\target\classes;C:\Users\raja.s\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\raja.s\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.1\junit-jupiter-5.10.1.jar;C:\Users\raja.s\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\raja.s\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\raja.s\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\raja.s\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\raja.s\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\raja.s\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\raja.s\.m2\repository\org\junit\vintage\junit-vintage-engine\5.10.1\junit-vintage-engine-5.10.1.jar;C:\Users\raja.s\.m2\repository\org\junit\platform\junit-platform-launcher\1.10.0\junit-platform-launcher-1.10.0.jar;C:\Users\raja.s\.m2\repository\org\junit\platform\junit-platform-runner\1.10.0\junit-platform-runner-1.10.0.jar;C:\Users\raja.s\.m2\repository\org\junit\platform\junit-platform-suite-api\1.10.0\junit-platform-suite-api-1.10.0.jar;C:\Users\raja.s\.m2\repository\org\junit\platform\junit-platform-suite-commons\1.10.0\junit-platform-suite-commons-1.10.0.jar;C:\Users\raja.s\.m2\repository\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-java\4.12.1\selenium-java-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.12.1\selenium-chrome-driver-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.12.1\selenium-chromium-driver-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.12.1\selenium-manager-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v114\4.12.1\selenium-devtools-v114-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v115\4.12.1\selenium-devtools-v115-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v116\4.12.1\selenium-devtools-v116-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.12.1\selenium-devtools-v85-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.12.1\selenium-edge-driver-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.12.1\selenium-firefox-driver-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-http\4.12.1\selenium-http-4.12.1.jar;C:\Users\raja.s\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.12.1\selenium-ie-driver-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.12.1\selenium-remote-driver-4.12.1.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-buffer\4.1.96.Final\netty-buffer-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-codec-http\4.1.96.Final\netty-codec-http-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-codec\4.1.96.Final\netty-codec-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-handler\4.1.96.Final\netty-handler-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-common\4.1.96.Final\netty-common-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport-classes-epoll\4.1.96.Final\netty-transport-classes-epoll-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport-classes-kqueue\4.1.96.Final\netty-transport-classes-kqueue-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport-native-epoll\4.1.96.Final\netty-transport-native-epoll-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport-native-kqueue\4.1.96.Final\netty-transport-native-kqueue-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport-native-unix-common\4.1.96.Final\netty-transport-native-unix-common-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport\4.1.96.Final\netty-transport-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-resolver\4.1.96.Final\netty-resolver-4.1.96.Final.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-api\1.28.0\opentelemetry-api-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-context\1.28.0\opentelemetry-context-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.28.0\opentelemetry-exporter-logging-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.28.0\opentelemetry-sdk-metrics-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-extension-incubator\1.28.0-alpha\opentelemetry-extension-incubator-1.28.0-alpha.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.28.0\opentelemetry-sdk-logs-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.28.0\opentelemetry-sdk-common-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.28.0\opentelemetry-sdk-extension-autoconfigure-spi-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.28.0\opentelemetry-sdk-extension-autoconfigure-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-api-events\1.28.0-alpha\opentelemetry-api-events-1.28.0-alpha.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.28.0\opentelemetry-sdk-trace-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.28.0\opentelemetry-sdk-1.28.0.jar;C:\Users\raja.s\.m2\repository\io\opentelemetry\opentelemetry-semconv\1.28.0-alpha\opentelemetry-semconv-1.28.0-alpha.jar;C:\Users\raja.s\.m2\repository\org\asynchttpclient\async-http-client\2.12.3\async-http-client-2.12.3.jar;C:\Users\raja.s\.m2\repository\org\asynchttpclient\async-http-client-netty-utils\2.12.3\async-http-client-netty-utils-2.12.3.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-codec-socks\4.1.60.Final\netty-codec-socks-4.1.60.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-handler-proxy\4.1.60.Final\netty-handler-proxy-4.1.60.Final.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport-native-epoll\4.1.60.Final\netty-transport-native-epoll-4.1.60.Final-linux-x86_64.jar;C:\Users\raja.s\.m2\repository\io\netty\netty-transport-native-kqueue\4.1.60.Final\netty-transport-native-kqueue-4.1.60.Final-osx-x86_64.jar;C:\Users\raja.s\.m2\repository\org\reactivestreams\reactive-streams\1.0.3\reactive-streams-1.0.3.jar;C:\Users\raja.s\.m2\repository\com\typesafe\netty\netty-reactive-streams\2.0.4\netty-reactive-streams-2.0.4.jar;C:\Users\raja.s\.m2\repository\com\sun\activation\jakarta.activation\1.2.2\jakarta.activation-1.2.2.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-os\4.12.1\selenium-os-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.12.1\selenium-safari-driver-4.12.1.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-api\4.12.1\selenium-api-4.12.1.jar;C:\Users\raja.s\.m2\repository\io\github\bonigarcia\webdrivermanager\5.5.3\webdrivermanager-5.5.3.jar;C:\Users\raja.s\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\raja.s\.m2\repository\com\github\docker-java\docker-java\3.3.3\docker-java-3.3.3.jar;C:\Users\raja.s\.m2\repository\com\github\docker-java\docker-java-core\3.3.3\docker-java-core-3.3.3.jar;C:\Users\raja.s\.m2\repository\com\github\docker-java\docker-java-api\3.3.3\docker-java-api-3.3.3.jar;C:\Users\raja.s\.m2\repository\org\bouncycastle\bcpkix-jdk18on\1.75\bcpkix-jdk18on-1.75.jar;C:\Users\raja.s\.m2\repository\org\bouncycastle\bcprov-jdk18on\1.75\bcprov-jdk18on-1.75.jar;C:\Users\raja.s\.m2\repository\org\bouncycastle\bcutil-jdk18on\1.75\bcutil-jdk18on-1.75.jar;C:\Users\raja.s\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.3.3\docker-java-transport-httpclient5-3.3.3.jar;C:\Users\raja.s\.m2\repository\com\github\docker-java\docker-java-transport\3.3.3\docker-java-transport-3.3.3.jar;C:\Users\raja.s\.m2\repository\net\java\dev\jna\jna\5.12.1\jna-5.12.1.jar;C:\Users\raja.s\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\raja.s\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\raja.s\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\raja.s\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-support\4.4.0\selenium-support-4.4.0.jar;C:\Users\raja.s\.m2\repository\com\google\auto\service\auto-service-annotations\1.0.1\auto-service-annotations-1.0.1.jar;C:\Users\raja.s\.m2\repository\com\google\auto\service\auto-service\1.0.1\auto-service-1.0.1.jar;C:\Users\raja.s\.m2\repository\com\google\auto\auto-common\1.2\auto-common-1.2.jar;C:\Users\raja.s\.m2\repository\com\google\guava\guava\31.1-jre\guava-31.1-jre.jar;C:\Users\raja.s\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\raja.s\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\raja.s\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\raja.s\.m2\repository\org\checkerframework\checker-qual\3.12.0\checker-qual-3.12.0.jar;C:\Users\raja.s\.m2\repository\com\google\errorprone\error_prone_annotations\2.11.0\error_prone_annotations-2.11.0.jar;C:\Users\raja.s\.m2\repository\com\google\j2objc\j2objc-annotations\1.3\j2objc-annotations-1.3.jar;C:\Users\raja.s\.m2\repository\org\seleniumhq\selenium\selenium-json\4.4.0\selenium-json-4.4.0.jar;C:\Users\raja.s\.m2\repository\org\apache\poi\poi\4.1.2\poi-4.1.2.jar;C:\Users\raja.s\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\raja.s\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\raja.s\.m2\repository\com\zaxxer\SparseBitSet\1.2\SparseBitSet-1.2.jar;C:\Users\raja.s\.m2\repository\org\apache\poi\poi-ooxml\4.1.2\poi-ooxml-4.1.2.jar;C:\Users\raja.s\.m2\repository\org\apache\commons\commons-compress\1.19\commons-compress-1.19.jar;C:\Users\raja.s\.m2\repository\com\github\virtuald\curvesapi\1.06\curvesapi-1.06.jar;C:\Users\raja.s\.m2\repository\org\apache\poi\poi-ooxml-schemas\4.1.2\poi-ooxml-schemas-4.1.2.jar;C:\Users\raja.s\.m2\repository\org\apache\xmlbeans\xmlbeans\3.1.0\xmlbeans-3.1.0.jar;C:\Users\raja.s\.m2\repository\org\testng\testng\7.8.0\testng-7.8.0.jar;C:\Users\raja.s\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\raja.s\.m2\repository\org\webjars\jquery\3.6.1\jquery-3.6.1.jar;C:\Users\raja.s\.m2\repository\com\relevantcodes\extentreports\2.41.2\extentreports-2.41.2.jar;C:\Users\raja.s\.m2\repository\org\mongodb\bson\4.11.0\bson-4.11.0.jar;C:\Users\raja.s\.m2\repository\org\freemarker\freemarker\2.3.23\freemarker-2.3.23.jar;C:\Users\raja.s\.m2\repository\org\mongodb\mongodb-driver\3.8.2\mongodb-driver-3.8.2.jar;C:\Users\raja.s\.m2\repository\org\mongodb\mongodb-driver-core\3.8.2\mongodb-driver-core-3.8.2.jar;C:\Users\raja.s\.m2\repository\org\xerial\sqlite-jdbc\3.42.0.0\sqlite-jdbc-3.42.0.0.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\plugins\maven-surefire-plugin\3.0.0-M5\maven-surefire-plugin-3.0.0-M5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\surefire\maven-surefire-common\3.0.0-M5\maven-surefire-common-3.0.0-M5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\surefire\surefire-api\3.0.0-M5\surefire-api-3.0.0-M5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\surefire\surefire-logger-api\3.0.0-M5\surefire-logger-api-3.0.0-M5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\surefire\surefire-extensions-api\3.0.0-M5\surefire-extensions-api-3.0.0-M5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\surefire\surefire-booter\3.0.0-M5\surefire-booter-3.0.0-M5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\surefire\surefire-extensions-spi\3.0.0-M5\surefire-extensions-spi-3.0.0-M5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\maven-toolchain\3.0-alpha-2\maven-toolchain-3.0-alpha-2.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\shared\maven-artifact-transfer\0.11.0\maven-artifact-transfer-0.11.0.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\shared\maven-common-artifact-filters\3.0.1\maven-common-artifact-filters-3.0.1.jar;C:\Users\raja.s\.m2\repository\org\sonatype\sisu\sisu-inject-plexus\1.4.2\sisu-inject-plexus-1.4.2.jar;C:\Users\raja.s\.m2\repository\org\sonatype\sisu\sisu-inject-bean\1.4.2\sisu-inject-bean-1.4.2.jar;C:\Users\raja.s\.m2\repository\org\sonatype\sisu\sisu-guice\2.1.7\sisu-guice-2.1.7-noaop.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\shared\maven-shared-utils\3.1.0\maven-shared-utils-3.1.0.jar;C:\Users\raja.s\.m2\repository\org\codehaus\plexus\plexus-java\1.0.5\plexus-java-1.0.5.jar;C:\Users\raja.s\.m2\repository\org\ow2\asm\asm\7.2\asm-7.2.jar;C:\Users\raja.s\.m2\repository\com\thoughtworks\qdox\qdox\2.0-M9\qdox-2.0-M9.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\surefire\surefire-shared-utils\3.0.0-M4\surefire-shared-utils-3.0.0-M4.jar;C:\Users\raja.s\.m2\repository\org\apache\poi\poi-scratchpad\4.1.2\poi-scratchpad-4.1.2.jar;C:\Users\raja.s\.m2\repository\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;C:\Users\raja.s\.m2\repository\log4j\log4j\1.2.17\log4j-1.2.17.jar;C:\Users\raja.s\.m2\repository\org\apache\logging\log4j\log4j-core\2.21.1\log4j-core-2.21.1.jar;C:\Users\raja.s\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\raja.s\.m2\repository\org\apache\logging\log4j\log4j-slf4j-impl\2.21.1\log4j-slf4j-impl-2.21.1.jar;C:\Users\raja.s\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar;C:\Users\raja.s\.m2\repository\org\slf4j\slf4j-simple\2.0.9\slf4j-simple-2.0.9.jar;C:\Users\raja.s\.m2\repository\ch\qos\reload4j\reload4j\1.2.22\reload4j-1.2.22.jar;C:\Users\raja.s\.m2\repository\org\slf4j\jcl-over-slf4j\2.0.9\jcl-over-slf4j-2.0.9.jar;C:\Users\raja.s\.m2\repository\org\slf4j\slf4j-jdk14\2.0.9\slf4j-jdk14-2.0.9.jar;C:\Users\raja.s\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;C:\Users\raja.s\.m2\repository\commons-codec\commons-codec\1.16.0\commons-codec-1.16.0.jar;C:\Users\raja.s\.m2\repository\com\epam\healenium\healenium-web\3.4.7\healenium-web-3.4.7.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\maven-artifact\3.9.5\maven-artifact-3.9.5.jar;C:\Users\raja.s\.m2\repository\org\codehaus\plexus\plexus-utils\3.5.1\plexus-utils-3.5.1.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\maven-plugin-api\3.9.5\maven-plugin-api-3.9.5.jar;C:\Users\raja.s\.m2\repository\org\apache\maven\maven-model\3.9.5\maven-model-3.9.5.jar;C:\Users\raja.s\.m2\repository\org\eclipse\sisu\org.eclipse.sisu.plexus\0.3.5\org.eclipse.sisu.plexus-0.3.5.jar;C:\Users\raja.s\.m2\repository\javax\annotation\javax.annotation-api\1.2\javax.annotation-api-1.2.jar;C:\Users\raja.s\.m2\repository\org\eclipse\sisu\org.eclipse.sisu.inject\0.3.5\org.eclipse.sisu.inject-0.3.5.jar;C:\Users\raja.s\.m2\repository\org\codehaus\plexus\plexus-component-annotations\1.5.5\plexus-component-annotations-1.5.5.jar;C:\Users\raja.s\.m2\repository\org\codehaus\plexus\plexus-classworlds\2.7.0\plexus-classworlds-2.7.0.jar;C:\Users\raja.s\.m2\repository\com\typesafe\config\1.4.2\config-1.4.2.jar;C:\Users\raja.s\.m2\repository\com\squareup\okhttp3\okhttp\4.9.3\okhttp-4.9.3.jar;C:\Users\raja.s\.m2\repository\com\squareup\okio\okio\2.8.0\okio-2.8.0.jar;C:\Users\raja.s\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.4.0\kotlin-stdlib-common-1.4.0.jar;C:\Users\raja.s\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.4.10\kotlin-stdlib-1.4.10.jar;C:\Users\raja.s\.m2\repository\com\squareup\okhttp3\logging-interceptor\4.10.0\logging-interceptor-4.10.0.jar;C:\Users\raja.s\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.6.10\kotlin-stdlib-jdk8-1.6.10.jar;C:\Users\raja.s\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.6.10\kotlin-stdlib-jdk7-1.6.10.jar;C:\Users\raja.s\.m2\repository\org\jetbrains\annotations\23.0.0\annotations-23.0.0.jar;C:\Users\raja.s\.m2\repository\org\mapstruct\mapstruct\1.4.2.Final\mapstruct-1.4.2.Final.jar;C:\Users\raja.s\.m2\repository\org\projectlombok\lombok\1.18.22\lombok-1.18.22.jar;C:\Users\raja.s\.m2\repository\one\util\streamex\0.8.1\streamex-0.8.1.jar;C:\Users\raja.s\.m2\repository\org\eclipse\jetty\jetty-server\11.0.15\jetty-server-11.0.15.jar;C:\Users\raja.s\.m2\repository\org\eclipse\jetty\toolchain\jetty-jakarta-servlet-api\5.0.2\jetty-jakarta-servlet-api-5.0.2.jar;C:\Users\raja.s\.m2\repository\org\eclipse\jetty\jetty-http\11.0.15\jetty-http-11.0.15.jar;C:\Users\raja.s\.m2\repository\org\eclipse\jetty\jetty-util\11.0.15\jetty-util-11.0.15.jar;C:\Users\raja.s\.m2\repository\org\eclipse\jetty\jetty-io\11.0.15\jetty-io-11.0.15.jar;C:\Users\raja.s\.m2\repository\org\testcontainers\junit-jupiter\1.16.3\junit-jupiter-1.16.3.jar;C:\Users\raja.s\.m2\repository\org\testcontainers\testcontainers\1.16.3\testcontainers-1.16.3.jar;C:\Users\raja.s\.m2\repository\org\rnorth\duct-tape\duct-tape\1.0.8\duct-tape-1.0.8.jar;C:\Users\raja.s\.m2\repository\com\github\docker-java\docker-java-transport-zerodep\3.2.12\docker-java-transport-zerodep-3.2.12.jar;C:\Users\raja.s\.m2\repository\com\epam\jdi\jdi-light\1.5.1\jdi-light-1.5.1.jar;C:\Users\raja.s\.m2\repository\com\epam\jdi\jdi-light-core\1.5.1\jdi-light-core-1.5.1.jar;C:\Users\raja.s\.m2\repository\com\jdiai\tools\jdi-light-saber\3.0.7\jdi-light-saber-3.0.7.jar;C:\Users\raja.s\.m2\repository\javax\xml\bind\jaxb-api\2.3.1\jaxb-api-2.3.1.jar;C:\Users\raja.s\.m2\repository\javax\activation\javax.activation-api\1.2.0\javax.activation-api-1.2.0.jar;C:\Users\raja.s\.m2\repository\com\sun\xml\bind\jaxb-core\3.0.2\jaxb-core-3.0.2.jar;C:\Users\raja.s\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\3.0.1\jakarta.xml.bind-api-3.0.1.jar;C:\Users\raja.s\.m2\repository\com\sun\xml\bind\jaxb-impl\3.0.2\jaxb-impl-3.0.2.jar;C:\Users\raja.s\.m2\repository\io\qameta\allure\allure-java-commons\2.23.0\allure-java-commons-2.23.0.jar;C:\Users\raja.s\.m2\repository\io\qameta\allure\allure-model\2.23.0\allure-model-2.23.0.jar;C:\Users\raja.s\.m2\repository\org\aspectj\aspectjrt\1.9.20\aspectjrt-1.9.20.jar;C:\Users\raja.s\.m2\repository\org\apache\logging\log4j\log4j-1.2-api\2.20.0\log4j-1.2-api-2.20.0.jar;C:\Users\raja.s\.m2\repository\org\jsoup\jsoup\1.16.1\jsoup-1.16.1.jar;C:\Users\raja.s\.m2\repository\org\hamcrest\hamcrest-core\2.2\hamcrest-core-2.2.jar;C:\Users\raja.s\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\raja.s\.m2\repository\com\epam\healenium\tree-comparing\0.4.12\tree-comparing-0.4.12.jar;C:\Users\raja.s\.m2\repository\org\apache\commons\commons-text\1.10.0\commons-text-1.10.0.jar;C:\Users\raja.s\.m2\repository\net\bytebuddy\byte-buddy\1.14.9\byte-buddy-1.14.9.jar;C:\Users\raja.s\.m2\repository\com\codeborne\selenide\7.0.2\selenide-7.0.2.jar;C:\Users\raja.s\.m2\repository\com\codeborne\selenide-core\7.0.2\selenide-core-7.0.2.jar;C:\Users\raja.s\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.2\jackson-databind-2.15.2.jar;C:\Users\raja.s\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.2\jackson-annotations-2.15.2.jar;C:\Users\raja.s\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.2\jackson-core-2.15.2.jar;C:\Users\raja.s\.m2\repository\org\mapstruct\mapstruct-processor\1.5.5.Final\mapstruct-processor-1.5.5.Final.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\raja.s"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2022-08-18"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk 17.0.4.1"/>
+    <property name="file.separator" value="\"/>
+    <property name="style.color" value="always"/>
+    <property name="basedir" value="C:\Automation\Linga_BO_Revamp"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\raja.s\AppData\Local\Temp\surefire9918205196058116573\surefirebooter-20231109171852401_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.4.1+1-LTS-2"/>
+    <property name="user.name" value="raja.s"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\raja.s\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\raja.s\AppData\Local\Temp\"/>
+    <property name="java.version" value="17.0.4.1"/>
+    <property name="user.dir" value="C:\Automation\Linga_BO_Revamp"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk 17.0.4.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Users/raja.s/Downloads/eclipse-java-2023-03-R-win32-x86_64/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.9.v20231028-0858/jre/bin/server;C:/Users/raja.s/Downloads/eclipse-java-2023-03-R-win32-x86_64/eclipse//plugins/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_17.0.9.v20231028-0858/jre/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X64\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X86\;C:\Program Files (x86)\Common Files\Pulse Secure\TNC Client Plugin\;C:\Program Files (x86)\Common Files\Pulse Secure\VC142.CRT\X64\;C:\Program Files (x86)\Common Files\Pulse Secure\VC142.CRT\X86\;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Java\jre1.8.0_351;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\WINDOWS\system32\config\systemprofile\AppData\Roaming\npm;C:\Program Files\Java\jdk-17\bin;C:\Program Files\Common Files\Oracle\Java\javapath_target_260585187;C:\Program Files\Java\jdk1.8.0_351;C:\Program Files\Java\jdk-11.0.9;C:\Program Files\Java\jdk-17.0.8\bin;C:\Users\raja.s\AppData\Local\Android\Sdk;C:\Users\raja.s\AppData\Local\Android\Sdk\tools;C:\Program Files\nodejs\node_modules\npm\bin;C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\raja.s\AppData\Local\Android\Sdk\cmdline-tools\latest\bin;C:\Users\raja.s\AppData\Local\Android\Sdk\platform-tools;C:\Users\raja.s\AppData\Local\Android\Sdk\cmdline-tools\latest;C:\Program Files\nodejs\node_modules\npm;C:\Program Files\Maven\apache-maven-3.9.4\bin;C:\Program Files\Java\jdk-17.0.8;C:\Program Files\Java\jdk-17.0.8\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\raja.s\AppData\Local\Microsoft\WindowsApps;C:\Users\raja.s\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\raja.s\AppData\Roaming\npm;C:\Users\raja.s\AppData\Local\GitHubDesktop\bin;C:\Users\raja.s\Downloads\eclipse-java-2023-03-R-win32-x86_64\eclipse;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="17.0.4.1+1-LTS-2"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="Product_Items_AddEditDelete_Departments" classname="com.Test.AllClassCalling_Product_and_Items" time="5.082">
+    <failure message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.get(String)&quot; because &quot;driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot invoke "com.epam.healenium.SelfHealingDriver.get(String)" because "driver" is null
+	at com.Test.Product_Items_AddEditDelete_Departments.Open_Departments_Page(Product_Items_AddEditDelete_Departments.java:148)
+	at com.Test.AllClassCalling_Product_and_Items.Product_Items_AddEditDelete_Departments(AllClassCalling_Product_and_Items.java:139)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+    <system-err><![CDATA[SLF4J: Class path contains multiple SLF4J providers.
+SLF4J: Found provider [org.slf4j.simple.SimpleServiceProvider@72b6cbcc]
+SLF4J: Found provider [org.slf4j.jul.JULServiceProvider@a7e666]
+SLF4J: See https://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual provider is of type [org.slf4j.simple.SimpleServiceProvider@72b6cbcc]
+]]></system-err>
+  </testcase>
+  <testcase name="TestFail[[TestResult name=Product_Items_AddEditDelete_Departments status=FAILURE method=AllClassCalling_Product_and_Items.Product_Items_AddEditDelete_Departments()[pri:3, instance:com.Test.AllClassCalling_Product_and_Items@6340e5f0] output={null}]](0)" classname="com.Test.AllClassCalling_Product_and_Items" time="5.088">
+    <failure message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot invoke "com.epam.healenium.SelfHealingDriver.getDelegate()" because "this.driver" is null
+	at com.Test.AllClassCalling_Product_and_Items.TestFail(AllClassCalling_Product_and_Items.java:63)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+	at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_Coursing" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_Serving_Size_Levels" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_Taxes" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_Categories" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_SubCategories" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_Modifiers" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_ModifierGroups" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_Meito" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_MenuItem" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_RetailItem" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_Bulk_Update" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_DisplayGroups" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_Item_Based_Discount" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_Check_Based_Discount" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_Open_Item_Discount" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_Open_Check_Discount" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_MixAndMatch_Discount" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_Upcharges" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_Sort_Menu_Config" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_Gratuities" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_GiftCards" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_Cut_And_Modify" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_TareGroup" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_Reasons" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Product_Items_AddEditDelete_Item_Service_Charge" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="flushTest" classname="com.Test.AllClassCalling_Product_and_Items" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Start_Settings" classname="com.Test.AllClassCalling_Settings" time="0.001"/>
+  <testcase name="Settings_Till_Setting" classname="com.Test.AllClassCalling_Settings" time="45.052">
+    <failure message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.get(String)&quot; because &quot;driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot invoke "com.epam.healenium.SelfHealingDriver.get(String)" because "driver" is null
+	at com.Test.Settings_Till_Settings.Open_TillSettings_Page(Settings_Till_Settings.java:135)
+	at com.Test.AllClassCalling_Settings.Settings_Till_Setting(AllClassCalling_Settings.java:145)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+  </testcase>
+  <testcase name="TestFail[[TestResult name=Settings_Till_Setting status=FAILURE method=AllClassCalling_Settings.Settings_Till_Setting()[pri:14, instance:com.Test.AllClassCalling_Settings@402c4085] output={null}]](0)" classname="com.Test.AllClassCalling_Settings" time="45.054">
+    <failure message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot invoke "com.epam.healenium.SelfHealingDriver.getDelegate()" because "this.driver" is null
+	at com.Test.AllClassCalling_Settings.TestFail(AllClassCalling_Settings.java:48)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+	at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+  </testcase>
+  <testcase name="Settings_Scales" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Settings_CDS_Configuration" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Store_Information" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Notifications" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Additional_Settings" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Batch_Settings" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Business_Hours" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Email_Receipt_Template" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Integrations_WebHook" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Report_MatrixReport" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Revenue_Center" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_WaitList" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_General_Settings" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Store_Licenses" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Kitchen_Printers" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Receipt_Printers" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Label_Printers" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_AccountBalance" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_POS_Custom_URL" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Delivery_Settings" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_StoreInventory" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_EMV_Settings" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Sale_Recap_Report" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Payment_Settings_and_Service_Charge" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Payment_Methods" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Label_Template" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_KDS_Configuration" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Front_End_Receipt_Template" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Kitchen_Printer_Template" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Table_Layout" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_ThirdPartyIntegrations" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Printer_Rerouting" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_TipOut_TipSharing" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Account_License" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Payroll_Report" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Settings_Fiscal" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="End_Settings" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="flushTest" classname="com.Test.AllClassCalling_Settings" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Reports_Sale_Recap_Report" classname="com.Test.AllClassCalling_Reports" time="5.037">
+    <failure message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.get(String)&quot; because &quot;driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot invoke "com.epam.healenium.SelfHealingDriver.get(String)" because "driver" is null
+	at com.Test.Reports_Sale_Recap_Report.Open_Sale_Recap_Report_Page(Reports_Sale_Recap_Report.java:150)
+	at com.Test.AllClassCalling_Reports.Reports_Sale_Recap_Report(AllClassCalling_Reports.java:133)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+  </testcase>
+  <testcase name="TestFail[[TestResult name=Reports_Sale_Recap_Report status=FAILURE method=AllClassCalling_Reports.Reports_Sale_Recap_Report()[pri:2, instance:com.Test.AllClassCalling_Reports@23e84203] output={null}]](0)" classname="com.Test.AllClassCalling_Reports" time="5.037">
+    <failure message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot invoke "com.epam.healenium.SelfHealingDriver.getDelegate()" because "this.driver" is null
+	at com.Test.AllClassCalling_Reports.TestFail(AllClassCalling_Reports.java:59)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+	at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+  </testcase>
+  <testcase name="Reports_Department_Sale_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Reports_Category_Sale_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_SubCategory_Sale_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_MenuItem_Sale_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Modifier_Sale_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Hourly_Sale_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Daily_Sale_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Cashier_Out_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Weekly_Summary_Sale_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Sale_Summary_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Future_Order_Sale_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Sale_Logo_Sale" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Sale_Logo_Payment" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Online_Sales_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Transactions_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Void_Transactions_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Gift_Card_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_GiveX_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Discount_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Void_Node_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Void_Employee_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Paid_In_Paid_Out_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Audit_Log" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Employee_Attendance_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Employee_Role_Based_Payroll_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Employee_Labor_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Employee_Labor_By_Job_Code_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Employee_Gratuity_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Employee_CashTip" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_HA_Activity_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_HA_Statement" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Driver_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Batch_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Refund_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Till_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Cash_Transaction_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Customer_Preference_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Daily_Tender_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Daily_Summary_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Tax_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Revenue_Center" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Account_Balance_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Membership_Summary_Report" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Reports_Membership_Statement" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="flushTest" classname="com.Test.AllClassCalling_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Inventory_Category" classname="com.Test.AllClassCalling_Inventory" time="5.025">
+    <failure message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.get(String)&quot; because &quot;driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot invoke "com.epam.healenium.SelfHealingDriver.get(String)" because "driver" is null
+	at com.Test.Inventory_Category.Open_Category_Page(Inventory_Category.java:143)
+	at com.Test.AllClassCalling_Inventory.Inventory_Category(AllClassCalling_Inventory.java:134)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+  </testcase>
+  <testcase name="TestFail[[TestResult name=Inventory_Category status=FAILURE method=AllClassCalling_Inventory.Inventory_Category()[pri:3, instance:com.Test.AllClassCalling_Inventory@6c4906d3] output={null}]](0)" classname="com.Test.AllClassCalling_Inventory" time="5.026">
+    <failure message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot invoke "com.epam.healenium.SelfHealingDriver.getDelegate()" because "this.driver" is null
+	at com.Test.AllClassCalling_Inventory.TestFail(AllClassCalling_Inventory.java:60)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+	at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+  </testcase>
+  <testcase name="Inventory_Sub_Category" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Inventory_Storage_Locations" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Vendors" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_InHouseUnits" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Item" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Sub_Recipe" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_InventoryModifiers" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Menu_Items" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Adjust_Inventory_Reasons" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Adjust_Inventory" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Low_Stocks" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Prepare_Menu_Item" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Prepare_SubRecipe" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_SyncInventory" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Purchase_Template" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Purchase_Orders" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Purchase_Invoice" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Purchases_Received_Items_Received_Logs" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_ExpiredPurchaseItem" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Transfer" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Reports_Master_Stock_Report" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Reports_Purchase_Item" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Reports_Consumption_Log" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Reports_Compare_Inventory_Report" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Reports_Count_Sheet" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Reports_COGS_Report" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Reports_Adjust_Inventory" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Reports_Inventory_Item_History" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Reports_Matrix_Report" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Inventory_Reports_Wastage_Report" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="flushTest" classname="com.Test.AllClassCalling_Inventory" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Enterprise_Reports" classname="com.Test.AllClassCalling_Enterprise_Reports" time="5.017">
+    <failure message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.get(String)&quot; because &quot;driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot invoke "com.epam.healenium.SelfHealingDriver.get(String)" because "driver" is null
+	at com.Test.Enterprise_Reports.Open_Enterprise_Report_Page(Enterprise_Reports.java:152)
+	at com.Test.AllClassCalling_Enterprise_Reports.Enterprise_Reports(AllClassCalling_Enterprise_Reports.java:132)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+  </testcase>
+  <testcase name="TestFail[[TestResult name=Enterprise_Reports status=FAILURE method=AllClassCalling_Enterprise_Reports.Enterprise_Reports()[pri:2, instance:com.Test.AllClassCalling_Enterprise_Reports@43f02ef2] output={null}]](0)" classname="com.Test.AllClassCalling_Enterprise_Reports" time="5.018">
+    <failure message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot invoke "com.epam.healenium.SelfHealingDriver.getDelegate()" because "this.driver" is null
+	at com.Test.AllClassCalling_Enterprise_Reports.TestFail(AllClassCalling_Enterprise_Reports.java:58)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
+	at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:779)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:755)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+  </testcase>
+  <testcase name="Enterprise_Reports_Sale_Recap_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="TestFail" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Department_Sale_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Category_Sale_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_SubCategory_Sale_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Menu_Items_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Modifier_Sale_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Hourly_Sale_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Daily_Sale_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Cashier_Out_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Weekly_Summary_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Sale_Summary_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Detailed_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Online_Sales_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Employee_Role_Based_Payroll_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_HA_Activity_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_HA_Statement" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Gift_Card_Redemption" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Royalty_Franchies_Royalty_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Royalty_Franchies_ACH_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="Enterprise_Reports_Loyalty_Report" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped message="Cannot invoke &quot;com.epam.healenium.SelfHealingDriver.getDelegate()&quot; because &quot;this.driver&quot; is null"/>
+  </testcase>
+  <testcase name="flushTest" classname="com.Test.AllClassCalling_Enterprise_Reports" time="0.0">
+    <skipped/>
+  </testcase>
+</testsuite>

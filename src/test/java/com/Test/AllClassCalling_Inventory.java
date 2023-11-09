@@ -79,7 +79,7 @@ public class AllClassCalling_Inventory
 		}
 		
 		
-		@BeforeAll
+		@Test(priority = 1)
 		public void Login() throws Exception
 		{
 			
@@ -120,7 +120,7 @@ public class AllClassCalling_Inventory
 			a.Login(driver, test);
 		}
 		
-		@AfterAll
+		@Test(priority = 1000)
 		public void LogOut() throws Exception
 		{
 			a.LogOut(driver, test);

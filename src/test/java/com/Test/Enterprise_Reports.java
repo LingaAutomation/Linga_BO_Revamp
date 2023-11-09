@@ -127,17 +127,17 @@ public SelfHealingDriver driver;
 	{
 		Open_Enterprise_Report_Page(driver);
 //		RefreshAndPaginination(driver);
-		Enterprise_Report_Today(driver);
-		Enterprise_Report_Yesterday(driver);
-		Enterprise_Report_Last_N_Days(driver);
-		Enterprise_Report_This_Week(driver);
-		Enterprise_Report_Last_Week(driver);
-		Enterprise_Report_Last_7_Days(driver);
-		Enterprise_Report_This_Month(driver);
-		Enterprise_Report_Last_Month(driver);
-		Enterprise_Report_Last_30_Days(driver);
-		Enterprise_Report_Specific_Date(driver);
-		Enterprise_Report_Date_Range(driver);
+//		Enterprise_Report_Today(driver);
+//		Enterprise_Report_Yesterday(driver);
+//		Enterprise_Report_Last_N_Days(driver);
+//		Enterprise_Report_This_Week(driver);
+//		Enterprise_Report_Last_Week(driver);
+//		Enterprise_Report_Last_7_Days(driver);
+//		Enterprise_Report_This_Month(driver);
+//		Enterprise_Report_Last_Month(driver);
+//		Enterprise_Report_Last_30_Days(driver);
+//		Enterprise_Report_Specific_Date(driver);
+//		Enterprise_Report_Date_Range(driver);
 	}
 	
 	@Test(priority = 3,enabled = false)

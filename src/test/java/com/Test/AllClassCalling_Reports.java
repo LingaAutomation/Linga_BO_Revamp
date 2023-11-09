@@ -78,7 +78,7 @@ public class AllClassCalling_Reports
 		}
 		
 		
-		@BeforeAll
+		@Test(priority = 1)
 		public void Login() throws Exception
 		{
 			
@@ -119,7 +119,7 @@ public class AllClassCalling_Reports
 			a.Login(driver, test);
 		}
 		
-		@AfterAll
+		@Test(priority = 1000)
 		public void LogOut() throws Exception
 		{
 			a.LogOut(driver, test);

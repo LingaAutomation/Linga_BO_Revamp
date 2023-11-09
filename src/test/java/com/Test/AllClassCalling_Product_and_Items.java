@@ -85,7 +85,7 @@ LoginTest a=new LoginTest();
 	}
 	
 	
-	@BeforeAll
+	@Test(priority = 1)
 	public void Login() throws Exception
 	{
 		
@@ -125,7 +125,7 @@ LoginTest a=new LoginTest();
 		a.Login(driver, test);
 	}
 	
-	@AfterAll
+	@Test(priority = 1000)
 	public void LogOut() throws Exception
 	{
 		a.LogOut(driver, test);

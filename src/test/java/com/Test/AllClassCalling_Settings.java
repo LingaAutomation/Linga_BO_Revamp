@@ -67,7 +67,7 @@ public class AllClassCalling_Settings {
 	}
 	
 	
-	@BeforeAll
+	@Test(priority = 1)
 	public void Login() throws Exception
 	{
 		
@@ -108,7 +108,7 @@ public class AllClassCalling_Settings {
 		
 	}
 		
-	@AfterAll
+	@Test(priority = 1000)
 	public void Logout() throws Exception
 	{		
 		a.LogOut(driver, test);
