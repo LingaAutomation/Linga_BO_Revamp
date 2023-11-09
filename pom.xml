@@ -395,7 +395,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.2.2</version>
 				<configuration>
-					<suiteXmlFiles>testng_Reports.xml</suiteXmlFiles>
+					<suiteXmlFiles>testng.xml</suiteXmlFiles>
 				</configuration>
 			</plugin>
 <plugin>
