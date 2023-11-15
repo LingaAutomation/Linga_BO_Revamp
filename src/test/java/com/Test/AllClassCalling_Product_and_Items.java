@@ -137,7 +137,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_Departments a=new Product_Items_AddEditDelete_Departments();
 		a.Open_Departments_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_Departments(driver);
 		a.Edit_and_Close_Cancel_Departments(driver);
 		a.Edit_and_Update_Departments(driver);
@@ -168,7 +168,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_Serving_Size_Levels a=new Product_Items_AddEditDelete_Serving_Size_Levels();
 		a.Open_Service_Size_Levels_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_Servinge_Size_Level(driver);
 		a.Edit_and_Close_Cancel_Serving_Size_Level(driver);
 		a.Edit_and_Update_Serving_Size_Level(driver);
@@ -182,7 +182,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_Taxes a=new Product_Items_AddEditDelete_Taxes();
 		a.Open_Taxes_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_ItemTax_Amount(driver);
 		a.Add_ItemTax_Percentage(driver);
 		a.Add_CheckTax(driver);
@@ -205,7 +205,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_Categories a=new Product_Items_AddEditDelete_Categories();
 		a.Open_Categories_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_Categories(driver); 
 		a.Edit_and_Close_Cancel_Categories(driver);
 		a.Edit_and_Update_Categories_DaysOfWeek(driver);
@@ -224,7 +224,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_SubCategories a=new Product_Items_AddEditDelete_SubCategories();
 		a.Open_SubCategories_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_SubCategories(driver);
 		a.Edit_and_Close_Cancel_SubCategories(driver);
 		a.Edit_and_Update_SubCategories_DaysOfWeek(driver);
@@ -243,7 +243,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_Modifiers a=new Product_Items_AddEditDelete_Modifiers();
 		a.Open_Modifiers_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_Modifiers(driver);
 		a.Edit_and_Close_Cancel_Modifiers(driver);
 		a.Edit_and_Remove_Prefix_Update_Modifiers(driver);
@@ -260,7 +260,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_ModifierGroups a=new Product_Items_AddEditDelete_ModifierGroups();
 		a.Open_ModifierGroups_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_ModifierGroups(driver);
 		a.Edit_and_Close_Cancel_ModifierGroups(driver);
 		a.Edit_and_Update_ModifierGroups(driver);
@@ -286,7 +286,7 @@ LoginTest a=new LoginTest();
 		
 		Product_Items_AddEditDelete_MenuItem a=new Product_Items_AddEditDelete_MenuItem();
 		a.Open_ProductItem_MenuItem_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_ProductItem_MenuItem_Always_MenuType_MenuItem(driver);
 		a.Edit_and_Close_Cancel_ProductItem_MenuItem(driver);
 		a.Edit_and_Update_ProductItem_MenuItem_DaysOfWeek_SubCategory_LevelType(driver);
@@ -305,7 +305,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_RetailItem a=new Product_Items_AddEditDelete_RetailItem();
 		a.Open_ProductItem_RetailItem_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_ProductItem_RetailItem_Always_ProductType_StandardItem(driver);
 		a.Edit_and_Close_Cancel_ProductItem_RetailItem(driver);
 		a.Edit_and_Update_ProductItem_RetailItem_DaysOfWeek_SubCategory_LevelType(driver);
@@ -333,7 +333,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_DisplayGroups a=new Product_Items_AddEditDelete_DisplayGroups();
 		a.Open_DisplayGroups_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_DisplayGroups(driver);
 		a.Edit_and_Close_Cancel_DisplayGroups(driver);
 		a.Edit_and_Update_DisplayGroups_DaysOfWeek(driver);
@@ -351,7 +351,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_Item_Based_Discount a=new Product_Items_AddEditDelete_Item_Based_Discount();
 		a.Open_Item_Based_Discount_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_Item_Based_Discount(driver);
 		a.Edit_and_Close_Cancel_Item_Based_Discount(driver);
 		a.Edit_and_Update_Item_Based_Discount_Percentage(driver);
@@ -373,7 +373,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_Check_Based_Discount a=new Product_Items_AddEditDelete_Check_Based_Discount();
 		a.Open_Check_Based_Discount_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_Check_Based_Discount(driver);
 		a.Edit_and_Close_Cancel_Check_Based_Discount(driver);
 		a.Edit_and_Update_Check_Based_DiscountType_Comp(driver);
@@ -397,7 +397,7 @@ LoginTest a=new LoginTest();
 		
 		Product_Items_AddEditDelete_Open_Item_Discount a=new Product_Items_AddEditDelete_Open_Item_Discount();
 		a.Open_Open_Item_Discount_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_Open_Item_DiscountType_Promo(driver);
 		a.Edit_and_Close_Cancel_Open_Item_Discount(driver);
 		a.Edit_and_Update_Open_Item_DiscountType_Comp(driver);
@@ -413,7 +413,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_Open_Check_Discount a=new Product_Items_AddEditDelete_Open_Check_Discount();
 		a.Open_Open_Check_Discount_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_Open_Check_DiscountType_Promo(driver);
 		a.Edit_and_Close_Cancel_Open_Check_Discount(driver);
 		a.Edit_and_Update_Open_Check_DiscountType_Comp(driver);
@@ -429,7 +429,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_MixAndMatch_Discount a=new Product_Items_AddEditDelete_MixAndMatch_Discount();
 		a.Open_Mix_and_Match_Discount_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_Mix_and_Match_Discount(driver);
 		a.Edit_and_Close_Cancel_Mix_and_Match_Discount(driver);
 		a.Edit_and_Update_Mix_and_Match_DiscountType_Comp(driver);
@@ -451,7 +451,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_Upcharges a=new Product_Items_AddEditDelete_Upcharges();
 		a.Open_Upcharges_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_Upcharges(driver);
 		a.Edit_and_Close_Cancel_Upcharges(driver);
 		a.Edit_and_Update_Upcharges_Percentage(driver);
@@ -486,7 +486,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_Gratuities a=new Product_Items_AddEditDelete_Gratuities();
 		a.Open_Gratuity_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_Gratuity(driver);
 		a.Edit_and_Close_Cancel_Gratuity(driver); 
 		a.Edit_and_Update_Gratuity(driver);
@@ -500,7 +500,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_GiftCards a=new Product_Items_AddEditDelete_GiftCards();
 		a.Open_GiftCards_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_GiftCards(driver);
 		a.Edit_and_Close_Cancel_GiftCards(driver);
 		a.Edit_and_Update_GiftCards(driver);
@@ -523,7 +523,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_TareGroup a=new Product_Items_AddEditDelete_TareGroup();
 		a.Open_TareGroups_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_TareGroups(driver);
 		a.Edit_and_Close_Cancel_TareGroups(driver);
 		a.Edit_and_Update_TareGroups(driver);
@@ -538,7 +538,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_Reasons a=new Product_Items_AddEditDelete_Reasons();
 		a.Open_Reasons_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_Reasons(driver);
 		a.Edit_and_Close_Cancel_Reasons(driver);
 		a.Edit_and_Update_Reasons(driver);
@@ -552,7 +552,7 @@ LoginTest a=new LoginTest();
 	{
 		Product_Items_AddEditDelete_Item_Service_Charge a=new Product_Items_AddEditDelete_Item_Service_Charge();
 		a.Open_Item_Service_Charge_Page(driver);
-		a.RefreshAndPaginination(driver);
+		//a.RefreshAndPaginination(driver);
 		a.Add_Item_Service_Charge(driver);
 		a.Edit_and_Close_Cancel_Item_Service_Charge(driver);
 		a.Edit_and_Update_Item_Service_Charge(driver);

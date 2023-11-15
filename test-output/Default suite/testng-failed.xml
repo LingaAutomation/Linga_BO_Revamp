@@ -3,30 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Test.All_Dashboard_Old_BO">
+      <class name="com.Test.Product_Items_AddEditDelete_Departments">
         <methods>
-          <include name="Old_BO_Reports_Sale_Summary_Report"/>
-          <include name="Old_BO_Reports_MenuItem_Sale_Report"/>
-          <include name="Old_BO_Reports_Department_Sale_Report"/>
-          <include name="Dashboard_Sales_Old_BO3"/>
-          <include name="Old_BO_Category_Report_Date_Range1"/>
-          <include name="Old_BO_Reports_Online_Sales_Report"/>
-          <include name="Dashboard_KDS_Old_BO"/>
-          <include name="Old_BO_Reports_SubCategory_Sale_Report"/>
-          <include name="Old_BO_Reports_Hourly_Sale_Report"/>
-          <include name="Old_BO_Reports_Sales_Weekly_Summary_Report"/>
-          <include name="Old_BO_Reports_Modifier_Sale_Report"/>
-          <include name="Dashboard_Online_Ordering_Old_BO"/>
-          <include name="Old_BO_Reports_Sales_CashierOut_Report"/>
-          <include name="TestFail"/>
-          <include name="Dashboard_Customers_Old_BO"/>
-          <include name="Dashboard_Inventory_Old_BO"/>
+          <include name="LogOut"/>
+          <include name="Calling"/>
           <include name="flushTest"/>
-          <include name="Old_BO_Reports_Daily_Sale_Report"/>
-          <include name="Dashboard_Employees_Old_BO"/>
-          <include name="Old_BO_Reports_Sales_SaleRecap_Report"/>
+          <include name="TestFail"/>
         </methods>
-      </class> <!-- com.Test.All_Dashboard_Old_BO -->
+      </class> <!-- com.Test.Product_Items_AddEditDelete_Departments -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

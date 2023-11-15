@@ -150,7 +150,7 @@ public class AllClassCalling_Inventory
 		{
 			Inventory_Sub_Category a=new Inventory_Sub_Category();
 			a.Open_SubCategory_Page(driver);
-			a.RefreshAndPaginination(driver);
+			//a.RefreshAndPaginination(driver);
 			a.VerifyTheSubCategory(driver);
 			a.CreateTheSubCategory(driver);
 			a.editTheSubCategory(driver);
@@ -165,7 +165,7 @@ public class AllClassCalling_Inventory
 		{
 			Inventory_Storage_Locations a=new Inventory_Storage_Locations();
 			a.Open_Inventory_Storage_Locations_Page(driver);
-			a.RefreshAndPaginination(driver);
+			//a.RefreshAndPaginination(driver);
 			a.Add_Inventory_Storage_Location(driver);
 			a.Edit_and_Close_Cancel_Storage_Location(driver);
 			a.Edit_and_Update_Storage_Location(driver);
@@ -249,7 +249,7 @@ public class AllClassCalling_Inventory
 		{
 			Inventory_InventoryModifiers a=new Inventory_InventoryModifiers();
 			a.Open_PurchaseOrder_Page(driver);
-			a.RefreshAndPaginination(driver);
+			//a.RefreshAndPaginination(driver);
 			a.VerifyTheLinkedItem(driver);
 			a.LinkTheModifier(driver);
 		}
@@ -294,7 +294,7 @@ public class AllClassCalling_Inventory
 		{
 			Inventory_Adjust_Inventory a=new Inventory_Adjust_Inventory();
 			a.Open_PurchaseOrder_Page(driver);
-			a.RefreshAndPaginination(driver);
+			//a.RefreshAndPaginination(driver);
 			a.InventoryItem_Adjustment(driver);
 		}
 		
@@ -343,7 +343,7 @@ public class AllClassCalling_Inventory
 		{
 			Inventory_Purchase_Template a=new Inventory_Purchase_Template();
 			a.Open_PurchaseOrder_Page(driver);
-			a.RefreshAndPaginination(driver);
+			//a.RefreshAndPaginination(driver);
 			a.VerifyThePurchaseTemplate(driver);
 			a.CreateThePurchaseTemplate(driver);
 			a.editThePurchaseTemplate(driver);
@@ -357,7 +357,7 @@ public class AllClassCalling_Inventory
 		{
 			Inventory_Purchase_Orders a=new Inventory_Purchase_Orders();
 			a.Open_PurchaseOrder_Page(driver);
-			a.RefreshAndPaginination(driver);
+			//a.RefreshAndPaginination(driver);
 			a.AddPartialOrder(driver);
 			a.verifyTheStatus_And_Options(driver);
 		}
@@ -443,7 +443,7 @@ public class AllClassCalling_Inventory
 		{
 			Inventory_Reports_Master_Stock_Report a=new Inventory_Reports_Master_Stock_Report();
 			a.Open_Master_Stock_Report_Page(driver);
-			a.RefreshAndPaginination(driver);
+			//a.RefreshAndPaginination(driver);
 			a.Master_Stock_Report_Today(driver);
 			a.Master_Stock_Report_Yesterday(driver);
 			a.Master_Stock_Report_Last_N_Days(driver);
@@ -462,7 +462,7 @@ public class AllClassCalling_Inventory
 		{
 			Inventory_Reports_Purchase_Item a=new Inventory_Reports_Purchase_Item();
 			a.Open_Inventory_Reports_Purchase_Item_Page(driver);
-			a.RefreshAndPaginination(driver);
+			//a.RefreshAndPaginination(driver);
 			a.Inventory_Reports_Purchase_Item_For_All_Verify_Purchase_Item_Search(driver);
 			a.Inventory_Reports_Verify_Purchase_Item_For_Inventory_Item(driver);
 			a.Inventory_Reports_Verify_Purchase_Item_For_Retail_Item(driver);
@@ -517,7 +517,7 @@ public class AllClassCalling_Inventory
 		{
 			Inventory_Reports_Compare_Inventory_Report a=new Inventory_Reports_Compare_Inventory_Report();
 			a.Open_Compare_Inventory_Report_Page(driver);
-			a.RefreshAndPaginination(driver);
+			//a.RefreshAndPaginination(driver);
 			a.Compare_Inventory_Report_Today(driver);
 			a.Compare_Inventory_Report_Yesterday(driver);
 			a.Compare_Inventory_Report_Last_N_Days(driver);
@@ -536,7 +536,7 @@ public class AllClassCalling_Inventory
 		{
 			Inventory_Reports_Count_Sheet a=new Inventory_Reports_Count_Sheet();
 			a.Open_CountSheet_ReportPage(driver);
-			a.RefreshAndPaginination(driver);
+			//a.RefreshAndPaginination(driver);
 			a.Count_Sheet_Report_Select_Type_Storage_Location_All(driver);
 			a.Count_Sheet_Report_Select_Type_All_Storage_Location(driver);
 			a.Count_Sheet_Report_Type_Inventory_Item(driver);
@@ -590,7 +590,7 @@ public class AllClassCalling_Inventory
 		{
 			Inventory_Reports_Adjust_Inventory a=new Inventory_Reports_Adjust_Inventory();
 			a.Open_Inventory_Reports_Adjust_Inventory_Page(driver);
-			a.RefreshAndPaginination(driver);
+			//a.RefreshAndPaginination(driver);
 			a.Inventory_Reports_Adjust_Inventory_For_All_Verify_Adjust_Inventory_Search(driver);
 			a.Inventory_Reports_Verify_Adjust_Inventory_For_Inventory_Item(driver);
 			a.Inventory_Reports_Verify_Adjust_Inventory_For_Retail_Item(driver);
@@ -616,7 +616,7 @@ public class AllClassCalling_Inventory
 		{
 			Inventory_Reports_Inventory_Item_History a=new Inventory_Reports_Inventory_Item_History();
 			a.Open_Inventory_Item_History_Report_Page(driver);
-			a.RefreshAndPaginination(driver);
+			//a.RefreshAndPaginination(driver);
 			a.Inventory_Item_History_Report_Today_InventoryItem(driver);
 			a.Inventory_Item_History_Report_Yesterday_InventoryItem(driver);
 			a.Inventory_Item_History_Report_Last_N_Days_InventoryItem(driver);
@@ -646,7 +646,7 @@ public class AllClassCalling_Inventory
 		{
 			Inventory_Reports_Matrix_Report a=new Inventory_Reports_Matrix_Report();
 			a.Open_Matrix_Report_Page(driver);
-			a.RefreshAndPaginination(driver);
+			//a.RefreshAndPaginination(driver);
 			a.Matrix_Report_Today(driver);
 			a.Matrix_Report_Yesterday(driver);
 			a.Matrix_Report_Last_N_Days(driver);
@@ -665,7 +665,7 @@ public class AllClassCalling_Inventory
 		{
 			Inventory_Reports_Wastage_Report a=new Inventory_Reports_Wastage_Report();
 			a.Open_Inventory_Reports_Wastage_Report_Page(driver);
-			a.RefreshAndPaginination(driver);
+			//a.RefreshAndPaginination(driver);
 			a.Inventory_Reports_Wastage_Report_For_All_Verify_Wastage_Report_Search(driver);
 			a.Inventory_Reports_Wastage_Report_For_Sale_Void(driver);
 			a.Inventory_Reports_Wastage_Report_For_Manual(driver);

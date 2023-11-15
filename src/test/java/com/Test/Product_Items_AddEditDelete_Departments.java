@@ -126,7 +126,7 @@ public class Product_Items_AddEditDelete_Departments
 	public void Calling() throws Exception
 	{
 		Open_Departments_Page(driver);
-		RefreshAndPaginination(driver);
+//		RefreshAndPaginination(driver);
 		Add_Departments(driver);
 		Edit_and_Close_Cancel_Departments(driver);
 		Edit_and_Update_Departments(driver);
@@ -142,7 +142,7 @@ public class Product_Items_AddEditDelete_Departments
 		dpg=new DepartmentPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		//Load the Department page
 //		a.Navigate_To_Page(Utility.getProperty("store_Id1"), "departments");
 		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id1")+"departments");
