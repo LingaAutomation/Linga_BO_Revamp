@@ -137,7 +137,7 @@ public SelfHealingDriver driver;
 		cp=new CoursingPage(driver, test);
 		cmp=new Common_XPaths(driver, test);
 		
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		//Load the Department page
 		driver.get(Utility.getProperty("baseURL")+Utility.getProperty("store_Id1")+"coursing");
 
